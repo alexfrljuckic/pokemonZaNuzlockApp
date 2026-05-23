@@ -321,6 +321,7 @@ const ZD=[
 {id:18,n:"Wild Zone 18",lv:50,u:"Mission 30",cat:"main",p:["Vullaby","Mandibuzz","Chatot","Murkrow","Pelipper","Swanna"],a:"Alpha Mandibuzz/Talonflame"},
 {id:19,n:"Wild Zone 19",lv:52,u:"Mission 30",cat:"main",p:["Snorlax","Tauros","Kangaskhan","Miltank","Blissey","Wigglytuff","Drampa"],a:"Alpha Snorlax/Blissey Lv.57"},
 {id:20,n:"Wild Zone 20",lv:64,u:"Post-game",cat:"main",p:["Starter Pokemon","Various Alphas (fully evolved, random)"],a:"Randomized Alphas Lv.64"},
+{id:"s0",n:"Starter Pokemon",lv:5,u:"Start of game",cat:"special",p:["Chikorita","Tepig","Totodile"],a:"Choose one — the other two join your rival",note:"Your nuzlocke starter. Pick one and it joins your team automatically."},
 {id:"s1",n:"Gift: Chespin",lv:5,u:"Side Mission 7",cat:"special",p:["Chespin"],a:"Female Chespin — given after 3 battles",note:"One-time gift. Count as your Chespin encounter for the run."},
 {id:"s2",n:"Gift: Fennekin",lv:5,u:"Side Mission 8",cat:"special",p:["Fennekin"],a:"Female Fennekin — feed Revitalizing Twig",note:"One-time gift. Count as your Fennekin encounter."},
 {id:"s3",n:"Gift: Froakie",lv:5,u:"Side Mission 9",cat:"special",p:["Froakie"],a:"Male Froakie — beat scaffolding times",note:"One-time gift. Count as your Froakie encounter."},
@@ -383,7 +384,7 @@ const BD=[
 
 const CR_RULES=["Any Pokemon that faints is permanently dead — release or permanently box it.","Only the first Pokemon encountered in each zone may be caught. The randomizer assigns your legal target.","All caught Pokemon must be nicknamed."];
 const ZA_RULES=["20 base Wild Zones + special encounters + DLC Hyperspace Zones. Roll the randomizer before entering each one.","Duplicate clause is always active: the randomizer automatically excludes species you already own. If your whole zone pool is owned, it falls back to the full pool.","Alpha Pokemon (red eyes) count as valid first encounters. If your rolled target only appears as an Alpha, you may take it.","Rogue Mega Battles are one-time story encounters per the main game — each one is a static mission fight.","If every party Pokemon faints, the run ends at the last Pokemon Center."];
-const RV_RULES=["Win a Promotion Match -> earn 1 Revive Token. Tap + in the Team tab.","Spend a token to revive one fallen Pokemon. They must not have been released.","Revived Pokemon rejoin at their fainted level. Level cap still applies."];
+const RV_RULES=["Win a Promotion Match OR defeat a Rogue Mega -> earn 1 Revive Token. Check off the boss in the Bosses tab.","Spend a token to revive one fallen Pokemon. They must not have been released.","Revived Pokemon rejoin at their fainted level. Level cap still applies."];
 const OPT=[
 {id:"shiny",t:"Shiny clause: a shiny may always be caught regardless of your assigned target.",d:true},
 {id:"cap",t:"Level cap: your Pokemon cannot exceed the next boss ace level (see Bosses).",d:true},
@@ -610,7 +611,7 @@ function renderZones(){
     else if(st.visited){nc='zv';badge='<span class="zbg v">Failed</span>';sub=st.assigned?'Was: '+st.assigned:'No catch';}
     else if(st.skipped){nc='zs';badge='<span class="zbg s">Skipped</span>';sub=st.assigned||'-';}
     else if(st.rolled&&st.assigned){nc='za';badge='<span class="zbg a">'+st.assigned+'</span>';sub='Assigned \u2014 not entered';}
-    else{nc='';badge='<span class="zbg p">Roll</span>';sub=z.u==='Post-game'?'Post-game':(z.u==='Start'?'Not visited':'After '+z.u);}
+    else{nc='';badge='<span class="zbg p">'+(String(z.id)==='s0'?'Choose':'Roll')+'</span>';sub=z.u==='Post-game'?'Post-game':(z.u==='Start'?'Not visited':'After '+z.u);}
     const numDisp=z.cat==='main'?z.id:(z.cat==='special'?'S':'H');
     return '<div class="zi" onclick="openZone(\''+z.id+'\')"><div class="znum '+nc+'">'+numDisp+'</div><div class="zinf"><div class="znm">'+z.n+sptag+' <span style="font-size:11px;color:var(--t3)">Lv.'+z.lv+'</span></div><div class="zsb">'+sub+'</div></div>'+badge+'</div>';
   }).join('')||'<div class="es">No zones in this filter</div>';
@@ -623,9 +624,12 @@ function openZone(id){
   document.getElementById('zm-t').textContent=z.n+' (Lv.'+z.lv+')';
   document.getElementById('zm-s').textContent=(z.a||'')+' \u00b7 '+z.u+(z.note?' \u00b7 '+z.note:'');
   let rh='';
+  const isChoiceZone=z.p&&z.p.length<=4&&z.cat==='special'&&!z.note?.includes('Gift')&&String(id)==='s0';
   if(st.caught||st.visited||st.skipped){
     const lbl=st.caught?'Caught: '+(st.caughtPoke||st.assigned):(st.visited?'Visited \u2014 no catch':'Skipped');
     rh='<div class="rb"><div class="rtar" style="color:var(--t2);font-size:15px">'+lbl+'</div><button class="btn brd" style="margin-top:10px;width:100%" onclick="clearOutcome(\''+id+'\')">Retry / clear outcome</button></div>';
+  }else if(isChoiceZone){
+    rh='<div class="rb"><div class="rdsc">Tap your starter below to record your choice</div></div>';
   }else if(st.rolled&&st.assigned){
     rh='<div class="rb"><div style="font-size:10px;color:var(--t3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Your target</div><div class="rtar">'+st.assigned+'</div><div class="rdsc">Only this Pokemon may be legally caught in this zone</div><div class="ract">'+(!st.rerolled?'<button class="btn bpu" style="flex:1" onclick="rerollZ(\''+id+'\')">\u21ba Reroll (once)</button>':'<span style="font-size:11px;color:var(--t3)">Reroll used</span>')+'<button class="btn" onclick="clearRoll(\''+id+'\')">Clear roll</button></div></div>';
   }else{
@@ -653,10 +657,10 @@ function clearOutcome(id){if(isViewMode)return;
 }
 function autoAddCatch(id,poke){
   if(!poke)return;
-  const zoneKey='Zone '+String(id);
+  const z=ZD.find(z=>String(z.id)===String(id));
+  const zoneKey=z?(z.cat==='main'?'Zone '+String(id):z.n):('Zone '+String(id));
   const alreadyAdded=[...party,...box,...dead].some(p=>String(p.zone)===zoneKey);
   if(alreadyAdded)return;
-  const z=ZD.find(z=>String(z.id)===String(id));
   const np={species:poke,nick:poke,level:z?z.lv:'?',zone:zoneKey,fainted:false};
   if(party.length<6)party.push(np);else box.push(np);
   save();
@@ -734,9 +738,10 @@ function addPokemon(){if(isViewMode)return;
 /* BOSSES */
 function toggleBoss(id){
   if(isViewMode)return;
+  const wasBeaten=!!bossBeaten[id];
   bossBeaten[id]=!wasBeaten;
   const b=BD.find(b=>b.id===id);
-  if(b&&b.cat==='Promotion Matches'){
+  if(b&&(b.cat==='Promotion Matches'||b.cat==='Rogue Mega Battles')){
     if(!wasBeaten){revives++;} else{revives=Math.max(0,revives-1);}
     renderTeam();
   }
