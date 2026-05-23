@@ -268,6 +268,11 @@ textarea::placeholder{color:var(--t3)}
 <div class="sgst" id="stats-grid"></div>
 <div class="card" id="stat-bars"></div>
 <div class="card"><h3 class="ch3">Run notes</h3><textarea id="run-notes" placeholder="Close calls, strategy, memorable moments..."></textarea></div>
+<div class="card" style="border-color:rgba(224,85,85,.2)">
+<h3 class="ch3" style="color:var(--red)">Danger zone</h3>
+<p style="font-size:12px;color:var(--t3);margin-bottom:10px;line-height:1.5">Completely wipes all run data — zones, team, box, bosses, revives, and notes. Cannot be undone.</p>
+<button class="btn brd bfw" onclick="resetRun()">Reset entire run</button>
+</div>
 </div>
 </div>
 
@@ -572,6 +577,14 @@ function resetThisZone(){
 function resetAllZones(){
   if(isViewMode)return;
   if(confirm('Reset ALL zones? This clears every roll and outcome but keeps your team and bosses.')){zs={};save();render();}
+}
+function resetRun(){
+  if(isViewMode)return;
+  if(!confirm('Reset the ENTIRE run? This deletes all zones, team, box, bosses, revives, and notes.'))return;
+  if(!confirm('Are you sure? This cannot be undone.'))return;
+  zs={};party=[];box=[];dead=[];bossBeaten={};revives=0;notes='';
+  const n=document.getElementById('run-notes');if(n)n.value='';
+  save();render();
 }
 function showTab(tab,el){
   document.querySelectorAll('.nb').forEach(b=>b.classList.remove('on'));
