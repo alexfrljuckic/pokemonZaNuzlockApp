@@ -539,11 +539,21 @@ async function load(){
 }
 
 function lockUI(){
-  // Disable all interactive elements in view mode
-  document.querySelectorAll('button:not(#sync-action-btn),input,textarea').forEach(el=>{
-    el.disabled=true;el.style.opacity='0.6';el.style.cursor='default';
-  });
-  document.querySelectorAll('.zi,.bi,.pt,.ps').forEach(el=>{el.style.cursor='default';el.onclick=null;});
+  // Inject a CSS rule that blocks all pointer events on interactive elements
+  // This persists through re-renders unlike nulling onclick handlers
+  const s=document.createElement('style');
+  s.id='view-lock';
+  s.textContent=`
+    button:not(#sync-action-btn,.nb),input,textarea,
+    .zi,.bi,.pt,.ps,.bck,.ztab,.btab,.sb,.rall,.roll-all{
+      pointer-events:none !important;
+      cursor:default !important;
+    }
+    .nb{pointer-events:auto !important;}
+    .zi,.bi{opacity:0.9}
+    .bck{opacity:0.5}
+  `;
+  document.head.appendChild(s);
 }
 function rnd(arr){return arr[Math.floor(Math.random()*arr.length)]}
 function rollForZone(id){
@@ -594,7 +604,7 @@ function renderZones(){
 }
 let czid=null;
 function openZone(id){
-  czid=id;
+  if(isViewMode)return;
   const z=ZD.find(z=>String(z.id)===String(id));if(!z)return;
   const st=zs[id]||{};
   document.getElementById('zm-t').textContent=z.n+' (Lv.'+z.lv+')';
