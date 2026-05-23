@@ -539,21 +539,19 @@ async function load(){
 }
 
 function lockUI(){
-  // Inject a CSS rule that blocks all pointer events on interactive elements
-  // This persists through re-renders unlike nulling onclick handlers
   const s=document.createElement('style');
   s.id='view-lock';
   s.textContent=`
-    button:not(#sync-action-btn,.nb),input,textarea,
-    .zi,.bi,.pt,.ps,.bck,.ztab,.btab,.sb,.rall,.roll-all{
-      pointer-events:none !important;
-      cursor:default !important;
-    }
-    .nb{pointer-events:auto !important;}
-    .zi,.bi{opacity:0.9}
-    .bck{opacity:0.5}
+    .view-lock-block, .view-lock-block *{pointer-events:none !important;cursor:default !important;}
+    .nb{pointer-events:auto !important;cursor:pointer !important;}
   `;
   document.head.appendChild(s);
+  // Mark every interactive container so the CSS blanket-blocks them
+  document.querySelectorAll('button,input,textarea,.zi,.bi,.pt,.ps,.bck,.ztab,.btab,.sb,.rall').forEach(el=>{
+    el.classList.add('view-lock-block');
+  });
+  // Explicitly re-enable nav tabs
+  document.querySelectorAll('.nb').forEach(el=>el.classList.remove('view-lock-block'));
 }
 function rnd(arr){return arr[Math.floor(Math.random()*arr.length)]}
 function rollForZone(id){
@@ -562,15 +560,17 @@ function rollForZone(id){
   let pool=z.p.filter(p=>!owned.has(p));if(!pool.length)pool=z.p;
   if(!zs[id])zs[id]={};zs[id].assigned=rnd(pool);zs[id].rolled=true;save();
 }
-function rollAll(){ZD.forEach(z=>{const st=zs[z.id]||{};if(!st.rolled&&!st.caught&&!st.visited&&!st.skipped)rollForZone(z.id);});render();}
+function rollAll(){if(isViewMode)return;ZD.forEach(z=>{const st=zs[z.id]||{};if(!st.rolled&&!st.caught&&!st.visited&&!st.skipped)rollForZone(z.id);});render();}
 function setZFilter(f,el){zFilter=f;document.querySelectorAll('.ztab').forEach(b=>b.classList.remove('on'));el.classList.add('on');save();renderZones();}
 function resetThisZone(){
+  if(isViewMode)return;
   if(!czid)return;
   const z=ZD.find(z=>String(z.id)===String(czid));
   if(!confirm('Reset '+( z?z.n:'this zone')+'? Clears the roll and outcome.'))return;
   delete zs[czid];save();closeMo('zone-mo');renderZones();renderStats();
 }
 function resetAllZones(){
+  if(isViewMode)return;
   if(confirm('Reset ALL zones? This clears every roll and outcome but keeps your team and bosses.')){zs={};save();render();}
 }
 function showTab(tab,el){
@@ -625,14 +625,13 @@ function openZone(id){
   document.getElementById('zm-pk').innerHTML=z.p.map(p=>'<div class="pt'+(st.caughtPoke===p?' cau':st.assigned===p&&!st.caught?' tgt':'')+'" onclick="confirmCatch(\''+id+'\',\''+p+'\')">'+p+(st.assigned===p&&!st.caught?' \u2605':'')+'</div>').join('');
   document.getElementById('zone-mo').classList.add('on');
 }
-function doRoll(id){rollForZone(id);openZone(id);renderZones();}
-function rerollZ(id){
+function doRoll(id){if(isViewMode)return;rollForZone(id);openZone(id);renderZones();}
+function rerollZ(id){if(isViewMode)return;
   if((zs[id]||{}).rerolled){alert('Only one reroll per zone.');return;}
   if(!zs[id])zs[id]={};zs[id].rerolled=true;rollForZone(id);openZone(id);renderZones();
 }
-function clearRoll(id){if(!zs[id])return;zs[id].assigned=null;zs[id].rolled=false;zs[id].rerolled=false;save();openZone(id);renderZones();}
-function clearOutcome(id){
-  if(!confirm('Clear the outcome for this zone? You can re-enter and try again.'))return;
+function clearRoll(id){if(isViewMode)return;if(!zs[id])return;zs[id].assigned=null;zs[id].rolled=false;zs[id].rerolled=false;save();openZone(id);renderZones();}
+function clearOutcome(id){if(isViewMode)return;
   if(!zs[id])zs[id]={};
   zs[id].caught=false;zs[id].visited=false;zs[id].skipped=false;zs[id].caughtPoke=null;
   // allow a new reroll if it was a fail/skip
@@ -640,12 +639,14 @@ function clearOutcome(id){
   save();openZone(id);renderZones();renderStats();
 }
 function setZS(id,status){
+  if(isViewMode)return;
   if(!zs[id])zs[id]={};
   zs[id].visited=status==='visited';zs[id].caught=status==='caught';zs[id].skipped=status==='skipped';
   if(status!=='caught')zs[id].caughtPoke=null;
   save();openZone(id);renderZones();renderStats();
 }
 function confirmCatch(id,poke){
+  if(isViewMode)return;
   if(!zs[id])zs[id]={};const st=zs[id];
   if(st.assigned&&st.assigned!==poke&&!st.caught){if(!confirm('Target is '+st.assigned+'. Mark '+poke+' caught anyway? (Rule violation unless a clause applies.)'))return;}
   zs[id].caughtPoke=poke;zs[id].caught=true;zs[id].visited=false;zs[id].skipped=false;
@@ -687,14 +688,14 @@ function renderTeam(){
   if(dead.length>0){dc.style.display='block';document.getElementById('dead-list').innerHTML=dead.map(p=>'<div class="dr"><span class="dnm">'+p.species+' &quot;'+p.nick+'&quot;</span><span class="dzn">'+p.zone+'</span></div>').join('');}
   else dc.style.display='none';
 }
-function faintP(i){const p=party[i];p.fainted=true;dead.push(p);party.splice(i,1);save();renderTeam();renderStats();}
-function healFnt(i){party[i].fainted=false;save();renderTeam();}
-function toBox(i){if(box.length>=30){alert('Box full (30 max).');return;}box.push(party[i]);party.splice(i,1);save();renderTeam();}
-function toPty(i){if(party.length>=6){alert('Party full!');return;}party.push(box[i]);box.splice(i,1);save();renderTeam();}
-function rmBox(i){if(confirm('Remove '+box[i].species+' permanently?')){box.splice(i,1);save();renderTeam();}}
-function revivePoke(i){if(revives<=0){alert('No revive tokens!');return;}const p=dead[i];p.fainted=false;if(party.length<6)party.push(p);else box.push(p);dead.splice(i,1);revives=Math.max(0,revives-1);save();renderTeam();renderStats();}
-function chRv(d){revives=Math.max(0,revives+d);save();renderTeam();}
-function addPokemon(){
+function faintP(i){if(isViewMode)return;const p=party[i];p.fainted=true;dead.push(p);party.splice(i,1);save();renderTeam();renderStats();}
+function healFnt(i){if(isViewMode)return;party[i].fainted=false;save();renderTeam();}
+function toBox(i){if(isViewMode)return;if(box.length>=30){alert('Box full (30 max).');return;}box.push(party[i]);party.splice(i,1);save();renderTeam();}
+function toPty(i){if(isViewMode)return;if(party.length>=6){alert('Party full!');return;}party.push(box[i]);box.splice(i,1);save();renderTeam();}
+function rmBox(i){if(isViewMode)return;if(confirm('Remove '+box[i].species+' permanently?')){box.splice(i,1);save();renderTeam();}}
+function revivePoke(i){if(isViewMode)return;if(revives<=0){alert('No revive tokens!');return;}const p=dead[i];p.fainted=false;if(party.length<6)party.push(p);else box.push(p);dead.splice(i,1);revives=Math.max(0,revives-1);save();renderTeam();renderStats();}
+function chRv(d){if(isViewMode)return;revives=Math.max(0,revives+d);save();renderTeam();}
+function addPokemon(){if(isViewMode)return;
   const sp=document.getElementById('ns').value.trim(),nk=document.getElementById('nn').value.trim(),lv=document.getElementById('nl').value.trim(),zn=document.getElementById('nz').value.trim();
   if(!sp||!nk){alert('Species and nickname required.');return;}
   const np={species:sp,nick:nk,level:lv||'?',zone:zn||'?',fainted:false};
@@ -705,7 +706,7 @@ function addPokemon(){
 
 /* BOSSES */
 function toggleBoss(id){
-  const wasBeaten=!!bossBeaten[id];
+  if(isViewMode)return;
   bossBeaten[id]=!wasBeaten;
   const b=BD.find(b=>b.id===id);
   if(b&&b.cat==='Promotion Matches'){
@@ -762,7 +763,7 @@ function renderRules(){
   document.getElementById('rv-list').innerHTML=RV_RULES.map(t=>'<div class="ri2"><div class="ric" style="background:var(--gb);color:var(--grn)">+</div><div class="rt2">'+t+'</div></div>').join('');
   document.getElementById('opt-list').innerHTML=OPT.map(r=>'<div class="ri2" onclick="toggleOpt(\''+r.id+'\')" style="cursor:pointer"><div class="ric" style="background:var(--bb);color:var(--blu);'+(opts[r.id]?'':'opacity:.35')+'">'+(opts[r.id]?'\u2713':'o')+'</div><div class="rt2'+(opts[r.id]?'':' off')+'">'+r.t+'</div></div>').join('');
 }
-function toggleOpt(id){opts[id]=!opts[id];save();renderRules();}
+function toggleOpt(id){if(isViewMode)return;opts[id]=!opts[id];save();renderRules();}
 
 /* STATS */
 function renderStats(){
