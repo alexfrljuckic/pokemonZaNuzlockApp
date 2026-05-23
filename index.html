@@ -638,12 +638,15 @@ function clearOutcome(id){if(isViewMode)return;
   zs[id].rerolled=false;
   save();openZone(id);renderZones();renderStats();
 }
-function setZS(id,status){
-  if(isViewMode)return;
-  if(!zs[id])zs[id]={};
-  zs[id].visited=status==='visited';zs[id].caught=status==='caught';zs[id].skipped=status==='skipped';
-  if(status!=='caught')zs[id].caughtPoke=null;
-  save();openZone(id);renderZones();renderStats();
+function autoAddCatch(id,poke){
+  // Add to party/box unless this zone already contributed a pokemon
+  const alreadyAdded=[...party,...box,...dead].some(p=>p.zone==='Zone '+id||p.zone===String(id));
+  if(!alreadyAdded){
+    const z=ZD.find(z=>String(z.id)===String(id));
+    const np={species:poke,nick:poke,level:z?z.lv:'?',zone:'Zone '+id,fainted:false};
+    if(party.length<6)party.push(np);else box.push(np);
+    save();
+  }
 }
 function confirmCatch(id,poke){
   if(isViewMode)return;
@@ -651,12 +654,22 @@ function confirmCatch(id,poke){
   if(st.assigned&&st.assigned!==poke&&!st.caught){if(!confirm('Target is '+st.assigned+'. Mark '+poke+' caught anyway? (Rule violation unless a clause applies.)'))return;}
   zs[id].caughtPoke=poke;zs[id].caught=true;zs[id].visited=false;zs[id].skipped=false;
   save();
-  const have=[...party,...box,...dead].some(p=>p.species===poke);
-  if(!have){const z=ZD.find(z=>String(z.id)===String(id));const np={species:poke,nick:poke,level:z?z.lv:'?',zone:'Zone '+id,fainted:false};if(party.length<6)party.push(np);else box.push(np);save();}
+  autoAddCatch(id,poke);
   openZone(id);renderZones();renderTeam();renderStats();
 }
-
-/* AUTOCOMPLETE */
+function setZS(id,status){
+  if(isViewMode)return;
+  if(!zs[id])zs[id]={};
+  const wasCaught=zs[id].caught;
+  zs[id].visited=status==='visited';zs[id].caught=status==='caught';zs[id].skipped=status==='skipped';
+  if(status!=='caught')zs[id].caughtPoke=null;
+  save();
+  if(status==='caught'&&!wasCaught){
+    const poke=zs[id].caughtPoke||zs[id].assigned;
+    if(poke)autoAddCatch(id,poke);
+  }
+  openZone(id);renderZones();renderTeam();renderStats();
+}
 let acTimeout=null;
 function acInput(inp){
   clearTimeout(acTimeout);
