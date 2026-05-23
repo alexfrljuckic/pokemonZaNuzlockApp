@@ -639,14 +639,14 @@ function clearOutcome(id){if(isViewMode)return;
   save();openZone(id);renderZones();renderStats();
 }
 function autoAddCatch(id,poke){
-  // Add to party/box unless this zone already contributed a pokemon
-  const alreadyAdded=[...party,...box,...dead].some(p=>p.zone==='Zone '+id||p.zone===String(id));
-  if(!alreadyAdded){
-    const z=ZD.find(z=>String(z.id)===String(id));
-    const np={species:poke,nick:poke,level:z?z.lv:'?',zone:'Zone '+id,fainted:false};
-    if(party.length<6)party.push(np);else box.push(np);
-    save();
-  }
+  if(!poke)return;
+  const zoneKey='Zone '+String(id);
+  const alreadyAdded=[...party,...box,...dead].some(p=>String(p.zone)===zoneKey);
+  if(alreadyAdded)return;
+  const z=ZD.find(z=>String(z.id)===String(id));
+  const np={species:poke,nick:poke,level:z?z.lv:'?',zone:zoneKey,fainted:false};
+  if(party.length<6)party.push(np);else box.push(np);
+  save();
 }
 function confirmCatch(id,poke){
   if(isViewMode)return;
@@ -661,12 +661,13 @@ function setZS(id,status){
   if(isViewMode)return;
   if(!zs[id])zs[id]={};
   const wasCaught=zs[id].caught;
+  const assignedPoke=zs[id].caughtPoke||zs[id].assigned;
   zs[id].visited=status==='visited';zs[id].caught=status==='caught';zs[id].skipped=status==='skipped';
   if(status!=='caught')zs[id].caughtPoke=null;
+  else if(!zs[id].caughtPoke&&assignedPoke)zs[id].caughtPoke=assignedPoke;
   save();
   if(status==='caught'&&!wasCaught){
-    const poke=zs[id].caughtPoke||zs[id].assigned;
-    if(poke)autoAddCatch(id,poke);
+    if(assignedPoke)autoAddCatch(id,assignedPoke);
   }
   openZone(id);renderZones();renderTeam();renderStats();
 }
