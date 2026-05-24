@@ -133,3 +133,5 @@ textarea::placeholder{color:var(--t3)}
 .sync-setup input::placeholder{color:var(--t3)}
 .share-box{background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);padding:8px 10px;font-size:11px;color:var(--t3);word-break:break-all;margin-top:6px;cursor:pointer}
 .share-box strong{color:var(--blu);display:block;margin-bottom:3px;font-size:12px}
+.em-input{width:100%;padding:8px 10px;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);color:var(--tx);font-size:13px;margin-bottom:4px}
+.em-input::placeholder{color:var(--t3)}

@@ -64,6 +64,8 @@ const actions = {
   'add-pokemon': () => team.addPokemon(),
   'focus-add': () => team.focusAdd(),
   'ac-pick': (el) => team.acPick(el.dataset.poke),
+  'edit-poke': (el) => team.openEdit(el.dataset.source, parseInt(el.dataset.i, 10)),
+  'save-edit': () => team.saveEdit(),
 
   // Bosses
   'toggle-boss': (el) => bosses.toggleBoss(el.dataset.id),

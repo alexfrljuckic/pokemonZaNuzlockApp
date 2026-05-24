@@ -19,6 +19,7 @@ export function renderTeam() {
       '<div class="sm">Lv.' + p.level + ' · ' + p.zone + '</div>' +
       (p.fainted ? '<div class="fb">FAINTED</div>' : '') +
       '<div class="sa">' +
+      '<button class="sb" data-action="edit-poke" data-source="party" data-i="' + i + '">Edit</button>' +
       (!p.fainted
         ? '<button class="sb fnt" data-action="faint-p" data-i="' + i + '">Faint</button>'
         : '<button class="sb hl" data-action="heal-fnt" data-i="' + i + '">Heal</button>') +
@@ -33,6 +34,7 @@ export function renderTeam() {
         '<div class="sn">&quot;' + p.nick + '&quot;</div>' +
         '<div class="sm">Lv.' + p.level + ' · ' + p.zone + '</div>' +
         '<div class="sa">' +
+        '<button class="sb" data-action="edit-poke" data-source="box" data-i="' + i + '">Edit</button>' +
         '<button class="sb tpy" data-action="to-pty" data-i="' + i + '"' + (state.party.length >= 6 ? ' disabled style="opacity:.35"' : '') + '>Party</button>' +
         '<button class="sb rm" data-action="rm-box" data-i="' + i + '">Remove</button>' +
         '</div></div>'
@@ -52,18 +54,15 @@ export function renderTeam() {
       ).join('')
     : '<div class="es">No fallen Pokemon</div>';
 
-  const dc = document.getElementById('dead-card');
-  if (state.dead.length > 0) {
-    dc.style.display = 'block';
-    document.getElementById('dead-list').innerHTML = state.dead.map(p =>
-      '<div class="dr">' +
-      '<span class="dnm">' + p.species + ' &quot;' + p.nick + '&quot;</span>' +
-      '<span class="dzn">' + p.zone + '</span>' +
-      '</div>'
-    ).join('');
-  } else {
-    dc.style.display = 'none';
-  }
+  document.getElementById('grave-cnt').textContent = '(' + state.dead.length + ')';
+  document.getElementById('dead-list').innerHTML = state.dead.length
+    ? state.dead.map(p =>
+        '<div class="dr">' +
+        '<span class="dnm">' + p.species + ' &quot;' + p.nick + '&quot;</span>' +
+        '<span class="dzn">' + p.zone + '</span>' +
+        '</div>'
+      ).join('')
+    : '<div class="es">No fallen Pokemon — keep it that way</div>';
 }
 
 export function faintP(i) {
@@ -173,4 +172,45 @@ export function acBlur() {
     const l = document.getElementById('ac-list');
     if (l) l.style.display = 'none';
   }, 200);
+}
+
+let editSource = null;
+let editIndex = -1;
+
+export function openEdit(source, i) {
+  if (sync.isViewMode) return;
+  const list = source === 'party' ? state.party : state.box;
+  const p = list[i];
+  if (!p) return;
+  editSource = source;
+  editIndex = i;
+  document.getElementById('em-s').textContent = source === 'party' ? 'In active party' : 'In box';
+  document.getElementById('em-species').value = p.species;
+  document.getElementById('em-nick').value = p.nick;
+  document.getElementById('em-level').value = p.level === '?' ? '' : p.level;
+  document.getElementById('em-zone').value = p.zone === '?' ? '' : p.zone;
+  document.getElementById('edit-mo').classList.add('on');
+  setTimeout(() => document.getElementById('em-nick').focus(), 50);
+}
+
+export function saveEdit() {
+  if (sync.isViewMode) return;
+  if (editIndex < 0 || !editSource) return;
+  const list = editSource === 'party' ? state.party : state.box;
+  const p = list[editIndex];
+  if (!p) return;
+  const sp = document.getElementById('em-species').value.trim();
+  const nk = document.getElementById('em-nick').value.trim();
+  const lv = document.getElementById('em-level').value.trim();
+  const zn = document.getElementById('em-zone').value.trim();
+  if (!sp || !nk) { alert('Species and nickname required.'); return; }
+  p.species = sp;
+  p.nick = nk;
+  p.level = lv || '?';
+  p.zone = zn || '?';
+  editSource = null;
+  editIndex = -1;
+  document.getElementById('edit-mo').classList.remove('on');
+  save();
+  renderTeam();
 }
