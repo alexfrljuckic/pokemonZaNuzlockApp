@@ -16,10 +16,10 @@ export function rollForZone(id) {
     ...state.box.map(p => p.species),
     ...state.dead.map(p => p.species),
   ]);
-  let pool = z.p.filter(p => !owned.has(p));
+  let pool = z.p.filter(x => !owned.has(x.n));
   if (!pool.length) pool = z.p;
   if (!state.zs[id]) state.zs[id] = {};
-  state.zs[id].assigned = rnd(pool);
+  state.zs[id].assigned = rnd(pool).n;
   state.zs[id].rolled = true;
   save();
 }
@@ -91,7 +91,8 @@ export function renderZones() {
     else if (st.rolled && st.assigned) { nc = 'za'; badge = '<span class="zbg a">' + st.assigned + '</span>'; sub = 'Assigned — not entered'; }
     else {
       nc = '';
-      badge = '<span class="zbg p">' + (String(z.id) === 's0' ? 'Choose' : 'Roll') + '</span>';
+      const label = sync.isViewMode ? 'View' : (String(z.id) === 's0' ? 'Choose' : 'Roll');
+      badge = '<span class="zbg p">' + label + '</span>';
       sub = z.u === 'Post-game' ? 'Post-game' : (z.u === 'Start' ? 'Not visited' : 'After ' + z.u);
     }
     const numDisp = z.cat === 'main' ? z.id : (z.cat === 'special' ? 'S' : 'H');
@@ -102,47 +103,95 @@ export function renderZones() {
   }).join('') || '<div class="es">No zones in this filter</div>';
 }
 
+function pokeTile(id, p, st, interactive) {
+  const cls = st.caughtPoke === p.n ? ' cau' : (st.assigned === p.n && !st.caught ? ' tgt' : '');
+  const action = interactive ? ' data-action="confirm-catch" data-id="' + id + '" data-poke="' + p.n + '"' : '';
+  const lv = p.lv ? ' <span class="pt-lv">Lv ' + p.lv + '</span>' : '';
+  const star = st.assigned === p.n && !st.caught ? ' ★' : '';
+  return '<div class="pt' + cls + '"' + action + '>' + p.n + lv + star + '</div>';
+}
+
 export function openZone(id) {
-  if (sync.isViewMode) return;
   const z = ZD.find(z => String(z.id) === String(id));
   if (!z) return;
   czid = id;
   const st = state.zs[id] || {};
+  const viewMode = sync.isViewMode;
+
   document.getElementById('zm-t').textContent = z.n + ' (Lv.' + z.lv + ')';
-  document.getElementById('zm-s').textContent = (z.a || '') + ' · ' + z.u + (z.note ? ' · ' + z.note : '');
+  const subParts = [z.a, z.u, z.note].filter(Boolean);
+  document.getElementById('zm-s').textContent = subParts.join(' · ');
 
-  let rh = '';
-  const isChoiceZone = z.p && z.p.length <= 4 && z.cat === 'special' && !z.note?.includes('Gift') && String(id) === 's0';
-  if (st.caught || st.visited || st.skipped) {
-    const lbl = st.caught ? 'Caught: ' + (st.caughtPoke || st.assigned) : (st.visited ? 'Visited — no catch' : 'Skipped');
-    rh = '<div class="rb"><div class="rtar" style="color:var(--t2);font-size:15px">' + lbl + '</div>' +
-      '<button class="btn brd" style="margin-top:10px;width:100%" data-action="clear-outcome" data-id="' + id + '">Retry / clear outcome</button></div>';
-  } else if (isChoiceZone) {
-    rh = '<div class="rb"><div class="rdsc">Tap your starter below to record your choice</div></div>';
-  } else if (st.rolled && st.assigned) {
-    rh = '<div class="rb"><div style="font-size:10px;color:var(--t3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Your target</div>' +
-      '<div class="rtar">' + st.assigned + '</div>' +
-      '<div class="rdsc">Only this Pokemon may be legally caught in this zone</div>' +
-      '<div class="ract">' +
-      (!st.rerolled
-        ? '<button class="btn bpu" style="flex:1" data-action="reroll-z" data-id="' + id + '">↺ Reroll (once)</button>'
-        : '<span style="font-size:11px;color:var(--t3)">Reroll used</span>') +
-      '<button class="btn" data-action="clear-roll" data-id="' + id + '">Clear roll</button></div></div>';
+  // Roll / outcome status box — hidden in view mode
+  const rEl = document.getElementById('zm-r');
+  if (viewMode) {
+    rEl.innerHTML = '';
   } else {
-    rh = '<button class="btn bpu bfw" data-action="do-roll" data-id="' + id + '">🎲 Roll my encounter for this zone</button>';
+    let rh = '';
+    const isChoiceZone = z.p && z.p.length <= 4 && z.cat === 'special' && !z.note?.includes('Gift') && String(id) === 's0';
+    if (st.caught || st.visited || st.skipped) {
+      const lbl = st.caught ? 'Caught: ' + (st.caughtPoke || st.assigned) : (st.visited ? 'Visited — no catch' : 'Skipped');
+      rh = '<div class="rb"><div class="rtar" style="color:var(--t2);font-size:15px">' + lbl + '</div>' +
+        '<button class="btn brd" style="margin-top:10px;width:100%" data-action="clear-outcome" data-id="' + id + '">Retry / clear outcome</button></div>';
+    } else if (isChoiceZone) {
+      rh = '<div class="rb"><div class="rdsc">Tap your starter below to record your choice</div></div>';
+    } else if (st.rolled && st.assigned) {
+      rh = '<div class="rb"><div style="font-size:10px;color:var(--t3);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em">Your target</div>' +
+        '<div class="rtar">' + st.assigned + '</div>' +
+        '<div class="rdsc">Only this Pokemon may be legally caught in this zone</div>' +
+        '<div class="ract">' +
+        (!st.rerolled
+          ? '<button class="btn bpu" style="flex:1" data-action="reroll-z" data-id="' + id + '">↺ Reroll (once)</button>'
+          : '<span style="font-size:11px;color:var(--t3)">Reroll used</span>') +
+        '<button class="btn" data-action="clear-roll" data-id="' + id + '">Clear roll</button></div></div>';
+    } else {
+      rh = '<button class="btn bpu bfw" data-action="do-roll" data-id="' + id + '">🎲 Roll my encounter for this zone</button>';
+    }
+    rEl.innerHTML = rh;
   }
-  document.getElementById('zm-r').innerHTML = rh;
 
-  document.getElementById('zm-st').innerHTML =
-    '<button class="btn bam" data-action="set-zs" data-id="' + id + '" data-status="visited" style="' + (st.visited && !st.caught ? 'background:var(--ab)' : '') + '">Failed</button>' +
-    '<button class="btn bgn" data-action="set-zs" data-id="' + id + '" data-status="caught" style="' + (st.caught ? 'background:var(--gb)' : '') + '">Caught!</button>' +
-    '<button class="btn brd" data-action="set-zs" data-id="' + id + '" data-status="skipped" style="' + (st.skipped ? 'background:var(--rb)' : '') + '">Skipped</button>';
+  // Outcome row — hidden in view mode
+  const stEl = document.getElementById('zm-st');
+  const stLblEl = document.getElementById('zm-st-label');
+  if (viewMode) {
+    stEl.innerHTML = '';
+    if (stLblEl) stLblEl.style.display = 'none';
+  } else {
+    if (stLblEl) stLblEl.style.display = '';
+    stEl.innerHTML =
+      '<button class="btn bam" data-action="set-zs" data-id="' + id + '" data-status="visited" style="' + (st.visited && !st.caught ? 'background:var(--ab)' : '') + '">Failed</button>' +
+      '<button class="btn bgn" data-action="set-zs" data-id="' + id + '" data-status="caught" style="' + (st.caught ? 'background:var(--gb)' : '') + '">Caught!</button>' +
+      '<button class="btn brd" data-action="set-zs" data-id="' + id + '" data-status="skipped" style="' + (st.skipped ? 'background:var(--rb)' : '') + '">Skipped</button>';
+  }
 
-  document.getElementById('zm-pk-label').textContent = z.cat === 'hyper' ? 'Available in this zone' : 'All zone Pokemon';
-  document.getElementById('zm-pk').innerHTML = z.p.map(p => {
-    const cls = st.caughtPoke === p ? ' cau' : (st.assigned === p && !st.caught ? ' tgt' : '');
-    return '<div class="pt' + cls + '" data-action="confirm-catch" data-id="' + id + '" data-poke="' + p + '">' + p + (st.assigned === p && !st.caught ? ' ★' : '') + '</div>';
-  }).join('');
+  // Wild spawns
+  document.getElementById('zm-pk-label').textContent = z.cat === 'hyper' ? 'Available in this zone' : 'Wild spawns';
+  document.getElementById('zm-pk').innerHTML = z.p.map(p => pokeTile(id, p, st, !viewMode)).join('');
+
+  // Alpha section (only when present)
+  const alphaEl = document.getElementById('zm-alphas');
+  if (z.alphas && z.alphas.length) {
+    alphaEl.innerHTML =
+      '<div class="msl">★ Guaranteed Alpha encounters</div>' +
+      '<div class="pgr">' +
+        z.alphas.map(a => '<div class="pt alpha-pt">' + a.n + (a.lv && a.lv !== '?' ? ' <span class="pt-lv">Lv ' + a.lv + '</span>' : '') + '</div>').join('') +
+      '</div>' +
+      '<div class="alpha-note">All wild spawns also have ~5% chance to appear as an Alpha (~10 levels higher)</div>';
+  } else {
+    alphaEl.innerHTML = '';
+  }
+
+  // Bottom action row — only Done in view mode
+  const footEl = document.getElementById('zm-foot');
+  if (viewMode) {
+    footEl.innerHTML = '<button class="btn bbl bfw" data-action="close-mo" data-modal="zone-mo">Done</button>';
+  } else {
+    footEl.innerHTML =
+      '<div style="display:flex;gap:8px">' +
+      '<button class="btn brd" style="flex:1" data-action="reset-this-zone">Reset zone</button>' +
+      '<button class="btn bbl" style="flex:2" data-action="close-mo" data-modal="zone-mo">Done</button>' +
+      '</div>';
+  }
 
   document.getElementById('zone-mo').classList.add('on');
 }

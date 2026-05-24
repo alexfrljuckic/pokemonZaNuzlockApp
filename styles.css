@@ -135,3 +135,8 @@ textarea::placeholder{color:var(--t3)}
 .share-box strong{color:var(--blu);display:block;margin-bottom:3px;font-size:12px}
 .em-input{width:100%;padding:8px 10px;background:var(--bg3);border:1px solid var(--bd);border-radius:var(--r);color:var(--tx);font-size:13px;margin-bottom:4px}
 .em-input::placeholder{color:var(--t3)}
+.pt-lv{font-size:10px;color:var(--t3);font-weight:400;margin-left:4px}
+.pt.tgt .pt-lv,.pt.cau .pt-lv{color:rgba(255,255,255,.55)}
+.alpha-pt{background:var(--ab);border-color:rgba(255,200,87,.35);color:var(--amb)}
+.alpha-pt .pt-lv{color:rgba(255,200,87,.7)}
+.alpha-note{font-size:10px;color:var(--t3);font-style:italic;margin-top:6px;padding:0 2px;line-height:1.4}
