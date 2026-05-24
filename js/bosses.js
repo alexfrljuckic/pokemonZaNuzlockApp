@@ -58,7 +58,7 @@ export function renderBosses() {
     if (!btn) return;
     btn.style.background = state.capMode === m ? 'var(--bb)' : 'none';
     btn.style.color = state.capMode === m ? 'var(--blu)' : 'var(--t3)';
-    btn.style.borderColor = state.capMode === m ? 'rgba(74,143,212,.25)' : 'var(--bd)';
+    btn.style.borderColor = state.capMode === m ? 'rgba(107,133,245,.25)' : 'var(--bd)';
   });
 
   const total = BD.length;
