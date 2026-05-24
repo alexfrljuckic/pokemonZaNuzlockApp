@@ -1,5 +1,5 @@
-import { OPT } from './data.js';
-import { scheduleSync } from './sync.js';
+import { OPT } from './data.js?v=1';
+import { scheduleSync } from './sync.js?v=1';
 
 export const KEY = 'nuzlocke_za_v7';
 

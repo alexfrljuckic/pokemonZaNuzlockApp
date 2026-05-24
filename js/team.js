@@ -1,7 +1,7 @@
-import { POKE_DEDUP } from './data.js';
-import { state, save } from './state.js';
-import { sync } from './sync.js';
-import { renderStats } from './stats.js';
+import { POKE_DEDUP } from './data.js?v=1';
+import { state, save } from './state.js?v=1';
+import { sync } from './sync.js?v=1';
+import { renderStats } from './stats.js?v=1';
 
 let acTimeout = null;
 

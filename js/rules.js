@@ -1,6 +1,6 @@
-import { CR_RULES, ZA_RULES, RV_RULES, OPT } from './data.js';
-import { state, save } from './state.js';
-import { sync } from './sync.js';
+import { CR_RULES, ZA_RULES, RV_RULES, OPT } from './data.js?v=1';
+import { state, save } from './state.js?v=1';
+import { sync } from './sync.js?v=1';
 
 export function renderRules() {
   document.getElementById('cr-list').innerHTML = CR_RULES.map(t =>

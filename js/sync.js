@@ -1,4 +1,4 @@
-import { stateObj } from './state.js';
+import { stateObj } from './state.js?v=1';
 
 const JBURL = 'https://api.jsonbin.io/v3/b';
 const SYNC_META_KEY = 'nuzlocke_za_sync';

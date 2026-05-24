@@ -1,9 +1,9 @@
-import { ZD, BD } from './data.js';
-import { state, save } from './state.js';
-import { sync } from './sync.js';
-import { renderZones } from './zones.js';
-import { renderTeam } from './team.js';
-import { renderBosses } from './bosses.js';
+import { ZD, BD } from './data.js?v=1';
+import { state, save } from './state.js?v=1';
+import { sync } from './sync.js?v=1';
+import { renderZones } from './zones.js?v=1';
+import { renderTeam } from './team.js?v=1';
+import { renderBosses } from './bosses.js?v=1';
 
 let notesBound = false;
 

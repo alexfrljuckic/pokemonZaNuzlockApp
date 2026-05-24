@@ -1,13 +1,13 @@
-import { applyState, localLoad } from './state.js';
+import { applyState, localLoad } from './state.js?v=1';
 import {
   sync, loadSyncMeta, pullFromCloud, setSyncStatus, lockUI,
   syncAction, doSetupSync, cancelSetup, copyShareUrl,
-} from './sync.js';
-import * as zones from './zones.js';
-import * as team from './team.js';
-import * as bosses from './bosses.js';
-import * as rules from './rules.js';
-import * as stats from './stats.js';
+} from './sync.js?v=1';
+import * as zones from './zones.js?v=1';
+import * as team from './team.js?v=1';
+import * as bosses from './bosses.js?v=1';
+import * as rules from './rules.js?v=1';
+import * as stats from './stats.js?v=1';
 
 const VIEW_REFRESH_MS = 60000;
 
