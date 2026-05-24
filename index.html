@@ -93,7 +93,7 @@
 </div>
 <div id="rvbl-list"></div>
 </div>
-<div class="card" id="dead-card" style="display:none"><h3 class="ch3">The Fallen</h3><div id="dead-list"></div></div>
+<div class="card"><h3 class="ch3">&#x1F480; Graveyard <span id="grave-cnt" style="color:var(--t3);text-transform:none;font-weight:400"></span></h3><div id="dead-list"></div></div>
 </div>
 
 <!-- BOSSES SECTION -->
@@ -155,6 +155,28 @@
 <div style="display:flex;gap:8px">
 <button class="btn brd" style="flex:1" data-action="reset-this-zone">Reset zone</button>
 <button class="btn bbl" style="flex:2" data-action="close-mo" data-modal="zone-mo">Done</button>
+</div>
+</div>
+</div>
+
+<!-- POKEMON EDIT MODAL -->
+<div class="mo" id="edit-mo">
+<div class="md">
+<div class="mh"></div>
+<div class="mt">Edit Pokemon</div>
+<div class="ms" id="em-s"></div>
+<div class="msl">Species</div>
+<input class="em-input" id="em-species" autocomplete="off">
+<div class="msl">Nickname</div>
+<input class="em-input" id="em-nick">
+<div class="msl">Level</div>
+<input class="em-input" id="em-level" type="number">
+<div class="msl">From zone</div>
+<input class="em-input" id="em-zone">
+<div style="height:12px"></div>
+<div style="display:flex;gap:8px">
+<button class="btn" style="flex:1" data-action="close-mo" data-modal="edit-mo">Cancel</button>
+<button class="btn bbl" style="flex:2" data-action="save-edit">Save</button>
 </div>
 </div>
 </div>
