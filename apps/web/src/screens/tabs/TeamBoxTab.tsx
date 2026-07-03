@@ -50,12 +50,9 @@ export function TeamBoxTab({
   }
 
   async function markFaint(id: string) {
-    const cause = window.prompt('Cause of death (optional)') ?? undefined;
-    const killer = window.prompt('Killed by (optional)') ?? undefined;
-    await appendEvent(runId, {
-      type: 'faint',
-      payload: { pokemonId: id, cause: cause || undefined, killer: killer || undefined },
-    });
+    // No cause/killer prompts — fainting is one seamless click (Alex's UX
+    // feedback). The event payload still supports those fields for later.
+    await appendEvent(runId, { type: 'faint', payload: { pokemonId: id } });
     await onChange();
   }
 

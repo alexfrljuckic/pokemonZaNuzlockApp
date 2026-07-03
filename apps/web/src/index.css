@@ -1,12 +1,75 @@
+/* Design tokens. Themes override these via [data-theme] on <html> —
+   see lib/theme.ts. default-dark is the base (original palette). */
 :root {
   color-scheme: dark;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --bg: #161b22;
+  --bg-panel: #1c2128;
+  --bg-inset: #0d1117;
+  --bg-chip: #21262d;
+  --border: #30363d;
+  --text: #e6edf3;
+  --muted: #8b949e;
+  --accent: #238636;
+  --accent-text: #ffffff;
+  --highlight: #58a6ff;
+  --success: #3fb950;
+  --warning: #d29922;
+  --warning-strong: #f0883e;
+  --danger: #f85149;
+  --danger-bg: #2d0e0e;
+}
+
+/* Lumiose (Legends: Z-A) — noir city + Z red */
+[data-theme='plza'] {
+  --bg: #191419;
+  --bg-panel: #221a20;
+  --bg-inset: #120e11;
+  --bg-chip: #2b2027;
+  --border: #453039;
+  --accent: #d63b4c;
+  --highlight: #f2b04e;
+}
+
+/* Sinnoh (BDSP) — Dialga blue / Palkia pink */
+[data-theme='bdsp'] {
+  --bg: #101725;
+  --bg-panel: #16202f;
+  --bg-inset: #0a0f1a;
+  --bg-chip: #1c2838;
+  --border: #2b3b52;
+  --accent: #3d7dca;
+  --highlight: #e37f9d;
+}
+
+/* Kanto (Let's Go) — Pikachu yellow / warm brown */
+[data-theme='lgpe'] {
+  --bg: #1d1910;
+  --bg-panel: #262017;
+  --bg-inset: #14110b;
+  --bg-chip: #2f2a1d;
+  --border: #4a3f28;
+  --accent: #c99b06;
+  --accent-text: #1d1910;
+  --highlight: #e8a87c;
+}
+
+/* Galar (SwSh) — Sword cyan / Shield magenta */
+[data-theme='swsh'] {
+  --bg: #101c20;
+  --bg-panel: #16252b;
+  --bg-inset: #0a1316;
+  --bg-chip: #1c2f36;
+  --border: #2b4650;
+  --accent: #0092c8;
+  --highlight: #e05a8a;
 }
 
 body {
   margin: 0;
-  background: #161b22;
-  color: #e6edf3;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease;
 }
 
 #root {
@@ -25,14 +88,14 @@ h1 {
   font-size: 0.75rem;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  background: #21262d;
-  color: #8b949e;
+  background: var(--bg-chip);
+  color: var(--muted);
   margin-bottom: 1.5rem;
 }
 
 section {
-  background: #1c2128;
-  border: 1px solid #30363d;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1rem 1.25rem;
   margin-bottom: 1.25rem;
@@ -46,7 +109,7 @@ section h2 {
 label {
   display: block;
   font-size: 0.85rem;
-  color: #8b949e;
+  color: var(--muted);
   margin-top: 0.75rem;
 }
 
@@ -56,9 +119,9 @@ input[type='number'],
 textarea {
   width: 100%;
   box-sizing: border-box;
-  background: #0d1117;
-  color: #e6edf3;
-  border: 1px solid #30363d;
+  background: var(--bg-inset);
+  color: var(--text);
+  border: 1px solid var(--border);
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0.25rem;
@@ -70,8 +133,8 @@ input[type='number'] {
 }
 
 button {
-  background: #238636;
-  color: white;
+  background: var(--accent);
+  color: var(--accent-text);
   border: none;
   border-radius: 6px;
   padding: 0.5rem 1rem;
@@ -81,8 +144,9 @@ button {
 }
 
 button.secondary {
-  background: #21262d;
-  border: 1px solid #30363d;
+  background: var(--bg-chip);
+  color: var(--text);
+  border: 1px solid var(--border);
 }
 
 button:disabled {
@@ -95,7 +159,7 @@ button:disabled {
   justify-content: space-between;
   align-items: center;
   padding: 0.6rem 0;
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
   cursor: pointer;
 }
 
@@ -104,11 +168,11 @@ button:disabled {
 }
 
 .run-list-item:hover {
-  color: #58a6ff;
+  color: var(--highlight);
 }
 
 .muted {
-  color: #8b949e;
+  color: var(--muted);
   font-size: 0.85rem;
 }
 
@@ -121,13 +185,13 @@ button:disabled {
 
 .event-log div {
   padding: 0.2rem 0;
-  border-bottom: 1px solid #21262d;
+  border-bottom: 1px solid var(--bg-chip);
 }
 
-.status-active { color: #3fb950; }
-.status-victory { color: #d29922; }
-.status-wiped-continuing { color: #f0883e; }
-.status-abandoned { color: #8b949e; }
+.status-active { color: var(--success); }
+.status-victory { color: var(--warning); }
+.status-wiped-continuing { color: var(--warning-strong); }
+.status-abandoned { color: var(--muted); }
 
 .tabs {
   display: flex;
@@ -141,7 +205,7 @@ button:disabled {
 }
 
 .area-row {
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
   padding: 0.5rem 0;
 }
 
@@ -158,7 +222,7 @@ button:disabled {
 .encounter-form {
   margin-top: 0.75rem;
   padding: 0.75rem;
-  background: #0d1117;
+  background: var(--bg-inset);
   border-radius: 6px;
 }
 
@@ -179,7 +243,7 @@ button:disabled {
   align-items: center;
   gap: 0.75rem;
   padding: 0.5rem 0;
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
   flex-wrap: wrap;
 }
 
@@ -203,7 +267,7 @@ button:disabled {
   justify-content: space-between;
   align-items: center;
   padding: 0.4rem 0;
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
 }
 
 .milestone-row:last-child {
@@ -216,16 +280,12 @@ button:disabled {
   font-size: 0.8rem;
 }
 
-/* When a milestone row has a roster line under it, the border moves to the
-   wrapper so it separates whole groups instead of splitting a row from its
-   own roster text. Bare .milestone-row usage (e.g. SpectatorView's cleared-
-   milestones list) is unaffected and keeps its own border. */
 .milestone-row-wrap .milestone-row {
   border-bottom: none;
 }
 
 .milestone-row-wrap {
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
 }
 
 .milestone-row-wrap:last-child {
@@ -241,13 +301,13 @@ button:disabled {
 }
 
 .violation {
-  color: #f85149;
+  color: var(--danger);
   font-size: 0.85rem;
   padding: 0.3rem 0;
 }
 
 .rule-row {
-  border-bottom: 1px solid #30363d;
+  border-bottom: 1px solid var(--border);
   padding: 0.6rem 0;
 }
 
@@ -259,7 +319,7 @@ button:disabled {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #e6edf3;
+  color: var(--text);
   font-size: 0.95rem;
 }
 
@@ -268,14 +328,14 @@ button:disabled {
 }
 
 .wipe-screen {
-  background: #2d0e0e;
-  border-color: #f85149;
+  background: var(--danger-bg);
+  border-color: var(--danger);
   text-align: center;
 }
 
-.outcome-caught { color: #3fb950; font-size: 0.85rem; }
-.outcome-failed { color: #f85149; font-size: 0.85rem; }
-.outcome-skipped { color: #8b949e; font-size: 0.85rem; }
+.outcome-caught { color: var(--success); font-size: 0.85rem; }
+.outcome-failed { color: var(--danger); font-size: 0.85rem; }
+.outcome-skipped { color: var(--muted); font-size: 0.85rem; }
 
 .auth-bar {
   display: flex;
@@ -296,7 +356,7 @@ button:disabled {
 }
 
 .auth-error {
-  color: #f85149;
+  color: var(--danger);
   font-size: 0.8rem;
 }
 
@@ -317,3 +377,97 @@ button:disabled {
 .share-link-row button {
   margin-top: 0;
 }
+
+/* ---------- Title flow ---------- */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-select {
+  width: auto;
+  margin-top: 0;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.4rem;
+}
+
+.title-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 4rem 1rem;
+}
+
+.title-screen button {
+  width: min(320px, 80vw);
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 10px;
+}
+
+/* ---------- Game picker cards ---------- */
+
+.game-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.75rem;
+}
+
+.game-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 0.9rem 0.9rem;
+  background: var(--bg-inset);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+  margin-top: 0;
+  font-size: 0.9rem;
+  line-height: 1.3;
+  transition: transform 0.1s ease, border-color 0.1s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-2px);
+}
+
+.game-card.selected {
+  border-color: var(--highlight);
+}
+
+.game-card .game-card-name {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+/* pokeball motif: circle with a horizontal band, tinted per game */
+.game-card::after {
+  content: '';
+  position: absolute;
+  right: -18px;
+  bottom: -18px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 4px solid var(--card-color, var(--accent));
+  background: linear-gradient(
+    to bottom,
+    var(--card-color, var(--accent)) 0 46%,
+    var(--bg-inset) 46% 54%,
+    transparent 54%
+  );
+  opacity: 0.55;
+}
+
+.game-card-plza { --card-color: #d63b4c; }
+.game-card-bdsp { --card-color: #3d7dca; }
+.game-card-lgpe { --card-color: #e3b505; }
+.game-card-swsh { --card-color: #0092c8; }
