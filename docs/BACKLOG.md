@@ -82,11 +82,64 @@ compatible — existing datasets validate unchanged); at least one game's
 milestones re-authored with full rosters + sources cited; Milestones tab
 shows the roster when present; level-cap math still reads only `aceLevel`.
 
+## Decided 2026-07-03, not yet implemented (do these next)
+
+**12. `feat/level-cap-flag` — rival battles are display-only for the cap. DECIDED.**
+Alex decided (2026-07-03): rival battles should NOT gate the enforced level
+cap. Implement after PR #14 (feat/trainer-rosters) merges: add optional
+`countsForLevelCap?: boolean` (default true) to the milestone schema +
+`Milestone` type; set it `false` on the 3 BDSP `rival-*-barry` milestones
+and SwSh's 2 `rival-hop-*` milestones (after PR #16 merges); filter on it in
+`nextBoss()` (`packages/engine/src/rules/index.ts`). Acceptance: engine test
+proving a fresh hardcore BDSP run's `nextBoss()` returns Roark (14), not
+Barry (9); rivals still render with rosters in the Milestones tab.
+
+**13. `fix/bdsp-ace-levels` — correct aceLevel to match Serebii rosters. DECIDED.**
+Alex decided (2026-07-03): `aceLevel` must equal the boss's actual
+highest-level Pokémon per the Serebii-sourced rosters (PR #14 found
+mismatches, e.g. Maylene aceLevel 32 vs her real ace Lucario Lv 30). After
+PR #14 merges, sweep every BDSP milestone: set `aceLevel` =
+max(roster[].level). Do the same check for SwSh after PR #16. Acceptance:
+a validator or test rule asserting `aceLevel === max(roster level)` whenever
+both exist, so future datasets can't drift.
+
+## Known gaps / follow-ups (no decision needed, just work)
+
+- **SwSh milestone rosters**: PR #16 shipped without them (`roster` field
+  didn't exist on its base branch). The research was done — gym/rival/
+  champion teams were gathered from Serebii in that session but not
+  persisted. Re-fetch from `serebii.net/swordshield/gyms.shtml`,
+  `.../hop.shtml`, `.../championcup.shtml` and add rosters after #14 + #16
+  both merge.
+- **Giant's Cap (SwSh) verification**: its Serebii Pokéarth page 404'd; the
+  shipped encounter list was reconstructed from general knowledge, not a
+  fetched table. Lower confidence than every other area — verify against
+  Serebii/Bulbapedia and correct.
+- **Faint dialog UX**: `TeamBoxTab.tsx` uses `window.prompt("Cause of death
+  (optional)")` — a real user typed the literal word "optional" into it.
+  Replace with an inline form. (Alex's real run has a Bidoof killed by
+  "optional" as evidence.)
+- **Engine event-schema gaps** (deferred, low priority): no event type for
+  editing `houseRules` mid-run (locked at run creation); wipe "reset" has no
+  dedicated status transition (UI emits `run_ended(abandoned)` alongside
+  `wipe_decision(reset)` as a workaround — documented in WipeScreen.tsx).
+- **Sync seq-collision edge case**: two devices appending to the same run
+  while both offline and never-synced can collide on `seq` (documented in
+  `apps/web/src/lib/db.ts`). Full CRDT-style resolution deliberately out of
+  MVP scope.
+- **GitHub Actions secrets** (Alex-only): add `SUPABASE_URL`,
+  `SUPABASE_ANON_KEY`, `SUPABASE_DB_URL` at repo Settings → Secrets →
+  Actions, then manually run both workflows once from the Actions tab
+  (instructions in `supabase/README.md`). Until then, merged PR #13's
+  keep-alive/backup workflows fail silently on schedule.
+
 ## Later phases
 
-Remaining datasets (SwSh -> SV -> PLA), metrics dashboard + timeline, genlocke
-campaigns (champion export/import, availability fallbacks), profiles +
-follows, variants (soul link, monolocke, wedlocke).
+**UX/UI feedback round (NEXT — Alex is evaluating now, 2026-07-03).**
+Remaining datasets (SV -> PLA — deliberately deferred until after the UX
+round), metrics dashboard + timeline, genlocke campaigns (champion
+export/import, availability fallbacks), profiles + follows, variants
+(soul link, monolocke, wedlocke).
 
 ## Standing rules for every PR
 
