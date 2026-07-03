@@ -15,7 +15,10 @@ jobs:
     steps:
       - name: Ping Supabase REST endpoint
         run: |
-          curl -sf "${SUPABASE_URL}/rest/v1/" \
+          # Newer Supabase projects reject publishable/anon keys on the bare
+          # /rest/v1/ root (it's a secret-key-only introspection endpoint) —
+          # ping a real table instead, which publishable keys can query.
+          curl -sf "${SUPABASE_URL}/rest/v1/runs?select=id&limit=1" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
             -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
             -o /dev/null -w "keep-alive ping: HTTP %{http_code}\n"
