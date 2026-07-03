@@ -82,9 +82,24 @@ compatible — existing datasets validate unchanged); at least one game's
 milestones re-authored with full rosters + sources cited; Milestones tab
 shows the roster when present; level-cap math still reads only `aceLevel`.
 
+**11. `feat/swsh-dataset` — Sword/Shield**
+Author SwSh routes + a representative slice of the Wild Area (weather-
+dependent spawns via the existing `conditions.weather` field — no schema
+change needed) from Serebii. Raid dens tagged `methods: ["max-raid"]` on the
+relevant Wild Area sub-zone entries (optional encounter source per the
+product plan — no dedicated raid concept in the schema yet, this is
+deliberately a lightweight fit rather than a new abstraction). Milestones:
+8 gyms + Champion Cup (semi-final + final) + a couple of Hop rival battles,
+mirroring the BDSP dataset's rival-milestone approach from item 10.
+Mechanics: `wildBattles: true, heldItems: true, setModeOption: true,
+raids: true, overworldAggro: false`. Acceptance: validator green; ≥5 routes
++ Wild Area zones cited in the PR description; a rule note or engine test
+covering weather-conditioned encounters (the `conditions.weather` field
+exists in the schema but no dataset has exercised it yet).
+
 ## Later phases
 
-Remaining datasets (SwSh -> SV -> PLA), metrics dashboard + timeline, genlocke
+Remaining datasets (SV -> PLA), metrics dashboard + timeline, genlocke
 campaigns (champion export/import, availability fallbacks), profiles +
 follows, variants (soul link, monolocke, wedlocke).
 
