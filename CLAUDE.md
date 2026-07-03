@@ -58,105 +58,28 @@ Never merge with either failing.
 
 ## Current state (July 2026)
 
-- `main`: Phase 0 + Phase 1 core loop complete. Engine core (first-encounter,
-  dupes by evolution line, level caps, revive tokens, wipe flow, rule-change
-  audit), dataset schema + validator, PokeAPI evolution-line map
-  (`generated/species-lines.json`, 1388 slugs), three full datasets (Z-A 25
-  areas, BDSP 47 areas, LGPE 22 areas), the `apps/web` Vite + React + TS PWA
-  shell, and the five-tab tracker (Areas/Team & Box/Milestones/Rules/Stats +
-  wipe screen) — a full Z-A or BDSP run is trackable end to end offline.
-  Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
-  BACKLOG item 6 (v1 save importer) was dropped — not needed.
-- `main`: `feat/supabase` (PR #11, BACKLOG item 7) merged — accounts +
-  background sync, scoped to just `runs` + `run_events`. Email magic-link
-  auth (`useAuth.ts`, `AuthBar.tsx`). Push-then-pull sync fires after every
-  run mutation and on sign-in (`lib/sync.ts`) — best-effort, swallows
-  network errors, IndexedDB stays authoritative regardless. `appendEvent`'s
-  seq allocation is max+1 (not count+1) so it stays correct after a pull
-  merges in events this device hadn't seen; true concurrent-offline-multi-
-  device seq collision is still a known unsolved edge case. Verified live
-  against a real Supabase project: RLS, push, and pull/merge all confirmed
-  with real data, not mocks. Fixed a real bug found during that testing:
-  `AuthBar` never checked `signInWithOtp`'s `error` field, so a failed
-  request (e.g. rate limiting) silently claimed success.
-- `main`: `feat/share-links` (PR #12, BACKLOG item 8) merged — read-only
-  share links + a realtime spectator view. **Security design, read before
-  touching `supabase/migrations/20260703140000_share_links.sql`**: `runs`/
-  `run_events` keep their existing owner-only RLS completely unchanged —
-  there is deliberately no RLS policy of the form "readable if a share
-  token exists for this run", because that checks whether a run is shared
-  at all, not whether the caller actually knows the token, and would leak
-  every shared run to everyone. The only public read path is
-  `get_shared_run(token)`, a `SECURITY DEFINER` Postgres function that
-  takes the token as a parameter and only returns data for a valid,
-  non-revoked match — the base tables have zero anon-reachable read
-  policies. Live updates use Supabase Realtime **Broadcast** (not
-  `postgres_changes`), specifically because `postgres_changes` subscriptions
-  are gated by the same RLS as regular queries and an anon spectator
-  couldn't subscribe to owner-only tables — Broadcast pings carry no data
-  (just "something changed, refetch"), so they can safely be public without
-  touching the RLS story at all. `apps/web/src/lib/shareLinks.ts` has the
-  client helpers; `screens/tabs/ShareTab.tsx` (owner: create/list/revoke)
-  and `screens/SpectatorView.tsx` (read-only, hash-routed via `#share/
-  <token>` in `App.tsx`, no sign-in required to view). Verified against the
-  real project as a genuinely anonymous caller (plain curl, no session):
-  valid token returns real data, bogus token returns `[]`, direct anon
-  reads of `runs`/`run_events`/`share_tokens` all still return `[]`, and
-  revoking a token immediately makes it return `[]` too. Broadcast verified
-  live: a spectator tab picked up 8 separate updates in real time as new
-  events were logged, with zero manual reloads.
-- `main`: `feat/keep-alive-backups` (PR #13, BACKLOG item 9) merged — two
-  GitHub Actions workflows per `docs/COSTS.md` "Standing safeguards" —
-  `.github/workflows/supabase-keep-alive.yml` (weekly REST ping so the free
-  project never hits the 7-day inactivity pause) and
-  `supabase-nightly-backup.yml` (nightly `pg_dump`, uploaded as a 30-day
-  workflow artifact, so Level 3 of the cost kill switch — downgrade/delete
-  the project — is never a data-loss risk). Both need repo secrets
-  (`SUPABASE_URL`/`SUPABASE_ANON_KEY` for keep-alive, `SUPABASE_DB_URL` —
-  the full Postgres connection string, genuinely sensitive — for backups)
-  added manually at GitHub repo → Settings → Secrets and variables →
-  Actions; see `supabase/README.md` for exactly where to find each value.
-  **Not live-tested at merge time** — adding a secret to a repo isn't
-  something to do without the owner present. Both workflows have
-  `workflow_dispatch` enabled specifically so they can be manually run once
-  from the Actions tab to confirm they work, without waiting for the cron
-  schedule.
-- `main`: `feat/trainer-rosters` (PR #14, BACKLOG item 10) merged —
-  `Milestone` gained an optional `roster` field (schema +
-  `packages/engine/src/types.ts`) — full team (species/level, optionally
-  moves/ability/heldItem), informational only, rendered in
-  `MilestonesTab.tsx`. BDSP's 13 existing milestones got full
-  Serebii-sourced rosters, plus 3 new rival (Barry) battle milestones with
-  their own rosters (`rival-1-barry` etc. — orders renumbered ×10 across
-  the existing 13 to leave integer room, since the schema requires `order`
-  to be an integer). **Known side effect, decision now made (BACKLOG item
-  12, not yet implemented)**: `nextBoss()`/`validateTeam()` treat *any*
-  milestone with a non-null `aceLevel` as a level-cap checkpoint, so the
-  rival battles currently tighten the hardcore cap (Barry ace Lv 9 gates
-  before Roark's 14). Alex decided rivals must be display-only — implement
-  the `countsForLevelCap` flag per BACKLOG item 12. Also BACKLOG item 13:
-  correct BDSP `aceLevel` values to match the sourced rosters.
-- `feat/swsh-dataset` (PR pending open, BACKLOG item 11):
-  `packages/datasets/games/swsh.json` — 27 areas (13 main-story routes/
-  towns/caves + 7 Wild Area sub-zones, deliberately a representative slice
-  rather than all ~20 real sub-zones), 12 milestones (8 gyms in verified
-  Galar order, Champion Cup semi-final + final, 2 rival/Hop battles), 8
-  specials (3 starters + 4 fossil combos + a gift Toxel). First dataset to
-  exercise the schema's `conditions.weather` field (37 slots across 5 Wild
-  Area zones) and the `methods: ["max-raid"]` den-encounter tag (16 slots)
-  — both already supported by the existing schema/engine, no changes
-  needed there. Giant's Cap's encounter list is lower-confidence than the
-  rest (its Serebii page 404'd; reconstructed from general knowledge
-  instead of a fetched table) — flagged in the PR, worth a follow-up
-  verification pass. **Does not yet have `roster` data on its milestones**
-  — `feat/trainer-rosters` (the PR that adds that field) was still
-  unmerged when this dataset was authored, so the schema didn't have the
-  field yet on this branch; the agent correctly declined to add data the
-  schema doesn't support rather than trust a stale instruction. Full
-  gym/rival/champion rosters were gathered from Serebii during this pass
-  but not persisted anywhere — a real follow-up opportunity once
-  `feat/trainer-rosters` lands, either by resuming that research or
-  re-fetching.
+Everything below is on `main` unless noted. History: PRs #3–#19 merged.
+
+- **Engine** (`packages/engine`): event-sourced core with first-encounter,
+  dupes-by-line, level caps, revive tokens, wipe flow, rule-change audit,
+  and `pokemon_updated` (audited edits of nickname/level/heldItem/moves/
+  nature — null clears, partial payloads). 30 tests.
+- **Datasets**: Z-A (25 areas), BDSP (47 areas, 16 milestones incl. 3 Barry
+  rivals w/ full rosters), LGPE (22), SwSh (27, first to use
+  conditions.weather + max-raid method). species-lines.json (1388 slugs).
+- **App** (`apps/web`): five-tab tracker, Supabase sync + magic-link auth +
+  read-only share links w/ realtime spectator (token-gated SECURITY DEFINER
+  RPC — see migration comments before touching), design system w/ 8
+  per-version themes + motion (docs/UX-OVERHAUL.md section A), team
+  profiles + PC box w/ Showdown-CDN sprites (section B, PR #20 open).
+- **UX overhaul in progress**: docs/UX-OVERHAUL.md is the tracker. A+B done;
+  C next (run summary strip, milestone trainer cards, BACKLOG items 12+13 —
+  both DECIDED: countsForLevelCap flag for rivals, aceLevel := max roster
+  level w/ validator guard, SwSh roster backfill); then D (stats charts,
+  share consolidation), E (BDSP schematic routes map + per-route trainers).
+- **Backlog/decisions**: docs/BACKLOG.md items 12-13 + Known gaps section.
+  GitHub Actions secrets still not added by Alex (keep-alive/backup
+  workflows silently failing on schedule until then).
 
 ## Workflow conventions
 
