@@ -11,7 +11,9 @@ Cost policy: `docs/COSTS.md`.
 npm install --workspaces --include-workspace-root   # setup
 npm test                                            # engine tests (vitest)
 npm run validate:datasets                           # schema + referential integrity, must pass in CI
+npm run dev                                         # apps/web dev server (Vite), http://localhost:5173
 node packages/datasets/scripts/port-za.mjs <path>   # regenerate plza.json from v1 data.js
+node packages/datasets/scripts/build-species-lines.mjs  # regenerate generated/species-lines.json from PokeAPI
 ```
 
 CI (`.github/workflows/ci.yml`) runs tests + dataset validation on every push/PR.
@@ -56,14 +58,24 @@ Never merge with either failing.
 
 ## Current state (July 2026)
 
-- `main`: Phase 0 complete — engine core (first-encounter, dupes by evolution
-  line, level caps, revive tokens, wipe flow, rule-change audit), dataset
-  schema + validator, BDSP starter dataset (13 milestones, early-game areas),
-  full Z-A dataset (PR #3, merged: 25 areas, 18 specials, 35 milestones,
-  v1 revive-token economy preserved).
-- `feat/species-lines` (PR #4, CI green, awaiting merge): PokeAPI
-  evolution-line map (`generated/species-lines.json`, 1388 slugs incl.
-  regional forms); engine tests use the real map. BACKLOG item 1 done.
+- `main`: Phase 0 (BACKLOG "Immediate" items 0–3) complete — engine core
+  (first-encounter, dupes by evolution line, level caps, revive tokens, wipe
+  flow, rule-change audit), dataset schema + validator, PokeAPI evolution-line
+  map (`generated/species-lines.json`, 1388 slugs incl. regional forms), and
+  three full datasets: Z-A (25 areas), BDSP (47 areas), LGPE (22 areas).
+- `feat/web-shell` (PR open, BACKLOG item 4): `apps/web` — Vite + React + TS
+  PWA scaffold. Workspace wiring: `apps/web` depends on `@nuzlocke/engine`
+  (bare import, resolved via its `main` field to `src/index.ts` directly — no
+  build step) and `@nuzlocke/datasets` (subpath imports via that package's
+  `exports` map, e.g. `@nuzlocke/datasets/games/bdsp.json`). Event store is
+  IndexedDB via `idb` (`apps/web/src/lib/db.ts`): runs and their append-only
+  event logs persist across reload; `RunView` derives all displayed state
+  through `deriveState()` on every render — nothing is cached or mutated
+  outside the fold. `VITE_SYNC_ENABLED` (`apps/web/src/lib/env.ts`) defaults
+  false; no sync implementation exists yet, this just wires the flag through
+  for Phase 2. Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
+  Next: BACKLOG item 5 (`feat/web-tracker`, the five tabs) builds the actual
+  tracker UI on top of this shell.
 
 ## Workflow conventions
 

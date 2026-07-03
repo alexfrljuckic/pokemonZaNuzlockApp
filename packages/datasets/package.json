@@ -2,6 +2,10 @@
   "name": "@nuzlocke/datasets",
   "version": "0.1.0",
   "type": "module",
+  "exports": {
+    "./games/*.json": "./games/*.json",
+    "./generated/*.json": "./generated/*.json"
+  },
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "build:species-lines": "node scripts/build-species-lines.mjs"
