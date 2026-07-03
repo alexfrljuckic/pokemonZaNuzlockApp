@@ -79,8 +79,8 @@ Never merge with either failing.
   with real data, not mocks. Fixed a real bug found during that testing:
   `AuthBar` never checked `signInWithOtp`'s `error` field, so a failed
   request (e.g. rate limiting) silently claimed success.
-- `feat/share-links` (PR pending open, BACKLOG item 8): read-only share
-  links + a realtime spectator view. **Security design, read before
+- `main`: `feat/share-links` (PR #12, BACKLOG item 8) merged — read-only
+  share links + a realtime spectator view. **Security design, read before
   touching `supabase/migrations/20260703140000_share_links.sql`**: `runs`/
   `run_events` keep their existing owner-only RLS completely unchanged —
   there is deliberately no RLS policy of the form "readable if a share
@@ -105,6 +105,22 @@ Never merge with either failing.
   revoking a token immediately makes it return `[]` too. Broadcast verified
   live: a spectator tab picked up 8 separate updates in real time as new
   events were logged, with zero manual reloads.
+- `main`: `feat/keep-alive-backups` (PR #13, BACKLOG item 9) merged — two
+  GitHub Actions workflows per `docs/COSTS.md` "Standing safeguards" —
+  `.github/workflows/supabase-keep-alive.yml` (weekly REST ping so the free
+  project never hits the 7-day inactivity pause) and
+  `supabase-nightly-backup.yml` (nightly `pg_dump`, uploaded as a 30-day
+  workflow artifact, so Level 3 of the cost kill switch — downgrade/delete
+  the project — is never a data-loss risk). Both need repo secrets
+  (`SUPABASE_URL`/`SUPABASE_ANON_KEY` for keep-alive, `SUPABASE_DB_URL` —
+  the full Postgres connection string, genuinely sensitive — for backups)
+  added manually at GitHub repo → Settings → Secrets and variables →
+  Actions; see `supabase/README.md` for exactly where to find each value.
+  **Not live-tested at merge time** — adding a secret to a repo isn't
+  something to do without the owner present. Both workflows have
+  `workflow_dispatch` enabled specifically so they can be manually run once
+  from the Actions tab to confirm they work, without waiting for the cron
+  schedule.
 - `feat/swsh-dataset` (PR pending open, BACKLOG item 11):
   `packages/datasets/games/swsh.json` — 27 areas (13 main-story routes/
   towns/caves + 7 Wild Area sub-zones, deliberately a representative slice

@@ -3,8 +3,11 @@
 ## Apply the schema
 
 1. Create a project at [supabase.com](https://supabase.com) (free tier is enough — see `docs/COSTS.md`).
-2. Open **SQL Editor** in the dashboard, paste the contents of
-   `migrations/20260703120000_init_runs_and_events.sql`, and run it.
+2. Open **SQL Editor** in the dashboard, paste the contents of each file in
+   `migrations/` **in filename order** (they're timestamp-prefixed), and run
+   each one:
+   - `20260703120000_init_runs_and_events.sql`
+   - `20260703140000_share_links.sql`
 3. If your project was created after May 30, 2026, Supabase requires an
    explicit Postgres grant for the auto-generated Data API before REST calls
    will work — follow the grant step in Supabase's own new-project setup
@@ -23,13 +26,34 @@
 
 ## Scope
 
-This migration covers `runs` + `run_events` only — enough to sync the
-single-run tracker built in `feat/web-tracker`. `campaigns` /
-`campaign_roster` (genlocke) and `share_tokens` (read-only share links) are
-separate BACKLOG items and will ship as their own migrations when those
-features are built, so the schema doesn't get ahead of what the app
-actually does.
+`runs` + `run_events` (sync) and `share_tokens` + `get_shared_run` (read-only
+share links) are live. `campaigns` / `campaign_roster` (genlocke) will ship
+as their own migration when that feature is built, so the schema doesn't get
+ahead of what the app actually does.
 
-Row Level Security is owner-only right now: a user can only read/write their
-own `runs` and the `run_events` that belong to them. No anonymous or public
-access exists yet.
+Row Level Security: `runs`/`run_events` are owner-only, full stop — there is
+no RLS policy anywhere that grants anonymous or cross-user read access to
+them. The *only* public read path is the `get_shared_run(token)` function, a
+`SECURITY DEFINER` RPC that validates the token itself before returning
+anything. See the security comment at the top of
+`migrations/20260703140000_share_links.sql` for why this matters — the
+obvious-looking alternative (an RLS policy keyed on "a share token exists
+for this run") is a real trap that would leak every shared run to everyone.
+
+## GitHub Actions secrets (keep-alive + nightly backup)
+
+Two workflows in `.github/workflows/` need repo secrets to run — add them at
+**GitHub repo → Settings → Secrets and variables → Actions → New repository
+secret**:
+
+| Secret | Used by | Where to find it |
+|---|---|---|
+| `SUPABASE_URL` | `supabase-keep-alive.yml` | Project Settings → API → Project URL |
+| `SUPABASE_ANON_KEY` | `supabase-keep-alive.yml` | Project Settings → API → anon/public key |
+| `SUPABASE_DB_URL` | `supabase-nightly-backup.yml` | Project Settings → Database → Connection string (URI tab). **This one contains your DB password — genuinely sensitive**, unlike the anon key. Never commit it, never paste it anywhere but the GitHub secret field. |
+
+Both workflows have `workflow_dispatch` enabled, so once the secrets are set
+you can trigger a manual run from the **Actions** tab to confirm they work
+without waiting for the schedule (keep-alive: weekly Monday noon UTC;
+backup: nightly 09:00 UTC). Backup artifacts land on the workflow run page
+and are retained 30 days.
