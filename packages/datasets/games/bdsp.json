@@ -738,19 +738,214 @@
     { "id": "fossil-shieldon", "type": "fossil", "species": "shieldon", "area": "oreburgh-mine" }
   ],
   "milestones": [
-    { "id": "gym-1-roark", "name": "Roark (Oreburgh Gym)", "type": "gym", "order": 1, "aceLevel": 14 },
-    { "id": "gym-2-gardenia", "name": "Gardenia (Eterna Gym)", "type": "gym", "order": 2, "aceLevel": 22 },
-    { "id": "gym-3-maylene", "name": "Maylene (Veilstone Gym)", "type": "gym", "order": 3, "aceLevel": 32 },
-    { "id": "gym-4-wake", "name": "Crasher Wake (Pastoria Gym)", "type": "gym", "order": 4, "aceLevel": 34 },
-    { "id": "gym-5-fantina", "name": "Fantina (Hearthome Gym)", "type": "gym", "order": 5, "aceLevel": 38 },
-    { "id": "gym-6-byron", "name": "Byron (Canalave Gym)", "type": "gym", "order": 6, "aceLevel": 41 },
-    { "id": "gym-7-candice", "name": "Candice (Snowpoint Gym)", "type": "gym", "order": 7, "aceLevel": 44 },
-    { "id": "gym-8-volkner", "name": "Volkner (Sunyshore Gym)", "type": "gym", "order": 8, "aceLevel": 49 },
-    { "id": "e4-aaron", "name": "Elite Four Aaron", "type": "elite-four", "order": 9, "aceLevel": 53 },
-    { "id": "e4-bertha", "name": "Elite Four Bertha", "type": "elite-four", "order": 10, "aceLevel": 55 },
-    { "id": "e4-flint", "name": "Elite Four Flint", "type": "elite-four", "order": 11, "aceLevel": 57 },
-    { "id": "e4-lucian", "name": "Elite Four Lucian", "type": "elite-four", "order": 12, "aceLevel": 59 },
-    { "id": "champion-cynthia", "name": "Champion Cynthia", "type": "champion", "order": 13, "aceLevel": 66 }
+    {
+      "id": "rival-1-barry",
+      "name": "Barry (Route 203)",
+      "type": "rival",
+      "order": 5,
+      "aceLevel": 9,
+      "roster": [
+        { "species": "starly", "level": 7 },
+        { "species": "piplup", "level": 9 }
+      ]
+    },
+    {
+      "id": "gym-1-roark",
+      "name": "Roark (Oreburgh Gym)",
+      "type": "gym",
+      "order": 10,
+      "aceLevel": 14,
+      "roster": [
+        { "species": "geodude", "level": 12 },
+        { "species": "onix", "level": 12 },
+        { "species": "cranidos", "level": 14 }
+      ]
+    },
+    {
+      "id": "gym-2-gardenia",
+      "name": "Gardenia (Eterna Gym)",
+      "type": "gym",
+      "order": 20,
+      "aceLevel": 22,
+      "roster": [
+        { "species": "cherubi", "level": 19 },
+        { "species": "turtwig", "level": 19 },
+        { "species": "roserade", "level": 22 }
+      ]
+    },
+    {
+      "id": "gym-3-maylene",
+      "name": "Maylene (Veilstone Gym)",
+      "type": "gym",
+      "order": 30,
+      "aceLevel": 32,
+      "roster": [
+        { "species": "meditite", "level": 27 },
+        { "species": "machoke", "level": 27 },
+        { "species": "lucario", "level": 30 }
+      ]
+    },
+    {
+      "id": "gym-4-wake",
+      "name": "Crasher Wake (Pastoria Gym)",
+      "type": "gym",
+      "order": 40,
+      "aceLevel": 34,
+      "roster": [
+        { "species": "gyarados", "level": 27 },
+        { "species": "quagsire", "level": 27 },
+        { "species": "floatzel", "level": 30 }
+      ]
+    },
+    {
+      "id": "rival-2-barry",
+      "name": "Barry (Pastoria City)",
+      "type": "rival",
+      "order": 45,
+      "aceLevel": 31,
+      "roster": [
+        { "species": "starly", "level": 26 },
+        { "species": "roselia", "level": 26 },
+        { "species": "ponyta", "level": 27 },
+        { "species": "prinplup", "level": 31 }
+      ]
+    },
+    {
+      "id": "gym-5-fantina",
+      "name": "Fantina (Hearthome Gym)",
+      "type": "gym",
+      "order": 50,
+      "aceLevel": 38,
+      "roster": [
+        { "species": "drifblim", "level": 32 },
+        { "species": "gengar", "level": 34 },
+        { "species": "mismagius", "level": 36 }
+      ]
+    },
+    {
+      "id": "gym-6-byron",
+      "name": "Byron (Canalave Gym)",
+      "type": "gym",
+      "order": 60,
+      "aceLevel": 41,
+      "roster": [
+        { "species": "bronzor", "level": 36 },
+        { "species": "steelix", "level": 36 },
+        { "species": "bastiodon", "level": 39 }
+      ]
+    },
+    {
+      "id": "gym-7-candice",
+      "name": "Candice (Snowpoint Gym)",
+      "type": "gym",
+      "order": 70,
+      "aceLevel": 44,
+      "roster": [
+        { "species": "snover", "level": 38 },
+        { "species": "sneasel", "level": 38 },
+        { "species": "medicham", "level": 40 },
+        { "species": "abomasnow", "level": 42 }
+      ]
+    },
+    {
+      "id": "gym-8-volkner",
+      "name": "Volkner (Sunyshore Gym)",
+      "type": "gym",
+      "order": 80,
+      "aceLevel": 49,
+      "roster": [
+        { "species": "raichu", "level": 46 },
+        { "species": "ambipom", "level": 47 },
+        { "species": "octillery", "level": 47 },
+        { "species": "luxray", "level": 49 }
+      ]
+    },
+    {
+      "id": "e4-aaron",
+      "name": "Elite Four Aaron",
+      "type": "elite-four",
+      "order": 90,
+      "aceLevel": 53,
+      "roster": [
+        { "species": "dustox", "level": 53 },
+        { "species": "beautifly", "level": 53 },
+        { "species": "vespiquen", "level": 54 },
+        { "species": "heracross", "level": 54 },
+        { "species": "drapion", "level": 57 }
+      ]
+    },
+    {
+      "id": "e4-bertha",
+      "name": "Elite Four Bertha",
+      "type": "elite-four",
+      "order": 100,
+      "aceLevel": 55,
+      "roster": [
+        { "species": "quagsire", "level": 55 },
+        { "species": "sudowoodo", "level": 56 },
+        { "species": "golem", "level": 56 },
+        { "species": "whiscash", "level": 55 },
+        { "species": "hippowdon", "level": 59 }
+      ]
+    },
+    {
+      "id": "e4-flint",
+      "name": "Elite Four Flint",
+      "type": "elite-four",
+      "order": 110,
+      "aceLevel": 57,
+      "roster": [
+        { "species": "rapidash", "level": 58 },
+        { "species": "steelix", "level": 57 },
+        { "species": "drifblim", "level": 58 },
+        { "species": "lopunny", "level": 57 },
+        { "species": "infernape", "level": 61 }
+      ]
+    },
+    {
+      "id": "e4-lucian",
+      "name": "Elite Four Lucian",
+      "type": "elite-four",
+      "order": 120,
+      "aceLevel": 59,
+      "roster": [
+        { "species": "mr-mime", "level": 59 },
+        { "species": "girafarig", "level": 59 },
+        { "species": "medicham", "level": 60 },
+        { "species": "alakazam", "level": 60 },
+        { "species": "bronzong", "level": 63 }
+      ]
+    },
+    {
+      "id": "rival-3-barry",
+      "name": "Barry (Pokémon League)",
+      "type": "rival",
+      "order": 125,
+      "aceLevel": 55,
+      "roster": [
+        { "species": "staraptor", "level": 49 },
+        { "species": "roserade", "level": 49 },
+        { "species": "heracross", "level": 51 },
+        { "species": "rapidash", "level": 49 },
+        { "species": "snorlax", "level": 52 },
+        { "species": "empoleon", "level": 55 }
+      ]
+    },
+    {
+      "id": "champion-cynthia",
+      "name": "Champion Cynthia",
+      "type": "champion",
+      "order": 130,
+      "aceLevel": 66,
+      "roster": [
+        { "species": "spiritomb", "level": 61 },
+        { "species": "roserade", "level": 60 },
+        { "species": "gastrodon", "level": 60 },
+        { "species": "lucario", "level": 63 },
+        { "species": "milotic", "level": 63 },
+        { "species": "garchomp", "level": 66 }
+      ]
+    }
   ],
   "mechanics": {
     "heldItems": true,

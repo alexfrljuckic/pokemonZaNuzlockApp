@@ -105,23 +105,42 @@ Never merge with either failing.
   revoking a token immediately makes it return `[]` too. Broadcast verified
   live: a spectator tab picked up 8 separate updates in real time as new
   events were logged, with zero manual reloads.
-- `feat/keep-alive-backups` (PR pending open, BACKLOG item 9): two GitHub
-  Actions workflows per `docs/COSTS.md` "Standing safeguards" —
+- `main`: `feat/keep-alive-backups` (PR #13, BACKLOG item 9) merged — two
+  GitHub Actions workflows per `docs/COSTS.md` "Standing safeguards" —
   `.github/workflows/supabase-keep-alive.yml` (weekly REST ping so the free
   project never hits the 7-day inactivity pause) and
   `supabase-nightly-backup.yml` (nightly `pg_dump`, uploaded as a 30-day
   workflow artifact, so Level 3 of the cost kill switch — downgrade/delete
   the project — is never a data-loss risk). Both need repo secrets
-  (`SUPABASE_URL`/`SUPABASE_ANON_KEY` for keep-alive,
-  `SUPABASE_DB_URL` — the full Postgres connection string, genuinely
-  sensitive — for backups) added manually at GitHub repo → Settings →
-  Secrets and variables → Actions; see `supabase/README.md` for exactly
-  where to find each value. **Not live-tested** — adding a secret to a repo
-  isn't something to do without the owner present, and there was no secret
-  available to test against during this pass. Both workflows have
+  (`SUPABASE_URL`/`SUPABASE_ANON_KEY` for keep-alive, `SUPABASE_DB_URL` —
+  the full Postgres connection string, genuinely sensitive — for backups)
+  added manually at GitHub repo → Settings → Secrets and variables →
+  Actions; see `supabase/README.md` for exactly where to find each value.
+  **Not live-tested at merge time** — adding a secret to a repo isn't
+  something to do without the owner present. Both workflows have
   `workflow_dispatch` enabled specifically so they can be manually run once
   from the Actions tab to confirm they work, without waiting for the cron
   schedule.
+- `feat/trainer-rosters` (PR pending open, BACKLOG item 10): `Milestone`
+  gained an optional `roster` field (schema + `packages/engine/src/types.ts`)
+  — full team (species/level, optionally moves/ability/heldItem),
+  informational only, rendered in `MilestonesTab.tsx`. BDSP's 13 existing
+  milestones got full Serebii-sourced rosters, plus 3 new rival (Barry)
+  battle milestones with their own rosters (`rival-1-barry` etc. — orders
+  renumbered ×10 across the existing 13 to leave integer room, since the
+  schema requires `order` to be an integer).
+  **Known side effect worth deciding on, not yet resolved**: `nextBoss()`/
+  `validateTeam()` in `packages/engine/src/rules/index.ts` treat *any*
+  milestone with a non-null `aceLevel` as a level-cap checkpoint — there is
+  no field to mark an `aceLevel` as display-only. Adding the rival battles'
+  ace levels means the hardcore preset's enforced level cap now silently
+  checkpoints on them too: verified live that `nextBoss()` on a fresh BDSP
+  run now returns Barry's first fight (ace Lv 9) instead of Roark (ace Lv
+  14), meaningfully tightening the early-game cap versus before this PR.
+  Flagged for a deliberate decision (spawned as a follow-up task) rather
+  than silently shipped: either this is the desired behavior, or the engine
+  needs a `countsForLevelCap` (or similar) flag to decouple "has a
+  displayable ace level" from "gates the enforced cap."
 
 ## Workflow conventions
 

@@ -216,6 +216,26 @@ button:disabled {
   font-size: 0.8rem;
 }
 
+/* When a milestone row has a roster line under it, the border moves to the
+   wrapper so it separates whole groups instead of splitting a row from its
+   own roster text. Bare .milestone-row usage (e.g. SpectatorView's cleared-
+   milestones list) is unaffected and keeps its own border. */
+.milestone-row-wrap .milestone-row {
+  border-bottom: none;
+}
+
+.milestone-row-wrap {
+  border-bottom: 1px solid #30363d;
+}
+
+.milestone-row-wrap:last-child {
+  border-bottom: none;
+}
+
+.milestone-roster {
+  padding-bottom: 0.4rem;
+}
+
 .violations {
   margin-bottom: 1rem;
 }
