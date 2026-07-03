@@ -48,10 +48,8 @@ toggles + params + house rules; mid-run changes emit `rule_changed`), Stats
 (from the event log). Wipe screen when `pendingWipeDecision(state)`.
 Acceptance: full Z-A and BDSP runs trackable end to end offline.
 
-**6. `feat/v1-import` — migrate pokemonZaNuzlockApp saves**
-Importer for v1 localStorage/JSONBin JSON -> event log (synthesize events from
-v1 state; imported runs flagged). Acceptance: a real v1 save round-trips into
-a working run.
+**6. ~~`feat/v1-import` — migrate pokemonZaNuzlockApp saves~~ — Dropped**
+(2026-07-03) — not needed; v1 runs aren't being carried forward.
 
 ## Phase 2 — accounts, sync, sharing (needs Supabase project)
 
