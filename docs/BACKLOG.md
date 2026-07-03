@@ -61,6 +61,29 @@ gate verified. **8. `feat/share-links`** — share tokens, read-only RLS,
 realtime spectator view, wipe + rule-change audit visible. **9. keep-alive +
 nightly pg_dump GitHub Actions** per `docs/COSTS.md`.
 
+**10. `feat/trainer-rosters` — track full battle rosters, not just ace level (TODO, needs scoping)**
+Gap noticed while building the tracker: `Milestone` (`packages/datasets/schema/game.schema.json`)
+only carries a single `aceLevel` number per boss. Two things are missing for
+real nuzlocke play:
+  - *Which battles count as milestones at all.* Datasets currently only
+    model gym/noble/promotion + Elite Four + champion fights. Depending on
+    ruleset, rival battles, evil-team boss fights, and other notable story
+    battles are also commonly tracked (some rulesets key level caps or
+    "boss battle" honor rules off them) — needs a per-game curation pass to
+    decide which non-gym/E4/champion battles become milestones, cited like
+    any other dataset content.
+  - *Full team rosters, not just the ace.* Players plan around a boss's
+    whole team (species, level, moves, ability, held item), not just the
+    ace's level. `aceLevel` should stay as-is (the level-cap rule already
+    keys off it — don't change its meaning), but milestones need an
+    additional optional `roster` field (array of
+    `{ species, level, moves?, ability?, heldItem? }`) for informational
+    display in the Milestones tab.
+Acceptance: schema + validator updated (roster optional, backward
+compatible — existing datasets validate unchanged); at least one game's
+milestones re-authored with full rosters + sources cited; Milestones tab
+shows the roster when present; level-cap math still reads only `aceLevel`.
+
 ## Later phases
 
 Remaining datasets (SwSh -> SV -> PLA), metrics dashboard + timeline, genlocke
