@@ -121,26 +121,42 @@ Never merge with either failing.
   `workflow_dispatch` enabled specifically so they can be manually run once
   from the Actions tab to confirm they work, without waiting for the cron
   schedule.
-- `feat/trainer-rosters` (PR pending open, BACKLOG item 10): `Milestone`
-  gained an optional `roster` field (schema + `packages/engine/src/types.ts`)
-  — full team (species/level, optionally moves/ability/heldItem),
-  informational only, rendered in `MilestonesTab.tsx`. BDSP's 13 existing
-  milestones got full Serebii-sourced rosters, plus 3 new rival (Barry)
-  battle milestones with their own rosters (`rival-1-barry` etc. — orders
-  renumbered ×10 across the existing 13 to leave integer room, since the
-  schema requires `order` to be an integer).
-  **Known side effect worth deciding on, not yet resolved**: `nextBoss()`/
-  `validateTeam()` in `packages/engine/src/rules/index.ts` treat *any*
-  milestone with a non-null `aceLevel` as a level-cap checkpoint — there is
-  no field to mark an `aceLevel` as display-only. Adding the rival battles'
-  ace levels means the hardcore preset's enforced level cap now silently
-  checkpoints on them too: verified live that `nextBoss()` on a fresh BDSP
-  run now returns Barry's first fight (ace Lv 9) instead of Roark (ace Lv
-  14), meaningfully tightening the early-game cap versus before this PR.
-  Flagged for a deliberate decision (spawned as a follow-up task) rather
-  than silently shipped: either this is the desired behavior, or the engine
-  needs a `countsForLevelCap` (or similar) flag to decouple "has a
-  displayable ace level" from "gates the enforced cap."
+- `main`: `feat/trainer-rosters` (PR #14, BACKLOG item 10) merged —
+  `Milestone` gained an optional `roster` field (schema +
+  `packages/engine/src/types.ts`) — full team (species/level, optionally
+  moves/ability/heldItem), informational only, rendered in
+  `MilestonesTab.tsx`. BDSP's 13 existing milestones got full
+  Serebii-sourced rosters, plus 3 new rival (Barry) battle milestones with
+  their own rosters (`rival-1-barry` etc. — orders renumbered ×10 across
+  the existing 13 to leave integer room, since the schema requires `order`
+  to be an integer). **Known side effect, decision now made (BACKLOG item
+  12, not yet implemented)**: `nextBoss()`/`validateTeam()` treat *any*
+  milestone with a non-null `aceLevel` as a level-cap checkpoint, so the
+  rival battles currently tighten the hardcore cap (Barry ace Lv 9 gates
+  before Roark's 14). Alex decided rivals must be display-only — implement
+  the `countsForLevelCap` flag per BACKLOG item 12. Also BACKLOG item 13:
+  correct BDSP `aceLevel` values to match the sourced rosters.
+- `feat/swsh-dataset` (PR pending open, BACKLOG item 11):
+  `packages/datasets/games/swsh.json` — 27 areas (13 main-story routes/
+  towns/caves + 7 Wild Area sub-zones, deliberately a representative slice
+  rather than all ~20 real sub-zones), 12 milestones (8 gyms in verified
+  Galar order, Champion Cup semi-final + final, 2 rival/Hop battles), 8
+  specials (3 starters + 4 fossil combos + a gift Toxel). First dataset to
+  exercise the schema's `conditions.weather` field (37 slots across 5 Wild
+  Area zones) and the `methods: ["max-raid"]` den-encounter tag (16 slots)
+  — both already supported by the existing schema/engine, no changes
+  needed there. Giant's Cap's encounter list is lower-confidence than the
+  rest (its Serebii page 404'd; reconstructed from general knowledge
+  instead of a fetched table) — flagged in the PR, worth a follow-up
+  verification pass. **Does not yet have `roster` data on its milestones**
+  — `feat/trainer-rosters` (the PR that adds that field) was still
+  unmerged when this dataset was authored, so the schema didn't have the
+  field yet on this branch; the agent correctly declined to add data the
+  schema doesn't support rather than trust a stale instruction. Full
+  gym/rival/champion rosters were gathered from Serebii during this pass
+  but not persisted anywhere — a real follow-up opportunity once
+  `feat/trainer-rosters` lands, either by resuming that research or
+  re-fetching.
 
 ## Workflow conventions
 
