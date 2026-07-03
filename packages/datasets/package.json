@@ -2,6 +2,9 @@
   "name": "@nuzlocke/datasets",
   "version": "0.1.0",
   "type": "module",
-  "scripts": { "validate": "node scripts/validate.mjs" },
+  "scripts": {
+    "validate": "node scripts/validate.mjs",
+    "build:species-lines": "node scripts/build-species-lines.mjs"
+  },
   "devDependencies": { "ajv": "^8.17.0", "ajv-formats": "^3.0.0" }
 }

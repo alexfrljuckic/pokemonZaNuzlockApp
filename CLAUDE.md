@@ -58,10 +58,12 @@ Never merge with either failing.
 
 - `main`: Phase 0 complete — engine core (first-encounter, dupes by evolution
   line, level caps, revive tokens, wipe flow, rule-change audit), dataset
-  schema + validator, BDSP starter dataset (13 milestones, early-game areas).
-- `feat/plza-dataset` (open PR candidate): Z-A port script + full plza.json
-  (25 areas, 18 specials, 35 milestones, v1 revive-token economy preserved)
-  + engine tests against the real data. 10/10 tests green on the branch.
+  schema + validator, BDSP starter dataset (13 milestones, early-game areas),
+  full Z-A dataset (PR #3, merged: 25 areas, 18 specials, 35 milestones,
+  v1 revive-token economy preserved).
+- `feat/species-lines` (PR #4, CI green, awaiting merge): PokeAPI
+  evolution-line map (`generated/species-lines.json`, 1388 slugs incl.
+  regional forms); engine tests use the real map. BACKLOG item 1 done.
 
 ## Workflow conventions
 
