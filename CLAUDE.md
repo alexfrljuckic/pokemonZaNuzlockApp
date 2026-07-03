@@ -105,13 +105,22 @@ Never merge with either failing.
   revoking a token immediately makes it return `[]` too. Broadcast verified
   live: a spectator tab picked up 8 separate updates in real time as new
   events were logged, with zero manual reloads.
-- `feat/keep-alive-backups` (PR #13 open, CI green, BACKLOG item 9): two
-  GitHub Actions workflows, `.github/workflows/supabase-keep-alive.yml`
-  (weekly ping) and `supabase-nightly-backup.yml` (nightly `pg_dump`
-  artifact). Not live-tested — needs repo secrets added manually
-  (`SUPABASE_URL`/`SUPABASE_ANON_KEY`/`SUPABASE_DB_URL`, see
-  `supabase/README.md` for where to find each); both have
-  `workflow_dispatch` for a manual test run once secrets exist.
+- `main`: `feat/keep-alive-backups` (PR #13, BACKLOG item 9) merged — two
+  GitHub Actions workflows per `docs/COSTS.md` "Standing safeguards" —
+  `.github/workflows/supabase-keep-alive.yml` (weekly REST ping so the free
+  project never hits the 7-day inactivity pause) and
+  `supabase-nightly-backup.yml` (nightly `pg_dump`, uploaded as a 30-day
+  workflow artifact, so Level 3 of the cost kill switch — downgrade/delete
+  the project — is never a data-loss risk). Both need repo secrets
+  (`SUPABASE_URL`/`SUPABASE_ANON_KEY` for keep-alive, `SUPABASE_DB_URL` —
+  the full Postgres connection string, genuinely sensitive — for backups)
+  added manually at GitHub repo → Settings → Secrets and variables →
+  Actions; see `supabase/README.md` for exactly where to find each value.
+  **Not live-tested at merge time** — adding a secret to a repo isn't
+  something to do without the owner present. Both workflows have
+  `workflow_dispatch` enabled specifically so they can be manually run once
+  from the Actions tab to confirm they work, without waiting for the cron
+  schedule.
 - `feat/trainer-rosters` (PR pending open, BACKLOG item 10): `Milestone`
   gained an optional `roster` field (schema + `packages/engine/src/types.ts`)
   — full team (species/level, optionally moves/ability/heldItem),
