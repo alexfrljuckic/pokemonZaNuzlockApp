@@ -1,11 +1,20 @@
 import { useEffect, useMemo, useState } from 'react';
-import { deriveState, type RunEvent } from '@nuzlocke/engine';
+import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
-import { appendEvent, loadEvents, type RunSummary } from '../lib/db';
+import { loadEvents, type RunSummary } from '../lib/db';
+import { AreasTab } from './tabs/AreasTab';
+import { TeamBoxTab } from './tabs/TeamBoxTab';
+import { MilestonesTab } from './tabs/MilestonesTab';
+import { RulesTab } from './tabs/RulesTab';
+import { StatsTab } from './tabs/StatsTab';
+import { WipeScreen } from './WipeScreen';
+
+const TABS = ['Areas', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
+type Tab = (typeof TABS)[number];
 
 export function RunView({ run, onBack }: { run: RunSummary; onBack: () => void }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
-  const [note, setNote] = useState('');
+  const [tab, setTab] = useState<Tab>('Areas');
 
   async function refresh() {
     setEvents(await loadEvents(run.id));
@@ -18,18 +27,19 @@ export function RunView({ run, onBack }: { run: RunSummary; onBack: () => void }
 
   const ctx = useMemo(() => ({ dataset: DATASETS[run.gameId], speciesToLine }), [run.gameId]);
 
-  // The engine's deriveState is the ONLY place run state is computed — nothing
-  // here stores or mutates derived fields; a reload just replays the same events.
+  // The engine's deriveState is the ONLY place run state is computed — nothing here
+  // stores or mutates derived fields; every render replays the same events fresh.
   const state = useMemo(() => (events.length ? deriveState(events, ctx) : null), [events, ctx]);
 
-  async function handleAddNote() {
-    if (!note.trim()) return;
-    await appendEvent(run.id, { type: 'note', payload: { text: note.trim() } });
-    setNote('');
-    await refresh();
+  if (!state) {
+    return (
+      <button className="secondary" onClick={onBack}>
+        ← Back to runs
+      </button>
+    );
   }
 
-  const party = state ? Object.values(state.pokemon).filter((p) => p.status === 'party') : [];
+  const showWipeScreen = pendingWipeDecision(state);
 
   return (
     <>
@@ -40,41 +50,34 @@ export function RunView({ run, onBack }: { run: RunSummary; onBack: () => void }
       <section>
         <h2>{ctx.dataset?.name ?? run.gameId}</h2>
         <p className="muted">
-          {run.version} · preset {state?.ruleset.presetId} ·{' '}
-          <span className={`status-${state?.status}`}>{state?.status}</span>
-        </p>
-        <p className="muted">
-          Party: {party.length ? party.map((p) => `${p.nickname} (Lv ${p.level})`).join(', ') : 'none yet'}
+          {run.version} · preset {state.ruleset.presetId} ·{' '}
+          <span className={`status-${state.status}`}>{state.status}</span>
         </p>
       </section>
 
-      <section>
-        <h2>Log a note</h2>
-        <p className="muted">
-          Appends a `note` event to this run's log and reloads it from IndexedDB — proves events survive a
-          page refresh.
-        </p>
-        <input
-          type="text"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-          placeholder="e.g. reached Route 203"
-        />
-        <button onClick={handleAddNote} disabled={!note.trim()}>
-          Add note
-        </button>
-      </section>
+      {showWipeScreen ? (
+        <WipeScreen runId={run.id} onResolved={refresh} />
+      ) : (
+        <>
+          <nav className="tabs">
+            {TABS.map((t) => (
+              <button
+                key={t}
+                className={t === tab ? '' : 'secondary'}
+                onClick={() => setTab(t)}
+              >
+                {t}
+              </button>
+            ))}
+          </nav>
 
-      <section>
-        <h2>Event log ({events.length})</h2>
-        <div className="event-log">
-          {events.map((ev) => (
-            <div key={ev.seq}>
-              #{ev.seq} {ev.type} — {new Date(ev.at).toLocaleTimeString()}
-            </div>
-          ))}
-        </div>
-      </section>
+          {tab === 'Areas' && <AreasTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Milestones' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} />}
+        </>
+      )}
     </>
   );
 }

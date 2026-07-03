@@ -19,6 +19,7 @@ export function RunPicker({
   const game = games.find((g) => g.gameId === gameId) ?? games[0];
   const [version, setVersion] = useState(game?.versions[0] ?? '');
   const [preset, setPreset] = useState<(typeof PRESETS)[number]>('standard');
+  const [houseRulesText, setHouseRulesText] = useState('');
   const [creating, setCreating] = useState(false);
 
   function handleGameChange(id: string) {
@@ -32,6 +33,10 @@ export function RunPicker({
     setCreating(true);
     try {
       const ruleset = buildRuleset(preset, gameId);
+      ruleset.houseRules = houseRulesText
+        .split('\n')
+        .map((l) => l.trim())
+        .filter(Boolean);
       const runId = await createRun(gameId, version, ruleset);
       onCreated(runId);
     } finally {
@@ -83,6 +88,15 @@ export function RunPicker({
             </option>
           ))}
         </select>
+
+        <label htmlFor="house-rules">House rules (optional, one per line — honor rules, shown but not enforced)</label>
+        <textarea
+          id="house-rules"
+          rows={3}
+          value={houseRulesText}
+          onChange={(e) => setHouseRulesText(e.target.value)}
+          placeholder="e.g. no legendaries&#10;shiny clause"
+        />
 
         <button onClick={handleCreate} disabled={creating || !game}>
           {creating ? 'Starting…' : 'Start Run'}
