@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
+import type { Session } from '@supabase/supabase-js';
 import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { loadEvents, type RunSummary } from '../lib/db';
+import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
 import { AreasTab } from './tabs/AreasTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
@@ -12,12 +14,31 @@ import { WipeScreen } from './WipeScreen';
 const TABS = ['Areas', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
-export function RunView({ run, onBack }: { run: RunSummary; onBack: () => void }) {
+export function RunView({
+  run,
+  session,
+  onBack,
+}: {
+  run: RunSummary;
+  session: Session | null;
+  onBack: () => void;
+}) {
   const [events, setEvents] = useState<RunEvent[]>([]);
   const [tab, setTab] = useState<Tab>('Areas');
 
   async function refresh() {
     setEvents(await loadEvents(run.id));
+    // Best-effort background sync: push local changes, pull anything new from
+    // other devices, then re-read if the pull actually added events. Network
+    // failures are swallowed — IndexedDB stays the source of truth regardless,
+    // per the local-first invariant (nothing here can break offline use).
+    if (SYNC_AVAILABLE && session) {
+      syncRun(run, session.user.id)
+        .then(async (changed) => {
+          if (changed) setEvents(await loadEvents(run.id));
+        })
+        .catch(() => {});
+    }
   }
 
   useEffect(() => {

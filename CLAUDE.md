@@ -58,39 +58,37 @@ Never merge with either failing.
 
 ## Current state (July 2026)
 
-- `main`: Phase 0 (BACKLOG "Immediate" items 0–3) complete — engine core
-  (first-encounter, dupes by evolution line, level caps, revive tokens, wipe
-  flow, rule-change audit), dataset schema + validator, PokeAPI evolution-line
-  map (`generated/species-lines.json`, 1388 slugs incl. regional forms), and
-  three full datasets: Z-A (25 areas), BDSP (47 areas), LGPE (22 areas).
-- `main`: `feat/web-shell` (PR #7) merged — `apps/web` Vite + React + TS PWA
-  scaffold. Workspace wiring: `apps/web` depends on `@nuzlocke/engine` (bare
-  import, resolved via its `main` field to `src/index.ts` directly — no build
-  step) and `@nuzlocke/datasets` (subpath imports via that package's `exports`
-  map, e.g. `@nuzlocke/datasets/games/bdsp.json`). Event store is IndexedDB
-  via `idb` (`apps/web/src/lib/db.ts`). `VITE_SYNC_ENABLED`
-  (`apps/web/src/lib/env.ts`) defaults false; no sync implementation exists
-  yet. Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
-- `feat/web-tracker` (PR open, BACKLOG item 5): the five tabs on top of
-  `RunView` — Areas (`tabs/AreasTab.tsx`, resolves encounters via
-  `filterEncounterPool` + `encounter_resolved` events), Team & Box
-  (`tabs/TeamBoxTab.tsx`, party/box/graveyard with `moved`/`faint`/`revive`),
-  Milestones (`tabs/MilestonesTab.tsx`, `nextBoss`/`validateTeam` violations,
-  `milestone_cleared`, victory declaration), Rules (`tabs/RulesTab.tsx`, live
-  toggles + level-cap/dupes-clause params via `rule_changed` events — house
-  rules are authored once at run creation in `RunPicker`, since the event
-  schema has no event type for editing `houseRules` mid-run), Stats
-  (`tabs/StatsTab.tsx`, pure aggregation over `events`/`state`, no new
-  storage). `WipeScreen.tsx` takes over the whole tab area whenever
-  `pendingWipeDecision(state)` is true; "continue" emits `wipe_decision`,
-  "end this run" additionally emits `run_ended(abandoned)` since the engine
-  has no dedicated status transition for a reset decision. Every tab is
-  dataset-agnostic (reads only `ctx.dataset`), so the same code drives Z-A,
-  BDSP, and LGPE. Verified end-to-end in-browser, not just type-checked: full
-  Z-A run (catch → milestone clear → token grant → wipe → continue → revive)
-  and a BDSP hardcore run (level-cap violation against the correct next-boss
-  ace, clearing that boss shifts the violation to the next one) — all
-  reloaded and re-verified from IndexedDB.
+- `main`: Phase 0 + Phase 1 core loop complete. Engine core (first-encounter,
+  dupes by evolution line, level caps, revive tokens, wipe flow, rule-change
+  audit), dataset schema + validator, PokeAPI evolution-line map
+  (`generated/species-lines.json`, 1388 slugs), three full datasets (Z-A 25
+  areas, BDSP 47 areas, LGPE 22 areas), the `apps/web` Vite + React + TS PWA
+  shell, and the five-tab tracker (Areas/Team & Box/Milestones/Rules/Stats +
+  wipe screen) — a full Z-A or BDSP run is trackable end to end offline.
+  Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
+  BACKLOG item 6 (v1 save importer) was dropped — not needed.
+- `feat/supabase` (PR pending open, BACKLOG item 7): accounts + background
+  sync, scoped to just what the tracker needs today (`runs` + `run_events`;
+  campaigns/share-links get their own migrations later — see
+  `supabase/README.md`). Email magic-link auth (`useAuth.ts`, `AuthBar.tsx`).
+  Push-then-pull sync fires after every run mutation and on sign-in
+  (`lib/sync.ts`) — best-effort, swallows network errors, IndexedDB stays
+  authoritative regardless (local-first invariant holds). `appendEvent`'s seq
+  allocation changed from count+1 to max+1 so it stays correct after a pull
+  merges in events this device hadn't seen; true concurrent-offline-multi-
+  device seq collision is still a known unsolved edge case.
+  **Verified against a real Supabase project, not just locally**: RLS
+  confirmed via an anon-key REST call returning `[]` (structurally valid,
+  correctly empty for an unauthenticated caller); push confirmed by
+  inspecting real rows in the dashboard after a live session (6 events,
+  correct order, correct JSONB payloads); pull/merge confirmed by manually
+  loading that exact real event data into a browser that had never seen the
+  run and confirming `deriveState` reconstructed identical state
+  (`wiped-continuing`, both milestones cleared, Bidoof in the graveyard).
+  Found and fixed a real bug during this testing: `AuthBar`'s sign-in handler
+  never checked `signInWithOtp`'s returned `error` field, so a failed
+  request (e.g. Supabase's email rate limit) silently showed "check your
+  email" even though nothing was sent — now surfaces the real error.
 
 ## Workflow conventions
 
