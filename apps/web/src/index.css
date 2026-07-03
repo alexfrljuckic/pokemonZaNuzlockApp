@@ -51,7 +51,9 @@ label {
 }
 
 select,
-input[type='text'] {
+input[type='text'],
+input[type='number'],
+textarea {
   width: 100%;
   box-sizing: border-box;
   background: #0d1117;
@@ -60,6 +62,11 @@ input[type='text'] {
   border-radius: 6px;
   padding: 0.5rem;
   margin-top: 0.25rem;
+  font-family: inherit;
+}
+
+input[type='number'] {
+  width: auto;
 }
 
 button {
@@ -121,3 +128,131 @@ button:disabled {
 .status-victory { color: #d29922; }
 .status-wiped-continuing { color: #f0883e; }
 .status-abandoned { color: #8b949e; }
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.tabs button {
+  margin-top: 0;
+}
+
+.area-row {
+  border-bottom: 1px solid #30363d;
+  padding: 0.5rem 0;
+}
+
+.area-row:last-child {
+  border-bottom: none;
+}
+
+.area-row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.encounter-form {
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  background: #0d1117;
+  border-radius: 6px;
+}
+
+.encounter-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.encounter-actions button {
+  margin-top: 0;
+  flex: 1;
+}
+
+.pokemon-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #30363d;
+  flex-wrap: wrap;
+}
+
+.pokemon-card:last-child {
+  border-bottom: none;
+}
+
+.pokemon-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.pokemon-actions button {
+  margin-top: 0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.milestone-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #30363d;
+}
+
+.milestone-row:last-child {
+  border-bottom: none;
+}
+
+.milestone-row button {
+  margin-top: 0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+.violations {
+  margin-bottom: 1rem;
+}
+
+.violation {
+  color: #f85149;
+  font-size: 0.85rem;
+  padding: 0.3rem 0;
+}
+
+.rule-row {
+  border-bottom: 1px solid #30363d;
+  padding: 0.6rem 0;
+}
+
+.rule-row:last-child {
+  border-bottom: none;
+}
+
+.rule-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #e6edf3;
+  font-size: 0.95rem;
+}
+
+.rule-toggle input {
+  margin: 0;
+}
+
+.wipe-screen {
+  background: #2d0e0e;
+  border-color: #f85149;
+  text-align: center;
+}
+
+.outcome-caught { color: #3fb950; font-size: 0.85rem; }
+.outcome-failed { color: #f85149; font-size: 0.85rem; }
+.outcome-skipped { color: #8b949e; font-size: 0.85rem; }

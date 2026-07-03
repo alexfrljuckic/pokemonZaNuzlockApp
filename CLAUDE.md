@@ -63,19 +63,34 @@ Never merge with either failing.
   flow, rule-change audit), dataset schema + validator, PokeAPI evolution-line
   map (`generated/species-lines.json`, 1388 slugs incl. regional forms), and
   three full datasets: Z-A (25 areas), BDSP (47 areas), LGPE (22 areas).
-- `feat/web-shell` (PR open, BACKLOG item 4): `apps/web` — Vite + React + TS
-  PWA scaffold. Workspace wiring: `apps/web` depends on `@nuzlocke/engine`
-  (bare import, resolved via its `main` field to `src/index.ts` directly — no
-  build step) and `@nuzlocke/datasets` (subpath imports via that package's
-  `exports` map, e.g. `@nuzlocke/datasets/games/bdsp.json`). Event store is
-  IndexedDB via `idb` (`apps/web/src/lib/db.ts`): runs and their append-only
-  event logs persist across reload; `RunView` derives all displayed state
-  through `deriveState()` on every render — nothing is cached or mutated
-  outside the fold. `VITE_SYNC_ENABLED` (`apps/web/src/lib/env.ts`) defaults
-  false; no sync implementation exists yet, this just wires the flag through
-  for Phase 2. Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
-  Next: BACKLOG item 5 (`feat/web-tracker`, the five tabs) builds the actual
-  tracker UI on top of this shell.
+- `main`: `feat/web-shell` (PR #7) merged — `apps/web` Vite + React + TS PWA
+  scaffold. Workspace wiring: `apps/web` depends on `@nuzlocke/engine` (bare
+  import, resolved via its `main` field to `src/index.ts` directly — no build
+  step) and `@nuzlocke/datasets` (subpath imports via that package's `exports`
+  map, e.g. `@nuzlocke/datasets/games/bdsp.json`). Event store is IndexedDB
+  via `idb` (`apps/web/src/lib/db.ts`). `VITE_SYNC_ENABLED`
+  (`apps/web/src/lib/env.ts`) defaults false; no sync implementation exists
+  yet. Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
+- `feat/web-tracker` (PR open, BACKLOG item 5): the five tabs on top of
+  `RunView` — Areas (`tabs/AreasTab.tsx`, resolves encounters via
+  `filterEncounterPool` + `encounter_resolved` events), Team & Box
+  (`tabs/TeamBoxTab.tsx`, party/box/graveyard with `moved`/`faint`/`revive`),
+  Milestones (`tabs/MilestonesTab.tsx`, `nextBoss`/`validateTeam` violations,
+  `milestone_cleared`, victory declaration), Rules (`tabs/RulesTab.tsx`, live
+  toggles + level-cap/dupes-clause params via `rule_changed` events — house
+  rules are authored once at run creation in `RunPicker`, since the event
+  schema has no event type for editing `houseRules` mid-run), Stats
+  (`tabs/StatsTab.tsx`, pure aggregation over `events`/`state`, no new
+  storage). `WipeScreen.tsx` takes over the whole tab area whenever
+  `pendingWipeDecision(state)` is true; "continue" emits `wipe_decision`,
+  "end this run" additionally emits `run_ended(abandoned)` since the engine
+  has no dedicated status transition for a reset decision. Every tab is
+  dataset-agnostic (reads only `ctx.dataset`), so the same code drives Z-A,
+  BDSP, and LGPE. Verified end-to-end in-browser, not just type-checked: full
+  Z-A run (catch → milestone clear → token grant → wipe → continue → revive)
+  and a BDSP hardcore run (level-cap violation against the correct next-boss
+  ace, clearing that boss shifts the violation to the next one) — all
+  reloaded and re-verified from IndexedDB.
 
 ## Workflow conventions
 
