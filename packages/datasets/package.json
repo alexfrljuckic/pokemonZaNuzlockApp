@@ -1,0 +1,7 @@
+{
+  "name": "@nuzlocke/datasets",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": { "validate": "node scripts/validate.mjs" },
+  "devDependencies": { "ajv": "^8.17.0", "ajv-formats": "^3.0.0" }
+}

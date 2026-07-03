@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nuzlocke.example/schemas/game.schema.json",
+  "title": "Nuzlocke Game Dataset",
+  "type": "object",
+  "required": ["schemaVersion", "gameId", "name", "versions", "areas", "specials", "milestones", "mechanics"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": { "type": "integer", "const": 1 },
+    "gameId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "versions": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+    "areas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "unlockAfter", "tags", "encounters"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "unlockAfter": { "type": ["string", "null"] },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "encounters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["species", "methods"],
+              "additionalProperties": false,
+              "properties": {
+                "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                "methods": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+                "rate": { "type": "number", "minimum": 0 },
+                "conditions": {
+                  "type": "object",
+                  "additionalProperties": { "type": "array", "items": { "type": "string" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "specials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "species", "area"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "type": { "enum": ["gift", "static", "trade", "fossil", "egg"] },
+          "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "area": { "type": "string" }
+        }
+      }
+    },
+    "milestones": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "order", "aceLevel"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "name": { "type": "string", "minLength": 1 },
+          "type": { "type": "string" },
+          "order": { "type": "integer", "minimum": 0 },
+          "aceLevel": { "type": ["integer", "null"], "minimum": 1 },
+          "grants": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": { "reviveTokens": { "type": "integer", "minimum": 0 } }
+          }
+        }
+      }
+    },
+    "mechanics": {
+      "type": "object",
+      "required": ["heldItems", "wildBattles", "setModeOption", "raids", "overworldAggro"],
+      "additionalProperties": false,
+      "properties": {
+        "heldItems": { "type": "boolean" },
+        "wildBattles": { "type": "boolean" },
+        "setModeOption": { "type": "boolean" },
+        "raids": { "type": "boolean" },
+        "overworldAggro": { "type": "boolean" }
+      }
+    }
+  }
+}

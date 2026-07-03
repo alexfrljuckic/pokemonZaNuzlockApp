@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "gameId": "bdsp",
+  "name": "Pokémon Brilliant Diamond / Shining Pearl",
+  "versions": ["brilliant-diamond", "shining-pearl"],
+  "areas": [
+    {
+      "id": "lake-verity",
+      "name": "Lake Verity",
+      "unlockAfter": null,
+      "tags": ["landmark", "starter-area"],
+      "encounters": [
+        { "species": "starly", "methods": ["walk"], "rate": 50 },
+        { "species": "bidoof", "methods": ["walk"], "rate": 50 }
+      ]
+    },
+    {
+      "id": "route-201",
+      "name": "Route 201",
+      "unlockAfter": null,
+      "tags": ["route"],
+      "encounters": [
+        { "species": "starly", "methods": ["walk"], "rate": 50 },
+        { "species": "bidoof", "methods": ["walk"], "rate": 50 },
+        { "species": "kricketot", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "night"] } }
+      ]
+    },
+    {
+      "id": "route-202",
+      "name": "Route 202",
+      "unlockAfter": null,
+      "tags": ["route"],
+      "encounters": [
+        { "species": "starly", "methods": ["walk"], "rate": 40 },
+        { "species": "bidoof", "methods": ["walk"], "rate": 30 },
+        { "species": "shinx", "methods": ["walk"], "rate": 20 },
+        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "night"] } }
+      ]
+    },
+    {
+      "id": "route-203",
+      "name": "Route 203",
+      "unlockAfter": null,
+      "tags": ["route"],
+      "encounters": [
+        { "species": "starly", "methods": ["walk"], "rate": 25 },
+        { "species": "bidoof", "methods": ["walk"], "rate": 25 },
+        { "species": "shinx", "methods": ["walk"], "rate": 20 },
+        { "species": "abra", "methods": ["walk"], "rate": 15 },
+        { "species": "kricketot", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "night"] } }
+      ]
+    },
+    {
+      "id": "oreburgh-gate",
+      "name": "Oreburgh Gate",
+      "unlockAfter": null,
+      "tags": ["cave"],
+      "encounters": [
+        { "species": "zubat", "methods": ["walk"], "rate": 60 },
+        { "species": "geodude", "methods": ["walk"], "rate": 35 },
+        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
+        { "species": "golduck", "methods": ["surf"], "rate": 10 }
+      ]
+    },
+    {
+      "id": "oreburgh-mine",
+      "name": "Oreburgh Mine",
+      "unlockAfter": null,
+      "tags": ["cave"],
+      "encounters": [
+        { "species": "geodude", "methods": ["walk"], "rate": 60 },
+        { "species": "onix", "methods": ["walk"], "rate": 40 }
+      ]
+    },
+    {
+      "id": "grand-underground",
+      "name": "Grand Underground",
+      "unlockAfter": "gym-1-roark",
+      "tags": ["special", "grand-underground"],
+      "encounters": [
+        { "species": "zubat", "methods": ["underground"], "rate": 0 },
+        { "species": "geodude", "methods": ["underground"], "rate": 0 },
+        { "species": "psyduck", "methods": ["underground"], "rate": 0 }
+      ]
+    }
+  ],
+  "specials": [
+    { "id": "starter", "type": "gift", "species": "turtwig", "area": "lake-verity" },
+    { "id": "gift-eevee", "type": "gift", "species": "eevee", "area": "hearthome-city" },
+    { "id": "fossil-cranidos", "type": "fossil", "species": "cranidos", "area": "oreburgh-mine" }
+  ],
+  "milestones": [
+    { "id": "gym-1-roark", "name": "Roark (Oreburgh Gym)", "type": "gym", "order": 1, "aceLevel": 14 },
+    { "id": "gym-2-gardenia", "name": "Gardenia (Eterna Gym)", "type": "gym", "order": 2, "aceLevel": 22 },
+    { "id": "gym-3-maylene", "name": "Maylene (Veilstone Gym)", "type": "gym", "order": 3, "aceLevel": 32 },
+    { "id": "gym-4-wake", "name": "Crasher Wake (Pastoria Gym)", "type": "gym", "order": 4, "aceLevel": 34 },
+    { "id": "gym-5-fantina", "name": "Fantina (Hearthome Gym)", "type": "gym", "order": 5, "aceLevel": 38 },
+    { "id": "gym-6-byron", "name": "Byron (Canalave Gym)", "type": "gym", "order": 6, "aceLevel": 41 },
+    { "id": "gym-7-candice", "name": "Candice (Snowpoint Gym)", "type": "gym", "order": 7, "aceLevel": 44 },
+    { "id": "gym-8-volkner", "name": "Volkner (Sunyshore Gym)", "type": "gym", "order": 8, "aceLevel": 49 },
+    { "id": "e4-aaron", "name": "Elite Four Aaron", "type": "elite-four", "order": 9, "aceLevel": 53 },
+    { "id": "e4-bertha", "name": "Elite Four Bertha", "type": "elite-four", "order": 10, "aceLevel": 55 },
+    { "id": "e4-flint", "name": "Elite Four Flint", "type": "elite-four", "order": 11, "aceLevel": 57 },
+    { "id": "e4-lucian", "name": "Elite Four Lucian", "type": "elite-four", "order": 12, "aceLevel": 59 },
+    { "id": "champion-cynthia", "name": "Champion Cynthia", "type": "champion", "order": 13, "aceLevel": 66 }
+  ],
+  "mechanics": {
+    "heldItems": true,
+    "wildBattles": true,
+    "setModeOption": true,
+    "raids": false,
+    "overworldAggro": false
+  }
+}
