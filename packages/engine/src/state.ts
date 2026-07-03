@@ -52,6 +52,18 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         if (p && p.status !== 'dead') p.status = ev.payload.to;
         break;
       }
+      case 'pokemon_updated': {
+        const p = state.pokemon[ev.payload.pokemonId];
+        if (p) {
+          if (ev.payload.nickname !== undefined) p.nickname = ev.payload.nickname;
+          if (ev.payload.level !== undefined) p.level = ev.payload.level;
+          // null clears an optional field; undefined leaves it untouched
+          if (ev.payload.heldItem !== undefined) p.heldItem = ev.payload.heldItem ?? undefined;
+          if (ev.payload.moves !== undefined) p.moves = ev.payload.moves;
+          if (ev.payload.nature !== undefined) p.nature = ev.payload.nature ?? undefined;
+        }
+        break;
+      }
       case 'faint': {
         const p = state.pokemon[ev.payload.pokemonId];
         if (p) {

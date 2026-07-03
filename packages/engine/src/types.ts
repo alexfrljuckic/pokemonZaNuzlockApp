@@ -106,6 +106,7 @@ export type RunEvent =
   | { seq: number; at: string; type: 'encounter_resolved'; payload: { areaId: string; species: string; outcome: 'caught' | 'failed' | 'skipped'; pokemonId?: string; nickname?: string; level?: number } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
+  | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null } }
   | { seq: number; at: string; type: 'faint'; payload: { pokemonId: string; cause?: string; killer?: string; milestoneId?: string } }
   | { seq: number; at: string; type: 'revive'; payload: { pokemonId: string } }
   | { seq: number; at: string; type: 'milestone_cleared'; payload: { milestoneId: string } }
