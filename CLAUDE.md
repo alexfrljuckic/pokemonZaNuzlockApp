@@ -79,8 +79,8 @@ Never merge with either failing.
   with real data, not mocks. Fixed a real bug found during that testing:
   `AuthBar` never checked `signInWithOtp`'s `error` field, so a failed
   request (e.g. rate limiting) silently claimed success.
-- `feat/share-links` (PR pending open, BACKLOG item 8): read-only share
-  links + a realtime spectator view. **Security design, read before
+- `main`: `feat/share-links` (PR #12, BACKLOG item 8) merged — read-only
+  share links + a realtime spectator view. **Security design, read before
   touching `supabase/migrations/20260703140000_share_links.sql`**: `runs`/
   `run_events` keep their existing owner-only RLS completely unchanged —
   there is deliberately no RLS policy of the form "readable if a share
@@ -105,6 +105,33 @@ Never merge with either failing.
   revoking a token immediately makes it return `[]` too. Broadcast verified
   live: a spectator tab picked up 8 separate updates in real time as new
   events were logged, with zero manual reloads.
+- `feat/keep-alive-backups` (PR #13 open, CI green, BACKLOG item 9): two
+  GitHub Actions workflows, `.github/workflows/supabase-keep-alive.yml`
+  (weekly ping) and `supabase-nightly-backup.yml` (nightly `pg_dump`
+  artifact). Not live-tested — needs repo secrets added manually
+  (`SUPABASE_URL`/`SUPABASE_ANON_KEY`/`SUPABASE_DB_URL`, see
+  `supabase/README.md` for where to find each); both have
+  `workflow_dispatch` for a manual test run once secrets exist.
+- `feat/trainer-rosters` (PR pending open, BACKLOG item 10): `Milestone`
+  gained an optional `roster` field (schema + `packages/engine/src/types.ts`)
+  — full team (species/level, optionally moves/ability/heldItem),
+  informational only, rendered in `MilestonesTab.tsx`. BDSP's 13 existing
+  milestones got full Serebii-sourced rosters, plus 3 new rival (Barry)
+  battle milestones with their own rosters (`rival-1-barry` etc. — orders
+  renumbered ×10 across the existing 13 to leave integer room, since the
+  schema requires `order` to be an integer).
+  **Known side effect worth deciding on, not yet resolved**: `nextBoss()`/
+  `validateTeam()` in `packages/engine/src/rules/index.ts` treat *any*
+  milestone with a non-null `aceLevel` as a level-cap checkpoint — there is
+  no field to mark an `aceLevel` as display-only. Adding the rival battles'
+  ace levels means the hardcore preset's enforced level cap now silently
+  checkpoints on them too: verified live that `nextBoss()` on a fresh BDSP
+  run now returns Barry's first fight (ace Lv 9) instead of Roark (ace Lv
+  14), meaningfully tightening the early-game cap versus before this PR.
+  Flagged for a deliberate decision (spawned as a follow-up task) rather
+  than silently shipped: either this is the desired behavior, or the engine
+  needs a `countsForLevelCap` (or similar) flag to decouple "has a
+  displayable ace level" from "gates the enforced cap."
 
 ## Workflow conventions
 

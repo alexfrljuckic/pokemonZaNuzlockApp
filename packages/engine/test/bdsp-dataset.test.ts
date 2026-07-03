@@ -31,7 +31,7 @@ describe('BDSP dataset', () => {
     expect(dataset.gameId).toBe('bdsp');
     expect(dataset.versions).toEqual(['brilliant-diamond', 'shining-pearl']);
     expect(dataset.areas.length).toBeGreaterThan(40);
-    expect(dataset.milestones).toHaveLength(13);
+    expect(dataset.milestones).toHaveLength(16);
   });
 
   it('respects version-exclusive encounters: Lost Tower Murkrow is BD-only, Misdreavus is SP-only', () => {
