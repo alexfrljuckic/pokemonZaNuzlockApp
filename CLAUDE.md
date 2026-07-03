@@ -105,6 +105,27 @@ Never merge with either failing.
   revoking a token immediately makes it return `[]` too. Broadcast verified
   live: a spectator tab picked up 8 separate updates in real time as new
   events were logged, with zero manual reloads.
+- `feat/swsh-dataset` (PR pending open, BACKLOG item 11):
+  `packages/datasets/games/swsh.json` — 27 areas (13 main-story routes/
+  towns/caves + 7 Wild Area sub-zones, deliberately a representative slice
+  rather than all ~20 real sub-zones), 12 milestones (8 gyms in verified
+  Galar order, Champion Cup semi-final + final, 2 rival/Hop battles), 8
+  specials (3 starters + 4 fossil combos + a gift Toxel). First dataset to
+  exercise the schema's `conditions.weather` field (37 slots across 5 Wild
+  Area zones) and the `methods: ["max-raid"]` den-encounter tag (16 slots)
+  — both already supported by the existing schema/engine, no changes
+  needed there. Giant's Cap's encounter list is lower-confidence than the
+  rest (its Serebii page 404'd; reconstructed from general knowledge
+  instead of a fetched table) — flagged in the PR, worth a follow-up
+  verification pass. **Does not yet have `roster` data on its milestones**
+  — `feat/trainer-rosters` (the PR that adds that field) was still
+  unmerged when this dataset was authored, so the schema didn't have the
+  field yet on this branch; the agent correctly declined to add data the
+  schema doesn't support rather than trust a stale instruction. Full
+  gym/rival/champion rosters were gathered from Serebii during this pass
+  but not persisted anywhere — a real follow-up opportunity once
+  `feat/trainer-rosters` lands, either by resuming that research or
+  re-fetching.
 
 ## Workflow conventions
 
