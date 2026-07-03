@@ -1,0 +1,9 @@
+{
+  "name": "nuzlocke-tracker",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "test": "npm run test --workspace=@nuzlocke/engine",
+    "validate:datasets": "node packages/datasets/scripts/validate.mjs"
+  }
+}
