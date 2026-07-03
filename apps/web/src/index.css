@@ -279,3 +279,21 @@ button:disabled {
   color: #f85149;
   font-size: 0.8rem;
 }
+
+.share-link-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.share-link-row input {
+  flex: 1;
+  margin-top: 0;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+}
+
+.share-link-row button {
+  margin-top: 0;
+}

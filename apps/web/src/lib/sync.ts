@@ -1,6 +1,7 @@
 import type { RunEvent } from '@nuzlocke/engine';
 import { supabase } from './supabase';
 import { listRuns, loadEvents, mergeRemoteEvents, upsertRunSummary, type RunSummary } from './db';
+import { broadcastRunChanged } from './shareLinks';
 
 export const SYNC_AVAILABLE = !!supabase;
 
@@ -17,6 +18,10 @@ export async function pushRun(run: RunSummary, userId: string): Promise<void> {
   // run_events has no update policy (append-only) — ignoreDuplicates means an
   // already-synced event is a no-op rather than an error.
   await supabase.from('run_events').upsert(rows, { onConflict: 'run_id,seq', ignoreDuplicates: true });
+  // Ping any spectators watching this run's share link — carries no data,
+  // just tells them to refetch via the token-gated RPC. Safe to fire even
+  // if nobody's listening or the run was never shared.
+  broadcastRunChanged(run.id);
 }
 
 /** Pulls a run's remote events and merges any this device hasn't seen. Returns whether anything changed. */

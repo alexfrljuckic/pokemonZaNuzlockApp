@@ -9,10 +9,11 @@ import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
+import { ShareTab } from './tabs/ShareTab';
 import { WipeScreen } from './WipeScreen';
 
 const TABS = ['Areas', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
-type Tab = (typeof TABS)[number];
+type Tab = (typeof TABS)[number] | 'Share';
 
 export function RunView({
   run,
@@ -81,7 +82,7 @@ export function RunView({
       ) : (
         <>
           <nav className="tabs">
-            {TABS.map((t) => (
+            {[...TABS, ...(SYNC_AVAILABLE && session ? (['Share'] as const) : [])].map((t) => (
               <button
                 key={t}
                 className={t === tab ? '' : 'secondary'}
@@ -97,6 +98,7 @@ export function RunView({
           {tab === 'Milestones' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} />}
+          {tab === 'Share' && <ShareTab runId={run.id} />}
         </>
       )}
     </>
