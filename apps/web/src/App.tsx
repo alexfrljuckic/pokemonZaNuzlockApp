@@ -2,15 +2,40 @@ import { useEffect, useState } from 'react';
 import { listRuns, type RunSummary } from './lib/db';
 import { SYNC_ENABLED } from './lib/env';
 import { pullAllRuns } from './lib/sync';
+import { applyTheme, currentTheme, THEMES, type ThemeId } from './lib/theme';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
-import { RunPicker } from './screens/RunPicker';
+import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
+import { TitleScreen } from './screens/TitleScreen';
 
 function readShareToken(): string | null {
   const match = /^#share\/(.+)$/.exec(location.hash);
   return match ? match[1] : null;
+}
+
+function ThemePicker() {
+  const [theme, setTheme] = useState<ThemeId>(currentTheme);
+
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
+
+  return (
+    <select
+      className="theme-select"
+      value={theme}
+      onChange={(e) => setTheme(e.target.value as ThemeId)}
+      aria-label="Color theme"
+    >
+      {THEMES.map((t) => (
+        <option key={t.id} value={t.id}>
+          {t.name}
+        </option>
+      ))}
+    </select>
+  );
 }
 
 export default function App() {
@@ -27,7 +52,10 @@ export default function App() {
   if (shareToken) {
     return (
       <>
-        <h1>Nuzlocke Tracker</h1>
+        <div className="app-header">
+          <h1>Nuzlocke Tracker</h1>
+          <ThemePicker />
+        </div>
         <SpectatorView token={shareToken} />
       </>
     );
@@ -36,8 +64,11 @@ export default function App() {
   return <OwnerApp />;
 }
 
+type Screen = 'title' | 'continue' | 'new';
+
 function OwnerApp() {
   const [runs, setRuns] = useState<RunSummary[]>([]);
+  const [screen, setScreen] = useState<Screen>('title');
   const [activeRunId, setActiveRunId] = useState<string | null>(null);
   const { session } = useAuth();
 
@@ -68,14 +99,38 @@ function OwnerApp() {
 
   return (
     <>
-      <h1>Nuzlocke Tracker</h1>
-      <span className="sync-badge">Sync: {SYNC_ENABLED ? 'enabled' : 'disabled (local-only)'}</span>
+      <div className="app-header">
+        <h1>Nuzlocke Tracker</h1>
+        <ThemePicker />
+      </div>
+      {/* Reflects actual sync state, not just the env flag: sync only happens
+          when the deployment has credentials AND the user is signed in. */}
+      {!SYNC_ENABLED ? (
+        <span className="sync-badge">Local only</span>
+      ) : session ? (
+        <span className="sync-badge sync-on">● Syncing</span>
+      ) : (
+        <span className="sync-badge sync-wait">○ Sign in to sync</span>
+      )}
       <AuthBar />
 
       {activeRun ? (
         <RunView run={activeRun} session={session} onBack={() => setActiveRunId(null)} />
+      ) : screen === 'title' ? (
+        <TitleScreen
+          hasRuns={runs.length > 0}
+          onNewGame={() => setScreen('new')}
+          onContinue={() => setScreen('continue')}
+        />
       ) : (
-        <RunPicker runs={runs} onSelect={setActiveRunId} onCreated={handleCreated} />
+        <>
+          <button className="back-btn" onClick={() => setScreen('title')}>Title</button>
+          {screen === 'continue' ? (
+            <ContinueScreen runs={runs} onSelect={setActiveRunId} />
+          ) : (
+            <NewGameScreen onCreated={handleCreated} />
+          )}
+        </>
       )}
     </>
   );

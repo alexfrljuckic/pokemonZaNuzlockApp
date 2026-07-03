@@ -55,8 +55,8 @@ export function RunView({
 
   if (!state) {
     return (
-      <button className="secondary" onClick={onBack}>
-        ← Back to runs
+      <button className="back-btn" onClick={onBack}>
+        Back to runs
       </button>
     );
   }
@@ -65,8 +65,8 @@ export function RunView({
 
   return (
     <>
-      <button className="secondary" onClick={onBack}>
-        ← Back to runs
+      <button className="back-btn" onClick={onBack}>
+        Back to runs
       </button>
 
       <section>
