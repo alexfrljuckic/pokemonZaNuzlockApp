@@ -1,0 +1,2561 @@
+{
+  "schemaVersion": 1,
+  "gameId": "plza",
+  "name": "Pokémon Legends: Z-A",
+  "versions": [
+    "legends-z-a"
+  ],
+  "areas": [
+    {
+      "id": "wild-zone-1",
+      "name": "Wild Zone 1",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "bunnelby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchling",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "scatterbug",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pichu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-2",
+      "name": "Wild Zone 2",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "budew",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "patrat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kakuna",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "patrat",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-3",
+      "name": "Wild Zone 3",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "pikachu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "litleo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "flabebe",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "skiddo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "espurr",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "litleo",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-4",
+      "name": "Wild Zone 4",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "ekans",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spinarak",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "patrat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spewpa",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "honedge",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spinarak",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-5",
+      "name": "Wild Zone 5",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-6"
+      ],
+      "encounters": [
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "patrat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venipede",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchling",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchinder",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "whirlipede",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-6",
+      "name": "Wild Zone 6",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-6"
+      ],
+      "encounters": [
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "flaaffy",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "houndour",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-7",
+      "name": "Wild Zone 7",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-9"
+      ],
+      "encounters": [
+        {
+          "species": "kakuna",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "shuppet",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchinder",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "floette",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchinder",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-8",
+      "name": "Wild Zone 8",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-9"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sandile",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "krokorok",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "krokorok",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-9",
+      "name": "Wild Zone 9",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-9"
+      ],
+      "encounters": [
+        {
+          "species": "kadabra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fletchinder",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "espurr",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "meowstic",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-10",
+      "name": "Wild Zone 10",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-9"
+      ],
+      "encounters": [
+        {
+          "species": "slowpoke",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tynamo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "watchog",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "arbok",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "watchog",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "arbok",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-11",
+      "name": "Wild Zone 11",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-14"
+      ],
+      "encounters": [
+        {
+          "species": "slowpoke",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "stunfisk",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "furfrou",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "inkay",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-12",
+      "name": "Wild Zone 12",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-14"
+      ],
+      "encounters": [
+        {
+          "species": "delibird",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gogoat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "avalugg",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "avalugg",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-13",
+      "name": "Wild Zone 13",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-14"
+      ],
+      "encounters": [
+        {
+          "species": "scyther",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "phantump",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "vivillon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "trevenant",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-14",
+      "name": "Wild Zone 14",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-19"
+      ],
+      "encounters": [
+        {
+          "species": "onix",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lairon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "excadrill",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "emolga",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "helioptile",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "excadrill",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-15",
+      "name": "Wild Zone 15",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-19"
+      ],
+      "encounters": [
+        {
+          "species": "beedrill",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "whirlipede",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "scolipede",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pumpkaboo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "shuppet",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "trevenant",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "beedrill",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gourgeist",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-16",
+      "name": "Wild Zone 16",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-24"
+      ],
+      "encounters": [
+        {
+          "species": "flaaffy",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "ampharos",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "medicham",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "florges",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "starmie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "barbaracle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "froakie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "falinks",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "florges",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-17",
+      "name": "Wild Zone 17",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-24"
+      ],
+      "encounters": [
+        {
+          "species": "chespin",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pyroar",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lampent",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "klefki",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pyroar",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-18",
+      "name": "Wild Zone 18",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-30"
+      ],
+      "encounters": [
+        {
+          "species": "swablu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "altaria",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "salamence",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fennekin",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "noivern",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "salamence",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-19",
+      "name": "Wild Zone 19",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:mission-30"
+      ],
+      "encounters": [
+        {
+          "species": "clefairy",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kangaskhan",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "cleffa",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "furfrou",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "drampa",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kangaskhan",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wild-zone-20",
+      "name": "Wild Zone 20",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "unlock:post-game"
+      ],
+      "encounters": [
+        {
+          "species": "aggron",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "scrafty",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "garbodor",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chikorita",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tepig",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "totodile",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "malamar",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "dragalge",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raichu",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "clefable",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "alakazam",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "machamp",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "victreebel",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gengar",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "kangaskhan",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "starmie",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "vaporeon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "jolteon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "flareon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "dragonite",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "tyranitar",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "aggron",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "medicham",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "altaria",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "metagross",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "leafeon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "glaceon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gallade",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "simisage",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "simisear",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "simipour",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "scolipede",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "krookodile",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "scrafty",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "garbodor",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "vanilluxe",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "eelektross",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "chandelure",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "stunfisk",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "talonflame",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "vivillon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "florges",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gogoat",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "pangoro",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "furfrou",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "aegislash",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "malamar",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "barbaracle",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "dragalge",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "heliolisk",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "sylveon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "hawlucha",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "dedenne",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "carbink",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "goodra",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "klefki",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gourgeist",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "noivern",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "drampa",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "falinks",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspace-h6",
+      "name": "Hyperspace Wild Zones (1-star)",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "dlc:mega-dimension",
+        "session-randomized",
+        "unlock:dlc-after-survey-2"
+      ],
+      "encounters": [
+        {
+          "species": "blissey",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "clefable",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "togetic",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "sylveon",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "breloom",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "hariyama",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "makuhita",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "pangoro",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "slakoth",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "vigoroth",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "slaking",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "etc",
+          "methods": [
+            "hyperspace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspace-h7",
+      "name": "Hyperspace Wild Zones (2-star)",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "dlc:mega-dimension",
+        "session-randomized",
+        "unlock:dlc-after-survey-2"
+      ],
+      "encounters": [
+        {
+          "species": "mimikyu",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "hatterene",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "toxtricity",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "obstagoon",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "grimmsnarl",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "cursola",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "coalossal",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "centiskorch",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "dragapult",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "etc",
+          "methods": [
+            "hyperspace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspace-h8",
+      "name": "Hyperspace Wild Zones (3-star)",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "dlc:mega-dimension",
+        "session-randomized",
+        "unlock:dlc-after-survey-4"
+      ],
+      "encounters": [
+        {
+          "species": "garchomp",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "kommo-o",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "tyranitar",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "goodra",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "dragalge",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "hydreigon",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "etc",
+          "methods": [
+            "hyperspace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspace-h9",
+      "name": "Hyperspace Wild Zones (4-star)",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "dlc:mega-dimension",
+        "session-randomized",
+        "unlock:dlc-after-survey-6"
+      ],
+      "encounters": [
+        {
+          "species": "baxcalibur",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "rare-encounters",
+          "methods": [
+            "hyperspace"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyperspace-h10",
+      "name": "Hyperspace Wild Zones (5-star / Special Scan)",
+      "unlockAfter": null,
+      "tags": [
+        "wild-zone",
+        "dlc:mega-dimension",
+        "session-randomized",
+        "unlock:dlc-post-game-after-rayquaza"
+      ],
+      "encounters": [
+        {
+          "species": "virizion",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "terrakion",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "cobalion",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "keldeo",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "landorus",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "thundurus",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "tornadus",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "enamorus",
+          "methods": [
+            "hyperspace"
+          ]
+        },
+        {
+          "species": "etc",
+          "methods": [
+            "hyperspace"
+          ]
+        }
+      ]
+    }
+  ],
+  "specials": [
+    {
+      "id": "s0-chikorita",
+      "type": "gift",
+      "species": "chikorita",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s0-tepig",
+      "type": "gift",
+      "species": "tepig",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s0-totodile",
+      "type": "gift",
+      "species": "totodile",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s1-chespin",
+      "type": "gift",
+      "species": "chespin",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s2-fennekin",
+      "type": "gift",
+      "species": "fennekin",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s3-froakie",
+      "type": "gift",
+      "species": "froakie",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s4-mareep",
+      "type": "static",
+      "species": "mareep",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s5-stunfisk-galar",
+      "type": "static",
+      "species": "stunfisk-galar",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s6-lucario",
+      "type": "gift",
+      "species": "lucario",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s7-floette-eternal",
+      "type": "gift",
+      "species": "floette-eternal",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s8-diancie",
+      "type": "gift",
+      "species": "diancie",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s9-mewtwo",
+      "type": "gift",
+      "species": "mewtwo",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "s10-zygarde",
+      "type": "static",
+      "species": "zygarde",
+      "area": "lumiose-city"
+    },
+    {
+      "id": "rogue-catch-absol",
+      "type": "static",
+      "species": "absol",
+      "area": "hyperspace-h1"
+    },
+    {
+      "id": "rogue-catch-staraptor",
+      "type": "static",
+      "species": "staraptor",
+      "area": "hyperspace-h2"
+    },
+    {
+      "id": "rogue-catch-tatsugiri",
+      "type": "static",
+      "species": "tatsugiri",
+      "area": "hyperspace-h3"
+    },
+    {
+      "id": "rogue-catch-meowstic",
+      "type": "static",
+      "species": "meowstic",
+      "area": "hyperspace-h4"
+    },
+    {
+      "id": "rogue-catch-zeraora",
+      "type": "static",
+      "species": "zeraora",
+      "area": "hyperspace-h5"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "zach",
+      "name": "Zach",
+      "type": "promotion",
+      "order": 1,
+      "aceLevel": 9,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "yvon",
+      "name": "Yvon",
+      "type": "promotion",
+      "order": 2,
+      "aceLevel": 16,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "naveen1",
+      "name": "Naveen (early)",
+      "type": "rival",
+      "order": 3,
+      "aceLevel": 17
+    },
+    {
+      "id": "xavi",
+      "name": "Xavi",
+      "type": "promotion",
+      "order": 4,
+      "aceLevel": 21,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rintaro",
+      "name": "Rintaro",
+      "type": "promotion",
+      "order": 5,
+      "aceLevel": 24,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-absol",
+      "name": "Mega Absol",
+      "type": "rogue-mega",
+      "order": 6,
+      "aceLevel": 30,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "vinnie",
+      "name": "Vinnie",
+      "type": "promotion",
+      "order": 7,
+      "aceLevel": 32,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "urbain1",
+      "name": "Urbain / Taunie",
+      "type": "rival",
+      "order": 8,
+      "aceLevel": 26
+    },
+    {
+      "id": "rogue-slowbro",
+      "name": "Mega Slowbro",
+      "type": "rogue-mega",
+      "order": 9,
+      "aceLevel": 35,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-camerupt",
+      "name": "Mega Camerupt",
+      "type": "rogue-mega",
+      "order": 10,
+      "aceLevel": 35,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-victreebel",
+      "name": "Mega Victreebel",
+      "type": "rogue-mega",
+      "order": 11,
+      "aceLevel": 36,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "zygarde1",
+      "name": "Zygarde 50% (first)",
+      "type": "story",
+      "order": 12,
+      "aceLevel": 30
+    },
+    {
+      "id": "canari",
+      "name": "Canari",
+      "type": "promotion",
+      "order": 13,
+      "aceLevel": 39,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "naveen2",
+      "name": "Naveen (pre-Canari)",
+      "type": "rival",
+      "order": 14,
+      "aceLevel": 33
+    },
+    {
+      "id": "rogue-beedrill",
+      "name": "Mega Beedrill",
+      "type": "rogue-mega",
+      "order": 15,
+      "aceLevel": 40,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-hawlucha",
+      "name": "Mega Hawlucha",
+      "type": "rogue-mega",
+      "order": 16,
+      "aceLevel": 41,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-banette",
+      "name": "Mega Banette",
+      "type": "rogue-mega",
+      "order": 17,
+      "aceLevel": 42,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "ivor",
+      "name": "Ivor",
+      "type": "promotion",
+      "order": 18,
+      "aceLevel": 47,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-mawile",
+      "name": "Mega Mawile",
+      "type": "rogue-mega",
+      "order": 19,
+      "aceLevel": 46,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-barbaracle",
+      "name": "Mega Barbaracle",
+      "type": "rogue-mega",
+      "order": 20,
+      "aceLevel": 47,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-ampharos",
+      "name": "Mega Ampharos",
+      "type": "rogue-mega",
+      "order": 21,
+      "aceLevel": 48,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "corbeau",
+      "name": "Corbeau",
+      "type": "promotion",
+      "order": 22,
+      "aceLevel": 52,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "naveen3",
+      "name": "Naveen (Mega Scrafty)",
+      "type": "rival",
+      "order": 23,
+      "aceLevel": 28
+    },
+    {
+      "id": "rogue-froslass",
+      "name": "Mega Froslass",
+      "type": "rogue-mega",
+      "order": 24,
+      "aceLevel": 53,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-altaria",
+      "name": "Mega Altaria",
+      "type": "rogue-mega",
+      "order": 25,
+      "aceLevel": 54,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-venusaur",
+      "name": "Mega Venusaur",
+      "type": "rogue-mega",
+      "order": 26,
+      "aceLevel": 56,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "jacinthe",
+      "name": "Jacinthe",
+      "type": "promotion",
+      "order": 27,
+      "aceLevel": 59,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "zygarde2",
+      "name": "Zygarde (tournament)",
+      "type": "story",
+      "order": 28,
+      "aceLevel": 57
+    },
+    {
+      "id": "rogue-dragonite",
+      "name": "Mega Dragonite",
+      "type": "rogue-mega",
+      "order": 29,
+      "aceLevel": 58,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-tyranitar",
+      "name": "Mega Tyranitar",
+      "type": "rogue-mega",
+      "order": 30,
+      "aceLevel": 60,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "rogue-starmie",
+      "name": "Mega Starmie",
+      "type": "rogue-mega",
+      "order": 31,
+      "aceLevel": 61,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "grisham",
+      "name": "Grisham",
+      "type": "promotion",
+      "order": 32,
+      "aceLevel": 63,
+      "grants": {
+        "reviveTokens": 1
+      }
+    },
+    {
+      "id": "urbain2",
+      "name": "Urbain/Taunie (final)",
+      "type": "rival",
+      "order": 33,
+      "aceLevel": 63
+    },
+    {
+      "id": "gauntlet",
+      "name": "City Rogue Mega Gauntlet",
+      "type": "story",
+      "order": 34,
+      "aceLevel": 62
+    },
+    {
+      "id": "ange",
+      "name": "Hyperrogue Floette / Ange",
+      "type": "story",
+      "order": 35,
+      "aceLevel": 65
+    }
+  ],
+  "mechanics": {
+    "heldItems": true,
+    "wildBattles": true,
+    "setModeOption": false,
+    "raids": false,
+    "overworldAggro": true
+  }
+}
