@@ -56,7 +56,14 @@ export async function createRun(gameId: string, version: string, ruleset: Rulese
 export async function appendEvent(runId: string, partial: Omit<RunEvent, 'seq' | 'at'>): Promise<RunEvent> {
   const db = await getDB();
   const existing = await db.getAllFromIndex('events', 'byRun', runId);
-  const event = { ...partial, seq: existing.length + 1, at: new Date().toISOString() } as RunEvent;
+  // max+1 rather than count+1 so seq stays monotonic even after a sync pull
+  // merges in events this device hadn't seen yet (e.g. logged on another
+  // device). This does NOT fully resolve two devices both appending while
+  // both are offline and neither has ever synced — that can still produce a
+  // duplicate seq. Full CRDT-style conflict resolution is out of scope for
+  // this MVP; see docs/BACKLOG.md.
+  const nextSeq = existing.reduce((max, r) => Math.max(max, r.event.seq), 0) + 1;
+  const event = { ...partial, seq: nextSeq, at: new Date().toISOString() } as RunEvent;
   await db.add('events', { runId, event });
   return event;
 }
@@ -65,4 +72,29 @@ export async function loadEvents(runId: string): Promise<RunEvent[]> {
   const db = await getDB();
   const rows = await db.getAllFromIndex('events', 'byRun', runId);
   return rows.map((r) => r.event).sort((a, b) => a.seq - b.seq);
+}
+
+/** Adds a run summary pulled from a remote sync source, if not already known locally. */
+export async function upsertRunSummary(run: RunSummary): Promise<void> {
+  const db = await getDB();
+  await db.put('runs', run);
+}
+
+/**
+ * Inserts remote events this device doesn't have yet (matched by seq).
+ * Never overwrites or removes a local event — merge only ever adds.
+ * Returns whether anything was actually added.
+ */
+export async function mergeRemoteEvents(runId: string, remoteEvents: RunEvent[]): Promise<boolean> {
+  const db = await getDB();
+  const existing = await db.getAllFromIndex('events', 'byRun', runId);
+  const knownSeqs = new Set(existing.map((r) => r.event.seq));
+  let changed = false;
+  for (const event of remoteEvents) {
+    if (!knownSeqs.has(event.seq)) {
+      await db.add('events', { runId, event });
+      changed = true;
+    }
+  }
+  return changed;
 }
