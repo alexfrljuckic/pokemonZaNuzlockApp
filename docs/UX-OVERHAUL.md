@@ -90,8 +90,8 @@ consolidated elsewhere.
 
 ## Status
 
-- [ ] A — themes + title flow (+ faint prompt removal)
-- [ ] B — team profiles + PC box (+ `pokemon_updated` engine event)
-- [ ] C — summary + milestone cards (+ items 12/13, SwSh roster backfill)
+- [x] A — themes + title flow (+ faint prompt removal) — PR #18 merged, incl. follow-ups: motion/design-language pass, per-version themes (8), ghost back button, honest 3-state sync badge
+- [x] B — team profiles + PC box — engine event PR #19 merged; UI PR #20 (open). Sprites via Showdown name-addressable CDN (components/SpriteImg.tsx fallback chain)
+- [ ] C — summary + milestone cards (+ items 12/13, SwSh roster backfill) — NEXT
 - [ ] D — stats charts + share consolidation
 - [ ] E — Routes map for BDSP (+ per-route trainers dataset + rules restyle)
