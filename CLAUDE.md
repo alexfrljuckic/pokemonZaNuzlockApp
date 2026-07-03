@@ -67,28 +67,44 @@ Never merge with either failing.
   wipe screen) — a full Z-A or BDSP run is trackable end to end offline.
   Run `npm run dev` (root) or `npm run dev --workspace=@nuzlocke/web`.
   BACKLOG item 6 (v1 save importer) was dropped — not needed.
-- `feat/supabase` (PR pending open, BACKLOG item 7): accounts + background
-  sync, scoped to just what the tracker needs today (`runs` + `run_events`;
-  campaigns/share-links get their own migrations later — see
-  `supabase/README.md`). Email magic-link auth (`useAuth.ts`, `AuthBar.tsx`).
-  Push-then-pull sync fires after every run mutation and on sign-in
-  (`lib/sync.ts`) — best-effort, swallows network errors, IndexedDB stays
-  authoritative regardless (local-first invariant holds). `appendEvent`'s seq
-  allocation changed from count+1 to max+1 so it stays correct after a pull
+- `main`: `feat/supabase` (PR #11, BACKLOG item 7) merged — accounts +
+  background sync, scoped to just `runs` + `run_events`. Email magic-link
+  auth (`useAuth.ts`, `AuthBar.tsx`). Push-then-pull sync fires after every
+  run mutation and on sign-in (`lib/sync.ts`) — best-effort, swallows
+  network errors, IndexedDB stays authoritative regardless. `appendEvent`'s
+  seq allocation is max+1 (not count+1) so it stays correct after a pull
   merges in events this device hadn't seen; true concurrent-offline-multi-
-  device seq collision is still a known unsolved edge case.
-  **Verified against a real Supabase project, not just locally**: RLS
-  confirmed via an anon-key REST call returning `[]` (structurally valid,
-  correctly empty for an unauthenticated caller); push confirmed by
-  inspecting real rows in the dashboard after a live session (6 events,
-  correct order, correct JSONB payloads); pull/merge confirmed by manually
-  loading that exact real event data into a browser that had never seen the
-  run and confirming `deriveState` reconstructed identical state
-  (`wiped-continuing`, both milestones cleared, Bidoof in the graveyard).
-  Found and fixed a real bug during this testing: `AuthBar`'s sign-in handler
-  never checked `signInWithOtp`'s returned `error` field, so a failed
-  request (e.g. Supabase's email rate limit) silently showed "check your
-  email" even though nothing was sent — now surfaces the real error.
+  device seq collision is still a known unsolved edge case. Verified live
+  against a real Supabase project: RLS, push, and pull/merge all confirmed
+  with real data, not mocks. Fixed a real bug found during that testing:
+  `AuthBar` never checked `signInWithOtp`'s `error` field, so a failed
+  request (e.g. rate limiting) silently claimed success.
+- `feat/share-links` (PR pending open, BACKLOG item 8): read-only share
+  links + a realtime spectator view. **Security design, read before
+  touching `supabase/migrations/20260703140000_share_links.sql`**: `runs`/
+  `run_events` keep their existing owner-only RLS completely unchanged —
+  there is deliberately no RLS policy of the form "readable if a share
+  token exists for this run", because that checks whether a run is shared
+  at all, not whether the caller actually knows the token, and would leak
+  every shared run to everyone. The only public read path is
+  `get_shared_run(token)`, a `SECURITY DEFINER` Postgres function that
+  takes the token as a parameter and only returns data for a valid,
+  non-revoked match — the base tables have zero anon-reachable read
+  policies. Live updates use Supabase Realtime **Broadcast** (not
+  `postgres_changes`), specifically because `postgres_changes` subscriptions
+  are gated by the same RLS as regular queries and an anon spectator
+  couldn't subscribe to owner-only tables — Broadcast pings carry no data
+  (just "something changed, refetch"), so they can safely be public without
+  touching the RLS story at all. `apps/web/src/lib/shareLinks.ts` has the
+  client helpers; `screens/tabs/ShareTab.tsx` (owner: create/list/revoke)
+  and `screens/SpectatorView.tsx` (read-only, hash-routed via `#share/
+  <token>` in `App.tsx`, no sign-in required to view). Verified against the
+  real project as a genuinely anonymous caller (plain curl, no session):
+  valid token returns real data, bogus token returns `[]`, direct anon
+  reads of `runs`/`run_events`/`share_tokens` all still return `[]`, and
+  revoking a token immediately makes it return `[]` too. Broadcast verified
+  live: a spectator tab picked up 8 separate updates in real time as new
+  events were logged, with zero manual reloads.
 
 ## Workflow conventions
 
