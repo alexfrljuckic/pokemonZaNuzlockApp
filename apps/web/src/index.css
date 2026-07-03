@@ -35,19 +35,30 @@
   --highlight: #f2b04e;
 }
 
-/* Sinnoh (BDSP) — Dialga blue / Palkia pink */
-[data-theme='bdsp'] {
+/* Brilliant Diamond — Dialga steel-blue */
+[data-theme='bdsp-bd'] {
   --bg: #0d1422;
   --bg-panel: #16202f;
   --bg-inset: #0a0f1a;
   --bg-chip: #1c2838;
   --border: #2b3b52;
   --accent: #3d7dca;
-  --highlight: #e37f9d;
+  --highlight: #8ab4f8;
 }
 
-/* Kanto (Let's Go) — Pikachu yellow / warm brown */
-[data-theme='lgpe'] {
+/* Shining Pearl — Palkia pearl-pink */
+[data-theme='bdsp-sp'] {
+  --bg: #1c1220;
+  --bg-panel: #281a2e;
+  --bg-inset: #140d17;
+  --bg-chip: #322138;
+  --border: #4d3355;
+  --accent: #d1699a;
+  --highlight: #b48ede;
+}
+
+/* Let's Go Pikachu — electric yellow */
+[data-theme='lgpe-pikachu'] {
   --bg: #1a160e;
   --bg-panel: #262017;
   --bg-inset: #14110b;
@@ -55,18 +66,40 @@
   --border: #4a3f28;
   --accent: #d9a806;
   --accent-text: #1d1910;
-  --highlight: #e8a87c;
+  --highlight: #ffd94a;
 }
 
-/* Galar (SwSh) — Sword cyan / Shield magenta */
-[data-theme='swsh'] {
+/* Let's Go Eevee — warm fawn brown */
+[data-theme='lgpe-eevee'] {
+  --bg: #1b1410;
+  --bg-panel: #271e17;
+  --bg-inset: #150f0b;
+  --bg-chip: #31261d;
+  --border: #4e3c2c;
+  --accent: #b5793a;
+  --highlight: #e6cba8;
+}
+
+/* Sword — Zacian cyan */
+[data-theme='swsh-sword'] {
   --bg: #0d181d;
   --bg-panel: #16252b;
   --bg-inset: #0a1316;
   --bg-chip: #1c2f36;
   --border: #2b4650;
   --accent: #00a2d8;
-  --highlight: #e05a8a;
+  --highlight: #7ee0ff;
+}
+
+/* Shield — Zamazenta magenta */
+[data-theme='swsh-shield'] {
+  --bg: #1d0f16;
+  --bg-panel: #2a1620;
+  --bg-inset: #150a0f;
+  --bg-chip: #351c28;
+  --border: #542b3d;
+  --accent: #c92a63;
+  --highlight: #ff9ab8;
 }
 
 /* ---------- Base + backdrop ---------- */
@@ -430,6 +463,43 @@ button:disabled {
 .share-link-row { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
 .share-link-row input { flex: 1; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
 .share-link-row button { margin-top: 0; }
+
+/* ---------- Back button: quiet ghost chip, arrow slides on hover ---------- */
+
+button.back-btn {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--muted);
+  padding: 0.3rem 0.5rem;
+  margin: 0 0 0.75rem -0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 999px;
+}
+
+button.back-btn::before {
+  content: '←';
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+button.back-btn:hover:not(:disabled) {
+  color: var(--text);
+  background: var(--bg-chip);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+button.back-btn:hover:not(:disabled)::before {
+  transform: translateX(-4px);
+}
 
 /* ---------- App header ---------- */
 

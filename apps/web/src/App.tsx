@@ -116,9 +116,7 @@ function OwnerApp() {
         />
       ) : (
         <>
-          <button className="secondary" onClick={() => setScreen('title')}>
-            ← Title
-          </button>
+          <button className="back-btn" onClick={() => setScreen('title')}>Title</button>
           {screen === 'continue' ? (
             <ContinueScreen runs={runs} onSelect={setActiveRunId} />
           ) : (
