@@ -196,6 +196,16 @@ section h2 {
   border: 1px solid var(--border);
 }
 
+.sync-badge.sync-on {
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 40%, transparent);
+}
+
+.sync-badge.sync-wait {
+  color: var(--warning);
+  border-color: color-mix(in srgb, var(--warning) 40%, transparent);
+}
+
 section {
   background: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent) 8%) 0%, var(--bg-panel) 22%);
   border: 1px solid var(--border);

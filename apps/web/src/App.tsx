@@ -103,7 +103,15 @@ function OwnerApp() {
         <h1>Nuzlocke Tracker</h1>
         <ThemePicker />
       </div>
-      <span className="sync-badge">Sync: {SYNC_ENABLED ? 'enabled' : 'disabled (local-only)'}</span>
+      {/* Reflects actual sync state, not just the env flag: sync only happens
+          when the deployment has credentials AND the user is signed in. */}
+      {!SYNC_ENABLED ? (
+        <span className="sync-badge">Local only</span>
+      ) : session ? (
+        <span className="sync-badge sync-on">● Syncing</span>
+      ) : (
+        <span className="sync-badge sync-wait">○ Sign in to sync</span>
+      )}
       <AuthBar />
 
       {activeRun ? (
