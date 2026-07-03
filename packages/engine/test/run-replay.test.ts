@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildRuleset,
@@ -56,18 +59,12 @@ const dataset: GameDataset = {
   mechanics: { heldItems: true, wildBattles: true, setModeOption: true, raids: false, overworldAggro: false },
 };
 
-const ctx: EngineContext = {
-  dataset,
-  speciesToLine: {
-    starly: 'starly-line',
-    staravia: 'starly-line',
-    bidoof: 'bidoof-line',
-    shinx: 'shinx-line',
-    kricketot: 'kricketot-line',
-    'mr-mime': 'mr-mime-line',
-    floatzel: 'buizel-line',
-  },
-};
+const here = dirname(fileURLToPath(import.meta.url));
+const speciesToLine = JSON.parse(
+  readFileSync(join(here, '../../datasets/generated/species-lines.json'), 'utf8'),
+) as Record<string, string>;
+
+const ctx: EngineContext = { dataset, speciesToLine };
 
 let seq = 0;
 const ev = (type: RunEvent['type'], payload: unknown): RunEvent =>

@@ -16,11 +16,11 @@ const dataset = JSON.parse(
   readFileSync(join(here, '../../datasets/games/plza.json'), 'utf8'),
 ) as GameDataset;
 
-// Minimal line map for the species this test touches; the real map comes from PokeAPI at build time.
-const ctx: EngineContext = {
-  dataset,
-  speciesToLine: { bunnelby: 'bunnelby-line', diggersby: 'bunnelby-line', mareep: 'mareep-line' },
-};
+const speciesToLine = JSON.parse(
+  readFileSync(join(here, '../../datasets/generated/species-lines.json'), 'utf8'),
+) as Record<string, string>;
+
+const ctx: EngineContext = { dataset, speciesToLine };
 
 let seq = 0;
 const ev = (type: RunEvent['type'], payload: unknown): RunEvent =>
