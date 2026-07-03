@@ -121,6 +121,21 @@ Never merge with either failing.
   `workflow_dispatch` enabled specifically so they can be manually run once
   from the Actions tab to confirm they work, without waiting for the cron
   schedule.
+- `main`: `feat/trainer-rosters` (PR #14, BACKLOG item 10) merged —
+  `Milestone` gained an optional `roster` field (schema +
+  `packages/engine/src/types.ts`) — full team (species/level, optionally
+  moves/ability/heldItem), informational only, rendered in
+  `MilestonesTab.tsx`. BDSP's 13 existing milestones got full
+  Serebii-sourced rosters, plus 3 new rival (Barry) battle milestones with
+  their own rosters (`rival-1-barry` etc. — orders renumbered ×10 across
+  the existing 13 to leave integer room, since the schema requires `order`
+  to be an integer). **Known side effect, decision now made (BACKLOG item
+  12, not yet implemented)**: `nextBoss()`/`validateTeam()` treat *any*
+  milestone with a non-null `aceLevel` as a level-cap checkpoint, so the
+  rival battles currently tighten the hardcore cap (Barry ace Lv 9 gates
+  before Roark's 14). Alex decided rivals must be display-only — implement
+  the `countsForLevelCap` flag per BACKLOG item 12. Also BACKLOG item 13:
+  correct BDSP `aceLevel` values to match the sourced rosters.
 - `feat/swsh-dataset` (PR pending open, BACKLOG item 11):
   `packages/datasets/games/swsh.json` — 27 areas (13 main-story routes/
   towns/caves + 7 Wild Area sub-zones, deliberately a representative slice

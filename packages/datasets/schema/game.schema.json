@@ -72,6 +72,22 @@
             "type": "object",
             "additionalProperties": false,
             "properties": { "reviveTokens": { "type": "integer", "minimum": 0 } }
+          },
+          "roster": {
+            "type": "array",
+            "description": "Optional full team, informational only — the level-cap rule reads aceLevel, never this.",
+            "items": {
+              "type": "object",
+              "required": ["species", "level"],
+              "additionalProperties": false,
+              "properties": {
+                "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                "level": { "type": "integer", "minimum": 1 },
+                "moves": { "type": "array", "items": { "type": "string" } },
+                "ability": { "type": "string" },
+                "heldItem": { "type": "string" }
+              }
+            }
           }
         }
       }

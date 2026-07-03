@@ -45,6 +45,16 @@ export interface Milestone {
   order: number;
   aceLevel: number | null;    // highest level in the boss fight; null if not a battle
   grants?: { reviveTokens?: number };
+  /** Full team, informational only — display in UI. The level-cap rule reads aceLevel, never this. */
+  roster?: MilestoneRosterMember[];
+}
+
+export interface MilestoneRosterMember {
+  species: string;
+  level: number;
+  moves?: string[];
+  ability?: string;
+  heldItem?: string;
 }
 
 export interface GameMechanics {
