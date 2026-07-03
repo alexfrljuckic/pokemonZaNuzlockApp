@@ -16,8 +16,16 @@ jobs:
   backup:
     runs-on: ubuntu-latest
     steps:
-      - name: Install postgresql-client
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends postgresql-client
+      - name: Install postgresql-client 17
+        # Ubuntu 24.04's default apt package is client 16, but pg_dump refuses
+        # to dump from a newer major server version (Supabase runs PG 17) —
+        # pull client 17 from the official PGDG repo instead.
+        run: |
+          sudo apt-get install -y --no-install-recommends curl ca-certificates gnupg
+          curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo gpg --dearmor -o /usr/share/keyrings/pgdg.gpg
+          echo "deb [signed-by=/usr/share/keyrings/pgdg.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends postgresql-client-17
       - name: Dump database
         run: |
           pg_dump "${SUPABASE_DB_URL}" \
