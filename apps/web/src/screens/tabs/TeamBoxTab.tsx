@@ -3,9 +3,10 @@ import type { EngineContext, PokemonInstance, RunState } from '@nuzlocke/engine'
 import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
 import { HELD_ITEMS, evolutionSummary, machineType, moveType, movesFor, typesFor } from '../../lib/speciesData';
+import { weaknesses } from '../../lib/typeChart';
 import { SpriteImg } from '../../components/SpriteImg';
 import { Combobox } from '../../components/Combobox';
-import { TypeBadges, TypeDot } from '../../components/TypeBadge';
+import { TypeBadge, TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function EditForm({
   p,
@@ -102,7 +103,10 @@ function EditForm({
   );
 }
 
-function PokemonDetail({
+/** Unified compact Pokémon card (team, box, graveyard). Condensed: sprite +
+ * nickname + species + type, with the move buttons below. Click the card to
+ * expand full-width into details + the edit form. */
+function MonCard({
   p,
   runId,
   onChange,
@@ -113,23 +117,51 @@ function PokemonDetail({
   onChange: () => Promise<void>;
   actions: { label: string; onClick: () => void; secondary?: boolean }[];
 }) {
-  const [editing, setEditing] = useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const editable = p.status !== 'dead';
+  const weak = weaknesses(typesFor(p.species));
 
   return (
-    <div className="poke-detail">
-      <div className="poke-detail-head">
-        <SpriteImg species={p.species} size={72} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
-        <div className="poke-detail-summary">
-          <strong>
-            {p.nickname}
-            {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
-          </strong>
+    <div className={`mon-card${expanded ? ' expanded' : ''}${p.status === 'dead' ? ' dead' : ''}`}>
+      <button type="button" className="mon-card-top" onClick={() => setExpanded((e) => !e)} aria-expanded={expanded}>
+        <SpriteImg species={p.species} size={64} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
+        <span className="mon-card-name">
+          {p.nickname}
+          {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
+        </span>
+        <span className="mon-card-species muted">
+          {p.species} · Lv {p.level}
+        </span>
+        <TypeBadges types={typesFor(p.species)} />
+      </button>
+
+      {actions.length > 0 && (
+        <div className="mon-card-actions">
+          {actions.map((a) => (
+            <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
+              {a.label}
+            </button>
+          ))}
+        </div>
+      )}
+
+      {expanded && (
+        <div className="mon-card-detail">
+          {weak.length > 0 && (
+            <span className="mrd-weak">
+              <span className="mrd-weak-label muted">Weak to</span>
+              {weak.map((w) => (
+                <span key={w.type} className="mrd-weak-item">
+                  <TypeBadge type={w.type} />
+                  {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
+                </span>
+              ))}
+            </span>
+          )}
           <span className="muted">
-            {p.species} · Lv {p.level}
+            {p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
-          <TypeBadges types={typesFor(p.species)} />
-          <span className="muted">{p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}</span>
           {evolutionSummary(p.species) && (
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
           )}
@@ -144,29 +176,8 @@ function PokemonDetail({
               ))}
             </span>
           )}
+          {editable && <EditForm p={p} runId={runId} onSaved={onChange} />}
         </div>
-        <span className="pokemon-actions">
-          {p.status !== 'dead' && (
-            <button className="secondary" onClick={() => setEditing(!editing)}>
-              {editing ? 'Close' : 'Edit'}
-            </button>
-          )}
-          {actions.map((a) => (
-            <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
-              {a.label}
-            </button>
-          ))}
-        </span>
-      </div>
-      {editing && (
-        <EditForm
-          p={p}
-          runId={runId}
-          onSaved={async () => {
-            setEditing(false);
-            await onChange();
-          }}
-        />
       )}
     </div>
   );
@@ -185,19 +196,15 @@ export function TeamBoxTab({
   const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
   const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
   const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
-  const [boxSelection, setBoxSelection] = useState<string | null>(null);
-  const selectedBoxMon = box.find((p) => p.id === boxSelection) ?? null;
 
   async function move(id: string, to: 'party' | 'box') {
     await appendEvent(runId, { type: 'moved', payload: { pokemonId: id, to } });
-    setBoxSelection(null);
     await onChange();
   }
 
   async function markFaint(id: string) {
     // One seamless click — no prompts. Payload still supports cause/killer later.
     await appendEvent(runId, { type: 'faint', payload: { pokemonId: id } });
-    setBoxSelection(null);
     await onChange();
   }
 
@@ -211,67 +218,56 @@ export function TeamBoxTab({
       <section>
         <h2>Team ({party.length}/6)</h2>
         {party.length === 0 && <p className="muted">No party members yet.</p>}
-        {party.map((p) => (
-          <PokemonDetail
-            key={p.id}
-            p={p}
-            runId={runId}
-            onChange={onChange}
-            actions={[
-              { label: 'Box', onClick: () => move(p.id, 'box'), secondary: true },
-              { label: 'Fainted', onClick: () => markFaint(p.id), secondary: true },
-            ]}
-          />
-        ))}
+        <div className="mon-grid">
+          {party.map((p) => (
+            <MonCard
+              key={p.id}
+              p={p}
+              runId={runId}
+              onChange={onChange}
+              actions={[
+                { label: 'Box', onClick: () => move(p.id, 'box'), secondary: true },
+                { label: 'Fainted', onClick: () => markFaint(p.id), secondary: true },
+              ]}
+            />
+          ))}
+        </div>
       </section>
 
       <section>
         <h2>Box ({box.length})</h2>
         {box.length === 0 && <p className="muted">Empty.</p>}
-        {box.length > 0 && (
-          <div className="box-grid">
-            {box.map((p) => (
-              <button
-                key={p.id}
-                className={`box-slot${p.id === boxSelection ? ' selected' : ''}`}
-                onClick={() => setBoxSelection(p.id === boxSelection ? null : p.id)}
-                title={`${p.nickname} (${p.species}, Lv ${p.level})${p.shiny ? ' ✦ shiny' : ''}`}
-              >
-                <SpriteImg species={p.species} size={72} shiny={p.shiny} />
-                <span className="box-slot-lv muted">
-                  Lv{p.level}
-                  {p.shiny && <span className="shiny-star"> ✦</span>}
-                </span>
-              </button>
-            ))}
-          </div>
-        )}
-        {selectedBoxMon && (
-          <PokemonDetail
-            p={selectedBoxMon}
-            runId={runId}
-            onChange={onChange}
-            actions={[
-              { label: 'Party', onClick: () => move(selectedBoxMon.id, 'party') },
-              { label: 'Fainted', onClick: () => markFaint(selectedBoxMon.id), secondary: true },
-            ]}
-          />
-        )}
+        <div className="mon-grid">
+          {box.map((p) => (
+            <MonCard
+              key={p.id}
+              p={p}
+              runId={runId}
+              onChange={onChange}
+              actions={[
+                { label: 'Party', onClick: () => move(p.id, 'party') },
+                { label: 'Fainted', onClick: () => markFaint(p.id), secondary: true },
+              ]}
+            />
+          ))}
+        </div>
       </section>
 
       <section>
         <h2>Graveyard ({graveyard.length})</h2>
         <p className="muted">Revive tokens available: {state.reviveTokens}</p>
         {graveyard.length === 0 && <p className="muted">No losses yet.</p>}
-        {graveyard.map((p) => (
-          <PokemonDetail
-            key={p.id}
-            p={p}
-            runId={runId}
-            onChange={onChange}
-            actions={state.reviveTokens > 0 ? [{ label: 'Revive (to box)', onClick: () => revive(p.id) }] : []}
-          />
-        ))}
+        <div className="mon-grid">
+          {graveyard.map((p) => (
+            <MonCard
+              key={p.id}
+              p={p}
+              runId={runId}
+              onChange={onChange}
+              actions={state.reviveTokens > 0 ? [{ label: 'Revive', onClick: () => revive(p.id) }] : []}
+            />
+          ))}
+        </div>
       </section>
     </>
   );

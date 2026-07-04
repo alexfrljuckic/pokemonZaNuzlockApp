@@ -1,9 +1,30 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { buildRuleset } from '@nuzlocke/engine';
 import { listGames } from '../lib/datasets';
 import { createRun, type RunSummary } from '../lib/db';
+import { SpriteImg } from '../components/SpriteImg';
 
 const PRESETS = ['standard', 'hardcore', 'casual'] as const;
+
+const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
+  standard: 'First-encounter + dupes clause',
+  hardcore: 'Level caps + set mode',
+  casual: 'Relaxed — nothing enforced',
+};
+
+// Each version's cover mascot Pokémon — sprites come from our existing
+// (Showdown) source, so no IP-heavy box art. Absent → tile shows just the name.
+const VERSION_MASCOT: Record<string, string> = {
+  'brilliant-diamond': 'dialga',
+  'shining-pearl': 'palkia',
+  'lets-go-pikachu': 'pikachu',
+  'lets-go-eevee': 'eevee',
+  sword: 'zacian',
+  shield: 'zamazenta',
+  'legends-z-a': 'zygarde',
+};
+
+const prettyVersion = (v: string) => v.replace(/-/g, ' ');
 
 /** "Continue" flow: just the existing runs. */
 export function ContinueScreen({
@@ -40,6 +61,11 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   const [creating, setCreating] = useState(false);
 
   function pickGame(id: string) {
+    // toggle: clicking the open card collapses it
+    if (id === gameId) {
+      setGameId(null);
+      return;
+    }
     setGameId(id);
     setVersion(games.find((g) => g.gameId === id)?.versions[0] ?? '');
   }
@@ -60,59 +86,74 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   }
 
   return (
-    <>
-      <section>
-        <h2>Choose your game</h2>
-        <div className="game-card-grid">
-          {games.map((g) => (
+    <section>
+      <h2>Choose your game</h2>
+      <div className="game-card-grid">
+        {games.map((g) => (
+          <Fragment key={g.gameId}>
             <button
-              key={g.gameId}
               className={`game-card game-card-${g.gameId}${g.gameId === gameId ? ' selected' : ''}`}
               onClick={() => pickGame(g.gameId)}
+              aria-expanded={g.gameId === gameId}
             >
               <span className="game-card-name">{g.name}</span>
               <span className="muted">{g.areas.length} areas</span>
             </button>
-          ))}
-        </div>
-      </section>
 
-      {game && (
-        <section>
-          <h2>{game.name} — run settings</h2>
+            {/* run settings expand in place, right under the picked card */}
+            {gameId === g.gameId && game && (
+              <div className="game-settings-inline">
+                <span className="picker-label">Version</span>
+                <div className="picker-tiles">
+                  {game.versions.map((v) => (
+                    <button
+                      key={v}
+                      type="button"
+                      className={`picker-tile${version === v ? ' selected' : ''}`}
+                      onClick={() => setVersion(v)}
+                      aria-pressed={version === v}
+                    >
+                      {VERSION_MASCOT[v] && <SpriteImg species={VERSION_MASCOT[v]} size={56} />}
+                      <span className="picker-tile-label">{prettyVersion(v)}</span>
+                    </button>
+                  ))}
+                </div>
 
-          <label htmlFor="version">Version</label>
-          <select id="version" value={version} onChange={(e) => setVersion(e.target.value)}>
-            {game.versions.map((v) => (
-              <option key={v} value={v}>
-                {v}
-              </option>
-            ))}
-          </select>
+                <span className="picker-label">Ruleset preset</span>
+                <div className="picker-tiles">
+                  {PRESETS.map((pr) => (
+                    <button
+                      key={pr}
+                      type="button"
+                      className={`picker-tile picker-tile-preset${preset === pr ? ' selected' : ''}`}
+                      onClick={() => setPreset(pr)}
+                      aria-pressed={preset === pr}
+                    >
+                      <span className="picker-tile-label">{pr}</span>
+                      <span className="picker-tile-desc muted">{PRESET_DESC[pr]}</span>
+                    </button>
+                  ))}
+                </div>
 
-          <label htmlFor="preset">Ruleset preset</label>
-          <select id="preset" value={preset} onChange={(e) => setPreset(e.target.value as (typeof PRESETS)[number])}>
-            {PRESETS.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
+                <label htmlFor="house-rules">
+                  House rules (optional, one per line — honor rules, shown but not enforced)
+                </label>
+                <textarea
+                  id="house-rules"
+                  rows={3}
+                  value={houseRulesText}
+                  onChange={(e) => setHouseRulesText(e.target.value)}
+                  placeholder="e.g. no legendaries&#10;shiny clause"
+                />
 
-          <label htmlFor="house-rules">House rules (optional, one per line — honor rules, shown but not enforced)</label>
-          <textarea
-            id="house-rules"
-            rows={3}
-            value={houseRulesText}
-            onChange={(e) => setHouseRulesText(e.target.value)}
-            placeholder="e.g. no legendaries&#10;shiny clause"
-          />
-
-          <button onClick={handleCreate} disabled={creating}>
-            {creating ? 'Starting…' : 'Start Run'}
-          </button>
-        </section>
-      )}
-    </>
+                <button onClick={handleCreate} disabled={creating}>
+                  {creating ? 'Starting…' : 'Start Run'}
+                </button>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    </section>
   );
 }
