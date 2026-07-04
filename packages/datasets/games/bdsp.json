@@ -150,13 +150,31 @@
       "unlockAfter": "gym-1-roark",
       "tags": ["landmark"],
       "encounters": [
-        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
-        { "species": "golduck", "methods": ["surf"], "rate": 10 },
+        { "species": "buizel", "methods": ["walk"], "rate": 35 },
+        { "species": "shellos", "methods": ["walk"], "rate": 30 },
+        { "species": "pachirisu", "methods": ["walk"], "rate": 25 },
+        { "species": "bidoof", "methods": ["walk"], "rate": 10 },
+        { "species": "electrike", "methods": ["swarm"], "rate": 40 },
+        { "species": "mareep", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
+        { "species": "wingull", "methods": ["surf"], "rate": 30 },
+        { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
+        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
         { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
-        { "species": "goldeen", "methods": ["good-rod"], "rate": 35 },
-        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
-        { "species": "seaking", "methods": ["super-rod"], "rate": 35 }
+        { "species": "finneon", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 60 },
+        { "species": "lumineon", "methods": ["super-rod"], "rate": 35 },
+        { "species": "shellder", "methods": ["super-rod"], "rate": 5 }
       ]
     },
     {
@@ -735,7 +753,8 @@
     { "id": "starter", "type": "gift", "species": "turtwig", "area": "lake-verity" },
     { "id": "gift-eevee", "type": "gift", "species": "eevee", "area": "hearthome-city" },
     { "id": "fossil-cranidos", "type": "fossil", "species": "cranidos", "area": "oreburgh-mine" },
-    { "id": "fossil-shieldon", "type": "fossil", "species": "shieldon", "area": "oreburgh-mine" }
+    { "id": "fossil-shieldon", "type": "fossil", "species": "shieldon", "area": "oreburgh-mine" },
+    { "id": "static-drifloon", "type": "static", "species": "drifloon", "area": "valley-windworks" }
   ],
   "milestones": [
     {
