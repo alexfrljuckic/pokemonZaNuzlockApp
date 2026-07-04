@@ -9,7 +9,8 @@
   "scripts": {
     "validate": "node scripts/validate.mjs",
     "build:species-lines": "node scripts/build-species-lines.mjs",
-    "build:species-data": "node scripts/build-species-data.mjs"
+    "build:species-data": "node scripts/build-species-data.mjs",
+    "build:machines": "node scripts/build-machines.mjs"
   },
   "devDependencies": { "ajv": "^8.17.0", "ajv-formats": "^3.0.0" }
 }

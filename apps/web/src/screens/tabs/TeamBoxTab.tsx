@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { EngineContext, PokemonInstance, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
-import { HELD_ITEMS, evolutionSummary, movesFor } from '../../lib/speciesData';
+import { HELD_ITEMS, evolutionSummary, machineType, movesFor } from '../../lib/speciesData';
 import { SpriteImg } from '../../components/SpriteImg';
 import { Combobox } from '../../components/Combobox';
 
@@ -90,6 +90,7 @@ function EditForm({
             onChange={(v) => setMoves(moves.map((old, j) => (j === i ? v : old)))}
             options={movePool}
             placeholder={`Move ${i + 1}`}
+            badge={machineType}
           />
         ))}
       </div>
@@ -135,6 +136,7 @@ function PokemonDetail({
               {p.moves.map((m) => (
                 <span key={m} className="move-chip">
                   {m}
+                  {machineType(m) && <span className={`move-tag badge-${machineType(m)}`}>{machineType(m)}</span>}
                 </span>
               ))}
             </span>

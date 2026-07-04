@@ -1145,6 +1145,10 @@ button.back-btn:hover:not(:disabled)::before {
   box-shadow: var(--shadow-lift);
 }
 .combobox-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
   padding: 0.3rem 0.5rem;
   border-radius: 6px;
   cursor: pointer;
@@ -1152,6 +1156,20 @@ button.back-btn:hover:not(:disabled)::before {
   text-transform: capitalize;
 }
 .combobox-option.active { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+/* TM/HM tags on machine moves */
+.combobox-badge,
+.move-tag {
+  font-size: 0.58rem;
+  font-weight: 700;
+  padding: 0.05rem 0.25rem;
+  border-radius: 4px;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+.move-tag { margin-left: 0.3rem; }
+.badge-TM { background: color-mix(in srgb, var(--highlight) 30%, transparent); color: var(--text); }
+.badge-HM { background: color-mix(in srgb, var(--warning-strong, #f0883e) 36%, transparent); color: var(--text); }
 
 .shiny-toggle {
   flex-direction: row !important;
