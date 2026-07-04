@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": ["packages/*", "apps/*"],
   "scripts": {
-    "test": "npm run test --workspace=@nuzlocke/engine",
+    "test": "npm run test --workspaces --if-present",
     "validate:datasets": "node packages/datasets/scripts/validate.mjs",
     "dev": "npm run dev --workspace=@nuzlocke/web"
   }
