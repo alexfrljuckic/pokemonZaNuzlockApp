@@ -87,7 +87,7 @@ export function RunView({
         <WipeScreen runId={run.id} onResolved={refresh} />
       ) : (
         <>
-          <RunSummaryStrip events={events} ctx={ctx} />
+          <RunSummaryStrip events={events} state={state} ctx={ctx} />
 
           <nav className="tabs">
             {TABS.map((t) => (

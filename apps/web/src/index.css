@@ -603,6 +603,67 @@ button:disabled {
   animation: fadeUp 0.3s ease both;
 }
 
+/* team sprites + current level cap, above the recent-events list */
+.summary-status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.9rem;
+}
+.summary-team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  align-items: flex-end;
+}
+.summary-team-mon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.summary-team-mon img {
+  image-rendering: pixelated;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 50%;
+}
+.summary-team-lv {
+  font-size: 0.58rem;
+  margin-top: -0.1rem;
+}
+.summary-cap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inset);
+  line-height: 1.15;
+}
+.summary-cap-label {
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.summary-cap-value {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: var(--highlight);
+}
+.summary-cap-boss {
+  font-size: 0.6rem;
+}
+.summary-cap.over {
+  border-color: var(--danger);
+}
+.summary-cap.over .summary-cap-value {
+  color: var(--danger);
+}
+
 .summary-list {
   list-style: none;
   margin: 0;

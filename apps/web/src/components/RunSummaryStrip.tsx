@@ -1,4 +1,4 @@
-import type { EngineContext, RunEvent } from '@nuzlocke/engine';
+import { nextBoss, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { SpriteImg } from './SpriteImg';
 
 interface SummaryItem {
@@ -61,26 +61,72 @@ function describe(event: RunEvent, ctx: EngineContext): SummaryItem | null {
   }
 }
 
-export function RunSummaryStrip({ events, ctx, limit = 5 }: { events: RunEvent[]; ctx: EngineContext; limit?: number }) {
+export function RunSummaryStrip({
+  events,
+  state,
+  ctx,
+  limit = 5,
+}: {
+  events: RunEvent[];
+  state: RunState;
+  ctx: EngineContext;
+  limit?: number;
+}) {
   const items: SummaryItem[] = [];
   for (let i = events.length - 1; i >= 0 && items.length < limit; i--) {
     const item = describe(events[i], ctx);
     if (item) items.push(item);
   }
 
-  if (items.length === 0) return null;
+  const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
+
+  // Current enforced level cap = next boss's ace (+ offset), when the rule is on.
+  const capRule = state.ruleset.rules['level-cap'];
+  const boss = nextBoss(state, ctx);
+  const levelCap =
+    capRule?.enabled && boss?.aceLevel != null ? boss.aceLevel + Number(capRule.params.offset ?? 0) : null;
+  const overCap = levelCap != null && party.some((p) => p.level > levelCap);
+
+  // Nothing to show yet on a brand-new run.
+  if (items.length === 0 && party.length === 0) return null;
 
   return (
     <section className="summary-strip">
-      <h2>Recent events</h2>
-      <ul className="summary-list">
-        {items.map((item) => (
-          <li key={item.key} className={`summary-item summary-${item.tone}`}>
-            {item.species && <SpriteImg species={item.species} size={28} />}
-            <span>{item.text}</span>
-          </li>
-        ))}
-      </ul>
+      <div className="summary-status">
+        <div className="summary-team" aria-label="Current team">
+          {party.length === 0 ? (
+            <span className="muted">No team yet</span>
+          ) : (
+            party.map((p) => (
+              <span key={p.id} className="summary-team-mon" title={`${p.nickname} · Lv ${p.level}`}>
+                <SpriteImg species={p.species} size={40} shiny={p.shiny} />
+                <span className="summary-team-lv muted">Lv{p.level}</span>
+              </span>
+            ))
+          )}
+        </div>
+        {levelCap != null && (
+          <div className={`summary-cap${overCap ? ' over' : ''}`} title={boss ? `Next: ${boss.name}` : undefined}>
+            <span className="summary-cap-label">Level cap</span>
+            <span className="summary-cap-value">Lv {levelCap}</span>
+            {boss && <span className="summary-cap-boss muted">next: {boss.name}</span>}
+          </div>
+        )}
+      </div>
+
+      {items.length > 0 && (
+        <>
+          <h2>Recent events</h2>
+          <ul className="summary-list">
+            {items.map((item) => (
+              <li key={item.key} className={`summary-item summary-${item.tone}`}>
+                {item.species && <SpriteImg species={item.species} size={28} />}
+                <span>{item.text}</span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
     </section>
   );
 }
