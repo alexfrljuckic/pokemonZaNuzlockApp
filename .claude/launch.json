@@ -5,7 +5,8 @@
       "name": "web",
       "runtimeExecutable": "cmd.exe",
       "runtimeArgs": ["/c", "set PATH=C:\\Program Files\\nodejs;%PATH% && npm run dev --workspace=@nuzlocke/web"],
-      "port": 5173
+      "port": 5173,
+      "autoPort": true
     },
     {
       "name": "web-alt",
