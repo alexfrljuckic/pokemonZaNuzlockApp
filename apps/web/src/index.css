@@ -1112,3 +1112,150 @@ button.back-btn:hover:not(:disabled)::before {
   border-color: var(--highlight);
   animation: selectedPulse 2s ease-in-out infinite;
 }
+
+/* ── Routes tab: schematic Sinnoh map (UX section E) ───────────────────── */
+.route-map {
+  position: relative;
+  max-width: 560px;
+  margin: 0 auto 1rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+.route-map-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.route-edge {
+  stroke: var(--border);
+  stroke-width: 0.6;
+  stroke-linecap: round;
+}
+.route-node {
+  outline: none;
+}
+.route-node-dot {
+  fill: var(--bg-chip);
+  stroke: var(--border);
+  stroke-width: 0.5;
+  transition: fill 0.15s ease, stroke 0.15s ease;
+}
+.route-node-glyph {
+  font-size: 2.4px;
+  text-anchor: middle;
+  fill: var(--text);
+  pointer-events: none;
+  user-select: none;
+}
+.route-node-locked {
+  opacity: 0.5;
+}
+.route-node-locked .route-node-dot {
+  fill: var(--bg-chip);
+  stroke-dasharray: 0.8 0.8;
+}
+.route-node-available {
+  cursor: pointer;
+}
+.route-node-available .route-node-dot {
+  fill: var(--accent);
+  stroke: var(--highlight);
+  stroke-width: 0.7;
+}
+.route-node-available:hover .route-node-dot,
+.route-node-available:focus .route-node-dot {
+  stroke-width: 1.2;
+  filter: drop-shadow(0 0 2px var(--highlight));
+}
+.route-node-caught .route-node-dot {
+  fill: var(--success);
+  stroke: var(--success);
+}
+.route-node-failed .route-node-dot {
+  fill: var(--danger);
+  stroke: var(--danger);
+}
+.route-node-skipped .route-node-dot {
+  fill: var(--muted);
+  stroke: var(--muted);
+}
+.route-node-caught .route-node-glyph,
+.route-node-failed .route-node-glyph {
+  fill: var(--accent-text, #fff);
+}
+
+.route-tip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  min-width: 130px;
+  max-width: 220px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift);
+  padding: 0.5rem 0.6rem;
+  pointer-events: none;
+  z-index: 20;
+}
+.route-tip-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.route-tip-state {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.route-tip-available {
+  color: var(--highlight);
+}
+.route-tip-caught {
+  color: var(--success);
+}
+.route-tip-sprites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+}
+.route-tip-mon {
+  display: inline-flex;
+  image-rendering: pixelated;
+}
+.route-tip-cta {
+  margin-top: 0.35rem;
+  font-size: 0.7rem;
+  color: var(--highlight);
+}
+
+.route-resolve-panel {
+  max-width: 560px;
+  margin: 0 auto 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--highlight);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
+}
+.route-resolve-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.route-resolve-close {
+  padding: 0.15rem 0.5rem;
+}
+.route-offmap {
+  margin-top: 1.5rem;
+}
+.route-offmap-title {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
