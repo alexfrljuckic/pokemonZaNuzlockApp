@@ -45,7 +45,17 @@ function EditForm({
   }
 
   return (
-    <div className="poke-edit-form">
+    <div
+      className="poke-edit-form"
+      onKeyDown={(e) => {
+        // Enter saves — unless a combobox suggestion list is open (then Enter
+        // is selecting a suggestion) or focus is in a textarea.
+        if (e.key === 'Enter' && !e.shiftKey && !document.querySelector('.combobox-list')) {
+          e.preventDefault();
+          if (!saving) save();
+        }
+      }}
+    >
       <div className="poke-edit-grid">
         <label>
           Nickname

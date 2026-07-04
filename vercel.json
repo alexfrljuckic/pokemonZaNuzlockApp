@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm install --workspaces --include-workspace-root && npm run build --workspace=@nuzlocke/web",
+  "outputDirectory": "apps/web/dist",
+  "framework": "vite",
+  "github": { "silent": true }
+}
