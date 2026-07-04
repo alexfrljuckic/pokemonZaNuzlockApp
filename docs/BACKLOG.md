@@ -47,10 +47,13 @@ likely value — pick one or ask Alex:
 
 - **SwSh milestone rosters**: DONE — PR #27 backfilled gym/rival/champion
   rosters from Serebii.
-- **Giant's Cap (SwSh) verification**: its Serebii Pokéarth page 404'd; the
-  shipped encounter list was reconstructed from general knowledge, not a
-  fetched table. Lower confidence than every other area — verify against
-  Serebii/Bulbapedia and correct.
+- **Giant's Cap (SwSh) verification**: DONE — the shipped encounter list was
+  fabricated (phantump/shiinotic/cottonee/etc., none of which actually spawn
+  there) rather than fetched; the real Serebii Pokéarth URL is
+  `/pokearth/galar/giant'scap.shtml` (not `/swordshield/pokearth/...`, which
+  404s). Replaced with the full weather-conditioned table (8 weather states
+  × overworld/grass/underground) plus the version-split Solrock/Lunatone
+  underground-only sub-area, sourced from that page.
 - **Faint dialog UX**: DONE — `window.prompt` removed; `TeamBoxTab.tsx` no
   longer asks for cause of death via a browser prompt (see UX section A).
 - **Engine event-schema gaps** (deferred, low priority): no event type for
