@@ -4,6 +4,7 @@
   "name": "Pokémon Legends: Arceus",
   "versions": ["legends-arceus"],
   "pokeapiVersionGroups": ["legends-arceus"],
+  "rostersRequired": true,
   "areas": [
     {
       "id": "jubilife-village",

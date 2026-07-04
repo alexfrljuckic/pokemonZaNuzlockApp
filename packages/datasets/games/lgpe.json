@@ -7,6 +7,7 @@
     "lets-go-eevee"
   ],
   "pokeapiVersionGroups": ["lets-go-pikachu-lets-go-eevee"],
+  "rostersRequired": true,
   "areas": [
     {
       "id": "route-1",

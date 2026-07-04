@@ -15,6 +15,10 @@
       "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
       "description": "PokeAPI version-group slugs whose move-learn data applies to this game (include DLC groups). Omit/empty when PokeAPI has no move data for the game (e.g. Legends Z-A) — the app then falls back to the all-games union movepool."
     },
+    "rostersRequired": {
+      "type": "boolean",
+      "description": "When true, the validator fails if any milestone lacks a roster (or rosterByStarter). Set once a game's rosters are complete so a future edit or dataset can't silently ship 0/N rosters (as Legends Z-A partially does — it omits this flag)."
+    },
     "areas": {
       "type": "array",
       "items": {
