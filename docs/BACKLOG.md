@@ -160,6 +160,15 @@ falls back gracefully.
 
 ## Known gaps / follow-ups (no decision needed, just work)
 
+- **Type display + matchups (2026-07-04)**: Pokémon type badges + move-type
+  dots are now shown in the team/box detail, milestone rosters, and the
+  encounter picker (data in `generated/species-data.json` — `types` +
+  `moveTypes`, from PokeAPI). Follow-ups worth doing: (a) show types on the
+  collapsed milestone roster sprites and the box-grid slots too; (b) a
+  type-effectiveness layer — flag a boss Pokémon's weaknesses, or highlight
+  which of your moves are super-effective against the next boss (needs a
+  static type-chart, no new fetch). Deferred as a nice-to-have.
+
 - **SwSh milestone rosters**: PR #16 shipped without them (`roster` field
   didn't exist on its base branch). The research was done — gym/rival/
   champion teams were gathered from Serebii in that session but not

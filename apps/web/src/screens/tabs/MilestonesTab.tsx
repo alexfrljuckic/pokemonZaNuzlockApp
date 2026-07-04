@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { nextBoss, validateTeam, type EngineContext, type Milestone, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
-import { STAT_ORDER, statLabel, statsFor } from '../../lib/speciesData';
+import { STAT_ORDER, moveType, statLabel, statsFor, typesFor } from '../../lib/speciesData';
 import { trainerKeyFromMilestone } from '../../lib/sprites';
 import { SpriteImg } from '../../components/SpriteImg';
 import { TrainerSprite } from '../../components/TrainerSprite';
+import { TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function MilestoneCard({
   milestone,
@@ -70,6 +71,7 @@ function MilestoneCard({
                   <div className="mrd-title">
                     <strong>{p.species}</strong>
                     <span className="mrd-lv">Lv {p.level}</span>
+                    <TypeBadges types={typesFor(p.species)} />
                     {(p.ability || p.heldItem) && (
                       <span className="muted mrd-meta">
                         {p.ability ?? ''}
@@ -83,6 +85,7 @@ function MilestoneCard({
                   <div className="poke-moves">
                     {p.moves.map((mv) => (
                       <span key={mv} className="move-chip">
+                        <TypeDot type={moveType(mv)} />
                         {mv}
                       </span>
                     ))}

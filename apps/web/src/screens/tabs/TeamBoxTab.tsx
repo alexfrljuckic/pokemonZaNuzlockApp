@@ -2,9 +2,10 @@ import { useState } from 'react';
 import type { EngineContext, PokemonInstance, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
-import { HELD_ITEMS, evolutionSummary, machineType, movesFor } from '../../lib/speciesData';
+import { HELD_ITEMS, evolutionSummary, machineType, moveType, movesFor, typesFor } from '../../lib/speciesData';
 import { SpriteImg } from '../../components/SpriteImg';
 import { Combobox } from '../../components/Combobox';
+import { TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function EditForm({
   p,
@@ -127,6 +128,7 @@ function PokemonDetail({
             {p.species} · Lv {p.level}
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
+          <TypeBadges types={typesFor(p.species)} />
           <span className="muted">{p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}</span>
           {evolutionSummary(p.species) && (
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
@@ -135,6 +137,7 @@ function PokemonDetail({
             <span className="poke-moves">
               {p.moves.map((m) => (
                 <span key={m} className="move-chip">
+                  <TypeDot type={moveType(m)} />
                   {m}
                   {machineType(m) && <span className={`move-tag badge-${machineType(m)}`}>{machineType(m)}</span>}
                 </span>

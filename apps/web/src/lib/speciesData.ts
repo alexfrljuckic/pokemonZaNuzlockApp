@@ -15,7 +15,9 @@ export interface Evolution {
 
 interface SpeciesData {
   stats: Record<string, Record<string, number>>;
+  types: Record<string, string[]>;
   moves: Record<string, string[]>;
+  moveTypes: Record<string, string>;
   evolutions: Record<string, Evolution[]>;
   heldItems: string[];
 }
@@ -23,6 +25,9 @@ interface SpeciesData {
 const data = raw as SpeciesData;
 
 export const HELD_ITEMS: string[] = data.heldItems;
+
+export const typesFor = (species: string): string[] => data.types[species] ?? [];
+export const moveType = (move: string): string | null => data.moveTypes[move] ?? null;
 
 // move slug -> "TM" | "HM" for BDSP (mirrors the Diamond/Pearl machine list).
 // BDSP-oriented; used as a general reference for other games too.

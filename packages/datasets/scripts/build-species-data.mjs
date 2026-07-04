@@ -57,8 +57,9 @@ for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
 const slugs = [...species].sort();
 console.log(`${slugs.length} species referenced across datasets`);
 
-// 2. Per species: base stats + movepool (unique move slugs, any method/version).
+// 2. Per species: base stats + types + movepool (unique move slugs, any method/version).
 const stats = {};
+const types = {};
 const moves = {};
 const chainUrlBySpecies = {};
 const missing = [];
@@ -71,6 +72,7 @@ await mapPool(slugs, async (slug) => {
     return;
   }
   stats[slug] = Object.fromEntries(mon.stats.map((s) => [s.stat.name, s.base_stat]));
+  types[slug] = mon.types.sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
   moves[slug] = [...new Set(mon.moves.map((m) => m.move.name))].sort();
   try {
     const sp = await fetchJson(mon.species.url);
@@ -109,7 +111,20 @@ for (const slug of slugs) {
 }
 console.log(`${Object.keys(evolutions).length} species with evolutions`);
 
-// 4. Global holdable-item list (for the held-item picklist).
+// 4. Move types: fetch /move for each distinct move → its type.
+const allMoves = [...new Set(Object.values(moves).flat())].sort();
+const moveTypes = {};
+await mapPool(allMoves, async (move) => {
+  try {
+    const data = await fetchJson(`https://pokeapi.co/api/v2/move/${move}`);
+    if (data.type?.name) moveTypes[move] = data.type.name;
+  } catch {
+    /* leave untyped */
+  }
+});
+console.log(`${Object.keys(moveTypes).length}/${allMoves.length} move types`);
+
+// 5. Global holdable-item list (for the held-item picklist).
 const holdable = await fetchJson('https://pokeapi.co/api/v2/item-attribute/holdable');
 const heldItems = holdable.items.map((i) => i.name).sort();
 console.log(`${heldItems.length} holdable items`);
@@ -117,7 +132,9 @@ console.log(`${heldItems.length} holdable items`);
 const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
 const out = {
   stats: sortObj(stats),
+  types: sortObj(types),
   moves: sortObj(moves),
+  moveTypes: sortObj(moveTypes),
   evolutions: sortObj(evolutions),
   heldItems,
 };

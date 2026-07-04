@@ -4,6 +4,8 @@ import { appendEvent } from '../../lib/db';
 import { hasMapNode } from '../../lib/sinnohMap';
 import { RouteMap } from '../../components/RouteMap';
 import { SpriteImg } from '../../components/SpriteImg';
+import { TypeBadges } from '../../components/TypeBadge';
+import { typesFor } from '../../lib/speciesData';
 
 type Outcome = 'caught' | 'failed' | 'skipped';
 
@@ -82,6 +84,7 @@ function EncounterForm({
           >
             <SpriteImg species={slot.species} size={72} shiny={shiny} />
             <span className="encounter-slot-name">{slot.species}</span>
+            <TypeBadges types={typesFor(slot.species)} />
             <span className="encounter-slot-method muted">
               {slot.methods}
               {slot.rate != null ? ` · ${slot.rate}%` : ''}
