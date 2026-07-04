@@ -13,7 +13,7 @@ import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { WipeScreen } from './WipeScreen';
 
-const TABS = ['Routes', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
+const TABS = ['Routes', 'Team & Box', 'Boss Fights', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
 export function RunView({
@@ -103,7 +103,7 @@ export function RunView({
 
           {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Milestones' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Boss Fights' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} />}
         </>

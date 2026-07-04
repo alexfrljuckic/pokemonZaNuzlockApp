@@ -1,8 +1,9 @@
 import { Fragment, useState } from 'react';
-import { buildRuleset } from '@nuzlocke/engine';
-import { listGames } from '../lib/datasets';
-import { createRun, type RunSummary } from '../lib/db';
+import { buildRuleset, deriveState, type RunEvent } from '@nuzlocke/engine';
+import { listGames, speciesToLine } from '../lib/datasets';
+import { createRun, loadEvents, type RunSummary } from '../lib/db';
 import { SpriteImg } from '../components/SpriteImg';
+import { StarterPicker } from '../components/SpecialsSection';
 
 const PRESETS = ['standard', 'hardcore', 'casual'] as const;
 
@@ -59,6 +60,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   const [preset, setPreset] = useState<(typeof PRESETS)[number]>('standard');
   const [houseRulesText, setHouseRulesText] = useState('');
   const [creating, setCreating] = useState(false);
+  const [pendingRun, setPendingRun] = useState<{ id: string; events: RunEvent[] } | null>(null);
 
   function pickGame(id: string) {
     // toggle: clicking the open card collapses it
@@ -79,10 +81,39 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
         .split('\n')
         .map((l) => l.trim())
         .filter(Boolean);
-      onCreated(await createRun(game.gameId, version, ruleset));
+      const id = await createRun(game.gameId, version, ruleset);
+      const starters = (game.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+      if (starters.length > 0) {
+        setPendingRun({ id, events: await loadEvents(id) });
+      } else {
+        onCreated(id);
+      }
     } finally {
       setCreating(false);
     }
+  }
+
+  // Between run creation and landing on the tracker: if the game has starter
+  // choices, claim one here (before any route/area is even visible) rather
+  // than burying it in the Routes tab later.
+  if (pendingRun && game) {
+    const ctx = { dataset: game, speciesToLine };
+    const state = deriveState(pendingRun.events, ctx);
+    const starters = (game.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+    return (
+      <section>
+        <h2>Choose your starter</h2>
+        <StarterPicker
+          runId={pendingRun.id}
+          state={state}
+          starters={starters}
+          onChange={async () => onCreated(pendingRun.id)}
+        />
+        <button className="secondary" onClick={() => onCreated(pendingRun.id)}>
+          Skip for now
+        </button>
+      </section>
+    );
   }
 
   return (

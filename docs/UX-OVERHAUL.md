@@ -93,5 +93,9 @@ consolidated elsewhere.
 - [x] A — themes + title flow (+ faint prompt removal) — PR #18 merged, incl. follow-ups: motion/design-language pass, per-version themes (8), ghost back button, honest 3-state sync badge
 - [x] B — team profiles + PC box — engine event PR #19 merged; UI PR #20 merged. Sprites via Showdown name-addressable CDN (components/SpriteImg.tsx fallback chain)
 - [x] C — summary + milestone cards (+ items 12/13, SwSh roster backfill) — PRs #24-27 merged
-- [ ] D — stats charts + share consolidation — NEXT
-- [ ] E — Routes map for BDSP (+ per-route trainers dataset + rules restyle)
+- [x] D — stats charts + share consolidation — PR #28 merged
+- [x] E — Routes map for BDSP (+ per-route trainers dataset + rules restyle) — PR #31 merged
+
+All five sections of the UX overhaul are now merged. See BACKLOG.md for what's next
+(item 14/15 starter feature done; remaining: SV/PLA datasets, "Known gaps" cleanup items,
+new UX ideas as they come up).

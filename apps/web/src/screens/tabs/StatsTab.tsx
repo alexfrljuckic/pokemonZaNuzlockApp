@@ -28,7 +28,7 @@ export function StatsTab({ events, state, ctx }: { events: RunEvent[]; state: Ru
       <h3 className="chart-heading">Survival by species</h3>
       <SurvivalBySpeciesBars pokemon={state.pokemon} />
 
-      <h3 className="chart-heading">Milestone progress</h3>
+      <h3 className="chart-heading">Boss fight progress</h3>
       <MilestoneProgressBar cleared={state.milestonesCleared.length} total={milestonesTotal} />
 
       <p className="muted">

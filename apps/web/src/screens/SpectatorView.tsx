@@ -114,7 +114,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
       </section>
 
       <section>
-        <h2>Milestones cleared ({clearedMilestones.length}/{ctx.dataset.milestones.length})</h2>
+        <h2>Boss fights cleared ({clearedMilestones.length}/{ctx.dataset.milestones.length})</h2>
         {clearedMilestones.length === 0 && <p className="muted">None yet.</p>}
         {clearedMilestones.map((m) => (
           <div key={m.id} className="milestone-row">

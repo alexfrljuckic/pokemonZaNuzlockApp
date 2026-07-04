@@ -3,201 +3,56 @@
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`.
 
-## Immediate
+## Shipped (items 0-15) — for history only, see git log for PR numbers
 
-**0. Push + first PR** — push `main` and `feat/plza-dataset` to GitHub, open the
-PR, confirm CI green, merge.
+Push + first PR; species-lines evolution map (PR #4); BDSP dataset (#5); LGPE
+dataset (#6); web-shell scaffold (#7); web-tracker five tabs (#8); Supabase
+schema/RLS + share-links + keep-alive/backup Actions (#11-13, #21); trainer
+rosters schema + data (#14); SwSh dataset (#16); level-cap-flag +
+bdsp-ace-levels corrections (#24-25); UX overhaul sections A-E (#18, #19-20,
+#24-27, #28, #31); starter + gifts/specials selection + starter-conditional
+Barry rosters (#39-40); type-effectiveness + game-picker/team-box
+click-to-expand UI (#41 and the two commits after it). `v1-import` was
+dropped 2026-07-03 (v1 runs aren't carried forward).
 
-**1. `feat/species-lines` — evolution-line map from PokeAPI**
-Build-time script `packages/datasets/scripts/build-species-lines.mjs` that walks
-PokeAPI `/evolution-chain` and emits `packages/datasets/generated/species-lines.json`
-(`{ "bunnelby": "chain-someid", "diggersby": "chain-someid", ... }`). Cache
-responses to disk so re-runs don't hammer the API; commit the generated file.
-Acceptance: engine tests import the real map instead of hand-written stubs;
-regional forms map to their own line where PokeAPI says so.
+## What's actually next
 
-**2. `feat/bdsp-encounters` — complete BDSP dataset**
-Author all BDSP areas/encounters from Serebii (routes, caves, lakes, surf/fish
-methods, time-of-day conditions, version exclusives), plus specials (fossils,
-gift Eevee, Togepi egg, honey trees as a tagged method) and the Grand
-Underground rooms as sub-tagged entries. Add `unlockAfter` gating where clear.
-Acceptance: validator green; spot-check 5 routes against Serebii in the PR
-description; engine test for a version-exclusive filter and a time condition.
+Nothing is currently DECIDED-but-unbuilt. Alex last confirmed (2026-07-04)
+everything through the type-effectiveness + click-to-expand work is merged
+and the tree is clean. Candidates for the next round, roughly in order of
+likely value — pick one or ask Alex:
 
-**3. `feat/lgpe-dataset` — Let's Go Pikachu/Eevee**
-Small dex, catch-only encounters. Mechanics flags: `wildBattles: false`,
-`heldItems: false`. Milestones: Kanto gyms + rival fights with ace levels.
-Acceptance: validator green; a rules note that "first encounter" = first catch
-opportunity (engine already supports it — encounters just resolve as
-caught/failed/skipped).
+- **SV/PLA datasets** — deliberately deferred until after the UX round
+  (now finished); the next full new-game dataset work.
+- **Known gaps below** — small, well-scoped, no new decision needed.
+- **Later phases** — bigger, needs scoping first (metrics dashboard/timeline,
+  genlocke campaigns, profiles+follows, variants).
 
-## Phase 1 — the web app
+## UI ideas (2026-07-04, Alex — expand-on-click patterns) — DONE
 
-**4. `feat/web-shell` — Vite + React + TS PWA scaffold in `apps/web`**
-Workspace wiring to `@nuzlocke/engine` and datasets; IndexedDB event store
-(idb); run create/select screen (game + version + preset picker); PWA manifest
-+ service worker. `VITE_SYNC_ENABLED` respected from day one (default false —
-there is no backend yet). Acceptance: `npm run dev` works; creating a run
-persists events across reload; engine remains the only source of derived state.
-
-**5. `feat/web-tracker` — the five tabs**
-Areas (encounter pool per area under active rules, resolve caught/failed/
-skipped), Team & Box (party of 6, box, graveyard with cause of death), Bosses/
-Milestones (level caps shown, clear button, token grants), Rules (preset +
-toggles + params + house rules; mid-run changes emit `rule_changed`), Stats
-(from the event log). Wipe screen when `pendingWipeDecision(state)`.
-Acceptance: full Z-A and BDSP runs trackable end to end offline.
-
-**6. ~~`feat/v1-import` — migrate pokemonZaNuzlockApp saves~~ — Dropped**
-(2026-07-03) — not needed; v1 runs aren't being carried forward.
-
-## Phase 2 — accounts, sync, sharing (needs Supabase project)
-
-**7. `feat/supabase` — schema migrations + RLS** (tables per plan §6), auth,
-background event sync (union-merge by seq/timestamp), `VITE_SYNC_ENABLED`
-gate verified. **8. `feat/share-links`** — share tokens, read-only RLS,
-realtime spectator view, wipe + rule-change audit visible. **9. keep-alive +
-nightly pg_dump GitHub Actions** per `docs/COSTS.md`.
-
-**10. `feat/trainer-rosters` — track full battle rosters, not just ace level (TODO, needs scoping)**
-Gap noticed while building the tracker: `Milestone` (`packages/datasets/schema/game.schema.json`)
-only carries a single `aceLevel` number per boss. Two things are missing for
-real nuzlocke play:
-  - *Which battles count as milestones at all.* Datasets currently only
-    model gym/noble/promotion + Elite Four + champion fights. Depending on
-    ruleset, rival battles, evil-team boss fights, and other notable story
-    battles are also commonly tracked (some rulesets key level caps or
-    "boss battle" honor rules off them) — needs a per-game curation pass to
-    decide which non-gym/E4/champion battles become milestones, cited like
-    any other dataset content.
-  - *Full team rosters, not just the ace.* Players plan around a boss's
-    whole team (species, level, moves, ability, held item), not just the
-    ace's level. `aceLevel` should stay as-is (the level-cap rule already
-    keys off it — don't change its meaning), but milestones need an
-    additional optional `roster` field (array of
-    `{ species, level, moves?, ability?, heldItem? }`) for informational
-    display in the Milestones tab.
-Acceptance: schema + validator updated (roster optional, backward
-compatible — existing datasets validate unchanged); at least one game's
-milestones re-authored with full rosters + sources cited; Milestones tab
-shows the roster when present; level-cap math still reads only `aceLevel`.
-
-**11. `feat/swsh-dataset` — Sword/Shield**
-Author SwSh routes + a representative slice of the Wild Area (weather-
-dependent spawns via the existing `conditions.weather` field — no schema
-change needed) from Serebii. Raid dens tagged `methods: ["max-raid"]` on the
-relevant Wild Area sub-zone entries (optional encounter source per the
-product plan — no dedicated raid concept in the schema yet, this is
-deliberately a lightweight fit rather than a new abstraction). Milestones:
-8 gyms + Champion Cup (semi-final + final) + a couple of Hop rival battles,
-mirroring the BDSP dataset's rival-milestone approach from item 10.
-Mechanics: `wildBattles: true, heldItems: true, setModeOption: true,
-raids: true, overworldAggro: false`. Acceptance: validator green; ≥5 routes
-+ Wild Area zones cited in the PR description; a rule note or engine test
-covering weather-conditioned encounters (the `conditions.weather` field
-exists in the schema but no dataset has exercised it yet).
-
-## Decided 2026-07-03, not yet implemented (do these next)
-
-**12. `feat/level-cap-flag` — rival battles are display-only for the cap. DECIDED.**
-Alex decided (2026-07-03): rival battles should NOT gate the enforced level
-cap. Implement after PR #14 (feat/trainer-rosters) merges: add optional
-`countsForLevelCap?: boolean` (default true) to the milestone schema +
-`Milestone` type; set it `false` on the 3 BDSP `rival-*-barry` milestones
-and SwSh's 2 `rival-hop-*` milestones (after PR #16 merges); filter on it in
-`nextBoss()` (`packages/engine/src/rules/index.ts`). Acceptance: engine test
-proving a fresh hardcore BDSP run's `nextBoss()` returns Roark (14), not
-Barry (9); rivals still render with rosters in the Milestones tab.
-
-**13. `fix/bdsp-ace-levels` — correct aceLevel to match Serebii rosters. DECIDED.**
-Alex decided (2026-07-03): `aceLevel` must equal the boss's actual
-highest-level Pokémon per the Serebii-sourced rosters (PR #14 found
-mismatches, e.g. Maylene aceLevel 32 vs her real ace Lucario Lv 30). After
-PR #14 merges, sweep every BDSP milestone: set `aceLevel` =
-max(roster[].level). Do the same check for SwSh after PR #16. Acceptance:
-a validator or test rule asserting `aceLevel === max(roster level)` whenever
-both exist, so future datasets can't drift.
-
-## Decided 2026-07-04, not yet implemented (starter feature — do these next)
-
-**14. `feat/starter-and-specials` — pick a starter + claim gifts/statics.**
-Alex asked (2026-07-04): there is currently NO way to select your starter or
-record any gift/fossil/static Pokémon — the `specials` array in the datasets
-is never surfaced in the UI at all, and BDSP's starter is hardcoded to just
-`turtwig` (not a choice of three). Build:
-  - *Data* (`bdsp.json` specials): replace the single `starter` with the three
-    real choices (`starter-turtwig` / `-chimchar` / `-piplup`); keep the
-    gift/fossil/static entries. Consider a `group`/`choose-one` marker so the
-    UI knows the three starters are mutually exclusive.
-  - *Engine*: a new append-only `special_claimed` event → creates a
-    `PokemonInstance` with `origin.specialId` (mirror how `encounter_resolved`
-    creates one; support nickname/level/shiny). Fold it in `deriveState`; add a
-    reset path (like `encounter_reset`). Tests.
-  - *UI*: a "Gifts & Specials" section on the Routes tab — a "choose your
-    starter" sprite picker (one of three, with the shiny toggle) plus claimable
-    gift/fossil/static entries, styled like the encounter sprite grid. Reuse
-    `SpriteImg`. Record which starter was chosen (it's needed for item 15).
-Acceptance: can pick a starter and it lands in the team; gifts/fossils/statics
-claimable + resettable; nothing breaks when a game has no specials.
-
-**15. `feat/starter-conditional-rivals` — rival team varies by your starter.**
-Alex asked (2026-07-04): Barry's team should adjust to the starter you pick
-(in BDSP he takes the one weak to yours, so his starter-line Pokémon differ
-three ways). Depends on item 14 (need to know the chosen starter). Build:
-  - *Schema*: let a milestone roster vary by chosen starter — e.g. an optional
-    `rosterByStarter: { turtwig: [...], chimchar: [...], piplup: [...] }` on the
-    milestone (or a `conditions.starter` on roster entries), falling back to the
-    plain `roster` when no starter is chosen. Update validator + `Milestone`
-    type; keep backward compatibility.
-  - *Data*: author Barry's three team variants for all 3 rival milestones from
-    Serebii (the current single roster is the Turtwig-branch team — the moveset
-    agent noted this). `aceLevel` stays max across variants.
-  - *Engine/UI*: derive the chosen starter from state (the `special_claimed`
-    starter), and render the matching rival roster in the Milestones tab (and
-    anywhere else rosters show). Default to one variant when unchosen.
-Acceptance: choosing Chimchar shows Barry with the Piplup line, etc.; unchosen
-falls back gracefully.
-
-## UI ideas (2026-07-04, Alex — expand-on-click patterns)
-
-- **Game picker → click-to-expand run settings**: the New Game game picker
-  should use the actual game icons (stylized/community-standard, IP-safe per
-  plan §10 — box art is out; use the per-version color cards + a small game
-  glyph, or a community icon set if one is license-clean). Clicking a game
-  card should expand *in place* to reveal the run-settings (version / preset /
-  house rules) rather than swapping to a separate settings panel. See
+- **Game picker → click-to-expand run settings**: done — PR merged
+  (`game picker expands run settings in place`, commit 1187d4d).
   `apps/web/src/screens/RunPicker.tsx`.
-- **Box/Team → click sprite to expand into edit mode**: clicking a Pokémon in
-  the box or team should expand its card straight into the edit form (nickname/
-  level/item/moves/nature), not a separate "Edit" button step. Keep the quick
-  action buttons (Party / Box / Fainted) visible in the *condensed* view so you
-  can shuffle mons around fast without expanding. `TeamBoxTab.tsx`.
+- **Box/Team → click sprite to expand into edit mode**: done — PR merged
+  (`click a team/box Pokémon to expand straight into edit`, commit f9d1a5b;
+  unified team/box cards, commit d994a18). `TeamBoxTab.tsx`.
 
 ## Known gaps / follow-ups (no decision needed, just work)
 
-- **Type display + matchups (2026-07-04)**: Pokémon type badges + move-type
-  dots are now shown in the team/box detail, milestone rosters, and the
-  encounter picker (data in `generated/species-data.json` — `types` +
-  `moveTypes`, from PokeAPI). Follow-ups worth doing: (a) show types on the
-  collapsed milestone roster sprites and the box-grid slots too; (b) a
-  type-effectiveness layer — flag a boss Pokémon's weaknesses, or highlight
-  which of your moves are super-effective against the next boss (needs a
-  static type-chart, no new fetch). Deferred as a nice-to-have.
+- **Type display + matchups (2026-07-04)**: DONE — PR #41
+  (`feat/type-effectiveness`, commit 3013904). Type badges + move-type dots
+  now shown on collapsed milestone roster sprites, box-grid slots, and team/
+  box detail; a static type-chart flags a boss's weaknesses and highlights
+  super-effective moves against the next boss.
 
-- **SwSh milestone rosters**: PR #16 shipped without them (`roster` field
-  didn't exist on its base branch). The research was done — gym/rival/
-  champion teams were gathered from Serebii in that session but not
-  persisted. Re-fetch from `serebii.net/swordshield/gyms.shtml`,
-  `.../hop.shtml`, `.../championcup.shtml` and add rosters after #14 + #16
-  both merge.
+- **SwSh milestone rosters**: DONE — PR #27 backfilled gym/rival/champion
+  rosters from Serebii.
 - **Giant's Cap (SwSh) verification**: its Serebii Pokéarth page 404'd; the
   shipped encounter list was reconstructed from general knowledge, not a
   fetched table. Lower confidence than every other area — verify against
   Serebii/Bulbapedia and correct.
-- **Faint dialog UX**: `TeamBoxTab.tsx` uses `window.prompt("Cause of death
-  (optional)")` — a real user typed the literal word "optional" into it.
-  Replace with an inline form. (Alex's real run has a Bidoof killed by
-  "optional" as evidence.)
+- **Faint dialog UX**: DONE — `window.prompt` removed; `TeamBoxTab.tsx` no
+  longer asks for cause of death via a browser prompt (see UX section A).
 - **Engine event-schema gaps** (deferred, low priority): no event type for
   editing `houseRules` mid-run (locked at run creation); wipe "reset" has no
   dedicated status transition (UI emits `run_ended(abandoned)` alongside
@@ -214,11 +69,10 @@ falls back gracefully.
 
 ## Later phases
 
-**UX/UI feedback round (NEXT — Alex is evaluating now, 2026-07-03).**
-Remaining datasets (SV -> PLA — deliberately deferred until after the UX
-round), metrics dashboard + timeline, genlocke campaigns (champion
-export/import, availability fallbacks), profiles + follows, variants
-(soul link, monolocke, wedlocke).
+UX overhaul round is complete (sections A-E all merged). Remaining, not yet
+scoped: SV → PLA datasets, metrics dashboard + timeline, genlocke campaigns
+(champion export/import, availability fallbacks), profiles + follows,
+variants (soul link, monolocke, wedlocke).
 
 ## Standing rules for every PR
 

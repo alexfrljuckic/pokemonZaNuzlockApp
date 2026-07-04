@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { filterEncounterPool, type Area, type EncounterSlot, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { hasMapNode } from '../../lib/sinnohMap';
-import { RouteMap } from '../../components/RouteMap';
+import { RouteMap, isFrontier } from '../../components/RouteMap';
 import { SpriteImg } from '../../components/SpriteImg';
 import { TypeBadges } from '../../components/TypeBadge';
-import { SpecialsSection } from '../../components/SpecialsSection';
+import { SpecialCard, StarterPicker, claimedSpecial } from '../../components/SpecialsSection';
 import { typesFor } from '../../lib/speciesData';
 
 type Outcome = 'caught' | 'failed' | 'skipped';
@@ -42,6 +42,30 @@ function CaughtHere({ areaId, state }: { areaId: string; state: RunState }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+/** Whether this area has any wild encounters documented at all for the active
+ * version — independent of the ruleset (dupes/first-encounter can legally
+ * filter every slot out while the area still "has" encounters on paper). */
+function hasDocumentedEncounters(area: Area, version: string): boolean {
+  return area.encounters.some((slot) => !slot.conditions?.version || slot.conditions.version.includes(version));
+}
+
+/** Shown when every documented encounter here was filtered out by the active
+ * ruleset (e.g. dupes clause: you already own every species that lives here).
+ * Without this the area could never be resolved — the encounter form has
+ * nothing to offer, but the route still needs a way to be marked done. */
+function AllFilteredOut({ onSkip }: { onSkip: () => void }) {
+  return (
+    <div className="route-all-filtered">
+      <p className="muted">
+        Every wild Pokémon here is already covered by your dupes clause — nothing left to catch.
+      </p>
+      <button className="secondary" onClick={onSkip}>
+        Skip route
+      </button>
     </div>
   );
 }
@@ -122,24 +146,57 @@ function EncounterForm({
   );
 }
 
+/** Gift/fossil/static specials tied to one area (not starters — those are
+ * claimed earlier, in the game-picker flow). Renders nothing if none. */
+function SpecialsHere({
+  areaId,
+  runId,
+  state,
+  ctx,
+  onChange,
+}: {
+  areaId: string;
+  runId: string;
+  state: RunState;
+  ctx: EngineContext;
+  onChange: () => Promise<void>;
+}) {
+  const here = (ctx.dataset.specials ?? []).filter((s) => s.area === areaId && !s.id.startsWith('starter-'));
+  if (here.length === 0) return null;
+  return (
+    <div className="specials-group">
+      <p className="muted specials-group-label">Gifts &amp; specials here</p>
+      <div className="specials-grid">
+        {here.map((s) => (
+          <SpecialCard key={s.id} s={s} runId={runId} state={state} onChange={onChange} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /** Flat expandable list of areas — the fallback for games without a map, and
  * the supplemental view for map-less areas (e.g. Grand Underground). */
 function AreaList({
   areas,
   state,
   ctx,
+  runId,
   openAreaId,
   setOpenAreaId,
   onResolve,
   onReset,
+  onChange,
 }: {
   areas: Area[];
   state: RunState;
   ctx: EngineContext;
+  runId: string;
   openAreaId: string | null;
   setOpenAreaId: (id: string | null) => void;
   onResolve: (area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) => void;
   onReset: (area: Area) => void;
+  onChange: () => Promise<void>;
 }) {
   return (
     <>
@@ -147,8 +204,9 @@ function AreaList({
         const outcome = state.encounterOutcomes[area.id];
         const pool = !outcome ? filterEncounterPool(state, area, ctx) : [];
 
+        const frontier = isFrontier(area, state);
         return (
-          <div key={area.id} className="area-row">
+          <div key={area.id} className={`area-row${frontier ? ' area-row-frontier' : ''}`}>
             <div
               className="area-row-header"
               onClick={() => setOpenAreaId(openAreaId === area.id ? null : area.id)}
@@ -172,9 +230,14 @@ function AreaList({
                 </div>
               ) : pool.length > 0 ? (
                 <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl, sh) => onResolve(area, sp, out, nick, lvl, sh)} />
+              ) : hasDocumentedEncounters(area, state.version) ? (
+                <AllFilteredOut onSkip={() => onResolve(area, '', 'skipped')} />
               ) : (
                 <p className="muted">No wild encounters documented here.</p>
               ))}
+            {openAreaId === area.id && (
+              <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
+            )}
           </div>
         );
       })}
@@ -221,20 +284,33 @@ export function RoutesTab({
   const areas = ctx.dataset.areas;
   const hasMap = ctx.dataset.gameId === 'bdsp';
 
+  // Starter is normally claimed in the game-picker flow before a run even
+  // starts; this is only a fallback for runs where it was skipped (or
+  // pre-existing runs from before that flow existed).
+  const starters = (ctx.dataset.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+  const starterUnclaimed = starters.length > 0 && !starters.some((s) => claimedSpecial(s.id, state));
+
   if (!hasMap) {
     return (
       <section>
         <h2>Routes</h2>
+        {starterUnclaimed && (
+          <div className="specials-section">
+            <h3 className="route-offmap-title">Choose your starter</h3>
+            <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
+          </div>
+        )}
         <AreaList
           areas={areas}
           state={state}
           ctx={ctx}
+          runId={runId}
           openAreaId={openAreaId}
           setOpenAreaId={setOpenAreaId}
           onResolve={resolve}
           onReset={resetRoute}
+          onChange={onChange}
         />
-        <SpecialsSection runId={runId} state={state} ctx={ctx} onChange={onChange} />
       </section>
     );
   }
@@ -247,6 +323,13 @@ export function RoutesTab({
   return (
     <section>
       <h2>Routes</h2>
+
+      {starterUnclaimed && (
+        <div className="specials-section">
+          <h3 className="route-offmap-title">Choose your starter</h3>
+          <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
+        </div>
+      )}
 
       <RouteMap areas={areas} state={state} version={state.version} onSelect={(id) => setOpenAreaId(id)} />
 
@@ -274,9 +357,12 @@ export function RoutesTab({
             </div>
           ) : selectedPool.length > 0 ? (
             <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)} />
+          ) : hasDocumentedEncounters(selected, state.version) ? (
+            <AllFilteredOut onSkip={() => resolve(selected, '', 'skipped')} />
           ) : (
             <p className="muted">No wild encounters documented here.</p>
           )}
+          <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
         </div>
       )}
 
@@ -287,15 +373,15 @@ export function RoutesTab({
             areas={offMapAreas}
             state={state}
             ctx={ctx}
+            runId={runId}
             openAreaId={openAreaId}
             setOpenAreaId={setOpenAreaId}
             onResolve={resolve}
             onReset={resetRoute}
+            onChange={onChange}
           />
         </div>
       )}
-
-      <SpecialsSection runId={runId} state={state} ctx={ctx} onChange={onChange} />
     </section>
   );
 }
