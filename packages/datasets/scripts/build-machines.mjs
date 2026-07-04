@@ -1,11 +1,12 @@
-// Builds generated/bdsp-machines.json: { "<move-slug>": "TM" | "HM", ... } for
-// every move that is a TM/HM in Brilliant Diamond / Shining Pearl and appears in
-// some species' movepool. Powers the TM/HM tags in the move picker.
+// Builds generated/machines-by-game.json:
+//   { "<gameId>": { "<move-slug>": "TM" | "HM" | "TR", ... }, ... }
+// classifying every move in some species' movepool (from species-data.json) as
+// a TM/HM/TR in each supported game. Powers the per-game TM/HM/TR tags in the
+// move picker (machineType(move, gameId)).
 //
-// Move set = the moves already collected in generated/species-data.json, so we
-// only classify moves that can actually show up in a picker. For each, PokeAPI
-// /move tells us whether it has a BDSP machine, and the machine's item slug
-// (tmNN / hmNN) tells TM vs HM. Cached in .cache/pokeapi/ like the other builds.
+// PokeAPI's /move tells us which version groups make a move a machine; the
+// machine's item slug (tmNN / hmNN / trNN) tells the category. Cached in
+// .cache/pokeapi/ like the other builds. Delete the cache dir to refresh.
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { dirname, join } from 'node:path';
@@ -17,10 +18,18 @@ const outDir = join(root, 'generated');
 mkdirSync(cacheDir, { recursive: true });
 mkdirSync(outDir, { recursive: true });
 
-// PokeAPI has no machine data under a BDSP version group, but BDSP is a 1:1
-// remake of Diamond/Pearl with the same TM01-92 / HM01-08 list, so diamond-pearl
-// is an accurate proxy for BDSP's machine moves.
-const VERSION_GROUP = 'diamond-pearl';
+// gameId -> the PokeAPI version group whose machine list represents that game.
+// BDSP has only partial machine data under its own group, but it's a 1:1 remake
+// of Diamond/Pearl with the same TM01-92 / HM01-08 list, so diamond-pearl is an
+// accurate, complete proxy. LGPE, SwSh and Z-A have direct machine data (SwSh
+// uses TRs alongside TMs). Legends Arceus is intentionally absent — it has no
+// TMs at all (moves are bought/learned via the move shop), so it gets no tags.
+const MACHINE_SOURCE = {
+  bdsp: 'diamond-pearl',
+  lgpe: 'lets-go-pikachu-lets-go-eevee',
+  swsh: 'sword-shield',
+  plza: 'legends-za',
+};
 const CONCURRENCY = 16;
 
 async function fetchJson(url) {
@@ -46,11 +55,18 @@ async function mapPool(items, fn) {
   );
 }
 
+function classify(itemName) {
+  if (itemName.startsWith('hm')) return 'HM';
+  if (itemName.startsWith('tr')) return 'TR';
+  return 'TM';
+}
+
 const speciesData = JSON.parse(readFileSync(join(outDir, 'species-data.json'), 'utf8'));
 const moves = [...new Set(Object.values(speciesData.moves).flat())].sort();
-console.log(`${moves.length} distinct moves to classify`);
+console.log(`${moves.length} distinct moves to classify across ${Object.keys(MACHINE_SOURCE).length} games`);
 
-const machines = {};
+const sourceByVg = Object.fromEntries(Object.entries(MACHINE_SOURCE).map(([g, vg]) => [vg, g]));
+const machinesByGame = Object.fromEntries(Object.keys(MACHINE_SOURCE).map((g) => [g, {}]));
 let checked = 0;
 await mapPool(moves, async (move) => {
   let data;
@@ -59,16 +75,23 @@ await mapPool(moves, async (move) => {
   } catch {
     return;
   }
-  const entry = data.machines?.find((m) => m.version_group.name === VERSION_GROUP);
-  if (entry) {
+  for (const entry of data.machines ?? []) {
+    const gameId = sourceByVg[entry.version_group.name];
+    if (!gameId) continue;
     const machine = await fetchJson(entry.machine.url);
     const item = machine.item?.name ?? '';
-    machines[move] = item.startsWith('hm') ? 'HM' : 'TM';
+    if (item) machinesByGame[gameId][move] = classify(item);
   }
   if (++checked % 100 === 0) console.log(`  ${checked}/${moves.length}`);
 });
 
-const sorted = Object.fromEntries(Object.entries(machines).sort(([a], [b]) => a.localeCompare(b)));
-const outFile = join(outDir, 'bdsp-machines.json');
-writeFileSync(outFile, JSON.stringify(sorted) + '\n');
-console.log(`wrote ${Object.keys(sorted).length} TM/HM moves to ${outFile}`);
+const out = Object.fromEntries(
+  Object.entries(machinesByGame).map(([g, m]) => [
+    g,
+    Object.fromEntries(Object.entries(m).sort(([a], [b]) => a.localeCompare(b))),
+  ]),
+);
+const outFile = join(outDir, 'machines-by-game.json');
+writeFileSync(outFile, JSON.stringify(out) + '\n');
+for (const [g, m] of Object.entries(out)) console.log(`  ${g}: ${Object.keys(m).length} machine moves`);
+console.log(`wrote ${outFile}`);

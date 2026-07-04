@@ -1568,6 +1568,7 @@ button.back-btn:hover:not(:disabled)::before {
 .move-tag { margin-left: 0.3rem; }
 .badge-TM { background: color-mix(in srgb, var(--highlight) 30%, transparent); color: var(--text); }
 .badge-HM { background: color-mix(in srgb, var(--warning-strong, #f0883e) 36%, transparent); color: var(--text); }
+.badge-TR { background: color-mix(in srgb, var(--accent) 30%, transparent); color: var(--text); }
 
 .shiny-toggle {
   flex-direction: row !important;

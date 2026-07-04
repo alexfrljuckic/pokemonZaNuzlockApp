@@ -94,7 +94,7 @@ function EditForm({
             onChange={(v) => setMoves(moves.map((old, j) => (j === i ? v : old)))}
             options={movePool}
             placeholder={`Move ${i + 1}`}
-            badge={machineType}
+            badge={(m) => machineType(m, gameId)}
           />
         ))}
       </div>
@@ -175,7 +175,9 @@ function MonCard({
                 <span key={m} className="move-chip">
                   <TypeDot type={moveType(m)} />
                   {m}
-                  {machineType(m) && <span className={`move-tag badge-${machineType(m)}`}>{machineType(m)}</span>}
+                  {machineType(m, gameId) && (
+                    <span className={`move-tag badge-${machineType(m, gameId)}`}>{machineType(m, gameId)}</span>
+                  )}
                 </span>
               ))}
             </span>
