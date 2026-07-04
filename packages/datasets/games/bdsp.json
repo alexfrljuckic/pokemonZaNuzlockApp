@@ -985,7 +985,9 @@
     }
   ],
   "specials": [
-    { "id": "starter", "type": "gift", "species": "turtwig", "area": "lake-verity" },
+    { "id": "starter-turtwig", "type": "gift", "species": "turtwig", "area": "lake-verity" },
+    { "id": "starter-chimchar", "type": "gift", "species": "chimchar", "area": "lake-verity" },
+    { "id": "starter-piplup", "type": "gift", "species": "piplup", "area": "lake-verity" },
     { "id": "gift-eevee", "type": "gift", "species": "eevee", "area": "hearthome-city" },
     { "id": "fossil-cranidos", "type": "fossil", "species": "cranidos", "area": "oreburgh-mine" },
     { "id": "fossil-shieldon", "type": "fossil", "species": "shieldon", "area": "oreburgh-mine" },

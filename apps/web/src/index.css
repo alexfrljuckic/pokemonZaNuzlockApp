@@ -1643,6 +1643,103 @@ button.back-btn:hover:not(:disabled)::before {
 .route-offmap {
   margin-top: 1.5rem;
 }
+
+/* ---------- Gifts & Specials ---------- */
+.specials-section {
+  margin-top: 1.5rem;
+}
+.specials-group {
+  margin-bottom: 0.75rem;
+}
+.specials-group-label {
+  margin: 0 0 0.4rem;
+  font-size: 0.8rem;
+}
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 0.5rem;
+}
+.special-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inset);
+  overflow: hidden;
+}
+.special-card.claimed {
+  border-color: color-mix(in srgb, var(--success) 45%, var(--border));
+}
+.special-card.open {
+  border-color: var(--highlight);
+}
+.special-card-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.6rem;
+  width: 100%;
+}
+.special-card-pick {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+  font: inherit;
+}
+.special-card-pick:hover:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
+}
+.special-card-head img {
+  image-rendering: pixelated;
+  flex: none;
+}
+.special-card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.special-card-title strong {
+  text-transform: capitalize;
+}
+.special-card-head .secondary {
+  margin: 0 0 0 auto;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+.special-claim-form {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.6rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-chip);
+  flex-wrap: wrap;
+}
+.special-claim-fields {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.special-claim-fields label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.78rem;
+  margin: 0;
+  flex: 1;
+  min-width: 90px;
+}
+.special-claim-form button {
+  margin: 0;
+}
 .route-offmap-title {
   font-size: 0.95rem;
   color: var(--muted);
