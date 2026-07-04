@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { EngineContext, PokemonInstance, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
+import { HELD_ITEMS, evolutionSummary, movesFor } from '../../lib/speciesData';
 import { SpriteImg } from '../../components/SpriteImg';
 
 function EditForm({
@@ -19,6 +20,9 @@ function EditForm({
   const [nature, setNature] = useState(p.nature ?? '');
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
+  const movePool = movesFor(p.species);
+  const heldListId = 'held-items-list';
+  const moveListId = `moves-${p.species}`;
 
   async function save() {
     setSaving(true);
@@ -54,7 +58,18 @@ function EditForm({
         </label>
         <label>
           Held item
-          <input type="text" value={heldItem} onChange={(e) => setHeldItem(e.target.value)} placeholder="none" />
+          <input
+            type="text"
+            list={heldListId}
+            value={heldItem}
+            onChange={(e) => setHeldItem(e.target.value)}
+            placeholder="none"
+          />
+          <datalist id={heldListId}>
+            {HELD_ITEMS.map((it) => (
+              <option key={it} value={it} />
+            ))}
+          </datalist>
         </label>
         <label>
           Nature
@@ -74,11 +89,19 @@ function EditForm({
           <input
             key={i}
             type="text"
+            list={movePool.length ? moveListId : undefined}
             value={m}
             placeholder={`Move ${i + 1}`}
             onChange={(e) => setMoves(moves.map((old, j) => (j === i ? e.target.value : old)))}
           />
         ))}
+        {movePool.length > 0 && (
+          <datalist id={moveListId}>
+            {movePool.map((mv) => (
+              <option key={mv} value={mv} />
+            ))}
+          </datalist>
+        )}
       </div>
       <button onClick={save} disabled={saving}>
         {saving ? 'Saving…' : 'Save'}
@@ -111,6 +134,9 @@ function PokemonDetail({
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
           <span className="muted">{p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}</span>
+          {evolutionSummary(p.species) && (
+            <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
+          )}
           {p.moves && p.moves.length > 0 && (
             <span className="poke-moves">
               {p.moves.map((m) => (

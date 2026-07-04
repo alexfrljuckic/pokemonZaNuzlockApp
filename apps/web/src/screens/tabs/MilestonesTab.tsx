@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { nextBoss, validateTeam, type EngineContext, type Milestone, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
+import { STAT_ORDER, statLabel, statsFor } from '../../lib/speciesData';
 import { SpriteImg } from '../../components/SpriteImg';
 
 function MilestoneCard({
@@ -78,6 +79,20 @@ function MilestoneCard({
                       ))}
                     </span>
                   )}
+                  {(() => {
+                    const st = statsFor(p.species);
+                    if (!st) return null;
+                    return (
+                      <span className="poke-stats">
+                        {STAT_ORDER.map((k) => (
+                          <span key={k} className="stat-chip">
+                            <span className="stat-label">{statLabel(k)}</span>
+                            <span className="stat-value">{st[k]}</span>
+                          </span>
+                        ))}
+                      </span>
+                    );
+                  })()}
                 </div>
               </div>
             ))

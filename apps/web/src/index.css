@@ -1336,6 +1336,37 @@ button.back-btn:hover:not(:disabled)::before {
 .route-resolve-close {
   padding: 0.15rem 0.5rem;
 }
+.poke-evo {
+  font-size: 0.78rem;
+  color: var(--highlight);
+}
+.poke-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-top: 0.3rem;
+}
+.stat-chip {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 34px;
+  padding: 0.1rem 0.25rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.58rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.stat-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
 .route-resolved-body {
   padding-top: 0.25rem;
 }
