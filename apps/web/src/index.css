@@ -103,6 +103,17 @@
   --highlight: #ff9ab8;
 }
 
+/* Legends: Arceus — Hisui parchment amber + cobalt sky */
+[data-theme='pla'] {
+  --bg: #171310;
+  --bg-panel: #221c15;
+  --bg-inset: #120f0b;
+  --bg-chip: #2b2318;
+  --border: #4a3c26;
+  --accent: #c8862f;
+  --highlight: #4f8fd1;
+}
+
 /* ---------- Base + backdrop ---------- */
 
 * {

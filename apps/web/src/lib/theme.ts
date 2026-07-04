@@ -7,6 +7,7 @@ export const THEMES = [
   { id: 'lgpe-eevee', name: "Let's Go Eevee" },
   { id: 'swsh-sword', name: 'Sword' },
   { id: 'swsh-shield', name: 'Shield' },
+  { id: 'pla', name: 'Legends: Arceus' },
 ] as const;
 
 export type ThemeId = (typeof THEMES)[number]['id'];
