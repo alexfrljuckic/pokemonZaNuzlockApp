@@ -46,6 +46,40 @@
                 }
               }
             }
+          },
+          "trainers": {
+            "type": "array",
+            "description": "Optional documented trainer battles in this area (Serebii/Bulbapedia-sourced, never invented). Display-only route intel — the engine doesn't gate anything on them.",
+            "items": {
+              "type": "object",
+              "required": ["name", "team"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "class": { "type": "string", "description": "Trainer class, e.g. \"Youngster\", \"Ace Trainer\"." },
+                "team": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "object",
+                    "required": ["species", "level"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                      "level": { "type": "integer", "minimum": 1 },
+                      "moves": { "type": "array", "items": { "type": "string" } },
+                      "ability": { "type": "string" },
+                      "heldItem": { "type": "string" }
+                    }
+                  }
+                },
+                "conditions": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": { "version": { "type": "array", "items": { "type": "string" } } }
+                }
+              }
+            }
           }
         }
       }

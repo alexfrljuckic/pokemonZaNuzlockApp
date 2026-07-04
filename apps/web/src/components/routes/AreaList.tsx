@@ -3,6 +3,7 @@ import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
 import { EncounterForm, type Outcome } from './EncounterForm';
 import { SpecialsHere } from './SpecialsHere';
+import { TrainersHere } from './TrainersHere';
 
 /** Flat expandable list of areas — the fallback for games without a map, and
  * the supplemental view for map-less areas (e.g. Grand Underground). */
@@ -65,7 +66,10 @@ export function AreaList({
                 <p className="muted">No wild encounters documented here.</p>
               ))}
             {openAreaId === area.id && (
-              <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
+              <>
+                <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
+                <TrainersHere area={area} version={state.version} />
+              </>
             )}
           </div>
         );

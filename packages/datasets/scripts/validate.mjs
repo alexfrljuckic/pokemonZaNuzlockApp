@@ -103,8 +103,24 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
     }
   }
 
+  // Area trainers get the same guards as milestone rosters: species must be
+  // in the generated data (so sprites/types render) and moves must be real.
+  for (const a of data.areas) {
+    for (const t of a.trainers ?? []) {
+      for (const p of t.team) {
+        for (const mv of p.moves ?? []) {
+          if (!knownMoves.has(mv))
+            problems.push(`area "${a.id}" trainer "${t.name}" ${p.species} has unknown move "${mv}"`);
+        }
+      }
+    }
+  }
+
   const referencedSpecies = new Set();
-  for (const a of data.areas) for (const e of a.encounters ?? []) referencedSpecies.add(e.species);
+  for (const a of data.areas) {
+    for (const e of a.encounters ?? []) referencedSpecies.add(e.species);
+    for (const t of a.trainers ?? []) for (const p of t.team) referencedSpecies.add(p.species);
+  }
   for (const s of data.specials ?? []) referencedSpecies.add(s.species);
   for (const m of data.milestones) {
     for (const p of m.roster ?? []) referencedSpecies.add(p.species);

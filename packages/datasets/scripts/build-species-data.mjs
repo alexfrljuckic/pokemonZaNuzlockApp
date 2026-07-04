@@ -71,7 +71,10 @@ for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
     add(p.species);
     for (const mv of p.moves ?? []) rosterMoves.add(mv);
   };
-  for (const area of game.areas ?? []) for (const e of area.encounters ?? []) add(e.species);
+  for (const area of game.areas ?? []) {
+    for (const e of area.encounters ?? []) add(e.species);
+    for (const t of area.trainers ?? []) for (const p of t.team) addMon(p);
+  }
   for (const s of game.specials ?? []) add(s.species);
   for (const m of game.milestones ?? []) {
     for (const p of m.roster ?? []) addMon(p);
