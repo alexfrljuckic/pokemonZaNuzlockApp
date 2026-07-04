@@ -1,0 +1,794 @@
+{
+  "schemaVersion": 1,
+  "gameId": "sv",
+  "name": "Pokémon Scarlet / Violet",
+  "versions": ["scarlet", "violet"],
+  "pokeapiVersionGroups": ["scarlet-violet", "the-teal-mask", "the-indigo-disk"],
+  "rostersRequired": true,
+  "areas": [
+    {
+      "id": "south-province-area-one",
+      "name": "South Province (Area One)",
+      "unlockAfter": null,
+      "tags": ["open-zone", "unlock:start"],
+      "encounters": [
+        { "species": "lechonk", "methods": ["walk"] },
+        { "species": "pawmi", "methods": ["walk"] },
+        { "species": "tarountula", "methods": ["walk"] },
+        { "species": "fidough", "methods": ["walk"] },
+        { "species": "hoppip", "methods": ["walk"] },
+        { "species": "wooper-paldea", "methods": ["walk"] },
+        { "species": "buizel", "methods": ["walk"] },
+        { "species": "starly", "methods": ["walk"] },
+        { "species": "fletchling", "methods": ["walk"] },
+        { "species": "skwovet", "methods": ["walk"] },
+        { "species": "ralts", "methods": ["walk"] },
+        { "species": "maschiff", "methods": ["walk"] },
+        { "species": "flamigo", "methods": ["walk"] },
+        { "species": "dunsparce", "methods": ["walk"] },
+        { "species": "psyduck", "methods": ["walk"] },
+        { "species": "drifloon", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "bagon", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "south-province-area-two",
+      "name": "South Province (Area Two)",
+      "unlockAfter": null,
+      "tags": ["open-zone", "unlock:start"],
+      "encounters": [
+        { "species": "pikachu", "methods": ["walk"] },
+        { "species": "jigglypuff", "methods": ["walk"] },
+        { "species": "diglett", "methods": ["walk"] },
+        { "species": "eevee", "methods": ["walk"] },
+        { "species": "mareep", "methods": ["walk"] },
+        { "species": "phanpy", "methods": ["walk"] },
+        { "species": "bronzor", "methods": ["walk"] },
+        { "species": "riolu", "methods": ["walk"] },
+        { "species": "smoliv", "methods": ["walk"] },
+        { "species": "tinkatink", "methods": ["walk"] },
+        { "species": "nymble", "methods": ["walk"] },
+        { "species": "hatenna", "methods": ["walk"] },
+        { "species": "drifloon", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "misdreavus", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "south-province-area-three",
+      "name": "South Province (Area Three)",
+      "unlockAfter": null,
+      "tags": ["open-zone", "unlock:start"],
+      "encounters": [
+        { "species": "growlithe", "methods": ["walk"] },
+        { "species": "shroomish", "methods": ["walk"] },
+        { "species": "slakoth", "methods": ["walk"] },
+        { "species": "makuhita", "methods": ["walk"] },
+        { "species": "spoink", "methods": ["walk"] },
+        { "species": "swablu", "methods": ["walk"] },
+        { "species": "shinx", "methods": ["walk"] },
+        { "species": "axew", "methods": ["walk"] },
+        { "species": "nacli", "methods": ["walk"] },
+        { "species": "charcadet", "methods": ["walk"] },
+        { "species": "klawf", "methods": ["walk"] },
+        { "species": "gumshoos", "methods": ["walk"] },
+        { "species": "litleo", "methods": ["walk"] },
+        { "species": "zangoose", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "seviper", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "gulpin", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "south-province-area-four",
+      "name": "South Province (Area Four)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "persian", "methods": ["walk"] },
+        { "species": "primeape", "methods": ["walk"] },
+        { "species": "arcanine", "methods": ["walk"] },
+        { "species": "scyther", "methods": ["walk"] },
+        { "species": "houndour", "methods": ["walk"] },
+        { "species": "donphan", "methods": ["walk"] },
+        { "species": "meditite", "methods": ["walk"] },
+        { "species": "grumpig", "methods": ["walk"] },
+        { "species": "petilil", "methods": ["walk"] },
+        { "species": "sawsbuck", "methods": ["walk"] },
+        { "species": "hawlucha", "methods": ["walk"] },
+        { "species": "salazzle", "methods": ["walk"] },
+        { "species": "pineco", "methods": ["walk"] },
+        { "species": "drifloon", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "dreepy", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "east-province-area-one",
+      "name": "East Province (Area One)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "tauros-paldea-combat-breed", "methods": ["walk"] },
+        { "species": "venonat", "methods": ["walk"] },
+        { "species": "teddiursa", "methods": ["walk"] },
+        { "species": "shuppet", "methods": ["walk"] },
+        { "species": "shellos", "methods": ["walk"] },
+        { "species": "cyclizar", "methods": ["walk"] },
+        { "species": "tandemaus", "methods": ["walk"] },
+        { "species": "spidops", "methods": ["walk"] },
+        { "species": "wattrel", "methods": ["walk"] },
+        { "species": "steenee", "methods": ["walk"] },
+        { "species": "komala", "methods": ["walk"] },
+        { "species": "oricorio-baile", "methods": ["walk"] },
+        { "species": "gulpin", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "east-province-area-three",
+      "name": "East Province (Area Three)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "meowth", "methods": ["walk"] },
+        { "species": "magnemite", "methods": ["walk"] },
+        { "species": "voltorb", "methods": ["walk"] },
+        { "species": "torkoal", "methods": ["walk"] },
+        { "species": "sableye", "methods": ["walk"] },
+        { "species": "hariyama", "methods": ["walk"] },
+        { "species": "pawniard", "methods": ["walk"] },
+        { "species": "rolycoly", "methods": ["walk"] },
+        { "species": "silicobra", "methods": ["walk"] },
+        { "species": "sinistea", "methods": ["walk"] },
+        { "species": "varoom", "methods": ["walk"] },
+        { "species": "orthworm", "methods": ["walk"] },
+        { "species": "glimmet", "methods": ["walk"] },
+        { "species": "bramblin", "methods": ["walk"] },
+        { "species": "larvitar", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "bagon", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "west-province-area-one",
+      "name": "West Province (Area One)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "mankey", "methods": ["walk"] },
+        { "species": "hypno", "methods": ["walk"] },
+        { "species": "numel", "methods": ["walk"] },
+        { "species": "gible", "methods": ["walk"] },
+        { "species": "crabrawler", "methods": ["walk"] },
+        { "species": "rockruff", "methods": ["walk"] },
+        { "species": "mudbray", "methods": ["walk"] },
+        { "species": "falinks", "methods": ["walk"] },
+        { "species": "bombirdier", "methods": ["walk"] },
+        { "species": "capsakid", "methods": ["walk"] },
+        { "species": "wiglett", "methods": ["walk"] },
+        { "species": "nacli", "methods": ["walk"] },
+        { "species": "larvitar", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "drifloon", "methods": ["walk"], "conditions": { "version": ["scarlet"] } }
+      ]
+    },
+    {
+      "id": "west-province-area-two",
+      "name": "West Province (Area Two)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "tauros-paldea-combat-breed", "methods": ["walk"] },
+        { "species": "ditto", "methods": ["walk"] },
+        { "species": "girafarig", "methods": ["walk"] },
+        { "species": "hariyama", "methods": ["walk"] },
+        { "species": "tropius", "methods": ["walk"] },
+        { "species": "gabite", "methods": ["walk"] },
+        { "species": "croagunk", "methods": ["walk"] },
+        { "species": "floatzel", "methods": ["walk"] },
+        { "species": "sandygast", "methods": ["walk"] },
+        { "species": "finizen", "methods": ["walk"] },
+        { "species": "noibat", "methods": ["walk"] },
+        { "species": "stunky", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "bagon", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "asado-desert",
+      "name": "Asado Desert",
+      "unlockAfter": null,
+      "tags": ["open-zone", "desert"],
+      "encounters": [
+        { "species": "cacnea", "methods": ["walk"] },
+        { "species": "hippopotas", "methods": ["walk"] },
+        { "species": "sandile", "methods": ["walk"] },
+        { "species": "silicobra", "methods": ["walk"] },
+        { "species": "sandaconda", "methods": ["walk"] },
+        { "species": "larvesta", "methods": ["walk"] },
+        { "species": "orthworm", "methods": ["walk"] },
+        { "species": "bramblin", "methods": ["walk"] },
+        { "species": "capsakid", "methods": ["walk"] },
+        { "species": "rellor", "methods": ["walk"] },
+        { "species": "lokix", "methods": ["walk"] },
+        { "species": "makuhita", "methods": ["walk"] },
+        { "species": "larvitar", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "stonjourner", "methods": ["walk"], "conditions": { "version": ["scarlet"] } }
+      ]
+    },
+    {
+      "id": "tagtree-thicket",
+      "name": "Tagtree Thicket",
+      "unlockAfter": null,
+      "tags": ["open-zone", "forest"],
+      "encounters": [
+        { "species": "venomoth", "methods": ["walk"] },
+        { "species": "sunflora", "methods": ["walk"] },
+        { "species": "pineco", "methods": ["walk"] },
+        { "species": "zorua", "methods": ["walk"] },
+        { "species": "foongus", "methods": ["walk"] },
+        { "species": "fomantis", "methods": ["walk"] },
+        { "species": "mimikyu-disguised", "methods": ["walk"] },
+        { "species": "impidimp", "methods": ["walk"] },
+        { "species": "grafaiai", "methods": ["walk"] },
+        { "species": "dolliv", "methods": ["walk"] },
+        { "species": "greedent", "methods": ["walk"] },
+        { "species": "komala", "methods": ["walk"] },
+        { "species": "oranguru", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "passimian", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "north-province-area-one",
+      "name": "North Province (Area One)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "ampharos", "methods": ["walk"] },
+        { "species": "ursaring", "methods": ["walk"] },
+        { "species": "lucario", "methods": ["walk"] },
+        { "species": "gallade", "methods": ["walk"] },
+        { "species": "fraxure", "methods": ["walk"] },
+        { "species": "noivern", "methods": ["walk"] },
+        { "species": "hawlucha", "methods": ["walk"] },
+        { "species": "pyroar-male", "methods": ["walk"] },
+        { "species": "lurantis", "methods": ["walk"] },
+        { "species": "brambleghast", "methods": ["walk"] },
+        { "species": "scovillain", "methods": ["walk"] },
+        { "species": "indeedee-male", "methods": ["walk"] },
+        { "species": "revavroom", "methods": ["walk"] },
+        { "species": "houndstone", "methods": ["walk"] }
+      ]
+    },
+    {
+      "id": "north-province-area-two",
+      "name": "North Province (Area Two)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "arcanine", "methods": ["walk"] },
+        { "species": "heracross", "methods": ["walk"] },
+        { "species": "houndoom", "methods": ["walk"] },
+        { "species": "slaking", "methods": ["walk"] },
+        { "species": "camerupt", "methods": ["walk"] },
+        { "species": "luxray", "methods": ["walk"] },
+        { "species": "amoonguss", "methods": ["walk"] },
+        { "species": "bisharp", "methods": ["walk"] },
+        { "species": "mabosstiff", "methods": ["walk"] },
+        { "species": "grafaiai", "methods": ["walk"] },
+        { "species": "shelgon", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "deino", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "oranguru", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "passimian", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "north-province-area-three",
+      "name": "North Province (Area Three)",
+      "unlockAfter": null,
+      "tags": ["open-zone"],
+      "encounters": [
+        { "species": "espeon", "methods": ["walk"] },
+        { "species": "umbreon", "methods": ["walk"] },
+        { "species": "blissey", "methods": ["walk"] },
+        { "species": "lilligant", "methods": ["walk"] },
+        { "species": "florges", "methods": ["walk"] },
+        { "species": "dedenne", "methods": ["walk"] },
+        { "species": "lurantis", "methods": ["walk"] },
+        { "species": "scovillain", "methods": ["walk"] },
+        { "species": "sunflora", "methods": ["walk"] },
+        { "species": "hawlucha", "methods": ["walk"] },
+        { "species": "gastrodon", "methods": ["walk"] },
+        { "species": "eiscue-ice", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "glaseado-mountain",
+      "name": "Glaseado Mountain",
+      "unlockAfter": null,
+      "tags": ["open-zone", "mountain"],
+      "encounters": [
+        { "species": "snorunt", "methods": ["walk"] },
+        { "species": "snover", "methods": ["walk"] },
+        { "species": "sneasel", "methods": ["walk"] },
+        { "species": "delibird", "methods": ["walk"] },
+        { "species": "cubchoo", "methods": ["walk"] },
+        { "species": "snom", "methods": ["walk"] },
+        { "species": "bergmite", "methods": ["walk"] },
+        { "species": "cryogonal", "methods": ["walk"] },
+        { "species": "cetoddle", "methods": ["walk"] },
+        { "species": "frigibax", "methods": ["walk"] },
+        { "species": "glaceon", "methods": ["walk"] },
+        { "species": "froslass", "methods": ["walk"] },
+        { "species": "crabominable", "methods": ["walk"] },
+        { "species": "deino", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "dreepy", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "casseroya-lake",
+      "name": "Casseroya Lake",
+      "unlockAfter": null,
+      "tags": ["open-zone", "water"],
+      "encounters": [
+        { "species": "gyarados", "methods": ["walk"] },
+        { "species": "dratini", "methods": ["walk"] },
+        { "species": "dragonair", "methods": ["walk"] },
+        { "species": "chansey", "methods": ["walk"] },
+        { "species": "gastrodon", "methods": ["walk"] },
+        { "species": "toxicroak", "methods": ["walk"] },
+        { "species": "sliggoo", "methods": ["walk"] },
+        { "species": "tsareena", "methods": ["walk"] },
+        { "species": "dondozo", "methods": ["walk"] },
+        { "species": "tatsugiri-curly", "methods": ["walk"] },
+        { "species": "veluza", "methods": ["walk"] },
+        { "species": "drednaw", "methods": ["walk"] },
+        { "species": "spiritomb", "methods": ["walk"] },
+        { "species": "skuntank", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "swalot", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    },
+    {
+      "id": "area-zero",
+      "name": "Area Zero (Great Crater of Paldea)",
+      "unlockAfter": "champion-geeta",
+      "tags": ["open-zone", "postgame", "crater"],
+      "encounters": [
+        { "species": "great-tusk", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "scream-tail", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "brute-bonnet", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "flutter-mane", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "slither-wing", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "sandy-shocks", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "roaring-moon", "methods": ["walk"], "conditions": { "version": ["scarlet"] } },
+        { "species": "iron-treads", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-bundle", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-hands", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-jugulis", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-moth", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-thorns", "methods": ["walk"], "conditions": { "version": ["violet"] } },
+        { "species": "iron-valiant", "methods": ["walk"], "conditions": { "version": ["violet"] } }
+      ]
+    }
+  ],
+  "specials": [
+    { "id": "starter-sprigatito", "type": "gift", "species": "sprigatito", "area": "south-province-area-one" },
+    { "id": "starter-fuecoco", "type": "gift", "species": "fuecoco", "area": "south-province-area-one" },
+    { "id": "starter-quaxly", "type": "gift", "species": "quaxly", "area": "south-province-area-one" },
+    { "id": "koraidon", "type": "static", "species": "koraidon", "area": "area-zero", "conditions": { "version": ["scarlet"] } },
+    { "id": "miraidon", "type": "static", "species": "miraidon", "area": "area-zero", "conditions": { "version": ["violet"] } },
+    { "id": "titan-klawf", "type": "static", "species": "klawf", "area": "south-province-area-three" },
+    { "id": "titan-bombirdier", "type": "static", "species": "bombirdier", "area": "west-province-area-one" },
+    { "id": "titan-orthworm", "type": "static", "species": "orthworm", "area": "east-province-area-three" },
+    { "id": "titan-dondozo", "type": "static", "species": "dondozo", "area": "casseroya-lake" },
+    { "id": "titan-great-tusk", "type": "static", "species": "great-tusk", "area": "asado-desert", "conditions": { "version": ["scarlet"] } },
+    { "id": "titan-iron-treads", "type": "static", "species": "iron-treads", "area": "asado-desert", "conditions": { "version": ["violet"] } }
+  ],
+  "milestones": [
+    {
+      "id": "gym-1-katy",
+      "name": "Katy (Cortondo Gym, Bug)",
+      "type": "gym",
+      "order": 1,
+      "aceLevel": 15,
+      "roster": [
+        { "species": "nymble", "level": 14, "moves": ["struggle-bug", "double-kick"], "ability": "swarm" },
+        { "species": "tarountula", "level": 14, "moves": ["bug-bite", "assurance"], "ability": "insomnia" },
+        { "species": "teddiursa", "level": 15, "moves": ["fury-cutter", "fury-swipes"], "ability": "pickup", "teraType": "bug" }
+      ]
+    },
+    {
+      "id": "stony-cliff-titan",
+      "name": "Stony Cliff Titan (Klawf)",
+      "type": "titan",
+      "order": 2,
+      "aceLevel": 16,
+      "roster": [
+        { "species": "klawf", "level": 16, "moves": ["vice-grip", "rock-smash", "block"], "ability": "anger-shell" }
+      ]
+    },
+    {
+      "id": "gym-2-brassius",
+      "name": "Brassius (Artazon Gym, Grass)",
+      "type": "gym",
+      "order": 3,
+      "aceLevel": 17,
+      "roster": [
+        { "species": "petilil", "level": 16, "moves": ["sleep-powder", "mega-drain"], "ability": "own-tempo" },
+        { "species": "smoliv", "level": 16, "moves": ["tackle", "razor-leaf"], "ability": "early-bird" },
+        { "species": "sudowoodo", "level": 17, "moves": ["trailblaze", "rock-throw"], "ability": "sturdy", "teraType": "grass" }
+      ]
+    },
+    {
+      "id": "open-sky-titan",
+      "name": "Open Sky Titan (Bombirdier)",
+      "type": "titan",
+      "order": 4,
+      "aceLevel": 20,
+      "roster": [
+        { "species": "bombirdier", "level": 20, "moves": ["rock-throw", "wing-attack", "pluck"], "ability": "rocky-payload" }
+      ]
+    },
+    {
+      "id": "star-boss-giacomo",
+      "name": "Giacomo (Team Star, Dark)",
+      "type": "team-star",
+      "order": 5,
+      "aceLevel": 21,
+      "roster": [
+        { "species": "pawniard", "level": 21, "moves": ["metal-claw", "fury-cutter", "aerial-ace"], "ability": "defiant" },
+        { "species": "revavroom", "level": 20, "moves": ["wicked-torque", "snarl", "metal-sound", "swift"], "ability": "intimidate", "teraType": "dark" }
+      ]
+    },
+    {
+      "id": "gym-3-iono",
+      "name": "Iono (Levincia Gym, Electric)",
+      "type": "gym",
+      "order": 6,
+      "aceLevel": 24,
+      "roster": [
+        { "species": "wattrel", "level": 23, "moves": ["pluck", "quick-attack", "spark"], "ability": "wind-power" },
+        { "species": "bellibolt", "level": 23, "moves": ["water-gun", "spark"], "ability": "electromorphosis" },
+        { "species": "luxio", "level": 23, "moves": ["spark", "bite"], "ability": "intimidate" },
+        { "species": "mismagius", "level": 24, "moves": ["charge-beam", "hex", "confuse-ray"], "ability": "levitate", "teraType": "electric" }
+      ]
+    },
+    {
+      "id": "star-boss-mela",
+      "name": "Mela (Team Star, Fire)",
+      "type": "team-star",
+      "order": 7,
+      "aceLevel": 27,
+      "roster": [
+        { "species": "torkoal", "level": 27, "moves": ["flame-wheel", "clear-smog"], "ability": "drought" },
+        { "species": "revavroom", "level": 26, "moves": ["overheat", "blazing-torque", "screech", "swift"], "ability": "speed-boost", "teraType": "fire" }
+      ]
+    },
+    {
+      "id": "lurking-steel-titan",
+      "name": "Lurking Steel Titan (Orthworm)",
+      "type": "titan",
+      "order": 8,
+      "aceLevel": 29,
+      "roster": [
+        { "species": "orthworm", "level": 29, "moves": ["iron-tail", "headbutt", "wrap"], "ability": "earth-eater" }
+      ]
+    },
+    {
+      "id": "gym-4-kofu",
+      "name": "Kofu (Cascarrafa Gym, Water)",
+      "type": "gym",
+      "order": 9,
+      "aceLevel": 30,
+      "roster": [
+        { "species": "veluza", "level": 29, "moves": ["slash", "pluck", "aqua-cutter"], "ability": "mold-breaker" },
+        { "species": "wugtrio", "level": 29, "moves": ["mud-slap", "water-pulse", "headbutt"], "ability": "gooey" },
+        { "species": "crabominable", "level": 30, "moves": ["crabhammer", "rock-smash", "slam"], "ability": "iron-fist", "teraType": "water" }
+      ]
+    },
+    {
+      "id": "star-boss-atticus",
+      "name": "Atticus (Team Star, Poison)",
+      "type": "team-star",
+      "order": 10,
+      "aceLevel": 33,
+      "roster": [
+        { "species": "skuntank", "level": 32, "moves": ["sucker-punch", "toxic", "venoshock"], "ability": "stench" },
+        { "species": "muk", "level": 32, "moves": ["sludge-wave", "mud-slap"], "ability": "stench" },
+        { "species": "revavroom", "level": 33, "moves": ["iron-head", "sludge", "assurance", "bulldoze"], "ability": "overcoat" },
+        { "species": "revavroom", "level": 32, "moves": ["spin-out", "noxious-torque", "flame-charge", "smog"], "ability": "toxic-debris", "teraType": "poison" }
+      ]
+    },
+    {
+      "id": "gym-5-larry",
+      "name": "Larry (Medali Gym, Normal)",
+      "type": "gym",
+      "order": 11,
+      "aceLevel": 36,
+      "roster": [
+        { "species": "komala", "level": 35, "moves": ["yawn", "sucker-punch", "slam"], "ability": "comatose" },
+        { "species": "dudunsparce-two-segment", "level": 35, "moves": ["hyper-drill", "drill-run", "glare"], "ability": "serene-grace" },
+        { "species": "staraptor", "level": 36, "moves": ["facade", "aerial-ace"], "ability": "intimidate", "teraType": "normal" }
+      ]
+    },
+    {
+      "id": "gym-6-ryme",
+      "name": "Ryme (Montenevera Gym, Ghost)",
+      "type": "gym",
+      "order": 12,
+      "aceLevel": 42,
+      "roster": [
+        { "species": "banette", "level": 41, "moves": ["icy-wind", "sucker-punch", "shadow-sneak"], "ability": "insomnia" },
+        { "species": "mimikyu-disguised", "level": 41, "moves": ["light-screen", "shadow-sneak", "slash"], "ability": "disguise" },
+        { "species": "houndstone", "level": 41, "moves": ["play-rough", "crunch", "phantom-force"], "ability": "sand-rush" },
+        { "species": "toxtricity-low-key", "level": 42, "moves": ["discharge", "hex", "hyper-voice"], "ability": "punk-rock", "teraType": "ghost" }
+      ]
+    },
+    {
+      "id": "gym-7-tulip",
+      "name": "Tulip (Alfornada Gym, Psychic)",
+      "type": "gym",
+      "order": 13,
+      "aceLevel": 45,
+      "roster": [
+        { "species": "farigiraf", "level": 44, "moves": ["crunch", "zen-headbutt", "reflect"], "ability": "armor-tail" },
+        { "species": "gardevoir", "level": 44, "moves": ["psychic", "dazzling-gleam", "energy-ball"], "ability": "synchronize" },
+        { "species": "espathra", "level": 44, "moves": ["psychic", "quick-attack", "shadow-ball"], "ability": "opportunist" },
+        { "species": "florges", "level": 45, "moves": ["psychic", "moonblast", "petal-blizzard"], "ability": "flower-veil", "teraType": "psychic" }
+      ]
+    },
+    {
+      "id": "quaking-earth-titan-scarlet",
+      "name": "Quaking Earth Titan (Great Tusk)",
+      "type": "titan",
+      "order": 14,
+      "aceLevel": 45,
+      "conditions": { "version": ["scarlet"] },
+      "roster": [
+        { "species": "great-tusk", "level": 45, "moves": ["rapid-spin", "brick-break", "knock-off"], "ability": "protosynthesis" }
+      ]
+    },
+    {
+      "id": "quaking-earth-titan-violet",
+      "name": "Quaking Earth Titan (Iron Treads)",
+      "type": "titan",
+      "order": 15,
+      "aceLevel": 45,
+      "conditions": { "version": ["violet"] },
+      "roster": [
+        { "species": "iron-treads", "level": 45, "moves": ["rapid-spin", "iron-head", "knock-off"], "ability": "quark-drive" }
+      ]
+    },
+    {
+      "id": "gym-8-grusha",
+      "name": "Grusha (Glaseado Gym, Ice)",
+      "type": "gym",
+      "order": 16,
+      "aceLevel": 48,
+      "roster": [
+        { "species": "frosmoth", "level": 47, "moves": ["blizzard", "bug-buzz", "tailwind"], "ability": "shield-dust" },
+        { "species": "beartic", "level": 47, "moves": ["aqua-jet", "icicle-crash", "earthquake"], "ability": "snow-cloak" },
+        { "species": "cetitan", "level": 47, "moves": ["ice-spinner", "liquidation", "ice-shard"], "ability": "thick-fat" },
+        { "species": "altaria", "level": 48, "moves": ["ice-beam", "dragon-pulse", "moonblast", "hurricane"], "ability": "natural-cure", "teraType": "ice" }
+      ]
+    },
+    {
+      "id": "star-boss-ortega",
+      "name": "Ortega (Team Star, Fairy)",
+      "type": "team-star",
+      "order": 17,
+      "aceLevel": 51,
+      "roster": [
+        { "species": "azumarill", "level": 50, "moves": ["aqua-tail", "play-rough", "bounce", "charm"], "ability": "huge-power" },
+        { "species": "wigglytuff", "level": 50, "moves": ["body-slam", "play-rough", "gyro-ball", "charm"], "ability": "cute-charm" },
+        { "species": "dachsbun", "level": 51, "moves": ["crunch", "play-rough", "baby-doll-eyes", "mud-slap"], "ability": "well-baked-body" },
+        { "species": "revavroom", "level": 50, "moves": ["steel-roller", "magical-torque", "confuse-ray", "spin-out"], "ability": "misty-surge", "teraType": "fairy" }
+      ]
+    },
+    {
+      "id": "star-boss-eri",
+      "name": "Eri (Team Star, Fighting)",
+      "type": "team-star",
+      "order": 18,
+      "aceLevel": 56,
+      "roster": [
+        { "species": "toxicroak", "level": 55, "moves": ["poison-jab", "brick-break", "sucker-punch"], "ability": "anticipation" },
+        { "species": "passimian", "level": 55, "moves": ["close-combat", "rock-tomb", "seed-bomb"], "ability": "receiver" },
+        { "species": "lucario", "level": 55, "moves": ["dragon-pulse", "aura-sphere", "dark-pulse"], "ability": "steadfast" },
+        { "species": "annihilape", "level": 56, "moves": ["rage-fist", "close-combat", "ice-punch", "fire-punch"], "ability": "vital-spirit" },
+        { "species": "revavroom", "level": 56, "moves": ["combat-torque", "spin-out", "shift-gear", "high-horsepower"], "ability": "stamina", "teraType": "fighting" }
+      ]
+    },
+    {
+      "id": "false-dragon-titan",
+      "name": "False Dragon Titan (Dondozo & Tatsugiri)",
+      "type": "titan",
+      "order": 19,
+      "aceLevel": 57,
+      "roster": [
+        { "species": "dondozo", "level": 56, "moves": ["aqua-tail", "body-slam", "knock-off"], "ability": "oblivious" },
+        { "species": "tatsugiri-curly", "level": 57, "moves": ["muddy-water", "icy-wind", "taunt"], "ability": "commander" }
+      ]
+    },
+    {
+      "id": "e4-rika",
+      "name": "Elite Four Rika (Ground)",
+      "type": "elite-four",
+      "order": 20,
+      "aceLevel": 58,
+      "roster": [
+        { "species": "whiscash", "level": 57, "moves": ["muddy-water", "earth-power", "blizzard", "future-sight"], "ability": "oblivious" },
+        { "species": "camerupt", "level": 57, "moves": ["earth-power", "fire-blast", "flash-cannon", "yawn"], "ability": "magma-armor" },
+        { "species": "donphan", "level": 57, "moves": ["earthquake", "stone-edge", "iron-head", "poison-jab"], "ability": "sturdy" },
+        { "species": "dugtrio", "level": 57, "moves": ["earthquake", "rock-slide", "sucker-punch", "sandstorm"], "ability": "sand-veil" },
+        { "species": "clodsire", "level": 58, "moves": ["earthquake", "liquidation", "toxic", "protect"], "ability": "water-absorb", "teraType": "ground" }
+      ]
+    },
+    {
+      "id": "e4-poppy",
+      "name": "Elite Four Poppy (Steel)",
+      "type": "elite-four",
+      "order": 21,
+      "aceLevel": 59,
+      "roster": [
+        { "species": "copperajah", "level": 58, "moves": ["high-horsepower", "play-rough", "heavy-slam", "stealth-rock"], "ability": "sheer-force" },
+        { "species": "magnezone", "level": 58, "moves": ["discharge", "flash-cannon", "light-screen", "tri-attack"], "ability": "sturdy" },
+        { "species": "bronzong", "level": 58, "moves": ["iron-head", "zen-headbutt", "rock-blast", "earthquake"], "ability": "levitate" },
+        { "species": "corviknight", "level": 58, "moves": ["brave-bird", "iron-head", "body-press", "iron-defense"], "ability": "pressure" },
+        { "species": "tinkaton", "level": 59, "moves": ["play-rough", "gigaton-hammer", "brick-break", "stone-edge"], "ability": "mold-breaker", "teraType": "steel" }
+      ]
+    },
+    {
+      "id": "e4-larry",
+      "name": "Elite Four Larry (Flying)",
+      "type": "elite-four",
+      "order": 22,
+      "aceLevel": 60,
+      "roster": [
+        { "species": "tropius", "level": 59, "moves": ["air-slash", "solar-beam", "dragon-pulse", "sunny-day"], "ability": "chlorophyll" },
+        { "species": "oricorio-baile", "level": 59, "moves": ["revelation-dance", "air-slash", "teeter-dance", "icy-wind"], "ability": "dancer" },
+        { "species": "altaria", "level": 59, "moves": ["moonblast", "flamethrower", "ice-beam", "dragon-pulse"], "ability": "natural-cure" },
+        { "species": "staraptor", "level": 59, "moves": ["facade", "brave-bird", "close-combat", "thief"], "ability": "intimidate" },
+        { "species": "flamigo", "level": 60, "moves": ["brave-bird", "close-combat", "throat-chop", "liquidation"], "ability": "scrappy", "teraType": "flying" }
+      ]
+    },
+    {
+      "id": "e4-hassel",
+      "name": "Elite Four Hassel (Dragon)",
+      "type": "elite-four",
+      "order": 23,
+      "aceLevel": 61,
+      "roster": [
+        { "species": "noivern", "level": 60, "moves": ["air-slash", "dragon-pulse", "super-fang", "hyper-voice"], "ability": "infiltrator" },
+        { "species": "haxorus", "level": 60, "moves": ["dragon-claw", "crunch", "iron-head", "rock-tomb"], "ability": "mold-breaker" },
+        { "species": "dragalge", "level": 60, "moves": ["sludge-bomb", "dragon-pulse", "hydro-pump", "thunderbolt"], "ability": "poison-point" },
+        { "species": "flapple", "level": 60, "moves": ["dragon-rush", "seed-bomb", "aerial-ace", "leech-seed"], "ability": "ripen" },
+        { "species": "baxcalibur", "level": 61, "moves": ["icicle-crash", "brick-break", "glaive-rush"], "ability": "thermal-exchange", "teraType": "dragon" }
+      ]
+    },
+    {
+      "id": "champion-geeta",
+      "name": "Champion Geeta",
+      "type": "champion",
+      "order": 24,
+      "aceLevel": 62,
+      "roster": [
+        { "species": "espathra", "level": 61, "moves": ["lumina-crash", "dazzling-gleam", "quick-attack", "reflect"], "ability": "opportunist" },
+        { "species": "gogoat", "level": 61, "moves": ["horn-leech", "zen-headbutt", "play-rough", "bulk-up"], "ability": "sap-sipper" },
+        { "species": "veluza", "level": 61, "moves": ["aqua-jet", "liquidation", "psycho-cut", "ice-fang"], "ability": "mold-breaker" },
+        { "species": "avalugg", "level": 61, "moves": ["avalanche", "crunch", "earthquake", "body-press"], "ability": "own-tempo" },
+        { "species": "kingambit", "level": 61, "moves": ["iron-head", "kowtow-cleave", "zen-headbutt", "stone-edge"], "ability": "supreme-overlord" },
+        { "species": "glimmora", "level": 62, "moves": ["tera-blast", "sludge-wave", "earth-power", "dazzling-gleam"], "ability": "toxic-debris", "teraType": "rock" }
+      ]
+    },
+    {
+      "id": "arven-final",
+      "name": "Arven (Final Battle)",
+      "type": "rival",
+      "order": 25,
+      "aceLevel": 63,
+      "countsForLevelCap": false,
+      "roster": [
+        { "species": "greedent", "level": 58, "moves": ["bullet-seed", "body-slam", "psychic-fangs", "earthquake"], "ability": "cheek-pouch" },
+        { "species": "cloyster", "level": 59, "moves": ["rock-blast", "icicle-spear", "liquidation", "light-screen"], "ability": "skill-link" },
+        { "species": "scovillain", "level": 60, "moves": ["fire-blast", "energy-ball", "zen-headbutt", "crunch"], "ability": "chlorophyll" },
+        { "species": "toedscruel", "level": 61, "moves": ["power-whip", "earth-power", "spore", "sludge-bomb"], "ability": "mycelium-might" },
+        { "species": "garganacl", "level": 62, "moves": ["stone-edge", "earthquake", "body-press", "stealth-rock"], "ability": "purifying-salt" },
+        { "species": "mabosstiff", "level": 63, "moves": ["crunch", "psychic-fangs", "fire-fang", "play-rough"], "ability": "intimidate", "teraType": "dark" }
+      ]
+    },
+    {
+      "id": "penny-final",
+      "name": "Penny / Cassiopeia (Team Star Boss)",
+      "type": "rival",
+      "order": 26,
+      "aceLevel": 63,
+      "countsForLevelCap": false,
+      "roster": [
+        { "species": "umbreon", "level": 62, "moves": ["dark-pulse", "quick-attack", "baby-doll-eyes", "psychic"], "ability": "synchronize" },
+        { "species": "vaporeon", "level": 62, "moves": ["hydro-pump", "quick-attack", "baby-doll-eyes", "aurora-beam"], "ability": "water-absorb" },
+        { "species": "jolteon", "level": 62, "moves": ["thunder", "quick-attack", "baby-doll-eyes", "pin-missile"], "ability": "quick-feet" },
+        { "species": "flareon", "level": 62, "moves": ["flare-blitz", "quick-attack", "baby-doll-eyes", "fire-spin"], "ability": "flash-fire" },
+        { "species": "leafeon", "level": 62, "moves": ["leaf-blade", "quick-attack", "baby-doll-eyes", "x-scissor"], "ability": "leaf-guard" },
+        { "species": "sylveon", "level": 63, "moves": ["moonblast", "quick-attack", "baby-doll-eyes", "shadow-ball"], "ability": "cute-charm", "teraType": "fairy" }
+      ]
+    },
+    {
+      "id": "nemona-final",
+      "name": "Nemona (Final Battle)",
+      "type": "rival",
+      "order": 27,
+      "aceLevel": 66,
+      "countsForLevelCap": false,
+      "roster": [
+        { "species": "lycanroc-midday", "level": 65, "moves": ["accelerock", "stone-edge", "drill-run", "stealth-rock"], "ability": "sand-rush" },
+        { "species": "goodra", "level": 65, "moves": ["dragon-pulse", "muddy-water", "ice-beam", "sludge-bomb"], "ability": "sap-sipper" },
+        { "species": "dudunsparce-two-segment", "level": 65, "moves": ["coil", "hyper-drill", "drill-run", "dragon-rush"], "ability": "serene-grace" },
+        { "species": "orthworm", "level": 65, "moves": ["body-press", "iron-tail", "earthquake", "rock-blast"], "ability": "earth-eater" },
+        { "species": "pawmot", "level": 65, "moves": ["close-combat", "double-shock", "ice-punch", "quick-attack"], "ability": "volt-absorb" },
+        { "species": "quaquaval", "level": 66, "moves": ["brick-break", "aqua-step", "aerial-ace", "ice-spinner"], "ability": "torrent", "teraType": "water" }
+      ],
+      "rosterByStarter": {
+        "sprigatito": [
+          { "species": "lycanroc-midday", "level": 65, "moves": ["accelerock", "stone-edge", "drill-run", "stealth-rock"], "ability": "sand-rush" },
+          { "species": "goodra", "level": 65, "moves": ["dragon-pulse", "muddy-water", "ice-beam", "sludge-bomb"], "ability": "sap-sipper" },
+          { "species": "dudunsparce-two-segment", "level": 65, "moves": ["coil", "hyper-drill", "drill-run", "dragon-rush"], "ability": "serene-grace" },
+          { "species": "orthworm", "level": 65, "moves": ["body-press", "iron-tail", "earthquake", "rock-blast"], "ability": "earth-eater" },
+          { "species": "pawmot", "level": 65, "moves": ["close-combat", "double-shock", "ice-punch", "quick-attack"], "ability": "volt-absorb" },
+          { "species": "quaquaval", "level": 66, "moves": ["brick-break", "aqua-step", "aerial-ace", "ice-spinner"], "ability": "torrent", "teraType": "water" }
+        ],
+        "fuecoco": [
+          { "species": "lycanroc-midday", "level": 65, "moves": ["accelerock", "stone-edge", "drill-run", "stealth-rock"], "ability": "sand-rush" },
+          { "species": "goodra", "level": 65, "moves": ["dragon-pulse", "muddy-water", "ice-beam", "sludge-bomb"], "ability": "sap-sipper" },
+          { "species": "dudunsparce-two-segment", "level": 65, "moves": ["coil", "hyper-drill", "drill-run", "dragon-rush"], "ability": "serene-grace" },
+          { "species": "orthworm", "level": 65, "moves": ["body-press", "iron-tail", "earthquake", "rock-blast"], "ability": "earth-eater" },
+          { "species": "pawmot", "level": 65, "moves": ["close-combat", "double-shock", "ice-punch", "quick-attack"], "ability": "volt-absorb" },
+          { "species": "meowscarada", "level": 66, "moves": ["shadow-claw", "flower-trick", "thunder-punch", "play-rough"], "ability": "overgrow", "teraType": "grass" }
+        ],
+        "quaxly": [
+          { "species": "lycanroc-midday", "level": 65, "moves": ["accelerock", "stone-edge", "drill-run", "stealth-rock"], "ability": "sand-rush" },
+          { "species": "goodra", "level": 65, "moves": ["dragon-pulse", "muddy-water", "ice-beam", "sludge-bomb"], "ability": "sap-sipper" },
+          { "species": "dudunsparce-two-segment", "level": 65, "moves": ["coil", "hyper-drill", "drill-run", "dragon-rush"], "ability": "serene-grace" },
+          { "species": "orthworm", "level": 65, "moves": ["body-press", "iron-tail", "earthquake", "rock-blast"], "ability": "earth-eater" },
+          { "species": "pawmot", "level": 65, "moves": ["close-combat", "double-shock", "ice-punch", "quick-attack"], "ability": "volt-absorb" },
+          { "species": "skeledirge", "level": 66, "moves": ["shadow-ball", "torch-song", "snarl", "earth-power"], "ability": "blaze", "teraType": "fire" }
+        ]
+      }
+    },
+    {
+      "id": "finale-professor-sada",
+      "name": "Professor Sada (Area Zero Finale)",
+      "type": "story",
+      "order": 28,
+      "aceLevel": 72,
+      "conditions": { "version": ["scarlet"] },
+      "roster": [
+        { "species": "slither-wing", "level": 66, "moves": ["lunge", "leech-life", "low-sweep", "zen-headbutt"], "ability": "protosynthesis" },
+        { "species": "scream-tail", "level": 66, "moves": ["play-rough", "drain-punch", "ice-punch", "zen-headbutt"], "ability": "protosynthesis" },
+        { "species": "brute-bonnet", "level": 66, "moves": ["earth-power", "giga-drain", "payback", "sucker-punch"], "ability": "protosynthesis" },
+        { "species": "flutter-mane", "level": 66, "moves": ["power-gem", "mystical-fire", "shadow-ball", "thunderbolt"], "ability": "protosynthesis" },
+        { "species": "sandy-shocks", "level": 66, "moves": ["discharge", "earth-power", "flash-cannon", "power-gem"], "ability": "protosynthesis" },
+        { "species": "roaring-moon", "level": 67, "moves": ["dragon-claw", "night-slash", "stone-edge", "earthquake"], "ability": "protosynthesis" },
+        { "species": "koraidon", "level": 72, "moves": ["giga-impact", "bulk-up", "taunt", "flamethrower"], "ability": "orichalcum-pulse", "teraType": "fighting" }
+      ]
+    },
+    {
+      "id": "finale-professor-turo",
+      "name": "Professor Turo (Area Zero Finale)",
+      "type": "story",
+      "order": 29,
+      "aceLevel": 72,
+      "conditions": { "version": ["violet"] },
+      "roster": [
+        { "species": "iron-moth", "level": 66, "moves": ["sludge-wave", "fiery-dance", "discharge", "air-slash"], "ability": "quark-drive" },
+        { "species": "iron-bundle", "level": 66, "moves": ["drill-peck", "water-pulse", "freeze-dry", "snowscape"], "ability": "quark-drive" },
+        { "species": "iron-hands", "level": 66, "moves": ["thunder-punch", "drain-punch", "iron-head", "fake-out"], "ability": "quark-drive" },
+        { "species": "iron-jugulis", "level": 66, "moves": ["air-slash", "dark-pulse", "flamethrower", "flash-cannon"], "ability": "quark-drive" },
+        { "species": "iron-thorns", "level": 66, "moves": ["thunder-punch", "brick-break", "stone-edge", "earthquake"], "ability": "quark-drive" },
+        { "species": "iron-valiant", "level": 67, "moves": ["psycho-cut", "brick-break", "spirit-break", "poison-jab"], "ability": "quark-drive" },
+        { "species": "miraidon", "level": 72, "moves": ["hyper-beam", "charge", "taunt", "power-gem"], "ability": "hadron-engine", "teraType": "electric" }
+      ]
+    }
+  ],
+  "mechanics": {
+    "heldItems": true,
+    "wildBattles": true,
+    "setModeOption": true,
+    "raids": true,
+    "overworldAggro": true
+  }
+}

@@ -53,6 +53,12 @@ async function mapPool(items, fn) {
 const species = new Set();
 const speciesByGame = {}; // gameId -> Set<slug>
 const versionGroupsByGame = {}; // gameId -> string[]
+// Moves used on trainer rosters — folded into the move-type fetch below so the
+// UI can type-dot every roster move, and so the validator's roster-move guard
+// only flags true typos (a real move slug resolves; a fake one 404s). Some
+// roster moves (e.g. SV's Starmobile "Torque" moves) exist in no movepool, so
+// they'd otherwise be missing from moveTypes.
+const rosterMoves = new Set();
 for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
   const game = JSON.parse(readFileSync(join(gamesDir, f), 'utf8'));
   const gameSet = (speciesByGame[game.gameId] = new Set());
@@ -61,11 +67,15 @@ for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
     species.add(slug);
     gameSet.add(slug);
   };
+  const addMon = (p) => {
+    add(p.species);
+    for (const mv of p.moves ?? []) rosterMoves.add(mv);
+  };
   for (const area of game.areas ?? []) for (const e of area.encounters ?? []) add(e.species);
   for (const s of game.specials ?? []) add(s.species);
   for (const m of game.milestones ?? []) {
-    for (const p of m.roster ?? []) add(p.species);
-    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) add(p.species);
+    for (const p of m.roster ?? []) addMon(p);
+    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) addMon(p);
   }
 }
 const slugs = [...species].sort();
@@ -156,8 +166,10 @@ for (const slug of slugs) {
 }
 console.log(`${Object.keys(evolutions).length} species with evolutions`);
 
-// 4. Move types: fetch /move for each distinct move → its type.
-const allMoves = [...new Set(Object.values(moves).flat())].sort();
+// 4. Move types: fetch /move for each distinct move → its type. Includes both
+// species movepools and trainer-roster moves (some roster moves are in no
+// movepool, e.g. Starmobile Torque moves).
+const allMoves = [...new Set([...Object.values(moves).flat(), ...rosterMoves])].sort();
 const moveTypes = {};
 await mapPool(allMoves, async (move) => {
   try {

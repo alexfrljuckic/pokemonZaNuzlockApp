@@ -88,6 +88,12 @@
             "type": "boolean",
             "description": "Whether this milestone gates the enforced level cap. Defaults to true when absent; set false for milestones (e.g. rival battles) that should be tracked/displayed but not cap-gating."
           },
+          "conditions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": { "version": { "type": "array", "items": { "type": "string" } } },
+            "description": "Optional version gating for a milestone present in only one version (e.g. the Scarlet/Violet Area Zero finale, or the version-split Quaking Earth Titan). The app shows it only for matching run versions."
+          },
           "grants": {
             "type": "object",
             "additionalProperties": false,
@@ -105,7 +111,8 @@
                 "level": { "type": "integer", "minimum": 1 },
                 "moves": { "type": "array", "items": { "type": "string" } },
                 "ability": { "type": "string" },
-                "heldItem": { "type": "string" }
+                "heldItem": { "type": "string" },
+                "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
               }
             }
           },
@@ -123,7 +130,8 @@
                   "level": { "type": "integer", "minimum": 1 },
                   "moves": { "type": "array", "items": { "type": "string" } },
                   "ability": { "type": "string" },
-                  "heldItem": { "type": "string" }
+                  "heldItem": { "type": "string" },
+                  "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
                 }
               }
             }
