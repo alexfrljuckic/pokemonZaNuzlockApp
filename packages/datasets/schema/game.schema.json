@@ -79,7 +79,7 @@
           },
           "roster": {
             "type": "array",
-            "description": "Optional full team, informational only — the level-cap rule reads aceLevel, never this.",
+            "description": "Optional full team, informational only — the level-cap rule reads aceLevel, never this. Default shown when no starter is chosen.",
             "items": {
               "type": "object",
               "required": ["species", "level"],
@@ -90,6 +90,25 @@
                 "moves": { "type": "array", "items": { "type": "string" } },
                 "ability": { "type": "string" },
                 "heldItem": { "type": "string" }
+              }
+            }
+          },
+          "rosterByStarter": {
+            "type": "object",
+            "description": "Optional per-player-starter roster variants (rival battles), keyed by the player's chosen starter species slug (e.g. turtwig/chimchar/piplup). The app uses the matching variant when a starter is chosen, else falls back to `roster`.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["species", "level"],
+                "additionalProperties": false,
+                "properties": {
+                  "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                  "level": { "type": "integer", "minimum": 1 },
+                  "moves": { "type": "array", "items": { "type": "string" } },
+                  "ability": { "type": "string" },
+                  "heldItem": { "type": "string" }
+                }
               }
             }
           }

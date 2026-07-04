@@ -49,6 +49,9 @@ export interface Milestone {
   grants?: { reviveTokens?: number };
   /** Full team, informational only — display in UI. The level-cap rule reads aceLevel, never this. */
   roster?: MilestoneRosterMember[];
+  /** Per-player-starter roster variants (rival battles), keyed by the player's
+   * chosen starter species slug. UI picks the matching variant, else `roster`. */
+  rosterByStarter?: Record<string, MilestoneRosterMember[]>;
 }
 
 export interface MilestoneRosterMember {

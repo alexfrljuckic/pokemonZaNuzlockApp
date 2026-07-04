@@ -36,6 +36,18 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
           `milestone "${m.id}" aceLevel (${m.aceLevel}) does not match max roster level (${maxRosterLevel})`
         );
     }
+    // per-starter roster variants must agree with aceLevel too (no drift)
+    if (m.aceLevel != null && m.rosterByStarter && typeof m.rosterByStarter === 'object') {
+      for (const [key, variant] of Object.entries(m.rosterByStarter)) {
+        if (Array.isArray(variant) && variant.length) {
+          const maxV = Math.max(...variant.map((p) => p.level));
+          if (m.aceLevel !== maxV)
+            problems.push(
+              `milestone "${m.id}" rosterByStarter.${key} max level (${maxV}) does not match aceLevel (${m.aceLevel})`
+            );
+        }
+      }
+    }
   }
 
   if (problems.length) {

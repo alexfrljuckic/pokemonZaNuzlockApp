@@ -170,6 +170,19 @@ export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null 
   );
 }
 
+/** The player's chosen starter species (from a claimed `starter-*` special), or null. */
+export function chosenStarter(state: RunState): string | null {
+  const mon = Object.values(state.pokemon).find((p) => p.origin?.specialId?.startsWith('starter-'));
+  return mon?.species ?? null;
+}
+
+/** A milestone's effective roster: the per-starter variant matching the chosen
+ * starter when present, else the default `roster`. */
+export function milestoneRoster(m: Milestone, starter: string | null): Milestone['roster'] {
+  if (starter && m.rosterByStarter?.[starter]) return m.rosterByStarter[starter];
+  return m.roster;
+}
+
 /** Level-cap and future team validators. Empty array = team is legal. */
 export function validateTeam(state: RunState, ctx: EngineContext): Violation[] {
   const violations: Violation[] = [];

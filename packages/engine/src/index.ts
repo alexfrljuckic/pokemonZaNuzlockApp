@@ -6,5 +6,7 @@ export {
   filterEncounterPool,
   validateTeam,
   nextBoss,
+  chosenStarter,
+  milestoneRoster,
   pendingWipeDecision,
 } from './rules/index.js';
