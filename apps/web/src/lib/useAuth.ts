@@ -20,7 +20,11 @@ export function useAuth() {
     session,
     loading,
     available: !!supabase,
-    signInWithEmail: (email: string) => supabase!.auth.signInWithOtp({ email }),
+    // Redirect the magic link back to wherever the app is actually running,
+    // so login works in any environment (localhost, preview, production)
+    // without depending solely on the Supabase dashboard Site URL setting.
+    signInWithEmail: (email: string) =>
+      supabase!.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } }),
     signOut: () => supabase!.auth.signOut(),
   };
 }
