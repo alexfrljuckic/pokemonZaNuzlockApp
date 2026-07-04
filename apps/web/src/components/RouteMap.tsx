@@ -99,7 +99,9 @@ export function RouteMap({
           const area = areaById.get(node.id);
           if (!area) return null;
           const st = nodeStateFor(area, state);
-          const interactive = st === 'available';
+          // any unlocked area is clickable — available opens the encounter
+          // picker, a resolved one opens its outcome + reset.
+          const interactive = st !== 'locked';
           const badge = BADGE_GLYPH[st];
           return (
             <g

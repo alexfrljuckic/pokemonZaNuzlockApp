@@ -84,6 +84,7 @@ function AreaList({
   openAreaId,
   setOpenAreaId,
   onResolve,
+  onReset,
 }: {
   areas: Area[];
   state: RunState;
@@ -91,6 +92,7 @@ function AreaList({
   openAreaId: string | null;
   setOpenAreaId: (id: string | null) => void;
   onResolve: (area: Area, species: string, outcome: Outcome, nickname?: string, level?: number) => void;
+  onReset: (area: Area) => void;
 }) {
   return (
     <>
@@ -98,7 +100,8 @@ function AreaList({
         const unlocked = isUnlocked(area, state);
         const outcome = state.encounterOutcomes[area.id];
         const pool = unlocked && !outcome ? filterEncounterPool(state, area, ctx) : [];
-        const clickable = unlocked && !outcome;
+        // clickable to open the encounter picker (unresolved) or the reset (resolved)
+        const clickable = unlocked;
 
         return (
           <div key={area.id} className="area-row">
@@ -110,10 +113,19 @@ function AreaList({
               <span>{area.name}</span>
               {!unlocked && <span className="muted">locked</span>}
               {outcome && <span className={`outcome-${outcome}`}>{outcome}</span>}
-              {clickable && <span className="muted">{pool.length} available</span>}
+              {!outcome && unlocked && <span className="muted">{pool.length} available</span>}
             </div>
             {openAreaId === area.id &&
-              (pool.length > 0 ? (
+              (outcome ? (
+                <div className="route-resolved-body">
+                  <p className="muted">
+                    Resolved ({outcome}). Resetting clears the outcome and removes any Pokémon caught here.
+                  </p>
+                  <button className="secondary route-reset-btn" onClick={() => onReset(area)}>
+                    Reset route
+                  </button>
+                </div>
+              ) : pool.length > 0 ? (
                 <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl) => onResolve(area, sp, out, nick, lvl)} />
               ) : (
                 <p className="muted">No legal encounters left here under the active ruleset.</p>
@@ -154,6 +166,12 @@ export function RoutesTab({
     await onChange();
   }
 
+  async function resetRoute(area: Area) {
+    await appendEvent(runId, { type: 'encounter_reset', payload: { areaId: area.id } } as never);
+    setOpenAreaId(null);
+    await onChange();
+  }
+
   const areas = ctx.dataset.areas;
   const hasMap = ctx.dataset.gameId === 'bdsp';
 
@@ -168,12 +186,14 @@ export function RoutesTab({
           openAreaId={openAreaId}
           setOpenAreaId={setOpenAreaId}
           onResolve={resolve}
+          onReset={resetRoute}
         />
       </section>
     );
   }
 
   const selected = openAreaId ? areas.find((a) => a.id === openAreaId) ?? null : null;
+  const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
   const selectedPool = selected ? filterEncounterPool(state, selected, ctx) : [];
   const offMapAreas = areas.filter((a) => !hasMapNode(a.id));
 
@@ -191,7 +211,20 @@ export function RoutesTab({
               ✕
             </button>
           </div>
-          {selectedPool.length > 0 ? (
+          {selectedOutcome ? (
+            <div className="route-resolved-body">
+              <p>
+                This route is resolved — outcome:{' '}
+                <span className={`outcome-${selectedOutcome}`}>{selectedOutcome}</span>.
+              </p>
+              <p className="muted">
+                Resetting clears the outcome and removes any Pokémon caught here from your team, box and graveyard.
+              </p>
+              <button className="secondary route-reset-btn" onClick={() => resetRoute(selected)}>
+                Reset route
+              </button>
+            </div>
+          ) : selectedPool.length > 0 ? (
             <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl) => resolve(selected, sp, out, nick, lvl)} />
           ) : (
             <p className="muted">No legal encounters left here under the active ruleset.</p>
@@ -209,6 +242,7 @@ export function RoutesTab({
             openAreaId={openAreaId}
             setOpenAreaId={setOpenAreaId}
             onResolve={resolve}
+            onReset={resetRoute}
           />
         </div>
       )}

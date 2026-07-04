@@ -42,6 +42,17 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         }
         break;
       }
+      case 'encounter_reset': {
+        // Undo a route's encounter: clear its outcome (making it selectable
+        // again) and cascade-remove any Pokémon it produced — from party, box
+        // or graveyard. Downstream events referencing a removed id no-op, since
+        // every handler guards on the Pokémon still existing.
+        delete state.encounterOutcomes[ev.payload.areaId];
+        for (const [id, p] of Object.entries(state.pokemon)) {
+          if (p.origin?.areaId === ev.payload.areaId) delete state.pokemon[id];
+        }
+        break;
+      }
       case 'level_up': {
         const p = state.pokemon[ev.payload.pokemonId];
         if (p) p.level = ev.payload.level;

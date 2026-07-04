@@ -1215,7 +1215,12 @@ button.back-btn:hover:not(:disabled)::before {
 .route-region-locked:hover .route-region {
   fill-opacity: 0.22;
 }
-/* resolved: whisper of a tint + a corner badge */
+/* resolved: whisper of a tint + a corner badge; still clickable (to reset) */
+.route-region-caught,
+.route-region-failed,
+.route-region-skipped {
+  cursor: pointer;
+}
 .route-region-caught .route-region {
   fill: var(--success);
   fill-opacity: 0.12;
@@ -1330,6 +1335,15 @@ button.back-btn:hover:not(:disabled)::before {
 }
 .route-resolve-close {
   padding: 0.15rem 0.5rem;
+}
+.route-resolved-body {
+  padding-top: 0.25rem;
+}
+.route-resolved-body p {
+  margin: 0 0 0.5rem;
+}
+.route-reset-btn {
+  margin-top: 0.25rem;
 }
 .route-offmap {
   margin-top: 1.5rem;

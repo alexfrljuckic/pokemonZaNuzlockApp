@@ -149,4 +149,30 @@ describe('synthetic BDSP run replay', () => {
     const shuffled = [...events].reverse();
     expect(deriveState(shuffled, ctx)).toEqual(deriveState(events, ctx));
   });
+
+  it('resets a route: clears its outcome and cascade-removes the caught Pokémon', () => {
+    // Catch on 201, move it to the box, level it — then reset the route.
+    const withCatch = [
+      ...events,
+      ev('moved', { pokemonId: 'p1', to: 'box' }),
+      ev('level_up', { pokemonId: 'p1', level: 8 }),
+    ];
+    let state = deriveState(withCatch, ctx);
+    expect(state.pokemon['p1']).toBeDefined();
+    expect(state.encounterOutcomes['route-201']).toBe('caught');
+    expect(filterEncounterPool(state, dataset.areas[0], ctx)).toEqual([]); // closed
+
+    const reset = [...withCatch, ev('encounter_reset', { areaId: 'route-201' })];
+    state = deriveState(reset, ctx);
+    expect(state.pokemon['p1']).toBeUndefined(); // gone from box + everywhere
+    expect(state.encounterOutcomes['route-201']).toBeUndefined();
+    // route is selectable again, and its full pool returns (dupes cleared too)
+    expect(filterEncounterPool(state, dataset.areas[0], ctx).map((s) => s.species)).toEqual(['starly', 'bidoof']);
+
+    // re-catching after a reset works
+    const recatch = [...reset, ev('encounter_resolved', { areaId: 'route-201', species: 'bidoof', outcome: 'caught', pokemonId: 'p9', level: 2 })];
+    state = deriveState(recatch, ctx);
+    expect(state.pokemon['p9']?.species).toBe('bidoof');
+    expect(state.encounterOutcomes['route-201']).toBe('caught');
+  });
 });
