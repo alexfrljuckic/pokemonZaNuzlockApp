@@ -786,6 +786,7 @@
     },
     {
       "id": "champion-rival",
+"trainerSprite": "trace",
       "name": "Champion (Rival)",
       "type": "champion",
       "order": 13,

@@ -69,6 +69,9 @@ export interface Milestone {
   conditions?: {
     version?: string[];
   };
+  /** Showdown trainer-sprite key when the default guess (id's last segment)
+   * is wrong (e.g. rival-hop-1 → "hop"). Presentation data owned by datasets. */
+  trainerSprite?: string;
 }
 
 export interface MilestoneRosterMember {

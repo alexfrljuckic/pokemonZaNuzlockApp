@@ -94,6 +94,11 @@
             "properties": { "version": { "type": "array", "items": { "type": "string" } } },
             "description": "Optional version gating for a milestone present in only one version (e.g. the Scarlet/Violet Area Zero finale, or the version-split Quaking Earth Titan). The app shows it only for matching run versions."
           },
+          "trainerSprite": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong — e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
+          },
           "grants": {
             "type": "object",
             "additionalProperties": false,

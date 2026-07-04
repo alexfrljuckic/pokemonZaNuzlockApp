@@ -44,7 +44,11 @@ export function MilestoneCard({
       }}
     >
       <div className="milestone-card-head">
-        <TrainerSprite trainerKey={trainerKeyFromMilestone(milestone.id)} size={60} className="milestone-trainer-sprite" />
+        <TrainerSprite
+          trainerKey={milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)}
+          size={60}
+          className="milestone-trainer-sprite"
+        />
         <div className="milestone-card-title">
           <strong>{milestone.name}</strong>
           <span className="muted">
