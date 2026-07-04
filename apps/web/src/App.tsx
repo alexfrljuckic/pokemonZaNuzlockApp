@@ -2,7 +2,14 @@ import { useEffect, useState } from 'react';
 import { listRuns, type RunSummary } from './lib/db';
 import { SYNC_ENABLED } from './lib/env';
 import { pullAllRuns } from './lib/sync';
-import { applyTheme, currentTheme, THEMES, type ThemeId } from './lib/theme';
+import {
+  applyTheme,
+  applyThemeExplicit,
+  currentTheme,
+  THEME_CHANGE_EVENT,
+  THEMES,
+  type ThemeId,
+} from './lib/theme';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
@@ -19,14 +26,20 @@ function ThemePicker() {
   const [theme, setTheme] = useState<ThemeId>(currentTheme);
 
   useEffect(() => {
-    applyTheme(theme);
-  }, [theme]);
+    // Apply the stored theme once on load. Opening/creating a run may later
+    // switch to that game's version theme (unless the user has chosen one
+    // explicitly) — reflect any such change in the dropdown's displayed value.
+    applyTheme(currentTheme());
+    const onThemeChange = (e: Event) => setTheme((e as CustomEvent<ThemeId>).detail);
+    window.addEventListener(THEME_CHANGE_EVENT, onThemeChange);
+    return () => window.removeEventListener(THEME_CHANGE_EVENT, onThemeChange);
+  }, []);
 
   return (
     <select
       className="theme-select"
       value={theme}
-      onChange={(e) => setTheme(e.target.value as ThemeId)}
+      onChange={(e) => applyThemeExplicit(e.target.value as ThemeId)}
       aria-label="Color theme"
     >
       {THEMES.map((t) => (

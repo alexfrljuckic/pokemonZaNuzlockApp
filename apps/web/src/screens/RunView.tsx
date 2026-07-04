@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
-import { loadEvents, type RunSummary } from '../lib/db';
+import { appendEvent, loadEvents, type RunSummary } from '../lib/db';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
+import { applyVersionTheme } from '../lib/theme';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { SharePopover } from '../components/SharePopover';
 import { RoutesTab } from './tabs/RoutesTab';
@@ -16,6 +17,55 @@ import { WipeScreen } from './WipeScreen';
 const TABS = ['Routes', 'Team & Box', 'Boss Fights', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
+// End a run from any tab. Inline expanding confirm (no window.confirm — Alex
+// hates browser prompts). Hidden once the run is already victory/abandoned;
+// available for active and wiped-continuing runs.
+function EndRunControl({
+  runId,
+  status,
+  onEnded,
+}: {
+  runId: string;
+  status: string;
+  onEnded: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const [busy, setBusy] = useState(false);
+
+  if (status === 'victory' || status === 'abandoned') return null;
+
+  async function end(result: 'victory' | 'abandoned') {
+    setBusy(true);
+    await appendEvent(runId, { type: 'run_ended', payload: { result } });
+    setBusy(false);
+    setOpen(false);
+    onEnded();
+  }
+
+  if (!open) {
+    return (
+      <button className="secondary end-run-btn" onClick={() => setOpen(true)}>
+        End run
+      </button>
+    );
+  }
+
+  return (
+    <div className="end-run-confirm" role="group" aria-label="End this run">
+      <span className="muted">End run as…</span>
+      <button disabled={busy} onClick={() => end('victory')}>
+        Mark as victory
+      </button>
+      <button className="danger" disabled={busy} onClick={() => end('abandoned')}>
+        Abandon run
+      </button>
+      <button className="secondary" disabled={busy} onClick={() => setOpen(false)}>
+        Cancel
+      </button>
+    </div>
+  );
+}
+
 export function RunView({
   run,
   session,
@@ -27,6 +77,12 @@ export function RunView({
 }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
   const [tab, setTab] = useState<Tab>('Routes');
+
+  // Opening a run themes the app to that game's version, unless the user has
+  // explicitly picked a theme from the header dropdown.
+  useEffect(() => {
+    applyVersionTheme(run.version);
+  }, [run.version]);
 
   async function refresh() {
     setEvents(await loadEvents(run.id));
@@ -79,7 +135,10 @@ export function RunView({
               <span className={`status-${state.status}`}>{state.status}</span>
             </p>
           </div>
-          {SYNC_AVAILABLE && session && <SharePopover runId={run.id} />}
+          <div className="run-header-actions">
+            {SYNC_AVAILABLE && session && <SharePopover runId={run.id} />}
+            <EndRunControl runId={run.id} status={state.status} onEnded={refresh} />
+          </div>
         </div>
       </section>
 

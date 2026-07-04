@@ -2,6 +2,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// This config runs in Node; declare the one global we read so tsc is happy
+// without pulling in @types/node for the whole web workspace.
+declare const process: { env: Record<string, string | undefined> };
+
 export default defineConfig({
   server: {
     // Honor a harness-assigned port (PORT env) so multiple dev servers can
