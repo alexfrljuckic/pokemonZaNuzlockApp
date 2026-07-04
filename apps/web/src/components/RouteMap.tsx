@@ -45,6 +45,11 @@ export function RouteMap({
   onSelect: (areaId: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
+  // Optional backdrop: drop an image at apps/web/public/maps/sinnoh.png and it
+  // renders under the interactive nodes. If absent (404), we fall back to the
+  // drawn schematic. Node coordinates are calibrated to whatever backdrop is in
+  // place — see sinnohMap.ts.
+  const [bgOk, setBgOk] = useState(true);
 
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
   const { w, h } = SINNOH_VIEWBOX;
@@ -56,13 +61,27 @@ export function RouteMap({
   return (
     <div className="route-map">
       <svg viewBox={`0 0 ${w} ${h}`} className="route-map-svg" role="img" aria-label="Sinnoh route map">
-        {/* connector paths */}
-        {SINNOH_EDGES.map(([from, to]) => {
-          const a = mapNode(from);
-          const b = mapNode(to);
-          if (!a || !b) return null;
-          return <line key={`${from}-${to}`} className="route-edge" x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
-        })}
+        {/* optional image backdrop (see sinnohMap.ts / public/maps) */}
+        {bgOk && (
+          <image
+            href="/maps/sinnoh.png"
+            x={0}
+            y={0}
+            width={w}
+            height={h}
+            preserveAspectRatio="xMidYMid slice"
+            onError={() => setBgOk(false)}
+          />
+        )}
+
+        {/* connector paths — only when there's no backdrop of its own */}
+        {!bgOk &&
+          SINNOH_EDGES.map(([from, to]) => {
+            const a = mapNode(from);
+            const b = mapNode(to);
+            if (!a || !b) return null;
+            return <line key={`${from}-${to}`} className="route-edge" x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
+          })}
 
         {/* nodes */}
         {SINNOH_NODES.map((node) => {
