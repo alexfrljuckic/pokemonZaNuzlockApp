@@ -5,16 +5,16 @@ import { DATASETS, speciesToLine } from '../lib/datasets';
 import { loadEvents, type RunSummary } from '../lib/db';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
+import { SharePopover } from '../components/SharePopover';
 import { AreasTab } from './tabs/AreasTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
-import { ShareTab } from './tabs/ShareTab';
 import { WipeScreen } from './WipeScreen';
 
 const TABS = ['Areas', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
-type Tab = (typeof TABS)[number] | 'Share';
+type Tab = (typeof TABS)[number];
 
 export function RunView({
   run,
@@ -71,11 +71,16 @@ export function RunView({
       </button>
 
       <section>
-        <h2>{ctx.dataset?.name ?? run.gameId}</h2>
-        <p className="muted">
-          {run.version} · preset {state.ruleset.presetId} ·{' '}
-          <span className={`status-${state.status}`}>{state.status}</span>
-        </p>
+        <div className="run-header-row">
+          <div>
+            <h2>{ctx.dataset?.name ?? run.gameId}</h2>
+            <p className="muted">
+              {run.version} · preset {state.ruleset.presetId} ·{' '}
+              <span className={`status-${state.status}`}>{state.status}</span>
+            </p>
+          </div>
+          {SYNC_AVAILABLE && session && <SharePopover runId={run.id} />}
+        </div>
       </section>
 
       {showWipeScreen ? (
@@ -85,7 +90,7 @@ export function RunView({
           <RunSummaryStrip events={events} ctx={ctx} />
 
           <nav className="tabs">
-            {[...TABS, ...(SYNC_AVAILABLE && session ? (['Share'] as const) : [])].map((t) => (
+            {TABS.map((t) => (
               <button
                 key={t}
                 className={t === tab ? '' : 'secondary'}
@@ -101,7 +106,6 @@ export function RunView({
           {tab === 'Milestones' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} />}
-          {tab === 'Share' && <ShareTab runId={run.id} />}
         </>
       )}
     </>
