@@ -744,6 +744,7 @@
       "type": "rival",
       "order": 5,
       "aceLevel": 9,
+      "countsForLevelCap": false,
       "roster": [
         { "species": "starly", "level": 7 },
         { "species": "piplup", "level": 9 }
@@ -803,6 +804,7 @@
       "type": "rival",
       "order": 45,
       "aceLevel": 31,
+      "countsForLevelCap": false,
       "roster": [
         { "species": "starly", "level": 26 },
         { "species": "roselia", "level": 26 },
@@ -922,6 +924,7 @@
       "type": "rival",
       "order": 125,
       "aceLevel": 55,
+      "countsForLevelCap": false,
       "roster": [
         { "species": "staraptor", "level": 49 },
         { "species": "roserade", "level": 49 },

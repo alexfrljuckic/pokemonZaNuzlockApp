@@ -6,6 +6,7 @@ import {
   buildRuleset,
   deriveState,
   filterEncounterPool,
+  nextBoss,
   type EngineContext,
   type GameDataset,
   type RunEvent,
@@ -92,5 +93,31 @@ describe('BDSP dataset', () => {
     for (const area of dataset.areas) {
       if (area.unlockAfter) expect(milestoneIds.has(area.unlockAfter)).toBe(true);
     }
+  });
+
+  it('does not let rival battles gate the enforced level cap (BACKLOG item 12)', () => {
+    // All 3 Barry milestones are flagged countsForLevelCap: false, and still render
+    // with full rosters (informational), but nextBoss() must skip past Barry (Lv 9)
+    // to the first real cap-gating battle: Roark (Lv 14).
+    const barryMilestones = dataset.milestones.filter((m) => m.id.startsWith('rival-') && m.id.endsWith('-barry'));
+    expect(barryMilestones).toHaveLength(3);
+    for (const barry of barryMilestones) {
+      expect(barry.countsForLevelCap).toBe(false);
+      expect(barry.roster).toBeDefined();
+      expect(barry.roster!.length).toBeGreaterThan(0);
+    }
+
+    const events: RunEvent[] = [
+      ev('run_started', {
+        gameId: 'bdsp',
+        version: 'brilliant-diamond',
+        ruleset: buildRuleset('hardcore', 'bdsp'),
+      }),
+    ];
+    const state = deriveState(events, ctx);
+    const boss = nextBoss(state, ctx);
+    expect(boss?.id).toBe('gym-1-roark');
+    expect(boss?.name).toBe('Roark (Oreburgh Gym)');
+    expect(boss?.aceLevel).toBe(14);
   });
 });
