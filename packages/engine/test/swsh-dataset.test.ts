@@ -96,6 +96,18 @@ describe('SwSh dataset', () => {
     expect(outrageRaidSlots.map((s) => s.species)).toContain('dreepy');
   });
 
+  it('gives every roster Pokémon a moveset and an ability (SwSh has abilities)', () => {
+    for (const m of dataset.milestones) {
+      expect(m.roster, `milestone "${m.id}" should have a roster`).toBeTruthy();
+      const maxLevel = Math.max(...m.roster!.map((p) => p.level));
+      expect(maxLevel, `milestone "${m.id}" ace mismatch`).toBe(m.aceLevel);
+      for (const p of m.roster!) {
+        expect(p.moves?.length, `${m.id}/${p.species} should have moves`).toBeGreaterThan(0);
+        expect(p.ability, `${m.id}/${p.species} should have an ability`).toBeTruthy();
+      }
+    }
+  });
+
   it('gates areas behind gym milestones via unlockAfter', () => {
     const route3 = dataset.areas.find((a) => a.id === 'route-3')!;
     expect(route3.unlockAfter).toBe('gym-1-milo');

@@ -665,10 +665,10 @@
       "aceLevel": 5,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "wooloo", "level": 3 },
-        { "species": "grookey", "level": 5 },
-        { "species": "scorbunny", "level": 5 },
-        { "species": "sobble", "level": 5 }
+        { "species": "wooloo", "level": 3, "moves": ["tackle"], "ability": "fluffy" },
+        { "species": "grookey", "level": 5, "moves": ["scratch", "growl"], "ability": "overgrow" },
+        { "species": "scorbunny", "level": 5, "moves": ["tackle", "growl"], "ability": "blaze" },
+        { "species": "sobble", "level": 5, "moves": ["pound", "growl"], "ability": "torrent" }
       ]
     },
     {
@@ -678,8 +678,8 @@
       "order": 10,
       "aceLevel": 20,
       "roster": [
-        { "species": "gossifleur", "level": 19 },
-        { "species": "eldegoss", "level": 20 }
+        { "species": "gossifleur", "level": 19, "moves": ["magical-leaf", "round", "rapid-spin"], "ability": "regenerator" },
+        { "species": "eldegoss", "level": 20, "moves": ["magical-leaf", "leafage", "round"], "ability": "regenerator" }
       ]
     },
     {
@@ -689,9 +689,9 @@
       "order": 20,
       "aceLevel": 24,
       "roster": [
-        { "species": "goldeen", "level": 22 },
-        { "species": "arrokuda", "level": 23 },
-        { "species": "drednaw", "level": 24 }
+        { "species": "goldeen", "level": 22, "moves": ["water-pulse", "whirlpool", "horn-attack", "agility"], "ability": "swift-swim" },
+        { "species": "arrokuda", "level": 23, "moves": ["aqua-jet", "bite", "whirlpool", "fury-attack"], "ability": "swift-swim" },
+        { "species": "drednaw", "level": 24, "moves": ["razor-shell", "water-gun", "bite", "headbutt"], "ability": "swift-swim" }
       ]
     },
     {
@@ -701,9 +701,9 @@
       "order": 30,
       "aceLevel": 27,
       "roster": [
-        { "species": "ninetales", "level": 25 },
-        { "species": "arcanine", "level": 25 },
-        { "species": "centiskorch", "level": 27 }
+        { "species": "ninetales", "level": 25, "moves": ["will-o-wisp", "fire-spin", "quick-attack", "ember"], "ability": "flash-fire" },
+        { "species": "arcanine", "level": 25, "moves": ["will-o-wisp", "flame-wheel", "bite", "agility"], "ability": "intimidate" },
+        { "species": "centiskorch", "level": 27, "moves": ["flame-wheel", "coil", "bug-bite", "smokescreen"], "ability": "flash-fire" }
       ]
     },
     {
@@ -713,10 +713,10 @@
       "order": 40,
       "aceLevel": 36,
       "roster": [
-        { "species": "hitmontop", "level": 34 },
-        { "species": "pangoro", "level": 34 },
-        { "species": "sirfetchd", "level": 35 },
-        { "species": "machamp", "level": 36 }
+        { "species": "hitmontop", "level": 34, "moves": ["triple-kick", "quick-attack", "counter", "revenge"], "ability": "technician" },
+        { "species": "pangoro", "level": 34, "moves": ["bullet-punch", "circle-throw", "night-slash", "work-up"], "ability": "mold-breaker" },
+        { "species": "sirfetchd", "level": 35, "moves": ["detect", "swords-dance", "brutal-swing", "revenge"], "ability": "steadfast" },
+        { "species": "machamp", "level": 36, "moves": ["revenge", "knock-off", "strength", "scary-face"], "ability": "guts" }
       ]
     },
     {
@@ -726,10 +726,10 @@
       "order": 50,
       "aceLevel": 38,
       "roster": [
-        { "species": "weezing-galar", "level": 36 },
-        { "species": "mawile", "level": 36 },
-        { "species": "togekiss", "level": 37 },
-        { "species": "alcremie", "level": 38 }
+        { "species": "weezing-galar", "level": 36, "moves": ["sludge-bomb", "fairy-wind", "tackle"], "ability": "levitate" },
+        { "species": "mawile", "level": 36, "moves": ["draining-kiss", "crunch", "iron-defense", "astonish"], "ability": "intimidate" },
+        { "species": "togekiss", "level": 37, "moves": ["air-slash", "draining-kiss", "ancient-power"], "ability": "hustle" },
+        { "species": "alcremie", "level": 38, "moves": ["draining-kiss", "acid-armor", "sweet-kiss"], "ability": "sweet-veil" }
       ]
     },
     {
@@ -739,10 +739,10 @@
       "order": 60,
       "aceLevel": 42,
       "roster": [
-        { "species": "barbaracle", "level": 40 },
-        { "species": "shuckle", "level": 40 },
-        { "species": "stonjourner", "level": 41 },
-        { "species": "coalossal", "level": 42 }
+        { "species": "barbaracle", "level": 40, "moves": ["shell-smash", "rock-tomb", "razor-shell"], "ability": "tough-claws" },
+        { "species": "shuckle", "level": 40, "moves": ["power-split", "stone-edge", "struggle-bug", "rock-tomb"], "ability": "contrary" },
+        { "species": "stonjourner", "level": 41, "moves": ["stealth-rock", "rock-tomb", "body-slam", "wonder-room"], "ability": "power-spot" },
+        { "species": "coalossal", "level": 42, "moves": ["tar-shot", "stealth-rock", "heat-crash", "rock-tomb"], "ability": "steam-engine" }
       ]
     },
     {
@@ -752,10 +752,10 @@
       "order": 70,
       "aceLevel": 46,
       "roster": [
-        { "species": "scrafty", "level": 44 },
-        { "species": "malamar", "level": 45 },
-        { "species": "skuntank", "level": 45 },
-        { "species": "obstagoon", "level": 46 }
+        { "species": "scrafty", "level": 44, "moves": ["fake-out", "sand-attack", "brick-break", "payback"], "ability": "intimidate" },
+        { "species": "malamar", "level": 45, "moves": ["night-slash", "foul-play", "psycho-cut", "payback"], "ability": "contrary" },
+        { "species": "skuntank", "level": 45, "moves": ["sucker-punch", "screech", "toxic", "snarl"], "ability": "aftermath" },
+        { "species": "obstagoon", "level": 46, "moves": ["obstruct", "throat-chop", "counter", "shadow-claw"], "ability": "reckless" }
       ]
     },
     {
@@ -765,10 +765,10 @@
       "order": 80,
       "aceLevel": 48,
       "roster": [
-        { "species": "gigalith", "level": 46 },
-        { "species": "flygon", "level": 47 },
-        { "species": "sandaconda", "level": 46 },
-        { "species": "duraludon", "level": 48 }
+        { "species": "gigalith", "level": 46, "moves": ["stealth-rock", "sand-tomb", "rock-blast", "body-press"], "ability": "sand-stream" },
+        { "species": "flygon", "level": 47, "moves": ["thunder-punch", "breaking-swipe", "crunch", "steel-wing"], "ability": "levitate" },
+        { "species": "sandaconda", "level": 46, "moves": ["protect", "glare", "fire-fang", "earth-power"], "ability": "sand-spit" },
+        { "species": "duraludon", "level": 48, "moves": ["breaking-swipe", "body-press", "stone-edge", "iron-head"], "ability": "heavy-metal" }
       ]
     },
     {
@@ -778,13 +778,13 @@
       "order": 90,
       "aceLevel": 49,
       "roster": [
-        { "species": "dubwool", "level": 48 },
-        { "species": "corviknight", "level": 48 },
-        { "species": "pincurchin", "level": 47 },
-        { "species": "snorlax", "level": 47 },
-        { "species": "cinderace", "level": 49 },
-        { "species": "rillaboom", "level": 49 },
-        { "species": "inteleon", "level": 49 }
+        { "species": "dubwool", "level": 48, "moves": ["cotton-guard", "double-kick", "double-edge", "headbutt"], "ability": "steadfast" },
+        { "species": "corviknight", "level": 48, "moves": ["steel-wing", "drill-peck", "swagger", "light-screen"], "ability": "unnerve" },
+        { "species": "pincurchin", "level": 47, "moves": ["zing-zap", "poison-jab", "liquidation", "recover"], "ability": "lightning-rod" },
+        { "species": "snorlax", "level": 47, "moves": ["hammer-arm", "earthquake", "heavy-slam", "crunch"], "ability": "thick-fat" },
+        { "species": "cinderace", "level": 49, "moves": ["gunk-shot", "iron-head", "pyro-ball", "zen-headbutt"], "ability": "blaze" },
+        { "species": "rillaboom", "level": 49, "moves": ["drum-beating", "slam", "knock-off", "high-horsepower"], "ability": "overgrow" },
+        { "species": "inteleon", "level": 49, "moves": ["snipe-shot", "sucker-punch", "ice-beam", "dark-pulse"], "ability": "torrent" }
       ]
     },
     {
@@ -794,10 +794,10 @@
       "order": 100,
       "aceLevel": 65,
       "roster": [
-        { "species": "aegislash-shield", "level": 62 },
-        { "species": "dragapult", "level": 62 },
-        { "species": "haxorus", "level": 63 },
-        { "species": "charizard", "level": 65 }
+        { "species": "aegislash-shield", "level": 62, "moves": ["kings-shield", "shadow-ball", "sacred-sword", "flash-cannon"], "ability": "stance-change" },
+        { "species": "dragapult", "level": 62, "moves": ["shadow-ball", "flamethrower", "thunderbolt", "dragon-breath"], "ability": "clear-body" },
+        { "species": "haxorus", "level": 63, "moves": ["poison-jab", "iron-tail", "outrage", "earthquake"], "ability": "mold-breaker" },
+        { "species": "charizard", "level": 65, "moves": ["fire-blast", "air-slash", "dragon-claw", "solar-beam"], "ability": "blaze" }
       ]
     },
     {
@@ -808,12 +808,12 @@
       "aceLevel": 70,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "dubwool", "level": 69 },
-        { "species": "snorlax", "level": 68 },
-        { "species": "corviknight", "level": 70 },
-        { "species": "cinderace", "level": 70 },
-        { "species": "rillaboom", "level": 70 },
-        { "species": "inteleon", "level": 70 }
+        { "species": "dubwool", "level": 69, "moves": ["cotton-guard", "double-edge", "zen-headbutt", "headbutt"], "ability": "steadfast" },
+        { "species": "snorlax", "level": 68, "moves": ["hammer-arm", "earthquake", "heavy-slam", "crunch"], "ability": "thick-fat" },
+        { "species": "corviknight", "level": 70, "moves": ["steel-wing", "drill-peck", "iron-head", "brave-bird"], "ability": "unnerve" },
+        { "species": "cinderace", "level": 70, "moves": ["pyro-ball", "gunk-shot", "iron-head", "zen-headbutt"], "ability": "blaze" },
+        { "species": "rillaboom", "level": 70, "moves": ["drum-beating", "knock-off", "high-horsepower", "slam"], "ability": "overgrow" },
+        { "species": "inteleon", "level": 70, "moves": ["snipe-shot", "ice-beam", "dark-pulse", "sucker-punch"], "ability": "torrent" }
       ]
     }
   ],
