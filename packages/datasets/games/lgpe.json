@@ -634,91 +634,187 @@
       "name": "Brock (Pewter Gym)",
       "type": "gym",
       "order": 1,
-      "aceLevel": 12
+      "aceLevel": 12,
+      "roster": [
+        { "species": "geodude", "level": 11, "moves": ["tackle"] },
+        { "species": "onix", "level": 12, "moves": ["headbutt", "bind", "rock-throw"] }
+      ]
     },
     {
       "id": "gym-2-misty",
       "name": "Misty (Cerulean Gym)",
       "type": "gym",
       "order": 2,
-      "aceLevel": 19
+      "aceLevel": 19,
+      "roster": [
+        { "species": "psyduck", "level": 18, "moves": ["water-gun", "confusion"] },
+        { "species": "starmie", "level": 19, "moves": ["scald", "psywave", "swift"] }
+      ]
     },
     {
       "id": "gym-3-surge",
       "name": "Lt. Surge (Vermilion Gym)",
       "type": "gym",
       "order": 3,
-      "aceLevel": 26
+      "aceLevel": 26,
+      "roster": [
+        { "species": "voltorb", "level": 25, "moves": ["thunderbolt", "swift", "light-screen"] },
+        { "species": "magnemite", "level": 25, "moves": ["thunderbolt", "sonic-boom"] },
+        { "species": "raichu", "level": 26, "moves": ["thunderbolt", "quick-attack", "double-kick"] }
+      ]
     },
     {
       "id": "gym-4-erika",
       "name": "Erika (Celadon Gym)",
       "type": "gym",
       "order": 4,
-      "aceLevel": 34
+      "aceLevel": 34,
+      "roster": [
+        { "species": "tangela", "level": 33, "moves": ["mega-drain", "sleep-powder", "bind"] },
+        { "species": "weepinbell", "level": 33, "moves": ["mega-drain", "poison-jab"] },
+        { "species": "vileplume", "level": 34, "moves": ["mega-drain", "moonblast"] }
+      ]
     },
     {
       "id": "gym-5-koga",
       "name": "Koga (Fuchsia Gym)",
       "type": "gym",
       "order": 5,
-      "aceLevel": 44
+      "aceLevel": 44,
+      "roster": [
+        { "species": "weezing", "level": 43, "moves": ["toxic", "protect", "sludge-bomb", "explosion"] },
+        { "species": "muk", "level": 43, "moves": ["toxic", "protect", "sludge-bomb", "moonblast"] },
+        { "species": "golbat", "level": 43, "moves": ["toxic", "protect", "fly", "leech-life"] },
+        { "species": "venomoth", "level": 44, "moves": ["sludge-bomb", "protect", "psychic", "bug-buzz"] }
+      ]
     },
     {
       "id": "gym-6-sabrina",
       "name": "Sabrina (Saffron Gym)",
       "type": "gym",
       "order": 6,
-      "aceLevel": 44
+      "aceLevel": 44,
+      "roster": [
+        { "species": "mr-mime", "level": 43, "moves": ["psychic", "reflect", "light-screen", "double-slap"] },
+        { "species": "slowbro", "level": 43, "moves": ["psychic", "yawn", "surf", "calm-mind"] },
+        { "species": "jynx", "level": 43, "moves": ["psychic", "lovely-kiss", "ice-punch"] },
+        { "species": "alakazam", "level": 44, "moves": ["psychic", "night-shade"] }
+      ]
     },
     {
       "id": "gym-7-blaine",
       "name": "Blaine (Cinnabar Gym)",
       "type": "gym",
       "order": 7,
-      "aceLevel": 48
+      "aceLevel": 48,
+      "roster": [
+        { "species": "magmar", "level": 47, "moves": ["flamethrower", "low-kick", "confuse-ray"] },
+        { "species": "rapidash", "level": 47, "moves": ["flare-blitz", "quick-attack", "fury-attack"] },
+        { "species": "ninetales", "level": 47, "moves": ["fire-blast", "quick-attack"] },
+        { "species": "arcanine", "level": 48, "moves": ["flare-blitz", "outrage", "crunch"] }
+      ]
     },
     {
       "id": "gym-8-giovanni",
       "name": "Giovanni (Viridian Gym)",
       "type": "gym",
       "order": 8,
-      "aceLevel": 50
+      "aceLevel": 50,
+      "roster": [
+        { "species": "dugtrio", "level": 49, "moves": ["earthquake", "sucker-punch", "slash"] },
+        { "species": "nidoqueen", "level": 49, "moves": ["earthquake", "super-fang", "crunch"] },
+        { "species": "nidoking", "level": 49, "moves": ["earthquake", "horn-drill", "megahorn", "poison-jab"] },
+        { "species": "rhydon", "level": 50, "moves": ["earthquake", "rock-slide", "megahorn"] }
+      ]
     },
     {
       "id": "e4-lorelei",
       "name": "Elite Four Lorelei",
       "type": "elite-four",
       "order": 9,
-      "aceLevel": 52
+      "aceLevel": 52,
+      "roster": [
+        { "species": "dewgong", "level": 51, "moves": ["aqua-jet", "ice-shard", "waterfall"] },
+        { "species": "jynx", "level": 51, "moves": ["lovely-kiss", "blizzard", "psychic"] },
+        { "species": "cloyster", "level": 51, "moves": ["ice-beam", "spike-cannon", "hydro-pump"] },
+        { "species": "slowbro", "level": 51, "moves": ["psychic", "surf", "flamethrower"] },
+        { "species": "lapras", "level": 52, "moves": ["hydro-pump", "blizzard", "dragon-pulse"] }
+      ]
     },
     {
       "id": "e4-bruno",
       "name": "Elite Four Bruno",
       "type": "elite-four",
       "order": 10,
-      "aceLevel": 53
+      "aceLevel": 53,
+      "roster": [
+        { "species": "onix", "level": 52, "moves": ["iron-tail", "stealth-rock", "earthquake"] },
+        { "species": "hitmonlee", "level": 52, "moves": ["brick-break", "feint", "rock-slide"] },
+        { "species": "hitmonchan", "level": 52, "moves": ["ice-punch", "thunder-punch", "fire-punch"] },
+        { "species": "poliwrath", "level": 52, "moves": ["superpower", "waterfall", "body-slam"] },
+        { "species": "machamp", "level": 53, "moves": ["earthquake", "superpower", "rock-slide"] }
+      ]
     },
     {
       "id": "e4-agatha",
       "name": "Elite Four Agatha",
       "type": "elite-four",
       "order": 11,
-      "aceLevel": 54
+      "aceLevel": 54,
+      "roster": [
+        { "species": "arbok", "level": 53, "moves": ["glare", "crunch", "poison-jab"] },
+        { "species": "gengar", "level": 53, "moves": ["will-o-wisp", "shadow-ball", "sludge-bomb"] },
+        { "species": "golbat", "level": 53, "moves": ["air-slash", "crunch", "quick-attack"] },
+        { "species": "weezing", "level": 53, "moves": ["sludge-bomb", "shadow-ball", "thunderbolt"] },
+        { "species": "gengar", "level": 54, "moves": ["dazzling-gleam", "shadow-ball", "sludge-bomb"] }
+      ]
     },
     {
       "id": "e4-lance",
       "name": "Elite Four Lance",
       "type": "elite-four",
       "order": 12,
-      "aceLevel": 55
+      "aceLevel": 55,
+      "roster": [
+        { "species": "seadra", "level": 54, "moves": ["hydro-pump", "dragon-pulse", "hyper-beam"] },
+        { "species": "aerodactyl", "level": 54, "moves": ["rock-slide", "earthquake", "hyper-beam"] },
+        { "species": "gyarados", "level": 54, "moves": ["waterfall", "iron-tail", "hyper-beam"] },
+        { "species": "charizard", "level": 54, "moves": ["air-slash", "dragon-pulse", "hyper-beam"] },
+        { "species": "dragonite", "level": 55, "moves": ["outrage", "fire-punch", "hyper-beam"] }
+      ]
     },
     {
       "id": "champion-rival",
       "name": "Champion (Rival)",
       "type": "champion",
       "order": 13,
-      "aceLevel": 57
+      "aceLevel": 57,
+      "roster": [
+        { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
+        { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
+        { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
+        { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
+        { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
+        { "species": "jolteon", "level": 57, "moves": ["thunder", "quick-attack", "pin-missile"] }
+      ],
+      "rosterByStarter": {
+        "pikachu": [
+          { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
+          { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
+          { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
+          { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
+          { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
+          { "species": "jolteon", "level": 57, "moves": ["thunder", "quick-attack", "pin-missile"] }
+        ],
+        "eevee": [
+          { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
+          { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
+          { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
+          { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
+          { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
+          { "species": "raichu", "level": 57, "moves": ["thunder", "quick-attack", "iron-tail"] }
+        ]
+      }
     }
   ],
   "mechanics": {

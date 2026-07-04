@@ -6,6 +6,7 @@ import {
   buildRuleset,
   deriveState,
   filterEncounterPool,
+  milestoneRoster,
   type EngineContext,
   type GameDataset,
   type RunEvent,
@@ -116,5 +117,30 @@ describe('LGPE dataset', () => {
     const eevee = pool('lets-go-eevee');
     expect(eevee).toContain('pinsir');
     expect(eevee).not.toContain('scyther');
+  });
+
+  it('gives every milestone a roster whose ace matches aceLevel', () => {
+    expect(dataset.milestones).toHaveLength(13);
+    for (const m of dataset.milestones) {
+      expect(m.roster, `milestone "${m.id}" should have a roster`).toBeTruthy();
+      const maxLevel = Math.max(...m.roster!.map((p) => p.level));
+      expect(maxLevel, `milestone "${m.id}" ace mismatch`).toBe(m.aceLevel);
+    }
+  });
+
+  it("resolves the Champion's version-dependent ace via rosterByStarter (Jolteon vs Raichu)", () => {
+    const champ = dataset.milestones.find((m) => m.id === 'champion-rival')!;
+    const ace = (starter: string) => {
+      const roster = milestoneRoster(champ, starter)!;
+      return roster.reduce((a, b) => (b.level > a.level ? b : a)).species;
+    };
+    // Player with Pikachu faces an Eevee-line rival ace (Jolteon); vice-versa for Eevee → Raichu
+    expect(ace('pikachu')).toBe('jolteon');
+    expect(ace('eevee')).toBe('raichu');
+    // the two variants and the default roster all cap at aceLevel 57
+    expect(champ.aceLevel).toBe(57);
+    for (const variant of Object.values(champ.rosterByStarter!)) {
+      expect(Math.max(...variant.map((p) => p.level))).toBe(57);
+    }
   });
 });
