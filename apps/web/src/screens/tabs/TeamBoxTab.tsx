@@ -11,10 +11,12 @@ import { TypeBadge, TypeBadges, TypeDot } from '../../components/TypeBadge';
 function EditForm({
   p,
   runId,
+  gameId,
   onSaved,
 }: {
   p: PokemonInstance;
   runId: string;
+  gameId: string;
   onSaved: () => Promise<void>;
 }) {
   const [nickname, setNickname] = useState(p.nickname);
@@ -23,7 +25,7 @@ function EditForm({
   const [nature, setNature] = useState(p.nature ?? '');
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
-  const movePool = movesFor(p.species);
+  const movePool = movesFor(p.species, gameId);
 
   async function save() {
     setSaving(true);
@@ -109,11 +111,13 @@ function EditForm({
 function MonCard({
   p,
   runId,
+  gameId,
   onChange,
   actions,
 }: {
   p: PokemonInstance;
   runId: string;
+  gameId: string;
   onChange: () => Promise<void>;
   actions: { label: string; onClick: () => void; secondary?: boolean }[];
 }) {
@@ -176,7 +180,7 @@ function MonCard({
               ))}
             </span>
           )}
-          {editable && <EditForm p={p} runId={runId} onSaved={onChange} />}
+          {editable && <EditForm p={p} runId={runId} gameId={gameId} onSaved={onChange} />}
         </div>
       )}
     </div>
@@ -186,6 +190,7 @@ function MonCard({
 export function TeamBoxTab({
   runId,
   state,
+  ctx,
   onChange,
 }: {
   runId: string;
@@ -193,6 +198,7 @@ export function TeamBoxTab({
   ctx: EngineContext;
   onChange: () => Promise<void>;
 }) {
+  const gameId = ctx.dataset.gameId;
   const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
   const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
   const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
@@ -224,6 +230,7 @@ export function TeamBoxTab({
               key={p.id}
               p={p}
               runId={runId}
+              gameId={gameId}
               onChange={onChange}
               actions={[
                 { label: 'Box', onClick: () => move(p.id, 'box'), secondary: true },
@@ -243,6 +250,7 @@ export function TeamBoxTab({
               key={p.id}
               p={p}
               runId={runId}
+              gameId={gameId}
               onChange={onChange}
               actions={[
                 { label: 'Party', onClick: () => move(p.id, 'party') },
@@ -263,6 +271,7 @@ export function TeamBoxTab({
               key={p.id}
               p={p}
               runId={runId}
+              gameId={gameId}
               onChange={onChange}
               actions={state.reviveTokens > 0 ? [{ label: 'Revive', onClick: () => revive(p.id) }] : []}
             />
