@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import type { Milestone, MilestoneRosterMember } from '@nuzlocke/engine';
-import { STAT_ORDER, moveType, statLabel, statsFor, typesFor } from '../lib/speciesData';
+import { STAT_ORDER, statLabel, statsFor, typesFor } from '../lib/speciesData';
 import { trainerKeyFromMilestone } from '../lib/sprites';
-import { weaknesses } from '../lib/typeChart';
+import { MoveChips } from './MoveChips';
 import { SpriteImg } from './SpriteImg';
 import { TrainerSprite } from './TrainerSprite';
-import { TypeBadge, TypeBadges, TypeDot } from './TypeBadge';
+import { TypeBadges } from './TypeBadge';
+import { WeaknessRow } from './WeaknessRow';
 
 /** Expandable boss-fight card: trainer sprite, roster strip, and full per-mon
  * detail (weaknesses, moves, stat bars) when expanded.
@@ -89,31 +90,8 @@ export function MilestoneCard({
                     )}
                   </div>
                 </div>
-                {(() => {
-                  const weak = weaknesses(typesFor(p.species));
-                  if (weak.length === 0) return null;
-                  return (
-                    <div className="mrd-weak">
-                      <span className="mrd-weak-label muted">Weak to</span>
-                      {weak.map((w) => (
-                        <span key={w.type} className="mrd-weak-item">
-                          <TypeBadge type={w.type} />
-                          {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
-                        </span>
-                      ))}
-                    </div>
-                  );
-                })()}
-                {p.moves && p.moves.length > 0 && (
-                  <div className="poke-moves">
-                    {p.moves.map((mv) => (
-                      <span key={mv} className="move-chip">
-                        <TypeDot type={moveType(mv)} />
-                        {mv}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                <WeaknessRow types={typesFor(p.species)} />
+                <MoveChips moves={p.moves} />
                 {(() => {
                   const st = statsFor(p.species);
                   if (!st) return null;

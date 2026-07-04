@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { RunState, SpecialEncounter } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { typesFor } from '../lib/speciesData';
+import { CatchFields } from './CatchFields';
 import { SpriteImg } from './SpriteImg';
 import { TypeBadges } from './TypeBadge';
 
@@ -31,23 +32,25 @@ function ClaimForm({
   const [level, setLevel] = useState('5');
   return (
     <div className="special-claim-form">
-      <div className="special-claim-fields">
-        <label>
-          Nickname
-          <input type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder={species} />
-        </label>
-        <label>
-          Level
-          <input type="text" inputMode="numeric" value={level} onChange={(e) => setLevel(e.target.value)} />
-        </label>
-        <label className="shiny-toggle">
-          <input type="checkbox" checked={shiny} onChange={(e) => onShinyChange(e.target.checked)} />
-          Shiny ✦
-        </label>
-      </div>
+      <CatchFields
+        species={species}
+        nickname={nickname}
+        onNickname={setNickname}
+        level={level}
+        onLevel={setLevel}
+        shiny={shiny}
+        onShiny={onShinyChange}
+        className="special-claim-fields"
+      />
       <button onClick={() => onClaim(nickname || species, Number(level) || 1, shiny)}>Claim</button>
     </div>
   );
+}
+
+/** Heading text for the starter-claim step — shared by the game-picker flow
+ * and the Routes-tab fallback so the wording never drifts. */
+export function starterHeading(starters: SpecialEncounter[]): string {
+  return starters.length > 1 ? 'Choose your starter' : 'Your partner Pokémon';
 }
 
 /** The (if any) Pokémon in `state` claimed for a given special id. */
