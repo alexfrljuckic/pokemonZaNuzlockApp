@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { buildRuleset } from '@nuzlocke/engine';
 import { listGames } from '../lib/datasets';
 import { createRun, type RunSummary } from '../lib/db';
@@ -40,6 +40,11 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   const [creating, setCreating] = useState(false);
 
   function pickGame(id: string) {
+    // toggle: clicking the open card collapses it
+    if (id === gameId) {
+      setGameId(null);
+      return;
+    }
     setGameId(id);
     setVersion(games.find((g) => g.gameId === id)?.versions[0] ?? '');
   }
@@ -60,59 +65,64 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   }
 
   return (
-    <>
-      <section>
-        <h2>Choose your game</h2>
-        <div className="game-card-grid">
-          {games.map((g) => (
+    <section>
+      <h2>Choose your game</h2>
+      <div className="game-card-grid">
+        {games.map((g) => (
+          <Fragment key={g.gameId}>
             <button
-              key={g.gameId}
               className={`game-card game-card-${g.gameId}${g.gameId === gameId ? ' selected' : ''}`}
               onClick={() => pickGame(g.gameId)}
+              aria-expanded={g.gameId === gameId}
             >
               <span className="game-card-name">{g.name}</span>
               <span className="muted">{g.areas.length} areas</span>
             </button>
-          ))}
-        </div>
-      </section>
 
-      {game && (
-        <section>
-          <h2>{game.name} — run settings</h2>
+            {/* run settings expand in place, right under the picked card */}
+            {gameId === g.gameId && game && (
+              <div className="game-settings-inline">
+                <label htmlFor="version">Version</label>
+                <select id="version" value={version} onChange={(e) => setVersion(e.target.value)}>
+                  {game.versions.map((v) => (
+                    <option key={v} value={v}>
+                      {v}
+                    </option>
+                  ))}
+                </select>
 
-          <label htmlFor="version">Version</label>
-          <select id="version" value={version} onChange={(e) => setVersion(e.target.value)}>
-            {game.versions.map((v) => (
-              <option key={v} value={v}>
-                {v}
-              </option>
-            ))}
-          </select>
+                <label htmlFor="preset">Ruleset preset</label>
+                <select
+                  id="preset"
+                  value={preset}
+                  onChange={(e) => setPreset(e.target.value as (typeof PRESETS)[number])}
+                >
+                  {PRESETS.map((p) => (
+                    <option key={p} value={p}>
+                      {p}
+                    </option>
+                  ))}
+                </select>
 
-          <label htmlFor="preset">Ruleset preset</label>
-          <select id="preset" value={preset} onChange={(e) => setPreset(e.target.value as (typeof PRESETS)[number])}>
-            {PRESETS.map((p) => (
-              <option key={p} value={p}>
-                {p}
-              </option>
-            ))}
-          </select>
+                <label htmlFor="house-rules">
+                  House rules (optional, one per line — honor rules, shown but not enforced)
+                </label>
+                <textarea
+                  id="house-rules"
+                  rows={3}
+                  value={houseRulesText}
+                  onChange={(e) => setHouseRulesText(e.target.value)}
+                  placeholder="e.g. no legendaries&#10;shiny clause"
+                />
 
-          <label htmlFor="house-rules">House rules (optional, one per line — honor rules, shown but not enforced)</label>
-          <textarea
-            id="house-rules"
-            rows={3}
-            value={houseRulesText}
-            onChange={(e) => setHouseRulesText(e.target.value)}
-            placeholder="e.g. no legendaries&#10;shiny clause"
-          />
-
-          <button onClick={handleCreate} disabled={creating}>
-            {creating ? 'Starting…' : 'Start Run'}
-          </button>
-        </section>
-      )}
-    </>
+                <button onClick={handleCreate} disabled={creating}>
+                  {creating ? 'Starting…' : 'Start Run'}
+                </button>
+              </div>
+            )}
+          </Fragment>
+        ))}
+      </div>
+    </section>
   );
 }

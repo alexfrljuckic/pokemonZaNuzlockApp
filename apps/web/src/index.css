@@ -1207,6 +1207,19 @@ button.back-btn:hover:not(:disabled)::before {
   animation: selectedPulse 2s ease-in-out infinite;
 }
 
+/* run settings expand in place under the picked card, full grid width */
+.game-settings-inline {
+  grid-column: 1 / -1;
+  background: var(--bg-inset);
+  border: 1px solid var(--highlight);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem 1.1rem;
+  animation: fadeUp 0.22s ease both;
+}
+.game-settings-inline label:first-child {
+  margin-top: 0;
+}
+
 .game-card .game-card-name {
   display: block;
   font-weight: 700;
