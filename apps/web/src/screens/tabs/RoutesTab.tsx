@@ -43,15 +43,16 @@ function CaughtHere({ areaId, state }: { areaId: string; state: RunState }) {
   );
 }
 
-/** Unique species in pool order, with their catch method(s). */
-function uniqueSlots(pool: EncounterSlot[]): { species: string; methods: string }[] {
-  const byId = new Map<string, string[]>();
+/** Unique species in pool order, with their catch method(s) and best rate. */
+function uniqueSlots(pool: EncounterSlot[]): { species: string; methods: string; rate?: number }[] {
+  const byId = new Map<string, { methods: string[]; rate?: number }>();
   for (const slot of pool) {
-    const cur = byId.get(slot.species) ?? [];
-    for (const m of slot.methods) if (!cur.includes(m)) cur.push(m);
+    const cur = byId.get(slot.species) ?? { methods: [], rate: undefined };
+    for (const m of slot.methods) if (!cur.methods.includes(m)) cur.methods.push(m);
+    if (slot.rate != null) cur.rate = Math.max(cur.rate ?? 0, slot.rate);
     byId.set(slot.species, cur);
   }
-  return [...byId].map(([species, methods]) => ({ species, methods: methods.join('/') }));
+  return [...byId].map(([species, v]) => ({ species, methods: v.methods.join('/'), rate: v.rate }));
 }
 
 function EncounterForm({
@@ -81,7 +82,10 @@ function EncounterForm({
           >
             <SpriteImg species={slot.species} size={72} shiny={shiny} />
             <span className="encounter-slot-name">{slot.species}</span>
-            <span className="encounter-slot-method muted">{slot.methods}</span>
+            <span className="encounter-slot-method muted">
+              {slot.methods}
+              {slot.rate != null ? ` · ${slot.rate}%` : ''}
+            </span>
           </button>
         ))}
       </div>

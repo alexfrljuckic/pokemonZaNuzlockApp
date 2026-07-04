@@ -12,16 +12,17 @@ function nodeStateFor(area: Area, state: RunState): NodeState {
   return 'available';
 }
 
-/** Unique species present in an area for the active version — the at-a-glance
- * "what lives here" preview (not the ruleset-legal catch pool, which the
- * resolution form computes separately via filterEncounterPool). */
-function previewSpecies(area: Area, version: string): string[] {
-  const seen = new Set<string>();
+/** Unique species present in an area for the active version, with best rate —
+ * the at-a-glance "what lives here" preview (not the ruleset-legal catch pool,
+ * which the resolution form computes separately via filterEncounterPool). */
+function previewSpecies(area: Area, version: string): { species: string; rate?: number }[] {
+  const byId = new Map<string, number | undefined>();
   for (const slot of area.encounters) {
     if (slot.conditions?.version && !slot.conditions.version.includes(version)) continue;
-    seen.add(slot.species);
+    const prev = byId.get(slot.species);
+    byId.set(slot.species, slot.rate != null ? Math.max(prev ?? 0, slot.rate) : prev);
   }
-  return [...seen];
+  return [...byId].map(([species, rate]) => ({ species, rate }));
 }
 
 const BADGE_GLYPH: Partial<Record<NodeState, string>> = {
@@ -149,9 +150,10 @@ export function RouteMap({
           <div className="route-tip-sprites">
             {previewSpecies(hoveredArea, version)
               .slice(0, 12)
-              .map((sp) => (
-                <span key={sp} className="route-tip-mon" title={sp}>
-                  <SpriteImg species={sp} size={32} />
+              .map((e) => (
+                <span key={e.species} className="route-tip-mon" title={`${e.species}${e.rate != null ? ` — ${e.rate}%` : ''}`}>
+                  <SpriteImg species={e.species} size={32} />
+                  {e.rate != null && <span className="route-tip-rate">{e.rate}%</span>}
                 </span>
               ))}
             {previewSpecies(hoveredArea, version).length === 0 && (
