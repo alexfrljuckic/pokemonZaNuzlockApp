@@ -158,6 +158,21 @@ three ways). Depends on item 14 (need to know the chosen starter). Build:
 Acceptance: choosing Chimchar shows Barry with the Piplup line, etc.; unchosen
 falls back gracefully.
 
+## UI ideas (2026-07-04, Alex — expand-on-click patterns)
+
+- **Game picker → click-to-expand run settings**: the New Game game picker
+  should use the actual game icons (stylized/community-standard, IP-safe per
+  plan §10 — box art is out; use the per-version color cards + a small game
+  glyph, or a community icon set if one is license-clean). Clicking a game
+  card should expand *in place* to reveal the run-settings (version / preset /
+  house rules) rather than swapping to a separate settings panel. See
+  `apps/web/src/screens/RunPicker.tsx`.
+- **Box/Team → click sprite to expand into edit mode**: clicking a Pokémon in
+  the box or team should expand its card straight into the edit form (nickname/
+  level/item/moves/nature), not a separate "Edit" button step. Keep the quick
+  action buttons (Party / Box / Fainted) visible in the *condensed* view so you
+  can shuffle mons around fast without expanding. `TeamBoxTab.tsx`.
+
 ## Known gaps / follow-ups (no decision needed, just work)
 
 - **Type display + matchups (2026-07-04)**: Pokémon type badges + move-type
