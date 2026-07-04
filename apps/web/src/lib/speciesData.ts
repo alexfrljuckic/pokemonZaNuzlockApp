@@ -4,7 +4,7 @@
    base-stats. Species without an entry (a few form slugs PokeAPI didn't resolve)
    degrade gracefully — the pickers stay free-text, previews just render nothing. */
 import raw from '@nuzlocke/datasets/generated/species-data.json';
-import machinesRaw from '@nuzlocke/datasets/generated/bdsp-machines.json';
+import machinesByGameRaw from '@nuzlocke/datasets/generated/machines-by-game.json';
 
 export interface Evolution {
   to: string;
@@ -30,10 +30,13 @@ export const HELD_ITEMS: string[] = data.heldItems;
 export const typesFor = (species: string): string[] => data.types[species] ?? [];
 export const moveType = (move: string): string | null => data.moveTypes[move] ?? null;
 
-// move slug -> "TM" | "HM" for BDSP (mirrors the Diamond/Pearl machine list).
-// BDSP-oriented; used as a general reference for other games too.
-const machines = machinesRaw as Record<string, 'TM' | 'HM'>;
-export const machineType = (move: string): 'TM' | 'HM' | null => machines[move] ?? null;
+// Per-game machine tags: move slug -> "TM" | "HM" | "TR" for each game that has
+// a machine system (bdsp/lgpe/swsh/plza; SwSh also uses TRs). Legends Arceus has
+// no machines (move shop) and gets no tags. Games without an entry return null.
+export type MachineTag = 'TM' | 'HM' | 'TR';
+const machinesByGame = machinesByGameRaw as Record<string, Record<string, MachineTag>>;
+export const machineType = (move: string, gameId: string): MachineTag | null =>
+  machinesByGame[gameId]?.[move] ?? null;
 
 /** A species' movepool, scoped to the given game where PokeAPI documents it.
  * Each game learns different moves (Pikachu knows 31 moves in LGPE, 50 in

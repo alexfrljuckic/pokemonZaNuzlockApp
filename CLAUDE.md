@@ -75,9 +75,10 @@ evening). `docs/BACKLOG.md` is the single work tracker — it opens with an
   declares `pokeapiVersionGroups` for per-game movepools (PR #47); Z-A has
   none in PokeAPI and falls back to the union pool. Generated:
   species-lines.json, species-data.json (types/stats/moves/movesByGame —
-  regenerate via build-species-data.mjs, never hand-merge), bdsp-machines.
-  Validator enforces aceLevel=max(roster), species coverage vs. generated
-  data, referential integrity.
+  regenerate via build-species-data.mjs, never hand-merge), machines-by-game.json
+  (per-game TM/HM/TR tags via build-machines.mjs; bdsp/lgpe/swsh/plza, PLA has
+  none). Validator enforces aceLevel=max(roster), roster-move slugs + optional
+  rostersRequired, species coverage vs. generated data, referential integrity.
 - **App** (`apps/web`): five tabs (Routes / Team & Box / **Boss Fights** /
   Rules / Stats), Supabase sync + magic-link auth + share links w/ realtime
   spectator (token-gated SECURITY DEFINER RPC — see migration comments
