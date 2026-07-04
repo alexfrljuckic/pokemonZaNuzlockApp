@@ -572,7 +572,7 @@
           ]
         },
         {
-          "species": "meowstic",
+          "species": "meowstic-male",
           "methods": [
             "alpha"
           ]
@@ -950,7 +950,7 @@
           ]
         },
         {
-          "species": "pumpkaboo",
+          "species": "pumpkaboo-average",
           "methods": [
             "overworld"
           ]
@@ -986,7 +986,7 @@
           ]
         },
         {
-          "species": "gourgeist",
+          "species": "gourgeist-average",
           "methods": [
             "alpha"
           ]
@@ -1086,7 +1086,7 @@
           ]
         },
         {
-          "species": "pyroar",
+          "species": "pyroar-male",
           "methods": [
             "overworld"
           ]
@@ -1116,7 +1116,7 @@
           ]
         },
         {
-          "species": "pyroar",
+          "species": "pyroar-male",
           "methods": [
             "alpha"
           ]
@@ -1665,7 +1665,7 @@
           ]
         },
         {
-          "species": "aegislash",
+          "species": "aegislash-shield",
           "methods": [
             "alpha"
           ]
@@ -1731,7 +1731,7 @@
           ]
         },
         {
-          "species": "gourgeist",
+          "species": "gourgeist-average",
           "methods": [
             "alpha"
           ]
@@ -1880,12 +1880,6 @@
           "methods": [
             "hyperspace"
           ]
-        },
-        {
-          "species": "etc",
-          "methods": [
-            "hyperspace"
-          ]
         }
       ]
     },
@@ -1901,7 +1895,7 @@
       ],
       "encounters": [
         {
-          "species": "mimikyu",
+          "species": "mimikyu-disguised",
           "methods": [
             "hyperspace"
           ]
@@ -1913,7 +1907,7 @@
           ]
         },
         {
-          "species": "toxtricity",
+          "species": "toxtricity-amped",
           "methods": [
             "hyperspace"
           ]
@@ -1950,12 +1944,6 @@
         },
         {
           "species": "dragapult",
-          "methods": [
-            "hyperspace"
-          ]
-        },
-        {
-          "species": "etc",
           "methods": [
             "hyperspace"
           ]
@@ -2008,12 +1996,6 @@
           "methods": [
             "hyperspace"
           ]
-        },
-        {
-          "species": "etc",
-          "methods": [
-            "hyperspace"
-          ]
         }
       ]
     },
@@ -2036,12 +2018,6 @@
         },
         {
           "species": "rotom",
-          "methods": [
-            "hyperspace"
-          ]
-        },
-        {
-          "species": "rare-encounters",
           "methods": [
             "hyperspace"
           ]
@@ -2078,37 +2054,31 @@
           ]
         },
         {
-          "species": "keldeo",
+          "species": "keldeo-ordinary",
           "methods": [
             "hyperspace"
           ]
         },
         {
-          "species": "landorus",
+          "species": "landorus-incarnate",
           "methods": [
             "hyperspace"
           ]
         },
         {
-          "species": "thundurus",
+          "species": "thundurus-incarnate",
           "methods": [
             "hyperspace"
           ]
         },
         {
-          "species": "tornadus",
+          "species": "tornadus-incarnate",
           "methods": [
             "hyperspace"
           ]
         },
         {
-          "species": "enamorus",
-          "methods": [
-            "hyperspace"
-          ]
-        },
-        {
-          "species": "etc",
+          "species": "enamorus-incarnate",
           "methods": [
             "hyperspace"
           ]
@@ -2192,7 +2162,7 @@
     {
       "id": "s10-zygarde",
       "type": "static",
-      "species": "zygarde",
+      "species": "zygarde-50",
       "area": "lumiose-city"
     },
     {
@@ -2210,13 +2180,13 @@
     {
       "id": "rogue-catch-tatsugiri",
       "type": "static",
-      "species": "tatsugiri",
+      "species": "tatsugiri-curly",
       "area": "hyperspace-h3"
     },
     {
       "id": "rogue-catch-meowstic",
       "type": "static",
-      "species": "meowstic",
+      "species": "meowstic-male",
       "area": "hyperspace-h4"
     },
     {

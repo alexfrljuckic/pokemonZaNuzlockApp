@@ -12,6 +12,17 @@ function nodeStateFor(area: Area, state: RunState): NodeState {
   return 'available';
 }
 
+/** Areas that just opened up per the story's `unlockAfter` gating — a light
+ * "next approximate routes" hint, not an enforced lock. An area counts as
+ * frontier if it's unresolved and either has no gate (and nothing's been
+ * cleared yet) or its gate is the most recently cleared milestone. */
+export function isFrontier(area: Area, state: RunState): boolean {
+  if (state.encounterOutcomes[area.id]) return false;
+  const cleared = state.milestonesCleared;
+  if (cleared.length === 0) return area.unlockAfter == null;
+  return area.unlockAfter === cleared[cleared.length - 1];
+}
+
 /** Unique species present in an area for the active version, with best rate —
  * the at-a-glance "what lives here" preview (not the ruleset-legal catch pool,
  * which the resolution form computes separately via filterEncounterPool). */
@@ -104,10 +115,11 @@ export function RouteMap({
           // picker, a resolved one opens its outcome + reset.
           const interactive = st !== 'locked';
           const badge = BADGE_GLYPH[st];
+          const frontier = isFrontier(area, state);
           return (
             <g
               key={node.id}
-              className={`route-region-g route-region-${st}`}
+              className={`route-region-g route-region-${st}${frontier ? ' route-region-frontier' : ''}`}
               tabIndex={interactive ? 0 : -1}
               role={interactive ? 'button' : undefined}
               aria-label={`${area.name}${interactive ? ' — resolve encounter' : ` (${st})`}`}

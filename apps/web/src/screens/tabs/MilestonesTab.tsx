@@ -48,7 +48,7 @@ function MilestoneCard({
       }}
     >
       <div className="milestone-card-head">
-        <TrainerSprite trainerKey={trainerKeyFromMilestone(milestone.id)} size={52} className="milestone-trainer-sprite" />
+        <TrainerSprite trainerKey={trainerKeyFromMilestone(milestone.id)} size={60} className="milestone-trainer-sprite" />
         <div className="milestone-card-title">
           <strong>{milestone.name}</strong>
           <span className="muted">
@@ -63,8 +63,9 @@ function MilestoneCard({
         <div className="milestone-roster-row">
           {roster.map((p, i) => (
             <span key={`${p.species}-${i}`} className="milestone-roster-mon">
-              <SpriteImg species={p.species} size={56} />
+              <SpriteImg species={p.species} size={64} />
               <span className="milestone-roster-lv muted">Lv{p.level}</span>
+              <TypeBadges types={typesFor(p.species)} />
             </span>
           ))}
         </div>
@@ -188,7 +189,7 @@ export function MilestonesTab({
 
   return (
     <section>
-      <h2>Bosses & Milestones</h2>
+      <h2>Boss Fights</h2>
       {state.reviveTokens > 0 && <p className="muted">Revive tokens: {state.reviveTokens}</p>}
 
       {violations.length > 0 && (

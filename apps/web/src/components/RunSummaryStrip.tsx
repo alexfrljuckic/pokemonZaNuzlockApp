@@ -1,4 +1,4 @@
-import { nextBoss, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
+import { RULES, nextBoss, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { SpriteImg } from './SpriteImg';
 
 interface SummaryItem {
@@ -20,6 +20,19 @@ function describe(event: RunEvent, ctx: EngineContext): SummaryItem | null {
       return {
         key: `${event.seq}`,
         text: `Caught ${name}${area ? ` on ${area.name}` : ''}`,
+        species: event.payload.species,
+        tone: 'catch',
+      };
+    }
+    case 'special_claimed': {
+      const special = ctx.dataset?.specials?.find((s) => s.id === event.payload.specialId);
+      const isStarter = special?.id.startsWith('starter-') ?? false;
+      const name = event.payload.nickname && event.payload.nickname !== event.payload.species
+        ? `${event.payload.nickname} the ${event.payload.species}`
+        : event.payload.species;
+      return {
+        key: `${event.seq}`,
+        text: isStarter ? `Chose ${name} as starter` : `Claimed ${name}${special ? ` (${special.type})` : ''}`,
         species: event.payload.species,
         tone: 'catch',
       };
@@ -87,24 +100,23 @@ export function RunSummaryStrip({
     capRule?.enabled && boss?.aceLevel != null ? boss.aceLevel + Number(capRule.params.offset ?? 0) : null;
   const overCap = levelCap != null && party.some((p) => p.level > levelCap);
 
+  // Every other active rule (level-cap gets its own richer badge above), so a
+  // player can see at a glance what's actually enforced/tracked this run
+  // without opening the Rules tab.
+  const otherActiveRules = Object.values(RULES).filter(
+    (r) =>
+      r.id !== 'level-cap' &&
+      (r.appliesTo === 'all' || r.appliesTo.includes(ctx.dataset.gameId)) &&
+      state.ruleset.rules[r.id]?.enabled,
+  );
+
   // Nothing to show yet on a brand-new run.
-  if (items.length === 0 && party.length === 0) return null;
+  if (items.length === 0 && levelCap == null && otherActiveRules.length === 0) return null;
 
   return (
     <section className="summary-strip">
-      <div className="summary-status">
-        <div className="summary-team" aria-label="Current team">
-          {party.length === 0 ? (
-            <span className="muted">No team yet</span>
-          ) : (
-            party.map((p) => (
-              <span key={p.id} className="summary-team-mon" title={`${p.nickname} · Lv ${p.level}`}>
-                <SpriteImg species={p.species} size={40} shiny={p.shiny} />
-                <span className="summary-team-lv muted">Lv{p.level}</span>
-              </span>
-            ))
-          )}
-        </div>
+      <h3 className="chart-heading">Active rules</h3>
+      <div className="summary-rules">
         {levelCap != null && (
           <div className={`summary-cap${overCap ? ' over' : ''}`} title={boss ? `Next: ${boss.name}` : undefined}>
             <span className="summary-cap-label">Level cap</span>
@@ -112,11 +124,19 @@ export function RunSummaryStrip({
             {boss && <span className="summary-cap-boss muted">next: {boss.name}</span>}
           </div>
         )}
+        {otherActiveRules.map((r) => (
+          <span key={r.id} className={`rule-chip rule-chip-${r.enforcement}`} title={r.description}>
+            {r.name}
+          </span>
+        ))}
+        {levelCap == null && otherActiveRules.length === 0 && (
+          <span className="muted">No rules enforced this run</span>
+        )}
       </div>
 
       {items.length > 0 && (
         <>
-          <h2>Recent events</h2>
+          <h3 className="chart-heading">Recent events</h3>
           <ul className="summary-list">
             {items.map((item) => (
               <li key={item.key} className={`summary-item summary-${item.tone}`}>

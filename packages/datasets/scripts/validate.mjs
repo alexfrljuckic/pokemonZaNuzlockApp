@@ -9,6 +9,15 @@ const schema = JSON.parse(readFileSync(join(root, 'schema/game.schema.json'), 'u
 const ajv = new Ajv({ allErrors: true });
 const validate = ajv.compile(schema);
 
+// species-data.json is a committed, PokeAPI-fetched build artifact (see
+// scripts/build-species-data.mjs) — types/stats/movepools for every species
+// referenced anywhere in games/*.json. If a dataset PR adds a species (in an
+// encounter, special, milestone roster, or a rosterByStarter variant) without
+// re-running that build script, the app silently shows no type/stats for it.
+// Catch that here instead of relying on someone noticing a missing badge.
+const speciesData = JSON.parse(readFileSync(join(root, 'generated/species-data.json'), 'utf8'));
+const knownSpecies = new Set(Object.keys(speciesData.types));
+
 let failed = false;
 for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.json'))) {
   const data = JSON.parse(readFileSync(join(root, 'games', file), 'utf8'));
@@ -48,6 +57,21 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
         }
       }
     }
+  }
+
+  const referencedSpecies = new Set();
+  for (const a of data.areas) for (const e of a.encounters ?? []) referencedSpecies.add(e.species);
+  for (const s of data.specials ?? []) referencedSpecies.add(s.species);
+  for (const m of data.milestones) {
+    for (const p of m.roster ?? []) referencedSpecies.add(p.species);
+    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) referencedSpecies.add(p.species);
+  }
+  const missingSpecies = [...referencedSpecies].filter((s) => !knownSpecies.has(s)).sort();
+  if (missingSpecies.length) {
+    problems.push(
+      `species missing from generated/species-data.json (types/stats/moves won't show — re-run ` +
+        `build-species-data.mjs): ${missingSpecies.join(', ')}`
+    );
   }
 
   if (problems.length) {
