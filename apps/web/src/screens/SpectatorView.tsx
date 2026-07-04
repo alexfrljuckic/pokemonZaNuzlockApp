@@ -1,7 +1,21 @@
 import { useEffect, useMemo, useState } from 'react';
-import { deriveState, milestonesFor, pendingWipeDecision, RULES, type RunEvent } from '@nuzlocke/engine';
+import {
+  chosenStarter,
+  deriveState,
+  milestoneRoster,
+  milestonesFor,
+  nextBoss,
+  pendingWipeDecision,
+  type RunEvent,
+} from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
+import { describeEvent } from '../lib/describeEvent';
 import { fetchSharedRun, subscribeToRunChanges, type SharedRun } from '../lib/shareLinks';
+import { MilestoneCard } from '../components/MilestoneCard';
+import { MonCard } from '../components/MonCard';
+import { RunSummaryStrip } from '../components/RunSummaryStrip';
+import { SpriteImg } from '../components/SpriteImg';
+import { StatsTab } from './tabs/StatsTab';
 
 export function SpectatorView({ token }: { token: string }) {
   const [shared, setShared] = useState<SharedRun | null | 'loading'>('loading');
@@ -47,15 +61,23 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
     return <p className="muted">Unsupported or empty run.</p>;
   }
 
+  const gameId = ctx.dataset.gameId;
+  const events = shared.events as RunEvent[];
   const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
   const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
   const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
-  const versionMilestones = milestonesFor(ctx.dataset, state.version);
-  const clearedMilestones = versionMilestones
-    .filter((m) => state.milestonesCleared.includes(m.id))
-    .sort((a, b) => a.order - b.order);
-  const activeRules = Object.values(RULES).filter((r) => state.ruleset.rules[r.id]?.enabled);
+  const milestones = milestonesFor(ctx.dataset, state.version).sort((a, b) => a.order - b.order);
+  const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
+  const boss = nextBoss(state, ctx);
+  const starter = chosenStarter(state);
   const showWipeScreen = pendingWipeDecision(state);
+
+  // The full readable history, newest first — same language as the owner's
+  // summary strip (describeEvent skips minor bookkeeping events).
+  const timeline = [...events]
+    .sort((a, b) => b.seq - a.seq)
+    .map((ev) => ({ ev, item: describeEvent(ev, ctx) }))
+    .filter((x): x is { ev: RunEvent; item: NonNullable<ReturnType<typeof describeEvent>> } => x.item != null);
 
   return (
     <>
@@ -74,87 +96,80 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
         </section>
       )}
 
+      <RunSummaryStrip events={events} state={state} ctx={ctx} />
+
       <section>
-        <h2>Team ({party.length})</h2>
+        <h2>Team ({party.length}/6)</h2>
         {party.length === 0 && <p className="muted">No party members.</p>}
-        {party.map((p) => (
-          <div key={p.id} className="pokemon-card">
-            <span>
-              {p.nickname} <span className="muted">({p.species}, Lv {p.level})</span>
-            </span>
-          </div>
-        ))}
+        <div className="mon-grid">
+          {party.map((p) => (
+            <MonCard key={p.id} p={p} gameId={gameId} />
+          ))}
+        </div>
       </section>
 
       <section>
         <h2>Box ({box.length})</h2>
         {box.length === 0 && <p className="muted">Empty.</p>}
-        {box.map((p) => (
-          <div key={p.id} className="pokemon-card">
-            <span>
-              {p.nickname} <span className="muted">({p.species}, Lv {p.level})</span>
-            </span>
-          </div>
-        ))}
+        <div className="mon-grid">
+          {box.map((p) => (
+            <MonCard key={p.id} p={p} gameId={gameId} />
+          ))}
+        </div>
       </section>
 
       <section>
         <h2>Graveyard ({graveyard.length})</h2>
         {graveyard.length === 0 && <p className="muted">No losses yet.</p>}
-        {graveyard.map((p) => (
-          <div key={p.id} className="pokemon-card">
-            <span>
-              {p.nickname} <span className="muted">({p.species}, Lv {p.level})</span>
-            </span>
-            <span className="muted">
-              {p.death?.cause ?? 'unknown cause'}
-              {p.death?.killer ? ` — ${p.death.killer}` : ''}
-            </span>
-          </div>
-        ))}
-      </section>
-
-      <section>
-        <h2>Boss fights cleared ({clearedMilestones.length}/{versionMilestones.length})</h2>
-        {clearedMilestones.length === 0 && <p className="muted">None yet.</p>}
-        {clearedMilestones.map((m) => (
-          <div key={m.id} className="milestone-row">
-            <span>{m.name}</span>
-            <span className="muted">cleared</span>
-          </div>
-        ))}
-      </section>
-
-      <section>
-        <h2>Active rules</h2>
-        {activeRules.map((r) => (
-          <div key={r.id} className="rule-row">
-            {r.name} <span className="muted">({r.enforcement})</span>
-          </div>
-        ))}
-        {state.ruleset.houseRules.length > 0 && (
-          <>
-            <h3>House rules</h3>
-            <ul>
-              {state.ruleset.houseRules.map((hr, i) => (
-                <li key={i}>{hr}</li>
-              ))}
-            </ul>
-          </>
-        )}
-      </section>
-
-      <section>
-        <h2>Timeline ({shared.events.length} events)</h2>
-        <div className="event-log">
-          {[...shared.events]
-            .sort((a, b) => b.seq - a.seq)
-            .map((ev) => (
-              <div key={ev.seq}>
-                {ev.type} — {new Date(ev.at).toLocaleString()}
-              </div>
-            ))}
+        <div className="mon-grid">
+          {graveyard.map((p) => (
+            <MonCard key={p.id} p={p} gameId={gameId} />
+          ))}
         </div>
+      </section>
+
+      <section>
+        <h2>
+          Boss fights ({clearedCount}/{milestones.length} cleared)
+        </h2>
+        <div className="milestone-card-grid">
+          {milestones.map((m) => (
+            <MilestoneCard
+              key={m.id}
+              milestone={m}
+              roster={milestoneRoster(m, starter) ?? []}
+              cleared={state.milestonesCleared.includes(m.id)}
+              isNext={boss?.id === m.id}
+            />
+          ))}
+        </div>
+      </section>
+
+      {state.ruleset.houseRules.length > 0 && (
+        <section>
+          <h2>House rules</h2>
+          <ul>
+            {state.ruleset.houseRules.map((hr, i) => (
+              <li key={i}>{hr}</li>
+            ))}
+          </ul>
+        </section>
+      )}
+
+      <StatsTab events={events} state={state} ctx={ctx} />
+
+      <section>
+        <h2>Timeline</h2>
+        {timeline.length === 0 && <p className="muted">Nothing has happened yet.</p>}
+        <ul className="summary-list">
+          {timeline.map(({ ev, item }) => (
+            <li key={item.key} className={`summary-item summary-${item.tone}`}>
+              {item.species && <SpriteImg species={item.species} size={28} />}
+              <span>{item.text}</span>
+              <span className="muted timeline-when">{new Date(ev.at).toLocaleString()}</span>
+            </li>
+          ))}
+        </ul>
       </section>
     </>
   );

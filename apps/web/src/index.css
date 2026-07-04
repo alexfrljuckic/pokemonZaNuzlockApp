@@ -418,16 +418,11 @@ button:disabled {
 
 .muted { color: var(--muted); font-size: 0.88rem; }
 
-.event-log {
-  max-height: 220px;
-  overflow-y: auto;
-  font-family: ui-monospace, monospace;
-  font-size: 0.8rem;
-}
-
-.event-log div {
-  padding: 0.2rem 0;
-  border-bottom: 1px solid var(--bg-chip);
+/* Spectator timeline timestamp, right-aligned on the shared summary-item row. */
+.timeline-when {
+  margin-left: auto;
+  font-size: 0.75rem;
+  white-space: nowrap;
 }
 
 .status-active { color: var(--success); }
@@ -554,21 +549,6 @@ button:disabled {
 .pokemon-actions button { margin-top: 0; padding: 0.3rem 0.6rem; font-size: 0.8rem; }
 
 /* ---------- Milestones ---------- */
-
-.milestone-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.milestone-row:last-child { border-bottom: none; }
-.milestone-row button { margin-top: 0; padding: 0.3rem 0.6rem; font-size: 0.8rem; }
-.milestone-row-wrap .milestone-row { border-bottom: none; }
-.milestone-row-wrap { border-bottom: 1px solid var(--border); }
-.milestone-row-wrap:last-child { border-bottom: none; }
-.milestone-roster { padding-bottom: 0.4rem; }
 
 .violations { margin-bottom: 1rem; }
 
