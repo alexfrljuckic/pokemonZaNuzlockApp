@@ -11,7 +11,16 @@
       "tags": ["landmark", "starter-area"],
       "encounters": [
         { "species": "starly", "methods": ["walk"], "rate": 50 },
-        { "species": "bidoof", "methods": ["walk"], "rate": 50 }
+        { "species": "bidoof", "methods": ["walk"], "rate": 50 },
+        { "species": "wobbuffet", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "surskit", "methods": ["swarm"], "rate": 40 },
+        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
+        { "species": "golduck", "methods": ["surf"], "rate": 10 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "goldeen", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "seaking", "methods": ["super-rod"], "rate": 35 }
       ]
     },
     {
@@ -22,7 +31,11 @@
       "encounters": [
         { "species": "starly", "methods": ["walk"], "rate": 50 },
         { "species": "bidoof", "methods": ["walk"], "rate": 50 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "night"] } }
+        { "species": "nidoran-f", "methods": ["pokeradar"], "rate": 10, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "nidoran-m", "methods": ["pokeradar"], "rate": 2, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "nidoran-m", "methods": ["pokeradar"], "rate": 10, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "nidoran-f", "methods": ["pokeradar"], "rate": 2, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "doduo", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -31,10 +44,13 @@
       "unlockAfter": null,
       "tags": ["route"],
       "encounters": [
-        { "species": "starly", "methods": ["walk"], "rate": 40 },
+        { "species": "starly", "methods": ["walk"], "rate": 40, "conditions": { "time": ["day"] } },
+        { "species": "starly", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "night"] } },
         { "species": "bidoof", "methods": ["walk"], "rate": 30 },
-        { "species": "shinx", "methods": ["walk"], "rate": 20 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "night"] } }
+        { "species": "shinx", "methods": ["walk"], "rate": 30 },
+        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "night"] } },
+        { "species": "sentret", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "zigzagoon", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -43,11 +59,18 @@
       "unlockAfter": null,
       "tags": ["route"],
       "encounters": [
-        { "species": "starly", "methods": ["walk"], "rate": 25 },
-        { "species": "bidoof", "methods": ["walk"], "rate": 25 },
-        { "species": "shinx", "methods": ["walk"], "rate": 20 },
-        { "species": "abra", "methods": ["walk"], "rate": 15 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "night"] } },
+        { "species": "starly", "methods": ["walk"], "rate": 35, "conditions": { "time": ["morning", "night"] } },
+        { "species": "starly", "methods": ["walk"], "rate": 45, "conditions": { "time": ["day"] } },
+        { "species": "shinx", "methods": ["walk"], "rate": 25 },
+        { "species": "abra", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "day"] } },
+        { "species": "abra", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "bidoof", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "day"] } },
+        { "species": "bidoof", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "night"] } },
+        { "species": "zubat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "ralts", "methods": ["pokeradar"], "rate": 11 },
+        { "species": "kirlia", "methods": ["pokeradar"], "rate": 1 },
+        { "species": "cubone", "methods": ["swarm"], "rate": 40 },
         { "species": "psyduck", "methods": ["surf"], "rate": 90 },
         { "species": "golduck", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
@@ -64,9 +87,17 @@
       "tags": ["cave"],
       "encounters": [
         { "species": "zubat", "methods": ["walk"], "rate": 60 },
-        { "species": "geodude", "methods": ["walk"], "rate": 35 },
-        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
-        { "species": "golduck", "methods": ["surf"], "rate": 10 }
+        { "species": "psyduck", "methods": ["walk"], "rate": 30 },
+        { "species": "geodude", "methods": ["walk"], "rate": 10 },
+        { "species": "zubat", "methods": ["surf"], "rate": 60 },
+        { "species": "psyduck", "methods": ["surf"], "rate": 30 },
+        { "species": "golbat", "methods": ["surf"], "rate": 5 },
+        { "species": "golduck", "methods": ["surf"], "rate": 5 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "barboach", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "whiscash", "methods": ["super-rod"], "rate": 35 }
       ]
     },
     {
@@ -75,8 +106,9 @@
       "unlockAfter": null,
       "tags": ["cave"],
       "encounters": [
-        { "species": "geodude", "methods": ["walk"], "rate": 60 },
-        { "species": "onix", "methods": ["walk"], "rate": 40 }
+        { "species": "geodude", "methods": ["walk"], "rate": 70 },
+        { "species": "zubat", "methods": ["walk"], "rate": 20 },
+        { "species": "onix", "methods": ["walk"], "rate": 10 }
       ]
     },
     {
@@ -91,6 +123,9 @@
         { "species": "budew", "methods": ["walk"], "rate": 25 },
         { "species": "shinx", "methods": ["walk"], "rate": 15 },
         { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "night"] } },
+        { "species": "zubat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "ralts", "methods": ["pokeradar"], "rate": 11 },
+        { "species": "kirlia", "methods": ["pokeradar"], "rate": 1 },
         { "species": "psyduck", "methods": ["surf"], "rate": 90 },
         { "species": "golduck", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
@@ -106,19 +141,28 @@
       "unlockAfter": "gym-1-roark",
       "tags": ["forest"],
       "encounters": [
-        { "species": "bidoof", "methods": ["walk"], "rate": 20 },
-        { "species": "budew", "methods": ["walk"], "rate": 20 },
-        { "species": "wurmple", "methods": ["walk"], "rate": 15 },
-        { "species": "silcoon", "methods": ["walk"], "rate": 5, "conditions": { "version": ["brilliant-diamond"] } },
-        { "species": "cascoon", "methods": ["walk"], "rate": 5, "conditions": { "version": ["shining-pearl"] } },
-        { "species": "beautifly", "methods": ["walk"], "rate": 5, "conditions": { "version": ["brilliant-diamond"] } },
-        { "species": "dustox", "methods": ["walk"], "rate": 5, "conditions": { "version": ["shining-pearl"] } },
-        { "species": "buneary", "methods": ["walk"], "rate": 15 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
-        { "species": "kricketune", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
-        { "species": "hoothoot", "methods": ["walk"], "rate": 15, "conditions": { "time": ["night"] } },
-        { "species": "wurmple", "methods": ["walk"], "rate": 15, "conditions": { "time": ["night"] } },
-        { "species": "budew", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } }
+        { "species": "wurmple", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "day"] } },
+        { "species": "wurmple", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
+        { "species": "budew", "methods": ["walk"], "rate": 29, "conditions": { "time": ["morning", "day"] } },
+        { "species": "budew", "methods": ["walk"], "rate": 19, "conditions": { "time": ["night"] } },
+        { "species": "silcoon", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "buneary", "methods": ["walk"], "rate": 19 },
+        { "species": "beautifly", "methods": ["walk"], "rate": 2, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "dustox", "methods": ["walk"], "rate": 2, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "murkrow", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "misdreavus", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"], "time": ["night"] } },
+        { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "nincada", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "slakoth", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -137,11 +181,15 @@
       "unlockAfter": "gym-1-roark",
       "tags": ["landmark"],
       "encounters": [
-        { "species": "roselia", "methods": ["walk"], "rate": 40 },
-        { "species": "budew", "methods": ["walk"], "rate": 30 },
-        { "species": "burmy", "methods": ["walk"], "rate": 20 },
-        { "species": "combee", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
-        { "species": "cherubi", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } }
+        { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] }
       ]
     },
     {
@@ -223,15 +271,23 @@
         { "species": "ponyta", "methods": ["walk"], "rate": 45, "conditions": { "time": ["day"] } },
         { "species": "ponyta", "methods": ["walk"], "rate": 35, "conditions": { "time": ["morning", "night"] } },
         { "species": "stunky", "methods": ["walk"], "rate": 25, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "geodude", "methods": ["walk"], "rate": 10, "conditions": { "version": ["brilliant-diamond"] } },
         { "species": "geodude", "methods": ["walk"], "rate": 35, "conditions": { "version": ["shining-pearl"] } },
         { "species": "kricketune", "methods": ["walk"], "rate": 10 },
         { "species": "bronzor", "methods": ["walk"], "rate": 10 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning"] } },
+        { "species": "kricketot", "methods": ["walk"], "rate": 10, "conditions": { "version": ["brilliant-diamond"], "time": ["morning"] } },
         { "species": "zubat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
         { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
         { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
         { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
-        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 }
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "baltoy", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "nosepass", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -256,11 +312,21 @@
       "unlockAfter": "gym-2-gardenia",
       "tags": ["landmark"],
       "encounters": [
+        { "species": "bibarel", "methods": ["walk"], "rate": 45 },
+        { "species": "staravia", "methods": ["walk"], "rate": 25, "conditions": { "time": ["morning", "day"] } },
+        { "species": "staravia", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
+        { "species": "psyduck", "methods": ["walk"], "rate": 20 },
+        { "species": "chingling", "methods": ["walk"], "rate": 10 },
+        { "species": "noctowl", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
+        { "species": "wobbuffet", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "lickitung", "methods": ["swarm"], "rate": 40 },
         { "species": "psyduck", "methods": ["surf"], "rate": 90 },
         { "species": "golduck", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
-        { "species": "magikarp", "methods": ["good-rod"], "rate": 100 },
-        { "species": "gyarados", "methods": ["super-rod"], "rate": 100 }
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "goldeen", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "seaking", "methods": ["super-rod"], "rate": 35 }
       ]
     },
     {
@@ -273,11 +339,19 @@
         { "species": "shellos", "methods": ["walk"], "rate": 50, "conditions": { "time": ["night"] } },
         { "species": "buizel", "methods": ["walk"], "rate": 30 },
         { "species": "wingull", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "wingull", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
         { "species": "floatzel", "methods": ["walk"], "rate": 10 },
         { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
         { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
         { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
         { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "swellow", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "absol", "methods": ["swarm"], "rate": 40 },
         { "species": "tentacool", "methods": ["surf"], "rate": 60 },
         { "species": "wingull", "methods": ["surf"], "rate": 30 },
         { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
@@ -296,20 +370,33 @@
       "unlockAfter": "gym-4-wake",
       "tags": ["safari", "pastoria"],
       "encounters": [
-        { "species": "psyduck", "methods": ["safari"], "rate": 15 },
-        { "species": "hoothoot", "methods": ["safari"], "rate": 10 },
-        { "species": "wooper", "methods": ["safari"], "rate": 10 },
-        { "species": "shroomish", "methods": ["safari"], "rate": 10 },
-        { "species": "tangela", "methods": ["safari"], "rate": 10 },
-        { "species": "gligar", "methods": ["safari"], "rate": 5 },
-        { "species": "shellos", "methods": ["safari"], "rate": 5 },
-        { "species": "hippopotas", "methods": ["safari"], "rate": 5 },
-        { "species": "skorupi", "methods": ["safari"], "rate": 5 },
-        { "species": "croagunk", "methods": ["safari"], "rate": 5 },
-        { "species": "carnivine", "methods": ["safari"], "rate": 5 },
-        { "species": "stunky", "methods": ["safari"], "rate": 5 },
-        { "species": "bidoof", "methods": ["safari"], "rate": 5 },
-        { "species": "buizel", "methods": ["safari"], "rate": 5 }
+        { "species": "wooper", "methods": ["safari"], "rate": 20 },
+        { "species": "bibarel", "methods": ["safari"], "rate": 20 },
+        { "species": "marill", "methods": ["safari"], "rate": 15 },
+        { "species": "quagsire", "methods": ["safari"], "rate": 15 },
+        { "species": "starly", "methods": ["safari"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
+        { "species": "budew", "methods": ["safari"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
+        { "species": "hoothoot", "methods": ["safari"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "noctowl", "methods": ["safari"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "psyduck", "methods": ["safari"], "rate": 8 },
+        { "species": "azurill", "methods": ["safari"], "rate": 1 },
+        { "species": "bidoof", "methods": ["safari"], "rate": 1 },
+        { "species": "tangela", "methods": ["safari"] },
+        { "species": "gligar", "methods": ["safari"] },
+        { "species": "carnivine", "methods": ["safari"] },
+        { "species": "skorupi", "methods": ["safari"] },
+        { "species": "croagunk", "methods": ["safari"] },
+        { "species": "shroomish", "methods": ["safari"] },
+        { "species": "wooper", "methods": ["surf"], "rate": 60 },
+        { "species": "marill", "methods": ["surf"], "rate": 15 },
+        { "species": "quagsire", "methods": ["surf"], "rate": 5 },
+        { "species": "psyduck", "methods": ["surf"], "rate": 5 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "barboach", "methods": ["good-rod"], "rate": 35 },
+        { "species": "whiscash", "methods": ["super-rod"], "rate": 60 },
+        { "species": "carvanha", "methods": ["super-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 5 }
       ]
     },
     {
@@ -319,16 +406,27 @@
       "tags": ["route"],
       "encounters": [
         { "species": "ponyta", "methods": ["walk"], "rate": 35, "conditions": { "time": ["morning", "day"] } },
+        { "species": "ponyta", "methods": ["walk"], "rate": 25, "conditions": { "time": ["night"] } },
         { "species": "geodude", "methods": ["walk"], "rate": 20 },
         { "species": "graveler", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "day"] } },
+        { "species": "graveler", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
         { "species": "stunky", "methods": ["walk"], "rate": 15, "conditions": { "version": ["brilliant-diamond"] } },
         { "species": "sudowoodo", "methods": ["walk"], "rate": 15, "conditions": { "version": ["shining-pearl"] } },
         { "species": "girafarig", "methods": ["walk"], "rate": 10 },
         { "species": "kricketune", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
         { "species": "kricketune", "methods": ["walk"], "rate": 25, "conditions": { "time": ["night"] } },
         { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
         { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
         { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "mightyena", "methods": ["pokeradar"], "rate": 12, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "houndoom", "methods": ["pokeradar"], "rate": 12, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "spoink", "methods": ["swarm"], "rate": 40 },
         { "species": "psyduck", "methods": ["surf"], "rate": 90 },
         { "species": "golduck", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
@@ -347,13 +445,24 @@
         { "species": "geodude", "methods": ["walk"], "rate": 35, "conditions": { "time": ["morning"] } },
         { "species": "geodude", "methods": ["walk"], "rate": 25, "conditions": { "time": ["day", "night"] } },
         { "species": "ponyta", "methods": ["walk"], "rate": 40, "conditions": { "time": ["day"] } },
-        { "species": "ponyta", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "night"] } },
+        { "species": "ponyta", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning"] } },
+        { "species": "ponyta", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
         { "species": "kadabra", "methods": ["walk"], "rate": 15 },
+        { "species": "abra", "methods": ["walk"], "rate": 10 },
         { "species": "kricketune", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
         { "species": "kricketune", "methods": ["walk"], "rate": 30, "conditions": { "time": ["night"] } },
         { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
         { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
-        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 }
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "mightyena", "methods": ["pokeradar"], "rate": 12, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "houndoom", "methods": ["pokeradar"], "rate": 12, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "drowzee", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -369,13 +478,22 @@
       "unlockAfter": "gym-4-wake",
       "tags": ["cave"],
       "encounters": [
-        { "species": "zubat", "methods": ["walk"], "rate": 30 },
-        { "species": "geodude", "methods": ["walk"], "rate": 25 },
-        { "species": "onix", "methods": ["walk"], "rate": 15 },
-        { "species": "steelix", "methods": ["walk"], "rate": 5 },
+        { "species": "geodude", "methods": ["walk"], "rate": 35 },
+        { "species": "graveler", "methods": ["walk"], "rate": 35 },
+        { "species": "zubat", "methods": ["walk"], "rate": 10 },
         { "species": "golbat", "methods": ["walk"], "rate": 10 },
-        { "species": "graveler", "methods": ["walk"], "rate": 10 },
-        { "species": "riolu", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } }
+        { "species": "onix", "methods": ["walk"], "rate": 10 },
+        { "species": "steelix", "methods": ["walk"], "rate": 10 },
+        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
+        { "species": "wingull", "methods": ["surf"], "rate": 30 },
+        { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
+        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "finneon", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 60 },
+        { "species": "lumineon", "methods": ["super-rod"], "rate": 35 },
+        { "species": "qwilfish", "methods": ["super-rod"], "rate": 5 }
       ]
     },
     {
@@ -384,18 +502,28 @@
       "unlockAfter": "gym-2-gardenia",
       "tags": ["cave", "mountain"],
       "encounters": [
-        { "species": "zubat", "methods": ["walk"], "rate": 30 },
-        { "species": "golbat", "methods": ["walk"], "rate": 5 },
-        { "species": "geodude", "methods": ["walk"], "rate": 25 },
-        { "species": "graveler", "methods": ["walk"], "rate": 10 },
-        { "species": "machop", "methods": ["walk"], "rate": 15 },
-        { "species": "meditite", "methods": ["walk"], "rate": 10 },
-        { "species": "clefairy", "methods": ["walk"], "rate": 5 },
-        { "species": "nosepass", "methods": ["walk"], "rate": 5 },
-        { "species": "bronzor", "methods": ["walk"], "rate": 5 },
-        { "species": "noctowl", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
-        { "species": "feebas", "methods": ["fish"], "rate": 1 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 99 }
+        { "species": "meditite", "methods": ["walk"], "rate": 25 },
+        { "species": "golbat", "methods": ["walk"], "rate": 20 },
+        { "species": "graveler", "methods": ["walk"], "rate": 20 },
+        { "species": "clefairy", "methods": ["walk"], "rate": 15 },
+        { "species": "machoke", "methods": ["walk"], "rate": 10 },
+        { "species": "chingling", "methods": ["walk"], "rate": 10 },
+        { "species": "machop", "methods": ["walk"], "rate": 25, "conditions": { "time": ["morning", "day"] } },
+        { "species": "geodude", "methods": ["walk"], "rate": 20 },
+        { "species": "zubat", "methods": ["walk"], "rate": 10 },
+        { "species": "abomasnow", "methods": ["walk"], "rate": 20 },
+        { "species": "snover", "methods": ["walk"], "rate": 20 },
+        { "species": "medicham", "methods": ["walk"], "rate": 20 },
+        { "species": "bronzong", "methods": ["walk"], "rate": 5 },
+        { "species": "noctowl", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "zubat", "methods": ["surf"], "rate": 90 },
+        { "species": "golbat", "methods": ["surf"], "rate": 10 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "barboach", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "whiscash", "methods": ["super-rod"], "rate": 35 },
+        { "species": "feebas", "methods": ["old-rod", "good-rod", "super-rod"] }
       ]
     },
     {
@@ -407,10 +535,14 @@
         { "species": "sneasel", "methods": ["walk"], "rate": 25 },
         { "species": "snover", "methods": ["walk"], "rate": 25 },
         { "species": "machoke", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "machoke", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
         { "species": "meditite", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
-        { "species": "graveler", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
+        { "species": "meditite", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "graveler", "methods": ["walk"], "rate": 10 },
         { "species": "zubat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
-        { "species": "noctowl", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } }
+        { "species": "noctowl", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "snorunt", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "delibird", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -422,9 +554,13 @@
         { "species": "sneasel", "methods": ["walk"], "rate": 25 },
         { "species": "snover", "methods": ["walk"], "rate": 25 },
         { "species": "machoke", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "machoke", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
         { "species": "medicham", "methods": ["walk"], "rate": 20 },
+        { "species": "meditite", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
         { "species": "zubat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
-        { "species": "noctowl", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } }
+        { "species": "noctowl", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "snorunt", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "swinub", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -447,7 +583,9 @@
         { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
         { "species": "finneon", "methods": ["good-rod"], "rate": 35 },
         { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
-        { "species": "lumineon", "methods": ["super-rod"], "rate": 35 }
+        { "species": "lumineon", "methods": ["super-rod"], "rate": 35 },
+        { "species": "ditto", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "voltorb", "methods": ["swarm"], "rate": 40 }
       ]
     },
     {
@@ -463,76 +601,15 @@
       "unlockAfter": "gym-6-byron",
       "tags": ["landmark"],
       "encounters": [
-        { "species": "sneasel", "methods": ["walk"], "rate": 100 },
-        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
-        { "species": "golduck", "methods": ["surf"], "rate": 10 },
-        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
-        { "species": "magikarp", "methods": ["good-rod"], "rate": 100 },
-        { "species": "gyarados", "methods": ["super-rod"], "rate": 100 }
-      ]
-    },
-    {
-      "id": "snowpoint-temple",
-      "name": "Snowpoint Temple",
-      "unlockAfter": "gym-7-candice",
-      "tags": ["cave", "special"],
-      "encounters": [
-        { "species": "snorunt", "methods": ["walk"], "rate": 100 }
-      ]
-    },
-    {
-      "id": "route-222",
-      "name": "Route 222",
-      "unlockAfter": "gym-8-volkner",
-      "tags": ["route"],
-      "encounters": [
-        { "species": "tentacool", "methods": ["walk"], "rate": 30 },
-        { "species": "shellos", "methods": ["walk"], "rate": 25 },
-        { "species": "buizel", "methods": ["walk"], "rate": 20 },
-        { "species": "wingull", "methods": ["walk"], "rate": 15 },
-        { "species": "pelipper", "methods": ["walk"], "rate": 10, "conditions": { "time": ["day"] } },
-        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
-        { "species": "wingull", "methods": ["surf"], "rate": 30 },
-        { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
-        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
-        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
-        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
-        { "species": "finneon", "methods": ["good-rod"], "rate": 35 },
-        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
-        { "species": "lumineon", "methods": ["super-rod"], "rate": 35 }
-      ]
-    },
-    {
-      "id": "victory-road",
-      "name": "Victory Road",
-      "unlockAfter": "gym-8-volkner",
-      "tags": ["cave", "post-gym"],
-      "encounters": [
-        { "species": "golbat", "methods": ["walk"], "rate": 20 },
-        { "species": "graveler", "methods": ["walk"], "rate": 20 },
-        { "species": "machoke", "methods": ["walk"], "rate": 15 },
-        { "species": "rhydon", "methods": ["walk"], "rate": 5 },
-        { "species": "magneton", "methods": ["walk"], "rate": 10 },
-        { "species": "medicham", "methods": ["walk"], "rate": 10 },
-        { "species": "bronzong", "methods": ["walk"], "rate": 5 },
-        { "species": "azumarill", "methods": ["walk"], "rate": 5 },
-        { "species": "gabite", "methods": ["walk"], "rate": 5 },
-        { "species": "psyduck", "methods": ["surf"], "rate": 90 },
-        { "species": "golduck", "methods": ["surf"], "rate": 10 }
-      ]
-    },
-    {
-      "id": "route-225",
-      "name": "Route 225",
-      "unlockAfter": "champion-cynthia",
-      "tags": ["route", "post-game"],
-      "encounters": [
-        { "species": "roselia", "methods": ["walk"], "rate": 20 },
-        { "species": "duskull", "methods": ["walk"], "rate": 15 },
-        { "species": "chingling", "methods": ["walk"], "rate": 15 },
-        { "species": "buneary", "methods": ["walk"], "rate": 20 },
-        { "species": "cleffa", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
-        { "species": "happiny", "methods": ["walk"], "rate": 10, "conditions": { "time": ["day"] } },
+        { "species": "bibarel", "methods": ["walk"], "rate": 35, "conditions": { "time": ["morning", "day"] } },
+        { "species": "bibarel", "methods": ["walk"], "rate": 25, "conditions": { "time": ["night"] } },
+        { "species": "psyduck", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "day"] } },
+        { "species": "psyduck", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
+        { "species": "sneasel", "methods": ["walk"], "rate": 25 },
+        { "species": "chingling", "methods": ["walk"], "rate": 10 },
+        { "species": "noctowl", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
+        { "species": "wobbuffet", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "smoochum", "methods": ["swarm"], "rate": 40 },
         { "species": "psyduck", "methods": ["surf"], "rate": 90 },
         { "species": "golduck", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
@@ -543,17 +620,133 @@
       ]
     },
     {
+      "id": "snowpoint-temple",
+      "name": "Snowpoint Temple",
+      "unlockAfter": "gym-7-candice",
+      "tags": ["cave", "special"],
+      "encounters": [
+        { "species": "golbat", "methods": ["walk"], "rate": 35 },
+        { "species": "sneasel", "methods": ["walk"], "rate": 35 },
+        { "species": "onix", "methods": ["walk"], "rate": 15 },
+        { "species": "graveler", "methods": ["walk"], "rate": 10 },
+        { "species": "steelix", "methods": ["walk"], "rate": 5 }
+      ]
+    },
+    {
+      "id": "route-222",
+      "name": "Route 222",
+      "unlockAfter": "gym-8-volkner",
+      "tags": ["route"],
+      "encounters": [
+        { "species": "gastrodon", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "day"] } },
+        { "species": "gastrodon", "methods": ["walk"], "rate": 50, "conditions": { "time": ["night"] } },
+        { "species": "floatzel", "methods": ["walk"], "rate": 25 },
+        { "species": "chatot", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "mr-mime", "methods": ["walk"], "rate": 15 },
+        { "species": "wingull", "methods": ["walk"], "rate": 10 },
+        { "species": "wurmple", "methods": ["honey-tree"], "rate": 40 },
+        { "species": "silcoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "cascoon", "methods": ["honey-tree"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
+        { "species": "combee", "methods": ["honey-tree"], "rate": 20 },
+        { "species": "burmy", "methods": ["honey-tree"], "rate": 10 },
+        { "species": "cherubi", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "aipom", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "heracross", "methods": ["honey-tree"], "rate": 5 },
+        { "species": "munchlax", "methods": ["honey-tree"] },
+        { "species": "flaaffy", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "skitty", "methods": ["swarm"], "rate": 40 },
+        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
+        { "species": "wingull", "methods": ["surf"], "rate": 30 },
+        { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
+        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "remoraid", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 60 },
+        { "species": "octillery", "methods": ["super-rod"], "rate": 35 },
+        { "species": "sharpedo", "methods": ["super-rod"], "rate": 5 }
+      ]
+    },
+    {
+      "id": "victory-road",
+      "name": "Victory Road",
+      "unlockAfter": "gym-8-volkner",
+      "tags": ["cave", "post-gym"],
+      "encounters": [
+        { "species": "machoke", "methods": ["walk"], "rate": 25 },
+        { "species": "golbat", "methods": ["walk"], "rate": 20 },
+        { "species": "graveler", "methods": ["walk"], "rate": 20 },
+        { "species": "medicham", "methods": ["walk"], "rate": 15 },
+        { "species": "onix", "methods": ["walk"], "rate": 10 },
+        { "species": "steelix", "methods": ["walk"], "rate": 10 },
+        { "species": "golbat", "methods": ["surf"], "rate": 100 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "remoraid", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 100 }
+      ]
+    },
+    {
+      "id": "route-225",
+      "name": "Route 225",
+      "unlockAfter": "champion-cynthia",
+      "tags": ["route", "post-game"],
+      "encounters": [
+        { "species": "fearow", "methods": ["walk"], "rate": 40, "conditions": { "time": ["morning", "day"] } },
+        { "species": "raticate", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning", "day"] } },
+        { "species": "skuntank", "methods": ["walk"], "rate": 10, "conditions": { "time": ["morning", "day"] } },
+        { "species": "rattata", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
+        { "species": "spearow", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
+        { "species": "machoke", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
+        { "species": "roselia", "methods": ["walk"], "rate": 5, "conditions": { "time": ["morning", "day"] } },
+        { "species": "raticate", "methods": ["walk"], "rate": 30, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "fearow", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "banette", "methods": ["walk"], "rate": 20, "conditions": { "time": ["night"] } },
+        { "species": "skuntank", "methods": ["walk"], "rate": 10, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "fearow", "methods": ["walk"], "rate": 30, "conditions": { "version": ["shining-pearl"], "time": ["night"] } },
+        { "species": "raticate", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"], "time": ["night"] } },
+        { "species": "rattata", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
+        { "species": "spearow", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
+        { "species": "machoke", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
+        { "species": "roselia", "methods": ["walk"], "rate": 5, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "roselia", "methods": ["walk"], "rate": 15, "conditions": { "version": ["shining-pearl"], "time": ["night"] } },
+        { "species": "primeape", "methods": ["pokeradar"], "rate": 10 },
+        { "species": "mankey", "methods": ["pokeradar"], "rate": 2 },
+        { "species": "makuhita", "methods": ["swarm"], "rate": 40 },
+        { "species": "golduck", "methods": ["surf"], "rate": 70 },
+        { "species": "poliwhirl", "methods": ["surf"], "rate": 30 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "poliwag", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "poliwhirl", "methods": ["super-rod"], "rate": 35 }
+      ]
+    },
+    {
       "id": "route-228",
       "name": "Route 228",
       "unlockAfter": "champion-cynthia",
       "tags": ["route", "post-game"],
       "encounters": [
-        { "species": "cacnea", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } },
-        { "species": "hippopotas", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
-        { "species": "sandshrew", "methods": ["walk"], "rate": 25 },
-        { "species": "skorupi", "methods": ["walk"], "rate": 20 },
-        { "species": "sandslash", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
-        { "species": "houndour", "methods": ["walk"], "rate": 15, "conditions": { "time": ["night"] } }
+        { "species": "dugtrio", "methods": ["walk"], "rate": 30 },
+        { "species": "rhydon", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "rhydon", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "cacturne", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "cacturne", "methods": ["walk"], "rate": 40, "conditions": { "time": ["night"] } },
+        { "species": "hippowdon", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "hippowdon", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "diglett", "methods": ["walk"], "rate": 5 },
+        { "species": "cacnea", "methods": ["walk"], "rate": 5 },
+        { "species": "vibrava", "methods": ["pokeradar"], "rate": 10 },
+        { "species": "trapinch", "methods": ["pokeradar"], "rate": 2 },
+        { "species": "beldum", "methods": ["swarm"], "rate": 40 },
+        { "species": "poliwhirl", "methods": ["surf"], "rate": 70 },
+        { "species": "poliwag", "methods": ["surf"], "rate": 30 },
+        { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
+        { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
+        { "species": "barboach", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
+        { "species": "whiscash", "methods": ["super-rod"], "rate": 35 }
       ]
     },
     {
@@ -562,12 +755,19 @@
       "unlockAfter": "champion-cynthia",
       "tags": ["cave", "post-game", "volcano"],
       "encounters": [
-        { "species": "numel", "methods": ["walk"], "rate": 30 },
-        { "species": "slugma", "methods": ["walk"], "rate": 25 },
-        { "species": "camerupt", "methods": ["walk"], "rate": 10 },
-        { "species": "golbat", "methods": ["walk"], "rate": 15 },
-        { "species": "graveler", "methods": ["walk"], "rate": 15 },
-        { "species": "magcargo", "methods": ["walk"], "rate": 5 }
+        { "species": "fearow", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "day"] } },
+        { "species": "fearow", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "rhydon", "methods": ["walk"], "rate": 20 },
+        { "species": "camerupt", "methods": ["walk"], "rate": 20 },
+        { "species": "graveler", "methods": ["walk"], "rate": 15, "conditions": { "time": ["morning", "day"] } },
+        { "species": "graveler", "methods": ["walk"], "rate": 5, "conditions": { "time": ["night"] } },
+        { "species": "weezing", "methods": ["walk"], "rate": 10 },
+        { "species": "golbat", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "banette", "methods": ["walk"], "rate": 10, "conditions": { "time": ["night"] } },
+        { "species": "rhyhorn", "methods": ["walk"], "rate": 5 },
+        { "species": "skarmory", "methods": ["walk"], "rate": 5 },
+        { "species": "numel", "methods": ["walk"], "rate": 5 },
+        { "species": "torkoal", "methods": ["pokeradar"], "rate": 12 }
       ]
     },
     {
@@ -576,16 +776,27 @@
       "unlockAfter": "champion-cynthia",
       "tags": ["route", "post-game", "water"],
       "encounters": [
-        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
-        { "species": "wingull", "methods": ["surf"], "rate": 30 },
+        { "species": "gloom", "methods": ["walk"], "rate": 20 },
+        { "species": "weepinbell", "methods": ["walk"], "rate": 20 },
+        { "species": "floatzel", "methods": ["walk"], "rate": 13 },
+        { "species": "oddish", "methods": ["walk"], "rate": 11 },
+        { "species": "bellsprout", "methods": ["walk"], "rate": 11 },
+        { "species": "golduck", "methods": ["walk"], "rate": 10 },
+        { "species": "beautifly", "methods": ["walk"], "rate": 10 },
+        { "species": "gastrodon", "methods": ["walk"], "rate": 5 },
+        { "species": "togepi", "methods": ["pokeradar"], "rate": 12 },
+        { "species": "corsola", "methods": ["swarm"], "rate": 40 },
+        { "species": "pelipper", "methods": ["surf"], "rate": 60 },
+        { "species": "seel", "methods": ["surf"], "rate": 30 },
         { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
-        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
+        { "species": "dewgong", "methods": ["surf"], "rate": 5 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
         { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
-        { "species": "chinchou", "methods": ["good-rod"], "rate": 35 },
+        { "species": "remoraid", "methods": ["good-rod"], "rate": 35 },
         { "species": "gyarados", "methods": ["super-rod"], "rate": 60 },
-        { "species": "lanturn", "methods": ["super-rod"], "rate": 35 },
-        { "species": "relicanth", "methods": ["super-rod"], "rate": 5 }
+        { "species": "wailmer", "methods": ["super-rod"], "rate": 30 },
+        { "species": "octillery", "methods": ["super-rod"], "rate": 5 },
+        { "species": "wailord", "methods": ["super-rod"], "rate": 5 }
       ]
     },
     {
@@ -608,9 +819,13 @@
       "unlockAfter": "gym-2-gardenia",
       "tags": ["landmark", "special"],
       "encounters": [
-        { "species": "gastly", "methods": ["walk"], "rate": 50 },
-        { "species": "misdreavus", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"] } },
-        { "species": "murkrow", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"] } }
+        { "species": "gastly", "methods": ["walk"], "rate": 50, "conditions": { "time": ["morning", "day"] } },
+        { "species": "gastly", "methods": ["walk"], "rate": 40, "conditions": { "time": ["night"] } },
+        { "species": "zubat", "methods": ["walk"], "rate": 40, "conditions": { "time": ["morning", "day"] } },
+        { "species": "zubat", "methods": ["walk"], "rate": 30, "conditions": { "time": ["night"] } },
+        { "species": "golbat", "methods": ["walk"], "rate": 10 },
+        { "species": "murkrow", "methods": ["walk"], "rate": 20, "conditions": { "version": ["brilliant-diamond"], "time": ["night"] } },
+        { "species": "misdreavus", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shining-pearl"], "time": ["night"] } }
       ]
     },
     {
@@ -619,19 +834,29 @@
       "unlockAfter": "gym-5-fantina",
       "tags": ["landmark", "special"],
       "encounters": [
-        { "species": "pikachu", "methods": ["walk"], "rate": 12 },
-        { "species": "pichu", "methods": ["walk"], "rate": 5 },
-        { "species": "eevee", "methods": ["walk"], "rate": 5 },
-        { "species": "buneary", "methods": ["walk"], "rate": 12 },
-        { "species": "aipom", "methods": ["walk"], "rate": 12 },
-        { "species": "skitty", "methods": ["walk"], "rate": 12 },
-        { "species": "cleffa", "methods": ["walk"], "rate": 5 },
-        { "species": "bronzor", "methods": ["walk"], "rate": 12 },
-        { "species": "chatot", "methods": ["walk"], "rate": 5 },
-        { "species": "duskull", "methods": ["walk"], "rate": 5 },
-        { "species": "kricketot", "methods": ["walk"], "rate": 5 },
-        { "species": "happiny", "methods": ["walk"], "rate": 5 },
-        { "species": "ambipom", "methods": ["walk"], "rate": 3 }
+        { "species": "roselia", "methods": ["walk"], "rate": 30 },
+        { "species": "pichu", "methods": ["walk"], "rate": 30, "conditions": { "time": ["morning"] } },
+        { "species": "pichu", "methods": ["walk"], "rate": 10, "conditions": { "time": ["day", "night"] } },
+        { "species": "staravia", "methods": ["walk"], "rate": 20, "conditions": { "time": ["morning", "night"] } },
+        { "species": "staravia", "methods": ["walk"], "rate": 40, "conditions": { "time": ["day"] } },
+        { "species": "pikachu", "methods": ["walk"], "rate": 10 },
+        { "species": "kricketune", "methods": ["walk"], "rate": 10 },
+        { "species": "clefairy", "methods": ["walk"] },
+        { "species": "jigglypuff", "methods": ["walk"] },
+        { "species": "meowth", "methods": ["walk"] },
+        { "species": "chansey", "methods": ["walk"] },
+        { "species": "eevee", "methods": ["walk"] },
+        { "species": "porygon", "methods": ["walk"] },
+        { "species": "cleffa", "methods": ["walk"] },
+        { "species": "igglybuff", "methods": ["walk"] },
+        { "species": "marill", "methods": ["walk"] },
+        { "species": "azurill", "methods": ["walk"] },
+        { "species": "plusle", "methods": ["walk"] },
+        { "species": "minun", "methods": ["walk"] },
+        { "species": "castform", "methods": ["walk"] },
+        { "species": "bonsly", "methods": ["walk"] },
+        { "species": "mime-jr", "methods": ["walk"] },
+        { "species": "happiny", "methods": ["walk"] }
       ]
     },
     {
@@ -640,15 +865,15 @@
       "unlockAfter": "gym-7-candice",
       "tags": ["city", "gym-8"],
       "encounters": [
-        { "species": "tentacool", "methods": ["surf"], "rate": 60 },
-        { "species": "wingull", "methods": ["surf"], "rate": 30 },
-        { "species": "tentacruel", "methods": ["surf"], "rate": 5 },
-        { "species": "pelipper", "methods": ["surf"], "rate": 5 },
+        { "species": "tentacruel", "methods": ["surf"], "rate": 60 },
+        { "species": "pelipper", "methods": ["surf"], "rate": 30 },
+        { "species": "mantyke", "methods": ["surf"], "rate": 10 },
         { "species": "magikarp", "methods": ["old-rod"], "rate": 100 },
         { "species": "magikarp", "methods": ["good-rod"], "rate": 65 },
-        { "species": "chinchou", "methods": ["good-rod"], "rate": 35 },
-        { "species": "gyarados", "methods": ["super-rod"], "rate": 65 },
-        { "species": "lanturn", "methods": ["super-rod"], "rate": 35 }
+        { "species": "remoraid", "methods": ["good-rod"], "rate": 35 },
+        { "species": "gyarados", "methods": ["super-rod"], "rate": 60 },
+        { "species": "octillery", "methods": ["super-rod"], "rate": 35 },
+        { "species": "staryu", "methods": ["super-rod"], "rate": 5 }
       ]
     },
     {
@@ -658,12 +883,22 @@
       "tags": ["special", "grand-underground"],
       "encounters": [
         { "species": "zubat", "methods": ["underground"] },
-        { "species": "geodude", "methods": ["underground"] },
         { "species": "psyduck", "methods": ["underground"] },
-        { "species": "onix", "methods": ["underground"] },
-        { "species": "cranidos", "methods": ["underground"] },
-        { "species": "shieldon", "methods": ["underground"] },
-        { "species": "bronzor", "methods": ["underground"] }
+        { "species": "machop", "methods": ["underground"] },
+        { "species": "geodude", "methods": ["underground"] },
+        { "species": "murkrow", "methods": ["underground"] },
+        { "species": "bidoof", "methods": ["underground"] },
+        { "species": "kricketot", "methods": ["underground"] },
+        { "species": "shinx", "methods": ["underground"] },
+        { "species": "budew", "methods": ["underground"] },
+        { "species": "pachirisu", "methods": ["underground"] },
+        { "species": "buneary", "methods": ["underground"] },
+        { "species": "magnemite", "methods": ["underground"] },
+        { "species": "lickitung", "methods": ["underground"] },
+        { "species": "rhyhorn", "methods": ["underground"] },
+        { "species": "houndoom", "methods": ["underground"] },
+        { "species": "swablu", "methods": ["underground"] },
+        { "species": "absol", "methods": ["underground"] }
       ]
     },
     {
@@ -754,7 +989,9 @@
     { "id": "gift-eevee", "type": "gift", "species": "eevee", "area": "hearthome-city" },
     { "id": "fossil-cranidos", "type": "fossil", "species": "cranidos", "area": "oreburgh-mine" },
     { "id": "fossil-shieldon", "type": "fossil", "species": "shieldon", "area": "oreburgh-mine" },
-    { "id": "static-drifloon", "type": "static", "species": "drifloon", "area": "valley-windworks" }
+    { "id": "static-drifloon", "type": "static", "species": "drifloon", "area": "valley-windworks" },
+    { "id": "gift-riolu", "type": "gift", "species": "riolu", "area": "iron-island" },
+    { "id": "static-regigigas", "type": "static", "species": "regigigas", "area": "snowpoint-temple" }
   ],
   "milestones": [
     {
