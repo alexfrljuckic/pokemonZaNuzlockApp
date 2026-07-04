@@ -14,7 +14,9 @@ export type ThemeId =
   | 'lgpe-eevee'
   | 'swsh-sword'
   | 'swsh-shield'
-  | 'pla';
+  | 'pla'
+  | 'sv-scarlet'
+  | 'sv-violet';
 
 const KEY = 'nuzlocke-theme';
 // Set only when the user picks a theme from the header dropdown. Once set, the

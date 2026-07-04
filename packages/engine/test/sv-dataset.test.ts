@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import type { GameDataset } from '../src/index.js';
+import { milestonesFor, type GameDataset } from '../src/index.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const dataset = JSON.parse(
@@ -60,6 +60,22 @@ describe('SV dataset', () => {
     expect(ace('gym-8-grusha').teraType).toBe('ice');
     expect(ace('champion-geeta').teraType).toBe('rock');
     expect(ace('e4-poppy').teraType).toBe('steel');
+  });
+
+  it('milestonesFor hides the other version\'s split bosses', () => {
+    const scarlet = milestonesFor(dataset, 'scarlet').map((m) => m.id);
+    const violet = milestonesFor(dataset, 'violet').map((m) => m.id);
+    expect(scarlet).toContain('finale-professor-sada');
+    expect(scarlet).not.toContain('finale-professor-turo');
+    expect(scarlet).toContain('quaking-earth-titan-scarlet');
+    expect(scarlet).not.toContain('quaking-earth-titan-violet');
+    expect(violet).toContain('finale-professor-turo');
+    expect(violet).not.toContain('finale-professor-sada');
+    // shared (unconditioned) milestones appear in both
+    expect(scarlet).toContain('champion-geeta');
+    expect(violet).toContain('champion-geeta');
+    // each version sees the same total (one of each split pair)
+    expect(scarlet.length).toBe(violet.length);
   });
 
   it('models Nemona as starter-conditional (ace = final evo of the player-weak starter)', () => {
