@@ -296,6 +296,49 @@ button:disabled {
   cursor: not-allowed;
 }
 
+/* ---------- Type badges (Pokémon + move types) ---------- */
+
+.type-badges { display: inline-flex; gap: 0.2rem; flex-wrap: wrap; vertical-align: middle; }
+.type-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  margin-right: 0.3rem;
+  vertical-align: middle;
+  flex: none;
+}
+.type-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.08rem 0.35rem;
+  border-radius: 4px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+  line-height: 1.4;
+}
+.type-normal { background: #9099a1; }
+.type-fire { background: #ff9d55; }
+.type-water { background: #4d90d5; }
+.type-electric { background: #f3d23b; color: #2a2410; text-shadow: none; }
+.type-grass { background: #63bc5a; }
+.type-ice { background: #74cec0; }
+.type-fighting { background: #ce4266; }
+.type-poison { background: #ab6ac8; }
+.type-ground { background: #d97845; }
+.type-flying { background: #8fa9de; }
+.type-psychic { background: #fa7179; }
+.type-bug { background: #90c12c; }
+.type-rock { background: #c7b78b; color: #2a2410; text-shadow: none; }
+.type-ghost { background: #5269ad; }
+.type-dragon { background: #0b6dc3; }
+.type-dark { background: #5a5366; }
+.type-steel { background: #5a8ea1; }
+.type-fairy { background: #ec8fe6; }
+
 /* ---------- Lists / shared bits ---------- */
 
 .run-list-item {
