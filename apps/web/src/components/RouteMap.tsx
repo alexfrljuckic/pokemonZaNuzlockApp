@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { Area, RunState } from '@nuzlocke/engine';
+import { isFrontier, type Area, type RunState } from '@nuzlocke/engine';
 import { mapHelpers, type GameMap } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
 
@@ -10,17 +10,6 @@ function nodeStateFor(area: Area, state: RunState): NodeState {
   if (outcome) return outcome as NodeState;
   // Routes are never locked in the UI — every area is interactable at any time.
   return 'available';
-}
-
-/** Areas that just opened up per the story's `unlockAfter` gating — a light
- * "next approximate routes" hint, not an enforced lock. An area counts as
- * frontier if it's unresolved and either has no gate (and nothing's been
- * cleared yet) or its gate is the most recently cleared milestone. */
-export function isFrontier(area: Area, state: RunState): boolean {
-  if (state.encounterOutcomes[area.id]) return false;
-  const cleared = state.milestonesCleared;
-  if (cleared.length === 0) return area.unlockAfter == null;
-  return area.unlockAfter === cleared[cleared.length - 1];
 }
 
 /** Unique species present in an area for the active version, with best rate —

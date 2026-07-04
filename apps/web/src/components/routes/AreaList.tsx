@@ -1,5 +1,4 @@
-import { filterEncounterPool, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
-import { isFrontier } from '../RouteMap';
+import { filterEncounterPool, isFrontier, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
 import { EncounterForm, type Outcome } from './EncounterForm';

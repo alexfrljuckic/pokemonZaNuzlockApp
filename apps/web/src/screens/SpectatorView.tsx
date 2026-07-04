@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
+  boxed,
   chosenStarter,
   deriveState,
+  fallen,
   milestoneRoster,
   milestonesFor,
   nextBoss,
+  party,
   pendingWipeDecision,
   type RunEvent,
 } from '@nuzlocke/engine';
@@ -63,9 +66,9 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
 
   const gameId = ctx.dataset.gameId;
   const events = shared.events as RunEvent[];
-  const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
-  const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
-  const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
+  const team = party(state);
+  const box = boxed(state);
+  const graveyard = fallen(state);
   const milestones = milestonesFor(ctx.dataset, state.version).sort((a, b) => a.order - b.order);
   const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
   const boss = nextBoss(state, ctx);
@@ -99,10 +102,10 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
       <RunSummaryStrip events={events} state={state} ctx={ctx} />
 
       <section>
-        <h2>Team ({party.length}/6)</h2>
-        {party.length === 0 && <p className="muted">No party members.</p>}
+        <h2>Team ({team.length}/6)</h2>
+        {team.length === 0 && <p className="muted">No party members.</p>}
         <div className="mon-grid">
-          {party.map((p) => (
+          {team.map((p) => (
             <MonCard key={p.id} p={p} gameId={gameId} />
           ))}
         </div>
