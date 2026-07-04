@@ -12,12 +12,14 @@ export function Combobox({
   options,
   placeholder,
   max = 60,
+  badge,
 }: {
   value: string;
   onChange: (v: string) => void;
   options: string[];
   placeholder?: string;
   max?: number;
+  badge?: (option: string) => string | null;
 }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -106,7 +108,8 @@ export function Combobox({
                 }}
                 onMouseEnter={() => setActive(i)}
               >
-                {o}
+                <span>{o}</span>
+                {badge?.(o) && <span className={`combobox-badge badge-${badge(o)}`}>{badge(o)}</span>}
               </li>
             ))}
           </ul>,
