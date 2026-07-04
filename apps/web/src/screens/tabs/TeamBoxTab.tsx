@@ -108,43 +108,67 @@ function PokemonDetail({
   runId,
   onChange,
   actions,
+  defaultExpanded = false,
 }: {
   p: PokemonInstance;
   runId: string;
   onChange: () => Promise<void>;
   actions: { label: string; onClick: () => void; secondary?: boolean }[];
+  defaultExpanded?: boolean;
 }) {
-  const [editing, setEditing] = useState(false);
+  const [expanded, setExpanded] = useState(defaultExpanded);
+  const editable = p.status !== 'dead';
+  const weak = weaknesses(typesFor(p.species));
 
   return (
-    <div className="poke-detail">
+    <div className={`poke-detail${expanded ? ' expanded' : ''}`}>
       <div className="poke-detail-head">
-        <SpriteImg species={p.species} size={72} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
-        <div className="poke-detail-summary">
-          <strong>
-            {p.nickname}
-            {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
-          </strong>
-          <span className="muted">
-            {p.species} · Lv {p.level}
-            {p.nature ? ` · ${p.nature}` : ''}
+        {/* condensed, clickable → expands straight into details + edit */}
+        <button
+          type="button"
+          className="poke-detail-toggle"
+          onClick={() => setExpanded((e) => !e)}
+          aria-expanded={expanded}
+        >
+          <SpriteImg species={p.species} size={64} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
+          <span className="poke-detail-summary">
+            <strong>
+              {p.nickname}
+              {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
+            </strong>
+            <span className="muted">
+              {p.species} · Lv {p.level}
+              {p.nature ? ` · ${p.nature}` : ''}
+            </span>
+            <TypeBadges types={typesFor(p.species)} />
           </span>
-          <TypeBadges types={typesFor(p.species)} />
-          {(() => {
-            const weak = weaknesses(typesFor(p.species));
-            if (weak.length === 0) return null;
-            return (
-              <span className="mrd-weak">
-                <span className="mrd-weak-label muted">Weak to</span>
-                {weak.map((w) => (
-                  <span key={w.type} className="mrd-weak-item">
-                    <TypeBadge type={w.type} />
-                    {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
-                  </span>
-                ))}
-              </span>
-            );
-          })()}
+          <span className="poke-detail-caret" aria-hidden="true">
+            {expanded ? '▾' : '▸'}
+          </span>
+        </button>
+        {/* quick actions stay in the condensed row for fast shuffling */}
+        <span className="pokemon-actions">
+          {actions.map((a) => (
+            <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
+              {a.label}
+            </button>
+          ))}
+        </span>
+      </div>
+
+      {expanded && (
+        <div className="poke-detail-body">
+          {weak.length > 0 && (
+            <span className="mrd-weak">
+              <span className="mrd-weak-label muted">Weak to</span>
+              {weak.map((w) => (
+                <span key={w.type} className="mrd-weak-item">
+                  <TypeBadge type={w.type} />
+                  {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
+                </span>
+              ))}
+            </span>
+          )}
           <span className="muted">{p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}</span>
           {evolutionSummary(p.species) && (
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
@@ -160,29 +184,8 @@ function PokemonDetail({
               ))}
             </span>
           )}
+          {editable && <EditForm p={p} runId={runId} onSaved={onChange} />}
         </div>
-        <span className="pokemon-actions">
-          {p.status !== 'dead' && (
-            <button className="secondary" onClick={() => setEditing(!editing)}>
-              {editing ? 'Close' : 'Edit'}
-            </button>
-          )}
-          {actions.map((a) => (
-            <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
-              {a.label}
-            </button>
-          ))}
-        </span>
-      </div>
-      {editing && (
-        <EditForm
-          p={p}
-          runId={runId}
-          onSaved={async () => {
-            setEditing(false);
-            await onChange();
-          }}
-        />
       )}
     </div>
   );
@@ -264,9 +267,11 @@ export function TeamBoxTab({
         )}
         {selectedBoxMon && (
           <PokemonDetail
+            key={selectedBoxMon.id}
             p={selectedBoxMon}
             runId={runId}
             onChange={onChange}
+            defaultExpanded
             actions={[
               { label: 'Party', onClick: () => move(selectedBoxMon.id, 'party') },
               { label: 'Fainted', onClick: () => markFaint(selectedBoxMon.id), secondary: true },
