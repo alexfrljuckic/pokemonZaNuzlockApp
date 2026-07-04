@@ -725,6 +725,50 @@ button:disabled {
 .share-link-row input { flex: 1; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
 .share-link-row button { margin-top: 0; }
 
+/* ---------- Share popover (run header) ---------- */
+
+.run-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.share-popover {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.share-popover-trigger {
+  margin-top: 0;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+
+.share-popover-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  width: min(340px, 80vw);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg-panel) 92%, var(--accent) 8%) 0%, var(--bg-panel) 22%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  box-shadow: var(--shadow-lift);
+  animation: fadeUp 0.2s ease both;
+}
+
+.share-popover-desc {
+  margin-top: 0;
+  font-size: 0.8rem;
+}
+
+.share-popover-revoked {
+  font-size: 0.78rem;
+  margin-bottom: 0;
+}
+
 /* ---------- Back button: quiet ghost chip, arrow slides on hover ---------- */
 
 button.back-btn {
