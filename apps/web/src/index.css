@@ -1137,38 +1137,42 @@ button.back-btn:hover:not(:disabled)::before {
 .route-node {
   outline: none;
 }
+.route-node-halo {
+  fill: rgba(255, 255, 255, 0.92);
+}
+.route-node-locked .route-node-halo {
+  fill: rgba(255, 255, 255, 0.5);
+}
 .route-node-dot {
   fill: var(--bg-chip);
-  stroke: var(--border);
-  stroke-width: 0.5;
+  stroke: rgba(0, 0, 0, 0.4);
+  stroke-width: 0.9;
   transition: fill 0.15s ease, stroke 0.15s ease;
 }
 .route-node-glyph {
-  font-size: 2.4px;
   text-anchor: middle;
-  fill: var(--text);
+  fill: #fff;
   pointer-events: none;
   user-select: none;
 }
 .route-node-locked {
-  opacity: 0.5;
+  opacity: 0.75;
 }
 .route-node-locked .route-node-dot {
   fill: var(--bg-chip);
-  stroke-dasharray: 0.8 0.8;
 }
 .route-node-available {
   cursor: pointer;
 }
 .route-node-available .route-node-dot {
   fill: var(--accent);
-  stroke: var(--highlight);
-  stroke-width: 0.7;
+  stroke: #fff;
+  stroke-width: 1;
 }
 .route-node-available:hover .route-node-dot,
 .route-node-available:focus .route-node-dot {
-  stroke-width: 1.2;
-  filter: drop-shadow(0 0 2px var(--highlight));
+  stroke-width: 1.6;
+  filter: drop-shadow(0 0 3px var(--highlight));
 }
 .route-node-caught .route-node-dot {
   fill: var(--success);

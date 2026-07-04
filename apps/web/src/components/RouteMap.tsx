@@ -25,12 +25,12 @@ function previewSpecies(area: Area, version: string): string[] {
 }
 
 const RADIUS: Record<string, number> = {
-  city: 3.2,
-  town: 2.6,
-  landmark: 2.3,
-  forest: 2.3,
-  cave: 2.3,
-  route: 1.9,
+  city: 6,
+  town: 5,
+  landmark: 4.5,
+  forest: 4.5,
+  cave: 4.5,
+  route: 4,
 };
 
 export function RouteMap({
@@ -110,11 +110,13 @@ export function RouteMap({
                 }
               }}
             >
+              {/* white halo ring for contrast over the bright map backdrop */}
+              <circle className="route-node-halo" r={r + 1.4} />
               <circle className="route-node-dot" r={r} />
-              {st === 'locked' && <text className="route-node-glyph" y={r * 0.55}>🔒</text>}
-              {st === 'caught' && <text className="route-node-glyph" y={r * 0.55}>✓</text>}
-              {st === 'failed' && <text className="route-node-glyph" y={r * 0.55}>✕</text>}
-              {st === 'skipped' && <text className="route-node-glyph" y={r * 0.55}>–</text>}
+              {st === 'locked' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.1}>🔒</text>}
+              {st === 'caught' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>✓</text>}
+              {st === 'failed' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>✕</text>}
+              {st === 'skipped' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>–</text>}
             </g>
           );
         })}
