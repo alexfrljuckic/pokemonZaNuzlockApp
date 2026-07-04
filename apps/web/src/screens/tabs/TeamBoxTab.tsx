@@ -1,4 +1,4 @@
-import type { EngineContext, RunState } from '@nuzlocke/engine';
+import { boxed, fallen, party, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { MonCard } from '../../components/MonCard';
 
@@ -14,9 +14,9 @@ export function TeamBoxTab({
   onChange: () => Promise<void>;
 }) {
   const gameId = ctx.dataset.gameId;
-  const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
-  const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
-  const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
+  const team = party(state);
+  const box = boxed(state);
+  const graveyard = fallen(state);
 
   async function move(id: string, to: 'party' | 'box') {
     await appendEvent(runId, { type: 'moved', payload: { pokemonId: id, to } });
@@ -37,10 +37,10 @@ export function TeamBoxTab({
   return (
     <>
       <section>
-        <h2>Team ({party.length}/6)</h2>
-        {party.length === 0 && <p className="muted">No party members yet.</p>}
+        <h2>Team ({team.length}/6)</h2>
+        {team.length === 0 && <p className="muted">No party members yet.</p>}
         <div className="mon-grid">
-          {party.map((p) => (
+          {team.map((p) => (
             <MonCard
               key={p.id}
               p={p}

@@ -1,4 +1,4 @@
-import { RULES, nextBoss, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
+import { RULES, nextBoss, party, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { describeEvent, type DescribedEvent } from '../lib/describeEvent';
 import { SpriteImg } from './SpriteImg';
 
@@ -19,14 +19,12 @@ export function RunSummaryStrip({
     if (item) items.push(item);
   }
 
-  const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
-
   // Current enforced level cap = next boss's ace (+ offset), when the rule is on.
   const capRule = state.ruleset.rules['level-cap'];
   const boss = nextBoss(state, ctx);
   const levelCap =
     capRule?.enabled && boss?.aceLevel != null ? boss.aceLevel + Number(capRule.params.offset ?? 0) : null;
-  const overCap = levelCap != null && party.some((p) => p.level > levelCap);
+  const overCap = levelCap != null && party(state).some((p) => p.level > levelCap);
 
   // Every other active rule (level-cap gets its own richer badge above), so a
   // player can see at a glance what's actually enforced/tracked this run
