@@ -677,6 +677,7 @@
     },
     {
       "id": "arven-final",
+"trainerSprite": "arven-s",
       "name": "Arven (Final Battle)",
       "type": "rival",
       "order": 25,
@@ -693,6 +694,7 @@
     },
     {
       "id": "penny-final",
+"trainerSprite": "penny",
       "name": "Penny / Cassiopeia (Team Star Boss)",
       "type": "rival",
       "order": 26,
@@ -709,6 +711,7 @@
     },
     {
       "id": "nemona-final",
+"trainerSprite": "nemona-masters",
       "name": "Nemona (Final Battle)",
       "type": "rival",
       "order": 27,

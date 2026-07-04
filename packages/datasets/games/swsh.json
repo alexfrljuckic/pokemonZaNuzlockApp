@@ -660,6 +660,7 @@
   "milestones": [
     {
       "id": "rival-hop-1",
+"trainerSprite": "hop",
       "name": "Hop (Postwick, First Battle)",
       "type": "rival",
       "order": 5,
@@ -709,6 +710,7 @@
     },
     {
       "id": "gym-4-bea-allister",
+"trainerSprite": "bea",
       "name": "Bea / Allister (Stow-on-Side Gym)",
       "type": "gym",
       "order": 40,
@@ -735,6 +737,7 @@
     },
     {
       "id": "gym-6-gordie-melony",
+"trainerSprite": "gordie",
       "name": "Gordie / Melony (Circhester Gym)",
       "type": "gym",
       "order": 60,
@@ -774,6 +777,7 @@
     },
     {
       "id": "champion-cup-semifinal",
+"trainerSprite": "hop",
       "name": "Champion Cup Semi-Final (Hop)",
       "type": "champion-cup",
       "order": 90,
@@ -803,6 +807,7 @@
     },
     {
       "id": "rival-hop-final",
+"trainerSprite": "hop",
       "name": "Hop (Wyndon Stadium, Final Battle)",
       "type": "rival",
       "order": 110,

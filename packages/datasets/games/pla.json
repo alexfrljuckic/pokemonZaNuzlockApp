@@ -517,6 +517,7 @@
     },
     {
       "id": "volo-solaceon-ruins",
+"trainerSprite": "volo",
       "name": "Volo (Solaceon Ruins)",
       "type": "rival",
       "order": 2,
@@ -583,6 +584,7 @@
     },
     {
       "id": "volo-temple-of-sinnoh",
+"trainerSprite": "volo",
       "name": "Volo (Temple of Sinnoh)",
       "type": "story",
       "order": 8,
