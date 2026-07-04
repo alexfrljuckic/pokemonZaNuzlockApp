@@ -2,11 +2,12 @@ import { useState } from 'react';
 import type { PokemonInstance } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
-import { HELD_ITEMS, evolutionSummary, machineType, moveType, movesFor, typesFor } from '../lib/speciesData';
-import { weaknesses } from '../lib/typeChart';
+import { HELD_ITEMS, evolutionSummary, machineType, movesFor, typesFor } from '../lib/speciesData';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
-import { TypeBadge, TypeBadges, TypeDot } from './TypeBadge';
+import { MoveChips } from './MoveChips';
+import { TypeBadges } from './TypeBadge';
+import { WeaknessRow } from './WeaknessRow';
 
 function EditForm({
   p,
@@ -126,7 +127,6 @@ export function MonCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const editable = p.status !== 'dead' && runId != null && onChange != null;
-  const weak = weaknesses(typesFor(p.species));
 
   return (
     <div className={`mon-card${expanded ? ' expanded' : ''}${p.status === 'dead' ? ' dead' : ''}`}>
@@ -160,17 +160,7 @@ export function MonCard({
               {p.death.killer ? ` — ${p.death.killer}` : ''}
             </span>
           )}
-          {weak.length > 0 && (
-            <span className="mrd-weak">
-              <span className="mrd-weak-label muted">Weak to</span>
-              {weak.map((w) => (
-                <span key={w.type} className="mrd-weak-item">
-                  <TypeBadge type={w.type} />
-                  {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
-                </span>
-              ))}
-            </span>
-          )}
+          <WeaknessRow types={typesFor(p.species)} />
           <span className="muted">
             {p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}
             {p.nature ? ` · ${p.nature}` : ''}
@@ -178,19 +168,7 @@ export function MonCard({
           {evolutionSummary(p.species) && (
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
           )}
-          {p.moves && p.moves.length > 0 && (
-            <span className="poke-moves">
-              {p.moves.map((m) => (
-                <span key={m} className="move-chip">
-                  <TypeDot type={moveType(m)} />
-                  {m}
-                  {machineType(m, gameId) && (
-                    <span className={`move-tag badge-${machineType(m, gameId)}`}>{machineType(m, gameId)}</span>
-                  )}
-                </span>
-              ))}
-            </span>
-          )}
+          <MoveChips moves={p.moves} gameId={gameId} />
           {editable && <EditForm p={p} runId={runId} gameId={gameId} onSaved={onChange} />}
         </div>
       )}

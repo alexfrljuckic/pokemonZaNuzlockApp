@@ -4,7 +4,7 @@ import { listGames, speciesToLine } from '../lib/datasets';
 import { VERSION_MASCOT, cardColorFor } from '../games';
 import { createRun, loadEvents, type RunSummary } from '../lib/db';
 import { SpriteImg } from '../components/SpriteImg';
-import { StarterPicker } from '../components/SpecialsSection';
+import { StarterPicker, starterHeading } from '../components/SpecialsSection';
 
 const PRESETS = ['standard', 'hardcore', 'casual'] as const;
 
@@ -95,7 +95,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
     );
     return (
       <section>
-        <h2>{starters.length > 1 ? 'Choose your starter' : 'Your partner Pokémon'}</h2>
+        <h2>{starterHeading(starters)}</h2>
         <StarterPicker
           runId={pendingRun.id}
           state={state}
