@@ -169,7 +169,7 @@
         { "species": "galvantula", "methods": ["walk"], "rate": 20 },
         { "species": "liepard", "methods": ["walk"], "rate": 15 },
         { "species": "inkay", "methods": ["walk"], "rate": 10 },
-        { "species": "morpeko", "methods": ["walk"], "rate": 5 },
+        { "species": "morpeko-full-belly", "methods": ["walk"], "rate": 5 },
         { "species": "toxel", "methods": ["grass"], "rate": 25 },
         { "species": "karrablast", "methods": ["grass"], "rate": 25, "conditions": { "version": ["sword"] } },
         { "species": "shelmet", "methods": ["grass"], "rate": 25, "conditions": { "version": ["shield"] } },
@@ -213,7 +213,7 @@
         { "species": "pelipper", "methods": ["walk"], "rate": 40 },
         { "species": "mareanie", "methods": ["walk"], "rate": 35 },
         { "species": "gastrodon", "methods": ["walk"], "rate": 15 },
-        { "species": "jellicent", "methods": ["walk"], "rate": 5 },
+        { "species": "jellicent-male", "methods": ["walk"], "rate": 5 },
         { "species": "pyukumuku", "methods": ["walk"], "rate": 5 },
         { "species": "cramorant", "methods": ["grass"], "rate": 40 },
         { "species": "octillery", "methods": ["grass"], "rate": 30 },
@@ -222,7 +222,7 @@
         { "species": "pelipper", "methods": ["surf"], "rate": 40 },
         { "species": "qwilfish", "methods": ["surf"], "rate": 30 },
         { "species": "mantyke", "methods": ["surf"], "rate": 25 },
-        { "species": "jellicent", "methods": ["surf"], "rate": 5 },
+        { "species": "jellicent-male", "methods": ["surf"], "rate": 5 },
         { "species": "octillery", "methods": ["fish"], "rate": 60 },
         { "species": "wishiwashi-solo", "methods": ["fish"], "rate": 30 },
         { "species": "pyukumuku", "methods": ["fish"], "rate": 10 }
@@ -268,7 +268,7 @@
         { "species": "darumaka-galar", "methods": ["grass"], "rate": 5, "conditions": { "version": ["sword"] } },
         { "species": "vanillish", "methods": ["grass"], "rate": 5, "conditions": { "version": ["shield"] } },
         { "species": "stonjourner", "methods": ["grass"], "rate": 2, "conditions": { "version": ["sword"] } },
-        { "species": "eiscue", "methods": ["grass"], "rate": 2, "conditions": { "version": ["shield"] } }
+        { "species": "eiscue-ice", "methods": ["grass"], "rate": 2, "conditions": { "version": ["shield"] } }
       ]
     },
     {
@@ -345,7 +345,7 @@
         { "species": "elgyem", "methods": ["walk"], "rate": 10 },
         { "species": "cufant", "methods": ["walk"], "rate": 1 },
         { "species": "stufful", "methods": ["walk"], "rate": 30, "conditions": { "weather": ["raining"] } },
-        { "species": "frillish", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
+        { "species": "frillish-male", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
         { "species": "cubchoo", "methods": ["walk"], "rate": 40, "conditions": { "weather": ["snowing"] } },
         { "species": "sneasel", "methods": ["walk"], "rate": 40, "conditions": { "weather": ["snowstorm"] } },
         { "species": "diglett", "methods": ["max-raid"] },
@@ -378,7 +378,7 @@
         { "species": "hattrem", "methods": ["grass"], "rate": 20 },
         { "species": "applin", "methods": ["grass"], "rate": 10 },
         { "species": "shellos", "methods": ["surf"] },
-        { "species": "frillish", "methods": ["surf"] },
+        { "species": "frillish-male", "methods": ["surf"] },
         { "species": "riolu", "methods": ["max-raid"] },
         { "species": "machop", "methods": ["max-raid"] },
         { "species": "scraggy", "methods": ["max-raid"] }
@@ -480,7 +480,7 @@
         { "species": "perrserker", "methods": ["grass"], "rate": 40 },
         { "species": "thievul", "methods": ["grass"], "rate": 30 },
         { "species": "liepard", "methods": ["grass"], "rate": 25 },
-        { "species": "morpeko", "methods": ["grass"], "rate": 5 },
+        { "species": "morpeko-full-belly", "methods": ["grass"], "rate": 5 },
         { "species": "greedent", "methods": ["berry-tree"], "rate": 100 }
       ]
     },
@@ -675,7 +675,7 @@
       "order": 100,
       "aceLevel": 65,
       "roster": [
-        { "species": "aegislash", "level": 62 },
+        { "species": "aegislash-shield", "level": 62 },
         { "species": "dragapult", "level": 62 },
         { "species": "haxorus", "level": 63 },
         { "species": "charizard", "level": 65 }

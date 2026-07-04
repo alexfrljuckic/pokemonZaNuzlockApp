@@ -52,7 +52,10 @@ for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
   const game = JSON.parse(readFileSync(join(gamesDir, f), 'utf8'));
   for (const area of game.areas ?? []) for (const e of area.encounters ?? []) species.add(e.species);
   for (const s of game.specials ?? []) species.add(s.species);
-  for (const m of game.milestones ?? []) for (const p of m.roster ?? []) species.add(p.species);
+  for (const m of game.milestones ?? []) {
+    for (const p of m.roster ?? []) species.add(p.species);
+    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) species.add(p.species);
+  }
 }
 const slugs = [...species].sort();
 console.log(`${slugs.length} species referenced across datasets`);
