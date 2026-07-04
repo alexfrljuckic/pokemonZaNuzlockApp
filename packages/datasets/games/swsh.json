@@ -538,18 +538,165 @@
     { "id": "gift-toxel", "type": "gift", "species": "toxel", "area": "route-5" }
   ],
   "milestones": [
-    { "id": "rival-hop-1", "name": "Hop (Postwick, First Battle)", "type": "rival", "order": 5, "aceLevel": 5, "countsForLevelCap": false },
-    { "id": "gym-1-milo", "name": "Milo (Turffield Gym)", "type": "gym", "order": 10, "aceLevel": 20 },
-    { "id": "gym-2-nessa", "name": "Nessa (Hulbury Gym)", "type": "gym", "order": 20, "aceLevel": 24 },
-    { "id": "gym-3-kabu", "name": "Kabu (Motostoke Gym)", "type": "gym", "order": 30, "aceLevel": 27 },
-    { "id": "gym-4-bea-allister", "name": "Bea / Allister (Stow-on-Side Gym)", "type": "gym", "order": 40, "aceLevel": 36 },
-    { "id": "gym-5-opal", "name": "Opal (Ballonlea Gym)", "type": "gym", "order": 50, "aceLevel": 38 },
-    { "id": "gym-6-gordie-melony", "name": "Gordie / Melony (Circhester Gym)", "type": "gym", "order": 60, "aceLevel": 42 },
-    { "id": "gym-7-piers", "name": "Piers (Spikemuth Gym)", "type": "gym", "order": 70, "aceLevel": 46 },
-    { "id": "gym-8-raihan", "name": "Raihan (Hammerlocke Gym)", "type": "gym", "order": 80, "aceLevel": 48 },
-    { "id": "champion-cup-semifinal", "name": "Champion Cup Semi-Final (Hop)", "type": "champion-cup", "order": 90, "aceLevel": 62 },
-    { "id": "champion-leon", "name": "Champion Cup Final (Champion Leon)", "type": "champion", "order": 100, "aceLevel": 65 },
-    { "id": "rival-hop-final", "name": "Hop (Wyndon Stadium, Final Battle)", "type": "rival", "order": 110, "aceLevel": 70, "countsForLevelCap": false }
+    {
+      "id": "rival-hop-1",
+      "name": "Hop (Postwick, First Battle)",
+      "type": "rival",
+      "order": 5,
+      "aceLevel": 5,
+      "countsForLevelCap": false,
+      "roster": [
+        { "species": "wooloo", "level": 3 },
+        { "species": "grookey", "level": 5 },
+        { "species": "scorbunny", "level": 5 },
+        { "species": "sobble", "level": 5 }
+      ]
+    },
+    {
+      "id": "gym-1-milo",
+      "name": "Milo (Turffield Gym)",
+      "type": "gym",
+      "order": 10,
+      "aceLevel": 20,
+      "roster": [
+        { "species": "gossifleur", "level": 19 },
+        { "species": "eldegoss", "level": 20 }
+      ]
+    },
+    {
+      "id": "gym-2-nessa",
+      "name": "Nessa (Hulbury Gym)",
+      "type": "gym",
+      "order": 20,
+      "aceLevel": 24,
+      "roster": [
+        { "species": "goldeen", "level": 22 },
+        { "species": "arrokuda", "level": 23 },
+        { "species": "drednaw", "level": 24 }
+      ]
+    },
+    {
+      "id": "gym-3-kabu",
+      "name": "Kabu (Motostoke Gym)",
+      "type": "gym",
+      "order": 30,
+      "aceLevel": 27,
+      "roster": [
+        { "species": "ninetales", "level": 25 },
+        { "species": "arcanine", "level": 25 },
+        { "species": "centiskorch", "level": 27 }
+      ]
+    },
+    {
+      "id": "gym-4-bea-allister",
+      "name": "Bea / Allister (Stow-on-Side Gym)",
+      "type": "gym",
+      "order": 40,
+      "aceLevel": 36,
+      "roster": [
+        { "species": "hitmontop", "level": 34 },
+        { "species": "pangoro", "level": 34 },
+        { "species": "sirfetchd", "level": 35 },
+        { "species": "machamp", "level": 36 }
+      ]
+    },
+    {
+      "id": "gym-5-opal",
+      "name": "Opal (Ballonlea Gym)",
+      "type": "gym",
+      "order": 50,
+      "aceLevel": 38,
+      "roster": [
+        { "species": "weezing-galar", "level": 36 },
+        { "species": "mawile", "level": 36 },
+        { "species": "togekiss", "level": 37 },
+        { "species": "alcremie", "level": 38 }
+      ]
+    },
+    {
+      "id": "gym-6-gordie-melony",
+      "name": "Gordie / Melony (Circhester Gym)",
+      "type": "gym",
+      "order": 60,
+      "aceLevel": 42,
+      "roster": [
+        { "species": "barbaracle", "level": 40 },
+        { "species": "shuckle", "level": 40 },
+        { "species": "stonjourner", "level": 41 },
+        { "species": "coalossal", "level": 42 }
+      ]
+    },
+    {
+      "id": "gym-7-piers",
+      "name": "Piers (Spikemuth Gym)",
+      "type": "gym",
+      "order": 70,
+      "aceLevel": 46,
+      "roster": [
+        { "species": "scrafty", "level": 44 },
+        { "species": "malamar", "level": 45 },
+        { "species": "skuntank", "level": 45 },
+        { "species": "obstagoon", "level": 46 }
+      ]
+    },
+    {
+      "id": "gym-8-raihan",
+      "name": "Raihan (Hammerlocke Gym)",
+      "type": "gym",
+      "order": 80,
+      "aceLevel": 48,
+      "roster": [
+        { "species": "gigalith", "level": 46 },
+        { "species": "flygon", "level": 47 },
+        { "species": "sandaconda", "level": 46 },
+        { "species": "duraludon", "level": 48 }
+      ]
+    },
+    {
+      "id": "champion-cup-semifinal",
+      "name": "Champion Cup Semi-Final (Hop)",
+      "type": "champion-cup",
+      "order": 90,
+      "aceLevel": 49,
+      "roster": [
+        { "species": "dubwool", "level": 48 },
+        { "species": "corviknight", "level": 48 },
+        { "species": "pincurchin", "level": 47 },
+        { "species": "snorlax", "level": 47 },
+        { "species": "cinderace", "level": 49 },
+        { "species": "rillaboom", "level": 49 },
+        { "species": "inteleon", "level": 49 }
+      ]
+    },
+    {
+      "id": "champion-leon",
+      "name": "Champion Cup Final (Champion Leon)",
+      "type": "champion",
+      "order": 100,
+      "aceLevel": 65,
+      "roster": [
+        { "species": "aegislash", "level": 62 },
+        { "species": "dragapult", "level": 62 },
+        { "species": "haxorus", "level": 63 },
+        { "species": "charizard", "level": 65 }
+      ]
+    },
+    {
+      "id": "rival-hop-final",
+      "name": "Hop (Wyndon Stadium, Final Battle)",
+      "type": "rival",
+      "order": 110,
+      "aceLevel": 70,
+      "countsForLevelCap": false,
+      "roster": [
+        { "species": "dubwool", "level": 69 },
+        { "species": "snorlax", "level": 68 },
+        { "species": "corviknight", "level": 70 },
+        { "species": "cinderace", "level": 70 },
+        { "species": "rillaboom", "level": 70 },
+        { "species": "inteleon", "level": 70 }
+      ]
+    }
   ],
   "mechanics": {
     "heldItems": true,
