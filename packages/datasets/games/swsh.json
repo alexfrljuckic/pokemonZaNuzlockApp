@@ -3,6 +3,7 @@
   "gameId": "swsh",
   "name": "Pokémon Sword / Shield",
   "versions": ["sword", "shield"],
+  "pokeapiVersionGroups": ["sword-shield","the-isle-of-armor","the-crown-tundra"],
   "areas": [
     {
       "id": "route-1",

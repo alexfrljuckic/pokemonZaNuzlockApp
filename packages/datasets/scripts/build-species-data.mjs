@@ -46,24 +46,38 @@ async function mapPool(items, fn) {
   return results;
 }
 
-// 1. Collect the species slug set across every dataset.
+// 1. Collect the species slug set across every dataset — both the global
+// union and per-game sets (per-game movepools are scoped to each game's own
+// referenced species, so the file doesn't carry every game's pool for every
+// species). Also record each game's PokeAPI version groups.
 const species = new Set();
+const speciesByGame = {}; // gameId -> Set<slug>
+const versionGroupsByGame = {}; // gameId -> string[]
 for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
   const game = JSON.parse(readFileSync(join(gamesDir, f), 'utf8'));
-  for (const area of game.areas ?? []) for (const e of area.encounters ?? []) species.add(e.species);
-  for (const s of game.specials ?? []) species.add(s.species);
+  const gameSet = (speciesByGame[game.gameId] = new Set());
+  versionGroupsByGame[game.gameId] = game.pokeapiVersionGroups ?? [];
+  const add = (slug) => {
+    species.add(slug);
+    gameSet.add(slug);
+  };
+  for (const area of game.areas ?? []) for (const e of area.encounters ?? []) add(e.species);
+  for (const s of game.specials ?? []) add(s.species);
   for (const m of game.milestones ?? []) {
-    for (const p of m.roster ?? []) species.add(p.species);
-    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) species.add(p.species);
+    for (const p of m.roster ?? []) add(p.species);
+    for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) add(p.species);
   }
 }
 const slugs = [...species].sort();
 console.log(`${slugs.length} species referenced across datasets`);
 
-// 2. Per species: base stats + types + movepool (unique move slugs, any method/version).
+// 2. Per species: base stats + types + movepool. `moves` stays the all-games
+// union (the fallback pool); `movesByVersionGroup` keeps the per-version-group
+// breakdown so step 2b can slice per game.
 const stats = {};
 const types = {};
 const moves = {};
+const movesByVersionGroup = {}; // slug -> { versionGroup -> Set<move> }
 const chainUrlBySpecies = {};
 const missing = [];
 await mapPool(slugs, async (slug) => {
@@ -77,6 +91,12 @@ await mapPool(slugs, async (slug) => {
   stats[slug] = Object.fromEntries(mon.stats.map((s) => [s.stat.name, s.base_stat]));
   types[slug] = mon.types.sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
   moves[slug] = [...new Set(mon.moves.map((m) => m.move.name))].sort();
+  const byVg = (movesByVersionGroup[slug] = {});
+  for (const m of mon.moves) {
+    for (const vgd of m.version_group_details) {
+      (byVg[vgd.version_group.name] ??= new Set()).add(m.move.name);
+    }
+  }
   try {
     const sp = await fetchJson(mon.species.url);
     chainUrlBySpecies[slug] = { chain: sp.evolution_chain?.url, base: sp.name };
@@ -85,6 +105,28 @@ await mapPool(slugs, async (slug) => {
   }
 });
 if (missing.length) console.warn(`no /pokemon for: ${missing.join(', ')}`);
+
+// 2b. Per-game movepools: for each game, each of its referenced species gets
+// the union of moves across that game's version groups (base + DLC). Species
+// with no moves in those groups are omitted — the app falls back to the
+// all-games union pool for them (this is also the whole-game behavior for
+// Legends Z-A, whose PokeAPI version groups exist but carry no move data).
+const movesByGame = {};
+for (const [gameId, vgs] of Object.entries(versionGroupsByGame)) {
+  if (vgs.length === 0) continue;
+  const perGame = {};
+  for (const slug of speciesByGame[gameId]) {
+    const byVg = movesByVersionGroup[slug];
+    if (!byVg) continue;
+    const pool = new Set();
+    for (const vg of vgs) for (const mv of byVg[vg] ?? []) pool.add(mv);
+    if (pool.size > 0) perGame[slug] = [...pool].sort();
+  }
+  if (Object.keys(perGame).length > 0) movesByGame[gameId] = perGame;
+  console.log(
+    `${gameId}: per-game moves for ${Object.keys(perGame).length}/${speciesByGame[gameId].size} species (groups: ${vgs.join(', ')})`,
+  );
+}
 
 // 3. Evolution info: for each species, what it evolves into and how.
 function walk(node, out) {
@@ -137,6 +179,7 @@ const out = {
   stats: sortObj(stats),
   types: sortObj(types),
   moves: sortObj(moves),
+  movesByGame: sortObj(Object.fromEntries(Object.entries(movesByGame).map(([g, m]) => [g, sortObj(m)]))),
   moveTypes: sortObj(moveTypes),
   evolutions: sortObj(evolutions),
   heldItems,

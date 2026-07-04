@@ -58,28 +58,40 @@ Never merge with either failing.
 
 ## Current state (July 2026)
 
-Everything below is on `main` unless noted. History: PRs #3–#19 merged.
+Everything below is on `main` unless noted. History: PRs #3–#45 merged
+(#46 Kanto calibration + #47 per-game movepools open as of 2026-07-04
+evening). `docs/BACKLOG.md` is the single work tracker — it opens with an
+"In flight right now" section; start there when resuming.
 
 - **Engine** (`packages/engine`): event-sourced core with first-encounter,
-  dupes-by-line, level caps, revive tokens, wipe flow, rule-change audit,
-  and `pokemon_updated` (audited edits of nickname/level/heldItem/moves/
-  nature — null clears, partial payloads). 30 tests.
-- **Datasets**: Z-A (25 areas), BDSP (47 areas, 16 milestones incl. 3 Barry
-  rivals w/ full rosters), LGPE (22), SwSh (27, first to use
-  conditions.weather + max-raid method). species-lines.json (1388 slugs).
-- **App** (`apps/web`): five-tab tracker, Supabase sync + magic-link auth +
-  read-only share links w/ realtime spectator (token-gated SECURITY DEFINER
-  RPC — see migration comments before touching), design system w/ 8
-  per-version themes + motion (docs/UX-OVERHAUL.md section A), team
-  profiles + PC box w/ Showdown-CDN sprites (section B, PR #20 open).
-- **UX overhaul in progress**: docs/UX-OVERHAUL.md is the tracker. A+B done;
-  C next (run summary strip, milestone trainer cards, BACKLOG items 12+13 —
-  both DECIDED: countsForLevelCap flag for rivals, aceLevel := max roster
-  level w/ validator guard, SwSh roster backfill); then D (stats charts,
-  share consolidation), E (BDSP schematic routes map + per-route trainers).
-- **Backlog/decisions**: docs/BACKLOG.md items 12-13 + Known gaps section.
-  GitHub Actions secrets still not added by Alex (keep-alive/backup
-  workflows silently failing on schedule until then).
+  dupes-by-line, level caps (rival fights excluded via `countsForLevelCap`),
+  revive tokens, wipe flow, rule-change audit, `pokemon_updated` edits,
+  `special_claimed`/`special_reset` (starters + gifts/fossils/statics),
+  starter-conditional milestone rosters (`rosterByStarter`), version-locked
+  specials (`SpecialEncounter.conditions.version`). 33 tests.
+- **Datasets** (5 games): Z-A (25 areas, 35 milestones), BDSP (47/16 incl.
+  per-starter Barry rosters), LGPE (22/13), SwSh (27/12, conditions.weather +
+  max-raid), **PLA (7 zones, 8 milestones — Nobles + Volo/Giratina)**. Each
+  declares `pokeapiVersionGroups` for per-game movepools (PR #47); Z-A has
+  none in PokeAPI and falls back to the union pool. Generated:
+  species-lines.json, species-data.json (types/stats/moves/movesByGame —
+  regenerate via build-species-data.mjs, never hand-merge), bdsp-machines.
+  Validator enforces aceLevel=max(roster), species coverage vs. generated
+  data, referential integrity.
+- **App** (`apps/web`): five tabs (Routes / Team & Box / **Boss Fights** /
+  Rules / Stats), Supabase sync + magic-link auth + share links w/ realtime
+  spectator (token-gated SECURITY DEFINER RPC — see migration comments
+  before touching), 9 per-version themes, run-summary strip w/ active-rules
+  chips, starter picked in the game-picker flow, gifts/specials shown under
+  their area, dupes-emptied routes skippable, cross-game interactive route
+  maps (`lib/maps/` registry — BDSP Sinnoh + LGPE Kanto; add a game = one
+  map file + one registry line + backdrop in public/maps), per-game
+  move pickers.
+- **UX overhaul (docs/UX-OVERHAUL.md): COMPLETE and closed** — kept only for
+  its standing design constraints (IP caution, no invented trainer data,
+  engine purity).
+- GitHub Actions secrets set + keep-alive/backup workflows verified green
+  (2026-07-03).
 
 ## Workflow conventions
 
