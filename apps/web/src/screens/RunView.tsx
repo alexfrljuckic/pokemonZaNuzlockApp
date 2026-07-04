@@ -4,6 +4,7 @@ import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engin
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { loadEvents, type RunSummary } from '../lib/db';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
+import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { AreasTab } from './tabs/AreasTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
@@ -81,6 +82,8 @@ export function RunView({
         <WipeScreen runId={run.id} onResolved={refresh} />
       ) : (
         <>
+          <RunSummaryStrip events={events} ctx={ctx} />
+
           <nav className="tabs">
             {[...TABS, ...(SYNC_AVAILABLE && session ? (['Share'] as const) : [])].map((t) => (
               <button

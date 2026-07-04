@@ -437,6 +437,139 @@ button:disabled {
   margin-bottom: 0.3rem;
 }
 
+/* ---------- Milestone trainer cards (section C) ---------- */
+
+.milestone-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+}
+
+.milestone-card {
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  animation: fadeUp 0.3s ease both;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.milestone-card:hover {
+  border-color: var(--accent);
+}
+
+.milestone-card.next {
+  border-color: var(--highlight);
+}
+
+.milestone-card.cleared {
+  opacity: 0.7;
+}
+
+.milestone-card-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  text-align: left;
+  padding: 0.75rem 0.85rem 0.4rem;
+  margin: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.milestone-card-head:hover {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+.milestone-card-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.milestone-roster-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  padding: 0 0.6rem 0.6rem;
+}
+
+.milestone-roster-row img,
+.milestone-roster-row .sprite-missing {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 50%;
+}
+
+.milestone-roster-fallback {
+  padding: 0 0.85rem 0.75rem;
+  margin: 0;
+}
+
+.milestone-card-detail {
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 0.85rem;
+  background: var(--bg-chip);
+  animation: fadeUp 0.2s ease both;
+}
+
+.milestone-roster-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.milestone-roster-detail-row:last-child {
+  border-bottom: none;
+}
+
+.milestone-card-detail button {
+  margin-top: 0.75rem;
+}
+
+/* ---------- Run summary strip (section C) ---------- */
+
+.summary-strip {
+  animation: fadeUp 0.3s ease both;
+}
+
+.summary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  padding: 0.15rem 0;
+}
+
+.summary-item img,
+.summary-item .sprite-missing {
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+
+.summary-catch { color: var(--success); }
+.summary-faint { color: var(--danger); }
+.summary-milestone { color: var(--highlight); }
+.summary-wipe { color: var(--warning-strong); }
+
 /* ---------- Rules ---------- */
 
 .rule-row { border-bottom: 1px solid var(--border); padding: 0.6rem 0; }
