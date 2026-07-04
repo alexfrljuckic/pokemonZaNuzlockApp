@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Area, RunState } from '@nuzlocke/engine';
-import { SINNOH_EDGES, SINNOH_NODES, SINNOH_VIEWBOX, mapNode } from '../lib/sinnohMap';
+import { NODE_SCALE, SINNOH_EDGES, SINNOH_NODES, SINNOH_VIEWBOX, mapNode } from '../lib/sinnohMap';
 import { SpriteImg } from './SpriteImg';
 
 type NodeState = 'locked' | 'available' | 'caught' | 'failed' | 'skipped';
@@ -24,13 +24,14 @@ function previewSpecies(area: Area, version: string): string[] {
   return [...seen];
 }
 
+// Base radii in the original 216-wide space, scaled to the active viewBox.
 const RADIUS: Record<string, number> = {
-  city: 6,
-  town: 5,
-  landmark: 4.5,
-  forest: 4.5,
-  cave: 4.5,
-  route: 4,
+  city: 6 * NODE_SCALE,
+  town: 5 * NODE_SCALE,
+  landmark: 4.5 * NODE_SCALE,
+  forest: 4.5 * NODE_SCALE,
+  cave: 4.5 * NODE_SCALE,
+  route: 4 * NODE_SCALE,
 };
 
 export function RouteMap({
@@ -111,7 +112,7 @@ export function RouteMap({
               }}
             >
               {/* white halo ring for contrast over the bright map backdrop */}
-              <circle className="route-node-halo" r={r + 1.4} />
+              <circle className="route-node-halo" r={r + 1.4 * NODE_SCALE} />
               <circle className="route-node-dot" r={r} />
               {st === 'locked' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.1}>🔒</text>}
               {st === 'caught' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>✓</text>}

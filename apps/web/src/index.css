@@ -1116,7 +1116,7 @@ button.back-btn:hover:not(:disabled)::before {
 /* ── Routes tab: schematic Sinnoh map (UX section E) ───────────────────── */
 .route-map {
   position: relative;
-  max-width: 560px;
+  max-width: 720px;
   margin: 0 auto 1rem;
   background: var(--bg-inset);
   border: 1px solid var(--border);
@@ -1131,7 +1131,7 @@ button.back-btn:hover:not(:disabled)::before {
 }
 .route-edge {
   stroke: var(--border);
-  stroke-width: 0.6;
+  stroke-width: 2.5;
   stroke-linecap: round;
 }
 .route-node {
@@ -1146,7 +1146,7 @@ button.back-btn:hover:not(:disabled)::before {
 .route-node-dot {
   fill: var(--bg-chip);
   stroke: rgba(0, 0, 0, 0.4);
-  stroke-width: 0.9;
+  stroke-width: 3.5;
   transition: fill 0.15s ease, stroke 0.15s ease;
 }
 .route-node-glyph {
@@ -1167,12 +1167,12 @@ button.back-btn:hover:not(:disabled)::before {
 .route-node-available .route-node-dot {
   fill: var(--accent);
   stroke: #fff;
-  stroke-width: 1;
+  stroke-width: 4;
 }
 .route-node-available:hover .route-node-dot,
 .route-node-available:focus .route-node-dot {
-  stroke-width: 1.6;
-  filter: drop-shadow(0 0 3px var(--highlight));
+  stroke-width: 6;
+  filter: drop-shadow(0 0 10px var(--highlight));
 }
 .route-node-caught .route-node-dot {
   fill: var(--success);
