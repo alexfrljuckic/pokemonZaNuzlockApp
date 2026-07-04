@@ -105,6 +105,11 @@ consolidated elsewhere.
   picked; added `SpecialEncounter.conditions.version` (mirrors the existing
   `EncounterSlot` pattern) to fix it, cross-game.
 
-All five sections of the UX overhaul are now merged. See BACKLOG.md for what's next
-(item 14/15 starter feature done; remaining: SV/PLA datasets, "Known gaps" cleanup items,
-new UX ideas as they come up).
+**This plan is COMPLETE and closed (2026-07-04).** All five sections plus the
+cross-game follow-ups are merged; the 2026-07-04 UX feedback rounds (starter
+flow in the game picker, per-area gifts, active-rules summary, Boss Fights
+rename, font-size pass, condensed picker tiles, PLA dataset, Kanto map,
+per-game movepools) shipped as PRs #42-#47. This file is kept for the design
+constraints up top (IP caution, trainer IV/EV sourcing, engine purity) —
+those still apply to all future UI work. For what's next, see
+`docs/BACKLOG.md`, which is now the single tracker.
