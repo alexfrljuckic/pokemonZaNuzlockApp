@@ -1,73 +1,34 @@
 # Backlog
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
-`docs/nuzlocke-tracker-plan.md`. Last reconciled with git history: 2026-07-04
-(evening) — when in doubt, trust `git log --oneline --merges main` over this
-file's checkboxes; it has drifted before.
+`docs/nuzlocke-tracker-plan.md`. Last reconciled with git history: 2026-07-05
+(PRs #52-#68 merged) — when in doubt, trust `git log --oneline --merges main`
+over this file's checkboxes; it has drifted before.
 
-## In flight right now (2026-07-04)
+## In flight right now (2026-07-05)
 
-- **PR #46 — Kanto map calibration touch-up** (awaiting Alex's merge).
-  Cerulean Cave / Power Plant / Rock Tunnel node nudges; the fix commit
-  originally landed on #45's branch after that PR was already merged, so it
-  was cherry-picked out.
-- **PR #47 — per-game movepools** (awaiting Alex's merge). Move pickers now
-  scoped to each game's generation via the new `pokeapiVersionGroups`
-  dataset field + `movesByGame` in generated species data. Z-A falls back to
-  the all-games union (PokeAPI has zero move data for it).
-- **Impossible-species audit** (running in its own session; will open a PR).
-  The per-game movepool slicing surfaced likely-hallucinated encounter
-  entries: Gen 5/6 species (roggenrola, fletchling, munna, spritzee, swirlix)
-  in BDSP's Grand Underground hideaways despite BDSP's Sinnoh-only dex, and
-  graveler in SwSh (Geodude line isn't in the Galar dex). Verify against
-  Serebii, remove/replace. Also confirms the 23 PLA species with no
-  legends-arceus move data in PokeAPI are dataset-correct (most are really in
-  PLA — that's a PokeAPI coverage gap, fallback already handles it).
+- **BDSP per-route trainers data PR** (Wave-3 data pass #1). The foundation
+  (schema `trainers` on areas + validator guards + TrainersHere UI) merged in
+  #68; Serebii/Bulbapedia trainer research for BDSP is done and being
+  authored into bdsp.json. One game per data PR after that.
 
 ## Next up (no decision needed — pick one and go)
 
-**15a. Feature + data-completeness round (Alex, 2026-07-04 late — PLANNED,
-start here next session).** Full plan with the measured gap matrix, priority
-order, and what can run in parallel: **`docs/FEATURE-DATA-ROUND.md`**. Start
-with the F-items (small app features) and launch the Wave-1 data agents in
-parallel. Sequencing note: F3 (theme-follows-game) touches `theme.ts` +
-`RunPicker.tsx`, which consolidation item C1 also rewrites — do F3 before or
-with C1, not after.
-
-**15b. Consolidation round — BEFORE item 16 (Alex, 2026-07-04): do this
-first.** Full assessment in `docs/CONSOLIDATION.md`: 8 PR-sized items (C1-C8)
-to consolidate per-game plumbing and share components across games before
-another game lands. Priority order there — headline items: C1 single
-per-game app-config module (game registration currently touches 6 scattered
-files), C2 spectator-view parity via component reuse (it's a parallel
-implementation that's fallen behind every feature since UX section B).
-Hosting for friends is documented in `docs/DEPLOY.md` (refreshed same day).
-
-**16. `feat/sv-dataset` — Scarlet/Violet.** The last unbuilt game. Biggest
-remaining dataset lift: Paldea areas/encounters from Serebii/Bulbapedia,
-milestones for all three story paths (8 gyms w/ Victory Road, 5 Titans, 5
-Team Star bases, plus finale battles), starters (Sprigatito/Fuecoco/Quaxly)
-as `starter-*` specials, `pokeapiVersionGroups: ["scarlet-violet", "the-teal-mask",
-"the-indigo-disk"]`. Acceptance: same bar as the PLA dataset PR (#44) —
-validator green, sources cited per area, lower-confidence areas flagged
-explicitly, registered in datasets.ts + version mascots + theme.
-
-**17. PLA follow-ups from PR #44** (small, independent):
-  - Add the Kamado battle (Hisuian Braviary/Golem/Clefable/Snorlax, Lv 61-62,
-    before the Volo finale) as a milestone — researched and cross-checked in
-    the #44 session but intentionally left out of that pass. Decide
-    `countsForLevelCap` (probably true — it's a real story gate).
-  - Verify the sub-location pins flagged lower-confidence in the PR body
-    (some Hisuian-form spawn locations came from secondary guides).
-
-**18. Route maps for the remaining games.** The map system is now cross-game
+**18. Route maps for the remaining games.** The map system is cross-game
 (`apps/web/src/lib/maps/` registry — adding a game = one map file + one
-registry line + a backdrop image in `public/maps/`; see the README there).
-BDSP (Sinnoh) and LGPE (Kanto) are done. Remaining, each its own small PR
-once an IP-safe backdrop exists: **PLA (Hisui)**, **SwSh (Galar)**,
-**Z-A (Lumiose)**. Node calibration lesson from Kanto: do a live pass with
-the debug overlay (temporarily stroke the `.route-region` rects) before
-opening the PR.
+registry line + a backdrop image in `public/maps/`). BDSP (Sinnoh) and LGPE
+(Kanto) are done. Remaining, each its own small PR once an IP-safe backdrop
+exists: **SwSh (Galar — a galar.jpg backdrop candidate already sits
+uncommitted in public/maps)**, **SV (Paldea)**, **PLA (Hisui)**, **Z-A
+(Lumiose)**. Node calibration lesson from Kanto: do a live pass with the
+debug overlay (temporarily stroke the `.route-region` rects) before opening
+the PR. Also pending: the same live pass on the LGPE nodes added for routes
+7-25 + Victory Road in #52 (first-pass banner reads).
+
+**19. Wave-3 trainer data passes** (after BDSP lands): LGPE, SwSh, SV — one
+game per PR, Serebii/Bulbapedia-sourced, species+levels first (moves/items
+only where documented; never invented). PLA/Z-A have few or no classic route
+trainers.
 
 ## Deferred / low priority (unchanged)
 
@@ -101,6 +62,21 @@ rebuild from real Serebii data (#43); **Legends Arceus dataset (#44)**;
 **cross-game route map + LGPE Kanto map + starter version-scoping (#45)**.
 GitHub Actions secrets: set and verified 2026-07-03 (keep-alive/backup
 workflows green). `v1-import` dropped 2026-07-03.
+
+2026-07-04/05 sweep (PRs #46-#68): Kanto calibration (#46); per-game
+movepools (#47); docs reorg (#48); phantom-species audit (#49); consolidation
+plan + hosting docs (#50); **Wave-1 data (#52-#56)** — LGPE 10 missing routes
++ Victory Road + map nodes, LGPE rosters (rosterByStarter champion), PLA
+movesets + Kamado, SwSh roster moves+abilities, Z-A rosters (13/35
+well-sourced); **F1-F3 app features (#57)** — end-run-anytime, 1060px desktop,
+theme-follows-game; **validator guards (#58)** — roster-move slugs +
+rostersRequired; **machinesByGame (#59)** — per-game TM/HM/TR tags;
+**consolidation C1-C8 (#60, #63-#67)** — games/<id>.ts config modules,
+spectator parity via shared read-only components, RoutesTab split + atoms,
+engine selectors, web vitest harness (20 tests), data-driven trainerSprite;
+**Scarlet/Violet (#61-#62)** — 6th game, 16 areas / 29 milestones, teraType,
+version-split finale/titan via milestonesFor; **Wave-3 trainers foundation
+(#68)**. Repo moved off OneDrive to C:\dev\nuzlocke-app (worktree locks).
 
 ## Standing rules for every PR
 
