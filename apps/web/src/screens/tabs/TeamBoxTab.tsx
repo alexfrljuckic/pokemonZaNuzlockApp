@@ -213,7 +213,8 @@ export function TeamBoxTab({
                 onClick={() => setBoxSelection(p.id === boxSelection ? null : p.id)}
                 title={`${p.nickname} (${p.species}, Lv ${p.level})`}
               >
-                <SpriteImg species={p.species} size={56} />
+                <SpriteImg species={p.species} size={72} />
+                <span className="box-slot-lv muted">Lv{p.level}</span>
               </button>
             ))}
           </div>

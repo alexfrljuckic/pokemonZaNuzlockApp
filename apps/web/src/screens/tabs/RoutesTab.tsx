@@ -3,11 +3,23 @@ import { filterEncounterPool, type Area, type EncounterSlot, type EngineContext,
 import { appendEvent } from '../../lib/db';
 import { hasMapNode } from '../../lib/sinnohMap';
 import { RouteMap } from '../../components/RouteMap';
+import { SpriteImg } from '../../components/SpriteImg';
 
 type Outcome = 'caught' | 'failed' | 'skipped';
 
 function isUnlocked(area: Area, state: RunState) {
   return !area.unlockAfter || state.milestonesCleared.includes(area.unlockAfter);
+}
+
+/** Unique species in pool order, with their catch method(s). */
+function uniqueSlots(pool: EncounterSlot[]): { species: string; methods: string }[] {
+  const byId = new Map<string, string[]>();
+  for (const slot of pool) {
+    const cur = byId.get(slot.species) ?? [];
+    for (const m of slot.methods) if (!cur.includes(m)) cur.push(m);
+    byId.set(slot.species, cur);
+  }
+  return [...byId].map(([species, methods]) => ({ species, methods: methods.join('/') }));
 }
 
 function EncounterForm({
@@ -17,24 +29,39 @@ function EncounterForm({
   pool: EncounterSlot[];
   onResolve: (species: string, outcome: Outcome, nickname?: string, level?: number) => void;
 }) {
-  const [species, setSpecies] = useState(pool[0]?.species ?? '');
+  const slots = uniqueSlots(pool);
+  const [species, setSpecies] = useState(slots[0]?.species ?? '');
   const [nickname, setNickname] = useState('');
   const [level, setLevel] = useState('5');
 
   return (
     <div className="encounter-form">
-      <label>Species</label>
-      <select value={species} onChange={(e) => setSpecies(e.target.value)}>
-        {pool.map((slot, i) => (
-          <option key={`${slot.species}-${i}`} value={slot.species}>
-            {slot.species} ({slot.methods.join('/')})
-          </option>
+      <p className="encounter-hint">Tap what you encountered:</p>
+      <div className="encounter-grid">
+        {slots.map((slot) => (
+          <button
+            key={slot.species}
+            type="button"
+            className={`encounter-slot${slot.species === species ? ' selected' : ''}`}
+            onClick={() => setSpecies(slot.species)}
+            title={`${slot.species} (${slot.methods})`}
+          >
+            <SpriteImg species={slot.species} size={72} />
+            <span className="encounter-slot-name">{slot.species}</span>
+            <span className="encounter-slot-method muted">{slot.methods}</span>
+          </button>
         ))}
-      </select>
-      <label>Nickname</label>
-      <input type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder={species} />
-      <label>Level</label>
-      <input type="text" inputMode="numeric" value={level} onChange={(e) => setLevel(e.target.value)} />
+      </div>
+      <div className="encounter-fields">
+        <label>
+          Nickname
+          <input type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} placeholder={species} />
+        </label>
+        <label>
+          Level
+          <input type="text" inputMode="numeric" value={level} onChange={(e) => setLevel(e.target.value)} />
+        </label>
+      </div>
       <div className="encounter-actions">
         <button onClick={() => onResolve(species, 'caught', nickname || species, Number(level) || 1)}>Caught</button>
         <button className="secondary" onClick={() => onResolve(species, 'failed')}>
