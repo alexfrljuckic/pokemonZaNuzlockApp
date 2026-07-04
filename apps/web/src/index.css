@@ -659,6 +659,28 @@ button:disabled {
   font-size: 0.72rem;
   text-transform: capitalize;
 }
+.mrd-weak {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.mrd-weak-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-right: 0.1rem;
+}
+.mrd-weak-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+.mrd-weak-x {
+  font-size: 0.55rem;
+  font-weight: 800;
+  color: var(--danger);
+}
 
 /* horizontal stat bars — readable at a glance, uses the card width */
 .poke-statbars {

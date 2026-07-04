@@ -12,9 +12,10 @@ import {
 import { appendEvent } from '../../lib/db';
 import { STAT_ORDER, moveType, statLabel, statsFor, typesFor } from '../../lib/speciesData';
 import { trainerKeyFromMilestone } from '../../lib/sprites';
+import { weaknesses } from '../../lib/typeChart';
 import { SpriteImg } from '../../components/SpriteImg';
 import { TrainerSprite } from '../../components/TrainerSprite';
-import { TypeBadges, TypeDot } from '../../components/TypeBadge';
+import { TypeBadge, TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function MilestoneCard({
   milestone,
@@ -91,6 +92,21 @@ function MilestoneCard({
                     )}
                   </div>
                 </div>
+                {(() => {
+                  const weak = weaknesses(typesFor(p.species));
+                  if (weak.length === 0) return null;
+                  return (
+                    <div className="mrd-weak">
+                      <span className="mrd-weak-label muted">Weak to</span>
+                      {weak.map((w) => (
+                        <span key={w.type} className="mrd-weak-item">
+                          <TypeBadge type={w.type} />
+                          {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
+                        </span>
+                      ))}
+                    </div>
+                  );
+                })()}
                 {p.moves && p.moves.length > 0 && (
                   <div className="poke-moves">
                     {p.moves.map((mv) => (

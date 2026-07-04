@@ -3,9 +3,10 @@ import type { EngineContext, PokemonInstance, RunState } from '@nuzlocke/engine'
 import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
 import { HELD_ITEMS, evolutionSummary, machineType, moveType, movesFor, typesFor } from '../../lib/speciesData';
+import { weaknesses } from '../../lib/typeChart';
 import { SpriteImg } from '../../components/SpriteImg';
 import { Combobox } from '../../components/Combobox';
-import { TypeBadges, TypeDot } from '../../components/TypeBadge';
+import { TypeBadge, TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function EditForm({
   p,
@@ -129,6 +130,21 @@ function PokemonDetail({
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
           <TypeBadges types={typesFor(p.species)} />
+          {(() => {
+            const weak = weaknesses(typesFor(p.species));
+            if (weak.length === 0) return null;
+            return (
+              <span className="mrd-weak">
+                <span className="mrd-weak-label muted">Weak to</span>
+                {weak.map((w) => (
+                  <span key={w.type} className="mrd-weak-item">
+                    <TypeBadge type={w.type} />
+                    {w.x >= 4 && <span className="mrd-weak-x">×4</span>}
+                  </span>
+                ))}
+              </span>
+            );
+          })()}
           <span className="muted">{p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}</span>
           {evolutionSummary(p.species) && (
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
