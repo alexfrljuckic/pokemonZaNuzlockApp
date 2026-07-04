@@ -1107,10 +1107,17 @@ button.back-btn:hover:not(:disabled)::before {
 .poke-edit-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 0 0.75rem;
+  gap: 0.6rem 0.75rem;
 }
 
-.poke-edit-grid label { margin-top: 0.25rem; }
+.poke-edit-grid label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+}
+.poke-edit-grid label input,
+.poke-edit-grid label .combobox { margin-top: 0; }
 
 .poke-edit-moves {
   display: grid;
@@ -1120,6 +1127,56 @@ button.back-btn:hover:not(:disabled)::before {
 }
 
 .poke-edit-moves input { margin-top: 0; }
+
+/* Combobox: input + our own positioned suggestion list (not native datalist) */
+.combobox { position: relative; }
+.combobox input { width: 100%; margin: 0; }
+.combobox-list {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  right: 0;
+  z-index: 40;
+  max-height: 220px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0.2rem;
+  list-style: none;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lift);
+}
+.combobox-option {
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+.combobox-option.active { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+.shiny-toggle {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.35rem !important;
+}
+.shiny-toggle input { width: auto; flex: none; }
+.shiny-star { color: var(--warning-strong, #f0883e); }
+
+.route-caught-here { margin: 0.4rem 0; }
+.route-caught-mon {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+}
+.route-caught-mon img { image-rendering: pixelated; }
+
+.milestone-trainer-sprite {
+  align-self: center;
+  max-height: 52px;
+}
 
 /* PC box: framed sprite grid */
 .box-grid {

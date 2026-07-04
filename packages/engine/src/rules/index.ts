@@ -78,6 +78,18 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: {},
     hooks: [],
   },
+  'shiny-clause': {
+    id: 'shiny-clause',
+    name: 'Shiny Clause',
+    description:
+      'A shiny wild Pokémon may always be caught and kept, even if another rule (dupes, first-encounter) would skip it. Mark shinies on the encounter screen.',
+    category: 'honor',
+    appliesTo: 'all',
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
 };
 
 // ---------- Presets ----------

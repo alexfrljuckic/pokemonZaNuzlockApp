@@ -105,7 +105,7 @@ export interface Ruleset {
 
 export type RunEvent =
   | { seq: number; at: string; type: 'run_started'; payload: { gameId: string; version: string; ruleset: Ruleset } }
-  | { seq: number; at: string; type: 'encounter_resolved'; payload: { areaId: string; species: string; outcome: 'caught' | 'failed' | 'skipped'; pokemonId?: string; nickname?: string; level?: number } }
+  | { seq: number; at: string; type: 'encounter_resolved'; payload: { areaId: string; species: string; outcome: 'caught' | 'failed' | 'skipped'; pokemonId?: string; nickname?: string; level?: number; shiny?: boolean } }
   | { seq: number; at: string; type: 'encounter_reset'; payload: { areaId: string } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
@@ -128,6 +128,10 @@ export interface PokemonInstance {
   status: 'party' | 'box' | 'dead';
   origin: { areaId?: string; specialId?: string; imported?: boolean };
   death?: { at: string; cause?: string; killer?: string; milestoneId?: string };
+  heldItem?: string;
+  moves?: string[];
+  nature?: string;
+  shiny?: boolean;
 }
 
 export interface RuleChangeRecord {

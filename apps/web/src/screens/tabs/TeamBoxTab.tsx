@@ -4,6 +4,7 @@ import { appendEvent } from '../../lib/db';
 import { NATURES } from '../../lib/sprites';
 import { HELD_ITEMS, evolutionSummary, movesFor } from '../../lib/speciesData';
 import { SpriteImg } from '../../components/SpriteImg';
+import { Combobox } from '../../components/Combobox';
 
 function EditForm({
   p,
@@ -21,8 +22,6 @@ function EditForm({
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
   const movePool = movesFor(p.species);
-  const heldListId = 'held-items-list';
-  const moveListId = `moves-${p.species}`;
 
   async function save() {
     setSaving(true);
@@ -58,18 +57,7 @@ function EditForm({
         </label>
         <label>
           Held item
-          <input
-            type="text"
-            list={heldListId}
-            value={heldItem}
-            onChange={(e) => setHeldItem(e.target.value)}
-            placeholder="none"
-          />
-          <datalist id={heldListId}>
-            {HELD_ITEMS.map((it) => (
-              <option key={it} value={it} />
-            ))}
-          </datalist>
+          <Combobox value={heldItem} onChange={setHeldItem} options={HELD_ITEMS} placeholder="none" />
         </label>
         <label>
           Nature
@@ -86,22 +74,14 @@ function EditForm({
       <label>Moves</label>
       <div className="poke-edit-moves">
         {moves.map((m, i) => (
-          <input
+          <Combobox
             key={i}
-            type="text"
-            list={movePool.length ? moveListId : undefined}
             value={m}
+            onChange={(v) => setMoves(moves.map((old, j) => (j === i ? v : old)))}
+            options={movePool}
             placeholder={`Move ${i + 1}`}
-            onChange={(e) => setMoves(moves.map((old, j) => (j === i ? e.target.value : old)))}
           />
         ))}
-        {movePool.length > 0 && (
-          <datalist id={moveListId}>
-            {movePool.map((mv) => (
-              <option key={mv} value={mv} />
-            ))}
-          </datalist>
-        )}
       </div>
       <button onClick={save} disabled={saving}>
         {saving ? 'Saving…' : 'Save'}
@@ -126,9 +106,12 @@ function PokemonDetail({
   return (
     <div className="poke-detail">
       <div className="poke-detail-head">
-        <SpriteImg species={p.species} size={72} className={p.status === 'dead' ? 'sprite-dead' : ''} />
+        <SpriteImg species={p.species} size={72} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
         <div className="poke-detail-summary">
-          <strong>{p.nickname}</strong>
+          <strong>
+            {p.nickname}
+            {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
+          </strong>
           <span className="muted">
             {p.species} · Lv {p.level}
             {p.nature ? ` · ${p.nature}` : ''}
@@ -237,10 +220,13 @@ export function TeamBoxTab({
                 key={p.id}
                 className={`box-slot${p.id === boxSelection ? ' selected' : ''}`}
                 onClick={() => setBoxSelection(p.id === boxSelection ? null : p.id)}
-                title={`${p.nickname} (${p.species}, Lv ${p.level})`}
+                title={`${p.nickname} (${p.species}, Lv ${p.level})${p.shiny ? ' ✦ shiny' : ''}`}
               >
-                <SpriteImg species={p.species} size={72} />
-                <span className="box-slot-lv muted">Lv{p.level}</span>
+                <SpriteImg species={p.species} size={72} shiny={p.shiny} />
+                <span className="box-slot-lv muted">
+                  Lv{p.level}
+                  {p.shiny && <span className="shiny-star"> ✦</span>}
+                </span>
               </button>
             ))}
           </div>

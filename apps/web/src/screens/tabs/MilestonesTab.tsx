@@ -2,7 +2,9 @@ import { useState } from 'react';
 import { nextBoss, validateTeam, type EngineContext, type Milestone, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { STAT_ORDER, statLabel, statsFor } from '../../lib/speciesData';
+import { trainerKeyFromMilestone } from '../../lib/sprites';
 import { SpriteImg } from '../../components/SpriteImg';
+import { TrainerSprite } from '../../components/TrainerSprite';
 
 function MilestoneCard({
   milestone,
@@ -34,6 +36,7 @@ function MilestoneCard({
       }}
     >
       <div className="milestone-card-head">
+        <TrainerSprite trainerKey={trainerKeyFromMilestone(milestone.id)} size={52} className="milestone-trainer-sprite" />
         <div className="milestone-card-title">
           <strong>{milestone.name}</strong>
           <span className="muted">

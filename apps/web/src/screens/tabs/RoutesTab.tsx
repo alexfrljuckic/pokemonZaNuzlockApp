@@ -7,8 +7,40 @@ import { SpriteImg } from '../../components/SpriteImg';
 
 type Outcome = 'caught' | 'failed' | 'skipped';
 
-function isUnlocked(area: Area, state: RunState) {
-  return !area.unlockAfter || state.milestonesCleared.includes(area.unlockAfter);
+// Routes are always interactable — unlock gating is intentionally not enforced
+// in the UI (players track ahead of story order freely). unlockAfter stays in
+// the data for reference/other features.
+function isUnlocked(_area: Area, _state: RunState) {
+  return true;
+}
+
+/** The Pokémon (if any) currently owned that were caught in this area. */
+function caughtHere(areaId: string, state: RunState) {
+  return Object.values(state.pokemon).filter((p) => p.origin?.areaId === areaId);
+}
+
+function CaughtHere({ areaId, state }: { areaId: string; state: RunState }) {
+  const mons = caughtHere(areaId, state);
+  if (mons.length === 0) return null;
+  return (
+    <div className="route-caught-here">
+      {mons.map((p) => (
+        <div key={p.id} className="route-caught-mon">
+          <SpriteImg species={p.species} size={48} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
+          <div className="poke-detail-summary">
+            <strong>
+              {p.nickname}
+              {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
+            </strong>
+            <span className="muted">
+              {p.species} · Lv {p.level} · {p.status === 'dead' ? 'fainted' : p.status}
+              {p.heldItem ? ` · ${p.heldItem}` : ''}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 /** Unique species in pool order, with their catch method(s). */
@@ -27,12 +59,13 @@ function EncounterForm({
   onResolve,
 }: {
   pool: EncounterSlot[];
-  onResolve: (species: string, outcome: Outcome, nickname?: string, level?: number) => void;
+  onResolve: (species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) => void;
 }) {
   const slots = uniqueSlots(pool);
   const [species, setSpecies] = useState(slots[0]?.species ?? '');
   const [nickname, setNickname] = useState('');
   const [level, setLevel] = useState('5');
+  const [shiny, setShiny] = useState(false);
 
   return (
     <div className="encounter-form">
@@ -46,7 +79,7 @@ function EncounterForm({
             onClick={() => setSpecies(slot.species)}
             title={`${slot.species} (${slot.methods})`}
           >
-            <SpriteImg species={slot.species} size={72} />
+            <SpriteImg species={slot.species} size={72} shiny={shiny} />
             <span className="encounter-slot-name">{slot.species}</span>
             <span className="encounter-slot-method muted">{slot.methods}</span>
           </button>
@@ -61,9 +94,15 @@ function EncounterForm({
           Level
           <input type="text" inputMode="numeric" value={level} onChange={(e) => setLevel(e.target.value)} />
         </label>
+        <label className="shiny-toggle">
+          <input type="checkbox" checked={shiny} onChange={(e) => setShiny(e.target.checked)} />
+          Shiny ✦
+        </label>
       </div>
       <div className="encounter-actions">
-        <button onClick={() => onResolve(species, 'caught', nickname || species, Number(level) || 1)}>Caught</button>
+        <button onClick={() => onResolve(species, 'caught', nickname || species, Number(level) || 1, shiny)}>
+          Caught
+        </button>
         <button className="secondary" onClick={() => onResolve(species, 'failed')}>
           Failed
         </button>
@@ -91,44 +130,42 @@ function AreaList({
   ctx: EngineContext;
   openAreaId: string | null;
   setOpenAreaId: (id: string | null) => void;
-  onResolve: (area: Area, species: string, outcome: Outcome, nickname?: string, level?: number) => void;
+  onResolve: (area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) => void;
   onReset: (area: Area) => void;
 }) {
   return (
     <>
       {areas.map((area) => {
-        const unlocked = isUnlocked(area, state);
         const outcome = state.encounterOutcomes[area.id];
-        const pool = unlocked && !outcome ? filterEncounterPool(state, area, ctx) : [];
-        // clickable to open the encounter picker (unresolved) or the reset (resolved)
-        const clickable = unlocked;
+        const pool = !outcome ? filterEncounterPool(state, area, ctx) : [];
 
         return (
           <div key={area.id} className="area-row">
             <div
               className="area-row-header"
-              onClick={() => clickable && setOpenAreaId(openAreaId === area.id ? null : area.id)}
-              style={{ cursor: clickable ? 'pointer' : 'default' }}
+              onClick={() => setOpenAreaId(openAreaId === area.id ? null : area.id)}
+              style={{ cursor: 'pointer' }}
             >
               <span>{area.name}</span>
-              {!unlocked && <span className="muted">locked</span>}
               {outcome && <span className={`outcome-${outcome}`}>{outcome}</span>}
-              {!outcome && unlocked && <span className="muted">{pool.length} available</span>}
+              {!outcome && <span className="muted">{pool.length} available</span>}
             </div>
             {openAreaId === area.id &&
               (outcome ? (
                 <div className="route-resolved-body">
-                  <p className="muted">
-                    Resolved ({outcome}). Resetting clears the outcome and removes any Pokémon caught here.
+                  <p>
+                    Resolved — <span className={`outcome-${outcome}`}>{outcome}</span>.
                   </p>
+                  <CaughtHere areaId={area.id} state={state} />
+                  <p className="muted">Resetting clears the outcome and removes any Pokémon caught here.</p>
                   <button className="secondary route-reset-btn" onClick={() => onReset(area)}>
                     Reset route
                   </button>
                 </div>
               ) : pool.length > 0 ? (
-                <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl) => onResolve(area, sp, out, nick, lvl)} />
+                <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl, sh) => onResolve(area, sp, out, nick, lvl, sh)} />
               ) : (
-                <p className="muted">No legal encounters left here under the active ruleset.</p>
+                <p className="muted">No wild encounters documented here.</p>
               ))}
           </div>
         );
@@ -150,7 +187,7 @@ export function RoutesTab({
 }) {
   const [openAreaId, setOpenAreaId] = useState<string | null>(null);
 
-  async function resolve(area: Area, species: string, outcome: Outcome, nickname?: string, level?: number) {
+  async function resolve(area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) {
     await appendEvent(runId, {
       type: 'encounter_resolved',
       payload: {
@@ -160,6 +197,7 @@ export function RoutesTab({
         pokemonId: outcome === 'caught' ? crypto.randomUUID() : undefined,
         nickname,
         level,
+        ...(shiny ? { shiny: true } : {}),
       },
     });
     setOpenAreaId(null);
@@ -217,6 +255,7 @@ export function RoutesTab({
                 This route is resolved — outcome:{' '}
                 <span className={`outcome-${selectedOutcome}`}>{selectedOutcome}</span>.
               </p>
+              <CaughtHere areaId={selected.id} state={state} />
               <p className="muted">
                 Resetting clears the outcome and removes any Pokémon caught here from your team, box and graveyard.
               </p>
@@ -225,9 +264,9 @@ export function RoutesTab({
               </button>
             </div>
           ) : selectedPool.length > 0 ? (
-            <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl) => resolve(selected, sp, out, nick, lvl)} />
+            <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)} />
           ) : (
-            <p className="muted">No legal encounters left here under the active ruleset.</p>
+            <p className="muted">No wild encounters documented here.</p>
           )}
         </div>
       )}

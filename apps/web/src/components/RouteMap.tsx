@@ -8,8 +8,8 @@ type NodeState = 'locked' | 'available' | 'caught' | 'failed' | 'skipped';
 function nodeStateFor(area: Area, state: RunState): NodeState {
   const outcome = state.encounterOutcomes[area.id];
   if (outcome) return outcome as NodeState;
-  const locked = area.unlockAfter && !state.milestonesCleared.includes(area.unlockAfter);
-  return locked ? 'locked' : 'available';
+  // Routes are never locked in the UI — every area is interactable at any time.
+  return 'available';
 }
 
 /** Unique species present in an area for the active version — the at-a-glance

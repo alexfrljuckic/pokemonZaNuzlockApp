@@ -38,6 +38,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
             level: ev.payload.level ?? 1,
             status: 'party',
             origin: { areaId: ev.payload.areaId },
+            ...(ev.payload.shiny ? { shiny: true } : {}),
           };
         }
         break;
