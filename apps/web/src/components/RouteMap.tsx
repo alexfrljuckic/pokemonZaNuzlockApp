@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Area, RunState } from '@nuzlocke/engine';
-import { NODE_SCALE, SINNOH_EDGES, SINNOH_NODES, SINNOH_VIEWBOX, mapNode } from '../lib/sinnohMap';
+import { SINNOH_EDGES, SINNOH_NODES, SINNOH_VIEWBOX, mapNode } from '../lib/sinnohMap';
 import { SpriteImg } from './SpriteImg';
 
 type NodeState = 'locked' | 'available' | 'caught' | 'failed' | 'skipped';
@@ -24,14 +24,10 @@ function previewSpecies(area: Area, version: string): string[] {
   return [...seen];
 }
 
-// Base radii in the original 216-wide space, scaled to the active viewBox.
-const RADIUS: Record<string, number> = {
-  city: 6 * NODE_SCALE,
-  town: 5 * NODE_SCALE,
-  landmark: 4.5 * NODE_SCALE,
-  forest: 4.5 * NODE_SCALE,
-  cave: 4.5 * NODE_SCALE,
-  route: 4 * NODE_SCALE,
+const BADGE_GLYPH: Partial<Record<NodeState, string>> = {
+  caught: '✓',
+  failed: '✕',
+  skipped: '–',
 };
 
 export function RouteMap({
@@ -47,9 +43,9 @@ export function RouteMap({
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
   // Optional backdrop: drop an image at apps/web/public/maps/sinnoh.png and it
-  // renders under the interactive nodes. If absent (404), we fall back to the
-  // drawn schematic. Node coordinates are calibrated to whatever backdrop is in
-  // place — see sinnohMap.ts.
+  // renders under the interactive regions. If absent (404), we fall back to
+  // drawing visible region boxes + connector edges. Region geometry is
+  // calibrated to whatever backdrop is in place — see sinnohMap.ts.
   const [bgOk, setBgOk] = useState(true);
 
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
@@ -61,7 +57,12 @@ export function RouteMap({
 
   return (
     <div className="route-map">
-      <svg viewBox={`0 0 ${w} ${h}`} className="route-map-svg" role="img" aria-label="Sinnoh route map">
+      <svg
+        viewBox={`0 0 ${w} ${h}`}
+        className={`route-map-svg${bgOk ? '' : ' route-map-no-bg'}`}
+        role="img"
+        aria-label="Sinnoh route map"
+      >
         {/* optional image backdrop (see sinnohMap.ts / public/maps) */}
         {bgOk && (
           <image
@@ -81,28 +82,36 @@ export function RouteMap({
             const a = mapNode(from);
             const b = mapNode(to);
             if (!a || !b) return null;
-            return <line key={`${from}-${to}`} className="route-edge" x1={a.x} y1={a.y} x2={b.x} y2={b.y} />;
+            return (
+              <line
+                key={`${from}-${to}`}
+                className="route-edge"
+                x1={a.x + a.w / 2}
+                y1={a.y + a.h / 2}
+                x2={b.x + b.w / 2}
+                y2={b.y + b.h / 2}
+              />
+            );
           })}
 
-        {/* nodes */}
+        {/* area regions — blend with the art at rest, highlight on hover */}
         {SINNOH_NODES.map((node) => {
           const area = areaById.get(node.id);
           if (!area) return null;
           const st = nodeStateFor(area, state);
-          const r = RADIUS[node.kind] ?? 2;
           const interactive = st === 'available';
+          const badge = BADGE_GLYPH[st];
           return (
             <g
               key={node.id}
-              className={`route-node route-node-${st} route-kind-${node.kind}`}
-              transform={`translate(${node.x} ${node.y})`}
+              className={`route-region-g route-region-${st}`}
               tabIndex={interactive ? 0 : -1}
               role={interactive ? 'button' : undefined}
               aria-label={`${area.name}${interactive ? ' — resolve encounter' : ` (${st})`}`}
               onMouseEnter={() => setHovered(node.id)}
-              onMouseLeave={() => setHovered((h) => (h === node.id ? null : h))}
+              onMouseLeave={() => setHovered((cur) => (cur === node.id ? null : cur))}
               onFocus={() => setHovered(node.id)}
-              onBlur={() => setHovered((h) => (h === node.id ? null : h))}
+              onBlur={() => setHovered((cur) => (cur === node.id ? null : cur))}
               onClick={() => interactive && onSelect(node.id)}
               onKeyDown={(e) => {
                 if (interactive && (e.key === 'Enter' || e.key === ' ')) {
@@ -111,13 +120,13 @@ export function RouteMap({
                 }
               }}
             >
-              {/* white halo ring for contrast over the bright map backdrop */}
-              <circle className="route-node-halo" r={r + 1.4 * NODE_SCALE} />
-              <circle className="route-node-dot" r={r} />
-              {st === 'locked' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.1}>🔒</text>}
-              {st === 'caught' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>✓</text>}
-              {st === 'failed' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>✕</text>}
-              {st === 'skipped' && <text className="route-node-glyph" y={r * 0.5} fontSize={r * 1.3}>–</text>}
+              <rect className="route-region" x={node.x} y={node.y} width={node.w} height={node.h} rx={10} />
+              {badge && (
+                <g className="route-region-badge" transform={`translate(${node.x + node.w - 12} ${node.y + 12})`}>
+                  <circle r={11} />
+                  <text y={4.5} fontSize={14}>{badge}</text>
+                </g>
+              )}
             </g>
           );
         })}
@@ -126,7 +135,10 @@ export function RouteMap({
       {hoveredArea && hoveredNode && (
         <div
           className="route-tip"
-          style={{ left: `${(hoveredNode.x / w) * 100}%`, top: `${(hoveredNode.y / h) * 100}%` }}
+          style={{
+            left: `${((hoveredNode.x + hoveredNode.w / 2) / w) * 100}%`,
+            top: `${(hoveredNode.y / h) * 100}%`,
+          }}
         >
           <div className="route-tip-head">
             <strong>{hoveredArea.name}</strong>

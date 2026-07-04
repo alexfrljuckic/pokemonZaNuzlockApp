@@ -1134,61 +1134,87 @@ button.back-btn:hover:not(:disabled)::before {
   stroke-width: 2.5;
   stroke-linecap: round;
 }
-.route-node {
+/* Regions blend with the map art at rest and light up on hover. */
+.route-region-g {
   outline: none;
 }
-.route-node-halo {
+.route-region {
+  fill: transparent;
+  stroke: transparent;
+  stroke-width: 3;
+  transition: fill 0.15s ease, fill-opacity 0.15s ease, stroke 0.15s ease;
+}
+/* available: faint tint so open areas are spottable, stronger on hover */
+.route-region-available {
+  cursor: pointer;
+}
+.route-region-available .route-region {
+  fill: var(--highlight);
+  fill-opacity: 0.16;
+}
+.route-region-available:hover .route-region,
+.route-region-available:focus .route-region {
+  fill-opacity: 0.34;
+  stroke: #fff;
+}
+/* locked: invisible at rest, dims gently on hover */
+.route-region-locked .route-region {
+  fill: #000;
+  fill-opacity: 0;
+}
+.route-region-locked:hover .route-region {
+  fill-opacity: 0.22;
+}
+/* resolved: whisper of a tint + a corner badge */
+.route-region-caught .route-region {
+  fill: var(--success);
+  fill-opacity: 0.12;
+}
+.route-region-failed .route-region {
+  fill: var(--danger);
+  fill-opacity: 0.12;
+}
+.route-region-skipped .route-region {
+  fill: #000;
+  fill-opacity: 0.1;
+}
+.route-region-caught:hover .route-region,
+.route-region-failed:hover .route-region,
+.route-region-skipped:hover .route-region {
+  fill-opacity: 0.26;
+}
+.route-region-badge circle {
   fill: rgba(255, 255, 255, 0.92);
+  stroke: rgba(0, 0, 0, 0.25);
+  stroke-width: 1.5;
 }
-.route-node-locked .route-node-halo {
-  fill: rgba(255, 255, 255, 0.5);
-}
-.route-node-dot {
-  fill: var(--bg-chip);
-  stroke: rgba(0, 0, 0, 0.4);
-  stroke-width: 3.5;
-  transition: fill 0.15s ease, stroke 0.15s ease;
-}
-.route-node-glyph {
+.route-region-badge text {
   text-anchor: middle;
-  fill: #fff;
+  font-weight: 700;
   pointer-events: none;
   user-select: none;
 }
-.route-node-locked {
-  opacity: 0.75;
-}
-.route-node-locked .route-node-dot {
-  fill: var(--bg-chip);
-}
-.route-node-available {
-  cursor: pointer;
-}
-.route-node-available .route-node-dot {
-  fill: var(--accent);
-  stroke: #fff;
-  stroke-width: 4;
-}
-.route-node-available:hover .route-node-dot,
-.route-node-available:focus .route-node-dot {
-  stroke-width: 6;
-  filter: drop-shadow(0 0 10px var(--highlight));
-}
-.route-node-caught .route-node-dot {
+.route-region-caught .route-region-badge text {
   fill: var(--success);
-  stroke: var(--success);
 }
-.route-node-failed .route-node-dot {
+.route-region-failed .route-region-badge text {
   fill: var(--danger);
-  stroke: var(--danger);
 }
-.route-node-skipped .route-node-dot {
+.route-region-skipped .route-region-badge text {
   fill: var(--muted);
-  stroke: var(--muted);
 }
-.route-node-caught .route-node-glyph,
-.route-node-failed .route-node-glyph {
-  fill: var(--accent-text, #fff);
+/* fallback mode (no backdrop image): make regions visible boxes */
+.route-map-no-bg .route-region {
+  fill: var(--bg-chip);
+  fill-opacity: 1;
+  stroke: var(--border);
+}
+.route-map-no-bg .route-region-available .route-region {
+  fill: var(--accent);
+}
+.route-map-no-bg .route-region-locked .route-region {
+  fill: var(--bg-chip);
+  fill-opacity: 0.5;
 }
 
 .route-tip {
