@@ -5,15 +5,17 @@
    stripped, while regional forms (stunfisk-galar) keep theirs — the <img>
    onError fallback in SpriteImg tries the stripped variant automatically. */
 
+// Showdown keeps shiny sprites in a sibling dir (gen5-shiny), not a subfolder.
 const BASE = 'https://play.pokemonshowdown.com/sprites/gen5';
+const BASE_SHINY = 'https://play.pokemonshowdown.com/sprites/gen5-shiny';
 const TRAINERS = 'https://play.pokemonshowdown.com/sprites/trainers';
 
 export function spriteUrl(species: string, shiny = false): string {
-  return `${BASE}${shiny ? '/shiny' : ''}/${species}.png`;
+  return `${shiny ? BASE_SHINY : BASE}/${species}.png`;
 }
 
 export function spriteFallbackUrl(species: string, shiny = false): string {
-  return `${BASE}${shiny ? '/shiny' : ''}/${species.replace(/-/g, '')}.png`;
+  return `${shiny ? BASE_SHINY : BASE}/${species.replace(/-/g, '')}.png`;
 }
 
 /** Trainer sprite from Showdown's community CDN — same source as the Pokémon

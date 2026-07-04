@@ -1,8 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 
-/** Lightweight autocomplete: a text input with a filtered suggestion list we
- * position ourselves (native <datalist> popups render unreliably). Free text is
- * always allowed — options are suggestions, not a hard constraint. */
+/** Lightweight autocomplete: a text input with a filtered suggestion list.
+ * The list is portaled to <body> with fixed positioning so it can never be
+ * clipped or painted behind following sections (native <datalist> and plain
+ * absolute lists both broke here). Free text is always allowed — options are
+ * suggestions, not a constraint. */
 export function Combobox({
   value,
   onChange,
@@ -18,18 +21,40 @@ export function Combobox({
 }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
-  const wrapRef = useRef<HTMLDivElement>(null);
+  const [rect, setRect] = useState<DOMRect | null>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const q = value.trim().toLowerCase();
   const matches = (q ? options.filter((o) => o.includes(q)) : options).slice(0, max);
 
+  const reposition = () => {
+    if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
+  };
+
+  useLayoutEffect(() => {
+    if (open) reposition();
+  }, [open, value]);
+
   useEffect(() => {
     if (!open) return;
+    const onScrollResize = () => reposition();
     const onDoc = (e: MouseEvent) => {
-      if (wrapRef.current && !wrapRef.current.contains(e.target as Node)) setOpen(false);
+      if (
+        inputRef.current &&
+        !inputRef.current.contains(e.target as Node) &&
+        !(e.target as HTMLElement).closest?.('.combobox-list')
+      ) {
+        setOpen(false);
+      }
     };
+    window.addEventListener('scroll', onScrollResize, true);
+    window.addEventListener('resize', onScrollResize);
     document.addEventListener('mousedown', onDoc);
-    return () => document.removeEventListener('mousedown', onDoc);
+    return () => {
+      window.removeEventListener('scroll', onScrollResize, true);
+      window.removeEventListener('resize', onScrollResize);
+      document.removeEventListener('mousedown', onDoc);
+    };
   }, [open]);
 
   function choose(v: string) {
@@ -38,8 +63,9 @@ export function Combobox({
   }
 
   return (
-    <div className="combobox" ref={wrapRef}>
+    <div className="combobox">
       <input
+        ref={inputRef}
         type="text"
         value={value}
         placeholder={placeholder}
@@ -59,26 +85,33 @@ export function Combobox({
           } else if (e.key === 'Escape') setOpen(false);
         }}
       />
-      {open && matches.length > 0 && (
-        <ul className="combobox-list" role="listbox">
-          {matches.map((o, i) => (
-            <li
-              key={o}
-              role="option"
-              aria-selected={i === active}
-              className={`combobox-option${i === active ? ' active' : ''}`}
-              // mousedown (not click) so it fires before the input blur
-              onMouseDown={(e) => {
-                e.preventDefault();
-                choose(o);
-              }}
-              onMouseEnter={() => setActive(i)}
-            >
-              {o}
-            </li>
-          ))}
-        </ul>
-      )}
+      {open &&
+        matches.length > 0 &&
+        rect &&
+        createPortal(
+          <ul
+            className="combobox-list"
+            role="listbox"
+            style={{ position: 'fixed', top: rect.bottom + 2, left: rect.left, width: rect.width }}
+          >
+            {matches.map((o, i) => (
+              <li
+                key={o}
+                role="option"
+                aria-selected={i === active}
+                className={`combobox-option${i === active ? ' active' : ''}`}
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  choose(o);
+                }}
+                onMouseEnter={() => setActive(i)}
+              >
+                {o}
+              </li>
+            ))}
+          </ul>,
+          document.body,
+        )}
     </div>
   );
 }

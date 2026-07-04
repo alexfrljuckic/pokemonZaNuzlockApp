@@ -1131,12 +1131,9 @@ button.back-btn:hover:not(:disabled)::before {
 /* Combobox: input + our own positioned suggestion list (not native datalist) */
 .combobox { position: relative; }
 .combobox input { width: 100%; margin: 0; }
+/* portaled to <body> with fixed positioning (see Combobox.tsx) */
 .combobox-list {
-  position: absolute;
-  top: calc(100% + 2px);
-  left: 0;
-  right: 0;
-  z-index: 40;
+  z-index: 1000;
   max-height: 220px;
   overflow-y: auto;
   margin: 0;
