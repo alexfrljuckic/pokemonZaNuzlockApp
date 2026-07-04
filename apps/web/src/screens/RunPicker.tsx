@@ -2,8 +2,29 @@ import { Fragment, useState } from 'react';
 import { buildRuleset } from '@nuzlocke/engine';
 import { listGames } from '../lib/datasets';
 import { createRun, type RunSummary } from '../lib/db';
+import { SpriteImg } from '../components/SpriteImg';
 
 const PRESETS = ['standard', 'hardcore', 'casual'] as const;
+
+const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
+  standard: 'First-encounter + dupes clause',
+  hardcore: 'Level caps + set mode',
+  casual: 'Relaxed — nothing enforced',
+};
+
+// Each version's cover mascot Pokémon — sprites come from our existing
+// (Showdown) source, so no IP-heavy box art. Absent → tile shows just the name.
+const VERSION_MASCOT: Record<string, string> = {
+  'brilliant-diamond': 'dialga',
+  'shining-pearl': 'palkia',
+  'lets-go-pikachu': 'pikachu',
+  'lets-go-eevee': 'eevee',
+  sword: 'zacian',
+  shield: 'zamazenta',
+  'legends-z-a': 'zygarde',
+};
+
+const prettyVersion = (v: string) => v.replace(/-/g, ' ');
 
 /** "Continue" flow: just the existing runs. */
 export function ContinueScreen({
@@ -82,27 +103,37 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
             {/* run settings expand in place, right under the picked card */}
             {gameId === g.gameId && game && (
               <div className="game-settings-inline">
-                <label htmlFor="version">Version</label>
-                <select id="version" value={version} onChange={(e) => setVersion(e.target.value)}>
+                <span className="picker-label">Version</span>
+                <div className="picker-tiles">
                   {game.versions.map((v) => (
-                    <option key={v} value={v}>
-                      {v}
-                    </option>
+                    <button
+                      key={v}
+                      type="button"
+                      className={`picker-tile${version === v ? ' selected' : ''}`}
+                      onClick={() => setVersion(v)}
+                      aria-pressed={version === v}
+                    >
+                      {VERSION_MASCOT[v] && <SpriteImg species={VERSION_MASCOT[v]} size={56} />}
+                      <span className="picker-tile-label">{prettyVersion(v)}</span>
+                    </button>
                   ))}
-                </select>
+                </div>
 
-                <label htmlFor="preset">Ruleset preset</label>
-                <select
-                  id="preset"
-                  value={preset}
-                  onChange={(e) => setPreset(e.target.value as (typeof PRESETS)[number])}
-                >
-                  {PRESETS.map((p) => (
-                    <option key={p} value={p}>
-                      {p}
-                    </option>
+                <span className="picker-label">Ruleset preset</span>
+                <div className="picker-tiles">
+                  {PRESETS.map((pr) => (
+                    <button
+                      key={pr}
+                      type="button"
+                      className={`picker-tile picker-tile-preset${preset === pr ? ' selected' : ''}`}
+                      onClick={() => setPreset(pr)}
+                      aria-pressed={preset === pr}
+                    >
+                      <span className="picker-tile-label">{pr}</span>
+                      <span className="picker-tile-desc muted">{PRESET_DESC[pr]}</span>
+                    </button>
                   ))}
-                </select>
+                </div>
 
                 <label htmlFor="house-rules">
                   House rules (optional, one per line — honor rules, shown but not enforced)

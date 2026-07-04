@@ -1220,6 +1220,65 @@ button.back-btn:hover:not(:disabled)::before {
   margin-top: 0;
 }
 
+/* clickable version/preset tiles (replaces the dropdowns) */
+.picker-label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.9rem 0 0.4rem;
+}
+.game-settings-inline > .picker-label:first-child {
+  margin-top: 0;
+}
+.picker-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.picker-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  min-width: 96px;
+  flex: 1;
+  padding: 0.55rem 0.6rem;
+  margin: 0;
+  background: var(--bg-chip);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  cursor: pointer;
+  text-align: center;
+  box-shadow: none;
+  transition: border-color 0.12s ease, transform 0.12s ease, background 0.12s ease;
+}
+.picker-tile:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: none;
+  filter: none;
+}
+.picker-tile.selected {
+  border-color: var(--highlight);
+  background: color-mix(in srgb, var(--highlight) 16%, var(--bg-chip));
+}
+.picker-tile img {
+  image-rendering: pixelated;
+}
+.picker-tile-label {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+.picker-tile-desc {
+  font-size: 0.62rem;
+  line-height: 1.2;
+}
+.picker-tile-preset {
+  min-width: 130px;
+}
+
 .game-card .game-card-name {
   display: block;
   font-weight: 700;
@@ -1449,6 +1508,104 @@ button.back-btn:hover:not(:disabled)::before {
 .milestone-trainer-sprite {
   align-self: center;
   max-height: 52px;
+}
+
+/* Unified team/box/graveyard card grid */
+.mon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+  gap: 0.6rem;
+  align-items: start;
+}
+.mon-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inset);
+  overflow: hidden;
+  animation: fadeUp 0.25s ease both;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.mon-card.expanded {
+  grid-column: 1 / -1;
+  border-color: var(--highlight);
+  box-shadow: var(--shadow);
+}
+.mon-card.dead {
+  opacity: 0.68;
+}
+.mon-card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.12rem;
+  width: 100%;
+  padding: 0.6rem 0.4rem 0.45rem;
+  margin: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+.mon-card-top:hover:not(:disabled) {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  background: color-mix(in srgb, var(--accent) 9%, transparent);
+}
+.mon-card-top img,
+.mon-card-top .sprite-missing {
+  image-rendering: pixelated;
+  background: radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 70%);
+  border-radius: 50%;
+}
+.mon-card-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  line-height: 1.15;
+}
+.mon-card-species {
+  font-size: 0.66rem;
+  text-transform: capitalize;
+}
+.mon-card-actions {
+  display: flex;
+  gap: 0.25rem;
+  padding: 0 0.4rem 0.5rem;
+}
+.mon-card-actions button {
+  margin: 0;
+  padding: 0.25rem 0.4rem;
+  font-size: 0.72rem;
+  flex: 1;
+}
+.mon-card-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.65rem 0.85rem 0.85rem;
+  border-top: 1px solid var(--border);
+  background: var(--bg-chip);
+  text-align: left;
+  animation: fadeUp 0.2s ease both;
+}
+/* expanded card is full-width — lay its header out horizontally */
+.mon-card.expanded .mon-card-top {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.65rem;
+  text-align: left;
+  flex-wrap: wrap;
+}
+.mon-card.expanded .mon-card-actions {
+  justify-content: flex-start;
+}
+.mon-card.expanded .mon-card-actions button {
+  flex: none;
+  padding: 0.3rem 0.7rem;
 }
 
 /* PC box: framed sprite grid */
