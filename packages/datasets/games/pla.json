@@ -511,7 +511,7 @@
       "order": 1,
       "aceLevel": 18,
       "roster": [
-        { "species": "kleavor", "level": 18 }
+        { "species": "kleavor", "level": 18, "moves": ["aerial-ace", "double-hit", "stealth-rock", "air-slash"] }
       ]
     },
     {
@@ -522,8 +522,8 @@
       "aceLevel": 22,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "togepi", "level": 20 },
-        { "species": "gible", "level": 22 }
+        { "species": "togepi", "level": 20, "moves": ["calm-mind", "draining-kiss", "tackle"] },
+        { "species": "gible", "level": 22, "moves": ["twister", "bulldoze"] }
       ]
     },
     {
@@ -533,7 +533,7 @@
       "order": 3,
       "aceLevel": 30,
       "roster": [
-        { "species": "lilligant-hisui", "level": 30 }
+        { "species": "lilligant-hisui", "level": 30, "moves": ["stun-spore", "poison-powder", "energy-ball", "rock-smash"] }
       ]
     },
     {
@@ -543,7 +543,7 @@
       "order": 4,
       "aceLevel": 36,
       "roster": [
-        { "species": "arcanine-hisui", "level": 36 }
+        { "species": "arcanine-hisui", "level": 36, "moves": ["fire-fang", "rock-slide", "raging-fury", "crunch"] }
       ]
     },
     {
@@ -553,7 +553,7 @@
       "order": 5,
       "aceLevel": 46,
       "roster": [
-        { "species": "electrode-hisui", "level": 46 }
+        { "species": "electrode-hisui", "level": 46, "moves": ["thunder-wave", "energy-ball", "thunderbolt", "thunder"] }
       ]
     },
     {
@@ -563,32 +563,46 @@
       "order": 6,
       "aceLevel": 56,
       "roster": [
-        { "species": "avalugg-hisui", "level": 56 }
+        { "species": "avalugg-hisui", "level": 56, "moves": ["earth-power", "mountain-gale", "blizzard", "double-edge"] }
+      ]
+    },
+    {
+      "id": "kamado",
+      "name": "Commander Kamado (Temple of Sinnoh)",
+      "type": "story",
+      "order": 7,
+      "countsForLevelCap": true,
+      "aceLevel": 62,
+      "roster": [
+        { "species": "braviary-hisui", "level": 61, "moves": ["esper-wing", "air-slash", "quick-attack"] },
+        { "species": "golem", "level": 61, "moves": ["stealth-rock", "rock-slide", "double-edge"] },
+        { "species": "clefable", "level": 61, "moves": ["draining-kiss", "psychic", "calm-mind", "baby-doll-eyes"] },
+        { "species": "snorlax", "level": 62, "moves": ["zen-headbutt", "high-horsepower", "giga-impact"] }
       ]
     },
     {
       "id": "volo-temple-of-sinnoh",
       "name": "Volo (Temple of Sinnoh)",
       "type": "story",
-      "order": 7,
+      "order": 8,
       "aceLevel": 68,
       "roster": [
-        { "species": "spiritomb", "level": 68 },
-        { "species": "roserade", "level": 68 },
-        { "species": "togekiss", "level": 68 },
-        { "species": "arcanine-hisui", "level": 68 },
-        { "species": "lucario", "level": 68 },
-        { "species": "garchomp", "level": 68 }
+        { "species": "spiritomb", "level": 68, "moves": ["hypnosis", "dark-pulse", "extrasensory", "shadow-ball"] },
+        { "species": "roserade", "level": 68, "moves": ["poison-jab", "petal-dance", "spikes"] },
+        { "species": "togekiss", "level": 68, "moves": ["calm-mind", "moonblast", "extrasensory", "air-slash"] },
+        { "species": "arcanine-hisui", "level": 68, "moves": ["raging-fury", "crunch", "rock-slide"] },
+        { "species": "lucario", "level": 68, "moves": ["close-combat", "crunch", "bulk-up", "bullet-punch"] },
+        { "species": "garchomp", "level": 68, "moves": ["dragon-claw", "earth-power", "slash", "iron-head"] }
       ]
     },
     {
       "id": "giratina",
       "name": "Giratina (Origin Forme)",
       "type": "story",
-      "order": 8,
+      "order": 9,
       "aceLevel": 70,
       "roster": [
-        { "species": "giratina-altered", "level": 70 }
+        { "species": "giratina-altered", "level": 70, "moves": ["aura-sphere", "dragon-claw", "earth-power", "shadow-force"] }
       ]
     }
   ],
