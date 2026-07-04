@@ -2204,6 +2204,11 @@
       "type": "promotion",
       "order": 1,
       "aceLevel": 9,
+      "roster": [
+        { "species": "slowpoke", "level": 8 },
+        { "species": "pidgey", "level": 9 },
+        { "species": "pikachu", "level": 9 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2214,6 +2219,11 @@
       "type": "promotion",
       "order": 2,
       "aceLevel": 16,
+      "roster": [
+        { "species": "spritzee", "level": 15 },
+        { "species": "swirlix", "level": 15 },
+        { "species": "vivillon", "level": 16 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2223,7 +2233,12 @@
       "name": "Naveen (early)",
       "type": "rival",
       "order": 3,
-      "aceLevel": 17
+      "aceLevel": 17,
+      "roster": [
+        { "species": "spinarak", "level": 16 },
+        { "species": "sableye", "level": 16 },
+        { "species": "scraggy", "level": 17 }
+      ]
     },
     {
       "id": "xavi",
@@ -2231,6 +2246,12 @@
       "type": "promotion",
       "order": 4,
       "aceLevel": 21,
+      "roster": [
+        { "species": "venipede", "level": 20 },
+        { "species": "roselia", "level": 20 },
+        { "species": "kadabra", "level": 21 },
+        { "species": "furfrou", "level": 21 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2241,6 +2262,11 @@
       "type": "promotion",
       "order": 5,
       "aceLevel": 24,
+      "roster": [
+        { "species": "simisage", "level": 24 },
+        { "species": "simipour", "level": 24 },
+        { "species": "simisear", "level": 24 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2261,6 +2287,12 @@
       "type": "promotion",
       "order": 7,
       "aceLevel": 32,
+      "roster": [
+        { "species": "houndoom", "level": 30 },
+        { "species": "sharpedo", "level": 30 },
+        { "species": "buneary", "level": 30 },
+        { "species": "drampa", "level": 32 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2270,7 +2302,27 @@
       "name": "Urbain / Taunie",
       "type": "rival",
       "order": 8,
-      "aceLevel": 26
+      "aceLevel": 26,
+      "roster": [
+        { "species": "manectric", "level": 26 }
+      ],
+      "rosterByStarter": {
+        "chikorita": [
+          { "species": "croconaw", "level": 25 },
+          { "species": "pignite", "level": 25 },
+          { "species": "manectric", "level": 26 }
+        ],
+        "tepig": [
+          { "species": "bayleef", "level": 25 },
+          { "species": "croconaw", "level": 25 },
+          { "species": "manectric", "level": 26 }
+        ],
+        "totodile": [
+          { "species": "pignite", "level": 25 },
+          { "species": "bayleef", "level": 25 },
+          { "species": "manectric", "level": 26 }
+        ]
+      }
     },
     {
       "id": "rogue-slowbro",
@@ -2315,6 +2367,12 @@
       "type": "promotion",
       "order": 13,
       "aceLevel": 39,
+      "roster": [
+        { "species": "heliolisk", "level": 37 },
+        { "species": "ampharos", "level": 38 },
+        { "species": "stunfisk", "level": 38 },
+        { "species": "eelektross", "level": 39 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2324,7 +2382,12 @@
       "name": "Naveen (pre-Canari)",
       "type": "rival",
       "order": 14,
-      "aceLevel": 33
+      "aceLevel": 33,
+      "roster": [
+        { "species": "ariados", "level": 33 },
+        { "species": "sableye", "level": 33 },
+        { "species": "scraggy", "level": 33 }
+      ]
     },
     {
       "id": "rogue-beedrill",
@@ -2362,6 +2425,12 @@
       "type": "promotion",
       "order": 18,
       "aceLevel": 47,
+      "roster": [
+        { "species": "heracross", "level": 45 },
+        { "species": "medicham", "level": 46 },
+        { "species": "machamp", "level": 46 },
+        { "species": "falinks", "level": 47 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2402,6 +2471,12 @@
       "type": "promotion",
       "order": 22,
       "aceLevel": 52,
+      "roster": [
+        { "species": "arbok", "level": 50 },
+        { "species": "gyarados", "level": 51 },
+        { "species": "roserade", "level": 51 },
+        { "species": "scolipede", "level": 52 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2449,6 +2524,13 @@
       "type": "promotion",
       "order": 27,
       "aceLevel": 59,
+      "roster": [
+        { "species": "carbink", "level": 57 },
+        { "species": "mawile", "level": 58 },
+        { "species": "aurorus", "level": 58 },
+        { "species": "gardevoir", "level": 58 },
+        { "species": "clefable", "level": 59 }
+      ],
       "grants": {
         "reviveTokens": 1
       }
@@ -2496,6 +2578,14 @@
       "type": "promotion",
       "order": 32,
       "aceLevel": 63,
+      "roster": [
+        { "species": "pangoro", "level": 61 },
+        { "species": "malamar", "level": 61 },
+        { "species": "pyroar-male", "level": 61 },
+        { "species": "tyranitar", "level": 62 },
+        { "species": "salamence", "level": 62 },
+        { "species": "charizard", "level": 63 }
+      ],
       "grants": {
         "reviveTokens": 1
       }

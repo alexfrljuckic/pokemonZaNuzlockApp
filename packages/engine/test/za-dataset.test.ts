@@ -48,6 +48,35 @@ describe('ported Z-A dataset', () => {
     expect(state.wipes).toHaveLength(1); // the wipe still happened and stays in history
   });
 
+  it('populates the reliably-sourced boss rosters with ace == aceLevel, leaving undocumented ones empty', () => {
+    const populated = dataset.milestones.filter((m) => m.roster && m.roster.length > 0);
+    const populatedIds = populated.map((m) => m.id).sort();
+    // The 13 promotion/rival battles with reliable Serebii/Bulbapedia sourcing
+    expect(populatedIds).toEqual(
+      [
+        'canari', 'corbeau', 'grisham', 'ivor', 'jacinthe', 'naveen1', 'naveen2',
+        'rintaro', 'urbain1', 'vinnie', 'xavi', 'yvon', 'zach',
+      ].sort(),
+    );
+    for (const m of populated) {
+      expect(Math.max(...m.roster!.map((p) => p.level)), `${m.id} ace`).toBe(m.aceLevel);
+    }
+    // Rogue-mega and undocumented story battles are intentionally left empty
+    // (level tables unresolved / not documented) — never invented.
+    expect(dataset.milestones.find((m) => m.id === 'rogue-absol')!.roster ?? []).toHaveLength(0);
+    expect(dataset.milestones.find((m) => m.id === 'gauntlet')!.roster ?? []).toHaveLength(0);
+  });
+
+  it('encodes Urbain as starter-conditional (rosterByStarter variants all cap at aceLevel)', () => {
+    const urbain = dataset.milestones.find((m) => m.id === 'urbain1')!;
+    expect(urbain.rosterByStarter).toBeTruthy();
+    expect(Object.keys(urbain.rosterByStarter!).sort()).toEqual(['chikorita', 'tepig', 'totodile']);
+    for (const variant of Object.values(urbain.rosterByStarter!)) {
+      expect(Math.max(...variant.map((p) => p.level))).toBe(urbain.aceLevel);
+      expect(variant.map((p) => p.species)).toContain('manectric'); // Manectric is the fixed ace
+    }
+  });
+
   it('dupes clause works across zone pools (evolution-line scope)', () => {
     const events: RunEvent[] = [
       ev('run_started', { gameId: 'plza', version: 'legends-z-a', ruleset: buildRuleset('standard', 'plza') }),
