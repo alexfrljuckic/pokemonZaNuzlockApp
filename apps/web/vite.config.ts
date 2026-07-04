@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  server: {
+    // Honor a harness-assigned port (PORT env) so multiple dev servers can
+    // coexist; fall back to Vite's default 5173 for normal local dev.
+    port: Number(process.env.PORT) || 5173,
+  },
   plugins: [
     react(),
     VitePWA({

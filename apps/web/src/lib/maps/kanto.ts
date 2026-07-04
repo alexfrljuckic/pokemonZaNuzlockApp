@@ -2,9 +2,12 @@
 // section E). Node positions are calibrated against the community-standard
 // Kanto route-map backdrop at public/maps/kanto.png (2048x1448, numbered
 // route banners 01-25) using real Kanto adjacency to place the areas our
-// dataset actually tracks — LGPE only models a subset of routes/locations,
-// so several numbered banners on the backdrop (7, 8, 13-15, 19, 21, 23-25)
-// have no corresponding node here.
+// dataset actually tracks. Every numbered banner now has a node, plus
+// Victory Road (top-left, above Route 23 toward the Indigo Plateau).
+// Coordinates for the routes added in the D1 pass (7, 8, 13-15, 19, 21,
+// 23-25, victory-road) are first-pass reads off the banners; the standing
+// calibration lesson is to nudge them live with the debug overlay
+// (temporarily stroke the .route-region rects) before final sign-off.
 import type { GameMap } from './types';
 
 export const KANTO_MAP: GameMap = {
@@ -34,6 +37,17 @@ export const KANTO_MAP: GameMap = {
     { id: 'pokemon-mansion', x: 400, y: 1310, w: 110, h: 110, kind: 'landmark' },
     { id: 'route-20', x: 916, y: 1331, w: 140, h: 90, kind: 'route' },
     { id: 'route-22', x: 338, y: 665, w: 140, h: 90, kind: 'route' },
+    { id: 'route-7', x: 1200, y: 498, w: 110, h: 90, kind: 'route' },
+    { id: 'route-8', x: 1540, y: 498, w: 110, h: 90, kind: 'route' },
+    { id: 'route-24', x: 1330, y: 110, w: 110, h: 90, kind: 'route' },
+    { id: 'route-25', x: 1442, y: 40, w: 110, h: 90, kind: 'route' },
+    { id: 'route-13', x: 1600, y: 965, w: 90, h: 110, kind: 'route' },
+    { id: 'route-14', x: 1408, y: 1058, w: 110, h: 90, kind: 'route' },
+    { id: 'route-15', x: 1150, y: 1112, w: 110, h: 90, kind: 'route' },
+    { id: 'route-19', x: 1000, y: 1195, w: 90, h: 110, kind: 'route' },
+    { id: 'route-21', x: 420, y: 1120, w: 110, h: 90, kind: 'route' },
+    { id: 'route-23', x: 232, y: 500, w: 90, h: 120, kind: 'route' },
+    { id: 'victory-road', x: 230, y: 165, w: 100, h: 100, kind: 'cave' },
   ],
   edges: [
     ['route-22', 'route-1'],
@@ -58,5 +72,20 @@ export const KANTO_MAP: GameMap = {
     ['route-18', 'route-20'],
     ['route-20', 'seafoam-islands'],
     ['route-20', 'pokemon-mansion'],
+    ['route-5', 'route-24'],
+    ['route-24', 'route-25'],
+    ['route-6', 'route-7'],
+    ['route-7', 'route-8'],
+    ['route-8', 'route-12'],
+    ['route-12', 'route-13'],
+    ['route-13', 'route-14'],
+    ['route-14', 'route-15'],
+    ['route-15', 'route-18'],
+    ['route-18', 'route-19'],
+    ['route-19', 'route-20'],
+    ['route-20', 'route-21'],
+    ['route-21', 'route-1'],
+    ['route-22', 'route-23'],
+    ['route-23', 'victory-road'],
   ],
 };

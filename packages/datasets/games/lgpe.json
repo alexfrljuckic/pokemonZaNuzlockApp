@@ -133,6 +133,45 @@
       ]
     },
     {
+      "id": "route-7",
+      "name": "Route 7",
+      "unlockAfter": "gym-4-erika",
+      "tags": ["route"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "rattata", "methods": ["overworld"] },
+        { "species": "raticate", "methods": ["overworld"] },
+        { "species": "jigglypuff", "methods": ["overworld"] },
+        { "species": "abra", "methods": ["overworld"] },
+        { "species": "kadabra", "methods": ["overworld"] },
+        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "arcanine", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "ninetales", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+      ]
+    },
+    {
+      "id": "route-8",
+      "name": "Route 8",
+      "unlockAfter": "gym-4-erika",
+      "tags": ["route"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "rattata", "methods": ["overworld"] },
+        { "species": "raticate", "methods": ["overworld"] },
+        { "species": "jigglypuff", "methods": ["overworld"] },
+        { "species": "abra", "methods": ["overworld"] },
+        { "species": "kadabra", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "arcanine", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "ninetales", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+      ]
+    },
+    {
       "id": "route-9",
       "name": "Route 9",
       "unlockAfter": "gym-2-misty",
@@ -165,6 +204,42 @@
         { "species": "nidorina", "methods": ["overworld"] },
         { "species": "nidorino", "methods": ["overworld"] },
         { "species": "chansey", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "route-24",
+      "name": "Route 24",
+      "unlockAfter": "gym-2-misty",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "venonat", "methods": ["overworld"] },
+        { "species": "psyduck", "methods": ["overworld"] },
+        { "species": "squirtle", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "meowth", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "tentacool", "methods": ["overworld"] },
+        { "species": "tentacruel", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "route-25",
+      "name": "Route 25",
+      "unlockAfter": "gym-2-misty",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "venonat", "methods": ["overworld"] },
+        { "species": "psyduck", "methods": ["overworld"] },
+        { "species": "squirtle", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "meowth", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "poliwag", "methods": ["overworld"] },
+        { "species": "poliwhirl", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] }
       ]
     },
     {
@@ -235,6 +310,69 @@
         { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
         { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
         { "species": "chansey", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "route-13",
+      "name": "Route 13",
+      "unlockAfter": "gym-4-erika",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "farfetchd", "methods": ["overworld"] },
+        { "species": "krabby", "methods": ["overworld"] },
+        { "species": "kingler", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "tentacool", "methods": ["overworld"] },
+        { "species": "tentacruel", "methods": ["overworld"] },
+        { "species": "horsea", "methods": ["overworld"] },
+        { "species": "seadra", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "route-14",
+      "name": "Route 14",
+      "unlockAfter": "gym-4-erika",
+      "tags": ["route"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "venonat", "methods": ["overworld"] },
+        { "species": "venomoth", "methods": ["overworld"] },
+        { "species": "tauros", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "scyther", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "pinsir", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+      ]
+    },
+    {
+      "id": "route-15",
+      "name": "Route 15",
+      "unlockAfter": "gym-4-erika",
+      "tags": ["route"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "venonat", "methods": ["overworld"] },
+        { "species": "venomoth", "methods": ["overworld"] },
+        { "species": "tauros", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "scyther", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "pinsir", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
       ]
     },
     {
@@ -325,6 +463,20 @@
       ]
     },
     {
+      "id": "route-19",
+      "name": "Route 19",
+      "unlockAfter": "gym-6-sabrina",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "tentacool", "methods": ["overworld"] },
+        { "species": "tentacruel", "methods": ["overworld"] },
+        { "species": "staryu", "methods": ["overworld"] },
+        { "species": "starmie", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] },
+        { "species": "lapras", "methods": ["overworld"] }
+      ]
+    },
+    {
       "id": "route-20",
       "name": "Route 20",
       "unlockAfter": "gym-6-sabrina",
@@ -338,6 +490,30 @@
       ]
     },
     {
+      "id": "route-21",
+      "name": "Route 21",
+      "unlockAfter": "gym-6-sabrina",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "pidgey", "methods": ["overworld"] },
+        { "species": "pidgeotto", "methods": ["overworld"] },
+        { "species": "rattata", "methods": ["overworld"] },
+        { "species": "raticate", "methods": ["overworld"] },
+        { "species": "tangela", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "vileplume", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
+        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
+        { "species": "tentacool", "methods": ["overworld"] },
+        { "species": "tentacruel", "methods": ["overworld"] },
+        { "species": "staryu", "methods": ["overworld"] },
+        { "species": "starmie", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] }
+      ]
+    },
+    {
       "id": "route-22",
       "name": "Route 22",
       "unlockAfter": null,
@@ -347,6 +523,48 @@
         { "species": "spearow", "methods": ["overworld"] },
         { "species": "nidoran-f", "methods": ["overworld"] },
         { "species": "nidoran-m", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "route-23",
+      "name": "Route 23",
+      "unlockAfter": "gym-8-giovanni",
+      "tags": ["route", "water"],
+      "encounters": [
+        { "species": "spearow", "methods": ["overworld"] },
+        { "species": "fearow", "methods": ["overworld"] },
+        { "species": "nidoran-f", "methods": ["overworld"] },
+        { "species": "nidoran-m", "methods": ["overworld"] },
+        { "species": "nidorina", "methods": ["overworld"] },
+        { "species": "nidorino", "methods": ["overworld"] },
+        { "species": "nidoqueen", "methods": ["overworld"] },
+        { "species": "nidoking", "methods": ["overworld"] },
+        { "species": "exeggcute", "methods": ["overworld"] },
+        { "species": "exeggutor", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] },
+        { "species": "poliwag", "methods": ["overworld"] },
+        { "species": "poliwhirl", "methods": ["overworld"] },
+        { "species": "magikarp", "methods": ["overworld"] }
+      ]
+    },
+    {
+      "id": "victory-road",
+      "name": "Victory Road",
+      "unlockAfter": "gym-8-giovanni",
+      "tags": ["cave"],
+      "encounters": [
+        { "species": "zubat", "methods": ["overworld"] },
+        { "species": "golbat", "methods": ["overworld"] },
+        { "species": "machop", "methods": ["overworld"] },
+        { "species": "machoke", "methods": ["overworld"] },
+        { "species": "geodude", "methods": ["overworld"] },
+        { "species": "graveler", "methods": ["overworld"] },
+        { "species": "onix", "methods": ["overworld"] },
+        { "species": "rhyhorn", "methods": ["overworld"] },
+        { "species": "rhydon", "methods": ["overworld"] },
+        { "species": "hitmonlee", "methods": ["overworld"] },
+        { "species": "hitmonchan", "methods": ["overworld"] },
+        { "species": "chansey", "methods": ["overworld"] }
       ]
     },
     {
@@ -401,7 +619,7 @@
       "id": "moltres",
       "type": "static",
       "species": "moltres",
-      "area": "route-20"
+      "area": "victory-road"
     },
     {
       "id": "mewtwo",

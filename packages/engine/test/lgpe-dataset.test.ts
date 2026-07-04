@@ -69,4 +69,52 @@ describe('LGPE dataset', () => {
     expect(pikaPool.map((s) => s.species)).toContain('pidgey');
     expect(eeveePool.map((s) => s.species)).toContain('pidgey');
   });
+
+  it('models the routes that were previously missing, plus Victory Road', () => {
+    const ids = new Set(dataset.areas.map((a) => a.id));
+    for (const id of [
+      'route-7',
+      'route-8',
+      'route-13',
+      'route-14',
+      'route-15',
+      'route-19',
+      'route-21',
+      'route-23',
+      'route-24',
+      'route-25',
+      'victory-road',
+    ]) {
+      expect(ids, `expected area "${id}" to be present`).toContain(id);
+    }
+    // every unlockAfter must reference a real milestone (referential integrity)
+    const milestoneIds = new Set(dataset.milestones.map((m) => m.id));
+    for (const a of dataset.areas) {
+      if (a.unlockAfter) expect(milestoneIds).toContain(a.unlockAfter);
+    }
+  });
+
+  it('places the Moltres static in Victory Road, its real LGPE location', () => {
+    const moltres = dataset.specials.find((s) => s.id === 'moltres')!;
+    expect(moltres.area).toBe('victory-road');
+    expect(dataset.areas.some((a) => a.id === 'victory-road')).toBe(true);
+  });
+
+  it('applies version exclusives on the new routes (Route 14: Scyther Pikachu-only, Pinsir Eevee-only)', () => {
+    const route14 = dataset.areas.find((a) => a.id === 'route-14')!;
+    const pool = (version: 'lets-go-pikachu' | 'lets-go-eevee') =>
+      filterEncounterPool(
+        deriveState([ev('run_started', { gameId: 'lgpe', version, ruleset: buildRuleset('standard', 'lgpe') })], ctx),
+        route14,
+        ctx,
+      ).map((s) => s.species);
+
+    const pika = pool('lets-go-pikachu');
+    expect(pika).toContain('scyther');
+    expect(pika).not.toContain('pinsir');
+
+    const eevee = pool('lets-go-eevee');
+    expect(eevee).toContain('pinsir');
+    expect(eevee).not.toContain('scyther');
+  });
 });
