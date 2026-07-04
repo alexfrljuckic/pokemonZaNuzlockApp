@@ -418,6 +418,38 @@ button:disabled {
 
 .muted { color: var(--muted); font-size: 0.88rem; }
 
+/* ---------- Per-route trainers (Wave 3) ---------- */
+
+.trainers-group { margin-top: 1rem; }
+
+.trainer-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.trainer-row:last-child { border-bottom: none; }
+
+.trainer-row-name { font-size: 0.9rem; }
+
+.trainer-row-team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.trainer-mon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 52px;
+}
+
+.trainer-mon-lv { font-size: 0.72rem; }
+
 /* Spectator timeline timestamp, right-aligned on the shared summary-item row. */
 .timeline-when {
   margin-left: auto;

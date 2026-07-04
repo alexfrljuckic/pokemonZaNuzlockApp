@@ -9,6 +9,7 @@ import { AreaList } from '../../components/routes/AreaList';
 import { CaughtHere } from '../../components/routes/CaughtHere';
 import { EncounterForm, type Outcome } from '../../components/routes/EncounterForm';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
+import { TrainersHere } from '../../components/routes/TrainersHere';
 
 export function RoutesTab({
   runId,
@@ -131,6 +132,7 @@ export function RoutesTab({
             <p className="muted">No wild encounters documented here.</p>
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
+          <TrainersHere area={selected} version={state.version} />
         </div>
       )}
 

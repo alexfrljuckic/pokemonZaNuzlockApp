@@ -22,6 +22,26 @@ export interface Area {
   unlockAfter: string | null; // milestone id, or null if available from start
   tags: string[];             // e.g. "route", "wild-zone", "dlc:teal-mask"
   encounters: EncounterSlot[];
+  /** Documented trainer battles in this area (display-only route intel;
+   * sourced, never invented — see the dataset PR rules). */
+  trainers?: AreaTrainer[];
+}
+
+export interface AreaTrainer {
+  name: string;
+  /** Trainer class, e.g. "Youngster", "Ace Trainer". */
+  class?: string;
+  team: {
+    species: string;
+    level: number;
+    moves?: string[];
+    ability?: string;
+    heldItem?: string;
+  }[];
+  /** Version gating, when a trainer exists in only one version. */
+  conditions?: {
+    version?: string[];
+  };
 }
 
 export interface EncounterSlot {
