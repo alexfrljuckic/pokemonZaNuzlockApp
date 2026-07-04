@@ -26,6 +26,14 @@ file's checkboxes; it has drifted before.
 
 ## Next up (no decision needed — pick one and go)
 
+**15a. Feature + data-completeness round (Alex, 2026-07-04 late — PLANNED,
+start here next session).** Full plan with the measured gap matrix, priority
+order, and what can run in parallel: **`docs/FEATURE-DATA-ROUND.md`**. Start
+with the F-items (small app features) and launch the Wave-1 data agents in
+parallel. Sequencing note: F3 (theme-follows-game) touches `theme.ts` +
+`RunPicker.tsx`, which consolidation item C1 also rewrites — do F3 before or
+with C1, not after.
+
 **15b. Consolidation round — BEFORE item 16 (Alex, 2026-07-04): do this
 first.** Full assessment in `docs/CONSOLIDATION.md`: 8 PR-sized items (C1-C8)
 to consolidate per-game plumbing and share components across games before
