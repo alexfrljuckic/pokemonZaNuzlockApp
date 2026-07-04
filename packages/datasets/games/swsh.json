@@ -616,7 +616,7 @@
       "tags": ["cave", "post-gym"],
       "encounters": [
         { "species": "golbat", "methods": ["walk"], "rate": 20 },
-        { "species": "graveler", "methods": ["walk"], "rate": 15 },
+        { "species": "boldore", "methods": ["walk"], "rate": 15 },
         { "species": "conkeldurr", "methods": ["walk"], "rate": 10 },
         { "species": "beartic", "methods": ["walk"], "rate": 10 },
         { "species": "gigalith", "methods": ["walk"], "rate": 10 },

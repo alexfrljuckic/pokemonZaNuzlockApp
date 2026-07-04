@@ -914,7 +914,7 @@
         { "species": "nosepass", "methods": ["hideaway"] },
         { "species": "meditite", "methods": ["hideaway"] },
         { "species": "aron", "methods": ["hideaway"] },
-        { "species": "roggenrola", "methods": ["hideaway"] }
+        { "species": "cubone", "methods": ["hideaway"] }
       ]
     },
     {
@@ -943,7 +943,7 @@
         { "species": "numel", "methods": ["hideaway"] },
         { "species": "houndour", "methods": ["hideaway"] },
         { "species": "torkoal", "methods": ["hideaway"] },
-        { "species": "fletchling", "methods": ["hideaway"] }
+        { "species": "ponyta", "methods": ["hideaway"] }
       ]
     },
     {
@@ -956,9 +956,9 @@
         { "species": "chansey", "methods": ["hideaway"] },
         { "species": "togepi", "methods": ["hideaway"] },
         { "species": "sunkern", "methods": ["hideaway"] },
-        { "species": "munna", "methods": ["hideaway"] },
-        { "species": "spritzee", "methods": ["hideaway"], "conditions": { "version": ["brilliant-diamond"] } },
-        { "species": "swirlix", "methods": ["hideaway"], "conditions": { "version": ["shining-pearl"] } }
+        { "species": "drowzee", "methods": ["hideaway"] },
+        { "species": "lunatone", "methods": ["hideaway"], "conditions": { "version": ["brilliant-diamond"] } },
+        { "species": "solrock", "methods": ["hideaway"], "conditions": { "version": ["shining-pearl"] } }
       ]
     },
     {
