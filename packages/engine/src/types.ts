@@ -63,6 +63,12 @@ export interface Milestone {
   /** Per-player-starter roster variants (rival battles), keyed by the player's
    * chosen starter species slug. UI picks the matching variant, else `roster`. */
   rosterByStarter?: Record<string, MilestoneRosterMember[]>;
+  /** Version gating for a milestone present in only one version (e.g. SV's
+   * Area Zero finale or the version-split Quaking Earth Titan). Absent = shown
+   * regardless of version. */
+  conditions?: {
+    version?: string[];
+  };
 }
 
 export interface MilestoneRosterMember {
@@ -71,6 +77,8 @@ export interface MilestoneRosterMember {
   moves?: string[];
   ability?: string;
   heldItem?: string;
+  /** Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only. */
+  teraType?: string;
 }
 
 export interface GameMechanics {

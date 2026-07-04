@@ -2,6 +2,7 @@ import type {
   Area,
   EncounterSlot,
   EngineContext,
+  GameDataset,
   Milestone,
   RuleDef,
   Ruleset,
@@ -160,7 +161,7 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
  */
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
   return (
-    ctx.dataset.milestones
+    milestonesFor(ctx.dataset, state.version)
       .filter(
         (m) =>
           m.aceLevel !== null &&
@@ -168,6 +169,16 @@ export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null 
           !state.milestonesCleared.includes(m.id),
       )
       .sort((a, b) => a.order - b.order)[0] ?? null
+  );
+}
+
+/** Milestones that apply to the given run version — a few are version-gated
+ * (e.g. SV's Area Zero finale, the split Quaking Earth Titan). Absent
+ * conditions.version = shown in every version. Use this wherever the milestone
+ * list is displayed or counted so a run never shows the other version's bosses. */
+export function milestonesFor(dataset: GameDataset, version: string): Milestone[] {
+  return dataset.milestones.filter(
+    (m) => !m.conditions?.version || m.conditions.version.includes(version),
   );
 }
 

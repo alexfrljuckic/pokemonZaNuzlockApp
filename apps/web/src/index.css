@@ -114,6 +114,26 @@
   --highlight: #4f8fd1;
 }
 
+[data-theme='sv-scarlet'] {
+  --bg: #1a0f10;
+  --bg-panel: #271618;
+  --bg-inset: #140b0c;
+  --bg-chip: #351b1d;
+  --border: #5a2e30;
+  --accent: #d3273e;
+  --highlight: #ff8f7a;
+}
+
+[data-theme='sv-violet'] {
+  --bg: #14101c;
+  --bg-panel: #201829;
+  --bg-inset: #0f0b16;
+  --bg-chip: #2b2039;
+  --border: #4a3868;
+  --accent: #8b3fd6;
+  --highlight: #c79bff;
+}
+
 /* ---------- Base + backdrop ---------- */
 
 * {

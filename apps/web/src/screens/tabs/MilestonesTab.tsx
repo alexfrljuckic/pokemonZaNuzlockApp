@@ -2,6 +2,7 @@ import { useState } from 'react';
 import {
   chosenStarter,
   milestoneRoster,
+  milestonesFor,
   nextBoss,
   validateTeam,
   type EngineContext,
@@ -174,7 +175,7 @@ export function MilestonesTab({
   const boss = nextBoss(state, ctx);
   const violations = validateTeam(state, ctx);
   const starter = chosenStarter(state);
-  const milestones = [...ctx.dataset.milestones].sort((a, b) => a.order - b.order);
+  const milestones = milestonesFor(ctx.dataset, state.version).sort((a, b) => a.order - b.order);
   const allCleared = milestones.every((m) => state.milestonesCleared.includes(m.id));
 
   async function clear(id: string) {

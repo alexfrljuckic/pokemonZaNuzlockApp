@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { deriveState, pendingWipeDecision, RULES, type RunEvent } from '@nuzlocke/engine';
+import { deriveState, milestonesFor, pendingWipeDecision, RULES, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { fetchSharedRun, subscribeToRunChanges, type SharedRun } from '../lib/shareLinks';
 
@@ -50,7 +50,8 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
   const party = Object.values(state.pokemon).filter((p) => p.status === 'party');
   const box = Object.values(state.pokemon).filter((p) => p.status === 'box');
   const graveyard = Object.values(state.pokemon).filter((p) => p.status === 'dead');
-  const clearedMilestones = ctx.dataset.milestones
+  const versionMilestones = milestonesFor(ctx.dataset, state.version);
+  const clearedMilestones = versionMilestones
     .filter((m) => state.milestonesCleared.includes(m.id))
     .sort((a, b) => a.order - b.order);
   const activeRules = Object.values(RULES).filter((r) => state.ruleset.rules[r.id]?.enabled);
@@ -114,7 +115,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
       </section>
 
       <section>
-        <h2>Boss fights cleared ({clearedMilestones.length}/{ctx.dataset.milestones.length})</h2>
+        <h2>Boss fights cleared ({clearedMilestones.length}/{versionMilestones.length})</h2>
         {clearedMilestones.length === 0 && <p className="muted">None yet.</p>}
         {clearedMilestones.map((m) => (
           <div key={m.id} className="milestone-row">

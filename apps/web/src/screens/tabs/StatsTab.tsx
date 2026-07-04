@@ -1,4 +1,4 @@
-import type { EngineContext, RunEvent, RunState } from '@nuzlocke/engine';
+import { milestonesFor, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { DeathsOverTimeStrip } from '../../components/charts/DeathsOverTimeStrip';
 import { EncounterOutcomeDonut } from '../../components/charts/EncounterOutcomeDonut';
 import { MilestoneProgressBar } from '../../components/charts/MilestoneProgressBar';
@@ -13,7 +13,7 @@ export function StatsTab({ events, state, ctx }: { events: RunEvent[]; state: Ru
   const deaths = Object.values(state.pokemon).filter((p) => p.status === 'dead');
   const revives = events.filter((ev) => ev.type === 'revive').length;
   const ruleChanges = state.ruleChanges.length;
-  const milestonesTotal = ctx.dataset?.milestones.length ?? 0;
+  const milestonesTotal = ctx.dataset ? milestonesFor(ctx.dataset, state.version).length : 0;
 
   return (
     <section>
