@@ -28,7 +28,10 @@ jobs:
           sudo apt-get install -y --no-install-recommends postgresql-client-17
       - name: Dump database
         run: |
-          pg_dump "${SUPABASE_DB_URL}" \
+          # The runner image ships a pre-baked pg_dump 16 at /usr/bin, earlier
+          # on PATH than the PGDG package — call the versioned binary directly
+          # so it doesn't shadow the client 17 we just installed.
+          /usr/lib/postgresql/17/bin/pg_dump "${SUPABASE_DB_URL}" \
             --no-owner --no-privileges \
             -f "backup-$(date -u +%Y-%m-%dT%H%M%SZ).sql"
         env:
