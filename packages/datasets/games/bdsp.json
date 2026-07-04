@@ -1006,7 +1006,17 @@
       "roster": [
         { "species": "starly", "level": 7, "moves": ["tackle", "quick-attack", "growl"], "ability": "keen-eye" },
         { "species": "piplup", "level": 9, "moves": ["pound", "growl"], "ability": "torrent" }
-      ]
+      ],
+      "rosterByStarter": {
+        "turtwig": [
+          { "species": "starly", "level": 7, "moves": ["tackle", "quick-attack", "growl"], "ability": "keen-eye" },
+          { "species": "chimchar", "level": 9, "moves": ["scratch", "leer"], "ability": "blaze" }
+        ],
+        "piplup": [
+          { "species": "starly", "level": 7, "moves": ["tackle", "quick-attack", "growl"], "ability": "keen-eye" },
+          { "species": "turtwig", "level": 9, "moves": ["tackle", "withdraw"], "ability": "overgrow" }
+        ]
+      }
     },
     {
       "id": "gym-1-roark",
@@ -1068,7 +1078,21 @@
         { "species": "roselia", "level": 26, "moves": ["growth", "stun-spore", "leech-seed", "magical-leaf"], "ability": "natural-cure", "heldItem": "miracle-seed" },
         { "species": "ponyta", "level": 27, "moves": ["tackle", "growl", "flame-charge", "agility"], "ability": "flash-fire", "heldItem": "shell-bell" },
         { "species": "prinplup", "level": 31, "moves": ["metal-claw", "charm", "bubble-beam", "grass-knot"], "ability": "torrent", "heldItem": "sea-incense" }
-      ]
+      ],
+      "rosterByStarter": {
+        "turtwig": [
+          { "species": "starly", "level": 26, "moves": ["quick-attack", "double-team", "endeavor", "pluck"], "ability": "keen-eye" },
+          { "species": "buizel", "level": 26, "moves": ["tail-whip", "bite", "swift", "aqua-jet"], "ability": "swift-swim", "heldItem": "sea-incense" },
+          { "species": "roselia", "level": 27, "moves": ["poison-sting", "mega-drain", "sweet-scent", "grass-knot"], "ability": "poison-point", "heldItem": "miracle-seed" },
+          { "species": "monferno", "level": 31, "moves": ["mach-punch", "leer", "power-up-punch", "flame-wheel"], "ability": "blaze", "heldItem": "shell-bell" }
+        ],
+        "piplup": [
+          { "species": "starly", "level": 26, "moves": ["quick-attack", "double-team", "endeavor", "pluck"], "ability": "keen-eye" },
+          { "species": "buizel", "level": 26, "moves": ["tail-whip", "bite", "swift", "aqua-jet"], "ability": "swift-swim", "heldItem": "sea-incense" },
+          { "species": "ponyta", "level": 27, "moves": ["tackle", "tail-whip", "flame-charge", "agility"], "ability": "flash-fire", "heldItem": "shell-bell" },
+          { "species": "grotle", "level": 31, "moves": ["absorb", "razor-leaf", "curse", "stealth-rock"], "ability": "overgrow", "heldItem": "miracle-seed" }
+        ]
+      }
     },
     {
       "id": "gym-5-fantina",
@@ -1190,7 +1214,25 @@
         { "species": "rapidash", "level": 49, "moves": ["smart-strike", "megahorn", "poison-jab", "flame-wheel"], "ability": "flash-fire", "heldItem": "expert-belt" },
         { "species": "snorlax", "level": 52, "moves": ["covet", "yawn", "crunch", "high-horsepower"], "ability": "thick-fat" },
         { "species": "empoleon", "level": 55, "moves": ["charm", "grass-knot", "brine", "flash-cannon"], "ability": "torrent", "heldItem": "quick-claw" }
-      ]
+      ],
+      "rosterByStarter": {
+        "turtwig": [
+          { "species": "staraptor", "level": 49, "moves": ["close-combat", "pluck", "rain-dance", "u-turn"], "ability": "intimidate", "heldItem": "focus-sash" },
+          { "species": "roserade", "level": 49, "moves": ["grassy-terrain", "petal-blizzard", "stun-spore", "shadow-ball"], "ability": "natural-cure", "heldItem": "black-sludge" },
+          { "species": "heracross", "level": 51, "moves": ["pin-missile", "swords-dance", "rock-slide", "thief"], "ability": "swarm" },
+          { "species": "rapidash", "level": 49, "moves": ["smart-strike", "megahorn", "poison-jab", "flame-wheel"], "ability": "flash-fire", "heldItem": "expert-belt" },
+          { "species": "snorlax", "level": 52, "moves": ["covet", "yawn", "crunch", "high-horsepower"], "ability": "thick-fat" },
+          { "species": "infernape", "level": 55, "moves": ["close-combat", "flame-wheel", "u-turn", "shadow-claw"], "ability": "blaze", "heldItem": "expert-belt" }
+        ],
+        "piplup": [
+          { "species": "staraptor", "level": 49, "moves": ["close-combat", "pluck", "sunny-day", "u-turn"], "ability": "intimidate", "heldItem": "focus-sash" },
+          { "species": "floatzel", "level": 49, "moves": ["ice-fang", "crunch", "swift", "brine"], "ability": "swift-swim", "heldItem": "quick-claw" },
+          { "species": "heracross", "level": 51, "moves": ["pin-missile", "swords-dance", "rock-slide", "thief"], "ability": "swarm" },
+          { "species": "ponyta", "level": 49, "moves": ["tail-whip", "agility", "flame-wheel", "stomp"], "ability": "flash-fire", "heldItem": "shell-bell" },
+          { "species": "snorlax", "level": 52, "moves": ["covet", "yawn", "crunch", "high-horsepower"], "ability": "thick-fat" },
+          { "species": "torterra", "level": 55, "moves": ["earthquake", "wood-hammer", "roar", "stealth-rock"], "ability": "overgrow", "heldItem": "leftovers" }
+        ]
+      }
     },
     {
       "id": "champion-cynthia",
