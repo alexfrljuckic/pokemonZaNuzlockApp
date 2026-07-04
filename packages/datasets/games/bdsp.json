@@ -779,7 +779,7 @@
       "name": "Maylene (Veilstone Gym)",
       "type": "gym",
       "order": 30,
-      "aceLevel": 32,
+      "aceLevel": 30,
       "roster": [
         { "species": "meditite", "level": 27 },
         { "species": "machoke", "level": 27 },
@@ -791,7 +791,7 @@
       "name": "Crasher Wake (Pastoria Gym)",
       "type": "gym",
       "order": 40,
-      "aceLevel": 34,
+      "aceLevel": 30,
       "roster": [
         { "species": "gyarados", "level": 27 },
         { "species": "quagsire", "level": 27 },
@@ -817,7 +817,7 @@
       "name": "Fantina (Hearthome Gym)",
       "type": "gym",
       "order": 50,
-      "aceLevel": 38,
+      "aceLevel": 36,
       "roster": [
         { "species": "drifblim", "level": 32 },
         { "species": "gengar", "level": 34 },
@@ -829,7 +829,7 @@
       "name": "Byron (Canalave Gym)",
       "type": "gym",
       "order": 60,
-      "aceLevel": 41,
+      "aceLevel": 39,
       "roster": [
         { "species": "bronzor", "level": 36 },
         { "species": "steelix", "level": 36 },
@@ -841,7 +841,7 @@
       "name": "Candice (Snowpoint Gym)",
       "type": "gym",
       "order": 70,
-      "aceLevel": 44,
+      "aceLevel": 42,
       "roster": [
         { "species": "snover", "level": 38 },
         { "species": "sneasel", "level": 38 },
@@ -867,7 +867,7 @@
       "name": "Elite Four Aaron",
       "type": "elite-four",
       "order": 90,
-      "aceLevel": 53,
+      "aceLevel": 57,
       "roster": [
         { "species": "dustox", "level": 53 },
         { "species": "beautifly", "level": 53 },
@@ -881,7 +881,7 @@
       "name": "Elite Four Bertha",
       "type": "elite-four",
       "order": 100,
-      "aceLevel": 55,
+      "aceLevel": 59,
       "roster": [
         { "species": "quagsire", "level": 55 },
         { "species": "sudowoodo", "level": 56 },
@@ -895,7 +895,7 @@
       "name": "Elite Four Flint",
       "type": "elite-four",
       "order": 110,
-      "aceLevel": 57,
+      "aceLevel": 61,
       "roster": [
         { "species": "rapidash", "level": 58 },
         { "species": "steelix", "level": 57 },
@@ -909,7 +909,7 @@
       "name": "Elite Four Lucian",
       "type": "elite-four",
       "order": 120,
-      "aceLevel": 59,
+      "aceLevel": 63,
       "roster": [
         { "species": "mr-mime", "level": 59 },
         { "species": "girafarig", "level": 59 },

@@ -28,6 +28,15 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
   if (data.areas.length !== areaIds.size) problems.push('duplicate area ids');
   const orders = data.milestones.map((m) => m.order);
   if (new Set(orders).size !== orders.length) problems.push('duplicate milestone orders');
+  for (const m of data.milestones) {
+    if (m.aceLevel != null && Array.isArray(m.roster) && m.roster.length) {
+      const maxRosterLevel = Math.max(...m.roster.map((p) => p.level));
+      if (m.aceLevel !== maxRosterLevel)
+        problems.push(
+          `milestone "${m.id}" aceLevel (${m.aceLevel}) does not match max roster level (${maxRosterLevel})`
+        );
+    }
+  }
 
   if (problems.length) {
     failed = true;
