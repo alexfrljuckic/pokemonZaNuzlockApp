@@ -26,6 +26,15 @@ file's checkboxes; it has drifted before.
 
 ## Next up (no decision needed — pick one and go)
 
+**15b. Consolidation round — BEFORE item 16 (Alex, 2026-07-04): do this
+first.** Full assessment in `docs/CONSOLIDATION.md`: 8 PR-sized items (C1-C8)
+to consolidate per-game plumbing and share components across games before
+another game lands. Priority order there — headline items: C1 single
+per-game app-config module (game registration currently touches 6 scattered
+files), C2 spectator-view parity via component reuse (it's a parallel
+implementation that's fallen behind every feature since UX section B).
+Hosting for friends is documented in `docs/DEPLOY.md` (refreshed same day).
+
 **16. `feat/sv-dataset` — Scarlet/Violet.** The last unbuilt game. Biggest
 remaining dataset lift: Paldea areas/encounters from Serebii/Bulbapedia,
 milestones for all three story paths (8 gyms w/ Victory Road, 5 Titans, 5
