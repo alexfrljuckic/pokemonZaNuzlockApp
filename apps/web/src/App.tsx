@@ -7,9 +7,9 @@ import {
   applyThemeExplicit,
   currentTheme,
   THEME_CHANGE_EVENT,
-  THEMES,
   type ThemeId,
 } from './lib/theme';
+import { THEMES } from './games';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';

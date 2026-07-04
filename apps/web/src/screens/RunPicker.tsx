@@ -1,6 +1,7 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useState, type CSSProperties } from 'react';
 import { buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
 import { listGames, speciesToLine } from '../lib/datasets';
+import { VERSION_MASCOT, cardColorFor } from '../games';
 import { createRun, loadEvents, type RunSummary } from '../lib/db';
 import { SpriteImg } from '../components/SpriteImg';
 import { StarterPicker } from '../components/SpecialsSection';
@@ -11,19 +12,6 @@ const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
   standard: 'First-encounter + dupes clause',
   hardcore: 'Level caps + set mode',
   casual: 'Relaxed — nothing enforced',
-};
-
-// Each version's cover mascot Pokémon — sprites come from our existing
-// (Showdown) source, so no IP-heavy box art. Absent → tile shows just the name.
-const VERSION_MASCOT: Record<string, string> = {
-  'brilliant-diamond': 'dialga',
-  'shining-pearl': 'palkia',
-  'lets-go-pikachu': 'pikachu',
-  'lets-go-eevee': 'eevee',
-  sword: 'zacian',
-  shield: 'zamazenta',
-  'legends-z-a': 'zygarde',
-  'legends-arceus': 'kleavor',
 };
 
 const prettyVersion = (v: string) => v.replace(/-/g, ' ');
@@ -128,7 +116,8 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
         {games.map((g) => (
           <Fragment key={g.gameId}>
             <button
-              className={`game-card game-card-${g.gameId}${g.gameId === gameId ? ' selected' : ''}`}
+              className={`game-card${g.gameId === gameId ? ' selected' : ''}`}
+              style={{ '--card-color': cardColorFor(g.gameId) } as CSSProperties}
               onClick={() => pickGame(g.gameId)}
               aria-expanded={g.gameId === gameId}
             >
