@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { nextBoss, validateTeam, type EngineContext, type Milestone, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
+import { STAT_ORDER, statLabel, statsFor } from '../../lib/speciesData';
+import { trainerKeyFromMilestone } from '../../lib/sprites';
 import { SpriteImg } from '../../components/SpriteImg';
+import { TrainerSprite } from '../../components/TrainerSprite';
 
 function MilestoneCard({
   milestone,
@@ -19,13 +22,21 @@ function MilestoneCard({
   const hasRoster = roster.length > 0;
 
   return (
-    <div className={`milestone-card${cleared ? ' cleared' : ''}${isNext ? ' next' : ''}`}>
-      <button
-        type="button"
-        className="milestone-card-head"
-        onClick={() => setExpanded((e) => !e)}
-        aria-expanded={expanded}
-      >
+    <div
+      className={`milestone-card${cleared ? ' cleared' : ''}${isNext ? ' next' : ''}${expanded ? ' expanded' : ''}`}
+      role="button"
+      tabIndex={0}
+      aria-expanded={expanded}
+      onClick={() => setExpanded((e) => !e)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          setExpanded((v) => !v);
+        }
+      }}
+    >
+      <div className="milestone-card-head">
+        <TrainerSprite trainerKey={trainerKeyFromMilestone(milestone.id)} size={52} className="milestone-trainer-sprite" />
         <div className="milestone-card-title">
           <strong>{milestone.name}</strong>
           <span className="muted">
@@ -33,13 +44,16 @@ function MilestoneCard({
             {milestone.aceLevel != null ? ` · ace Lv ${milestone.aceLevel}` : ''}
           </span>
         </div>
-        {cleared && <span className="muted">cleared</span>}
-      </button>
+        {cleared && <span className="milestone-cleared-badge">✓ cleared</span>}
+      </div>
 
       {hasRoster ? (
         <div className="milestone-roster-row">
           {roster.map((p, i) => (
-            <SpriteImg key={`${p.species}-${i}`} species={p.species} size={40} />
+            <span key={`${p.species}-${i}`} className="milestone-roster-mon">
+              <SpriteImg species={p.species} size={56} />
+              <span className="milestone-roster-lv muted">Lv{p.level}</span>
+            </span>
           ))}
         </div>
       ) : milestone.aceLevel != null ? (
@@ -51,7 +65,7 @@ function MilestoneCard({
           {hasRoster ? (
             roster.map((p, i) => (
               <div key={`${p.species}-${i}`} className="milestone-roster-detail-row">
-                <SpriteImg species={p.species} size={48} />
+                <SpriteImg species={p.species} size={64} />
                 <div className="poke-detail-summary">
                   <strong>{p.species}</strong>
                   <span className="muted">
@@ -68,6 +82,20 @@ function MilestoneCard({
                       ))}
                     </span>
                   )}
+                  {(() => {
+                    const st = statsFor(p.species);
+                    if (!st) return null;
+                    return (
+                      <span className="poke-stats">
+                        {STAT_ORDER.map((k) => (
+                          <span key={k} className="stat-chip">
+                            <span className="stat-label">{statLabel(k)}</span>
+                            <span className="stat-value">{st[k]}</span>
+                          </span>
+                        ))}
+                      </span>
+                    );
+                  })()}
                 </div>
               </div>
             ))
@@ -78,7 +106,13 @@ function MilestoneCard({
             <p className="muted">Grants {milestone.grants.reviveTokens} revive token(s) on clear.</p>
           ) : null}
           {!cleared && (
-            <button className={isNext ? '' : 'secondary'} onClick={onClear}>
+            <button
+              className={isNext ? '' : 'secondary'}
+              onClick={(e) => {
+                e.stopPropagation();
+                onClear();
+              }}
+            >
               Clear
             </button>
           )}

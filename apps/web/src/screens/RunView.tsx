@@ -6,14 +6,14 @@ import { loadEvents, type RunSummary } from '../lib/db';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { SharePopover } from '../components/SharePopover';
-import { AreasTab } from './tabs/AreasTab';
+import { RoutesTab } from './tabs/RoutesTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { WipeScreen } from './WipeScreen';
 
-const TABS = ['Areas', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
+const TABS = ['Routes', 'Team & Box', 'Milestones', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
 export function RunView({
@@ -26,7 +26,7 @@ export function RunView({
   onBack: () => void;
 }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
-  const [tab, setTab] = useState<Tab>('Areas');
+  const [tab, setTab] = useState<Tab>('Routes');
 
   async function refresh() {
     setEvents(await loadEvents(run.id));
@@ -101,7 +101,7 @@ export function RunView({
             ))}
           </nav>
 
-          {tab === 'Areas' && <AreasTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+          {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Milestones' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
