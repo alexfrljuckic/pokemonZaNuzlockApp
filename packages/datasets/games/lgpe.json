@@ -374,13 +374,15 @@
       "id": "starter-pikachu",
       "type": "gift",
       "species": "pikachu",
-      "area": "route-1"
+      "area": "route-1",
+      "conditions": { "version": ["lets-go-pikachu"] }
     },
     {
       "id": "starter-eevee",
       "type": "gift",
       "species": "eevee",
-      "area": "route-1"
+      "area": "route-1",
+      "conditions": { "version": ["lets-go-eevee"] }
     },
     {
       "id": "articuno",

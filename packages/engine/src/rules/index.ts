@@ -6,6 +6,7 @@ import type {
   RuleDef,
   Ruleset,
   RunState,
+  SpecialEncounter,
   Violation,
 } from '../types.js';
 
@@ -168,6 +169,14 @@ export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null 
       )
       .sort((a, b) => a.order - b.order)[0] ?? null
   );
+}
+
+/** Whether a special encounter is available for the given version — most
+ * specials have no version lock and apply everywhere; a few (e.g. LGPE's
+ * partner Pokémon: Pikachu on one version, Eevee on the other) are fixed by
+ * which version you're playing, not a real in-game choice. */
+export function specialAppliesToVersion(special: SpecialEncounter, version: string): boolean {
+  return !special.conditions?.version || special.conditions.version.includes(version);
 }
 
 /** The player's chosen starter species (from a claimed `starter-*` special), or null. */

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { filterEncounterPool, type Area, type EncounterSlot, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { filterEncounterPool, specialAppliesToVersion, type Area, type EncounterSlot, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
-import { hasMapNode } from '../../lib/sinnohMap';
+import { GAME_MAPS, mapHelpers } from '../../lib/maps';
 import { RouteMap, isFrontier } from '../../components/RouteMap';
 import { SpriteImg } from '../../components/SpriteImg';
 import { TypeBadges } from '../../components/TypeBadge';
@@ -161,7 +161,9 @@ function SpecialsHere({
   ctx: EngineContext;
   onChange: () => Promise<void>;
 }) {
-  const here = (ctx.dataset.specials ?? []).filter((s) => s.area === areaId && !s.id.startsWith('starter-'));
+  const here = (ctx.dataset.specials ?? []).filter(
+    (s) => s.area === areaId && !s.id.startsWith('starter-') && specialAppliesToVersion(s, state.version),
+  );
   if (here.length === 0) return null;
   return (
     <div className="specials-group">
@@ -282,21 +284,24 @@ export function RoutesTab({
   }
 
   const areas = ctx.dataset.areas;
-  const hasMap = ctx.dataset.gameId === 'bdsp';
+  const map = GAME_MAPS[ctx.dataset.gameId];
 
   // Starter is normally claimed in the game-picker flow before a run even
   // starts; this is only a fallback for runs where it was skipped (or
   // pre-existing runs from before that flow existed).
-  const starters = (ctx.dataset.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+  const starters = (ctx.dataset.specials ?? []).filter(
+    (s) => s.id.startsWith('starter-') && specialAppliesToVersion(s, state.version),
+  );
   const starterUnclaimed = starters.length > 0 && !starters.some((s) => claimedSpecial(s.id, state));
+  const starterStepLabel = starters.length > 1 ? 'Choose your starter' : 'Your partner Pokémon';
 
-  if (!hasMap) {
+  if (!map) {
     return (
       <section>
         <h2>Routes</h2>
         {starterUnclaimed && (
           <div className="specials-section">
-            <h3 className="route-offmap-title">Choose your starter</h3>
+            <h3 className="route-offmap-title">{starterStepLabel}</h3>
             <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
           </div>
         )}
@@ -318,6 +323,7 @@ export function RoutesTab({
   const selected = openAreaId ? areas.find((a) => a.id === openAreaId) ?? null : null;
   const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
   const selectedPool = selected ? filterEncounterPool(state, selected, ctx) : [];
+  const { hasMapNode } = mapHelpers(map);
   const offMapAreas = areas.filter((a) => !hasMapNode(a.id));
 
   return (
@@ -326,12 +332,12 @@ export function RoutesTab({
 
       {starterUnclaimed && (
         <div className="specials-section">
-          <h3 className="route-offmap-title">Choose your starter</h3>
+          <h3 className="route-offmap-title">{starterStepLabel}</h3>
           <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
         </div>
       )}
 
-      <RouteMap areas={areas} state={state} version={state.version} onSelect={(id) => setOpenAreaId(id)} />
+      <RouteMap map={map} areas={areas} state={state} version={state.version} onSelect={(id) => setOpenAreaId(id)} />
 
       {selected && (
         <div className="route-resolve-panel">
@@ -368,7 +374,7 @@ export function RoutesTab({
 
       {offMapAreas.length > 0 && (
         <div className="route-offmap">
-          <h3 className="route-offmap-title">Grand Underground &amp; other zones</h3>
+          <h3 className="route-offmap-title">Other areas</h3>
           <AreaList
             areas={offMapAreas}
             state={state}

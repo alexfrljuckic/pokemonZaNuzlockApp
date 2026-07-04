@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { buildRuleset, deriveState, type RunEvent } from '@nuzlocke/engine';
+import { buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
 import { listGames, speciesToLine } from '../lib/datasets';
 import { createRun, loadEvents, type RunSummary } from '../lib/db';
 import { SpriteImg } from '../components/SpriteImg';
@@ -83,7 +83,9 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
         .map((l) => l.trim())
         .filter(Boolean);
       const id = await createRun(game.gameId, version, ruleset);
-      const starters = (game.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+      const starters = (game.specials ?? []).filter(
+        (s) => s.id.startsWith('starter-') && specialAppliesToVersion(s, version),
+      );
       if (starters.length > 0) {
         setPendingRun({ id, events: await loadEvents(id) });
       } else {
@@ -100,10 +102,12 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   if (pendingRun && game) {
     const ctx = { dataset: game, speciesToLine };
     const state = deriveState(pendingRun.events, ctx);
-    const starters = (game.specials ?? []).filter((s) => s.id.startsWith('starter-'));
+    const starters = (game.specials ?? []).filter(
+      (s) => s.id.startsWith('starter-') && specialAppliesToVersion(s, state.version),
+    );
     return (
       <section>
-        <h2>Choose your starter</h2>
+        <h2>{starters.length > 1 ? 'Choose your starter' : 'Your partner Pokémon'}</h2>
         <StarterPicker
           runId={pendingRun.id}
           state={state}
