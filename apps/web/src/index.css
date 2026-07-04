@@ -476,8 +476,14 @@ button:disabled {
 
 .milestone-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 0.75rem;
+  align-items: start;
+}
+
+/* an expanded card takes the whole row so its roster detail has room */
+.milestone-card.expanded {
+  grid-column: 1 / -1;
 }
 
 .milestone-card {
@@ -564,22 +570,31 @@ button:disabled {
   padding: 0.75rem 0.85rem;
   background: var(--bg-chip);
   animation: fadeUp 0.2s ease both;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.6rem;
 }
 
+/* each roster Pokémon is its own mini-card with room for moves + stats */
 .milestone-roster-detail-row {
   display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.4rem 0;
-  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+  gap: 0.6rem;
+  padding: 0.55rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inset);
 }
 
-.milestone-roster-detail-row:last-child {
-  border-bottom: none;
+/* the grant note + Clear button span the whole detail grid, not a single cell */
+.milestone-card-detail > p,
+.milestone-card-detail > button {
+  grid-column: 1 / -1;
+  margin: 0;
 }
-
-.milestone-card-detail button {
-  margin-top: 0.75rem;
+.milestone-card-detail > button {
+  margin-top: 0.25rem;
+  justify-self: start;
 }
 
 /* ---------- Run summary strip (section C) ---------- */
