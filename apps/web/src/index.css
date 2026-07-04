@@ -1392,10 +1392,7 @@ button.back-btn:hover:not(:disabled)::before {
   opacity: 0.85;
 }
 
-.game-card-plza { --card-color: #e0435a; }
-.game-card-bdsp { --card-color: #3d7dca; }
-.game-card-lgpe { --card-color: #e3b505; }
-.game-card-swsh { --card-color: #00a2d8; }
+/* --card-color is set inline from each game's config (games/<id>.ts). */
 
 /* ---------- Team profiles + PC box (section B) ---------- */
 

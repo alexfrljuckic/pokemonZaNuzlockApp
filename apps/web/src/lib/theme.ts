@@ -1,16 +1,20 @@
-export const THEMES = [
-  { id: 'default-dark', name: 'Dark' },
-  { id: 'plza', name: 'Lumiose (Z-A)' },
-  { id: 'bdsp-bd', name: 'Brilliant Diamond' },
-  { id: 'bdsp-sp', name: 'Shining Pearl' },
-  { id: 'lgpe-pikachu', name: "Let's Go Pikachu" },
-  { id: 'lgpe-eevee', name: "Let's Go Eevee" },
-  { id: 'swsh-sword', name: 'Sword' },
-  { id: 'swsh-shield', name: 'Shield' },
-  { id: 'pla', name: 'Legends: Arceus' },
-] as const;
+// THEMES (dropdown list) and VERSION_THEME (version→theme) are assembled from
+// the per-game configs. Only a type edge runs the other way (games/<id> imports
+// ThemeId as a type), so there's no runtime import cycle.
+import { THEMES, VERSION_THEME } from '../games';
 
-export type ThemeId = (typeof THEMES)[number]['id'];
+// The set of theme ids — this module owns the apply/persist logic keyed on this
+// stable id union; the labels + version mapping live in the per-game configs.
+export type ThemeId =
+  | 'default-dark'
+  | 'plza'
+  | 'bdsp-bd'
+  | 'bdsp-sp'
+  | 'lgpe-pikachu'
+  | 'lgpe-eevee'
+  | 'swsh-sword'
+  | 'swsh-shield'
+  | 'pla';
 
 const KEY = 'nuzlocke-theme';
 // Set only when the user picks a theme from the header dropdown. Once set, the
@@ -20,24 +24,12 @@ const EXPLICIT_KEY = 'nuzlocke-theme-explicit';
 // elsewhere (e.g. opening a run switches to that game's theme).
 export const THEME_CHANGE_EVENT = 'nuzlocke-theme-change';
 
-// Pre-split theme ids (one per game) map onto the first version's theme.
+// Pre-split theme ids (one per game) map onto the first version's theme, for
+// migrating any value stored before the per-version split.
 const LEGACY: Record<string, ThemeId> = {
   bdsp: 'bdsp-bd',
   lgpe: 'lgpe-pikachu',
   swsh: 'swsh-sword',
-};
-
-// A run's version → the theme that matches it. Absent versions fall back to
-// default-dark (e.g. the first-ever view with no run open).
-export const VERSION_THEME: Record<string, ThemeId> = {
-  'brilliant-diamond': 'bdsp-bd',
-  'shining-pearl': 'bdsp-sp',
-  'lets-go-pikachu': 'lgpe-pikachu',
-  'lets-go-eevee': 'lgpe-eevee',
-  sword: 'swsh-sword',
-  shield: 'swsh-shield',
-  'legends-z-a': 'plza',
-  'legends-arceus': 'pla',
 };
 
 export function currentTheme(): ThemeId {
