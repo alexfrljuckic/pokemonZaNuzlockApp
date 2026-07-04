@@ -1002,8 +1002,8 @@
       "aceLevel": 9,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "starly", "level": 7 },
-        { "species": "piplup", "level": 9 }
+        { "species": "starly", "level": 7, "moves": ["tackle", "quick-attack", "growl"], "ability": "keen-eye" },
+        { "species": "piplup", "level": 9, "moves": ["pound", "growl"], "ability": "torrent" }
       ]
     },
     {
@@ -1013,9 +1013,9 @@
       "order": 10,
       "aceLevel": 14,
       "roster": [
-        { "species": "geodude", "level": 12 },
-        { "species": "onix", "level": 12 },
-        { "species": "cranidos", "level": 14 }
+        { "species": "geodude", "level": 12, "moves": ["stealth-rock", "defense-curl", "rollout"], "ability": "rock-head" },
+        { "species": "onix", "level": 12, "moves": ["stealth-rock", "rock-throw", "bind"], "ability": "sturdy" },
+        { "species": "cranidos", "level": 14, "moves": ["headbutt", "bulldoze", "leer"], "ability": "mold-breaker" }
       ]
     },
     {
@@ -1025,9 +1025,9 @@
       "order": 20,
       "aceLevel": 22,
       "roster": [
-        { "species": "cherubi", "level": 19 },
-        { "species": "turtwig", "level": 19 },
-        { "species": "roserade", "level": 22 }
+        { "species": "cherubi", "level": 19, "moves": ["grass-knot", "growth", "dazzling-gleam", "safeguard"], "ability": "chlorophyll" },
+        { "species": "turtwig", "level": 19, "moves": ["grass-knot", "razor-leaf", "reflect", "work-up"], "ability": "shell-armor", "heldItem": "miracle-seed" },
+        { "species": "roserade", "level": 22, "moves": ["grass-knot", "petal-blizzard", "poison-sting", "stun-spore"], "ability": "technician", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1037,9 +1037,9 @@
       "order": 30,
       "aceLevel": 30,
       "roster": [
-        { "species": "meditite", "level": 27 },
-        { "species": "machoke", "level": 27 },
-        { "species": "lucario", "level": 30 }
+        { "species": "meditite", "level": 27, "moves": ["drain-punch", "light-screen", "flash", "bulk-up"], "ability": "pure-power", "heldItem": "light-clay" },
+        { "species": "machoke", "level": 27, "moves": ["low-sweep", "knock-off", "rock-tomb", "bulldoze"], "ability": "guts", "heldItem": "expert-belt" },
+        { "species": "lucario", "level": 30, "moves": ["drain-punch", "screech", "metal-claw", "bulk-up"], "ability": "steadfast", "heldItem": "big-root" }
       ]
     },
     {
@@ -1049,9 +1049,9 @@
       "order": 40,
       "aceLevel": 30,
       "roster": [
-        { "species": "gyarados", "level": 27 },
-        { "species": "quagsire", "level": 27 },
-        { "species": "floatzel", "level": 30 }
+        { "species": "gyarados", "level": 27, "moves": ["brine", "ice-fang", "crunch", "flail"], "ability": "intimidate", "heldItem": "wide-lens" },
+        { "species": "quagsire", "level": 27, "moves": ["rain-dance", "haze", "mud-shot", "scald"], "ability": "damp", "heldItem": "damp-rock" },
+        { "species": "floatzel", "level": 30, "moves": ["brine", "ice-fang", "bite", "aqua-jet"], "ability": "swift-swim", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1062,10 +1062,10 @@
       "aceLevel": 31,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "starly", "level": 26 },
-        { "species": "roselia", "level": 26 },
-        { "species": "ponyta", "level": 27 },
-        { "species": "prinplup", "level": 31 }
+        { "species": "starly", "level": 26, "moves": ["quick-attack", "double-team", "endeavor", "pluck"], "ability": "keen-eye" },
+        { "species": "roselia", "level": 26, "moves": ["growth", "stun-spore", "leech-seed", "magical-leaf"], "ability": "natural-cure", "heldItem": "miracle-seed" },
+        { "species": "ponyta", "level": 27, "moves": ["tackle", "growl", "flame-charge", "agility"], "ability": "flash-fire", "heldItem": "shell-bell" },
+        { "species": "prinplup", "level": 31, "moves": ["metal-claw", "charm", "bubble-beam", "grass-knot"], "ability": "torrent", "heldItem": "sea-incense" }
       ]
     },
     {
@@ -1075,9 +1075,9 @@
       "order": 50,
       "aceLevel": 36,
       "roster": [
-        { "species": "drifblim", "level": 32 },
-        { "species": "gengar", "level": 34 },
-        { "species": "mismagius", "level": 36 }
+        { "species": "drifblim", "level": 32, "moves": ["strength-sap", "hex", "fly", "will-o-wisp"], "ability": "aftermath", "heldItem": "zoom-lens" },
+        { "species": "gengar", "level": 34, "moves": ["shadow-claw", "confuse-ray", "sludge-bomb", "dazzling-gleam"], "ability": "cursed-body", "heldItem": "colbur-berry" },
+        { "species": "mismagius", "level": 36, "moves": ["confuse-ray", "phantom-force", "magical-leaf", "dazzling-gleam"], "ability": "levitate", "heldItem": "expert-belt" }
       ]
     },
     {
@@ -1087,9 +1087,9 @@
       "order": 60,
       "aceLevel": 39,
       "roster": [
-        { "species": "bronzor", "level": 36 },
-        { "species": "steelix", "level": 36 },
-        { "species": "bastiodon", "level": 39 }
+        { "species": "bronzor", "level": 36, "moves": ["confuse-ray", "sandstorm", "trick-room", "flash-cannon"], "ability": "levitate" },
+        { "species": "steelix", "level": 36, "moves": ["thunder-fang", "earthquake", "sandstorm", "gyro-ball"], "ability": "sturdy", "heldItem": "soft-sand" },
+        { "species": "bastiodon", "level": 39, "moves": ["iron-defense", "thunderbolt", "stone-edge", "flash-cannon"], "ability": "sturdy", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1099,10 +1099,10 @@
       "order": 70,
       "aceLevel": 42,
       "roster": [
-        { "species": "snover", "level": 38 },
-        { "species": "sneasel", "level": 38 },
-        { "species": "medicham", "level": 40 },
-        { "species": "abomasnow", "level": 42 }
+        { "species": "snover", "level": 38, "moves": ["mist", "razor-leaf", "water-pulse", "avalanche"], "ability": "snow-warning", "heldItem": "icy-rock" },
+        { "species": "sneasel", "level": 38, "moves": ["metal-claw", "hone-claws", "dig", "avalanche"], "ability": "pickpocket", "heldItem": "chople-berry" },
+        { "species": "medicham", "level": 40, "moves": ["ice-punch", "bulk-up", "brick-break", "rock-slide"], "ability": "pure-power", "heldItem": "expert-belt" },
+        { "species": "abomasnow", "level": 42, "moves": ["aurora-veil", "giga-drain", "earthquake", "blizzard"], "ability": "snow-warning", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1112,10 +1112,10 @@
       "order": 80,
       "aceLevel": 49,
       "roster": [
-        { "species": "raichu", "level": 46 },
-        { "species": "ambipom", "level": 47 },
-        { "species": "octillery", "level": 47 },
-        { "species": "luxray", "level": 49 }
+        { "species": "raichu", "level": 46, "moves": ["nuzzle", "volt-switch", "surf", "charge-beam"], "ability": "static", "heldItem": "shuca-berry" },
+        { "species": "ambipom", "level": 47, "moves": ["fake-out", "thunderbolt", "double-hit", "last-resort"], "ability": "technician", "heldItem": "chople-berry" },
+        { "species": "octillery", "level": 47, "moves": ["octazooka", "focus-energy", "aurora-beam", "charge-beam"], "ability": "sniper", "heldItem": "expert-belt" },
+        { "species": "luxray", "level": 49, "moves": ["thunder-fang", "ice-fang", "crunch", "iron-tail"], "ability": "intimidate", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1125,11 +1125,11 @@
       "order": 90,
       "aceLevel": 57,
       "roster": [
-        { "species": "dustox", "level": 53 },
-        { "species": "beautifly", "level": 53 },
-        { "species": "vespiquen", "level": 54 },
-        { "species": "heracross", "level": 54 },
-        { "species": "drapion", "level": 57 }
+        { "species": "dustox", "level": 53, "moves": ["toxic", "bug-buzz", "moonlight", "light-screen"], "ability": "shield-dust", "heldItem": "black-sludge" },
+        { "species": "beautifly", "level": 53, "moves": ["bug-buzz", "shadow-ball", "psychic", "quiver-dance"], "ability": "swarm", "heldItem": "wise-glasses" },
+        { "species": "vespiquen", "level": 54, "moves": ["acrobatics", "attack-order", "aerial-ace", "defend-order"], "ability": "unnerve", "heldItem": "sitrus-berry" },
+        { "species": "heracross", "level": 54, "moves": ["earthquake", "rock-slide", "facade", "brick-break"], "ability": "guts", "heldItem": "flame-orb" },
+        { "species": "drapion", "level": 57, "moves": ["cross-poison", "night-slash", "earthquake", "x-scissor"], "ability": "sniper", "heldItem": "scope-lens" }
       ]
     },
     {
@@ -1139,11 +1139,11 @@
       "order": 100,
       "aceLevel": 59,
       "roster": [
-        { "species": "quagsire", "level": 55 },
-        { "species": "sudowoodo", "level": 56 },
-        { "species": "golem", "level": 56 },
-        { "species": "whiscash", "level": 55 },
-        { "species": "hippowdon", "level": 59 }
+        { "species": "quagsire", "level": 55, "moves": ["recover", "toxic", "earthquake", "surf"], "ability": "water-absorb", "heldItem": "leftovers" },
+        { "species": "sudowoodo", "level": 56, "moves": ["double-edge", "head-smash", "sucker-punch", "low-kick"], "ability": "rock-head", "heldItem": "sitrus-berry" },
+        { "species": "golem", "level": 56, "moves": ["rock-polish", "heavy-slam", "earthquake", "stone-edge"], "ability": "sturdy", "heldItem": "soft-sand" },
+        { "species": "whiscash", "level": 55, "moves": ["bulldoze", "ice-beam", "belch", "hydro-pump"], "ability": "hydration", "heldItem": "rindo-berry" },
+        { "species": "hippowdon", "level": 59, "moves": ["ice-fang", "earthquake", "crunch", "rest"], "ability": "sand-stream", "heldItem": "chesto-berry" }
       ]
     },
     {
@@ -1153,11 +1153,11 @@
       "order": 110,
       "aceLevel": 61,
       "roster": [
-        { "species": "rapidash", "level": 58 },
-        { "species": "steelix", "level": 57 },
-        { "species": "drifblim", "level": 58 },
-        { "species": "lopunny", "level": 57 },
-        { "species": "infernape", "level": 61 }
+        { "species": "rapidash", "level": 58, "moves": ["flame-charge", "iron-tail", "poison-jab", "hypnosis"], "ability": "flame-body", "heldItem": "wide-lens" },
+        { "species": "steelix", "level": 57, "moves": ["thunder-fang", "fire-fang", "iron-tail", "crunch"], "ability": "sheer-force", "heldItem": "life-orb" },
+        { "species": "drifblim", "level": 58, "moves": ["strength-sap", "minimize", "baton-pass", "will-o-wisp"], "ability": "unburden", "heldItem": "sitrus-berry" },
+        { "species": "lopunny", "level": 57, "moves": ["mirror-coat", "high-jump-kick", "quick-attack", "fire-punch"], "ability": "cute-charm", "heldItem": "leftovers" },
+        { "species": "infernape", "level": 61, "moves": ["fire-punch", "thunder-punch", "close-combat", "mach-punch"], "ability": "iron-fist", "heldItem": "focus-sash" }
       ]
     },
     {
@@ -1167,11 +1167,11 @@
       "order": 120,
       "aceLevel": 63,
       "roster": [
-        { "species": "mr-mime", "level": 59 },
-        { "species": "girafarig", "level": 59 },
-        { "species": "medicham", "level": 60 },
-        { "species": "alakazam", "level": 60 },
-        { "species": "bronzong", "level": 63 }
+        { "species": "mr-mime", "level": 59, "moves": ["light-screen", "reflect", "psychic", "dazzling-gleam"], "ability": "filter", "heldItem": "light-clay" },
+        { "species": "girafarig", "level": 59, "moves": ["light-screen", "psychic", "thunderbolt", "trick-room"], "ability": "sap-sipper", "heldItem": "mental-herb" },
+        { "species": "medicham", "level": 60, "moves": ["zen-headbutt", "high-jump-kick", "thunder-punch", "ice-punch"], "ability": "pure-power", "heldItem": "muscle-band" },
+        { "species": "alakazam", "level": 60, "moves": ["nasty-plot", "psychic", "future-sight", "shock-wave"], "ability": "magic-guard", "heldItem": "life-orb" },
+        { "species": "bronzong", "level": 63, "moves": ["gyro-ball", "earthquake", "payback", "trick-room"], "ability": "levitate", "heldItem": "sitrus-berry" }
       ]
     },
     {
@@ -1182,12 +1182,12 @@
       "aceLevel": 55,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "staraptor", "level": 49 },
-        { "species": "roserade", "level": 49 },
-        { "species": "heracross", "level": 51 },
-        { "species": "rapidash", "level": 49 },
-        { "species": "snorlax", "level": 52 },
-        { "species": "empoleon", "level": 55 }
+        { "species": "staraptor", "level": 49, "moves": ["close-combat", "pluck", "rain-dance", "u-turn"], "ability": "intimidate", "heldItem": "focus-sash" },
+        { "species": "roserade", "level": 49, "moves": ["grassy-terrain", "petal-blizzard", "stun-spore", "shadow-ball"], "ability": "natural-cure", "heldItem": "black-sludge" },
+        { "species": "heracross", "level": 51, "moves": ["pin-missile", "swords-dance", "rock-slide", "thief"], "ability": "swarm" },
+        { "species": "rapidash", "level": 49, "moves": ["smart-strike", "megahorn", "poison-jab", "flame-wheel"], "ability": "flash-fire", "heldItem": "expert-belt" },
+        { "species": "snorlax", "level": 52, "moves": ["covet", "yawn", "crunch", "high-horsepower"], "ability": "thick-fat" },
+        { "species": "empoleon", "level": 55, "moves": ["charm", "grass-knot", "brine", "flash-cannon"], "ability": "torrent", "heldItem": "quick-claw" }
       ]
     },
     {
@@ -1197,12 +1197,12 @@
       "order": 130,
       "aceLevel": 66,
       "roster": [
-        { "species": "spiritomb", "level": 61 },
-        { "species": "roserade", "level": 60 },
-        { "species": "gastrodon", "level": 60 },
-        { "species": "lucario", "level": 63 },
-        { "species": "milotic", "level": 63 },
-        { "species": "garchomp", "level": 66 }
+        { "species": "spiritomb", "level": 61, "moves": ["shadow-ball", "dark-pulse", "psychic", "sucker-punch"], "ability": "pressure", "heldItem": "sitrus-berry" },
+        { "species": "roserade", "level": 60, "moves": ["dazzling-gleam", "shadow-ball", "sludge-bomb", "energy-ball"], "ability": "poison-point", "heldItem": "expert-belt" },
+        { "species": "gastrodon", "level": 60, "moves": ["scald", "earthquake", "sludge-bomb", "rock-tomb"], "ability": "storm-drain", "heldItem": "leftovers" },
+        { "species": "lucario", "level": 63, "moves": ["aura-sphere", "dragon-pulse", "flash-cannon", "nasty-plot"], "ability": "inner-focus", "heldItem": "wise-glasses" },
+        { "species": "milotic", "level": 63, "moves": ["recover", "mirror-coat", "ice-beam", "scald"], "ability": "marvel-scale", "heldItem": "flame-orb" },
+        { "species": "garchomp", "level": 66, "moves": ["dragon-claw", "earthquake", "swords-dance", "poison-jab"], "ability": "rough-skin", "heldItem": "yache-berry" }
       ]
     }
   ],
