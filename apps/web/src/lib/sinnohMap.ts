@@ -24,66 +24,74 @@ export const SINNOH_VIEWBOX = { w: 216, h: 168 };
 
 // Positions calibrated to the Sinnoh town-map backdrop (216x168). Ordered
 // roughly south → north.
+// Anchors extracted from the backdrop's pixel data (marker centroids):
+//   cities (red):  Snowpoint (82,10) · Fight Area (142,56) · Eterna (70,79) ·
+//                  League (187,84) · Veilstone (156,95) · Hearthome (107,116) ·
+//                  Canalave (12,123) · Oreburgh (66,128) · Jubilife (37,130) ·
+//                  Sunyshore (191,130) · Pastoria (135,144)
+//   towns (blue):  Survival (146,36) · Resort (181,64) · Celestic (105,78) ·
+//                  Solaceon (129,106) · Sandgem (41,148) · Twinleaf (27,155)
+//   lakes (cyan):  Acuity (70,12) · Valor (154,129) · Verity (17,146)
 export const SINNOH_NODES: MapNode[] = [
   // — Southern start (SW) —
-  { id: 'lake-verity', x: 43, y: 134, kind: 'landmark' },
-  { id: 'ramanas-park', x: 30, y: 150, kind: 'landmark' },
-  { id: 'route-201', x: 52, y: 140, kind: 'route' },
-  { id: 'route-202', x: 63, y: 124, kind: 'route' },
-  { id: 'route-203', x: 78, y: 118, kind: 'route' },
-  { id: 'oreburgh-gate', x: 86, y: 122, kind: 'cave' },
-  { id: 'oreburgh-mine', x: 93, y: 126, kind: 'cave' },
+  { id: 'lake-verity', x: 17, y: 146, kind: 'landmark' },
+  { id: 'route-201', x: 33, y: 151, kind: 'route' },
+  { id: 'route-202', x: 39, y: 139, kind: 'route' },
+  { id: 'ramanas-park', x: 44, y: 162, kind: 'landmark' },
+  { id: 'route-203', x: 51, y: 128, kind: 'route' },
+  { id: 'oreburgh-gate', x: 59, y: 128, kind: 'cave' },
+  { id: 'oreburgh-mine', x: 67, y: 134, kind: 'cave' },
 
   // — West / Floaroma / Eterna —
-  { id: 'route-204-south', x: 64, y: 100, kind: 'route' },
-  { id: 'route-205-south', x: 62, y: 86, kind: 'route' },
-  { id: 'valley-windworks', x: 50, y: 92, kind: 'landmark' },
-  { id: 'floaroma-meadow', x: 58, y: 80, kind: 'landmark' },
-  { id: 'eterna-forest', x: 70, y: 66, kind: 'forest' },
-  { id: 'old-chateau', x: 76, y: 60, kind: 'landmark' },
-  { id: 'eterna-city', x: 80, y: 54, kind: 'city' },
-  { id: 'route-206', x: 92, y: 80, kind: 'route' },
+  { id: 'route-204-south', x: 37, y: 119, kind: 'route' },
+  { id: 'floaroma-meadow', x: 38, y: 98, kind: 'landmark' },
+  { id: 'valley-windworks', x: 49, y: 105, kind: 'landmark' },
+  { id: 'route-205-south', x: 46, y: 92, kind: 'route' },
+  { id: 'eterna-forest', x: 56, y: 84, kind: 'forest' },
+  { id: 'old-chateau', x: 61, y: 78, kind: 'landmark' },
+  { id: 'eterna-city', x: 70, y: 79, kind: 'city' },
+  { id: 'route-206', x: 71, y: 94, kind: 'route' },
 
   // — Far west coast —
-  { id: 'route-218', x: 48, y: 108, kind: 'route' },
-  { id: 'canalave-city', x: 34, y: 92, kind: 'city' },
-  { id: 'iron-island', x: 18, y: 100, kind: 'cave' },
+  { id: 'route-218', x: 24, y: 125, kind: 'route' },
+  { id: 'canalave-city', x: 12, y: 123, kind: 'city' },
+  { id: 'iron-island', x: 25, y: 67, kind: 'cave' },
 
   // — Central spine —
-  { id: 'mt-coronet', x: 100, y: 80, kind: 'cave' },
-  { id: 'hearthome-city', x: 112, y: 101, kind: 'city' },
-  { id: 'amity-square', x: 118, y: 97, kind: 'landmark' },
-  { id: 'lost-tower', x: 124, y: 92, kind: 'landmark' },
+  { id: 'mt-coronet', x: 92, y: 70, kind: 'cave' },
+  { id: 'hearthome-city', x: 107, y: 116, kind: 'city' },
+  { id: 'amity-square', x: 111, y: 110, kind: 'landmark' },
+  { id: 'lost-tower', x: 120, y: 112, kind: 'landmark' },
 
   // — East —
-  { id: 'solaceon-town', x: 134, y: 84, kind: 'town' },
-  { id: 'solaceon-ruins', x: 142, y: 80, kind: 'cave' },
+  { id: 'solaceon-town', x: 129, y: 106, kind: 'town' },
+  { id: 'solaceon-ruins', x: 134, y: 110, kind: 'cave' },
 
   // — Toward Pastoria (SE-central) —
-  { id: 'route-215', x: 128, y: 96, kind: 'route' },
-  { id: 'trophy-garden', x: 116, y: 116, kind: 'landmark' },
-  { id: 'route-214', x: 150, y: 96, kind: 'route' },
-  { id: 'route-213', x: 145, y: 116, kind: 'route' },
-  { id: 'great-marsh', x: 130, y: 124, kind: 'landmark' },
-  { id: 'lake-valor', x: 151, y: 111, kind: 'landmark' },
+  { id: 'route-215', x: 143, y: 96, kind: 'route' },
+  { id: 'trophy-garden', x: 112, y: 132, kind: 'landmark' },
+  { id: 'route-214', x: 157, y: 110, kind: 'route' },
+  { id: 'route-213', x: 147, y: 139, kind: 'route' },
+  { id: 'great-marsh', x: 135, y: 137, kind: 'landmark' },
+  { id: 'lake-valor', x: 154, y: 129, kind: 'landmark' },
 
   // — SE coast —
-  { id: 'route-222', x: 166, y: 110, kind: 'route' },
-  { id: 'sunyshore-city', x: 177, y: 111, kind: 'city' },
+  { id: 'route-222', x: 176, y: 131, kind: 'route' },
+  { id: 'sunyshore-city', x: 191, y: 130, kind: 'city' },
 
   // — North (snow) —
-  { id: 'route-216', x: 100, y: 60, kind: 'route' },
-  { id: 'route-217', x: 98, y: 48, kind: 'route' },
-  { id: 'lake-acuity', x: 91, y: 40, kind: 'landmark' },
-  { id: 'snowpoint-city', x: 104, y: 34, kind: 'city' },
-  { id: 'snowpoint-temple', x: 110, y: 26, kind: 'cave' },
+  { id: 'route-216', x: 87, y: 48, kind: 'route' },
+  { id: 'route-217', x: 83, y: 30, kind: 'route' },
+  { id: 'lake-acuity', x: 70, y: 12, kind: 'landmark' },
+  { id: 'snowpoint-city', x: 82, y: 10, kind: 'city' },
+  { id: 'snowpoint-temple', x: 89, y: 15, kind: 'cave' },
 
-  // — NE post-game (Battle Zone / Victory Road) —
-  { id: 'victory-road', x: 190, y: 84, kind: 'cave' },
-  { id: 'route-230', x: 140, y: 20, kind: 'route' },
-  { id: 'route-225', x: 150, y: 30, kind: 'route' },
-  { id: 'route-228', x: 170, y: 26, kind: 'route' },
-  { id: 'stark-mountain', x: 176, y: 14, kind: 'cave' },
+  // — East coast / Battle Zone (post-game) —
+  { id: 'victory-road', x: 184, y: 92, kind: 'cave' },
+  { id: 'route-225', x: 146, y: 47, kind: 'route' },
+  { id: 'route-228', x: 172, y: 50, kind: 'route' },
+  { id: 'route-230', x: 166, y: 70, kind: 'route' },
+  { id: 'stark-mountain', x: 192, y: 30, kind: 'cave' },
 ];
 
 // Path segments drawn as connector lines between nodes (by id). Purely
