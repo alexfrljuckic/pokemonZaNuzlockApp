@@ -118,6 +118,46 @@ max(roster[].level). Do the same check for SwSh after PR #16. Acceptance:
 a validator or test rule asserting `aceLevel === max(roster level)` whenever
 both exist, so future datasets can't drift.
 
+## Decided 2026-07-04, not yet implemented (starter feature — do these next)
+
+**14. `feat/starter-and-specials` — pick a starter + claim gifts/statics.**
+Alex asked (2026-07-04): there is currently NO way to select your starter or
+record any gift/fossil/static Pokémon — the `specials` array in the datasets
+is never surfaced in the UI at all, and BDSP's starter is hardcoded to just
+`turtwig` (not a choice of three). Build:
+  - *Data* (`bdsp.json` specials): replace the single `starter` with the three
+    real choices (`starter-turtwig` / `-chimchar` / `-piplup`); keep the
+    gift/fossil/static entries. Consider a `group`/`choose-one` marker so the
+    UI knows the three starters are mutually exclusive.
+  - *Engine*: a new append-only `special_claimed` event → creates a
+    `PokemonInstance` with `origin.specialId` (mirror how `encounter_resolved`
+    creates one; support nickname/level/shiny). Fold it in `deriveState`; add a
+    reset path (like `encounter_reset`). Tests.
+  - *UI*: a "Gifts & Specials" section on the Routes tab — a "choose your
+    starter" sprite picker (one of three, with the shiny toggle) plus claimable
+    gift/fossil/static entries, styled like the encounter sprite grid. Reuse
+    `SpriteImg`. Record which starter was chosen (it's needed for item 15).
+Acceptance: can pick a starter and it lands in the team; gifts/fossils/statics
+claimable + resettable; nothing breaks when a game has no specials.
+
+**15. `feat/starter-conditional-rivals` — rival team varies by your starter.**
+Alex asked (2026-07-04): Barry's team should adjust to the starter you pick
+(in BDSP he takes the one weak to yours, so his starter-line Pokémon differ
+three ways). Depends on item 14 (need to know the chosen starter). Build:
+  - *Schema*: let a milestone roster vary by chosen starter — e.g. an optional
+    `rosterByStarter: { turtwig: [...], chimchar: [...], piplup: [...] }` on the
+    milestone (or a `conditions.starter` on roster entries), falling back to the
+    plain `roster` when no starter is chosen. Update validator + `Milestone`
+    type; keep backward compatibility.
+  - *Data*: author Barry's three team variants for all 3 rival milestones from
+    Serebii (the current single roster is the Turtwig-branch team — the moveset
+    agent noted this). `aceLevel` stays max across variants.
+  - *Engine/UI*: derive the chosen starter from state (the `special_claimed`
+    starter), and render the matching rival roster in the Milestones tab (and
+    anywhere else rosters show). Default to one variant when unchosen.
+Acceptance: choosing Chimchar shows Barry with the Piplup line, etc.; unchosen
+falls back gracefully.
+
 ## Known gaps / follow-ups (no decision needed, just work)
 
 - **SwSh milestone rosters**: PR #16 shipped without them (`roster` field

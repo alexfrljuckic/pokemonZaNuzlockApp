@@ -65,38 +65,46 @@ function MilestoneCard({
           {hasRoster ? (
             roster.map((p, i) => (
               <div key={`${p.species}-${i}`} className="milestone-roster-detail-row">
-                <SpriteImg species={p.species} size={64} />
-                <div className="poke-detail-summary">
-                  <strong>{p.species}</strong>
-                  <span className="muted">
-                    Lv {p.level}
-                    {p.ability ? ` · ${p.ability}` : ''}
-                    {p.heldItem ? ` · holding ${p.heldItem}` : ''}
-                  </span>
-                  {p.moves && p.moves.length > 0 && (
-                    <span className="poke-moves">
-                      {p.moves.map((mv) => (
-                        <span key={mv} className="move-chip">
-                          {mv}
-                        </span>
-                      ))}
-                    </span>
-                  )}
-                  {(() => {
-                    const st = statsFor(p.species);
-                    if (!st) return null;
-                    return (
-                      <span className="poke-stats">
-                        {STAT_ORDER.map((k) => (
-                          <span key={k} className="stat-chip">
-                            <span className="stat-label">{statLabel(k)}</span>
-                            <span className="stat-value">{st[k]}</span>
-                          </span>
-                        ))}
+                <div className="mrd-head">
+                  <SpriteImg species={p.species} size={76} />
+                  <div className="mrd-title">
+                    <strong>{p.species}</strong>
+                    <span className="mrd-lv">Lv {p.level}</span>
+                    {(p.ability || p.heldItem) && (
+                      <span className="muted mrd-meta">
+                        {p.ability ?? ''}
+                        {p.ability && p.heldItem ? ' · ' : ''}
+                        {p.heldItem ? `@ ${p.heldItem}` : ''}
                       </span>
-                    );
-                  })()}
+                    )}
+                  </div>
                 </div>
+                {p.moves && p.moves.length > 0 && (
+                  <div className="poke-moves">
+                    {p.moves.map((mv) => (
+                      <span key={mv} className="move-chip">
+                        {mv}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                {(() => {
+                  const st = statsFor(p.species);
+                  if (!st) return null;
+                  return (
+                    <div className="poke-statbars">
+                      {STAT_ORDER.map((k) => (
+                        <div key={k} className="statbar">
+                          <span className="statbar-label">{statLabel(k)}</span>
+                          <span className="statbar-track">
+                            <span className="statbar-fill" style={{ width: `${Math.min(100, (st[k] / 200) * 100)}%` }} />
+                          </span>
+                          <span className="statbar-value">{st[k]}</span>
+                        </div>
+                      ))}
+                    </div>
+                  );
+                })()}
               </div>
             ))
           ) : (
