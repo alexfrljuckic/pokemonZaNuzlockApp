@@ -538,7 +538,7 @@
     { "id": "gift-toxel", "type": "gift", "species": "toxel", "area": "route-5" }
   ],
   "milestones": [
-    { "id": "rival-hop-1", "name": "Hop (Postwick, First Battle)", "type": "rival", "order": 5, "aceLevel": 5 },
+    { "id": "rival-hop-1", "name": "Hop (Postwick, First Battle)", "type": "rival", "order": 5, "aceLevel": 5, "countsForLevelCap": false },
     { "id": "gym-1-milo", "name": "Milo (Turffield Gym)", "type": "gym", "order": 10, "aceLevel": 20 },
     { "id": "gym-2-nessa", "name": "Nessa (Hulbury Gym)", "type": "gym", "order": 20, "aceLevel": 24 },
     { "id": "gym-3-kabu", "name": "Kabu (Motostoke Gym)", "type": "gym", "order": 30, "aceLevel": 27 },
@@ -549,7 +549,7 @@
     { "id": "gym-8-raihan", "name": "Raihan (Hammerlocke Gym)", "type": "gym", "order": 80, "aceLevel": 48 },
     { "id": "champion-cup-semifinal", "name": "Champion Cup Semi-Final (Hop)", "type": "champion-cup", "order": 90, "aceLevel": 62 },
     { "id": "champion-leon", "name": "Champion Cup Final (Champion Leon)", "type": "champion", "order": 100, "aceLevel": 65 },
-    { "id": "rival-hop-final", "name": "Hop (Wyndon Stadium, Final Battle)", "type": "rival", "order": 110, "aceLevel": 70 }
+    { "id": "rival-hop-final", "name": "Hop (Wyndon Stadium, Final Battle)", "type": "rival", "order": 110, "aceLevel": 70, "countsForLevelCap": false }
   ],
   "mechanics": {
     "heldItems": true,

@@ -44,6 +44,8 @@ export interface Milestone {
   type: string;               // "gym" | "noble" | "promotion" | "titan" | "elite-four" | ...
   order: number;
   aceLevel: number | null;    // highest level in the boss fight; null if not a battle
+  /** Whether this milestone's aceLevel gates the enforced level cap. Absent/true = gates it; false = tracked/displayed but excluded (e.g. rival battles). */
+  countsForLevelCap?: boolean;
   grants?: { reviveTokens?: number };
   /** Full team, informational only — display in UI. The level-cap rule reads aceLevel, never this. */
   roster?: MilestoneRosterMember[];

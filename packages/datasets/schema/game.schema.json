@@ -68,6 +68,10 @@
           "type": { "type": "string" },
           "order": { "type": "integer", "minimum": 0 },
           "aceLevel": { "type": ["integer", "null"], "minimum": 1 },
+          "countsForLevelCap": {
+            "type": "boolean",
+            "description": "Whether this milestone gates the enforced level cap. Defaults to true when absent; set false for milestones (e.g. rival battles) that should be tracked/displayed but not cap-gating."
+          },
           "grants": {
             "type": "object",
             "additionalProperties": false,
