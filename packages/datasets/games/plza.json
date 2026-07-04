@@ -5,6 +5,7 @@
   "versions": [
     "legends-z-a"
   ],
+  "pokeapiVersionGroups": ["legends-za","mega-dimension"],
   "areas": [
     {
       "id": "wild-zone-1",

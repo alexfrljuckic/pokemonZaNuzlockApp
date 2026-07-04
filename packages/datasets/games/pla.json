@@ -3,6 +3,7 @@
   "gameId": "pla",
   "name": "Pokémon Legends: Arceus",
   "versions": ["legends-arceus"],
+  "pokeapiVersionGroups": ["legends-arceus"],
   "areas": [
     {
       "id": "jubilife-village",

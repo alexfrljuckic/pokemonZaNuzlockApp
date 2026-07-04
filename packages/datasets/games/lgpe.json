@@ -6,6 +6,7 @@
     "lets-go-pikachu",
     "lets-go-eevee"
   ],
+  "pokeapiVersionGroups": ["lets-go-pikachu-lets-go-eevee"],
   "areas": [
     {
       "id": "route-1",

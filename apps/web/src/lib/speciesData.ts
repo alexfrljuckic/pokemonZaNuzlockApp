@@ -17,6 +17,7 @@ interface SpeciesData {
   stats: Record<string, Record<string, number>>;
   types: Record<string, string[]>;
   moves: Record<string, string[]>;
+  movesByGame: Record<string, Record<string, string[]>>;
   moveTypes: Record<string, string>;
   evolutions: Record<string, Evolution[]>;
   heldItems: string[];
@@ -34,7 +35,14 @@ export const moveType = (move: string): string | null => data.moveTypes[move] ??
 const machines = machinesRaw as Record<string, 'TM' | 'HM'>;
 export const machineType = (move: string): 'TM' | 'HM' | null => machines[move] ?? null;
 
-export const movesFor = (species: string): string[] => data.moves[species] ?? [];
+/** A species' movepool, scoped to the given game where PokeAPI documents it.
+ * Each game learns different moves (Pikachu knows 31 moves in LGPE, 50 in
+ * BDSP, 8 in Legends Arceus) — the per-game pool comes from the game's
+ * `pokeapiVersionGroups`. Falls back to the all-games union when there's no
+ * per-game data: Legends Z-A (PokeAPI has no move data for it at all) and
+ * the handful of species with per-game coverage gaps. */
+export const movesFor = (species: string, gameId?: string): string[] =>
+  (gameId ? data.movesByGame[gameId]?.[species] : undefined) ?? data.moves[species] ?? [];
 export const statsFor = (species: string): Record<string, number> | null => data.stats[species] ?? null;
 export const evolutionsFor = (species: string): Evolution[] => data.evolutions[species] ?? [];
 

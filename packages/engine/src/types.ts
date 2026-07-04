@@ -5,6 +5,11 @@ export interface GameDataset {
   gameId: string;
   name: string;
   versions: string[];
+  // PokeAPI version-group slugs whose move-learn data applies to this game
+  // (include DLC groups, e.g. sword-shield + the-isle-of-armor). Absent when
+  // PokeAPI has no move data for the game (Legends Z-A) — consumers fall
+  // back to the all-games union movepool.
+  pokeapiVersionGroups?: string[];
   areas: Area[];
   specials: SpecialEncounter[];
   milestones: Milestone[];

@@ -3,6 +3,7 @@
   "gameId": "bdsp",
   "name": "Pokémon Brilliant Diamond / Shining Pearl",
   "versions": ["brilliant-diamond", "shining-pearl"],
+  "pokeapiVersionGroups": ["brilliant-diamond-shining-pearl"],
   "areas": [
     {
       "id": "lake-verity",
