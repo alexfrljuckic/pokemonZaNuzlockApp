@@ -51,7 +51,14 @@
           "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
           "type": { "enum": ["gift", "static", "trade", "fossil", "egg"] },
           "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "area": { "type": "string" }
+          "area": { "type": "string" },
+          "conditions": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "version": { "type": "array", "items": { "type": "string" } }
+            }
+          }
         }
       }
     },

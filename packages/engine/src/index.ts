@@ -6,6 +6,7 @@ export {
   filterEncounterPool,
   validateTeam,
   nextBoss,
+  specialAppliesToVersion,
   chosenStarter,
   milestoneRoster,
   pendingWipeDecision,

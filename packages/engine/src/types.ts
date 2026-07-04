@@ -36,6 +36,12 @@ export interface SpecialEncounter {
   type: 'gift' | 'static' | 'trade' | 'fossil' | 'egg';
   species: string;
   area: string;
+  // version-locked specials (e.g. LGPE's partner Pokémon: Pikachu on that
+  // version, Eevee on the other — not a real in-game choice, just fixed by
+  // which version you started). Absent = available regardless of version.
+  conditions?: {
+    version?: string[];
+  };
 }
 
 export interface Milestone {

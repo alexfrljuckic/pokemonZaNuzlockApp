@@ -146,9 +146,10 @@ export function StarterPicker({
   onChange: () => Promise<void>;
 }) {
   const chosen = starters.find((s) => claimedSpecial(s.id, state));
+  const label = chosen ? 'Your starter' : starters.length > 1 ? 'Starter — choose one' : 'Your partner';
   return (
     <div className="specials-group">
-      <p className="muted specials-group-label">{chosen ? 'Your starter' : 'Starter — choose one'}</p>
+      <p className="muted specials-group-label">{label}</p>
       <div className="specials-grid">
         {(chosen ? [chosen] : starters).map((s) => (
           <SpecialCard key={s.id} s={s} runId={runId} state={state} onChange={onChange} badge="Starter" hideBadge />

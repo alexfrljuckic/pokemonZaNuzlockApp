@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { Area, RunState } from '@nuzlocke/engine';
-import { SINNOH_EDGES, SINNOH_NODES, SINNOH_VIEWBOX, mapNode } from '../lib/sinnohMap';
+import { mapHelpers, type GameMap } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
 
 type NodeState = 'locked' | 'available' | 'caught' | 'failed' | 'skipped';
@@ -43,25 +43,28 @@ const BADGE_GLYPH: Partial<Record<NodeState, string>> = {
 };
 
 export function RouteMap({
+  map,
   areas,
   state,
   version,
   onSelect,
 }: {
+  map: GameMap;
   areas: Area[];
   state: RunState;
   version: string;
   onSelect: (areaId: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
-  // Optional backdrop: drop an image at apps/web/public/maps/sinnoh.png and it
+  // Optional backdrop: drop an image at public/maps/<map.backdropSrc> and it
   // renders under the interactive regions. If absent (404), we fall back to
   // drawing visible region boxes + connector edges. Region geometry is
-  // calibrated to whatever backdrop is in place — see sinnohMap.ts.
+  // calibrated to whatever backdrop is in place — see lib/maps/*.
   const [bgOk, setBgOk] = useState(true);
 
+  const { mapNode } = useMemo(() => mapHelpers(map), [map]);
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
-  const { w, h } = SINNOH_VIEWBOX;
+  const { w, h } = map.viewBox;
 
   const hoveredArea = hovered ? areaById.get(hovered) : null;
   const hoveredNode = hovered ? mapNode(hovered) : null;
@@ -73,12 +76,12 @@ export function RouteMap({
         viewBox={`0 0 ${w} ${h}`}
         className={`route-map-svg${bgOk ? '' : ' route-map-no-bg'}`}
         role="img"
-        aria-label="Sinnoh route map"
+        aria-label={map.ariaLabel}
       >
-        {/* optional image backdrop (see sinnohMap.ts / public/maps) */}
+        {/* optional image backdrop (see lib/maps / public/maps) */}
         {bgOk && (
           <image
-            href="/maps/sinnoh.png"
+            href={map.backdropSrc}
             x={0}
             y={0}
             width={w}
@@ -90,7 +93,7 @@ export function RouteMap({
 
         {/* connector paths — only when there's no backdrop of its own */}
         {!bgOk &&
-          SINNOH_EDGES.map(([from, to]) => {
+          map.edges.map(([from, to]) => {
             const a = mapNode(from);
             const b = mapNode(to);
             if (!a || !b) return null;
@@ -107,7 +110,7 @@ export function RouteMap({
           })}
 
         {/* area regions — blend with the art at rest, highlight on hover */}
-        {SINNOH_NODES.map((node) => {
+        {map.nodes.map((node) => {
           const area = areaById.get(node.id);
           if (!area) return null;
           const st = nodeStateFor(area, state);

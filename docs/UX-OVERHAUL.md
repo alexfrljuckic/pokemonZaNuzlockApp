@@ -95,6 +95,15 @@ consolidated elsewhere.
 - [x] C — summary + milestone cards (+ items 12/13, SwSh roster backfill) — PRs #24-27 merged
 - [x] D — stats charts + share consolidation — PR #28 merged
 - [x] E — Routes map for BDSP (+ per-route trainers dataset + rules restyle) — PR #31 merged
+- [x] E follow-up — Routes map generalized cross-game + extended to LGPE
+  (Kanto backdrop): `RouteMap.tsx` now renders whichever `GameMap` is looked
+  up per `gameId` from `lib/maps/` instead of hardcoding Sinnoh; adding a new
+  game's map is now just a new `lib/maps/<game>.ts` file + registry entry.
+  Also fixed a real data bug found in the process — LGPE's two `starter-*`
+  specials had no version scoping, so both Pikachu and Eevee showed as a
+  "choice" even though the partner is actually fixed by which version you
+  picked; added `SpecialEncounter.conditions.version` (mirrors the existing
+  `EncounterSlot` pattern) to fix it, cross-game.
 
 All five sections of the UX overhaul are now merged. See BACKLOG.md for what's next
 (item 14/15 starter feature done; remaining: SV/PLA datasets, "Known gaps" cleanup items,
