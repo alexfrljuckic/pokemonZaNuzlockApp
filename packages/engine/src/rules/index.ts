@@ -140,11 +140,20 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
   return pool;
 }
 
-/** Next uncleared battle milestone, by order. */
+/**
+ * Next uncleared battle milestone that gates the level cap, by order.
+ * Milestones with countsForLevelCap === false (e.g. rival battles) are tracked and
+ * displayed like any other milestone, but never targeted by the level-cap rule.
+ */
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
   return (
     ctx.dataset.milestones
-      .filter((m) => m.aceLevel !== null && !state.milestonesCleared.includes(m.id))
+      .filter(
+        (m) =>
+          m.aceLevel !== null &&
+          m.countsForLevelCap !== false &&
+          !state.milestonesCleared.includes(m.id),
+      )
       .sort((a, b) => a.order - b.order)[0] ?? null
   );
 }

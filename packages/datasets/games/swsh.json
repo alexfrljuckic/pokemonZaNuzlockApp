@@ -544,6 +544,7 @@
       "type": "rival",
       "order": 5,
       "aceLevel": 5,
+      "countsForLevelCap": false,
       "roster": [
         { "species": "wooloo", "level": 3 },
         { "species": "grookey", "level": 5 },
@@ -686,6 +687,7 @@
       "type": "rival",
       "order": 110,
       "aceLevel": 70,
+      "countsForLevelCap": false,
       "roster": [
         { "species": "dubwool", "level": 69 },
         { "species": "snorlax", "level": 68 },
