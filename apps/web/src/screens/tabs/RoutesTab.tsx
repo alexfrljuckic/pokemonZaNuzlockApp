@@ -5,6 +5,7 @@ import { hasMapNode } from '../../lib/sinnohMap';
 import { RouteMap } from '../../components/RouteMap';
 import { SpriteImg } from '../../components/SpriteImg';
 import { TypeBadges } from '../../components/TypeBadge';
+import { SpecialsSection } from '../../components/SpecialsSection';
 import { typesFor } from '../../lib/speciesData';
 
 type Outcome = 'caught' | 'failed' | 'skipped';
@@ -233,6 +234,7 @@ export function RoutesTab({
           onResolve={resolve}
           onReset={resetRoute}
         />
+        <SpecialsSection runId={runId} state={state} ctx={ctx} onChange={onChange} />
       </section>
     );
   }
@@ -292,6 +294,8 @@ export function RoutesTab({
           />
         </div>
       )}
+
+      <SpecialsSection runId={runId} state={state} ctx={ctx} onChange={onChange} />
     </section>
   );
 }

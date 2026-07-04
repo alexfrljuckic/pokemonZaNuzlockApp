@@ -175,4 +175,29 @@ describe('synthetic BDSP run replay', () => {
     expect(state.pokemon['p9']?.species).toBe('bidoof');
     expect(state.encounterOutcomes['route-201']).toBe('caught');
   });
+
+  it('claims a special (starter/gift) into the party, and resets it', () => {
+    const claimed = [
+      ...events,
+      ev('special_claimed', { specialId: 'starter-turtwig', species: 'turtwig', pokemonId: 's1', nickname: 'Shelly', level: 5, shiny: true }),
+    ];
+    let state = deriveState(claimed, ctx);
+    expect(state.pokemon['s1']).toMatchObject({
+      species: 'turtwig',
+      nickname: 'Shelly',
+      level: 5,
+      status: 'party',
+      shiny: true,
+      origin: { specialId: 'starter-turtwig' },
+    });
+
+    const reset = [...claimed, ev('special_reset', { specialId: 'starter-turtwig' })];
+    state = deriveState(reset, ctx);
+    expect(state.pokemon['s1']).toBeUndefined();
+
+    // can then claim a different starter
+    const reclaim = [...reset, ev('special_claimed', { specialId: 'starter-piplup', species: 'piplup', pokemonId: 's2', level: 5 })];
+    state = deriveState(reclaim, ctx);
+    expect(state.pokemon['s2']?.species).toBe('piplup');
+  });
 });

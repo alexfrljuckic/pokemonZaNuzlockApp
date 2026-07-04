@@ -49,6 +49,9 @@ export interface Milestone {
   grants?: { reviveTokens?: number };
   /** Full team, informational only — display in UI. The level-cap rule reads aceLevel, never this. */
   roster?: MilestoneRosterMember[];
+  /** Per-player-starter roster variants (rival battles), keyed by the player's
+   * chosen starter species slug. UI picks the matching variant, else `roster`. */
+  rosterByStarter?: Record<string, MilestoneRosterMember[]>;
 }
 
 export interface MilestoneRosterMember {
@@ -107,6 +110,8 @@ export type RunEvent =
   | { seq: number; at: string; type: 'run_started'; payload: { gameId: string; version: string; ruleset: Ruleset } }
   | { seq: number; at: string; type: 'encounter_resolved'; payload: { areaId: string; species: string; outcome: 'caught' | 'failed' | 'skipped'; pokemonId?: string; nickname?: string; level?: number; shiny?: boolean } }
   | { seq: number; at: string; type: 'encounter_reset'; payload: { areaId: string } }
+  | { seq: number; at: string; type: 'special_claimed'; payload: { specialId: string; species: string; pokemonId: string; nickname?: string; level?: number; shiny?: boolean } }
+  | { seq: number; at: string; type: 'special_reset'; payload: { specialId: string } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
   | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null } }

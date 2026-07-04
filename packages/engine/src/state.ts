@@ -54,6 +54,28 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         }
         break;
       }
+      case 'special_claimed': {
+        // A gift/starter/fossil/static is claimed → creates a Pokémon tagged
+        // with its specialId. A special counts as "claimed" iff a Pokémon with
+        // that origin.specialId exists (derive from state, no separate field).
+        state.pokemon[ev.payload.pokemonId] = {
+          id: ev.payload.pokemonId,
+          species: ev.payload.species,
+          nickname: ev.payload.nickname ?? ev.payload.species,
+          level: ev.payload.level ?? 5,
+          status: 'party',
+          origin: { specialId: ev.payload.specialId },
+          ...(ev.payload.shiny ? { shiny: true } : {}),
+        };
+        break;
+      }
+      case 'special_reset': {
+        // Undo a claimed special — remove the Pokémon it produced.
+        for (const [id, p] of Object.entries(state.pokemon)) {
+          if (p.origin?.specialId === ev.payload.specialId) delete state.pokemon[id];
+        }
+        break;
+      }
       case 'level_up': {
         const p = state.pokemon[ev.payload.pokemonId];
         if (p) p.level = ev.payload.level;

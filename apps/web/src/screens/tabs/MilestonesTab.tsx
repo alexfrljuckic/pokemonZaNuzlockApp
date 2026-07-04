@@ -1,5 +1,14 @@
 import { useState } from 'react';
-import { nextBoss, validateTeam, type EngineContext, type Milestone, type RunState } from '@nuzlocke/engine';
+import {
+  chosenStarter,
+  milestoneRoster,
+  nextBoss,
+  validateTeam,
+  type EngineContext,
+  type Milestone,
+  type MilestoneRosterMember,
+  type RunState,
+} from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { STAT_ORDER, moveType, statLabel, statsFor, typesFor } from '../../lib/speciesData';
 import { trainerKeyFromMilestone } from '../../lib/sprites';
@@ -9,17 +18,18 @@ import { TypeBadges, TypeDot } from '../../components/TypeBadge';
 
 function MilestoneCard({
   milestone,
+  roster,
   cleared,
   isNext,
   onClear,
 }: {
   milestone: Milestone;
+  roster: MilestoneRosterMember[];
   cleared: boolean;
   isNext: boolean;
   onClear: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
-  const roster = milestone.roster ?? [];
   const hasRoster = roster.length > 0;
 
   return (
@@ -146,6 +156,7 @@ export function MilestonesTab({
 }) {
   const boss = nextBoss(state, ctx);
   const violations = validateTeam(state, ctx);
+  const starter = chosenStarter(state);
   const milestones = [...ctx.dataset.milestones].sort((a, b) => a.order - b.order);
   const allCleared = milestones.every((m) => state.milestonesCleared.includes(m.id));
 
@@ -179,6 +190,7 @@ export function MilestonesTab({
           <MilestoneCard
             key={m.id}
             milestone={m}
+            roster={milestoneRoster(m, starter) ?? []}
             cleared={state.milestonesCleared.includes(m.id)}
             isNext={boss?.id === m.id}
             onClear={() => clear(m.id)}
