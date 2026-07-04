@@ -23,6 +23,7 @@ const VERSION_MASCOT: Record<string, string> = {
   sword: 'zacian',
   shield: 'zamazenta',
   'legends-z-a': 'zygarde',
+  'legends-arceus': 'kleavor',
 };
 
 const prettyVersion = (v: string) => v.replace(/-/g, ' ');
