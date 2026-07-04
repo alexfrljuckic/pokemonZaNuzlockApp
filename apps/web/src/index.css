@@ -596,6 +596,124 @@ button:disabled {
 .outcome-failed { color: var(--danger); font-size: 0.85rem; }
 .outcome-skipped { color: var(--muted); font-size: 0.85rem; }
 
+/* ---------- Stats charts (section D) ---------- */
+
+.chart-heading {
+  font-size: 0.85rem;
+  margin: 1.1rem 0 0.4rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+}
+
+.chart-heading:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.chart-block {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.6rem 0 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.chart-svg {
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.chart-svg-wide {
+  width: 100%;
+  max-width: 320px;
+  height: 32px;
+}
+
+.chart-donut-total {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.chart-donut-sub {
+  font-size: 6.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.chart-caption {
+  margin: 0;
+}
+
+.chart-legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.chart-swatch {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.chart-bars {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.chart-bar-row {
+  display: grid;
+  grid-template-columns: minmax(90px, auto) 1fr;
+  gap: 0.15rem 0.6rem;
+  align-items: center;
+}
+
+.chart-bar-label {
+  font-size: 0.82rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chart-bar-track {
+  display: flex;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--bg-chip);
+  overflow: hidden;
+}
+
+.chart-bar-fill {
+  display: block;
+  height: 100%;
+}
+
+.chart-bar-alive { background: var(--success); }
+.chart-bar-dead { background: var(--danger); }
+
+.chart-bar-count {
+  grid-column: 2;
+  font-size: 0.75rem;
+}
+
 /* ---------- Auth / share ---------- */
 
 .auth-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
