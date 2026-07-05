@@ -72,7 +72,9 @@ export function describeEvent(
         key: `${event.seq}`,
         text: `${who === 'A Pokémon' ? 'Evolved into' : `${who} evolved into`} ${event.payload.toSpecies}`,
         species: event.payload.toSpecies,
-        tone: 'catch',
+        // neutral, not 'catch': the Catches timeline filter must mean actual
+        // catches, and evolutions land under Misc
+        tone: 'neutral',
       };
     }
     case 'pokemon_evolution_reverted': {

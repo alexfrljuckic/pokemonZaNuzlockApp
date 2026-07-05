@@ -12,13 +12,11 @@ import {
   type RunEvent,
 } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
-import { describeEvent } from '../lib/describeEvent';
 import { fetchSharedRun, subscribeToRunChanges, type SharedRun } from '../lib/shareLinks';
 import { MilestoneCard } from '../components/MilestoneCard';
 import { MonCard } from '../components/MonCard';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
-import { SpriteImg } from '../components/SpriteImg';
-import { TrainerSprite } from '../components/TrainerSprite';
+import { RunTimeline } from '../components/RunTimeline';
 import { StatsTab } from './tabs/StatsTab';
 
 export function SpectatorView({ token }: { token: string }) {
@@ -75,13 +73,6 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
   const boss = nextBoss(state, ctx);
   const starter = chosenStarter(state);
   const showWipeScreen = pendingWipeDecision(state);
-
-  // The full readable history, newest first — same language as the owner's
-  // summary strip (describeEvent skips minor bookkeeping events).
-  const timeline = [...events]
-    .sort((a, b) => b.seq - a.seq)
-    .map((ev) => ({ ev, item: describeEvent(ev, ctx, state.pokemon) }))
-    .filter((x): x is { ev: RunEvent; item: NonNullable<ReturnType<typeof describeEvent>> } => x.item != null);
 
   return (
     <>
@@ -165,17 +156,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
 
       <section>
         <h2>Timeline</h2>
-        {timeline.length === 0 && <p className="muted">Nothing has happened yet.</p>}
-        <ul className="summary-list">
-          {timeline.map(({ ev, item }) => (
-            <li key={item.key} className={`summary-item summary-${item.tone}`}>
-              {item.species && <SpriteImg species={item.species} size={28} />}
-              {!item.species && item.trainerKey && <TrainerSprite trainerKey={item.trainerKey} size={28} />}
-              <span>{item.text}</span>
-              <span className="muted timeline-when">{new Date(ev.at).toLocaleString()}</span>
-            </li>
-          ))}
-        </ul>
+        <RunTimeline events={events} ctx={ctx} pokemon={state.pokemon} />
       </section>
     </>
   );
