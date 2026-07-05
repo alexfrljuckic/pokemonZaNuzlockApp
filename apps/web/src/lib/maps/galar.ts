@@ -13,6 +13,12 @@ export const GALAR_MAP: GameMap = {
   backdropSrc: '/maps/galar.jpg',
   ariaLabel: 'Galar route map',
   nodes: [
+    // — towns (Postwick/Wedgehurst south of Route 1/2, Turffield at the
+    //   stone circle west of Route 4, Wyndon the northern city) —
+    { id: 'postwick', x: 192, y: 968, w: 52, h: 42, kind: 'town' },
+    { id: 'wedgehurst', x: 148, y: 902, w: 48, h: 42, kind: 'town' },
+    { id: 'turffield', x: 60, y: 505, w: 56, h: 46, kind: 'town' },
+    { id: 'wyndon', x: 140, y: 75, w: 130, h: 95, kind: 'city' },
     { id: 'route-1', x: 185, y: 920, w: 55, h: 45, kind: 'route' },
     { id: 'route-2', x: 200, y: 862, w: 60, h: 45, kind: 'route' },
     { id: 'rolling-fields', x: 170, y: 795, w: 70, h: 50, kind: 'route' },

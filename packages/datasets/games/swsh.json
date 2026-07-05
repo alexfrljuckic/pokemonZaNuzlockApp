@@ -14,6 +14,140 @@
   "rostersRequired": true,
   "areas": [
     {
+      "id": "postwick",
+      "name": "Postwick",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Max Revive",
+          "quantity": 3
+        },
+        {
+          "name": "Master Ball"
+        }
+      ]
+    },
+    {
+      "id": "wedgehurst",
+      "name": "Wedgehurst",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Poké Doll"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "TM40 (Swift)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "Oran Berry",
+          "shop": true
+        },
+        {
+          "name": "Cheri Berry",
+          "shop": true
+        },
+        {
+          "name": "Pecha Berry",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "route-1",
       "name": "Route 1",
       "unlockAfter": null,
@@ -980,6 +1114,130 @@
         },
         {
           "name": "TM07 (Pin Missile)"
+        }
+      ]
+    },
+    {
+      "id": "turffield",
+      "name": "Turffield",
+      "unlockAfter": "rival-hop-1",
+      "tags": [
+        "town",
+        "gym-1"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Energy Root",
+          "hidden": true
+        },
+        {
+          "name": "Everstone",
+          "hidden": true
+        },
+        {
+          "name": "TM97 (Brutal Swing)"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "X Attack",
+          "quantity": 3
+        },
+        {
+          "name": "Leaf Stone",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "quantity": 2
+        },
+        {
+          "name": "Fresh Water",
+          "hidden": true
+        },
+        {
+          "name": "Expert Belt"
+        },
+        {
+          "name": "TM11 (Solar Beam)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
         }
       ]
     },
@@ -3396,6 +3654,444 @@
       ]
     },
     {
+      "id": "wyndon",
+      "name": "Wyndon",
+      "unlockAfter": "gym-8-raihan",
+      "tags": [
+        "city"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Grassy Seed"
+        },
+        {
+          "name": "Electric Seed"
+        },
+        {
+          "name": "Cell Battery"
+        },
+        {
+          "name": "TM93 (Eerie Impulse)"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Air Balloon",
+          "hidden": true
+        },
+        {
+          "name": "Big Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Black Sludge",
+          "hidden": true
+        },
+        {
+          "name": "Nugget",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Balm Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "X Speed",
+          "hidden": true
+        },
+        {
+          "name": "X Sp. Atk",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
+        },
+        {
+          "name": "HP Up",
+          "shop": true
+        },
+        {
+          "name": "Protein",
+          "shop": true
+        },
+        {
+          "name": "Iron",
+          "shop": true
+        },
+        {
+          "name": "Calcium",
+          "shop": true
+        },
+        {
+          "name": "Zinc",
+          "shop": true
+        },
+        {
+          "name": "Carbos",
+          "shop": true
+        },
+        {
+          "name": "TM03 (Fire Punch)",
+          "shop": true
+        },
+        {
+          "name": "TM04 (Ice Punch)",
+          "shop": true
+        },
+        {
+          "name": "TM05 (Thunder Punch)",
+          "shop": true
+        },
+        {
+          "name": "TM08 (Hyper Beam)",
+          "shop": true
+        },
+        {
+          "name": "TM09 (Giga Impact)",
+          "shop": true
+        },
+        {
+          "name": "TM12 (Solar Blade)",
+          "shop": true
+        },
+        {
+          "name": "TM60 (Power Swap)",
+          "shop": true
+        },
+        {
+          "name": "TM61 (Guard Swap)",
+          "shop": true
+        },
+        {
+          "name": "TM62 (Speed Swap)",
+          "shop": true
+        },
+        {
+          "name": "TM63 (Drain Punch)",
+          "shop": true
+        },
+        {
+          "name": "TM20 (Self-Destruct)",
+          "shop": true
+        },
+        {
+          "name": "TM28 (Giga Drain)",
+          "shop": true
+        },
+        {
+          "name": "TM44 (Imprison)",
+          "shop": true
+        },
+        {
+          "name": "TM52 (Bounce)",
+          "shop": true
+        },
+        {
+          "name": "TM59 (Fling)",
+          "shop": true
+        },
+        {
+          "name": "TM70 (Trick Room)",
+          "shop": true
+        },
+        {
+          "name": "TM71 (Wonder Room)",
+          "shop": true
+        },
+        {
+          "name": "TM72 (Magic Room)",
+          "shop": true
+        },
+        {
+          "name": "TM83 (Razor Shell)",
+          "shop": true
+        },
+        {
+          "name": "TM92 (Mystical Fire)",
+          "shop": true
+        },
+        {
+          "name": "Lonely Mint",
+          "shop": true
+        },
+        {
+          "name": "Adamant Mint",
+          "shop": true
+        },
+        {
+          "name": "Naughty Mint",
+          "shop": true
+        },
+        {
+          "name": "Brave Mint",
+          "shop": true
+        },
+        {
+          "name": "Bold Mint",
+          "shop": true
+        },
+        {
+          "name": "Impish Mint",
+          "shop": true
+        },
+        {
+          "name": "Lax Mint",
+          "shop": true
+        },
+        {
+          "name": "Relaxed Mint",
+          "shop": true
+        },
+        {
+          "name": "Modest Mint",
+          "shop": true
+        },
+        {
+          "name": "Mild Mint",
+          "shop": true
+        },
+        {
+          "name": "Rash Mint",
+          "shop": true
+        },
+        {
+          "name": "Quiet Mint",
+          "shop": true
+        },
+        {
+          "name": "Calm Mint",
+          "shop": true
+        },
+        {
+          "name": "Gentle Mint",
+          "shop": true
+        },
+        {
+          "name": "Careful Mint",
+          "shop": true
+        },
+        {
+          "name": "Sassy Mint",
+          "shop": true
+        },
+        {
+          "name": "Timid Mint",
+          "shop": true
+        },
+        {
+          "name": "Hasty Mint",
+          "shop": true
+        },
+        {
+          "name": "Jolly Mint",
+          "shop": true
+        },
+        {
+          "name": "Naive Mint",
+          "shop": true
+        },
+        {
+          "name": "Serious Mint",
+          "shop": true
+        },
+        {
+          "name": "Ability Capsule",
+          "shop": true
+        },
+        {
+          "name": "Bottle Cap",
+          "shop": true
+        },
+        {
+          "name": "Choice Band",
+          "shop": true
+        },
+        {
+          "name": "Choice Specs",
+          "shop": true
+        },
+        {
+          "name": "Choice Scarf",
+          "shop": true
+        },
+        {
+          "name": "Assault Vest",
+          "shop": true
+        },
+        {
+          "name": "Life Orb",
+          "shop": true
+        },
+        {
+          "name": "Red Card",
+          "shop": true
+        },
+        {
+          "name": "Eject Button",
+          "shop": true
+        },
+        {
+          "name": "Eject Pack",
+          "shop": true
+        },
+        {
+          "name": "Blunder Policy",
+          "shop": true
+        },
+        {
+          "name": "Weakness Policy",
+          "shop": true
+        },
+        {
+          "name": "Focus Sash",
+          "shop": true
+        },
+        {
+          "name": "White Herb",
+          "shop": true
+        },
+        {
+          "name": "Mental Herb",
+          "shop": true
+        },
+        {
+          "name": "Power Herb",
+          "shop": true
+        },
+        {
+          "name": "Room Service",
+          "shop": true
+        },
+        {
+          "name": "Light Clay",
+          "shop": true
+        },
+        {
+          "name": "Terrain Extender",
+          "shop": true
+        },
+        {
+          "name": "Throat Spray",
+          "shop": true
+        },
+        {
+          "name": "Adrenaline Orb",
+          "shop": true
+        },
+        {
+          "name": "Absorb Bulb",
+          "shop": true
+        },
+        {
+          "name": "Air Balloon",
+          "shop": true
+        },
+        {
+          "name": "Cell Battery",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "rolling-fields",
       "name": "Wild Area: Rolling Fields",
       "unlockAfter": "gym-1-milo",
@@ -5778,6 +6474,134 @@
         },
         {
           "name": "TM79 (Retaliate)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "Energy Powder",
+          "shop": true
+        },
+        {
+          "name": "Heal Powder",
+          "shop": true
+        },
+        {
+          "name": "Energy Root",
+          "shop": true
+        },
+        {
+          "name": "Revival Herb",
+          "shop": true
+        },
+        {
+          "name": "Rose Incense",
+          "shop": true
+        },
+        {
+          "name": "Sea Incense",
+          "shop": true
+        },
+        {
+          "name": "Wave Incense",
+          "shop": true
+        },
+        {
+          "name": "Rock Incense",
+          "shop": true
+        },
+        {
+          "name": "Odd Incense",
+          "shop": true
+        },
+        {
+          "name": "Lax Incense",
+          "shop": true
+        },
+        {
+          "name": "Full Incense",
+          "shop": true
+        },
+        {
+          "name": "Pure Incense",
+          "shop": true
+        },
+        {
+          "name": "Luck Incense",
+          "shop": true
         }
       ]
     },
@@ -5879,6 +6703,110 @@
         {
           "name": "X Accuracy",
           "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "TM17 (Light Screen)",
+          "shop": true
+        },
+        {
+          "name": "TM18 (Reflect)",
+          "shop": true
+        },
+        {
+          "name": "TM19 (Safeguard)",
+          "shop": true
+        },
+        {
+          "name": "TM25 (Protect)",
+          "shop": true
+        },
+        {
+          "name": "TM41 (Helping Hand)",
+          "shop": true
+        },
+        {
+          "name": "TM76 (Round)",
+          "shop": true
+        },
+        {
+          "name": "TM94 (False Swipe)",
+          "shop": true
         }
       ]
     },
@@ -6036,6 +6964,82 @@
         },
         {
           "name": "TM06 (Fly)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
         }
       ]
     },
@@ -6134,6 +7138,82 @@
               "shield"
             ]
           }
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
         }
       ]
     },
@@ -6315,6 +7395,82 @@
         },
         {
           "name": "TM16 (Screech)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
         }
       ]
     },
@@ -6425,6 +7581,82 @@
         },
         {
           "name": "Choice Specs"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
         }
       ]
     },
@@ -6530,6 +7762,206 @@
         },
         {
           "name": "TM29 (Charm)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "TM13 (Fire Spin)",
+          "shop": true
+        },
+        {
+          "name": "TM23 (Thief)",
+          "shop": true
+        },
+        {
+          "name": "TM32 (Sandstorm)",
+          "shop": true
+        },
+        {
+          "name": "TM33 (Rain Dance)",
+          "shop": true
+        },
+        {
+          "name": "TM34 (Sunny Day)",
+          "shop": true
+        },
+        {
+          "name": "TM35 (Hail)",
+          "shop": true
+        },
+        {
+          "name": "TM50 (Bullet Seed)",
+          "shop": true
+        },
+        {
+          "name": "TM55 (Brine)",
+          "shop": true
+        },
+        {
+          "name": "TM00 (Mega Punch)",
+          "shop": true
+        },
+        {
+          "name": "TM01 (Mega Kick)",
+          "shop": true
+        },
+        {
+          "name": "TM46 (Weather Ball)",
+          "shop": true
+        },
+        {
+          "name": "TM66 (Thunder Fang)",
+          "shop": true
+        },
+        {
+          "name": "TM67 (Ice Fang)",
+          "shop": true
+        },
+        {
+          "name": "TM68 (Fire Fang)",
+          "shop": true
+        },
+        {
+          "name": "TM88 (Grassy Terrain)",
+          "shop": true
+        },
+        {
+          "name": "TM89 (Misty Terrain)",
+          "shop": true
+        },
+        {
+          "name": "TM90 (Electric Terrain)",
+          "shop": true
+        },
+        {
+          "name": "TM91 (Psychic Terrain)",
+          "shop": true
+        },
+        {
+          "name": "HP Up",
+          "shop": true
+        },
+        {
+          "name": "Protein",
+          "shop": true
+        },
+        {
+          "name": "Iron",
+          "shop": true
+        },
+        {
+          "name": "Calcium",
+          "shop": true
+        },
+        {
+          "name": "Zinc",
+          "shop": true
+        },
+        {
+          "name": "Carbos",
+          "shop": true
+        },
+        {
+          "name": "Power Weight",
+          "shop": true
+        },
+        {
+          "name": "Power Bracer",
+          "shop": true
+        },
+        {
+          "name": "Power Belt",
+          "shop": true
+        },
+        {
+          "name": "Power Lens",
+          "shop": true
+        },
+        {
+          "name": "Power Band",
+          "shop": true
+        },
+        {
+          "name": "Power Anklet",
+          "shop": true
+        },
+        {
+          "name": "Destiny Knot",
+          "shop": true
         }
       ]
     },
