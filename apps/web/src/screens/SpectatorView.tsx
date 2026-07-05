@@ -18,6 +18,7 @@ import { MilestoneCard } from '../components/MilestoneCard';
 import { MonCard } from '../components/MonCard';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { SpriteImg } from '../components/SpriteImg';
+import { TrainerSprite } from '../components/TrainerSprite';
 import { StatsTab } from './tabs/StatsTab';
 
 export function SpectatorView({ token }: { token: string }) {
@@ -79,7 +80,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
   // summary strip (describeEvent skips minor bookkeeping events).
   const timeline = [...events]
     .sort((a, b) => b.seq - a.seq)
-    .map((ev) => ({ ev, item: describeEvent(ev, ctx) }))
+    .map((ev) => ({ ev, item: describeEvent(ev, ctx, state.pokemon) }))
     .filter((x): x is { ev: RunEvent; item: NonNullable<ReturnType<typeof describeEvent>> } => x.item != null);
 
   return (
@@ -168,6 +169,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
           {timeline.map(({ ev, item }) => (
             <li key={item.key} className={`summary-item summary-${item.tone}`}>
               {item.species && <SpriteImg species={item.species} size={28} />}
+              {!item.species && item.trainerKey && <TrainerSprite trainerKey={item.trainerKey} size={28} />}
               <span>{item.text}</span>
               <span className="muted timeline-when">{new Date(ev.at).toLocaleString()}</span>
             </li>

@@ -1,16 +1,25 @@
-import type { EngineContext, RunEvent } from '@nuzlocke/engine';
+import type { EngineContext, PokemonInstance, RunEvent } from '@nuzlocke/engine';
+import { trainerKeyFromClass, trainerKeyFromMilestone } from './sprites';
 
 export interface DescribedEvent {
   key: string;
   text: string;
   species?: string;
+  /** Showdown trainer-sprite key, for trainer/boss events. */
+  trainerKey?: string;
   tone: 'catch' | 'faint' | 'milestone' | 'wipe' | 'neutral';
 }
 
 /** Plain-language, sprite-annotated description of a "major" event; null for
  * minor bookkeeping events. Shared by the owner's summary strip and the
- * spectator timeline so both read the same language. */
-export function describeEvent(event: RunEvent, ctx: EngineContext): DescribedEvent | null {
+ * spectator timeline so both read the same language. Pass the derived
+ * state's pokemon map to name faint victims (the event only carries an id;
+ * the graveyard keeps dead mons, so the lookup works even later). */
+export function describeEvent(
+  event: RunEvent,
+  ctx: EngineContext,
+  pokemon?: Record<string, PokemonInstance>,
+): DescribedEvent | null {
   switch (event.type) {
     case 'encounter_resolved': {
       if (event.payload.outcome !== 'caught') return null;
@@ -42,9 +51,16 @@ export function describeEvent(event: RunEvent, ctx: EngineContext): DescribedEve
       const milestone = event.payload.milestoneId
         ? ctx.dataset?.milestones.find((m) => m.id === event.payload.milestoneId)
         : null;
+      const p = pokemon?.[event.payload.pokemonId];
+      const who = p
+        ? p.nickname && p.nickname !== p.species
+          ? `${p.nickname} the ${p.species}`
+          : p.species
+        : 'A Pokémon';
       return {
         key: `${event.seq}`,
-        text: `A Pokémon fainted${milestone ? ` to ${milestone.name}` : event.payload.killer ? ` to ${event.payload.killer}` : ''}`,
+        text: `${who} fainted${milestone ? ` to ${milestone.name}` : event.payload.killer ? ` to ${event.payload.killer}` : ''}`,
+        species: p?.species,
         tone: 'faint',
       };
     }
@@ -53,6 +69,18 @@ export function describeEvent(event: RunEvent, ctx: EngineContext): DescribedEve
       return {
         key: `${event.seq}`,
         text: `Cleared: ${milestone?.name ?? event.payload.milestoneId}`,
+        trainerKey: milestone?.trainerSprite ?? trainerKeyFromMilestone(event.payload.milestoneId),
+        tone: 'milestone',
+      };
+    }
+    case 'trainer_battled': {
+      const area = ctx.dataset?.areas.find((a) => a.id === event.payload.areaId);
+      const t = area?.trainers?.[event.payload.trainerIndex];
+      const label = t ? `${t.class ? `${t.class} ` : ''}${t.name}` : event.payload.name ?? 'a trainer';
+      return {
+        key: `${event.seq}`,
+        text: `Defeated ${label}${area ? ` on ${area.name}` : ''}`,
+        trainerKey: t?.class ? trainerKeyFromClass(t.class) : undefined,
         tone: 'milestone',
       };
     }

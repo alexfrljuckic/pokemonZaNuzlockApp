@@ -5,9 +5,15 @@ import { describeEvent } from './describeEvent';
 // Minimal stub ctx — describeEvent only reads areas/specials/milestones names.
 const ctx = {
   dataset: {
-    areas: [{ id: 'route-1', name: 'Route 1' }],
+    areas: [
+      {
+        id: 'route-1',
+        name: 'Route 1',
+        trainers: [{ name: 'Tristan', class: 'Youngster', team: [{ species: 'pidgey', level: 5 }] }],
+      },
+    ],
     specials: [{ id: 'starter-pikachu', type: 'gift' }],
-    milestones: [{ id: 'gym-1', name: 'Brock (Pewter Gym)' }],
+    milestones: [{ id: 'gym-1', name: 'Brock (Pewter Gym)', trainerSprite: 'brock' }],
   },
   speciesToLine: {},
 } as unknown as EngineContext;
@@ -46,5 +52,28 @@ describe('describeEvent', () => {
   it('returns null for bookkeeping events', () => {
     expect(describeEvent(ev('moved', { pokemonId: 'x', to: 'box' }), ctx)).toBeNull();
     expect(describeEvent(ev('pokemon_updated', { pokemonId: 'x' }), ctx)).toBeNull();
+    expect(describeEvent(ev('trainer_reset', { areaId: 'route-1', trainerIndex: 0 }), ctx)).toBeNull();
+  });
+
+  it('names the faint victim (with sprite) when the pokemon map is provided', () => {
+    const pokemon = {
+      p1: { id: 'p1', species: 'pidgey', nickname: 'Bird', level: 10, status: 'dead', origin: {} },
+    } as never;
+    const named = describeEvent(ev('faint', { pokemonId: 'p1', killer: 'Geodude' }), ctx, pokemon);
+    expect(named?.text).toBe('Bird the pidgey fainted to Geodude');
+    expect(named?.species).toBe('pidgey');
+    // without the map it degrades to the old generic wording
+    expect(describeEvent(ev('faint', { pokemonId: 'p1' }), ctx)?.text).toBe('A Pokémon fainted');
+  });
+
+  it('describes trainer defeats with the class sprite key', () => {
+    const item = describeEvent(ev('trainer_battled', { areaId: 'route-1', trainerIndex: 0 }), ctx);
+    expect(item?.text).toBe('Defeated Youngster Tristan on Route 1');
+    expect(item?.trainerKey).toBe('youngster');
+    expect(item?.tone).toBe('milestone');
+  });
+
+  it('gives milestone clears the boss trainer sprite key', () => {
+    expect(describeEvent(ev('milestone_cleared', { milestoneId: 'gym-1' }), ctx)?.trainerKey).toBe('brock');
   });
 });
