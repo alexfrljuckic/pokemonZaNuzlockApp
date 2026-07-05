@@ -10,12 +10,32 @@ const BASE = 'https://play.pokemonshowdown.com/sprites/gen5';
 const BASE_SHINY = 'https://play.pokemonshowdown.com/sprites/gen5-shiny';
 const TRAINERS = 'https://play.pokemonshowdown.com/sprites/trainers';
 
-// PokeAPI slugs whose Showdown sprite lives under a different key (PokeAPI
-// has no /pokemon/darmanitan-galar, but Showdown has no
-// darmanitan-galar-standard.png — datasets carry the PokeAPI slug, sprites
-// remap here).
+// PokeAPI slugs whose Showdown sprite lives under a different key — datasets
+// carry the canonical PokeAPI slug (often a default-variety suffix PokeAPI
+// requires), sprites remap here. The onError hyphen-stripping fallback in
+// SpriteImg covers most other forms; these are the ones it can't reach.
 const SPECIES_SPRITE_ALIAS: Record<string, string> = {
   'darmanitan-galar-standard': 'darmanitan-galar',
+  'frillish-male': 'frillish',
+  'jellicent-male': 'jellicent',
+  'morpeko-full-belly': 'morpeko',
+  'wishiwashi-solo': 'wishiwashi',
+  'mimikyu-disguised': 'mimikyu',
+  'eiscue-ice': 'eiscue',
+  'toxtricity-amped': 'toxtricity',
+  'toxtricity-low-key': 'toxtricity-lowkey',
+  'indeedee-male': 'indeedee',
+  'indeedee-female': 'indeedee-f',
+  'oinkologne-male': 'oinkologne',
+  'oinkologne-female': 'oinkologne-f',
+  'dudunsparce-two-segment': 'dudunsparce',
+  'squawkabilly-green-plumage': 'squawkabilly',
+  'basculin-red-striped': 'basculin',
+  'basculin-blue-striped': 'basculin-bluestriped',
+  'basculin-white-striped': 'basculin-whitestriped',
+  'tauros-paldea-combat-breed': 'tauros-paldeacombat',
+  'tauros-paldea-blaze-breed': 'tauros-paldeablaze',
+  'tauros-paldea-aqua-breed': 'tauros-paldeaaqua',
 };
 
 export function spriteUrl(species: string, shiny = false): string {
