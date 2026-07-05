@@ -56,48 +56,52 @@ Never merge with either failing.
   when the paid/metered switch is off. See `docs/COSTS.md`.
 - Engine package stays pure TypeScript: no DOM, no network, no Supabase imports.
 
-## Current state (July 2026, reconciled after PR #110)
+## Current state (2026-07-05 evening, reconciled after PR #137)
 
-Everything below is on `main`. PRs #3-#110 merged. `docs/BACKLOG.md` is the
-single work tracker — it opens with Alex's standing decisions and the
-"Next up" items; start there when resuming. Work from `C:\dev\nuzlocke-app`
-(OneDrive checkout breaks worktrees).
+Everything below is on `main`. PRs #3-#137 merged; the numbered backlog is
+EMPTY (shipped or deliberately shelved — see docs/BACKLOG.md, still the
+single work tracker). Work from `C:\dev\nuzlocke-app` (OneDrive checkout
+breaks worktrees).
 
 - **Engine** (`packages/engine`): event-sourced core — first-encounter,
-  dupes-by-line, level caps, revive tokens, wipe flow, rule-change audit,
-  `pokemon_updated`, specials, starter-conditional rosters, version-locked
-  specials, `trainer_battled`/`trainer_reset` + `item_picked`/`item_reset`
-  tracking, `frontierAreas` sliding "up next" window (skips encounter-less
-  towns). 57 tests.
-- **Datasets** (6 games, all with interactive maps + towns/shops):
-  Z-A (25), BDSP (62 areas incl. 17 towns), LGPE (44 incl. 11 towns),
-  SwSh (62 incl. 11 towns + full IoA/CT DLC wilds), PLA (7 + Jubilife
-  shops), SV (41 after the Serebii audit: 29 wild locations + 12 towns).
-  Per-route trainers (species+levels, sourced) on BDSP/LGPE/SwSh/SV;
-  ~2k fixed items + ~1.4k shop entries (`items` with `hidden`/`shop`/
-  `quantity` flags). Generated: species-data.json (863 species: types,
-  stats, moves, movesByGame, levelUpMovesByGame w/ learn levels),
+  dupes-by-line, level caps + next-boss pick (`next_boss_set`), revive
+  tokens, wipe flow (proper `wiped` status), rule/house-rule change audit,
+  evolution (`pokemon_evolved`/`pokemon_evolution_reverted`: nickname
+  never changes, un-evolve keeps level, self-evos are fold no-ops),
+  genlocke import event (dormant), cross-run `aggregateRuns`. Toggle rules
+  (`dlc-content`, `alphas-count`, `za-rogue-caps`): ABSENT from a ruleset
+  = legacy behavior, never "off". 90 tests.
+- **Datasets** (6 games, interactive maps + towns/shops): Z-A (25),
+  BDSP (63), LGPE (44), SwSh (62 + 9 DLC milestones + 31 DLC specials,
+  all `conditions.dlc`-gated), PLA (81 — full named-sub-location split
+  with per-zone in-game maps + zone-switcher; guaranteed alphas as
+  `alpha`-method slots), SV (41). Per-route trainers on BDSP/LGPE/SwSh/SV.
+  Generated: species-data.json (874: types/stats/moves/movesByGame/
+  levelUpMovesByGame/evolutions incl. happiness/time/knownMove detail),
   species-lines.json, machines-by-game.json — regenerate via scripts,
   NEVER hand-merge. PokeAPI gotchas: no Z-A move data (union fallback);
-  default-variety slugs required (frillish-male, darmanitan-galar-standard,
-  mimikyu-disguised…) with Showdown sprite aliases in `lib/sprites.ts`.
-- **App** (`apps/web`): five tabs; interactive maps for all six games
-  (desktop full-bleed to 94vw/1500px + 86vh height-fit, mobile 600px
-  min-width horizontal pan; backdrops raster-in-SVG, higher-res same-aspect
-  uploads are drop-in); progressive "up next" glow; trainer cards
-  (boss-style, expected movesets = last four level-up moves, mark-battled);
-  items/shops chips with pickup tracking; move picker with learn-level
-  badges + collapsible learnsets; event feed with named faints + trainer
-  sprites; original per-game SVG logos; global back icon top-left;
-  Supabase sync/share/spectator; 9 themes.
-- **Research/docs**: docs/CHALLENGE-MODES.md (PLA/SV/Z-A all viable —
-  accommodations mapped to backlog), docs/SWSH-TRAINER-NOTES.md.
-  GitHub Pages disabled (v1 leftover; Vercel is the host — DEPLOY.md).
-- **Process lessons that bite**: gate merges on test output (never chain
-  `gh pr merge` behind tests in one command); PS5.1 Get/Set-Content
-  mangles UTF-8 (use the Edit tool or [IO.File] with UTF8Encoding);
-  multi-line git/gh args via `-F`/`--body-file` files, never here-strings;
-  verify map-node fixes against native-res crops before shipping.
+  default-variety slugs required, Showdown aliases in `lib/sprites.ts`.
+- **App** (`apps/web`): five tabs + owner timeline w/ filters, level-cap
+  headroom + deaths-by-boss panels, cross-run "Your Stats" screen;
+  maps zoom/pan via SVG viewBox (pinch/drag/buttons — mobile-first);
+  evolve/un-evolve UI with branch choice, level bump and per-game
+  item-location hints (lib/evolutionHints.ts); move pickers ordered
+  level→TM→TR→HM; columnar learnsets; reverted evolutions net out of all
+  history views (`visibleEvents` — apply it to ANY new history surface);
+  profiles + follows + big-beats feed (#u/<handle> route; Supabase
+  migration 20260705220000 APPLIED); Supabase sync/share/spectator;
+  9 themes. 57 web tests.
+- **Deploy**: Vercel project `pokemon-za-nuzlock-app-web` created by Alex
+  2026-07-05 (team PokemonVibeCoder). First deploy FAILED — root directory
+  was set to `apps/web`, which bypasses the repo-root vercel.json; fix =
+  clear Root Directory + add the three VITE_ env vars + redeploy, then
+  set the URL in Supabase Auth redirect config. GitHub Pages disabled.
+- **Process lessons that bite**: gate merges on test output; PS5.1
+  Get/Set-Content mangles UTF-8 (use the Edit tool); multi-line git/gh
+  args via `-F`/`--body-file`; build test RunEvent arrays in seq order
+  (run_started first — the fold sorts and it replaces the ruleset);
+  merging a stacked PR's base with branch-delete auto-closes the stack;
+  validate UI picks against re-derived state after events land.
 
 ## Workflow conventions
 

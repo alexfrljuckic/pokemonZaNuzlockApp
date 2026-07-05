@@ -2,11 +2,43 @@
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`. Last reconciled with git history:
-2026-07-05 session (PRs #112–#120 merged) — when in doubt, trust
-`git log --oneline --merges main` over this file's checkboxes; it has
-drifted before.
+2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
+when in doubt, trust `git log --oneline --merges main` over this file.
 
-## Shipped 2026-07-05 session (merge authorized by Alex mid-session)
+## NEXT SESSION STARTS HERE (state as of 2026-07-05 evening)
+
+1. **Vercel deploy is mid-flight.** Alex created project
+   `pokemon-za-nuzlock-app-web` (team PokemonVibeCoder); the first deploy
+   FAILED because the import wizard set Root Directory to `apps/web`,
+   bypassing the repo-root vercel.json (build succeeded, output not
+   found). Fix, given to Alex: Settings → Build and Deployment → clear
+   Root Directory; add env vars VITE_SYNC_ENABLED=true /
+   VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY (Environments → Production
+   → Environment Variables); Redeploy; then Supabase Auth → URL
+   Configuration → set https://pokemon-za-nuzlock-app-web.vercel.app as
+   Site URL + Redirect URL. VERIFY the deploy went green when resuming.
+2. The profiles migration (20260705220000) is APPLIED in Supabase.
+   Smoke-test profiles/follows/feed on the live URL once deployed.
+3. Nothing else is queued. Optional pool: sticky mobile tab bar,
+   catch-rate-by-zone / time-in-run stats panels, code-splitting the
+   2.7 MB bundle (chunk warning in the Vercel build), Z-A movepool
+   hand-curation, sync seq-collision (out of MVP).
+
+## Shipped 2026-07-05 session, wave 2 (#121–#137)
+
+Metrics item 33 complete (#128 timeline w/ filters, #129 headroom +
+deaths-by-boss panels, #130 Your Stats cross-run screen); genlocke
+designed then SHELVED (#123/#131/#132 — too few games; engine event
+dormant); profiles + follows shipped (#134, design #123, migration
+applied); engine warts fixed (#133 — house_rules_changed + 'wiped'
+status, built by a parallel background agent); evolution feature
+(#125–#127: branch choice, level bump, item-location hints, un-evolve;
+nickname never changes; self-evos no-op); move pickers ordered
+level→TM→TR→HM + columnar learnsets + un-evolve nets out of history
+(#136); PLA per-zone maps from Alex's uploads (#124); docs #121/#122/
+#135/#137.
+
+## Shipped 2026-07-05 session, wave 1 (merge authorized mid-session)
 
 - **#112 mobile map fix** — Alex reported the route map unusable on phones.
   RouteMap now fits the whole map to the screen and zooms/pans through the
