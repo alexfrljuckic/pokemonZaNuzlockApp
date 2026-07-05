@@ -80,11 +80,16 @@ revisit if/when the game roster grows. What exists stays: the design
 (#131 — harmless without UI, and useful for any future import feature).
 Campaign store / import screen / campaign page: NOT built, on purpose.
 
-**35. Profiles + follows (READY TO BUILD — next big feature).** Design AGREED
-at `docs/PROFILES.md` (Alex 2026-07-05): profiles aggregate explicitly
-shared runs only; feed v1 = big beats only (boss/death/wipe/victory),
-poll-not-realtime; profiles/follows tables + handle-scoped SECURITY
-DEFINER RPCs mirroring the spectator pattern.
+**35. Profiles + follows — SHIPPED 2026-07-05 (#134).** Per PROFILES.md:
+migration 20260705220000 (profiles + follows, owner-only RLS,
+get_profile/get_feed SECURITY DEFINER RPCs — profile shows ONLY runs
+with a live share token; revoke = vanish), #u/<handle> route, profile
+setup chip, follow/unfollow, polled big-beats feed on the continue
+screen. **DEPLOY GATE: Alex must apply the migration in Supabase before
+the next web deploy** (until then profile UI just gets empty results).
+Shipped in parallel with #133 (engine warts, background-agent built):
+mid-run house-rules editing (`house_rules_changed`, audited) + proper
+`wiped` status for wipe-reset (legacy logs still derive to abandoned).
 
 **36. PLA per-zone map backdrops — SHIPPED 2026-07-05 (same session).**
 Alex uploaded his six zone images (arc1–arc6) mid-session → renamed to
@@ -149,20 +154,20 @@ region's original-SVG backdrop (Paldea/Hisui) ever gets replaced with
 uploaded art (as Lumiose was in #87), keep the node ids and recalibrate
 coordinates against the new image.
 
-## Deferred / low priority (unchanged)
+## Deferred / low priority
 
 - **Z-A movepools**: PokeAPI has no move-learn data for `legends-za` /
   `mega-dimension` at all, so Z-A uses the union-fallback pool (documented in
   `speciesData.ts`). Only fixable by hand-curating movepools — skip unless it
   actually bothers someone mid-run.
-- **Engine event-schema gaps**: no event type for editing `houseRules`
-  mid-run (locked at run creation); wipe "reset" has no dedicated status
-  transition (UI emits `run_ended(abandoned)` alongside
-  `wipe_decision(reset)` as a workaround — documented in WipeScreen.tsx).
 - **Sync seq-collision edge case**: two devices appending to the same run
   while both offline and never-synced can collide on `seq` (documented in
   `apps/web/src/lib/db.ts`). Full CRDT-style resolution deliberately out of
   MVP scope.
+- Small nice-to-haves: sticky mobile tab bar; remaining 33b panels
+  (catch-rate-by-zone, time-in-run).
+- (The old "engine event-schema gaps" entry SHIPPED in #133:
+  house_rules_changed + the 'wiped' status.)
 
 ## Later phases (need a scoping conversation with Alex first)
 
