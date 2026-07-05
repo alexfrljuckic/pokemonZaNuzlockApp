@@ -1,6 +1,6 @@
 export * from './types.js';
 export { deriveState } from './state.js';
-export { party, boxed, fallen, isFrontier } from './selectors.js';
+export { party, boxed, fallen, isFrontier, frontierAreas } from './selectors.js';
 export {
   RULES,
   buildRuleset,

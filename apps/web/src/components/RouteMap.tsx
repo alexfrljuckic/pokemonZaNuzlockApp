@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { isFrontier, type Area, type RunState } from '@nuzlocke/engine';
+import { frontierAreas, type Area, type RunState } from '@nuzlocke/engine';
 import { mapHelpers, type GameMap } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
 
@@ -53,6 +53,8 @@ export function RouteMap({
 
   const { mapNode } = useMemo(() => mapHelpers(map), [map]);
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
+  // "up next" window: progresses as areas resolve, not just on milestones
+  const frontier = useMemo(() => frontierAreas(areas, state), [areas, state]);
   const { w, h } = map.viewBox;
 
   const hoveredArea = hovered ? areaById.get(hovered) : null;
@@ -107,11 +109,10 @@ export function RouteMap({
           // picker, a resolved one opens its outcome + reset.
           const interactive = st !== 'locked';
           const badge = BADGE_GLYPH[st];
-          const frontier = isFrontier(area, state);
           return (
             <g
               key={node.id}
-              className={`route-region-g route-region-${st}${frontier ? ' route-region-frontier' : ''}`}
+              className={`route-region-g route-region-${st}${frontier.has(area.id) ? ' route-region-frontier' : ''}`}
               tabIndex={interactive ? 0 : -1}
               role={interactive ? 'button' : undefined}
               aria-label={`${area.name}${interactive ? ' — resolve encounter' : ` (${st})`}`}

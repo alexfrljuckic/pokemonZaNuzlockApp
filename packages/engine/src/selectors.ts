@@ -17,13 +17,28 @@ export function fallen(state: RunState): PokemonInstance[] {
   return Object.values(state.pokemon).filter((p) => p.status === 'dead');
 }
 
-/** Areas that just opened up per the story's `unlockAfter` gating — a light
- * "next approximate routes" hint, not an enforced lock. An area counts as
- * frontier if it's unresolved and either has no gate (and nothing's been
- * cleared yet) or its gate is the most recently cleared milestone. */
-export function isFrontier(area: Area, state: RunState): boolean {
+/** The "up next" areas — a sliding window that progresses as routes get
+ * resolved, not just when milestones clear (the old most-recent-milestone
+ * rule went dark between badges). Frontier = the first `windowSize`
+ * unresolved areas, in dataset (story) order, whose gate is satisfied
+ * (no `unlockAfter`, or any cleared milestone). A hint, not a lock. */
+export function frontierAreas(areas: Area[], state: RunState, windowSize = 4): Set<string> {
+  const cleared = new Set(state.milestonesCleared);
+  const next = new Set<string>();
+  for (const area of areas) {
+    if (next.size >= windowSize) break;
+    if (state.encounterOutcomes[area.id]) continue;
+    if (area.unlockAfter != null && !cleared.has(area.unlockAfter)) continue;
+    next.add(area.id);
+  }
+  return next;
+}
+
+/** Back-compat single-area check; prefer frontierAreas for whole views. */
+export function isFrontier(area: Area, state: RunState, allAreas?: Area[]): boolean {
+  if (allAreas) return frontierAreas(allAreas, state).has(area.id);
+  // Without ordering context, fall back to "unresolved and reachable".
   if (state.encounterOutcomes[area.id]) return false;
-  const cleared = state.milestonesCleared;
-  if (cleared.length === 0) return area.unlockAfter == null;
-  return area.unlockAfter === cleared[cleared.length - 1];
+  const cleared = new Set(state.milestonesCleared);
+  return area.unlockAfter == null || cleared.has(area.unlockAfter);
 }

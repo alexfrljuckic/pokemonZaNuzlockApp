@@ -176,6 +176,8 @@ export type RunEvent =
   | { seq: number; at: string; type: 'milestone_cleared'; payload: { milestoneId: string } }
   | { seq: number; at: string; type: 'trainer_battled'; payload: { areaId: string; trainerIndex: number; name?: string } }
   | { seq: number; at: string; type: 'trainer_reset'; payload: { areaId: string; trainerIndex: number } }
+  | { seq: number; at: string; type: 'item_picked'; payload: { areaId: string; itemIndex: number; name?: string } }
+  | { seq: number; at: string; type: 'item_reset'; payload: { areaId: string; itemIndex: number } }
   | { seq: number; at: string; type: 'rule_changed'; payload: { ruleId: string; before: RuleConfig | null; after: RuleConfig; note?: string } }
   | { seq: number; at: string; type: 'wipe_decision'; payload: { decision: 'reset' | 'continue' } }
   | { seq: number; at: string; type: 'run_ended'; payload: { result: 'victory' | 'abandoned' } }
@@ -216,6 +218,8 @@ export interface RunState {
   milestonesCleared: string[];
   /** `${areaId}#${trainerIndex}` keys of route trainers marked battled */
   trainersBattled: string[];
+  /** `${areaId}#${itemIndex}` keys of route items marked picked up */
+  itemsPicked: string[];
   reviveTokens: number;
   /** set once the whole team has fainted; never unset except by 'reset' decision (a new run) */
   wipes: { at: string }[];

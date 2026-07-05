@@ -122,7 +122,8 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
               aria-expanded={g.gameId === gameId}
             >
               <img className="game-card-logo" src={`/logos/${g.gameId}.svg`} alt="" width={52} height={52} />
-              <span className="game-card-name">{g.name}</span>
+              {/* franchise prefix is implied on a picker full of Pokémon games */}
+              <span className="game-card-name">{g.name.replace(/^Pokémon\s+/, '')}</span>
               <span className="muted">{g.areas.length} areas</span>
             </button>
 
