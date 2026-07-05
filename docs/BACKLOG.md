@@ -5,24 +5,71 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-05 evening)
+## NEXT SESSION STARTS HERE (state as of 2026-07-05 late — deploy live)
 
-1. **Vercel deploy is mid-flight.** Alex created project
-   `pokemon-za-nuzlock-app-web` (team PokemonVibeCoder); the first deploy
-   FAILED because the import wizard set Root Directory to `apps/web`,
-   bypassing the repo-root vercel.json (build succeeded, output not
-   found). Fix, given to Alex: Settings → Build and Deployment → clear
-   Root Directory; add env vars VITE_SYNC_ENABLED=true /
-   VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY (Environments → Production
-   → Environment Variables); Redeploy; then Supabase Auth → URL
-   Configuration → set https://pokemon-za-nuzlock-app-web.vercel.app as
-   Site URL + Redirect URL. VERIFY the deploy went green when resuming.
-2. The profiles migration (20260705220000) is APPLIED in Supabase.
-   Smoke-test profiles/follows/feed on the live URL once deployed.
-3. Nothing else is queued. Optional pool: sticky mobile tab bar,
-   catch-rate-by-zone / time-in-run stats panels, code-splitting the
-   2.7 MB bundle (chunk warning in the Vercel build), Z-A movepool
-   hand-curation, sync seq-collision (out of MVP).
+**Deploy is LIVE and renamed.** The app is at
+**https://nuzlocke-tracker-app.vercel.app** (Vercel project renamed
+`pokemon-za-nuzlock-app-web` → `nuzlocke-tracker`; the old `-web` domain
+was replaced — renaming the project did NOT move the domain, it's a
+separate Domains-tab entry. `nuzlocke-tracker.vercel.app` and
+`nuzlocke-tracker-app.app` were both taken/wrong; landed on
+`nuzlocke-tracker-app.vercel.app`). URL is not hardcoded (app uses
+`window.location.origin`); only docs + Supabase config carry it.
+
+**OPEN PRs (opened this session, NOT merged — review + merge when back):**
+- **#139 feat/oauth-login** — Google + Discord OAuth alongside magic link.
+  Code done + tested (61/61, build clean). To activate: follow
+  `docs/OAUTH-SETUP.md` (register OAuth apps, Supabase provider config,
+  set `VITE_OAUTH_PROVIDERS=google,discord` in Vercel, redeploy).
+- **docs/ux-audit-jul5** — `docs/UX-AUDIT.md`, the full mobile+desktop
+  audit synthesis below.
+
+**DEPLOY FOLLOW-UPS still on Alex:**
+1. Supabase → Authentication → URL Configuration: set Site URL +
+   Redirect URL `https://nuzlocke-tracker-app.vercel.app/**` (magic link
+   was redirecting to localhost:3000 because the domain wasn't
+   allow-listed → Supabase fell back to Site URL). Dev is Vite 5173, not
+   3000. See the deploy-auth memory note.
+2. Magic-link email hit Supabase's built-in rate limit (test-only sender,
+   ~few/hr) — for production set up custom SMTP (Resend/SendGrid) under
+   Auth → SMTP. Low priority; not blocking.
+3. Profiles migration (20260705220000) is APPLIED. Smoke-test
+   profiles/follows/feed on the live URL.
+
+**CLI tooling:** Vercel CLI installed globally this session. Supabase CLI
+global npm install is disabled on Windows — use `npx supabase` on demand.
+
+## UX audit follow-ups (from docs/UX-AUDIT.md, prioritized)
+
+Full detail + file:line in `docs/UX-AUDIT.md`. Suggested PR sequence:
+
+- **P0 — run robustness (has a real crash bug).** RunView has no
+  missing-dataset guard and there's no ErrorBoundary, so a broken run
+  (pre-split PLA / removed gameId) white-screens the whole app
+  (`RunView.tsx:99-103`). Same PR: per-run delete/export in
+  ContinueScreen, and confirm/undo on destructive actions (Fainted,
+  Reset route, Reset special all fire on one unguarded click). **Start here.**
+- **P1 mobile stylesheet:** no phone breakpoint exists at all. Sticky
+  bottom tab bar, ≥44px touch targets, touch-first map/encounter preview
+  (tips are hover-only today), `minmax(300px)` grids that overflow at 320px.
+- **P1 desktop layout:** everything is one 1060px column. Grid the Stats
+  dashboard, Team/Box/Graveyard, Rules, cross-run charts; cap expanded-card
+  span (currently `1 / -1` reflows the whole row); add a 768–1099px tablet
+  breakpoint.
+- **P1 onboarding/copy:** no nuzlocke explainer anywhere; ContinueScreen
+  shows raw gameId slugs; login value-prop invisible when signed out;
+  Rules copy leaks literal backticks + internal event-type names; jargon
+  ungloss­ed (honor/enforced, set mode, headroom, frontier).
+- **P1 keyboard a11y:** clickable `<div>`s in AreaList + RunPicker are
+  keyboard-unreachable (core tasks); focus-visible suppressed on many
+  controls incl. map regions.
+- **P2 polish:** combobox ARIA, color-only status, muted-text contrast,
+  silent form coercion, live regions, share-popover focus mgmt, empty-state
+  CTAs, reduced-motion for looping keyframes.
+
+Also still in the optional pool: catch-rate-by-zone / time-in-run stats
+panels, code-splitting the 2.7 MB bundle (chunk warning in build), Z-A
+movepool hand-curation, sync seq-collision (out of MVP).
 
 ## Shipped 2026-07-05 session, wave 2 (#121–#137)
 
