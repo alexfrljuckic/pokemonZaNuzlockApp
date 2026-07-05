@@ -101,6 +101,24 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         }
         break;
       }
+      case 'pokemon_imported': {
+        // Genlocke graduation (docs/GENLOCKE.md): a survivor from a previous
+        // run joins this one. Free extra — consumes no encounter; its line
+        // still blocks dupes because ownedLines reads state.pokemon. Joins
+        // the party if there's room, else the box. `retiredSpecies` marks a
+        // legacy successor standing in for a mon whose line doesn't exist in
+        // this game (recorded for the campaign page, no fold behavior).
+        const inParty = Object.values(state.pokemon).filter((q) => q.status === 'party').length;
+        state.pokemon[ev.payload.pokemonId] = {
+          id: ev.payload.pokemonId,
+          species: ev.payload.species,
+          nickname: ev.payload.nickname ?? ev.payload.species,
+          level: ev.payload.level ?? 5,
+          status: inParty < 6 ? 'party' : 'box',
+          origin: { imported: true },
+        };
+        break;
+      }
       case 'pokemon_evolved': {
         const p = state.pokemon[ev.payload.pokemonId];
         // A self-evolution is meaningless — ignore it entirely so a stray
