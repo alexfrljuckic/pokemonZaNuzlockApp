@@ -71,7 +71,7 @@ describe('pokemon_evolved event', () => {
     ev('encounter_resolved', { areaId: 'route-201', species: 'starly', outcome: 'caught', pokemonId: 'p2', nickname: 'Jet', level: 14 }),
   ];
 
-  it('changes the species; a default nickname follows, a real one stays', () => {
+  it('changes the species only — the nickname NEVER changes', () => {
     const events = [
       ...base,
       ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' }),
@@ -79,9 +79,22 @@ describe('pokemon_evolved event', () => {
     ];
     const state = deriveState(events, ctx);
     expect(state.pokemon['p1'].species).toBe('staravia');
-    expect(state.pokemon['p1'].nickname).toBe('staravia'); // default followed
+    expect(state.pokemon['p1'].nickname).toBe('starly'); // what the player calls it stays
     expect(state.pokemon['p2'].species).toBe('staravia');
-    expect(state.pokemon['p2'].nickname).toBe('Jet'); // real nickname kept
+    expect(state.pokemon['p2'].nickname).toBe('Jet');
+  });
+
+  it('ignores a self-evolution entirely (no species change, no stack entry)', () => {
+    const events = [
+      ...base,
+      ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'starly' }), // stray no-op
+      ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' }),
+      ev('pokemon_evolution_reverted', { pokemonId: 'p1' }),
+    ];
+    const state = deriveState(events, ctx);
+    // revert lands back on starly, not on a phantom starly→starly entry
+    expect(state.pokemon['p1'].species).toBe('starly');
+    expect(state.pokemon['p1'].preEvolutions).toBeUndefined();
   });
 
   it('no-ops on an unknown pokemonId and stays order-independent', () => {
@@ -121,7 +134,7 @@ describe('pokemon_evolution_reverted (un-evolve)', () => {
     ev('encounter_resolved', { areaId: 'route-201', species: 'turtwig', outcome: 'caught', pokemonId: 'p1', nickname: 'turtwig', level: 5 }),
   ];
 
-  it('restores species and a default nickname through multiple steps — the level stays', () => {
+  it('restores the species through multiple steps — level and nickname stay', () => {
     const chain = [
       ...base,
       ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'grotle', level: 18 }),
@@ -130,7 +143,7 @@ describe('pokemon_evolution_reverted (un-evolve)', () => {
     const once = deriveState([...chain, ev('pokemon_evolution_reverted', { pokemonId: 'p1' })], ctx);
     expect(once.pokemon['p1'].species).toBe('grotle');
     expect(once.pokemon['p1'].level).toBe(32); // un-evolve never touches the level
-    expect(once.pokemon['p1'].nickname).toBe('grotle');
+    expect(once.pokemon['p1'].nickname).toBe('turtwig'); // …or the nickname
 
     const twice = deriveState(
       [...chain, ev('pokemon_evolution_reverted', { pokemonId: 'p1' }), ev('pokemon_evolution_reverted', { pokemonId: 'p1' })],
