@@ -20,6 +20,26 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up
 
+**24. PLA sub-area encounter granularity + alpha flag.** The community
+nuzlockes PLA per NAMED LOCATION (Horseshoe Plains, …), not per zone — our
+7-zone dataset is the biggest gap vs. practice (docs/CHALLENGE-MODES.md).
+Split pla.json areas into named sub-locations (Serebii has per-location
+spawn lists) or add a sub-area list per zone; add an `isAlpha`-style
+encounter flag so guaranteed Alphas can be excluded by default with a
+hard-mode "alphas count" toggle. Dataset + small engine/UI PR.
+
+**25. SV next-boss level cap affordance.** Milestones already complete in
+any order; add the "which boss am I doing next" pick so the displayed
+level cap keys off the user's chosen next milestone instead of dataset
+order (docs/CHALLENGE-MODES.md, SV section). Small engine selector + Boss
+Fights UI. Ship the merged 18-boss suggested order as the default sort.
+
+**26. Per-game honor-rule packs.** PLA: use-only-first-catch wording,
+no-crafted-revives, distortion + outbreak-shiny bans, noble two-attempt
+clause; SV: raid/picnic-egg bans (default-on), symmetric-Tera clause;
+Z-A: symmetric-Mega clause, rogue-battle cap toggle. All honor rules
+gated via `appliesTo` — data + rules-tab display, no enforcement.
+
 **23. SwSh DLC specials + boss milestones.** The DLC areas shipped with
 encounters only. Candidates deliberately excluded from wild tables and
 parked in the research files' `_meta` (scratchpad session notes + PR body):
@@ -31,6 +51,17 @@ bosses join the Boss Fights tab (they're optional content — maybe a
 `conditions.dlc` gate) before authoring. Also skipped: universal fog
 Chansey/Blissey adds (IoA) and daily strong-wanderer spawns (both DLCs) —
 re-add as encounters if a runner wants them.
+
+2026-07-05 challenge/UX round (PRs #89-#93): **level-up learnsets (#89)** —
+levelUpMovesByGame generated data, learn-level badges in the move picker,
+collapsible per-mon learnset section; **trainer battle tracking (#90)** —
+trainer_battled/trainer_reset events, boss-fight-scale trainer cards with
+documented-or-expected movesets (last four level-up moves at level, never
+invented, labelled); **back button into run header (#91)**; **route items
+(#92)** — items schema field + Items here panel + 1,033 sourced pickups
+(BDSP 339 / LGPE 230 / SwSh base 193 / SV 271 TM-checklist-flavored);
+**challenge-modes research (#93)** — docs/CHALLENGE-MODES.md: all three
+unconventional games stay supported; spawned items 24-26.
 
 Otherwise items 0-22 are all shipped (see below and git log). What's left
 lives in "Deferred / low priority" (deliberate skips), "Later phases"
