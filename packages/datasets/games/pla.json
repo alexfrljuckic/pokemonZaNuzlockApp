@@ -2,507 +2,3167 @@
   "schemaVersion": 1,
   "gameId": "pla",
   "name": "Pokémon Legends: Arceus",
-  "versions": ["legends-arceus"],
-  "pokeapiVersionGroups": ["legends-arceus"],
+  "versions": [
+    "legends-arceus"
+  ],
+  "pokeapiVersionGroups": [
+    "legends-arceus"
+  ],
   "rostersRequired": true,
   "areas": [
     {
       "id": "jubilife-village",
       "name": "Jubilife Village",
       "unlockAfter": null,
-      "tags": ["landmark", "hub", "starter-area"],
+      "tags": [
+        "landmark",
+        "hub",
+        "starter-area"
+      ],
       "encounters": [
-        { "species": "unown", "methods": ["walk"] }
+        {
+          "species": "unown",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Poke Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Cake-Lure Base",
+          "shop": true
+        },
+        {
+          "name": "Heavy Ball",
+          "shop": true
+        },
+        {
+          "name": "Feather Ball",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Smoke Bomb",
+          "shop": true
+        },
+        {
+          "name": "Mushroom Cake",
+          "shop": true
+        },
+        {
+          "name": "Honey Cake",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Stealth Spray",
+          "shop": true
+        },
+        {
+          "name": "Scatter Bang",
+          "shop": true
+        },
+        {
+          "name": "Grain Cake",
+          "shop": true
+        },
+        {
+          "name": "Leaden Ball",
+          "shop": true
+        },
+        {
+          "name": "Wing Ball",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Bean Cake",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Max Revive",
+          "shop": true
+        },
+        {
+          "name": "Sticky Glob",
+          "shop": true
+        },
+        {
+          "name": "Salt Cake",
+          "shop": true
+        },
+        {
+          "name": "Apricorn",
+          "shop": true
+        },
+        {
+          "name": "Tumblestone",
+          "shop": true
+        },
+        {
+          "name": "Black Tumblestone",
+          "shop": true
+        },
+        {
+          "name": "Sky Tumblestone",
+          "shop": true
+        },
+        {
+          "name": "Iron Chunk",
+          "shop": true
+        },
+        {
+          "name": "Springy Mushroom",
+          "shop": true
+        },
+        {
+          "name": "Dazzling Honey",
+          "shop": true
+        },
+        {
+          "name": "Hearty Grains",
+          "shop": true
+        },
+        {
+          "name": "Plump Beans",
+          "shop": true
+        },
+        {
+          "name": "Crunchy Salt",
+          "shop": true
+        },
+        {
+          "name": "Caster Fern",
+          "shop": true
+        },
+        {
+          "name": "Sootfoot Root",
+          "shop": true
+        },
+        {
+          "name": "Pop Pod",
+          "shop": true
+        },
+        {
+          "name": "Oran Berry",
+          "shop": true
+        },
+        {
+          "name": "Cheri Berry",
+          "shop": true
+        },
+        {
+          "name": "Chesto Berry",
+          "shop": true
+        },
+        {
+          "name": "Pecha Berry",
+          "shop": true
+        },
+        {
+          "name": "Nanab Berry",
+          "shop": true
+        },
+        {
+          "name": "Hopo Berry",
+          "shop": true
+        },
+        {
+          "name": "Medicinal Leek",
+          "shop": true
+        },
+        {
+          "name": "Vivichoke",
+          "shop": true
+        },
+        {
+          "name": "Bugwort",
+          "shop": true
+        },
+        {
+          "name": "Swordcap",
+          "shop": true
+        },
+        {
+          "name": "Iron Barktongue",
+          "shop": true
+        },
+        {
+          "name": "Rawst Berry",
+          "shop": true
+        },
+        {
+          "name": "Aspear Berry",
+          "shop": true
+        },
+        {
+          "name": "Pinap Berry",
+          "shop": true
+        },
+        {
+          "name": "Pep-Up Plant",
+          "shop": true
+        },
+        {
+          "name": "Direshroom",
+          "shop": true
+        },
+        {
+          "name": "Candy Truffle",
+          "shop": true
+        },
+        {
+          "name": "Sitrus Berry",
+          "shop": true
+        },
+        {
+          "name": "Leppa Berry",
+          "shop": true
+        },
+        {
+          "name": "Razz Berry",
+          "shop": true
+        },
+        {
+          "name": "Doppel Bonnets",
+          "shop": true
+        },
+        {
+          "name": "Sand Radish",
+          "shop": true
+        },
+        {
+          "name": "King's Leaf",
+          "shop": true
+        }
       ]
     },
     {
       "id": "obsidian-fieldlands",
       "name": "Obsidian Fieldlands",
       "unlockAfter": null,
-      "tags": ["open-zone"],
+      "tags": [
+        "open-zone"
+      ],
       "encounters": [
-        { "species": "bidoof", "methods": ["walk"] },
-        { "species": "bibarel", "methods": ["walk"] },
-        { "species": "starly", "methods": ["walk"] },
-        { "species": "staravia", "methods": ["walk"] },
-        { "species": "shinx", "methods": ["walk"] },
-        { "species": "luxio", "methods": ["walk"] },
-        { "species": "psyduck", "methods": ["walk", "surf"] },
-        { "species": "golduck", "methods": ["walk", "surf"] },
-        { "species": "buizel", "methods": ["walk", "surf"] },
-        { "species": "floatzel", "methods": ["walk", "surf"] },
-        { "species": "burmy", "methods": ["walk"] },
-        { "species": "wormadam-plant", "methods": ["walk"] },
-        { "species": "mothim", "methods": ["walk"] },
-        { "species": "combee", "methods": ["walk"] },
-        { "species": "vespiquen", "methods": ["walk"] },
-        { "species": "kricketot", "methods": ["walk"] },
-        { "species": "kricketune", "methods": ["walk"] },
-        { "species": "cherubi", "methods": ["walk"] },
-        { "species": "cherrim", "methods": ["walk"] },
-        { "species": "buneary", "methods": ["walk"] },
-        { "species": "lopunny", "methods": ["walk"] },
-        { "species": "pachirisu", "methods": ["walk"] },
-        { "species": "aipom", "methods": ["walk"] },
-        { "species": "ambipom", "methods": ["walk"] },
-        { "species": "geodude", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "onix", "methods": ["walk"] },
-        { "species": "machop", "methods": ["walk"] },
-        { "species": "machoke", "methods": ["walk"] },
-        { "species": "zubat", "methods": ["walk"] },
-        { "species": "golbat", "methods": ["walk"] },
-        { "species": "wurmple", "methods": ["walk"] },
-        { "species": "silcoon", "methods": ["walk"] },
-        { "species": "beautifly", "methods": ["walk"] },
-        { "species": "cascoon", "methods": ["walk"] },
-        { "species": "dustox", "methods": ["walk"] },
-        { "species": "magikarp", "methods": ["walk", "surf"] },
-        { "species": "gyarados", "methods": ["walk", "surf"] },
-        { "species": "voltorb-hisui", "methods": ["walk"] },
-        { "species": "electrode-hisui", "methods": ["walk"] },
-        { "species": "abra", "methods": ["walk"] },
-        { "species": "kadabra", "methods": ["walk"] },
-        { "species": "drifloon", "methods": ["walk"] },
-        { "species": "drifblim", "methods": ["walk"] },
-        { "species": "murkrow", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "honchkrow", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "cranidos", "methods": ["walk"] },
-        { "species": "rampardos", "methods": ["walk"] },
-        { "species": "shieldon", "methods": ["walk"] },
-        { "species": "bastiodon", "methods": ["walk"] },
-        { "species": "kricketune", "methods": ["alpha"] },
-        { "species": "bibarel", "methods": ["alpha"] },
-        { "species": "rampardos", "methods": ["alpha"] },
-        { "species": "bastiodon", "methods": ["alpha"] },
-        { "species": "kleavor", "methods": ["noble"] }
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "beautifly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dustox",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "voltorb-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electrode-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "honchkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "cranidos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rampardos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shieldon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bastiodon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "rampardos",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "bastiodon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "kleavor",
+          "methods": [
+            "noble"
+          ]
+        }
       ]
     },
     {
       "id": "crimson-mirelands",
       "name": "Crimson Mirelands",
       "unlockAfter": "noble-kleavor",
-      "tags": ["open-zone"],
+      "tags": [
+        "open-zone"
+      ],
       "encounters": [
-        { "species": "pikachu", "methods": ["walk"] },
-        { "species": "raichu", "methods": ["walk"] },
-        { "species": "zubat", "methods": ["walk"] },
-        { "species": "golbat", "methods": ["walk"] },
-        { "species": "paras", "methods": ["walk"] },
-        { "species": "parasect", "methods": ["walk"] },
-        { "species": "psyduck", "methods": ["walk", "surf"] },
-        { "species": "golduck", "methods": ["walk", "surf"] },
-        { "species": "geodude", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "gastly", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "haunter", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "gengar", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "onix", "methods": ["walk"] },
-        { "species": "lickitung", "methods": ["walk"] },
-        { "species": "lickilicky", "methods": ["walk"] },
-        { "species": "rhyhorn", "methods": ["walk"] },
-        { "species": "rhydon", "methods": ["walk"] },
-        { "species": "rhyperior", "methods": ["walk"] },
-        { "species": "chansey", "methods": ["walk"] },
-        { "species": "tangela", "methods": ["walk"] },
-        { "species": "tangrowth", "methods": ["walk"] },
-        { "species": "eevee", "methods": ["walk"] },
-        { "species": "flareon", "methods": ["walk"] },
-        { "species": "porygon", "methods": ["walk"] },
-        { "species": "porygon2", "methods": ["walk"] },
-        { "species": "porygon-z", "methods": ["walk"] },
-        { "species": "snorlax", "methods": ["walk"] },
-        { "species": "cyndaquil", "methods": ["walk"] },
-        { "species": "quilava", "methods": ["walk"] },
-        { "species": "typhlosion-hisui", "methods": ["walk"] },
-        { "species": "pichu", "methods": ["walk"] },
-        { "species": "togepi", "methods": ["walk"] },
-        { "species": "togetic", "methods": ["walk"] },
-        { "species": "sudowoodo", "methods": ["walk"] },
-        { "species": "yanma", "methods": ["walk"] },
-        { "species": "yanmega", "methods": ["walk"] },
-        { "species": "umbreon", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "murkrow", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "honchkrow", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "unown", "methods": ["walk"] },
-        { "species": "steelix", "methods": ["walk"] },
-        { "species": "heracross", "methods": ["walk"] },
-        { "species": "teddiursa", "methods": ["walk"] },
-        { "species": "ursaring", "methods": ["walk"] },
-        { "species": "ursaluna", "methods": ["walk"] },
-        { "species": "swinub", "methods": ["walk"] },
-        { "species": "piloswine", "methods": ["walk"] },
-        { "species": "ralts", "methods": ["walk"] },
-        { "species": "kirlia", "methods": ["walk"] },
-        { "species": "roselia", "methods": ["walk"] },
-        { "species": "roserade", "methods": ["walk"] },
-        { "species": "budew", "methods": ["walk"] },
-        { "species": "barboach", "methods": ["walk", "surf"] },
-        { "species": "whiscash", "methods": ["walk", "surf"] },
-        { "species": "turtwig", "methods": ["walk"] },
-        { "species": "grotle", "methods": ["walk"] },
-        { "species": "torterra", "methods": ["walk"] },
-        { "species": "bidoof", "methods": ["walk"] },
-        { "species": "bibarel", "methods": ["walk"] },
-        { "species": "luxio", "methods": ["walk"] },
-        { "species": "luxray", "methods": ["walk"] },
-        { "species": "burmy", "methods": ["walk"] },
-        { "species": "wormadam-plant", "methods": ["walk"] },
-        { "species": "combee", "methods": ["walk"] },
-        { "species": "vespiquen", "methods": ["walk"] },
-        { "species": "pachirisu", "methods": ["walk"] },
-        { "species": "floatzel", "methods": ["walk", "surf"] },
-        { "species": "cherubi", "methods": ["walk"] },
-        { "species": "cherrim", "methods": ["walk"] },
-        { "species": "lopunny", "methods": ["walk"] },
-        { "species": "stunky", "methods": ["walk"] },
-        { "species": "skuntank", "methods": ["walk"] },
-        { "species": "bronzor", "methods": ["walk"] },
-        { "species": "bronzong", "methods": ["walk"] },
-        { "species": "bonsly", "methods": ["walk"] },
-        { "species": "happiny", "methods": ["walk"] },
-        { "species": "spiritomb", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "hippopotas", "methods": ["walk"] },
-        { "species": "hippowdon", "methods": ["walk"] },
-        { "species": "skorupi", "methods": ["walk"] },
-        { "species": "drapion", "methods": ["walk"] },
-        { "species": "croagunk", "methods": ["walk"] },
-        { "species": "toxicroak", "methods": ["walk"] },
-        { "species": "carnivine", "methods": ["walk"] },
-        { "species": "petilil", "methods": ["walk"] },
-        { "species": "lilligant-hisui", "methods": ["walk"] },
-        { "species": "goomy", "methods": ["walk"] },
-        { "species": "sliggoo-hisui", "methods": ["walk"] },
-        { "species": "goodra-hisui", "methods": ["walk"] },
-        { "species": "enamorus-incarnate", "methods": ["walk"] },
-        { "species": "hippowdon", "methods": ["alpha"] },
-        { "species": "steelix", "methods": ["alpha"] },
-        { "species": "drapion", "methods": ["alpha"] },
-        { "species": "ursaring", "methods": ["alpha"] },
-        { "species": "lilligant-hisui", "methods": ["noble"] }
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "raichu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gengar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lickilicky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyperior",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "flareon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "porygon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "porygon2",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "porygon-z",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cyndaquil",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "quilava",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "typhlosion-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pichu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "togetic",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yanmega",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "umbreon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "honchkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "unown",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaluna",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "turtwig",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "grotle",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "torterra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drapion",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "petilil",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lilligant-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goomy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sliggoo-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goodra-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "enamorus-incarnate",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "drapion",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "lilligant-hisui",
+          "methods": [
+            "noble"
+          ]
+        }
       ]
     },
     {
       "id": "cobalt-coastlands",
       "name": "Cobalt Coastlands",
       "unlockAfter": "noble-lilligant",
-      "tags": ["open-zone"],
+      "tags": [
+        "open-zone"
+      ],
       "encounters": [
-        { "species": "tentacool", "methods": ["walk", "surf"] },
-        { "species": "tentacruel", "methods": ["walk", "surf"] },
-        { "species": "qwilfish-hisui", "methods": ["walk", "surf"] },
-        { "species": "overqwil", "methods": ["walk", "surf"] },
-        { "species": "remoraid", "methods": ["walk", "surf"] },
-        { "species": "octillery", "methods": ["walk", "surf"] },
-        { "species": "shellos", "methods": ["walk"] },
-        { "species": "gastrodon", "methods": ["walk"] },
-        { "species": "finneon", "methods": ["walk", "surf"] },
-        { "species": "lumineon", "methods": ["walk", "surf"] },
-        { "species": "mantyke", "methods": ["walk", "surf"] },
-        { "species": "mantine", "methods": ["walk", "surf"] },
-        { "species": "buizel", "methods": ["walk", "surf"] },
-        { "species": "floatzel", "methods": ["walk", "surf"] },
-        { "species": "basculin-white-striped", "methods": ["surf"] },
-        { "species": "basculegion-male", "methods": ["surf"] },
-        { "species": "growlithe-hisui", "methods": ["walk"] },
-        { "species": "arcanine-hisui", "methods": ["walk"] },
-        { "species": "zorua-hisui", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "zoroark-hisui", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "aipom", "methods": ["walk"] },
-        { "species": "ambipom", "methods": ["walk"] },
-        { "species": "stantler", "methods": ["walk"] },
-        { "species": "wyrdeer", "methods": ["walk"] },
-        { "species": "scyther", "methods": ["walk"] },
-        { "species": "scizor", "methods": ["walk"] },
-        { "species": "kleavor", "methods": ["walk"] },
-        { "species": "geodude", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "golem", "methods": ["walk"] },
-        { "species": "onix", "methods": ["walk"] },
-        { "species": "steelix", "methods": ["walk"] },
-        { "species": "magikarp", "methods": ["walk", "surf"] },
-        { "species": "gyarados", "methods": ["walk", "surf"] },
-        { "species": "psyduck", "methods": ["walk", "surf"] },
-        { "species": "golduck", "methods": ["walk", "surf"] },
-        { "species": "misdreavus", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "mismagius", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "sneasel-hisui", "methods": ["walk"] },
-        { "species": "sneasler", "methods": ["walk"] },
-        { "species": "sneasel-hisui", "methods": ["alpha"] },
-        { "species": "arcanine-hisui", "methods": ["alpha"] },
-        { "species": "scizor", "methods": ["alpha"] },
-        { "species": "arcanine-hisui", "methods": ["noble"] }
+        {
+          "species": "tentacool",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "overqwil",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "basculegion-male",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "growlithe-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "zoroark-hisui",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wyrdeer",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kleavor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golem",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "noble"
+          ]
+        }
       ]
     },
     {
       "id": "coronet-highlands",
       "name": "Coronet Highlands",
       "unlockAfter": "noble-arcanine",
-      "tags": ["open-zone", "mountain"],
+      "tags": [
+        "open-zone",
+        "mountain"
+      ],
       "encounters": [
-        { "species": "clefairy", "methods": ["walk"] },
-        { "species": "clefable", "methods": ["walk"] },
-        { "species": "cleffa", "methods": ["walk"] },
-        { "species": "zubat", "methods": ["walk"] },
-        { "species": "golbat", "methods": ["walk"] },
-        { "species": "crobat", "methods": ["walk"] },
-        { "species": "paras", "methods": ["walk"] },
-        { "species": "parasect", "methods": ["walk"] },
-        { "species": "psyduck", "methods": ["walk"] },
-        { "species": "golduck", "methods": ["walk"] },
-        { "species": "machop", "methods": ["walk"] },
-        { "species": "machoke", "methods": ["walk"] },
-        { "species": "geodude", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "golem", "methods": ["walk"] },
-        { "species": "ponyta", "methods": ["walk"] },
-        { "species": "rapidash", "methods": ["walk"] },
-        { "species": "gastly", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "haunter", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "gengar", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "onix", "methods": ["walk"] },
-        { "species": "steelix", "methods": ["walk"] },
-        { "species": "voltorb-hisui", "methods": ["walk"] },
-        { "species": "electrode-hisui", "methods": ["walk"] },
-        { "species": "rhyhorn", "methods": ["walk"] },
-        { "species": "rhydon", "methods": ["walk"] },
-        { "species": "rhyperior", "methods": ["walk"] },
-        { "species": "chansey", "methods": ["walk"] },
-        { "species": "mr-mime", "methods": ["walk"] },
-        { "species": "scyther", "methods": ["walk"] },
-        { "species": "scizor", "methods": ["walk"] },
-        { "species": "electabuzz", "methods": ["walk"] },
-        { "species": "electivire", "methods": ["walk"] },
-        { "species": "magmar", "methods": ["walk"] },
-        { "species": "magmortar", "methods": ["walk"] },
-        { "species": "magikarp", "methods": ["walk"] },
-        { "species": "gyarados", "methods": ["walk"] },
-        { "species": "eevee", "methods": ["walk"] },
-        { "species": "jolteon", "methods": ["walk"] },
-        { "species": "sudowoodo", "methods": ["walk"] },
-        { "species": "yanma", "methods": ["walk"] },
-        { "species": "yanmega", "methods": ["walk"] },
-        { "species": "misdreavus", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "mismagius", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "unown", "methods": ["walk"] },
-        { "species": "gligar", "methods": ["walk"] },
-        { "species": "gliscor", "methods": ["walk"] },
-        { "species": "heracross", "methods": ["walk"] },
-        { "species": "sneasel-hisui", "methods": ["walk"] },
-        { "species": "sneasler", "methods": ["walk"] },
-        { "species": "teddiursa", "methods": ["walk"] },
-        { "species": "ursaring", "methods": ["walk"] },
-        { "species": "octillery", "methods": ["walk"] },
-        { "species": "stantler", "methods": ["walk"] },
-        { "species": "wyrdeer", "methods": ["walk"] },
-        { "species": "nosepass", "methods": ["walk"] },
-        { "species": "probopass", "methods": ["walk"] },
-        { "species": "roselia", "methods": ["walk"] },
-        { "species": "roserade", "methods": ["walk"] },
-        { "species": "barboach", "methods": ["walk"] },
-        { "species": "whiscash", "methods": ["walk"] },
-        { "species": "duskull", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "dusclops", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "dusknoir", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "chimecho", "methods": ["walk"] },
-        { "species": "chingling", "methods": ["walk"] },
-        { "species": "shinx", "methods": ["walk"] },
-        { "species": "luxio", "methods": ["walk"] },
-        { "species": "luxray", "methods": ["walk"] },
-        { "species": "budew", "methods": ["walk"] },
-        { "species": "cranidos", "methods": ["walk"] },
-        { "species": "rampardos", "methods": ["walk"] },
-        { "species": "shieldon", "methods": ["walk"] },
-        { "species": "bastiodon", "methods": ["walk"] },
-        { "species": "burmy", "methods": ["walk"] },
-        { "species": "wormadam-plant", "methods": ["walk"] },
-        { "species": "mothim", "methods": ["walk"] },
-        { "species": "cherubi", "methods": ["walk"] },
-        { "species": "cherrim", "methods": ["walk"] },
-        { "species": "ambipom", "methods": ["walk"] },
-        { "species": "chingling", "methods": ["walk"] },
-        { "species": "stunky", "methods": ["walk"] },
-        { "species": "skuntank", "methods": ["walk"] },
-        { "species": "bronzor", "methods": ["walk"] },
-        { "species": "bronzong", "methods": ["walk"] },
-        { "species": "bonsly", "methods": ["walk"] },
-        { "species": "mime-jr", "methods": ["walk"] },
-        { "species": "happiny", "methods": ["walk"] },
-        { "species": "gible", "methods": ["walk"] },
-        { "species": "gabite", "methods": ["walk"] },
-        { "species": "garchomp", "methods": ["walk"] },
-        { "species": "hippopotas", "methods": ["walk"] },
-        { "species": "hippowdon", "methods": ["walk"] },
-        { "species": "drapion", "methods": ["walk"] },
-        { "species": "croagunk", "methods": ["walk"] },
-        { "species": "toxicroak", "methods": ["walk"] },
-        { "species": "carnivine", "methods": ["walk"] },
-        { "species": "snover", "methods": ["walk"] },
-        { "species": "abomasnow", "methods": ["walk"] },
-        { "species": "magnezone", "methods": ["walk"] },
-        { "species": "rotom", "methods": ["static"] },
-        { "species": "cresselia", "methods": ["static"] },
-        { "species": "darkrai", "methods": ["static"] },
-        { "species": "basculin-white-striped", "methods": ["walk"] },
-        { "species": "sylveon", "methods": ["walk"] },
-        { "species": "goomy", "methods": ["walk"] },
-        { "species": "sliggoo-hisui", "methods": ["walk"] },
-        { "species": "goodra-hisui", "methods": ["walk"] },
-        { "species": "rowlet", "methods": ["walk"] },
-        { "species": "dartrix", "methods": ["walk"] },
-        { "species": "decidueye-hisui", "methods": ["walk"] },
-        { "species": "electrode-hisui", "methods": ["alpha"] },
-        { "species": "garchomp", "methods": ["alpha"] },
-        { "species": "gliscor", "methods": ["alpha"] },
-        { "species": "electrode-hisui", "methods": ["noble"] }
+        {
+          "species": "clefairy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "clefable",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cleffa",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "crobat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golem",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gengar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "voltorb-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electrode-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyperior",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electivire",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magmortar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "jolteon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yanmega",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "unown",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gliscor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wyrdeer",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "nosepass",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "probopass",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "dusknoir",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cranidos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rampardos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shieldon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bastiodon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drapion",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magnezone",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "static"
+          ]
+        },
+        {
+          "species": "cresselia",
+          "methods": [
+            "static"
+          ]
+        },
+        {
+          "species": "darkrai",
+          "methods": [
+            "static"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sylveon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goomy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sliggoo-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goodra-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rowlet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dartrix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "decidueye-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electrode-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "gliscor",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "electrode-hisui",
+          "methods": [
+            "noble"
+          ]
+        }
       ]
     },
     {
       "id": "alabaster-icelands",
       "name": "Alabaster Icelands",
       "unlockAfter": "noble-electrode",
-      "tags": ["open-zone", "snow"],
+      "tags": [
+        "open-zone",
+        "snow"
+      ],
       "encounters": [
-        { "species": "pikachu", "methods": ["walk"] },
-        { "species": "raichu", "methods": ["walk"] },
-        { "species": "vulpix", "methods": ["walk"] },
-        { "species": "ninetales", "methods": ["walk"] },
-        { "species": "zubat", "methods": ["walk"] },
-        { "species": "golbat", "methods": ["walk"] },
-        { "species": "crobat", "methods": ["walk"] },
-        { "species": "abra", "methods": ["walk"] },
-        { "species": "kadabra", "methods": ["walk"] },
-        { "species": "alakazam", "methods": ["walk"] },
-        { "species": "machop", "methods": ["walk"] },
-        { "species": "machoke", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "rapidash", "methods": ["walk"] },
-        { "species": "gastly", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "lickitung", "methods": ["walk"] },
-        { "species": "lickilicky", "methods": ["walk"] },
-        { "species": "chansey", "methods": ["walk"] },
-        { "species": "blissey", "methods": ["walk"] },
-        { "species": "scyther", "methods": ["walk"] },
-        { "species": "scizor", "methods": ["walk"] },
-        { "species": "electabuzz", "methods": ["walk"] },
-        { "species": "electivire", "methods": ["walk"] },
-        { "species": "magmar", "methods": ["walk"] },
-        { "species": "magmortar", "methods": ["walk"] },
-        { "species": "eevee", "methods": ["walk"] },
-        { "species": "espeon", "methods": ["walk"] },
-        { "species": "glaceon", "methods": ["walk"] },
-        { "species": "snorlax", "methods": ["walk"] },
-        { "species": "crobat", "methods": ["walk"] },
-        { "species": "aipom", "methods": ["walk"] },
-        { "species": "ambipom", "methods": ["walk"] },
-        { "species": "espeon", "methods": ["walk"] },
-        { "species": "misdreavus", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "mismagius", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "gligar", "methods": ["walk"] },
-        { "species": "gliscor", "methods": ["walk"] },
-        { "species": "scizor", "methods": ["walk"] },
-        { "species": "sneasel-hisui", "methods": ["walk"] },
-        { "species": "sneasler", "methods": ["walk"] },
-        { "species": "swinub", "methods": ["walk"] },
-        { "species": "piloswine", "methods": ["walk"] },
-        { "species": "mamoswine", "methods": ["walk"] },
-        { "species": "stantler", "methods": ["walk"] },
-        { "species": "wyrdeer", "methods": ["walk"] },
-        { "species": "electabuzz", "methods": ["walk"] },
-        { "species": "magby", "methods": ["walk"] },
-        { "species": "blissey", "methods": ["walk"] },
-        { "species": "ralts", "methods": ["walk"] },
-        { "species": "kirlia", "methods": ["walk"] },
-        { "species": "gardevoir", "methods": ["walk"] },
-        { "species": "gallade", "methods": ["walk"] },
-        { "species": "duskull", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "dusclops", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "dusknoir", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "chimecho", "methods": ["walk"] },
-        { "species": "snorunt", "methods": ["walk"] },
-        { "species": "glalie", "methods": ["walk"] },
-        { "species": "froslass", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "sealeo", "methods": ["walk", "surf"] },
-        { "species": "walrein", "methods": ["walk", "surf"] },
-        { "species": "bidoof", "methods": ["walk"] },
-        { "species": "bibarel", "methods": ["walk"] },
-        { "species": "burmy", "methods": ["walk"] },
-        { "species": "wormadam-plant", "methods": ["walk"] },
-        { "species": "pachirisu", "methods": ["walk"] },
-        { "species": "ambipom", "methods": ["walk"] },
-        { "species": "drifloon", "methods": ["walk"] },
-        { "species": "drifblim", "methods": ["walk"] },
-        { "species": "buneary", "methods": ["walk"] },
-        { "species": "lopunny", "methods": ["walk"] },
-        { "species": "mismagius", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "glameow", "methods": ["walk"] },
-        { "species": "purugly", "methods": ["walk"] },
-        { "species": "chingling", "methods": ["walk"] },
-        { "species": "bronzor", "methods": ["walk"] },
-        { "species": "bronzong", "methods": ["walk"] },
-        { "species": "happiny", "methods": ["walk"] },
-        { "species": "gible", "methods": ["walk"] },
-        { "species": "gabite", "methods": ["walk"] },
-        { "species": "garchomp", "methods": ["walk"] },
-        { "species": "munchlax", "methods": ["walk"] },
-        { "species": "riolu", "methods": ["walk"] },
-        { "species": "lucario", "methods": ["walk"] },
-        { "species": "snover", "methods": ["walk"] },
-        { "species": "abomasnow", "methods": ["walk"] },
-        { "species": "lickilicky", "methods": ["walk"] },
-        { "species": "tangrowth", "methods": ["walk"] },
-        { "species": "electivire", "methods": ["walk"] },
-        { "species": "glaceon", "methods": ["walk"] },
-        { "species": "mamoswine", "methods": ["walk"] },
-        { "species": "gallade", "methods": ["walk"] },
-        { "species": "dusknoir", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "froslass", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "uxie", "methods": ["static"] },
-        { "species": "oshawott", "methods": ["walk"] },
-        { "species": "dewott", "methods": ["walk"] },
-        { "species": "samurott-hisui", "methods": ["walk"] },
-        { "species": "basculin-white-striped", "methods": ["walk", "surf"] },
-        { "species": "zorua-hisui", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "zoroark-hisui", "methods": ["walk"], "conditions": { "time": ["night"] } },
-        { "species": "rufflet", "methods": ["walk"] },
-        { "species": "braviary-hisui", "methods": ["walk"] },
-        { "species": "tornadus-incarnate", "methods": ["static"] },
-        { "species": "bergmite", "methods": ["walk"] },
-        { "species": "avalugg-hisui", "methods": ["walk"] },
-        { "species": "avalugg-hisui", "methods": ["alpha"] },
-        { "species": "mamoswine", "methods": ["alpha"] },
-        { "species": "braviary-hisui", "methods": ["alpha"] },
-        { "species": "avalugg-hisui", "methods": ["noble"] }
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "raichu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "crobat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "alakazam",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lickilicky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "blissey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electivire",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magmortar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "espeon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "glaceon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "crobat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "espeon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gliscor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mamoswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wyrdeer",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "blissey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gallade",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "dusknoir",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "riolu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lickilicky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electivire",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "glaceon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mamoswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gallade",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dusknoir",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "uxie",
+          "methods": [
+            "static"
+          ]
+        },
+        {
+          "species": "oshawott",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dewott",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "samurott-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "zoroark-hisui",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "braviary-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tornadus-incarnate",
+          "methods": [
+            "static"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "avalugg-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "avalugg-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "mamoswine",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "braviary-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "avalugg-hisui",
+          "methods": [
+            "noble"
+          ]
+        }
       ]
     },
     {
       "id": "ramanas-island",
       "name": "Ramanas Island",
       "unlockAfter": "noble-arcanine",
-      "tags": ["island", "landmark", "remote"],
+      "tags": [
+        "island",
+        "landmark",
+        "remote"
+      ],
       "encounters": [
-        { "species": "combee", "methods": ["shaking-tree"] },
-        { "species": "vespiquen", "methods": ["walk"] },
-        { "species": "growlithe-hisui", "methods": ["walk"] },
-        { "species": "arcanine-hisui", "methods": ["walk"] },
-        { "species": "zorua-hisui", "methods": ["walk"] },
-        { "species": "steelix", "methods": ["walk"] },
-        { "species": "bronzong", "methods": ["walk"] },
-        { "species": "graveler", "methods": ["walk"] },
-        { "species": "sneasel-hisui", "methods": ["walk"] },
-        { "species": "vespiquen", "methods": ["alpha"] }
+        {
+          "species": "combee",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "growlithe-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "alpha"
+          ]
+        }
       ]
     }
   ],
   "specials": [
-    { "id": "starter-rowlet", "type": "gift", "species": "rowlet", "area": "jubilife-village" },
-    { "id": "starter-cyndaquil", "type": "gift", "species": "cyndaquil", "area": "jubilife-village" },
-    { "id": "starter-oshawott", "type": "gift", "species": "oshawott", "area": "jubilife-village" },
-    { "id": "static-growlithe-hisui", "type": "static", "species": "growlithe-hisui", "area": "cobalt-coastlands" },
-    { "id": "static-voltorb-hisui", "type": "static", "species": "voltorb-hisui", "area": "obsidian-fieldlands" },
-    { "id": "static-uxie", "type": "static", "species": "uxie", "area": "alabaster-icelands" },
-    { "id": "static-cresselia", "type": "static", "species": "cresselia", "area": "coronet-highlands" },
-    { "id": "static-rotom", "type": "static", "species": "rotom", "area": "coronet-highlands" }
+    {
+      "id": "starter-rowlet",
+      "type": "gift",
+      "species": "rowlet",
+      "area": "jubilife-village"
+    },
+    {
+      "id": "starter-cyndaquil",
+      "type": "gift",
+      "species": "cyndaquil",
+      "area": "jubilife-village"
+    },
+    {
+      "id": "starter-oshawott",
+      "type": "gift",
+      "species": "oshawott",
+      "area": "jubilife-village"
+    },
+    {
+      "id": "static-growlithe-hisui",
+      "type": "static",
+      "species": "growlithe-hisui",
+      "area": "cobalt-coastlands"
+    },
+    {
+      "id": "static-voltorb-hisui",
+      "type": "static",
+      "species": "voltorb-hisui",
+      "area": "obsidian-fieldlands"
+    },
+    {
+      "id": "static-uxie",
+      "type": "static",
+      "species": "uxie",
+      "area": "alabaster-icelands"
+    },
+    {
+      "id": "static-cresselia",
+      "type": "static",
+      "species": "cresselia",
+      "area": "coronet-highlands"
+    },
+    {
+      "id": "static-rotom",
+      "type": "static",
+      "species": "rotom",
+      "area": "coronet-highlands"
+    }
   ],
   "milestones": [
     {
@@ -512,20 +3172,44 @@
       "order": 1,
       "aceLevel": 18,
       "roster": [
-        { "species": "kleavor", "level": 18, "moves": ["aerial-ace", "double-hit", "stealth-rock", "air-slash"] }
+        {
+          "species": "kleavor",
+          "level": 18,
+          "moves": [
+            "aerial-ace",
+            "double-hit",
+            "stealth-rock",
+            "air-slash"
+          ]
+        }
       ]
     },
     {
       "id": "volo-solaceon-ruins",
-"trainerSprite": "volo",
+      "trainerSprite": "volo",
       "name": "Volo (Solaceon Ruins)",
       "type": "rival",
       "order": 2,
       "aceLevel": 22,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "togepi", "level": 20, "moves": ["calm-mind", "draining-kiss", "tackle"] },
-        { "species": "gible", "level": 22, "moves": ["twister", "bulldoze"] }
+        {
+          "species": "togepi",
+          "level": 20,
+          "moves": [
+            "calm-mind",
+            "draining-kiss",
+            "tackle"
+          ]
+        },
+        {
+          "species": "gible",
+          "level": 22,
+          "moves": [
+            "twister",
+            "bulldoze"
+          ]
+        }
       ]
     },
     {
@@ -535,7 +3219,16 @@
       "order": 3,
       "aceLevel": 30,
       "roster": [
-        { "species": "lilligant-hisui", "level": 30, "moves": ["stun-spore", "poison-powder", "energy-ball", "rock-smash"] }
+        {
+          "species": "lilligant-hisui",
+          "level": 30,
+          "moves": [
+            "stun-spore",
+            "poison-powder",
+            "energy-ball",
+            "rock-smash"
+          ]
+        }
       ]
     },
     {
@@ -545,7 +3238,16 @@
       "order": 4,
       "aceLevel": 36,
       "roster": [
-        { "species": "arcanine-hisui", "level": 36, "moves": ["fire-fang", "rock-slide", "raging-fury", "crunch"] }
+        {
+          "species": "arcanine-hisui",
+          "level": 36,
+          "moves": [
+            "fire-fang",
+            "rock-slide",
+            "raging-fury",
+            "crunch"
+          ]
+        }
       ]
     },
     {
@@ -555,7 +3257,16 @@
       "order": 5,
       "aceLevel": 46,
       "roster": [
-        { "species": "electrode-hisui", "level": 46, "moves": ["thunder-wave", "energy-ball", "thunderbolt", "thunder"] }
+        {
+          "species": "electrode-hisui",
+          "level": 46,
+          "moves": [
+            "thunder-wave",
+            "energy-ball",
+            "thunderbolt",
+            "thunder"
+          ]
+        }
       ]
     },
     {
@@ -565,7 +3276,16 @@
       "order": 6,
       "aceLevel": 56,
       "roster": [
-        { "species": "avalugg-hisui", "level": 56, "moves": ["earth-power", "mountain-gale", "blizzard", "double-edge"] }
+        {
+          "species": "avalugg-hisui",
+          "level": 56,
+          "moves": [
+            "earth-power",
+            "mountain-gale",
+            "blizzard",
+            "double-edge"
+          ]
+        }
       ]
     },
     {
@@ -576,26 +3296,111 @@
       "countsForLevelCap": true,
       "aceLevel": 62,
       "roster": [
-        { "species": "braviary-hisui", "level": 61, "moves": ["esper-wing", "air-slash", "quick-attack"] },
-        { "species": "golem", "level": 61, "moves": ["stealth-rock", "rock-slide", "double-edge"] },
-        { "species": "clefable", "level": 61, "moves": ["draining-kiss", "psychic", "calm-mind", "baby-doll-eyes"] },
-        { "species": "snorlax", "level": 62, "moves": ["zen-headbutt", "high-horsepower", "giga-impact"] }
+        {
+          "species": "braviary-hisui",
+          "level": 61,
+          "moves": [
+            "esper-wing",
+            "air-slash",
+            "quick-attack"
+          ]
+        },
+        {
+          "species": "golem",
+          "level": 61,
+          "moves": [
+            "stealth-rock",
+            "rock-slide",
+            "double-edge"
+          ]
+        },
+        {
+          "species": "clefable",
+          "level": 61,
+          "moves": [
+            "draining-kiss",
+            "psychic",
+            "calm-mind",
+            "baby-doll-eyes"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "level": 62,
+          "moves": [
+            "zen-headbutt",
+            "high-horsepower",
+            "giga-impact"
+          ]
+        }
       ]
     },
     {
       "id": "volo-temple-of-sinnoh",
-"trainerSprite": "volo",
+      "trainerSprite": "volo",
       "name": "Volo (Temple of Sinnoh)",
       "type": "story",
       "order": 8,
       "aceLevel": 68,
       "roster": [
-        { "species": "spiritomb", "level": 68, "moves": ["hypnosis", "dark-pulse", "extrasensory", "shadow-ball"] },
-        { "species": "roserade", "level": 68, "moves": ["poison-jab", "petal-dance", "spikes"] },
-        { "species": "togekiss", "level": 68, "moves": ["calm-mind", "moonblast", "extrasensory", "air-slash"] },
-        { "species": "arcanine-hisui", "level": 68, "moves": ["raging-fury", "crunch", "rock-slide"] },
-        { "species": "lucario", "level": 68, "moves": ["close-combat", "crunch", "bulk-up", "bullet-punch"] },
-        { "species": "garchomp", "level": 68, "moves": ["dragon-claw", "earth-power", "slash", "iron-head"] }
+        {
+          "species": "spiritomb",
+          "level": 68,
+          "moves": [
+            "hypnosis",
+            "dark-pulse",
+            "extrasensory",
+            "shadow-ball"
+          ]
+        },
+        {
+          "species": "roserade",
+          "level": 68,
+          "moves": [
+            "poison-jab",
+            "petal-dance",
+            "spikes"
+          ]
+        },
+        {
+          "species": "togekiss",
+          "level": 68,
+          "moves": [
+            "calm-mind",
+            "moonblast",
+            "extrasensory",
+            "air-slash"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "level": 68,
+          "moves": [
+            "raging-fury",
+            "crunch",
+            "rock-slide"
+          ]
+        },
+        {
+          "species": "lucario",
+          "level": 68,
+          "moves": [
+            "close-combat",
+            "crunch",
+            "bulk-up",
+            "bullet-punch"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "level": 68,
+          "moves": [
+            "dragon-claw",
+            "earth-power",
+            "slash",
+            "iron-head"
+          ]
+        }
       ]
     },
     {
@@ -605,7 +3410,16 @@
       "order": 9,
       "aceLevel": 70,
       "roster": [
-        { "species": "giratina-altered", "level": 70, "moves": ["aura-sphere", "dragon-claw", "earth-power", "shadow-force"] }
+        {
+          "species": "giratina-altered",
+          "level": 70,
+          "moves": [
+            "aura-sphere",
+            "dragon-claw",
+            "earth-power",
+            "shadow-force"
+          ]
+        }
       ]
     }
   ],
