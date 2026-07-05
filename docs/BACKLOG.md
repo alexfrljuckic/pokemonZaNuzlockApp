@@ -2,10 +2,11 @@
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`. Last reconciled with git history:
-2026-07-05 session (PRs #112-#114 open) — when in doubt, trust `git log
---oneline --merges main` over this file's checkboxes; it has drifted before.
+2026-07-05 session (PRs #112/#113/#116 merged) — when in doubt, trust
+`git log --oneline --merges main` over this file's checkboxes; it has
+drifted before.
 
-## In flight right now (2026-07-05 session, PRs open awaiting Alex's merge)
+## Shipped this session (2026-07-05, merge authorized by Alex mid-session)
 
 - **#112 mobile map fix** — Alex reported the route map unusable on phones
   (cut off at viewport width, invisible pan). RouteMap now fits the whole
@@ -13,17 +14,17 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
   +/−/reset buttons). Mobile audit of all five tabs found no other
   overflow — the map was the one blocker. Future nice-to-have: sticky
   mobile tab bar.
-- **#113 item 25 SHIPPED (pending merge)** — next-boss pick: `next_boss_set`
+- **#113 item 25** — next-boss pick: `next_boss_set`
   event + `state.nextBossId`; `nextBoss()` prefers the pinned uncleared
   gating milestone, falls back to dataset order. MilestoneCard pin/unpin
   buttons + "◎ next (your pick)" badge; spectator + timeline covered.
-- **#114 item 26 SHIPPED (pending merge, stacked on #113)** — per-game
-  honor packs: PLA (use-only first catch, no crafted revives, no
-  distortions, outbreak-shiny non-exemption on by default; noble
-  two-attempt off), SV (raid + picnic-egg bans on; symmetric Tera off,
-  hardcore preset enables it), Z-A (symmetric Mega off; `za-rogue-caps`
-  enforced toggle — off means rogue-mega milestones stop gating the cap).
-  Merge order: #113 → #114 (retarget #114 to main after #113 merges).
+- **#116 item 26** (supersedes #114, which GitHub auto-closed when its
+  stacked base merged) — per-game honor packs: PLA (use-only first catch,
+  no crafted revives, no distortions, outbreak-shiny non-exemption on by
+  default; noble two-attempt off), SV (raid + picnic-egg bans on;
+  symmetric Tera off, hardcore preset enables it), Z-A (symmetric Mega
+  off; `za-rogue-caps` enforced toggle — off means rogue-mega milestones
+  stop gating the cap).
 
 **Where to work:** the canonical checkout is `C:\dev\nuzlocke-app` (moved
 off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
