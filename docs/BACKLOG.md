@@ -18,16 +18,14 @@ Wyndon) and the area's cave encounter table matches no base-game location;
 that session will trace its origin and open a rename-or-remove PR. Don't
 touch swsh.json's victory-road-swsh area until it lands.
 
-## Next up (no decision needed — pick one and go)
+## Next up
 
-**18-leftover. Sinnoh map nodes for the #73 areas.** All six games now have
-interactive maps (item 18 otherwise COMPLETE — see shipped). Remaining
-crumb: routes 207/208, Ravaged Path, Wayward Cave have no Sinnoh map nodes
-and render under "Other areas". One tiny PR: four nodes in
-`lib/maps/sinnoh.ts`, calibrated with the debug overlay + native-res crops.
-If any region's original-SVG backdrop (Paldea/Hisui/Lumiose) ever gets
-replaced with uploaded art, keep the node ids and recalibrate coordinates
-against the new image.
+**Empty.** Items 0-22 are all shipped (see below and git log). What's left
+lives in "Deferred / low priority" (deliberate skips), "Later phases"
+(needs a scoping conversation with Alex), and the in-flight PR #77. If any
+region's original-SVG backdrop (Paldea/Hisui/Lumiose) ever gets replaced
+with uploaded art, keep the node ids and recalibrate coordinates against
+the new image.
 
 ## Deferred / low priority (unchanged)
 
@@ -99,7 +97,8 @@ per progression); **Hisui + Lumiose maps (#84)** — item 18 COMPLETE, all
 six games have interactive maps. Original-SVG backdrop pattern for regions
 without IP-safe art: hand-authored flat-color schematic in
 public/maps/<region>.svg (paldea/hisui/lumiose); Lumiose is deliberately
-schematic (zones ringed by number, hyperspace zones off-map on purpose).
+schematic (zones ringed by number, hyperspace zones off-map on purpose);
+**Sinnoh nodes for the #73 areas (#85)** — the last 18-leftover crumb.
 
 ## Standing rules for every PR
 
