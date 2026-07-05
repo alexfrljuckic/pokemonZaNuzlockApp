@@ -2,29 +2,43 @@
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`. Last reconciled with git history:
-2026-07-05 session (PRs #112/#113/#116 merged) — when in doubt, trust
+2026-07-05 session (PRs #112–#120 merged) — when in doubt, trust
 `git log --oneline --merges main` over this file's checkboxes; it has
 drifted before.
 
-## Shipped this session (2026-07-05, merge authorized by Alex mid-session)
+## Shipped 2026-07-05 session (merge authorized by Alex mid-session)
 
-- **#112 mobile map fix** — Alex reported the route map unusable on phones
-  (cut off at viewport width, invisible pan). RouteMap now fits the whole
-  map to the screen and zooms/pans through the SVG viewBox (pinch, drag,
-  +/−/reset buttons). Mobile audit of all five tabs found no other
-  overflow — the map was the one blocker. Future nice-to-have: sticky
-  mobile tab bar.
-- **#113 item 25** — next-boss pick: `next_boss_set`
-  event + `state.nextBossId`; `nextBoss()` prefers the pinned uncleared
-  gating milestone, falls back to dataset order. MilestoneCard pin/unpin
-  buttons + "◎ next (your pick)" badge; spectator + timeline covered.
-- **#116 item 26** (supersedes #114, which GitHub auto-closed when its
-  stacked base merged) — per-game honor packs: PLA (use-only first catch,
-  no crafted revives, no distortions, outbreak-shiny non-exemption on by
-  default; noble two-attempt off), SV (raid + picnic-egg bans on;
-  symmetric Tera off, hardcore preset enables it), Z-A (symmetric Mega
-  off; `za-rogue-caps` enforced toggle — off means rogue-mega milestones
-  stop gating the cap).
+- **#112 mobile map fix** — Alex reported the route map unusable on phones.
+  RouteMap now fits the whole map to the screen and zooms/pans through the
+  SVG viewBox (pinch, drag, +/−/reset). Mobile audit of all five tabs
+  found no other overflow. Future nice-to-have: sticky mobile tab bar.
+- **#113 item 25** — next-boss pick: `next_boss_set` event +
+  `state.nextBossId`; `nextBoss()` prefers the pinned uncleared gating
+  milestone, falls back to dataset order. "◎ next (your pick)" badge.
+- **#116 item 26** (supersedes auto-closed #114) — per-game honor packs:
+  PLA (use-only first catch, no crafted revives, no distortions,
+  outbreak-shiny non-exemption on; noble two-attempt off), SV (raid +
+  picnic-egg bans on; symmetric Tera off, hardcore enables it), Z-A
+  (symmetric Mega off; `za-rogue-caps` enforced cap toggle).
+- **#117 + #119 item 32 CLOSED** — LGPE X Defense rename; SwSh Ball Guy
+  stadium gifts (8 — Spikemuth has no stadium lobby, Champion Cup rewards
+  random/excluded); BDSP specialty-ball marts at ramanas-park + a new
+  pokemon-league area.
+- **#118 item 23 CLOSED** — `dlc-content` rule (swsh, default off; absent
+  = legacy-visible): gates areas/milestones/specials + level cap;
+  "Playing the DLC" checkbox at run creation. 9 IoA/CT milestones
+  (post-champion tier; Klara=Sword/Avery=Shield; Mustard final G-Max
+  Urshifu 75; Peony 70; Star Tournament excluded) + 31 specials
+  (Kubfu, Diglett gifts, CT legendaries; Regigigas excluded —
+  trade-locked raid). species-data 887.
+- **#120 item 24 CLOSED** — PLA split into 81 areas / 942 slots (80 named
+  sub-locations from Bulbapedia+Serebii per-location research, incl.
+  Wayward Cave; arenas empty; distortion/outbreak-only species excluded;
+  83 guaranteed alphas as `alpha`-method slots; statics re-anchored).
+  New `alphas-count` rule (pla+plza, default off = alphas excluded).
+  Hisui map zone nodes are now ZONE SELECTORS + chip row (the interim
+  zone-switcher; per-zone backdrops still awaiting Alex's re-uploaded
+  zone images). KNOWN BREAK: pre-split PLA runs reference dead zone ids.
 
 **Where to work:** the canonical checkout is `C:\dev\nuzlocke-app` (moved
 off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
@@ -48,34 +62,12 @@ off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
 
 ## Next up
 
-**23. SwSh DLC bosses + specials (DECIDED: include all).** Klara/Avery
-tower fights + Mustard, CT Peony fights as milestones; DLC legendaries
-(Kubfu/Urshifu line, Galarian birds, Regis incl. Regieleki/Regidrago
-split-decision, Calyrex + steed choice, Swords of Justice) as specials.
-Needs a per-run DLC toggle (run_started ruleset flag or houseRule-like
-setting) so base-game runs don't see them; milestonesFor/specials filters
-respect it. Research candidates are parked in the #88 session notes /
-research files. Engine flag + dataset + UI PR chain.
-
-**24. PLA sub-location split (DECIDED: full 79-area split) + alpha flag.**
-Split pla.json's 5 wild zones into the named sub-locations (list below) —
-Serebii has per-location spawn lists; jubilife-village stays the hub.
-Add an `isAlpha` encounter flag (guaranteed Alphas excluded by default,
-"alphas count" hard-mode toggle). Per-zone map backdrops need Alex's zone
-images re-uploaded + a one-map-per-zone registry extension (GameMap per
-sub-region or a zone-switcher in RoutesTab). Big dataset PR + engine flag
-+ map-registry PR.
-
-**32. Towns-wave crumbs.** SwSh Ball Guy gifts (add across the 9 gym towns
-if wanted); BDSP Ramanas Park + Pokémon League specialty-ball marts
-(Ramanas exists as an area, could gain shopItems); LGPE "X Defend" vs
-"X Defense" naming reconcile on route-11. (Z-A shops: SKIPPED per Alex.)
-
-**33. Metrics dashboard + timeline (WANTED).** Expand the Stats tab into a
-proper run dashboard: per-run graphs beyond the current strips, full run
-timeline view (describeEvent already powers the spectator timeline — give
-owners the same, filterable), cross-run aggregates (deaths by species/
-area, win rate). Needs a short design pass first.
+**33. Metrics dashboard + timeline (WANTED — DESIGN WRITTEN, needs
+Alex's review).** See `docs/METRICS-DASHBOARD.md`: 33a owner timeline
+(extract spectator timeline into shared RunTimeline + tone filters),
+33b per-run dashboard panels, 33c cross-run aggregates (local-first,
+engine aggregation selectors). Open questions for Alex are at the end of
+the doc (timeline placement, panel picks, abandoned-run inclusion).
 
 **34. Genlocke campaigns (WANTED).** Champion export/import across games
 in sequence, availability fallbacks when a species line doesn't exist in
@@ -86,11 +78,16 @@ Design doc first (docs/nuzlocke-tracker-plan.md has the phase sketch).
 user's shared runs, follow feeds. Builds on the share-link/Supabase layer;
 must stay degrade-to-free (COSTS.md). Design doc first.
 
+**36. PLA per-zone map backdrops (BLOCKED on Alex).** The #120 split ships
+a zone-switcher; real per-zone maps need Alex to re-upload his five zone
+images to apps/web/public/maps/, then: one GameMap per zone + a
+map-per-zone registry extension, nodes calibrated to the images (same
+live-overlay recipe as Kanto/Lumiose).
+
 (Variant modes — soul link, wedlocke, monolocke — OUT OF SCOPE per Alex.)
 
-**Sub-location names transcribed from Alex's reference maps (2026-07-05
-session; he can upload the map images à la pokemonZamap.jpg if we want
-per-zone backdrops — that needs a one-map-per-zone registry extension):**
+**Sub-location names (now shipped as pla.json area ids in #120; kept here
+only as the transcription of Alex's reference maps):**
 - Obsidian Fieldlands: Aspiration Hill, Floaro Gardens, Horseshoe Plains,
   Grueling Grove, Worn Bridge, Deertrack Path, Deertrack Heights,
   Windswept Run, Nature's Pantry, Tidewater Dam, Obsidian Falls,
