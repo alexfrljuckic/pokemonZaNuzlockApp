@@ -34,6 +34,8 @@ export interface AreaItem {
   name: string;
   /** Hidden pickup (Dowsing Machine / Itemfinder spot). */
   hidden?: boolean;
+  /** Purchasable in this area's shops rather than a ground pickup. */
+  shop?: boolean;
   /** Only when a single pickup yields more than one. */
   quantity?: number;
   conditions?: {

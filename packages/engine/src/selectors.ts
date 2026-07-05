@@ -27,6 +27,9 @@ export function frontierAreas(areas: Area[], state: RunState, windowSize = 4): S
   const next = new Set<string>();
   for (const area of areas) {
     if (next.size >= windowSize) break;
+    // towns and other encounter-less areas have nothing to resolve — they
+    // must not clog the window forever
+    if (area.encounters.length === 0) continue;
     if (state.encounterOutcomes[area.id]) continue;
     if (area.unlockAfter != null && !cleared.has(area.unlockAfter)) continue;
     next.add(area.id);
