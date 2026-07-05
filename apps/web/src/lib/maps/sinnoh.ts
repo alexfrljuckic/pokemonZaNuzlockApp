@@ -29,6 +29,18 @@ export const SINNOH_MAP: GameMap = {
   // Regions are top-left + size boxes covering each area's section of the art,
   // sized from the banner anchors above and the visible route paths.
   nodes: [
+    // — towns (nodes centered on the banner anchors documented above) —
+    { id: 'twinleaf-town', x: 42, y: 611, w: 48, h: 40, kind: 'town' },
+    { id: 'sandgem-town', x: 114, y: 593, w: 48, h: 40, kind: 'town' },
+    { id: 'jubilife-city', x: 103, y: 509, w: 48, h: 40, kind: 'city' },
+    { id: 'oreburgh-city', x: 226, y: 500, w: 48, h: 40, kind: 'city' },
+    { id: 'floaroma-town', x: 114, y: 414, w: 48, h: 40, kind: 'town' },
+    { id: 'veilstone-city', x: 583, y: 396, w: 48, h: 40, kind: 'city' },
+    { id: 'pastoria-city', x: 510, y: 586, w: 48, h: 40, kind: 'city' },
+    { id: 'celestic-town', x: 354, y: 328, w: 48, h: 40, kind: 'town' },
+    { id: 'fight-area', x: 510, y: 252, w: 48, h: 40, kind: 'town' },
+    { id: 'survival-area', x: 522, y: 185, w: 48, h: 40, kind: 'town' },
+    { id: 'resort-area', x: 655, y: 277, w: 48, h: 40, kind: 'town' },
     // — Southern start (SW) —
     { id: 'lake-verity', x: 4, y: 560, w: 58, h: 56, kind: 'landmark' },
     { id: 'route-201', x: 76, y: 606, w: 50, h: 36, kind: 'route' },
