@@ -177,6 +177,8 @@ export type RunEvent =
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
   | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null } }
+  | { seq: number; at: string; type: 'pokemon_evolved'; payload: { pokemonId: string; toSpecies: string; level?: number } }
+  | { seq: number; at: string; type: 'pokemon_evolution_reverted'; payload: { pokemonId: string } }
   | { seq: number; at: string; type: 'faint'; payload: { pokemonId: string; cause?: string; killer?: string; milestoneId?: string } }
   | { seq: number; at: string; type: 'revive'; payload: { pokemonId: string } }
   | { seq: number; at: string; type: 'milestone_cleared'; payload: { milestoneId: string } }
@@ -204,6 +206,9 @@ export interface PokemonInstance {
   moves?: string[];
   nature?: string;
   shiny?: boolean;
+  /** Stack of pre-evolution snapshots (oldest first), maintained by the
+   * pokemon_evolved / pokemon_evolution_reverted fold — powers un-evolve. */
+  preEvolutions?: { species: string; level: number }[];
 }
 
 export interface RuleChangeRecord {

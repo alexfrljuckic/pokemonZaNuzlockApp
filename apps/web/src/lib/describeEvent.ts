@@ -64,6 +64,28 @@ export function describeEvent(
         tone: 'faint',
       };
     }
+    case 'pokemon_evolved': {
+      const p = pokemon?.[event.payload.pokemonId];
+      // the state map holds the POST-evolution species; the event carries the target
+      const who = p && p.nickname !== p.species ? `${p.nickname}` : 'A Pokémon';
+      return {
+        key: `${event.seq}`,
+        text: `${who === 'A Pokémon' ? 'Evolved into' : `${who} evolved into`} ${event.payload.toSpecies}`,
+        species: event.payload.toSpecies,
+        tone: 'catch',
+      };
+    }
+    case 'pokemon_evolution_reverted': {
+      const p = pokemon?.[event.payload.pokemonId];
+      return {
+        key: `${event.seq}`,
+        text: p
+          ? `${p.nickname !== p.species ? p.nickname : 'A Pokémon'} un-evolved (back to ${p.species})`
+          : 'A Pokémon un-evolved',
+        species: p?.species,
+        tone: 'neutral',
+      };
+    }
     case 'milestone_cleared': {
       const milestone = ctx.dataset?.milestones.find((m) => m.id === event.payload.milestoneId);
       return {

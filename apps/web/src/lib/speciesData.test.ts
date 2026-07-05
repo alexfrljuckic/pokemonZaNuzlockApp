@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, typesFor } from './speciesData';
+import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, typesFor } from './speciesData';
 
 // These run against the real generated species-data / machines-by-game
 // artifacts, locking the per-game → union fallback semantics the pickers
@@ -71,5 +71,34 @@ describe('machineType (per-game TM/HM/TR tags)', () => {
   it('non-machine moves and unknown games return null', () => {
     expect(machineType('tackle', 'bdsp')).toBeNull();
     expect(machineType('thunderbolt', 'not-a-game')).toBeNull();
+  });
+});
+
+describe('evolutionOptionsFor (MonCard evolve panel)', () => {
+  it('labels level, item and trade requirements', () => {
+    const [grotle] = evolutionOptionsFor('turtwig', 5);
+    expect(grotle.to).toBe('grotle');
+    expect(grotle.requirement).toBe('Lv 18');
+    expect(grotle.ready).toBe(false); // Lv 5 < 18
+    expect(evolutionOptionsFor('turtwig', 18)[0].ready).toBe(true);
+
+    const scyther = evolutionOptionsFor('scyther', 30);
+    expect(scyther.find((o) => o.to === 'scizor')!.requirement).toBe('Trade holding Metal Coat');
+    expect(scyther.find((o) => o.to === 'kleavor')!.requirement).toBe('Use Black Augurite');
+    expect(evolutionOptionsFor('kadabra', 30)[0].requirement).toBe('Trade');
+  });
+
+  it('offers every branch of a branching family', () => {
+    const eevee = evolutionOptionsFor('eevee', 20).map((o) => o.to);
+    expect(eevee).toContain('vaporeon');
+    expect(eevee).toContain('sylveon');
+    expect(eevee.length).toBeGreaterThanOrEqual(8);
+  });
+
+  it('resolves regional-form targets when the suffixed species exists', () => {
+    expect(resolveEvolutionTarget('growlithe-hisui', 'arcanine')).toBe('arcanine-hisui');
+    expect(evolutionOptionsFor('growlithe-hisui', 30)[0].to).toBe('arcanine-hisui');
+    // no persian-galar exists — Galarian Meowth's persian branch falls back to base
+    expect(resolveEvolutionTarget('meowth-galar', 'persian')).toBe('persian');
   });
 });
