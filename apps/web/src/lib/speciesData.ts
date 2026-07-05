@@ -18,6 +18,7 @@ interface SpeciesData {
   types: Record<string, string[]>;
   moves: Record<string, string[]>;
   movesByGame: Record<string, Record<string, string[]>>;
+  levelUpMovesByGame: Record<string, Record<string, [string, number][]>>;
   moveTypes: Record<string, string>;
   evolutions: Record<string, Evolution[]>;
   heldItems: string[];
@@ -46,6 +47,32 @@ export const machineType = (move: string, gameId: string): MachineTag | null =>
  * the handful of species with per-game coverage gaps. */
 export const movesFor = (species: string, gameId?: string): string[] =>
   (gameId ? data.movesByGame[gameId]?.[species] : undefined) ?? data.moves[species] ?? [];
+
+/** Level-up learnset for a species in a game, sorted by learn level.
+ * Empty for games without PokeAPI move data (Z-A) — callers should treat an
+ * empty list as "unknown", not "learns nothing". */
+export const levelUpMovesFor = (species: string, gameId?: string): { move: string; level: number }[] =>
+  (gameId ? data.levelUpMovesByGame[gameId]?.[species] : undefined)?.map(([move, level]) => ({ move, level })) ??
+  [];
+
+/** The level a species learns a move at in a game, or null when it isn't a
+ * level-up move there (TM/tutor/egg — or Z-A's missing data). */
+export function learnLevel(move: string, species: string, gameId?: string): number | null {
+  if (!gameId) return null;
+  const entry = data.levelUpMovesByGame[gameId]?.[species]?.find(([m]) => m === move);
+  return entry ? entry[1] : null;
+}
+
+/** What the game actually gives an undocumented trainer mon: its last four
+ * level-up moves at the given level (the mainline-games default). Null when
+ * the learnset is unknown for this game, so callers can distinguish
+ * "expected moveset" from "no data". */
+export function expectedMovesAt(species: string, level: number, gameId?: string): string[] | null {
+  const learnset = levelUpMovesFor(species, gameId);
+  if (learnset.length === 0) return null;
+  const known = learnset.filter((e) => e.level <= level);
+  return known.slice(-4).map((e) => e.move);
+}
 export const statsFor = (species: string): Record<string, number> | null => data.stats[species] ?? null;
 export const evolutionsFor = (species: string): Evolution[] => data.evolutions[species] ?? [];
 

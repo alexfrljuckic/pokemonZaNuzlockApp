@@ -2,9 +2,10 @@ import { useState } from 'react';
 import type { PokemonInstance } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
-import { HELD_ITEMS, evolutionSummary, machineType, movesFor, typesFor } from '../lib/speciesData';
+import { HELD_ITEMS, evolutionSummary, learnLevel, machineType, movesFor, typesFor } from '../lib/speciesData';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
+import { LevelUpMoves } from './LevelUpMoves';
 import { MoveChips } from './MoveChips';
 import { TypeBadges } from './TypeBadge';
 import { WeaknessRow } from './WeaknessRow';
@@ -95,7 +96,13 @@ function EditForm({
             onChange={(v) => setMoves(moves.map((old, j) => (j === i ? v : old)))}
             options={movePool}
             placeholder={`Move ${i + 1}`}
-            badge={(m) => machineType(m, gameId)}
+            badge={(mv) => {
+              // learn level is the most useful pick signal; machine tag second
+              const lvl = learnLevel(mv, p.species, gameId);
+              if (lvl != null) return { text: `Lv ${lvl}`, kind: 'lv' };
+              const tag = machineType(mv, gameId);
+              return tag ? { text: tag, kind: tag } : null;
+            }}
           />
         ))}
       </div>
@@ -169,6 +176,7 @@ export function MonCard({
             <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
           )}
           <MoveChips moves={p.moves} gameId={gameId} />
+          <LevelUpMoves species={p.species} gameId={gameId} atLevel={p.level} />
           {editable && <EditForm p={p} runId={runId} gameId={gameId} onSaved={onChange} />}
         </div>
       )}
