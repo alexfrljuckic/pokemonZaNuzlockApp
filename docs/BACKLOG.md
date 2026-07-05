@@ -1,47 +1,84 @@
 # Backlog
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
-`docs/nuzlocke-tracker-plan.md`. Last reconciled with git history: 2026-07-05
-(PRs #72-#76 merged) — when in doubt, trust `git log --oneline --merges
-main` over this file's checkboxes; it has drifted before.
+`docs/nuzlocke-tracker-plan.md`. Last reconciled with git history:
+2026-07-06 (PRs #72-#110 merged) — when in doubt, trust `git log --oneline
+--merges main` over this file's checkboxes; it has drifted before.
 
-**Where to work:** the canonical checkout is now `C:\dev\nuzlocke-app`
-(moved off OneDrive — its sync locks broke `git worktree`; see the
-worktree-isolation memory note). The old OneDrive copy is deletable; run
-`git pull` in the new checkout first.
+**Where to work:** the canonical checkout is `C:\dev\nuzlocke-app` (moved
+off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
 
-## In flight right now
+## Alex's decisions on file (2026-07-06) — no need to re-ask
 
-**victory-road-swsh artifact investigation** — running in its own session
-(spawned task). SwSh has no Victory Road location (Route 10 goes straight to
-Wyndon) and the area's cave encounter table matches no base-game location;
-that session will trace its origin and open a rename-or-remove PR. Don't
-touch swsh.json's victory-road-swsh area until it lands.
+- **DLC: include everything** (bosses as milestones, legendaries as
+  specials), gated per-run behind a "playing the DLC" toggle → item 23.
+- **PLA: full 79-sub-location split** ("keep how people actually play it")
+  → item 24. His five zone-map images from the 2026-07-05 session need
+  RE-UPLOADING to apps/web/public/maps/ (chat images can't be saved by the
+  assistant) before per-zone backdrops work; the dataset split can start
+  from Serebii per-location spawn lists without them.
+- **Z-A shops: skip for now.**
+- **paldea.png: keep as-is.** Upscaling/SVG-converting can't add detail a
+  678px source doesn't have (the browser already interpolates identically);
+  a higher-res export is welcome whenever, drop-in, no recalibration.
+- **Later phases: metrics dashboard + timeline, genlocke campaigns,
+  profiles + follows are ALL wanted** (items 33-35). Variant modes
+  (soul link etc.) are OUT OF SCOPE for now.
 
 ## Next up
 
-**32. Towns-wave crumbs.** From the 2026-07-06 towns/shops wave: SwSh Ball
-Guy gifts excluded for consistency (add across all 9 gym towns if wanted);
-BDSP Ramanas Park + Pokemon League marts sell all specialty balls (Ramanas
-exists as an area, could gain shopItems); LGPE X Defend/X Defense naming
-reconcile on route-11; Z-A shops still homeless (city IS the game - needs
-a pseudo-area decision from Alex, see outstanding questions).
+**23. SwSh DLC bosses + specials (DECIDED: include all).** Klara/Avery
+tower fights + Mustard, CT Peony fights as milestones; DLC legendaries
+(Kubfu/Urshifu line, Galarian birds, Regis incl. Regieleki/Regidrago
+split-decision, Calyrex + steed choice, Swords of Justice) as specials.
+Needs a per-run DLC toggle (run_started ruleset flag or houseRule-like
+setting) so base-game runs don't see them; milestonesFor/specials filters
+respect it. Research candidates are parked in the #88 session notes /
+research files. Engine flag + dataset + UI PR chain.
 
-**Map scale-up demo AWAITING ALEX (PR #99, left open on purpose; now includes the real paldea.png).** Routes
-section full-bleeds to min(94vw, 1500px) on desktop, the old 720px map cap
-lifted, maps fit by height (86vh, aspect-ratio-aware). Merge it, tune the
-numbers, or ask for the fullscreen-toggle variant instead. (The stronger
-frontier glow already merged in #98 as the fallback half of the ask.)
+**24. PLA sub-location split (DECIDED: full 79-area split) + alpha flag.**
+Split pla.json's 5 wild zones into the named sub-locations (list below) —
+Serebii has per-location spawn lists; jubilife-village stays the hub.
+Add an `isAlpha` encounter flag (guaranteed Alphas excluded by default,
+"alphas count" hard-mode toggle). Per-zone map backdrops need Alex's zone
+images re-uploaded + a one-map-per-zone registry extension (GameMap per
+sub-region or a zone-switcher in RoutesTab). Big dataset PR + engine flag
++ map-registry PR.
 
+**25. SV next-boss level cap affordance.** Milestones already complete in
+any order; add the "which boss am I doing next" pick so the displayed
+level cap keys off the user's chosen next milestone instead of dataset
+order (docs/CHALLENGE-MODES.md, SV section). Small engine selector + Boss
+Fights UI. Ship the merged 18-boss suggested order as the default sort.
 
+**26. Per-game honor-rule packs.** PLA: use-only-first-catch wording,
+no-crafted-revives, distortion + outbreak-shiny bans, noble two-attempt
+clause; SV: raid/picnic-egg bans (default-on), symmetric-Tera clause;
+Z-A: symmetric-Mega clause, rogue-battle cap toggle. All honor rules
+gated via `appliesTo` — data + rules-tab display, no enforcement.
 
-**24. PLA sub-area encounter granularity + alpha flag.** The community
-nuzlockes PLA per NAMED LOCATION, not per zone — our 7-zone dataset is
-the biggest gap vs. practice (docs/CHALLENGE-MODES.md). Split pla.json
-areas into named sub-locations (Serebii has per-location spawn lists) or
-add a sub-area list per zone; add an `isAlpha`-style encounter flag so
-guaranteed Alphas can be excluded by default with a hard-mode "alphas
-count" toggle. Dataset + small engine/UI PR.
+**32. Towns-wave crumbs.** SwSh Ball Guy gifts (add across the 9 gym towns
+if wanted); BDSP Ramanas Park + Pokémon League specialty-ball marts
+(Ramanas exists as an area, could gain shopItems); LGPE "X Defend" vs
+"X Defense" naming reconcile on route-11. (Z-A shops: SKIPPED per Alex.)
+
+**33. Metrics dashboard + timeline (WANTED).** Expand the Stats tab into a
+proper run dashboard: per-run graphs beyond the current strips, full run
+timeline view (describeEvent already powers the spectator timeline — give
+owners the same, filterable), cross-run aggregates (deaths by species/
+area, win rate). Needs a short design pass first.
+
+**34. Genlocke campaigns (WANTED).** Champion export/import across games
+in sequence, availability fallbacks when a species line doesn't exist in
+the next game. Event-sourced: campaign = linked run ids + import events.
+Design doc first (docs/nuzlocke-tracker-plan.md has the phase sketch).
+
+**35. Profiles + follows (WANTED).** Public profile pages aggregating a
+user's shared runs, follow feeds. Builds on the share-link/Supabase layer;
+must stay degrade-to-free (COSTS.md). Design doc first.
+
+(Variant modes — soul link, wedlocke, monolocke — OUT OF SCOPE per Alex.)
+
 **Sub-location names transcribed from Alex's reference maps (2026-07-05
 session; he can upload the map images à la pokemonZamap.jpg if we want
 per-zone backdrops — that needs a one-map-per-zone registry extension):**
@@ -69,30 +106,6 @@ per-zone backdrops — that needs a one-map-per-zone registry extension):**
   Arena's Approach, Bonechill Wastes, Avalanche Slopes, Whiteout Valley,
   Icebound Falls.
 - (Jubilife Village is the hub — items/vendors, no wild sub-areas.)
-
-**25. SV next-boss level cap affordance.** Milestones already complete in
-any order; add the "which boss am I doing next" pick so the displayed
-level cap keys off the user's chosen next milestone instead of dataset
-order (docs/CHALLENGE-MODES.md, SV section). Small engine selector + Boss
-Fights UI. Ship the merged 18-boss suggested order as the default sort.
-
-**26. Per-game honor-rule packs.** PLA: use-only-first-catch wording,
-no-crafted-revives, distortion + outbreak-shiny bans, noble two-attempt
-clause; SV: raid/picnic-egg bans (default-on), symmetric-Tera clause;
-Z-A: symmetric-Mega clause, rogue-battle cap toggle. All honor rules
-gated via `appliesTo` — data + rules-tab display, no enforcement.
-
-**23. SwSh DLC specials + boss milestones.** The DLC areas shipped with
-encounters only. Candidates deliberately excluded from wild tables and
-parked in the research files' `_meta` (scratchpad session notes + PR body):
-IoA — Kubfu/Urshifu (gift/story), tower battles vs Klara/Avery + Mustard
-(boss-style, would be milestones); CT — Galarian bird roamers, the Regis
-(incl. Regieleki/Regidrago split-decision), Calyrex + steed choice,
-Swords of Justice, Peony story fights. Needs a decision on whether DLC
-bosses join the Boss Fights tab (they're optional content — maybe a
-`conditions.dlc` gate) before authoring. Also skipped: universal fog
-Chansey/Blissey adds (IoA) and daily strong-wanderer spawns (both DLCs) —
-re-add as encounters if a runner wants them.
 
 2026-07-05/06 feedback round (PRs #97-#98): **victory-road-swsh removed
 (#97, supersedes #77)** — 58 SwSh areas; **items 27-30 (#98)** —
