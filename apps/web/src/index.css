@@ -671,6 +671,7 @@ button.item-chip.item-picked {
 .status-active { color: var(--success); }
 .status-victory { color: var(--warning); }
 .status-wiped-continuing { color: var(--warning-strong); }
+.status-wiped { color: var(--danger); }
 .status-abandoned { color: var(--muted); }
 
 /* ---------- Tabs: segmented control ---------- */

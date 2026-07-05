@@ -189,6 +189,7 @@ export type RunEvent =
   | { seq: number; at: string; type: 'item_picked'; payload: { areaId: string; itemIndex: number; name?: string } }
   | { seq: number; at: string; type: 'item_reset'; payload: { areaId: string; itemIndex: number } }
   | { seq: number; at: string; type: 'rule_changed'; payload: { ruleId: string; before: RuleConfig | null; after: RuleConfig; note?: string } }
+  | { seq: number; at: string; type: 'house_rules_changed'; payload: { before: string[]; after: string[]; note?: string } }
   | { seq: number; at: string; type: 'wipe_decision'; payload: { decision: 'reset' | 'continue' } }
   | { seq: number; at: string; type: 'run_ended'; payload: { result: 'victory' | 'abandoned' } }
   | { seq: number; at: string; type: 'note'; payload: { text: string } };
@@ -226,7 +227,7 @@ export interface RunState {
   gameId: string;
   version: string;
   ruleset: Ruleset;
-  status: 'active' | 'victory' | 'wiped-continuing' | 'abandoned';
+  status: 'active' | 'victory' | 'wiped-continuing' | 'wiped' | 'abandoned';
   pokemon: Record<string, PokemonInstance>;
   /** areaId -> outcome of that area's one legal encounter */
   encounterOutcomes: Record<string, 'caught' | 'failed' | 'skipped'>;

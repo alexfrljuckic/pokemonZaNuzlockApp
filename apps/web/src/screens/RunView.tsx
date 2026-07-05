@@ -18,8 +18,8 @@ const TABS = ['Routes', 'Team & Box', 'Boss Fights', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
 // End a run from any tab. Inline expanding confirm (no window.confirm — Alex
-// hates browser prompts). Hidden once the run is already victory/abandoned;
-// available for active and wiped-continuing runs.
+// hates browser prompts). Hidden once the run is already finished
+// (victory/wiped/abandoned); available for active and wiped-continuing runs.
 function EndRunControl({
   runId,
   status,
@@ -32,7 +32,7 @@ function EndRunControl({
   const [open, setOpen] = useState(false);
   const [busy, setBusy] = useState(false);
 
-  if (status === 'victory' || status === 'abandoned') return null;
+  if (status === 'victory' || status === 'wiped' || status === 'abandoned') return null;
 
   async function end(result: 'victory' | 'abandoned') {
     setBusy(true);

@@ -7,7 +7,8 @@ import { SpriteImg } from '../components/SpriteImg';
 /** Cross-run aggregates over every local run (backlog 33c). Local-first: reads
  * IndexedDB only — dozens of runs × hundreds of events derive in well under a
  * frame. Abandoned runs are counted in the overview but excluded from the
- * aggregates (Alex, 2026-07-05). Runs whose game has no dataset are skipped. */
+ * aggregates (Alex, 2026-07-05); wiped runs are included — a wipe is a real
+ * finished run. Runs whose game has no dataset are skipped. */
 export function CrossRunStatsScreen({ runs }: { runs: RunSummary[] }) {
   const [stats, setStats] = useState<CrossRunStats | null>(null);
   const [skipped, setSkipped] = useState(0);
@@ -39,7 +40,10 @@ export function CrossRunStatsScreen({ runs }: { runs: RunSummary[] }) {
 
   if (!stats) return <p className="muted">Crunching your runs…</p>;
 
-  const finished = stats.victories + stats.abandoned;
+  // finished = every run with a final outcome; wiped runs are real finished
+  // runs (they count in aggregates too), only abandoned ones are discarded
+  // from the aggregates below.
+  const finished = stats.victories + stats.abandoned + stats.wiped;
   const winRate = finished > 0 ? Math.round((stats.victories / finished) * 100) : null;
   const topDeaths = Object.entries(stats.deathsBySpecies).sort((a, b) => b[1] - a[1]).slice(0, 10);
   const topUsed = Object.entries(stats.usedSpecies).sort((a, b) => b[1] - a[1]).slice(0, 10);
@@ -51,8 +55,9 @@ export function CrossRunStatsScreen({ runs }: { runs: RunSummary[] }) {
       <h2>Your stats</h2>
       <p className="muted">
         {stats.runs} run{stats.runs === 1 ? '' : 's'} · {stats.victories} victor
-        {stats.victories === 1 ? 'y' : 'ies'} · {stats.active} active · {stats.wipedContinuing} wiped-continuing ·{' '}
-        {stats.abandoned} abandoned{skipped > 0 ? ` · ${skipped} unsupported (skipped)` : ''}
+        {stats.victories === 1 ? 'y' : 'ies'} · {stats.active} active · {stats.wiped} wiped ·{' '}
+        {stats.wipedContinuing} wiped-continuing · {stats.abandoned} abandoned
+        {skipped > 0 ? ` · ${skipped} unsupported (skipped)` : ''}
       </p>
       <p className="muted">
         {winRate != null ? `Win rate ${winRate}% of finished runs · ` : ''}

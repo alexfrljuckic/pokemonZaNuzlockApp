@@ -137,6 +137,14 @@ export function describeEvent(
         tone: 'milestone',
       };
     }
+    case 'house_rules_changed': {
+      const n = event.payload.after.length;
+      return {
+        key: `${event.seq}`,
+        text: `House rules updated (${n} rule${n === 1 ? '' : 's'})`,
+        tone: 'neutral',
+      };
+    }
     case 'wipe_decision': {
       return {
         key: `${event.seq}`,

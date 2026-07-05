@@ -2,15 +2,11 @@ import { appendEvent } from '../lib/db';
 
 export function WipeScreen({ runId, onResolved }: { runId: string; onResolved: () => Promise<void> }) {
   async function choose(decision: 'reset' | 'continue') {
+    // 'continue' derives to 'wiped-continuing'; 'reset' derives to 'wiped' —
+    // both resolve the pending decision in the engine fold, and the wipe stays
+    // in history either way (a wipe is an event, not a silent reset). The
+    // player starts a fresh run for the next attempt.
     await appendEvent(runId, { type: 'wipe_decision', payload: { decision } });
-    // 'continue' sets status to 'wiped-continuing' in deriveState, which resolves the
-    // pending decision. 'reset' has no dedicated status transition in the engine (a
-    // wipe is never erased from history) — this run is instead marked abandoned so it
-    // drops out of "pending decision" and the player starts a fresh run for the next
-    // attempt, per the domain invariant that a wipe is an event, not a silent reset.
-    if (decision === 'reset') {
-      await appendEvent(runId, { type: 'run_ended', payload: { result: 'abandoned' } });
-    }
     await onResolved();
   }
 

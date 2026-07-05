@@ -49,6 +49,15 @@ describe('describeEvent', () => {
     expect(describeEvent(ev('run_ended', { result: 'abandoned' }), ctx)?.tone).toBe('neutral');
   });
 
+  it('describes house-rule edits with the new rule count', () => {
+    const edited = describeEvent(ev('house_rules_changed', { before: [], after: ['a', 'b', 'c'] }), ctx);
+    expect(edited?.text).toBe('House rules updated (3 rules)');
+    expect(edited?.tone).toBe('neutral');
+    expect(describeEvent(ev('house_rules_changed', { before: ['a'], after: ['a'] }), ctx)?.text).toBe(
+      'House rules updated (1 rule)',
+    );
+  });
+
   it('returns null for bookkeeping events', () => {
     expect(describeEvent(ev('moved', { pokemonId: 'x', to: 'box' }), ctx)).toBeNull();
     expect(describeEvent(ev('pokemon_updated', { pokemonId: 'x' }), ctx)).toBeNull();

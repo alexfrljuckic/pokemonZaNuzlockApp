@@ -116,12 +116,26 @@ describe('aggregateRuns (cross-run stats, 33c)', () => {
     expect(stats.runs).toBe(4);
     expect(stats.victories).toBe(1);
     expect(stats.abandoned).toBe(1);
+    expect(stats.wiped).toBe(0);
     expect(stats.active).toBe(1);
     expect(stats.wipedContinuing).toBe(1);
     expect(stats.aggregated).toBe(3); // abandoned run left out
     expect(stats.totalDeaths).toBe(2); // its starly death doesn't count
     expect(stats.deathsBySpecies).toEqual({ bidoof: 1, starly: 1 });
     expect(stats.usedSpecies).toEqual({ starly: 1 }); // abandoned turtwig excluded
+  });
+
+  it('counts wiped runs and INCLUDES them in the aggregates (real finished runs)', () => {
+    const stats = aggregateRuns([
+      run('wiped', { a: mon('starly', 'dead'), b: mon('shinx', 'dead') }),
+      run('abandoned', { c: mon('bidoof', 'dead') }),
+      run('victory', { d: mon('turtwig', 'party') }),
+    ]);
+    expect(stats.wiped).toBe(1);
+    expect(stats.abandoned).toBe(1);
+    expect(stats.aggregated).toBe(2); // wiped in, abandoned out
+    expect(stats.totalDeaths).toBe(2); // both wiped deaths count, bidoof's doesn't
+    expect(stats.deathsBySpecies).toEqual({ starly: 1, shinx: 1 });
   });
 
   it('handles an empty collection', () => {

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { RULES, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 
@@ -15,11 +16,30 @@ export function RulesTab({
   const applicable = Object.values(RULES).filter(
     (r) => r.appliesTo === 'all' || r.appliesTo.includes(ctx.dataset.gameId),
   );
+  const [editingHouseRules, setEditingHouseRules] = useState(false);
+  const [houseRulesText, setHouseRulesText] = useState('');
 
   async function toggle(ruleId: string) {
     const before = state.ruleset.rules[ruleId] ?? null;
     const after = { enabled: !(before?.enabled ?? false), params: before?.params ?? {} };
     await appendEvent(runId, { type: 'rule_changed', payload: { ruleId, before, after } });
+    await onChange();
+  }
+
+  function startEditingHouseRules() {
+    setHouseRulesText(state.ruleset.houseRules.join('\n'));
+    setEditingHouseRules(true);
+  }
+
+  async function saveHouseRules() {
+    const before = [...state.ruleset.houseRules];
+    const after = houseRulesText
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean);
+    // audited like rule_changed: before AND after recorded in the event log
+    await appendEvent(runId, { type: 'house_rules_changed', payload: { before, after } });
+    setEditingHouseRules(false);
     await onChange();
   }
 
@@ -76,17 +96,42 @@ export function RulesTab({
       })}
 
       <h2>House rules</h2>
-      {state.ruleset.houseRules.length === 0 ? (
-        <p className="muted">
-          None set for this run. House rules are honor rules the app can't verify — they can only be added
-          when starting a new run (the event schema doesn't yet support editing them mid-run).
-        </p>
+      <p className="muted">
+        Honor rules the app can't verify — shown verbatim, never enforced. Edits mid-run are allowed and
+        always audited as a `house_rules_changed` event visible in the event log.
+      </p>
+      {editingHouseRules ? (
+        <>
+          <label htmlFor="house-rules-edit">House rules (one per line)</label>
+          <textarea
+            id="house-rules-edit"
+            rows={4}
+            value={houseRulesText}
+            onChange={(e) => setHouseRulesText(e.target.value)}
+            placeholder="e.g. no legendaries&#10;shiny clause"
+          />
+          <div className="encounter-actions">
+            <button onClick={saveHouseRules}>Save</button>
+            <button className="secondary" onClick={() => setEditingHouseRules(false)}>
+              Cancel
+            </button>
+          </div>
+        </>
       ) : (
-        <ul>
-          {state.ruleset.houseRules.map((r, i) => (
-            <li key={i}>{r}</li>
-          ))}
-        </ul>
+        <>
+          {state.ruleset.houseRules.length === 0 ? (
+            <p className="muted">None set for this run.</p>
+          ) : (
+            <ul>
+              {state.ruleset.houseRules.map((r, i) => (
+                <li key={i}>{r}</li>
+              ))}
+            </ul>
+          )}
+          <button className="secondary" onClick={startEditingHouseRules}>
+            Edit
+          </button>
+        </>
       )}
     </section>
   );
