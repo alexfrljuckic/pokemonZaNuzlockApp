@@ -8,7 +8,7 @@ import {
   evolutionSummary,
   learnLevel,
   machineType,
-  movesFor,
+  orderedMovesFor,
   typesFor,
 } from '../lib/speciesData';
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
@@ -36,7 +36,9 @@ function EditForm({
   const [nature, setNature] = useState(p.nature ?? '');
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
-  const movePool = movesFor(p.species, gameId);
+  // level-up moves first (by level), then TM/TR/HM, then tutor/egg — the
+  // learnable-by-playing options surface before the machine shopping list
+  const movePool = orderedMovesFor(p.species, gameId);
 
   async function save() {
     setSaving(true);

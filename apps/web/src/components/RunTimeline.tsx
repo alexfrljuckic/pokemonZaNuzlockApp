@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import type { EngineContext, PokemonInstance, RunEvent } from '@nuzlocke/engine';
-import { describeEvent, type DescribedEvent } from '../lib/describeEvent';
+import { describeEvent, visibleEvents, type DescribedEvent } from '../lib/describeEvent';
 import { SpriteImg } from './SpriteImg';
 import { TrainerSprite } from './TrainerSprite';
 
@@ -11,7 +11,7 @@ export function buildTimeline(
   ctx: EngineContext,
   pokemon?: Record<string, PokemonInstance>,
 ): { ev: RunEvent; item: DescribedEvent }[] {
-  return [...events]
+  return visibleEvents(events)
     .sort((a, b) => b.seq - a.seq)
     .map((ev) => ({ ev, item: describeEvent(ev, ctx, pokemon) }))
     .filter((x): x is { ev: RunEvent; item: DescribedEvent } => x.item != null);

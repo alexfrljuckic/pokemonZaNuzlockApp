@@ -1881,11 +1881,10 @@ button.back-icon:hover:not(:disabled) {
   background: var(--bg-inset);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-  gap: 0.2rem 0.8rem;
-  max-height: 220px;
-  overflow-y: auto;
+  /* CSS multi-columns: the list reads DOWN each column in level order, then
+     wraps to the next column — much less left-right eye travel than a grid */
+  columns: 170px;
+  column-gap: 0.8rem;
 }
 .levelup-moves li {
   display: flex;
@@ -1893,6 +1892,8 @@ button.back-icon:hover:not(:disabled) {
   gap: 0.35rem;
   font-size: 0.82rem;
   color: var(--muted);
+  break-inside: avoid;
+  padding-bottom: 0.2rem;
 }
 .levelup-moves li.levelup-known { color: var(--text); }
 .levelup-lv {

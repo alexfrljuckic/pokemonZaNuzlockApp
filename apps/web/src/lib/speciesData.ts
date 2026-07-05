@@ -59,6 +59,31 @@ export const levelUpMovesFor = (species: string, gameId?: string): { move: strin
   (gameId ? data.levelUpMovesByGame[gameId]?.[species] : undefined)?.map(([move, level]) => ({ move, level })) ??
   [];
 
+/** A species' movepool ordered for the move pickers: level-up moves first
+ * (by learn level), then TMs, TRs, HMs, then everything else (tutor/egg)
+ * alphabetically — the learnable-by-playing moves surface before the
+ * machine shopping list. */
+export function orderedMovesFor(species: string, gameId?: string): string[] {
+  const pool = movesFor(species, gameId);
+  const RANK: Record<string, number> = { TM: 1, TR: 2, HM: 3 };
+  const rank = (m: string): number => {
+    if (learnLevel(m, species, gameId) != null) return 0;
+    const tag = gameId ? machineType(m, gameId) : null;
+    return tag ? RANK[tag] : 4;
+  };
+  return [...pool].sort((a, b) => {
+    const ra = rank(a);
+    const rb = rank(b);
+    if (ra !== rb) return ra - rb;
+    if (ra === 0) {
+      const la = learnLevel(a, species, gameId)!;
+      const lb = learnLevel(b, species, gameId)!;
+      if (la !== lb) return la - lb;
+    }
+    return a.localeCompare(b);
+  });
+}
+
 /** The level a species learns a move at in a game, or null when it isn't a
  * level-up move there (TM/tutor/egg — or Z-A's missing data). */
 export function learnLevel(move: string, species: string, gameId?: string): number | null {
