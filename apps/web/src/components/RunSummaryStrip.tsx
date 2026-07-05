@@ -1,5 +1,5 @@
 import { RULES, nextBoss, party, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
-import { describeEvent, type DescribedEvent } from '../lib/describeEvent';
+import { describeEvent, visibleEvents, type DescribedEvent } from '../lib/describeEvent';
 import { SpriteImg } from './SpriteImg';
 import { TrainerSprite } from './TrainerSprite';
 
@@ -14,9 +14,11 @@ export function RunSummaryStrip({
   ctx: EngineContext;
   limit?: number;
 }) {
+  // reverted evolutions are netted out of history entirely (visibleEvents)
+  const shown = visibleEvents(events);
   const items: DescribedEvent[] = [];
-  for (let i = events.length - 1; i >= 0 && items.length < limit; i--) {
-    const item = describeEvent(events[i], ctx, state.pokemon);
+  for (let i = shown.length - 1; i >= 0 && items.length < limit; i--) {
+    const item = describeEvent(shown[i], ctx, state.pokemon);
     if (item) items.push(item);
   }
 

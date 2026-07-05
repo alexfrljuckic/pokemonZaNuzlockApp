@@ -91,17 +91,9 @@ export function describeEvent(
         tone: 'neutral',
       };
     }
-    case 'pokemon_evolution_reverted': {
-      const p = pokemon?.[event.payload.pokemonId];
-      return {
-        key: `${event.seq}`,
-        text: p
-          ? `${p.nickname !== p.species ? p.nickname : 'A Pokémon'} un-evolved (back to ${p.species})`
-          : 'A Pokémon un-evolved',
-        species: p?.species,
-        tone: 'neutral',
-      };
-    }
+    // pokemon_evolution_reverted: intentionally NOT described — an un-evolve
+    // is a correction, not history. visibleEvents() below nets the reverted
+    // evolution out too, so the pair leaves no trace in any history view.
     case 'milestone_cleared': {
       const milestone = ctx.dataset?.milestones.find((m) => m.id === event.payload.milestoneId);
       return {
@@ -162,4 +154,27 @@ export function describeEvent(
     default:
       return null;
   }
+}
+
+/** History prefilter: an un-evolve CANCELS the evolution it reverts — the
+ * pair vanishes from every history view (timeline, summary strip, feed),
+ * as if it never happened. The event LOG keeps both (append-only is a core
+ * architecture invariant and sync depends on it); this is purely display.
+ * Pairing is per-Pokémon, latest-unmatched-first, in seq order. */
+export function visibleEvents(events: RunEvent[]): RunEvent[] {
+  const sorted = [...events].sort((a, b) => a.seq - b.seq);
+  const dropped = new Set<number>(); // seq of hidden events
+  const openEvolves = new Map<string, number[]>(); // pokemonId -> seq stack
+  for (const ev of sorted) {
+    if (ev.type === 'pokemon_evolved') {
+      const stack = openEvolves.get(ev.payload.pokemonId) ?? [];
+      stack.push(ev.seq);
+      openEvolves.set(ev.payload.pokemonId, stack);
+    } else if (ev.type === 'pokemon_evolution_reverted') {
+      dropped.add(ev.seq); // the revert itself never shows
+      const undone = openEvolves.get(ev.payload.pokemonId)?.pop();
+      if (undone != null) dropped.add(undone);
+    }
+  }
+  return events.filter((ev) => !dropped.has(ev.seq));
 }

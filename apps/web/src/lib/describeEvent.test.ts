@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import type { EngineContext, RunEvent } from '@nuzlocke/engine';
-import { describeEvent } from './describeEvent';
+import { describeEvent, visibleEvents } from './describeEvent';
 
 // Minimal stub ctx — describeEvent only reads areas/specials/milestones names.
 const ctx = {
@@ -93,5 +93,49 @@ describe('describeEvent', () => {
     expect(describeEvent(ev('next_boss_set', { milestoneId: null }), ctx)?.text).toBe(
       'Next boss: back to suggested order',
     );
+  });
+});
+
+describe('visibleEvents (un-evolve nets out the evolution)', () => {
+  const evo = (seq: number, pokemonId: string, toSpecies: string): RunEvent =>
+    ({ seq, at: '2026-01-01T00:00:00Z', type: 'pokemon_evolved', payload: { pokemonId, toSpecies } } as RunEvent);
+  const revert = (seq: number, pokemonId: string): RunEvent =>
+    ({ seq, at: '2026-01-01T00:00:00Z', type: 'pokemon_evolution_reverted', payload: { pokemonId } } as RunEvent);
+  const other = (seq: number): RunEvent =>
+    ({ seq, at: '2026-01-01T00:00:00Z', type: 'note', payload: { text: 'x' } } as RunEvent);
+
+  it('drops a matched evolve+revert pair, leaves everything else', () => {
+    const kept = visibleEvents([other(1), evo(2, 'p1', 'grotle'), revert(3, 'p1'), other(4)]);
+    expect(kept.map((e) => e.seq)).toEqual([1, 4]);
+  });
+
+  it('cancels latest-first per Pokémon and keeps unmatched evolutions', () => {
+    // evolve→evolve→revert: only the torterra step is undone
+    const kept = visibleEvents([evo(1, 'p1', 'grotle'), evo(2, 'p1', 'torterra'), revert(3, 'p1')]);
+    expect(kept.map((e) => e.seq)).toEqual([1]);
+    // revert then a NEW evolve: the new evolve survives
+    const redo = visibleEvents([evo(1, 'p1', 'grotle'), revert(2, 'p1'), evo(3, 'p1', 'grotle')]);
+    expect(redo.map((e) => e.seq)).toEqual([3]);
+    // different Pokémon never cross-cancel
+    const cross = visibleEvents([evo(1, 'p1', 'grotle'), revert(2, 'p2')]);
+    expect(cross.map((e) => e.seq)).toEqual([1]);
+  });
+
+  it('never describes the revert event itself', () => {
+    expect(describeEvent(revert(1, 'p1'), ctx)).toBeNull();
+  });
+});
+
+describe('orderedMovesFor is picker-ordered', () => {
+  it('level-ups first (ascending), then TMs, then HMs', async () => {
+    const { orderedMovesFor, learnLevel, machineType } = await import('./speciesData');
+    const pool = orderedMovesFor('pikachu', 'bdsp');
+    const ranks = pool.map((m) =>
+      learnLevel(m, 'pikachu', 'bdsp') != null ? 0 : ({ TM: 1, TR: 2, HM: 3 } as Record<string, number>)[machineType(m, 'bdsp') ?? ''] ?? 4,
+    );
+    expect([...ranks]).toEqual([...ranks].sort((a, b) => a - b)); // rank groups in order
+    const levels = pool.filter((m) => learnLevel(m, 'pikachu', 'bdsp') != null).map((m) => learnLevel(m, 'pikachu', 'bdsp')!);
+    expect([...levels]).toEqual([...levels].sort((a, b) => a - b)); // level order inside the first group
+    expect(ranks[0]).toBe(0); // pikachu definitely has level-up moves in bdsp
   });
 });
