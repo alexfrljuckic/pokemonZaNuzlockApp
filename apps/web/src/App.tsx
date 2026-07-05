@@ -14,12 +14,20 @@ import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
 import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
+import { ProfileScreen } from './screens/ProfileScreen';
+import { ProfileSetup } from './components/ProfileSetup';
+import { FollowFeed } from './components/FollowFeed';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
 import { TitleScreen } from './screens/TitleScreen';
 
 function readShareToken(): string | null {
   const match = /^#share\/(.+)$/.exec(location.hash);
+  return match ? match[1] : null;
+}
+
+function readProfileHandle(): string | null {
+  const match = /^#u\/([a-z0-9-]+)$/.exec(location.hash);
   return match ? match[1] : null;
 }
 
@@ -54,23 +62,28 @@ function ThemePicker() {
 
 export default function App() {
   const [shareToken, setShareToken] = useState(readShareToken);
+  const [profileHandle, setProfileHandle] = useState(readProfileHandle);
 
   useEffect(() => {
-    const onHashChange = () => setShareToken(readShareToken());
+    const onHashChange = () => {
+      setShareToken(readShareToken());
+      setProfileHandle(readProfileHandle());
+    };
     window.addEventListener('hashchange', onHashChange);
     return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
-  // Share links are a fully separate, unauthenticated read-only route — no
-  // run-picker, no local run loading, no sign-in required to view.
-  if (shareToken) {
+  // Share links and profile pages are fully separate, unauthenticated
+  // read-only routes — no run-picker, no local run loading, no sign-in
+  // required to view (the follow button asks for one when relevant).
+  if (shareToken || profileHandle) {
     return (
       <>
         <div className="app-header">
           <h1>Nuzlocke Tracker</h1>
           <ThemePicker />
         </div>
-        <SpectatorView token={shareToken} />
+        {shareToken ? <SpectatorView token={shareToken} /> : <ProfileScreen handle={profileHandle!} />}
       </>
     );
   }
@@ -142,6 +155,7 @@ function OwnerApp() {
         <span className="sync-badge sync-wait">○ Sign in to sync</span>
       )}
       <AuthBar />
+      <ProfileSetup session={session} />
 
       {activeRun ? (
         <RunView run={activeRun} session={session} />
@@ -155,7 +169,10 @@ function OwnerApp() {
       ) : (
         <>
           {screen === 'continue' ? (
-            <ContinueScreen runs={runs} onSelect={setActiveRunId} />
+            <>
+              <ContinueScreen runs={runs} onSelect={setActiveRunId} />
+              <FollowFeed session={session} />
+            </>
           ) : screen === 'stats' ? (
             <CrossRunStatsScreen runs={runs} />
           ) : (

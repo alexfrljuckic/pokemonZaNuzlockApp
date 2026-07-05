@@ -2571,3 +2571,26 @@ button.back-icon:hover:not(:disabled) {
   align-items: center;
   gap: 0.3rem;
 }
+
+/* Profiles + follows (35) */
+.profile-chip {
+  margin: 0.25rem 0 0.75rem;
+  font-size: 0.85rem;
+}
+.profile-claim {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.profile-claim input {
+  padding: 0.3rem 0.5rem;
+  font-size: 0.85rem;
+}
+.profile-error {
+  color: var(--danger);
+  flex-basis: 100%;
+}
+.follow-feed {
+  margin-top: 1.5rem;
+}
