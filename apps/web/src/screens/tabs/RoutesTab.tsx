@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { areasFor, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, mapHelpers } from '../../lib/maps';
 import { RouteMap } from '../../components/RouteMap';
@@ -48,7 +48,8 @@ export function RoutesTab({
     await onChange();
   }
 
-  const areas = ctx.dataset.areas;
+  // respects the run's 'dlc-content' toggle (base-game runs hide DLC areas)
+  const areas = areasFor(ctx.dataset, state.ruleset);
   const map = GAME_MAPS[ctx.dataset.gameId];
 
   // Starter is normally claimed in the game-picker flow before a run even

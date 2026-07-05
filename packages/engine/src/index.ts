@@ -8,6 +8,8 @@ export {
   validateTeam,
   nextBoss,
   milestonesFor,
+  areasFor,
+  dlcEnabled,
   specialAppliesToVersion,
   chosenStarter,
   milestoneRoster,

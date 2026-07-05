@@ -70,7 +70,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
   const team = party(state);
   const box = boxed(state);
   const graveyard = fallen(state);
-  const milestones = milestonesFor(ctx.dataset, state.version).sort((a, b) => a.order - b.order);
+  const milestones = milestonesFor(ctx.dataset, state.version, state.ruleset).sort((a, b) => a.order - b.order);
   const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
   const boss = nextBoss(state, ctx);
   const starter = chosenStarter(state);

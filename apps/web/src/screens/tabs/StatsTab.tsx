@@ -13,7 +13,7 @@ export function StatsTab({ events, state, ctx }: { events: RunEvent[]; state: Ru
   const deaths = fallen(state);
   const revives = events.filter((ev) => ev.type === 'revive').length;
   const ruleChanges = state.ruleChanges.length;
-  const milestonesTotal = ctx.dataset ? milestonesFor(ctx.dataset, state.version).length : 0;
+  const milestonesTotal = ctx.dataset ? milestonesFor(ctx.dataset, state.version, state.ruleset).length : 0;
 
   return (
     <section>
