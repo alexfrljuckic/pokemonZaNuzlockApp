@@ -31,9 +31,10 @@ describe('SwSh dataset', () => {
     expect(dataset.gameId).toBe('swsh');
     expect(dataset.versions).toEqual(['sword', 'shield']);
     expect(dataset.areas.length).toBeGreaterThanOrEqual(20);
-    // 58 = 28 base-game areas + 16 Isle of Armor + 14 Crown Tundra DLC
-    // zones (the invented victory-road-swsh artifact is gone).
-    expect(dataset.areas.length).toBeLessThanOrEqual(60);
+    // 62 = 28 base-game wilds + 4 towns + 16 Isle of Armor + 14 Crown
+    // Tundra DLC zones. Sanity bound, not an exact pin — raise it when
+    // areas are added deliberately.
+    expect(dataset.areas.length).toBeLessThanOrEqual(70);
     expect(dataset.milestones.length).toBeGreaterThan(0);
   });
 
