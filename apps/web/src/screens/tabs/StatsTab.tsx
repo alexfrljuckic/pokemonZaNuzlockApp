@@ -1,5 +1,7 @@
 import { fallen, milestonesFor, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
+import { DeathsByBoss } from '../../components/charts/DeathsByBoss';
 import { DeathsOverTimeStrip } from '../../components/charts/DeathsOverTimeStrip';
+import { LevelCapHeadroom } from '../../components/charts/LevelCapHeadroom';
 import { EncounterOutcomeDonut } from '../../components/charts/EncounterOutcomeDonut';
 import { MilestoneProgressBar } from '../../components/charts/MilestoneProgressBar';
 import { SurvivalBySpeciesBars } from '../../components/charts/SurvivalBySpeciesBars';
@@ -37,6 +39,12 @@ export function StatsTab({
 
       <h3 className="chart-heading">Deaths over time</h3>
       <DeathsOverTimeStrip events={events} />
+
+      <h3 className="chart-heading">Deaths by boss</h3>
+      <DeathsByBoss events={events} ctx={ctx} />
+
+      <h3 className="chart-heading">Level-cap headroom</h3>
+      <LevelCapHeadroom events={events} ctx={ctx} />
 
       <h3 className="chart-heading">Survival by species</h3>
       <SurvivalBySpeciesBars pokemon={state.pokemon} />

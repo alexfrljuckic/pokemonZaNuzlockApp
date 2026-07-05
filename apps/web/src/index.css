@@ -1177,6 +1177,47 @@ button.item-chip.item-picked {
   flex-shrink: 0;
 }
 
+/* Deaths-by-boss bars (33b) */
+.deaths-by-boss {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+}
+.dbb-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  width: 100%;
+}
+.dbb-name {
+  flex: 0 0 40%;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+.dbb-bar-track {
+  flex: 1;
+  height: 10px;
+  background: var(--bg-chip);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.dbb-bar {
+  display: block;
+  height: 100%;
+  background: var(--danger);
+  border-radius: 5px;
+}
+.dbb-count {
+  min-width: 1.6rem;
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .chart-svg-wide {
   width: 100%;
   max-width: 320px;
