@@ -1,47 +1,39 @@
-// Lumiose layout for the Z-A interactive map. Backdrop is an ORIGINAL
-// hand-authored schematic (public/maps/lumiose.svg, 1200x1200 — same
-// original-SVG pattern as Paldea/Hisui). DELIBERATELY schematic: wild zones
-// sit on two rings by zone number (inner 1-10, outer 11-20, clockwise from
-// south) rather than at their in-game street positions — the backdrop's
-// numbered banners make the mapping obvious. Hyperspace zones are
-// session-randomized DLC pocket dimensions with no geography; they get no
-// nodes on purpose and list under "Other areas".
+// Lumiose layout for the Z-A interactive map. Backdrop is the in-game-style
+// city map Alex uploaded (public/maps/lumiose.jpg, 1920x1920) with all 20
+// wild zones badge-numbered at their REAL locations — this replaced the
+// earlier deliberately-schematic original-SVG ring layout. Node rects are
+// centered on each zone's numbered badge, calibrated live with the debug
+// overlay. Hyperspace zones are session-randomized DLC pocket dimensions
+// with no geography; they get no nodes on purpose and list under
+// "Other areas".
 import type { GameMap } from './types';
 
-const INNER: Array<[number, number]> = [
-  [600, 860], [447, 810], [353, 680], [353, 520], [447, 390],
-  [600, 340], [753, 390], [847, 520], [847, 680], [753, 810],
-];
-const OUTER: Array<[number, number]> = [
-  [467, 1009], [252, 853], [170, 600], [252, 347], [467, 191],
-  [733, 191], [948, 347], [1030, 600], [948, 853], [733, 1009],
+// Zone-badge centers on the 1920x1920 backdrop, indexed by zone number.
+// Located programmatically: darkest-patch search around visual estimates
+// (the numbered badges are the only large dark features), then verified
+// with wide-patch luminance sampling so none snapped to a small POI icon.
+const BADGES: Array<[number, number]> = [
+  [1129, 1779], [1185, 1245], [941, 521], [1090, 285], [785, 1150],
+  [1724, 1046], [538, 824], [1343, 811], [236, 1090], [300, 1245],
+  [1590, 1140], [800, 1560], [765, 145], [217, 816], [1540, 355],
+  [712, 1291], [1453, 1507], [381, 373], [1540, 605], [955, 965],
 ];
 
 export const LUMIOSE_MAP: GameMap = {
-  viewBox: { w: 1200, h: 1200 },
-  backdropSrc: '/maps/lumiose.svg',
+  viewBox: { w: 1920, h: 1920 },
+  backdropSrc: '/maps/lumiose.jpg',
   ariaLabel: 'Lumiose City wild-zone map',
-  nodes: [
-    ...INNER.map(([cx, cy], i) => ({
-      id: `wild-zone-${i + 1}`,
-      x: cx - 52,
-      y: cy - 38,
-      w: 104,
-      h: 76,
-      kind: 'route' as const,
-    })),
-    ...OUTER.map(([cx, cy], i) => ({
-      id: `wild-zone-${i + 11}`,
-      x: cx - 54,
-      y: cy - 40,
-      w: 108,
-      h: 80,
-      kind: 'route' as const,
-    })),
-  ],
+  nodes: BADGES.map(([cx, cy], i) => ({
+    id: `wild-zone-${i + 1}`,
+    x: Math.max(10, Math.min(1750, cx - 80)),
+    y: Math.max(10, Math.min(1786, cy - 62)),
+    w: 160,
+    h: 124,
+    kind: 'route' as const,
+  })),
   edges: [
-    // decorative rings for the no-backdrop fallback view
-    ...INNER.map((_, i): [string, string] => [`wild-zone-${i + 1}`, `wild-zone-${((i + 1) % 10) + 1}`]),
-    ...OUTER.map((_, i): [string, string] => [`wild-zone-${i + 11}`, `wild-zone-${((i + 1) % 10) + 11}`]),
+    // decorative rings for the no-backdrop fallback view only
+    ...Array.from({ length: 10 }, (_, i): [string, string] => [`wild-zone-${i + 1}`, `wild-zone-${((i + 1) % 10) + 1}`]),
+    ...Array.from({ length: 10 }, (_, i): [string, string] => [`wild-zone-${i + 11}`, `wild-zone-${((i + 1) % 10) + 11}`]),
   ],
 };
