@@ -20,18 +20,13 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up
 
-**Map scale-up demo AWAITING ALEX (PR #99, left open on purpose).** Routes
+**Map scale-up demo AWAITING ALEX (PR #99, left open on purpose; now includes the real paldea.png).** Routes
 section full-bleeds to min(94vw, 1500px) on desktop, the old 720px map cap
 lifted, maps fit by height (86vh, aspect-ratio-aware). Merge it, tune the
 numbers, or ask for the fullscreen-toggle variant instead. (The stronger
 frontier glow already merged in #98 as the fallback half of the ask.)
 
-**31. SV real-map swap (waiting on upload).** Alex has a Paldea map image
-(shared in the 2026-07-05 session — the region map with gym-leader pins)
-he's OK using as the SV backdrop. Same recipe as the Lumiose swap (#87):
-he uploads it to apps/web/public/maps/ (rename to paldea.jpg), then
-recalibrate the 16 zone nodes onto it (pixel-luminance/crop technique)
-and retire the hand-drawn paldea.svg. Blocked only on the upload.
+
 
 **24. PLA sub-area encounter granularity + alpha flag.** The community
 nuzlockes PLA per NAMED LOCATION, not per zone — our 7-zone dataset is

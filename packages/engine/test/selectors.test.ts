@@ -85,4 +85,15 @@ describe('selectors', () => {
     ]);
     expect(frontierAreas(dataset.areas, resolved).has('route-3')).toBe(false);
   });
+
+  it('frontierAreas skips encounter-less areas (towns must not clog the window)', () => {
+    const areas = [
+      { id: 'town', name: 'Town', unlockAfter: null, tags: ['town'], encounters: [] },
+      ...dataset.areas,
+    ];
+    const fresh = stateWith([]);
+    const window = frontierAreas(areas, fresh);
+    expect(window.has('town')).toBe(false);
+    expect(window.size).toBe(4);
+  });
 });
