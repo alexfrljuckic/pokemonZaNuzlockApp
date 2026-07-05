@@ -36,6 +36,18 @@ export function trainerKeyFromMilestone(id: string): string {
   return TRAINER_ALIAS[tail] ?? tail;
 }
 
+/** Best-effort Showdown trainer key from a trainer class ("Ace Trainer" →
+ * `acetrainer`, "Pokéfan" → `pokefan`). Showdown keys class sprites by the
+ * squashed class name; the sprite hides itself on a miss, so a wrong guess
+ * just renders spriteless. */
+export function trainerKeyFromClass(cls: string): string {
+  return cls
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '') // é → e (Pokéfan, Pokémon Ranger)
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
 export const NATURES = [
   'adamant', 'bashful', 'bold', 'brave', 'calm', 'careful', 'docile', 'gentle',
   'hardy', 'hasty', 'impish', 'jolly', 'lax', 'lonely', 'mild', 'modest',

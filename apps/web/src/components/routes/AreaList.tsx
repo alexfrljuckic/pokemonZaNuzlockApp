@@ -68,7 +68,7 @@ export function AreaList({
             {openAreaId === area.id && (
               <>
                 <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
-                <TrainersHere area={area} version={state.version} />
+                <TrainersHere area={area} version={state.version} gameId={ctx.dataset.gameId} />
               </>
             )}
           </div>

@@ -426,13 +426,43 @@ button:disabled {
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.4rem;
+  margin: 0 -0.4rem;
   border-bottom: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.trainer-row:hover {
+  background: color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
 .trainer-row:last-child { border-bottom: none; }
 
+.trainer-row-head {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.trainer-row-sprite {
+  image-rendering: pixelated;
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border-radius: 50%;
+  flex: none;
+}
+
 .trainer-row-name { font-size: 0.9rem; }
+
+/* Expanded per-mon detail — same grid + mrd-* card treatment as the
+   boss-fight MilestoneCard detail view. */
+.trainer-row-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+  padding-top: 0.5rem;
+  animation: fadeUp 0.2s ease both;
+}
 
 .trainer-row-team {
   display: flex;
