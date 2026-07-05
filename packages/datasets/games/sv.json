@@ -14,6 +14,425 @@
   "rostersRequired": true,
   "areas": [
     {
+      "id": "cabo-poco",
+      "name": "Cabo Poco",
+      "unlockAfter": null,
+      "tags": [
+        "town",
+        "unlock:start"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "TM049 (Sunny Day)"
+        }
+      ]
+    },
+    {
+      "id": "poco-path",
+      "name": "Poco Path",
+      "unlockAfter": null,
+      "tags": [
+        "route",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "lechonk",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tarountula",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pawmi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "fletchling",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scatterbug",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Honey"
+        },
+        {
+          "name": "Exp. Candy S"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "TM032 (Swift)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "TM096 (Eerie Impulse)"
+        },
+        {
+          "name": "TM103 (Substitute)"
+        },
+        {
+          "name": "TM113 (Tailwind)"
+        }
+      ]
+    },
+    {
+      "id": "south-paldean-sea",
+      "name": "South Paldean Sea",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "water"
+      ],
+      "encounters": [
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "eelektrik",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wattrel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finizen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM123 (Surf)"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Pearl String"
+        }
+      ]
+    },
+    {
+      "id": "inlet-grotto",
+      "name": "Inlet Grotto",
+      "unlockAfter": null,
+      "tags": [
+        "cave",
+        "unlock:start"
+      ],
+      "encounters": [
+        {
+          "species": "diglett",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "houndour",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yungoos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gumshoos",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Dusk Ball"
+        },
+        {
+          "name": "TM100 (Dragon Dance)"
+        },
+        {
+          "name": "TM151 (Phantom Force)"
+        }
+      ]
+    },
+    {
+      "id": "los-platos",
+      "name": "Los Platos",
+      "unlockAfter": null,
+      "tags": [
+        "town",
+        "unlock:start"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM085 (Rest)"
+        },
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
+        },
+        {
+          "name": "Dive Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "south-province-area-one",
       "name": "South Province (Area One)",
       "unlockAfter": null,
@@ -342,6 +761,467 @@
       ]
     },
     {
+      "id": "mesagoza",
+      "name": "Mesagoza",
+      "unlockAfter": null,
+      "tags": [
+        "city",
+        "unlock:start"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "TM128 (Amnesia)"
+        },
+        {
+          "name": "TM019 (Disarming Voice)"
+        },
+        {
+          "name": "TM010 (Ice Fang)"
+        },
+        {
+          "name": "TM072 (Electro Ball)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Soothe Bell"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Bottle Cap"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Poké Doll"
+        },
+        {
+          "name": "Tera Orb — story, from Nemona"
+        },
+        {
+          "name": "TM169 (Draco Meteor) — from Penny, postgame"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Dive Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Premier Ball",
+          "shop": true
+        },
+        {
+          "name": "Fire Stone",
+          "shop": true
+        },
+        {
+          "name": "Water Stone",
+          "shop": true
+        },
+        {
+          "name": "Thunder Stone",
+          "shop": true
+        },
+        {
+          "name": "Leaf Stone",
+          "shop": true
+        },
+        {
+          "name": "Ice Stone",
+          "shop": true
+        },
+        {
+          "name": "Red Nectar",
+          "shop": true
+        },
+        {
+          "name": "Yellow Nectar",
+          "shop": true
+        },
+        {
+          "name": "Pink Nectar",
+          "shop": true
+        },
+        {
+          "name": "Purple Nectar",
+          "shop": true
+        },
+        {
+          "name": "Power Weight",
+          "shop": true
+        },
+        {
+          "name": "Power Bracer",
+          "shop": true
+        },
+        {
+          "name": "Power Belt",
+          "shop": true
+        },
+        {
+          "name": "Power Lens",
+          "shop": true
+        },
+        {
+          "name": "Power Band",
+          "shop": true
+        },
+        {
+          "name": "Power Anklet",
+          "shop": true
+        },
+        {
+          "name": "Smoke Ball",
+          "shop": true
+        },
+        {
+          "name": "Everstone",
+          "shop": true
+        },
+        {
+          "name": "Miracle Seed",
+          "shop": true
+        },
+        {
+          "name": "Charcoal",
+          "shop": true
+        },
+        {
+          "name": "Mystic Water",
+          "shop": true
+        },
+        {
+          "name": "X Attack",
+          "shop": true
+        },
+        {
+          "name": "X Defense",
+          "shop": true
+        },
+        {
+          "name": "X Sp. Atk",
+          "shop": true
+        },
+        {
+          "name": "X Sp. Def",
+          "shop": true
+        },
+        {
+          "name": "X Speed",
+          "shop": true
+        },
+        {
+          "name": "X Accuracy",
+          "shop": true
+        },
+        {
+          "name": "Dire Hit",
+          "shop": true
+        },
+        {
+          "name": "Guard Spec.",
+          "shop": true
+        },
+        {
+          "name": "Energy Powder",
+          "shop": true
+        },
+        {
+          "name": "Energy Root",
+          "shop": true
+        },
+        {
+          "name": "Heal Powder",
+          "shop": true
+        },
+        {
+          "name": "Revival Herb",
+          "shop": true
+        },
+        {
+          "name": "HP Up",
+          "shop": true
+        },
+        {
+          "name": "Protein",
+          "shop": true
+        },
+        {
+          "name": "Iron",
+          "shop": true
+        },
+        {
+          "name": "Calcium",
+          "shop": true
+        },
+        {
+          "name": "Zinc",
+          "shop": true
+        },
+        {
+          "name": "Carbos",
+          "shop": true
+        },
+        {
+          "name": "Nature Mints (all 25, after 6 badges)",
+          "shop": true
+        },
+        {
+          "name": "PP Up (postgame)",
+          "shop": true
+        },
+        {
+          "name": "Ability Capsule (postgame)",
+          "shop": true
+        },
+        {
+          "name": "Ham",
+          "shop": true
+        },
+        {
+          "name": "Lettuce",
+          "shop": true
+        },
+        {
+          "name": "Onion",
+          "shop": true
+        },
+        {
+          "name": "Mayonnaise",
+          "shop": true
+        },
+        {
+          "name": "Ketchup",
+          "shop": true
+        },
+        {
+          "name": "Mustard",
+          "shop": true
+        },
+        {
+          "name": "Salt",
+          "shop": true
+        },
+        {
+          "name": "Pepper",
+          "shop": true
+        },
+        {
+          "name": "Butter",
+          "shop": true
+        },
+        {
+          "name": "Cream Cheese",
+          "shop": true
+        },
+        {
+          "name": "Jam",
+          "shop": true
+        },
+        {
+          "name": "Olive Oil",
+          "shop": true
+        },
+        {
+          "name": "Cheese",
+          "shop": true
+        },
+        {
+          "name": "Yogurt",
+          "shop": true
+        },
+        {
+          "name": "Whipped Cream",
+          "shop": true
+        },
+        {
+          "name": "Peanut Butter",
+          "shop": true
+        },
+        {
+          "name": "Marmalade",
+          "shop": true
+        },
+        {
+          "name": "Egg",
+          "shop": true
+        },
+        {
+          "name": "Chorizo",
+          "shop": true
+        },
+        {
+          "name": "Bacon",
+          "shop": true
+        },
+        {
+          "name": "Prosciutto",
+          "shop": true
+        },
+        {
+          "name": "Hamburger",
+          "shop": true
+        },
+        {
+          "name": "Smoked Fillet",
+          "shop": true
+        },
+        {
+          "name": "Fried Fillet",
+          "shop": true
+        },
+        {
+          "name": "Cucumber",
+          "shop": true
+        },
+        {
+          "name": "Avocado",
+          "shop": true
+        },
+        {
+          "name": "Green Bell Pepper",
+          "shop": true
+        },
+        {
+          "name": "Red Bell Pepper",
+          "shop": true
+        },
+        {
+          "name": "Yellow Bell Pepper",
+          "shop": true
+        },
+        {
+          "name": "Vinegar",
+          "shop": true
+        },
+        {
+          "name": "Chili Sauce",
+          "shop": true
+        },
+        {
+          "name": "Basil",
+          "shop": true
+        },
+        {
+          "name": "Banana",
+          "shop": true
+        },
+        {
+          "name": "Strawberry",
+          "shop": true
+        },
+        {
+          "name": "Tomato",
+          "shop": true
+        },
+        {
+          "name": "Pickle",
+          "shop": true
+        },
+        {
+          "name": "Apple",
+          "shop": true
+        },
+        {
+          "name": "Cherry Tomatoes",
+          "shop": true
+        },
+        {
+          "name": "Kiwi",
+          "shop": true
+        },
+        {
+          "name": "Jalapeño",
+          "shop": true
+        },
+        {
+          "name": "Pineapple",
+          "shop": true
+        },
+        {
+          "name": "Noodles",
+          "shop": true
+        },
+        {
+          "name": "Rice",
+          "shop": true
+        },
+        {
+          "name": "Picnic picks & picnic sets (Artisan Bakery / Picnic Knacks, cosmetic)",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "south-province-area-two",
       "name": "South Province (Area Two)",
       "unlockAfter": null,
@@ -644,6 +1524,451 @@
         },
         {
           "name": "TM027 (Aerial Ace) — League rep, Cortondo PC, beat 5 trainers"
+        }
+      ]
+    },
+    {
+      "id": "cortondo",
+      "name": "Cortondo",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Guard Spec."
+        },
+        {
+          "name": "Big Root"
+        },
+        {
+          "name": "TM037 (Draining Kiss)"
+        },
+        {
+          "name": "X Attack"
+        },
+        {
+          "name": "TM021 (Pounce) — Katy reward"
+        }
+      ]
+    },
+    {
+      "id": "south-province-area-six",
+      "name": "South Province (Area Six)",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "jungle"
+      ],
+      "encounters": [
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dratini",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "donphan",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sunflora",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lilligant",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gogoat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sinistea",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hattrem",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "klefki",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "scovillain",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bombirdier",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dreepy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM033 (Magical Leaf)"
+        },
+        {
+          "name": "TM034 (Icy Wind)"
+        },
+        {
+          "name": "TM110 (Liquidation)"
+        },
+        {
+          "name": "TM117 (Hyper Voice)"
+        },
+        {
+          "name": "TM127 (Play Rough)"
+        },
+        {
+          "name": "TM133 (Earth Power)"
+        },
+        {
+          "name": "TM148 (Sludge Bomb)"
+        },
+        {
+          "name": "TM152 (Giga Impact)"
+        },
+        {
+          "name": "TM160 (Hurricane)"
+        },
+        {
+          "name": "TM166 (Thunder)"
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Grass Tera Shard"
+        },
+        {
+          "name": "Psychic Tera Shard"
+        },
+        {
+          "name": "Qualot Berry"
+        }
+      ]
+    },
+    {
+      "id": "alfornada",
+      "name": "Alfornada",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM165 (Flare Blitz)"
+        },
+        {
+          "name": "TM098 (Skill Swap)"
+        },
+        {
+          "name": "TM092 (Imprison)"
+        },
+        {
+          "name": "TM103 (Substitute)"
+        },
+        {
+          "name": "TM064 (Bulk Up)"
+        },
+        {
+          "name": "TM158 (Focus Blast)"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Repeat Ball"
+        },
+        {
+          "name": "Light Clay"
+        },
+        {
+          "name": "X Sp. Def"
+        },
+        {
+          "name": "Awakening"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Exp. Candy S"
+        },
+        {
+          "name": "Assorted berries (EV-reducing + type/pinch berries, ~28 kinds scattered in town)"
+        },
+        {
+          "name": "TM120 (Psychic) — Tulip reward"
+        }
+      ]
+    },
+    {
+      "id": "alfornada-cavern",
+      "name": "Alfornada Cavern",
+      "unlockAfter": null,
+      "tags": [
+        "cave"
+      ],
+      "encounters": [
+        {
+          "species": "diglett",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "glimmet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxtricity-amped",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lycanroc-midday",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "naclstack",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lokix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "deino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM007 (Protect)"
+        },
+        {
+          "name": "TM036 (Rock Tomb)"
+        },
+        {
+          "name": "TM152 (Giga Impact)"
+        },
+        {
+          "name": "TM157 (Overheat)"
+        },
+        {
+          "name": "TM158 (Focus Blast)"
+        },
+        {
+          "name": "Oval Stone"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Bold Mint"
+        },
+        {
+          "name": "Exp. Candy L"
         }
       ]
     },
@@ -1277,6 +2602,283 @@
       ]
     },
     {
+      "id": "artazon",
+      "name": "Artazon",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Quick Claw"
+        },
+        {
+          "name": "TM043 (Fling)"
+        },
+        {
+          "name": "TM026 (Poison Tail)"
+        },
+        {
+          "name": "TM098 (Skill Swap)"
+        },
+        {
+          "name": "Exp. Candy S"
+        },
+        {
+          "name": "Energy Root"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Guard Spec."
+        },
+        {
+          "name": "Leaf Stone — Sunflora Hide & Seek (10 found)"
+        },
+        {
+          "name": "Sun Stone — Sunflora Hide & Seek (20 found)"
+        },
+        {
+          "name": "TM020 (Trailblaze) — Brassius reward"
+        },
+        {
+          "name": "Fresh Water",
+          "shop": true
+        },
+        {
+          "name": "Soda Pop",
+          "shop": true
+        },
+        {
+          "name": "Lemonade",
+          "shop": true
+        }
+      ]
+    },
+    {
+      "id": "south-province-area-five",
+      "name": "South Province (Area Five)",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone"
+      ],
+      "encounters": [
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "charcadet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "nacli",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tadbulb",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "flittle",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wiglett",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sandygast",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "crabrawler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "klawf",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM001 (Take Down)"
+        },
+        {
+          "name": "TM003 (Fake Tears)"
+        },
+        {
+          "name": "TM006 (Scary Face)"
+        },
+        {
+          "name": "TM009 (Thunder Fang)"
+        },
+        {
+          "name": "TM011 (Water Pulse)"
+        },
+        {
+          "name": "TM032 (Swift)"
+        },
+        {
+          "name": "TM035 (Mud Shot)"
+        },
+        {
+          "name": "TM040 (Air Cutter)"
+        },
+        {
+          "name": "TM050 (Rain Dance)"
+        },
+        {
+          "name": "TM051 (Sandstorm)"
+        },
+        {
+          "name": "TM073 (Drain Punch)"
+        },
+        {
+          "name": "TM085 (Rest)"
+        },
+        {
+          "name": "TM104 (Iron Defense)"
+        },
+        {
+          "name": "TM116 (Stealth Rock)"
+        },
+        {
+          "name": "TM129 (Calm Mind)"
+        },
+        {
+          "name": "TM141 (Fire Blast)"
+        },
+        {
+          "name": "Eviolite"
+        },
+        {
+          "name": "Float Stone"
+        },
+        {
+          "name": "Comet Shard"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Flying Tera Shard"
+        },
+        {
+          "name": "Steel Tera Shard"
+        },
+        {
+          "name": "Ground Tera Shard"
+        }
+      ]
+    },
+    {
       "id": "east-province-area-one",
       "name": "East Province (Area One)",
       "unlockAfter": null,
@@ -1594,6 +3196,492 @@
         },
         {
           "name": "Loaded Dice — League rep, Area One PC, beat 5 trainers"
+        }
+      ]
+    },
+    {
+      "id": "levincia",
+      "name": "Levincia",
+      "unlockAfter": null,
+      "tags": [
+        "city"
+      ],
+      "encounters": [
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "TM075 (Light Screen)"
+        },
+        {
+          "name": "TM113 (Tailwind)"
+        },
+        {
+          "name": "TM063 (Psychic Fangs)"
+        },
+        {
+          "name": "TM122 (Encore)"
+        },
+        {
+          "name": "TM099 (Iron Head)"
+        },
+        {
+          "name": "TM136 (Electric Terrain)"
+        },
+        {
+          "name": "TM161 (Trick Room)"
+        },
+        {
+          "name": "Quick Ball"
+        },
+        {
+          "name": "Dire Hit"
+        },
+        {
+          "name": "X Accuracy"
+        },
+        {
+          "name": "X Speed"
+        },
+        {
+          "name": "Wise Glasses"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Thunder Stone"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Luxury Ball"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Exp. Candy S"
+        },
+        {
+          "name": "Electric Tera Shard"
+        },
+        {
+          "name": "Oval Stone"
+        },
+        {
+          "name": "TM048 (Volt Switch) — Iono reward"
+        },
+        {
+          "name": "TM084 (Stomping Tantrum) — League rep, Levincia PC"
+        },
+        {
+          "name": "Soft Sand",
+          "shop": true
+        },
+        {
+          "name": "Black Glasses",
+          "shop": true
+        },
+        {
+          "name": "Metal Coat",
+          "shop": true
+        },
+        {
+          "name": "Mayonnaise (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Ketchup (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Mustard (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Lettuce (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Tomato (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Onion (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Pickle (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Cheese (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Yogurt (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Whipped Cream (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Wasabi (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Tofu (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Horseradish (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Curry Powder (Aquiesta)",
+          "shop": true
+        },
+        {
+          "name": "Klawf Stick (Aquiesta)",
+          "shop": true
+        }
+      ]
+    },
+    {
+      "id": "east-province-area-two",
+      "name": "East Province (Area Two)",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone"
+      ],
+      "encounters": [
+        {
+          "species": "magnemite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shuppet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mimikyu-disguised",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pincurchin",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wattrel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tandemaus",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shroodle",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tinkatink",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cyclizar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tauros-paldea-combat-breed",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tauros-paldea-blaze-breed",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "tauros-paldea-aqua-breed",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM023 (Charge Beam)"
+        },
+        {
+          "name": "TM034 (Icy Wind)"
+        },
+        {
+          "name": "TM035 (Mud Shot)"
+        },
+        {
+          "name": "TM060 (U-turn)"
+        },
+        {
+          "name": "TM073 (Drain Punch)"
+        },
+        {
+          "name": "TM075 (Light Screen)"
+        },
+        {
+          "name": "TM091 (Toxic Spikes)"
+        },
+        {
+          "name": "TM093 (Flash Cannon)"
+        },
+        {
+          "name": "TM138 (Psychic Terrain)"
+        },
+        {
+          "name": "Fire Stone"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Dive Ball"
+        }
+      ]
+    },
+    {
+      "id": "east-paldean-sea",
+      "name": "East Paldean Sea",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "water"
+      ],
+      "encounters": [
+        {
+          "species": "shellder",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wattrel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finizen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "flabebe",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM144 (Fire Pledge)"
+        },
+        {
+          "name": "TM145 (Water Pledge)"
+        },
+        {
+          "name": "TM146 (Grass Pledge)"
+        },
+        {
+          "name": "TM152 (Giga Impact)"
+        },
+        {
+          "name": "TM163 (Hyper Beam)"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Calcium"
+        },
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Vinegar"
         }
       ]
     },
@@ -2009,6 +4097,218 @@
         },
         {
           "name": "Punching Glove — League rep, Zapapico PC, beat 7 trainers"
+        }
+      ]
+    },
+    {
+      "id": "zapapico",
+      "name": "Zapapico",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Rocky Helmet"
+        },
+        {
+          "name": "Auspicious Armor — NPC trade, 10 Bronzor Fragments (Scarlet)"
+        },
+        {
+          "name": "Malicious Armor — NPC trade, 10 Sinistea Chips (Violet)"
+        }
+      ]
+    },
+    {
+      "id": "dalizapa-passage",
+      "name": "Dalizapa Passage",
+      "unlockAfter": null,
+      "tags": [
+        "cave",
+        "mountain"
+      ],
+      "encounters": [
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "grumpig",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hariyama",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "axew",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cetoddle",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "frigibax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "greavard",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "deino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM006 (Scary Face)"
+        },
+        {
+          "name": "TM017 (Confuse Ray)"
+        },
+        {
+          "name": "TM031 (Metal Claw)"
+        },
+        {
+          "name": "TM056 (Bullet Seed)"
+        },
+        {
+          "name": "TM072 (Electro Ball)"
+        },
+        {
+          "name": "TM101 (Power Gem)"
+        },
+        {
+          "name": "TM105 (X-Scissor)"
+        },
+        {
+          "name": "TM106 (Drill Run)"
+        },
+        {
+          "name": "TM112 (Aura Sphere)"
+        },
+        {
+          "name": "TM115 (Dragon Pulse)"
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "Ice Stone"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "Energy Root"
         }
       ]
     },
@@ -2524,6 +4824,56 @@
       ]
     },
     {
+      "id": "medali",
+      "name": "Medali",
+      "unlockAfter": null,
+      "tags": [
+        "city"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Lucky Egg — from Jacq"
+        },
+        {
+          "name": "Normal Tera Shard ×50 — from restaurant worker"
+        },
+        {
+          "name": "Gimmighoul Coin ×20"
+        },
+        {
+          "name": "Amulet Coin — League rep, Medali PC"
+        },
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Leftovers"
+        },
+        {
+          "name": "Premier Ball"
+        },
+        {
+          "name": "Fresh Water"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "TM109 (Trick)"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "TM025 (Facade) — Larry reward"
+        }
+      ]
+    },
+    {
       "id": "west-province-area-two",
       "name": "West Province (Area Two)",
       "unlockAfter": null,
@@ -2744,6 +5094,275 @@
         },
         {
           "name": "Focus Sash — League rep, Porto Marinada PC, beat 4 trainers"
+        }
+      ]
+    },
+    {
+      "id": "cascarrafa",
+      "name": "Cascarrafa",
+      "unlockAfter": null,
+      "tags": [
+        "city"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Muscle Band"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "TM070 (Sleep Talk)"
+        },
+        {
+          "name": "TM053 (Smart Strike)"
+        },
+        {
+          "name": "TM054 (Psyshock)"
+        },
+        {
+          "name": "TM011 (Water Pulse)"
+        },
+        {
+          "name": "Energy Root"
+        },
+        {
+          "name": "Water Stone"
+        },
+        {
+          "name": "X Accuracy"
+        },
+        {
+          "name": "X Attack"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Water Tera Shard"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "TM022 (Chilling Water) — Kofu reward"
+        },
+        {
+          "name": "Magnet",
+          "shop": true
+        },
+        {
+          "name": "Hard Stone",
+          "shop": true
+        },
+        {
+          "name": "Dragon Fang",
+          "shop": true
+        }
+      ]
+    },
+    {
+      "id": "porto-marinada",
+      "name": "Porto Marinada",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Chipped Pot"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Assault Vest"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Auction Market — rotating daily stock (evolution stones, apricorn/rare balls, held items, Herba-adjacent rarities)",
+          "shop": true
+        }
+      ]
+    },
+    {
+      "id": "west-province-area-three",
+      "name": "West Province (Area Three)",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone"
+      ],
+      "encounters": [
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "meowth",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "girafarig",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "breloom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zorua",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "foongus",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dedenne",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goomy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hatenna",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "greavard",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cetoddle",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toedscool",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM004 (Agility)"
+        },
+        {
+          "name": "TM009 (Thunder Fang)"
+        },
+        {
+          "name": "TM011 (Water Pulse)"
+        },
+        {
+          "name": "TM012 (Low Kick)"
+        },
+        {
+          "name": "TM022 (Chilling Water)"
+        },
+        {
+          "name": "TM052 (Snowscape)"
+        },
+        {
+          "name": "TM066 (Body Slam)"
+        },
+        {
+          "name": "TM072 (Electro Ball)"
+        },
+        {
+          "name": "TM096 (Eerie Impulse)"
+        },
+        {
+          "name": "TM105 (X-Scissor)"
+        },
+        {
+          "name": "TM111 (Giga Drain)"
+        },
+        {
+          "name": "TM131 (Pollen Puff)"
+        },
+        {
+          "name": "TM135 (Ice Beam)"
+        },
+        {
+          "name": "Dawn Stone"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Misty Seed"
+        },
+        {
+          "name": "Grassy Seed"
+        },
+        {
+          "name": "Fairy Tera Shard"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Rare Candy"
         }
       ]
     },
@@ -3020,6 +5639,161 @@
         },
         {
           "name": "TM149 (Earthquake) — League rep, Cascarrafa North PC, beat 5 trainers in Asado Desert"
+        }
+      ]
+    },
+    {
+      "id": "west-paldean-sea",
+      "name": "West Paldean Sea",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "water"
+      ],
+      "encounters": [
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tynamo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bombirdier",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finizen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "veluza",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM029 (Hex)"
+        },
+        {
+          "name": "TM107 (Will-O-Wisp)"
+        },
+        {
+          "name": "TM118 (Heat Wave)"
+        },
+        {
+          "name": "TM151 (Phantom Force)"
+        },
+        {
+          "name": "Calcium"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Pearl String"
+        },
+        {
+          "name": "Bottle Cap"
         }
       ]
     },
@@ -3449,6 +6223,181 @@
       ]
     },
     {
+      "id": "north-paldean-sea",
+      "name": "North Paldean Sea",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "water"
+      ],
+      "encounters": [
+        {
+          "species": "shellder",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "alomomola",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "tynamo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "eelektrik",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "barraskewda",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "veluza",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "finizen",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dragalge",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        },
+        {
+          "species": "eiscue-ice",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM041 (Stored Power)"
+        },
+        {
+          "name": "TM058 (Brick Break)"
+        },
+        {
+          "name": "TM065 (Air Slash)"
+        },
+        {
+          "name": "TM093 (Flash Cannon)"
+        },
+        {
+          "name": "TM108 (Crunch)"
+        },
+        {
+          "name": "TM109 (Trick)"
+        },
+        {
+          "name": "TM130 (Helping Hand)"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Big Nugget"
+        },
+        {
+          "name": "Exp. Candy L"
+        },
+        {
+          "name": "Water Tera Shard"
+        }
+      ]
+    },
+    {
       "id": "north-province-area-two",
       "name": "North Province (Area Two)",
       "unlockAfter": null,
@@ -3678,6 +6627,36 @@
         },
         {
           "name": "TM156 (Outrage) — League rep, Area Two PC, beat 5 trainers"
+        }
+      ]
+    },
+    {
+      "id": "montenevera",
+      "name": "Montenevera",
+      "unlockAfter": null,
+      "tags": [
+        "town",
+        "mountain"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Exp. Candy M"
+        },
+        {
+          "name": "TM095 (Leech Life)"
+        },
+        {
+          "name": "Covert Cloak"
+        },
+        {
+          "name": "Dusk Stone"
+        },
+        {
+          "name": "TM114 (Shadow Ball) — Ryme reward"
         }
       ]
     },
@@ -4475,6 +7454,136 @@
         },
         {
           "name": "TM143 (Blizzard) — League rep, Glaseado Gym PC, beat 10 trainers"
+        }
+      ]
+    },
+    {
+      "id": "socarrat-trail",
+      "name": "Socarrat Trail",
+      "unlockAfter": null,
+      "tags": [
+        "open-zone",
+        "forest"
+      ],
+      "encounters": [
+        {
+          "species": "raichu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "forretress",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "slaking",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "honchkrow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zoroark",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "amoonguss",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hawlucha",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "fomantis",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "grafaiai",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "brambleghast",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toedscruel",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM011 (Water Pulse)"
+        },
+        {
+          "name": "TM028 (Bulldoze)"
+        },
+        {
+          "name": "TM071 (Seed Bomb)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM105 (X-Scissor)"
+        },
+        {
+          "name": "TM135 (Ice Beam)"
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Rare Bone"
+        },
+        {
+          "name": "Cracked Pot"
+        },
+        {
+          "name": "Type-resist Berries (Occa–Roseli, full set scattered)"
         }
       ]
     },
