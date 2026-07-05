@@ -5,11 +5,10 @@ Bulbapedia route/gym articles cross-checked against Serebii Pokéarth Galar.
 Species+levels only; heldItem only where documented; partners and rematches
 excluded. See the PR body for the judgment calls that shipped.
 
-## Parked: Route 8 trainers (area not yet in swsh.json)
+## Route 8 trainers — SHIPPED with the route-8 area (BACKLOG 21)
 
-swsh.json has no `route-8` area — a known dataset gap (Route 8 sits between
-Route 7 and Circhester, incl. Steamdrift Way). When the area lands with its
-encounter table, attach these five researched trainer battles (sources:
+These five battles were parked here between the #75 trainer pass and the
+route-8 area PR; they now live in swsh.json. Kept for provenance (sources:
 https://bulbapedia.bulbagarden.net/wiki/Galar_Route_8 +
 https://www.serebii.net/pokearth/galar/route8.shtml):
 
@@ -29,9 +28,10 @@ https://www.serebii.net/pokearth/galar/route8.shtml):
   location (Route 10 leads straight from White Hill Station to Wyndon), and
   the area's cave encounter table doesn't match any base-game location.
   Tracked as its own follow-up task.
-- **Galar Mine No. 2** (between Hulbury and Motostoke outskirts, ~4 trainers
-  + a Team Yell/Hop multi) is not a dataset area either — same shape of gap
-  as Route 8; trainers not researched yet.
+- **Galar Mine No. 2**: SHIPPED alongside route-8 (BACKLOG 21) — encounters
+  + 5 trainers (Workers Francis/Yvonne, 2 Team Yell grunts fought as a multi
+  with Hop as your partner, Rail Staff Vincent; Bede excluded as a milestone
+  rival).
 - **Kabu's Motostoke gym mission has no trainer battles** (gym trainers are
   allies in the wild-catch challenge), so `motostoke` carries only the Budew
   Drop Inn Team Yell battles.

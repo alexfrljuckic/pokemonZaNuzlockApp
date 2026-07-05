@@ -4,10 +4,11 @@
 // inset right and Crown Tundra south — both DLC regions deliberately have
 // no nodes; base-game dataset areas only). Wild Area zones get nodes across
 // the two lobes (south = Rolling Fields, north = Riverbank/Bridge Field,
-// north-west = Giant's Cap / Dusty Bowl / Lake of Outrage). route-8 is a
-// known dataset gap (BACKLOG 21) and victory-road-swsh is being removed
-// (#77) — neither gets a node. Calibrated live with the debug overlay
-// (stroked .route-region rects) per the standing map lesson.
+// north-west = Giant's Cap / Dusty Bowl / Lake of Outrage).
+// victory-road-swsh is being removed (#77) and gets no node. Calibrated live
+// with the debug overlay (stroked .route-region rects) per the standing map
+// lesson; route-8 added with its area (BACKLOG 21) on the steam path between
+// Route 7 and Circhester.
 import type { GameMap } from './types';
 
 export const GALAR_MAP: GameMap = {
@@ -35,6 +36,8 @@ export const GALAR_MAP: GameMap = {
     { id: 'glimwood-tangle', x: 62, y: 288, w: 62, h: 45, kind: 'forest' },
     { id: 'ballonlea', x: 46, y: 334, w: 50, h: 42, kind: 'town' },
     { id: 'route-7', x: 243, y: 473, w: 55, h: 40, kind: 'route' },
+    { id: 'route-8', x: 255, y: 425, w: 60, h: 45, kind: 'route' },
+    { id: 'galar-mine-no-2', x: 258, y: 528, w: 50, h: 40, kind: 'cave' },
     { id: 'circhester', x: 288, y: 350, w: 60, h: 45, kind: 'city' },
     { id: 'circhester-bay', x: 276, y: 398, w: 42, h: 42, kind: 'route' },
     { id: 'route-9', x: 320, y: 398, w: 58, h: 48, kind: 'route' },
@@ -61,7 +64,10 @@ export const GALAR_MAP: GameMap = {
     ['stow-on-side', 'glimwood-tangle'],
     ['glimwood-tangle', 'ballonlea'],
     ['hammerlocke', 'route-7'],
-    ['route-7', 'circhester'],
+    ['route-7', 'route-8'],
+    ['route-8', 'circhester'],
+    ['hulbury', 'galar-mine-no-2'],
+    ['galar-mine-no-2', 'motostoke'],
     ['circhester', 'circhester-bay'],
     ['circhester-bay', 'route-9'],
     ['route-9', 'spikemuth'],

@@ -1058,6 +1058,177 @@
       ]
     },
     {
+      "id": "galar-mine-no-2",
+      "name": "Galar Mine No. 2",
+      "unlockAfter": "gym-2-nessa",
+      "tags": [
+        "cave"
+      ],
+      "encounters": [
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "stunfisk-galar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "fish"
+          ],
+          "rate": 55
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "fish"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "fish"
+          ],
+          "rate": 15
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Francis",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "carkol",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Yvonne",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "roggenrola",
+              "level": 20
+            },
+            {
+              "species": "timburr",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "linoone-galar",
+              "level": 22
+            },
+            {
+              "species": "pancham",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "thievul",
+              "level": 21
+            },
+            {
+              "species": "liepard",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Vincent",
+          "class": "Rail Staff",
+          "team": [
+            {
+              "species": "drilbur",
+              "level": 22
+            },
+            {
+              "species": "onix",
+              "level": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "route-6",
       "name": "Route 6",
       "unlockAfter": "gym-3-kabu",
@@ -1318,7 +1489,7 @@
     {
       "id": "route-7",
       "name": "Route 7",
-      "unlockAfter": "gym-4-bea-allister",
+      "unlockAfter": "gym-5-opal",
       "tags": [
         "route"
       ],
@@ -1476,6 +1647,374 @@
             {
               "species": "polteageist",
               "level": 44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-8",
+      "name": "Route 8",
+      "unlockAfter": "gym-5-opal",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "golett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "gurdurr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "gurdurr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "vullaby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "togedemaru",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "snom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "vanillish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "sandaconda",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "grass"
+          ],
+          "rate": 8
+        },
+        {
+          "species": "drapion",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "falinks",
+          "methods": [
+            "grass"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "snom",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "darumaka-galar",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Joanna",
+          "class": "Doctor",
+          "team": [
+            {
+              "species": "roselia",
+              "level": 36
+            },
+            {
+              "species": "hattrem",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Barbara",
+          "class": "Backpacker",
+          "team": [
+            {
+              "species": "dreepy",
+              "level": 36
+            },
+            {
+              "species": "vullaby",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Charles",
+          "class": "Musician",
+          "team": [
+            {
+              "species": "togedemaru",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Jordan & Alison",
+          "class": "Colleagues",
+          "team": [
+            {
+              "species": "excadrill",
+              "level": 36
+            },
+            {
+              "species": "lucario",
+              "level": 37
+            },
+            {
+              "species": "hippowdon",
+              "level": 36
+            },
+            {
+              "species": "perrserker",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Bobby",
+          "class": "Police Officer",
+          "team": [
+            {
+              "species": "arcanine",
+              "level": 37
+            },
+            {
+              "species": "boltund",
+              "level": 37
             }
           ]
         }

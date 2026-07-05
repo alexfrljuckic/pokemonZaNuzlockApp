@@ -20,31 +20,16 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up (no decision needed — pick one and go)
 
-**18. Route maps for the remaining games.** The map system is cross-game
-(`apps/web/src/lib/maps/` registry — adding a game = one map file + one
-registry line + a backdrop image in `public/maps/`). BDSP (Sinnoh) and LGPE
-(Kanto) are done. Remaining, each its own small PR once an IP-safe backdrop
-exists: **SwSh (Galar — galar.jpg backdrop is now committed in
-apps/web/public/maps, so this is unblocked)**, **SV (Paldea)**, **PLA
-(Hisui)**, **Z-A (Lumiose)**. Node calibration lesson from Kanto: do a live
-pass with the debug overlay (temporarily stroke the `.route-region` rects)
-before opening the PR. Also pending: the same live pass on the LGPE nodes
-added for routes 7-25 + Victory Road in #52 (first-pass banner reads), and
-Sinnoh map nodes for the four areas added in #73 (they currently render
-under "Other areas").
-
-**21. SwSh missing areas: route-8 + Galar Mine No. 2.** Surfaced by the #75
-trainer pass. Add each area with its BDSP-style encounter table (Serebii
-Galar Pokéarth), then attach trainers: Route 8's five battles are already
-researched and parked in `docs/SWSH-TRAINER-NOTES.md`; Galar Mine No. 2's
-(~4 + a Team Yell multi) still need research. One dataset PR per area or
-both in one, either is fine.
-
-**22. Showdown sprite alias for darmanitan-galar-standard.** PokeAPI's only
-valid slug for Galarian Darmanitan is `darmanitan-galar-standard` (shipped
-in #75 on Gentleman Glenn, Route 10), but Showdown's CDN keys the sprite as
-`darmanitan-galar`, so he renders spriteless. Add a species→sprite-key alias
-map in `lib/sprites.ts` (same pattern as TRAINER_ALIAS) + test. Tiny PR.
+**18. Route maps — remaining: PLA (Hisui), Z-A (Lumiose).** Galar (#79,
+committed galar.jpg backdrop) and Paldea (#82, ORIGINAL hand-authored SVG
+backdrop — the pattern for regions with no IP-safe art: draw a flat-color
+schematic in public/maps/<region>.svg, same visual language) are done, as
+is the LGPE Kanto calibration pass (#80). Hisui/Lumiose can use either
+path: Alex uploads art he's comfortable with, or another original SVG.
+Node calibration lesson stands: live pass with the debug overlay (stroke
+`.route-region`) + native-res crops of the backdrop for ambiguous banners.
+Also pending: Sinnoh map nodes for the four areas added in #73 (they
+currently render under "Other areas").
 
 ## Deferred / low priority (unchanged)
 
@@ -105,6 +90,13 @@ glaseado-mountain); species-data.json regenerated at each merge (835
 species). Research provenance + parked Route 8 trainers:
 docs/SWSH-TRAINER-NOTES.md. GitHub Pages disabled same day (v1 leftover
 serving raw source with flaky deploys; Vercel is the host — see DEPLOY.md).
+
+2026-07-05 late sweep (PRs #79-#82 + this one): **Galar map (#79)**, **Kanto
+calibration (#80)**, **darmanitan sprite alias, was item 22 (#81)**,
+**Paldea map w/ original SVG backdrop (#82)**, **SwSh missing areas, was
+item 21** — route-8 (31 slots incl. Steamdrift, + the 5 parked trainers) and
+galar-mine-no-2 (12 slots, 5 trainers) with map nodes; route-7 unlockAfter
+corrected gym-4 → gym-5-opal (reached after Ballonlea per progression).
 
 ## Standing rules for every PR
 
