@@ -50,6 +50,12 @@ works per-browser, just no accounts, cross-device sync, or share links.
 
 ## Ops notes (already set up)
 
+- **GitHub Pages is intentionally disabled** (2026-07-04). It was a v1
+  leftover — legacy deploy-from-branch of `main`'s root, which served the
+  v1 app until the v2 monorepo replaced main, then uselessly deployed raw
+  source on every push with intermittent deploy failures. Don't re-enable
+  it for v2; if the old v1 URL is ever wanted back, re-enable with source
+  branch `v1-legacy` (its root `index.html` is still there).
 - GitHub Actions keep-alive + nightly `pg_dump` backups run on schedule
   (secrets configured 2026-07-03; see `supabase/README.md`).
 - Supabase free tier pauses after ~1 week of no traffic — the keep-alive
