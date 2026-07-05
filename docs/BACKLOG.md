@@ -18,30 +18,13 @@ Wyndon) and the area's cave encounter table matches no base-game location;
 that session will trace its origin and open a rename-or-remove PR. Don't
 touch swsh.json's victory-road-swsh area until it lands.
 
-## Next up (Alex's queued feedback, 2026-07-05 — items 27-30 first)
+## Next up
 
-**27. Progressive next-area highlighting on maps.** As routes get resolved
-(seen on BDSP), the map doesn't advance which areas glow as "up next" —
-the frontier highlight should progressively update: resolving an area (or
-clearing its unlockAfter milestone) promotes the next reachable areas to
-the highlighted state. Audit `isFrontier` + `route-region-frontier` (they
-exist but don't visibly progress) and make the progression obvious in the
-map + area list. Applies to every game.
-
-**28. Compact collapsed trainer cards.** The collapsed trainer card is too
-tall — condense toward the Boss Fights collapsed treatment: one row with
-sprite, name/class, and the team as a tight horizontal strip; full detail
-stays behind the expand. Route panels with 10+ trainers should scan fast.
-
-**29. Items always visible + pickup tracking.** Drop the collapsed
-<details> — show the item chips directly (cap + "show all" for dungeon
-piles), and make each item markable as picked up: engine event pair
-item_picked / item_reset keyed `areaId#itemIndex` (same shape as
-trainer_battled), checked/dimmed chip state, n/m picked in the header.
-
-**30. Drop the "Pokémon" prefix on the game picker.** Card titles read
-"Brilliant Diamond / Shining Pearl" etc. — the franchise is implied.
-Display-side strip only (dataset `name` stays canonical). Tiny PR.
+**Map scale-up demo AWAITING ALEX (PR #99, left open on purpose).** Routes
+section full-bleeds to min(94vw, 1500px) on desktop, the old 720px map cap
+lifted, maps fit by height (86vh, aspect-ratio-aware). Merge it, tune the
+numbers, or ask for the fullscreen-toggle variant instead. (The stronger
+frontier glow already merged in #98 as the fallback half of the ask.)
 
 **31. SV real-map swap (waiting on upload).** Alex has a Paldea map image
 (shared in the 2026-07-05 session — the region map with gym-leader pins)
@@ -108,6 +91,13 @@ bosses join the Boss Fights tab (they're optional content — maybe a
 `conditions.dlc` gate) before authoring. Also skipped: universal fog
 Chansey/Blissey adds (IoA) and daily strong-wanderer spawns (both DLCs) —
 re-add as encounters if a runner wants them.
+
+2026-07-05/06 feedback round (PRs #97-#98): **victory-road-swsh removed
+(#97, supersedes #77)** — 58 SwSh areas; **items 27-30 (#98)** —
+frontierAreas sliding-window selector (up-next highlighting advances on
+every resolve; glow strengthened with fill pulse + halo), compact one-row
+trainer cards, always-visible item chips with item_picked/item_reset
+pickup tracking, picker titles drop the Pokémon prefix.
 
 2026-07-05 challenge/UX round (PRs #89-#93): **level-up learnsets (#89)** —
 levelUpMovesByGame generated data, learn-level badges in the move picker,
