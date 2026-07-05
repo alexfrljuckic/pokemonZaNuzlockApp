@@ -27,6 +27,13 @@ export default defineConfig({
         start_url: '/',
         icons: [{ src: 'favicon.svg', sizes: 'any', type: 'image/svg+xml' }],
       },
+      workbox: {
+        // The generated species-data chunk crossed workbox's default 2 MiB
+        // precache cap when the SwSh DLC pushed it to 859 species. The app
+        // is local-first — species data must precache for offline — so
+        // raise the cap rather than dropping the asset.
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
+      },
     }),
   ],
 });

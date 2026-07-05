@@ -31,9 +31,10 @@ describe('SwSh dataset', () => {
     expect(dataset.gameId).toBe('swsh');
     expect(dataset.versions).toEqual(['sword', 'shield']);
     expect(dataset.areas.length).toBeGreaterThanOrEqual(20);
-    // 29 = base areas + route-8 + galar-mine-no-2 (BACKLOG 21); drops to 28
-    // when the victory-road-swsh artifact is removed (#77).
-    expect(dataset.areas.length).toBeLessThanOrEqual(30);
+    // 59 = 29 base-game areas + 16 Isle of Armor + 14 Crown Tundra DLC
+    // zones; drops by one when the victory-road-swsh artifact is removed
+    // (#77).
+    expect(dataset.areas.length).toBeLessThanOrEqual(60);
     expect(dataset.milestones.length).toBeGreaterThan(0);
   });
 

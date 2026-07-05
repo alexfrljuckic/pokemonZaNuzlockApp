@@ -20,12 +20,24 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up
 
-**Empty.** Items 0-22 are all shipped (see below and git log). What's left
+**23. SwSh DLC specials + boss milestones.** The DLC areas shipped with
+encounters only. Candidates deliberately excluded from wild tables and
+parked in the research files' `_meta` (scratchpad session notes + PR body):
+IoA — Kubfu/Urshifu (gift/story), tower battles vs Klara/Avery + Mustard
+(boss-style, would be milestones); CT — Galarian bird roamers, the Regis
+(incl. Regieleki/Regidrago split-decision), Calyrex + steed choice,
+Swords of Justice, Peony story fights. Needs a decision on whether DLC
+bosses join the Boss Fights tab (they're optional content — maybe a
+`conditions.dlc` gate) before authoring. Also skipped: universal fog
+Chansey/Blissey adds (IoA) and daily strong-wanderer spawns (both DLCs) —
+re-add as encounters if a runner wants them.
+
+Otherwise items 0-22 are all shipped (see below and git log). What's left
 lives in "Deferred / low priority" (deliberate skips), "Later phases"
 (needs a scoping conversation with Alex), and the in-flight PR #77. If any
-region's original-SVG backdrop (Paldea/Hisui/Lumiose) ever gets replaced
-with uploaded art, keep the node ids and recalibrate coordinates against
-the new image.
+region's original-SVG backdrop (Paldea/Hisui) ever gets replaced with
+uploaded art (as Lumiose was in #87), keep the node ids and recalibrate
+coordinates against the new image.
 
 ## Deferred / low priority (unchanged)
 
@@ -98,7 +110,15 @@ six games have interactive maps. Original-SVG backdrop pattern for regions
 without IP-safe art: hand-authored flat-color schematic in
 public/maps/<region>.svg (paldea/hisui/lumiose); Lumiose is deliberately
 schematic (zones ringed by number, hyperspace zones off-map on purpose);
-**Sinnoh nodes for the #73 areas (#85)** — the last 18-leftover crumb.
+**Sinnoh nodes for the #73 areas (#85)** — the last 18-leftover crumb;
+**Lumiose real map (#87)** — Alex's uploaded city map replaced the
+schematic SVG, 20 nodes recalibrated to actual badge positions via
+pixel-luminance search; **SwSh DLC (#88)** — Isle of Armor (16 zones/317
+slots) + Crown Tundra (14 zones/350 slots) with wild-area-convention
+encounter tables (weather + version splits verified against official
+exclusives lists), Galar map nodes on both insets, 859 species after
+regen, five PokeAPI default-variety slug fixes (frillish-male etc.) + a
+sprite-alias sweep for form-suffixed slugs.
 
 ## Standing rules for every PR
 

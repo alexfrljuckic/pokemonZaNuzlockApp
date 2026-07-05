@@ -11,6 +11,14 @@ describe('spriteUrl species alias', () => {
     expect(spriteFallbackUrl('darmanitan-galar-standard')).toContain('/darmanitangalar.png');
   });
 
+  it('remaps PokeAPI default-variety suffixes to bare Showdown keys', () => {
+    expect(spriteUrl('frillish-male')).toContain('/frillish.png');
+    expect(spriteUrl('morpeko-full-belly')).toContain('/morpeko.png');
+    expect(spriteUrl('mimikyu-disguised')).toContain('/mimikyu.png');
+    expect(spriteUrl('tauros-paldea-blaze-breed')).toContain('/tauros-paldeablaze.png');
+    expect(spriteUrl('indeedee-female')).toContain('/indeedee-f.png');
+  });
+
   it('passes unaliased slugs through unchanged', () => {
     expect(spriteUrl('stunfisk-galar')).toContain('/stunfisk-galar.png');
     expect(spriteUrl('pikachu', true)).toContain('gen5-shiny/pikachu.png');
