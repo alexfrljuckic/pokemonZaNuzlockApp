@@ -91,6 +91,7 @@ const stats = {};
 const types = {};
 const moves = {};
 const movesByVersionGroup = {}; // slug -> { versionGroup -> Set<move> }
+const levelUpByVersionGroup = {}; // slug -> { versionGroup -> Map<move, level> }
 const chainUrlBySpecies = {};
 const missing = [];
 await mapPool(slugs, async (slug) => {
@@ -105,9 +106,16 @@ await mapPool(slugs, async (slug) => {
   types[slug] = mon.types.sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
   moves[slug] = [...new Set(mon.moves.map((m) => m.move.name))].sort();
   const byVg = (movesByVersionGroup[slug] = {});
+  const luByVg = (levelUpByVersionGroup[slug] = {});
   for (const m of mon.moves) {
     for (const vgd of m.version_group_details) {
       (byVg[vgd.version_group.name] ??= new Set()).add(m.move.name);
+      if (vgd.move_learn_method?.name === 'level-up' && vgd.level_learned_at > 0) {
+        const lu = (luByVg[vgd.version_group.name] ??= new Map());
+        // keep the lowest learn level if a move repeats (reminder relearns)
+        const prev = lu.get(m.move.name);
+        if (prev == null || vgd.level_learned_at < prev) lu.set(m.move.name, vgd.level_learned_at);
+      }
     }
   }
   try {
@@ -139,6 +147,34 @@ for (const [gameId, vgs] of Object.entries(versionGroupsByGame)) {
   console.log(
     `${gameId}: per-game moves for ${Object.keys(perGame).length}/${speciesByGame[gameId].size} species (groups: ${vgs.join(', ')})`,
   );
+}
+
+// 2c. Per-game level-up learnsets with learn levels ([move, level] pairs
+// sorted by level). Powers the learn-level badges in the move picker, the
+// per-mon "level-up moves" section, and the computed "expected moves" for
+// trainer mons whose movesets aren't documented (games give unspecified
+// trainer mons their last four level-up moves). For a move present in more
+// than one of a game's version groups, the FIRST group in the game's list
+// (the base game) wins.
+const levelUpMovesByGame = {};
+for (const [gameId, vgs] of Object.entries(versionGroupsByGame)) {
+  if (vgs.length === 0) continue;
+  const perGame = {};
+  for (const slug of speciesByGame[gameId]) {
+    const luByVg = levelUpByVersionGroup[slug];
+    if (!luByVg) continue;
+    const merged = new Map();
+    for (const vg of vgs) {
+      for (const [mv, lvl] of luByVg[vg] ?? []) {
+        if (!merged.has(mv)) merged.set(mv, lvl);
+      }
+    }
+    if (merged.size > 0) {
+      perGame[slug] = [...merged.entries()].sort((a, b) => a[1] - b[1] || a[0].localeCompare(b[0]));
+    }
+  }
+  if (Object.keys(perGame).length > 0) levelUpMovesByGame[gameId] = perGame;
+  console.log(`${gameId}: level-up learnsets for ${Object.keys(perGame).length}/${speciesByGame[gameId].size} species`);
 }
 
 // 3. Evolution info: for each species, what it evolves into and how.
@@ -195,6 +231,9 @@ const out = {
   types: sortObj(types),
   moves: sortObj(moves),
   movesByGame: sortObj(Object.fromEntries(Object.entries(movesByGame).map(([g, m]) => [g, sortObj(m)]))),
+  levelUpMovesByGame: sortObj(
+    Object.fromEntries(Object.entries(levelUpMovesByGame).map(([g, m]) => [g, sortObj(m)])),
+  ),
   moveTypes: sortObj(moveTypes),
   evolutions: sortObj(evolutions),
   heldItems,

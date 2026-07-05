@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { machineType, movesFor, typesFor } from './speciesData';
+import { expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, typesFor } from './speciesData';
 
 // These run against the real generated species-data / machines-by-game
 // artifacts, locking the per-game → union fallback semantics the pickers
@@ -26,6 +26,34 @@ describe('movesFor', () => {
   it('returns [] for unknown species instead of throwing', () => {
     expect(movesFor('not-a-species', 'bdsp')).toEqual([]);
     expect(typesFor('not-a-species')).toEqual([]);
+  });
+});
+
+describe('level-up learnsets', () => {
+  it('returns per-game learnsets sorted by level', () => {
+    const set = levelUpMovesFor('starly', 'bdsp');
+    expect(set.length).toBeGreaterThan(3);
+    for (let i = 1; i < set.length; i++) expect(set[i].level).toBeGreaterThanOrEqual(set[i - 1].level);
+  });
+
+  it('learnLevel answers for level-up moves and null otherwise', () => {
+    const set = levelUpMovesFor('starly', 'bdsp');
+    const first = set[0];
+    expect(learnLevel(first.move, 'starly', 'bdsp')).toBe(first.level);
+    expect(learnLevel('thunderbolt', 'starly', 'bdsp')).toBeNull(); // not a starly level-up move
+    expect(learnLevel('tackle', 'starly')).toBeNull(); // no game, no answer
+  });
+
+  it('expectedMovesAt gives the last four level-up moves at a level', () => {
+    const expected = expectedMovesAt('starly', 15, 'bdsp');
+    expect(expected).not.toBeNull();
+    expect(expected!.length).toBeLessThanOrEqual(4);
+    for (const m of expected!) expect(learnLevel(m, 'starly', 'bdsp')!).toBeLessThanOrEqual(15);
+  });
+
+  it('returns unknown (null / empty) for Z-A, which has no PokeAPI move data', () => {
+    expect(levelUpMovesFor('pikachu', 'plza')).toEqual([]);
+    expect(expectedMovesAt('pikachu', 20, 'plza')).toBeNull();
   });
 });
 

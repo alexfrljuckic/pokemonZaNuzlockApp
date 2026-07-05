@@ -6,6 +6,11 @@ import { createPortal } from 'react-dom';
  * clipped or painted behind following sections (native <datalist> and plain
  * absolute lists both broke here). Free text is always allowed — options are
  * suggestions, not a constraint. */
+export interface ComboboxBadge {
+  text: string; // shown in the pill, e.g. "TM" or "Lv 12"
+  kind: string; // styling key -> .badge-<kind>
+}
+
 export function Combobox({
   value,
   onChange,
@@ -19,7 +24,7 @@ export function Combobox({
   options: string[];
   placeholder?: string;
   max?: number;
-  badge?: (option: string) => string | null;
+  badge?: (option: string) => ComboboxBadge | null;
 }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -109,7 +114,10 @@ export function Combobox({
                 onMouseEnter={() => setActive(i)}
               >
                 <span>{o}</span>
-                {badge?.(o) && <span className={`combobox-badge badge-${badge(o)}`}>{badge(o)}</span>}
+                {(() => {
+                  const b = badge?.(o);
+                  return b ? <span className={`combobox-badge badge-${b.kind}`}>{b.text}</span> : null;
+                })()}
               </li>
             ))}
           </ul>,
