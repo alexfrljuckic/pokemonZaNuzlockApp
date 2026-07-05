@@ -8,6 +8,7 @@ import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes
 import { AreaList } from '../../components/routes/AreaList';
 import { CaughtHere } from '../../components/routes/CaughtHere';
 import { EncounterForm, type Outcome } from '../../components/routes/EncounterForm';
+import { ItemsHere } from '../../components/routes/ItemsHere';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
 import { TrainersHere } from '../../components/routes/TrainersHere';
 
@@ -133,6 +134,7 @@ export function RoutesTab({
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
           <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
+          <ItemsHere area={selected} version={state.version} />
         </div>
       )}
 

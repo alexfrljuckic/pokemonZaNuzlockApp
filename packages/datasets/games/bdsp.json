@@ -97,6 +97,11 @@
           ],
           "rate": 35
         }
+      ],
+      "items": [
+        {
+          "name": "TM38 (Fire Blast)"
+        }
       ]
     },
     {
@@ -287,6 +292,11 @@
               "level": 5
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion"
         }
       ]
     },
@@ -543,6 +553,14 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Repel"
+        }
       ]
     },
     {
@@ -681,6 +699,26 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM98 (Rock Smash)"
+        },
+        {
+          "name": "Stardust"
+        },
+        {
+          "name": "TM70 (Flash)"
+        },
+        {
+          "name": "TM31 (Brick Break)"
+        },
+        {
+          "name": "Earth Plate"
+        },
+        {
+          "name": "TM01 (Focus Punch)"
+        }
       ]
     },
     {
@@ -737,6 +775,17 @@
               "level": 9
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "X Defense"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Potion"
         }
       ]
     },
@@ -960,6 +1009,17 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Sea Incense"
+        }
       ]
     },
     {
@@ -1053,6 +1113,20 @@
             "super-rod"
           ],
           "rate": 35
+        }
+      ],
+      "items": [
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "TM39 (Rock Tomb)"
+        },
+        {
+          "name": "Luck Incense"
+        },
+        {
+          "name": "TM03 (Water Pulse)"
         }
       ]
     },
@@ -1387,6 +1461,36 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Honey"
+        },
+        {
+          "name": "Insect Plate",
+          "hidden": true
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Silver Powder"
+        },
+        {
+          "name": "TM82 (Sleep Talk)"
+        }
       ]
     },
     {
@@ -1415,6 +1519,21 @@
               "night"
             ]
           }
+        }
+      ],
+      "items": [
+        {
+          "name": "Old Gateau"
+        },
+        {
+          "name": "Antidote",
+          "hidden": true
+        },
+        {
+          "name": "TM90 (Substitute)"
+        },
+        {
+          "name": "Dread Plate"
         }
       ]
     },
@@ -1523,6 +1642,58 @@
               "level": 11
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Miracle Seed"
+        },
+        {
+          "name": "Leaf Stone"
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "Max Potion",
+          "hidden": true
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        },
+        {
+          "name": "Super Potion",
+          "hidden": true
+        },
+        {
+          "name": "Potion",
+          "hidden": true
+        },
+        {
+          "name": "Antidote",
+          "hidden": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "hidden": true
         }
       ]
     },
@@ -1767,6 +1938,18 @@
               "level": 16
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Max Elixir",
+          "hidden": true
+        },
+        {
+          "name": "TM24 (Thunderbolt)"
         }
       ]
     },
@@ -2097,6 +2280,24 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "X Attack"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Antidote",
+          "hidden": true
+        },
+        {
+          "name": "Repel"
+        },
+        {
+          "name": "Super Potion"
+        }
       ]
     },
     {
@@ -2107,7 +2308,26 @@
         "city",
         "gym-2"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "TM46 (Thief)"
+        },
+        {
+          "name": "Draco Plate",
+          "hidden": true
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "TM93 (Cut)"
+        }
+      ]
     },
     {
       "id": "route-206",
@@ -2413,6 +2633,29 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Elixir",
+          "hidden": true
+        },
+        {
+          "name": "Burn Heal",
+          "hidden": true
+        },
+        {
+          "name": "Potion",
+          "hidden": true
+        },
+        {
+          "name": "Poison Barb"
+        }
       ]
     },
     {
@@ -2588,6 +2831,61 @@
               "level": 17
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion",
+          "hidden": true
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Burn Heal",
+          "hidden": true
+        },
+        {
+          "name": "Potion",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Super Potion",
+          "hidden": true
+        },
+        {
+          "name": "TM32 (Double Team)"
+        },
+        {
+          "name": "TM26 (Earthquake)"
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Grip Claw"
         }
       ]
     },
@@ -2867,6 +3165,32 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Poké Ball",
+          "hidden": true
+        },
+        {
+          "name": "Dire Hit"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        }
       ]
     },
     {
@@ -2876,7 +3200,13 @@
       "tags": [
         "town"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "Honey",
+          "hidden": true
+        }
+      ]
     },
     {
       "id": "solaceon-ruins",
@@ -2893,6 +3223,32 @@
             "walk"
           ],
           "rate": 100
+        }
+      ],
+      "items": [
+        {
+          "name": "Repel",
+          "hidden": true
+        },
+        {
+          "name": "Escape Rope",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Mind Plate"
+        },
+        {
+          "name": "Odd Incense"
+        },
+        {
+          "name": "Rare Candy"
         }
       ]
     },
@@ -3090,6 +3446,15 @@
               "level": 37
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "HP Up",
+          "hidden": true
+        },
+        {
+          "name": "TM25 (Thunder)"
         }
       ]
     },
@@ -3453,6 +3818,72 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        },
+        {
+          "name": "Suite Key",
+          "hidden": true
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Red Shard"
+        },
+        {
+          "name": "Great Ball",
+          "hidden": true
+        },
+        {
+          "name": "Super Potion",
+          "hidden": true
+        },
+        {
+          "name": "Calcium",
+          "hidden": true
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "TM40 (Aerial Ace)"
+        },
+        {
+          "name": "Awakening",
+          "hidden": true
+        },
+        {
+          "name": "TM05 (Roar)"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Water Stone"
+        },
+        {
+          "name": "Big Pearl",
+          "hidden": true
+        },
+        {
+          "name": "TM92 (Trick Room)"
+        }
       ]
     },
     {
@@ -3668,6 +4099,59 @@
             "super-rod"
           ],
           "rate": 5
+        }
+      ],
+      "items": [
+        {
+          "name": "TM97 (Defog)"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Toxic Plate",
+          "hidden": true
+        },
+        {
+          "name": "Honey"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
         }
       ]
     },
@@ -4088,6 +4572,32 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Big Root"
+        },
+        {
+          "name": "Heart Scale",
+          "hidden": true
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "X Sp. Def"
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy"
+        }
       ]
     },
     {
@@ -4419,6 +4929,28 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Fist Plate"
+        },
+        {
+          "name": "Guard Spec."
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        },
+        {
+          "name": "Zinc",
+          "hidden": true
+        },
+        {
+          "name": "TM66 (Payback)"
+        }
       ]
     },
     {
@@ -4429,7 +4961,19 @@
         "city",
         "gym-6"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM48 (Skill Swap)"
+        },
+        {
+          "name": "TM89 (U-turn)"
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
+        }
+      ]
     },
     {
       "id": "iron-island",
@@ -4756,6 +5300,59 @@
               "level": 33
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Iron Ball"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "TM23 (Iron Tail)"
+        },
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Magnet"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Iron Plate"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Iron",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
         }
       ]
     },
@@ -5114,6 +5711,196 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Dawn Stone"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Max Ether",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "TM80 (Rock Slide)"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Super Repel",
+          "hidden": true
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Max Potion",
+          "hidden": true
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Escape Rope",
+          "hidden": true
+        },
+        {
+          "name": "Stone Plate",
+          "hidden": true
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Max Potion",
+          "hidden": true
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Elixir",
+          "hidden": true
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "TM69 (Rock Polish)"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "TM02 (Dragon Claw)"
+        },
+        {
+          "name": "Stardust"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Soft Sand"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Light Clay"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "HP Up",
+          "hidden": true
+        }
       ]
     },
     {
@@ -5438,6 +6225,28 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "X Speed"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Iron",
+          "hidden": true
+        },
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "Odd Keystone"
+        }
       ]
     },
     {
@@ -5681,6 +6490,24 @@
               "level": 38
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Ice Heal"
+        },
+        {
+          "name": "Mental Herb"
+        },
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "TM13 (Ice Beam)"
         }
       ]
     },
@@ -5938,6 +6765,55 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Calcium",
+          "hidden": true
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Protein",
+          "hidden": true
+        },
+        {
+          "name": "TM07 (Hail)"
+        },
+        {
+          "name": "Max Repel",
+          "hidden": true
+        },
+        {
+          "name": "TM100 (Rock Climb)"
+        },
+        {
+          "name": "Icicle Plate"
+        },
+        {
+          "name": "Spell Tag"
+        }
       ]
     },
     {
@@ -6139,6 +7015,14 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Honey"
+        }
       ]
     },
     {
@@ -6149,7 +7033,13 @@
         "city",
         "gym-7"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        }
+      ]
     },
     {
       "id": "lake-acuity",
@@ -6298,6 +7188,11 @@
           ],
           "rate": 35
         }
+      ],
+      "items": [
+        {
+          "name": "TM14 (Blizzard)"
+        }
       ]
     },
     {
@@ -6343,6 +7238,18 @@
             "walk"
           ],
           "rate": 5
+        }
+      ],
+      "items": [
+        {
+          "name": "Calcium"
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
+        },
+        {
+          "name": "Never-Melt Ice"
         }
       ]
     },
@@ -6739,6 +7646,30 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        },
+        {
+          "name": "TM56 (Fling)"
+        },
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        }
       ]
     },
     {
@@ -7028,6 +7959,98 @@
               "level": 49
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM41 (Torment)"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Max Elixir",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Razor Claw"
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
+        },
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "TM71 (Stone Edge)"
+        },
+        {
+          "name": "TM79 (Dark Pulse)"
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "TM59 (Dragon Pulse)"
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Dusk Stone"
+        },
+        {
+          "name": "Elixir"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Big Pearl"
+        },
+        {
+          "name": "Leftovers"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
         }
       ]
     },
@@ -7464,6 +8487,45 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "HP Up"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Lax Incense"
+        },
+        {
+          "name": "Dubious Disc"
+        },
+        {
+          "name": "Max Repel",
+          "hidden": true
+        },
+        {
+          "name": "Dawn Stone"
+        }
       ]
     },
     {
@@ -7758,6 +8820,47 @@
               "level": 55
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Protector"
+        },
+        {
+          "name": "Shed Shell"
+        },
+        {
+          "name": "Iron"
+        },
+        {
+          "name": "Ultra Ball",
+          "hidden": true
+        },
+        {
+          "name": "TM37 (Sandstorm)"
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "Calcium",
+          "hidden": true
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
         }
       ]
     },
@@ -8128,6 +9231,78 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Life Orb"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Burn Heal"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Max Elixir",
+          "hidden": true
+        },
+        {
+          "name": "Hyper Potion",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Flame Plate",
+          "hidden": true
+        },
+        {
+          "name": "TM50 (Overheat)"
+        },
+        {
+          "name": "Calcium"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "Iron Ball"
+        },
+        {
+          "name": "Zinc",
+          "hidden": true
+        },
+        {
+          "name": "Iron",
+          "hidden": true
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Nugget"
+        }
       ]
     },
     {
@@ -8369,6 +9544,19 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Carbos",
+          "hidden": true
+        },
+        {
+          "name": "HP Up",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy"
+        }
       ]
     },
     {
@@ -8379,7 +9567,16 @@
         "city",
         "gym-5"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Shell Bell"
+        }
+      ]
     },
     {
       "id": "amity-square",
@@ -8389,7 +9586,21 @@
         "landmark",
         "walking-pokemon"
       ],
-      "encounters": []
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM43 (Volt Switch)"
+        },
+        {
+          "name": "TM45 (Attract)"
+        },
+        {
+          "name": "Spooky Plate"
+        },
+        {
+          "name": "Amulet Coin"
+        }
+      ]
     },
     {
       "id": "lost-tower",
@@ -8572,6 +9783,31 @@
               "level": 19
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Oval Stone"
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "TM27 (Low Sweep)"
+        },
+        {
+          "name": "Great Ball",
+          "hidden": true
+        },
+        {
+          "name": "Cleanse Tag"
+        },
+        {
+          "name": "TM96 (Strength)"
         }
       ]
     },
@@ -8824,6 +10060,22 @@
             "super-rod"
           ],
           "rate": 5
+        }
+      ],
+      "items": [
+        {
+          "name": "TM99 (Waterfall)"
+        },
+        {
+          "name": "Thunder Stone"
+        },
+        {
+          "name": "Zap Plate",
+          "hidden": true
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
         }
       ]
     },

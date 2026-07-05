@@ -2,6 +2,7 @@ import { filterEncounterPool, isFrontier, type Area, type EngineContext, type Ru
 import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
 import { EncounterForm, type Outcome } from './EncounterForm';
+import { ItemsHere } from './ItemsHere';
 import { SpecialsHere } from './SpecialsHere';
 import { TrainersHere } from './TrainersHere';
 
@@ -69,6 +70,7 @@ export function AreaList({
               <>
                 <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
                 <TrainersHere area={area} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
+                <ItemsHere area={area} version={state.version} />
               </>
             )}
           </div>

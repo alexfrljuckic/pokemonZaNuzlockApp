@@ -85,6 +85,15 @@
           ],
           "rate": 5
         }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Paralyze Heal",
+          "quantity": 2
+        }
       ]
     },
     {
@@ -245,6 +254,54 @@
               "level": 7
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion",
+          "quantity": 2
+        },
+        {
+          "name": "Poké Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Repel",
+          "hidden": true
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Fresh Water",
+          "hidden": true
+        },
+        {
+          "name": "TM57 (Payback)"
+        },
+        {
+          "name": "Choice Band"
+        },
+        {
+          "name": "PP Max"
+        },
+        {
+          "name": "Prism Scale",
+          "hidden": true
+        },
+        {
+          "name": "Max Ether",
+          "hidden": true
+        },
+        {
+          "name": "TM69 (Psycho Cut)"
+        },
+        {
+          "name": "Psychic Seed"
+        },
+        {
+          "name": "Water Stone",
+          "hidden": true
         }
       ]
     },
@@ -445,6 +502,38 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Heal Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Burn Heal",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "TM37 (Beat Up)"
+        },
+        {
+          "name": "X Defense",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "TM54 (Rock Blast)"
+        }
       ]
     },
     {
@@ -584,6 +673,50 @@
               "level": 15
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Star Piece",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Great Ball",
+          "quantity": 3
+        },
+        {
+          "name": "TM26 (Scary Face)"
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Hard Stone",
+          "hidden": true
+        },
+        {
+          "name": "Heavy-Duty Boots"
+        },
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Super Potion",
+          "quantity": 2
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
         }
       ]
     },
@@ -794,6 +927,59 @@
               "level": 14
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Energy Powder",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "Paralyze Heal",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Cleanse Tag"
+        },
+        {
+          "name": "Nest Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Sharp Beak"
+        },
+        {
+          "name": "Repel",
+          "hidden": true
+        },
+        {
+          "name": "X Accuracy",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Energy Root",
+          "hidden": true
+        },
+        {
+          "name": "Silver Powder"
+        },
+        {
+          "name": "Revival Herb",
+          "hidden": true
+        },
+        {
+          "name": "TM07 (Pin Missile)"
         }
       ]
     },
@@ -1055,6 +1241,34 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Shed Shell",
+          "hidden": true
+        },
+        {
+          "name": "Heal Ball",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "TM31 (Attract)",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Absorb Bulb",
+          "hidden": true
+        },
+        {
+          "name": "X Sp. Atk",
+          "quantity": 3
+        }
       ]
     },
     {
@@ -1225,6 +1439,29 @@
               "level": 23
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Dusk Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Grip Claw"
+        },
+        {
+          "name": "Star Piece",
+          "hidden": true
+        },
+        {
+          "name": "Soft Sand",
+          "hidden": true
+        },
+        {
+          "name": "TM49 (Sand Tomb)"
+        },
+        {
+          "name": "TM53 (Mud Shot)"
         }
       ]
     },
@@ -1484,6 +1721,50 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Ultra Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Fossilized Dino",
+          "hidden": true,
+          "quantity": 2,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Fossilized Fish",
+          "hidden": true,
+          "quantity": 2,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "TM15 (Dig)"
+        },
+        {
+          "name": "Light Clay"
+        },
+        {
+          "name": "Rare Bone",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "TM30 (Steel Wing)"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        }
       ]
     },
     {
@@ -1649,6 +1930,30 @@
               "level": 44
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Balm Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Quick Ball",
+          "quantity": 3
+        },
+        {
+          "name": "TM58 (Assurance)"
+        },
+        {
+          "name": "Safety Goggles"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
         }
       ]
     },
@@ -2018,6 +2323,60 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "X Defense",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "TM96 (Smart Strike)"
+        },
+        {
+          "name": "Hyper Potion",
+          "quantity": 3
+        },
+        {
+          "name": "Elixir",
+          "hidden": true
+        },
+        {
+          "name": "Luxury Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Pixie Plate",
+          "hidden": true
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Big Nugget",
+          "hidden": true
+        },
+        {
+          "name": "King's Rock"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "TM43 (Brick Break)"
+        },
+        {
+          "name": "Terrain Extender"
+        },
+        {
+          "name": "Star Piece",
+          "hidden": true,
+          "quantity": 2
+        }
       ]
     },
     {
@@ -2242,6 +2601,33 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Bright Powder"
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Big Root"
+        },
+        {
+          "name": "TM24 (Snore)"
+        },
+        {
+          "name": "Hyper Potion",
+          "quantity": 2
+        },
+        {
+          "name": "Luminous Moss",
+          "hidden": true
+        },
+        {
+          "name": "TM56 (U-turn)"
+        }
       ]
     },
     {
@@ -2408,6 +2794,27 @@
               "level": 41
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM64 (Avalanche)"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Scope Lens"
+        },
+        {
+          "name": "Dire Hit",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "Guard Spec.",
+          "hidden": true,
+          "quantity": 3
         }
       ]
     },
@@ -2654,6 +3061,69 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Zoom Lens"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Pearl",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Big Pearl",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "Black Belt",
+          "hidden": true
+        },
+        {
+          "name": "Dive Ball",
+          "quantity": 3
+        },
+        {
+          "name": "TM45 (Dive)"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Never-Melt Ice",
+          "hidden": true
+        },
+        {
+          "name": "Ice Stone",
+          "hidden": true
+        },
+        {
+          "name": "Pearl String",
+          "hidden": true
+        },
+        {
+          "name": "Protector"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Normal Gem",
+          "hidden": true
+        },
+        {
+          "name": "TM22 (Rock Slide)"
+        },
+        {
+          "name": "Max Elixir",
+          "hidden": true
+        }
       ]
     },
     {
@@ -2899,6 +3369,30 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "X Attack",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Comet Shard",
+          "hidden": true
+        },
+        {
+          "name": "Power Herb"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "TM98 (Stomping Tantrum)"
+        }
       ]
     },
     {
@@ -3094,6 +3588,11 @@
             "max-raid"
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM84 (Tail Slap)"
+        }
       ]
     },
     {
@@ -3281,6 +3780,14 @@
           ],
           "rate": 5
         }
+      ],
+      "items": [
+        {
+          "name": "Fire Stone"
+        },
+        {
+          "name": "TM39 (Facade)"
+        }
       ]
     },
     {
@@ -3422,6 +3929,14 @@
           "methods": [
             "max-raid"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Water Stone"
+        },
+        {
+          "name": "TM75 (Low Sweep)"
         }
       ]
     },
@@ -3612,6 +4127,17 @@
           "methods": [
             "max-raid"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Sun Stone"
+        },
+        {
+          "name": "Moon Stone"
+        },
+        {
+          "name": "TM73 (Cross Poison)"
         }
       ]
     },
@@ -4896,6 +5422,11 @@
             ]
           }
         }
+      ],
+      "items": [
+        {
+          "name": "Dawn Stone"
+        }
       ]
     },
     {
@@ -5151,6 +5682,17 @@
             "max-raid"
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM65 (Shadow Claw)"
+        },
+        {
+          "name": "Focus Sash"
+        },
+        {
+          "name": "Assault Vest"
+        }
       ]
     },
     {
@@ -5201,6 +5743,42 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Shell Bell"
+        },
+        {
+          "name": "Magnet"
+        },
+        {
+          "name": "X Sp. Def",
+          "hidden": true
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true
+        },
+        {
+          "name": "X Speed",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Net Ball",
+          "quantity": 5
+        },
+        {
+          "name": "Super Potion",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "TM82 (Electroweb)"
+        },
+        {
+          "name": "TM79 (Retaliate)"
+        }
       ]
     },
     {
@@ -5246,6 +5824,61 @@
               "level": 9
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Super Potion",
+          "hidden": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Great Ball",
+          "quantity": 3
+        },
+        {
+          "name": "Black Glasses"
+        },
+        {
+          "name": "Revival Herb",
+          "hidden": true
+        },
+        {
+          "name": "TM02 (Pay Day)"
+        },
+        {
+          "name": "TR13 (Focus Energy)"
+        },
+        {
+          "name": "Fresh Water"
+        },
+        {
+          "name": "Repel",
+          "hidden": true
+        },
+        {
+          "name": "Burn Heal",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "Silk Scarf"
+        },
+        {
+          "name": "Poké Doll",
+          "hidden": true
+        },
+        {
+          "name": "X Accuracy",
+          "hidden": true
         }
       ]
     },
@@ -5369,6 +6002,41 @@
             ]
           }
         }
+      ],
+      "items": [
+        {
+          "name": "Dusk Stone"
+        },
+        {
+          "name": "Rare Bone",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "Rocky Helmet"
+        },
+        {
+          "name": "Metal Coat",
+          "hidden": true
+        },
+        {
+          "name": "TM74 (Venoshock)"
+        },
+        {
+          "name": "X Sp. Atk",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Cracked Pot"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "TM06 (Fly)"
+        }
       ]
     },
     {
@@ -5433,6 +6101,39 @@
               "level": 35
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Big Mushroom",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "TM21 (Rest)"
+        },
+        {
+          "name": "Balm Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "TM78 (Acrobatics)"
+        },
+        {
+          "name": "TM77 (Hex)",
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "TM42 (Revenge)",
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
         }
       ]
     },
@@ -5566,6 +6267,55 @@
             ]
           }
         }
+      ],
+      "items": [
+        {
+          "name": "Snowball",
+          "hidden": true
+        },
+        {
+          "name": "Poké Doll",
+          "hidden": true
+        },
+        {
+          "name": "Lemonade",
+          "hidden": true
+        },
+        {
+          "name": "TM51 (Icicle Spear)"
+        },
+        {
+          "name": "X Sp. Atk",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Full Heal",
+          "hidden": true,
+          "quantity": 3
+        },
+        {
+          "name": "TM27 (Icy Wind)",
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "TM48 (Rock Tomb)",
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "TM47 (Fake Tears)"
+        },
+        {
+          "name": "TM16 (Screech)"
+        }
       ]
     },
     {
@@ -5668,6 +6418,14 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Choice Specs"
+        }
       ]
     },
     {
@@ -5733,6 +6491,45 @@
               "level": 45
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Super Repel",
+          "hidden": true
+        },
+        {
+          "name": "Hyper Potion",
+          "quantity": 2
+        },
+        {
+          "name": "X Attack",
+          "hidden": true,
+          "quantity": 2
+        },
+        {
+          "name": "Muscle Band"
+        },
+        {
+          "name": "Nugget",
+          "hidden": true
+        },
+        {
+          "name": "Dire Hit",
+          "hidden": true
+        },
+        {
+          "name": "Strawberry Sweet"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Wise Glasses"
+        },
+        {
+          "name": "TM29 (Charm)"
         }
       ]
     },

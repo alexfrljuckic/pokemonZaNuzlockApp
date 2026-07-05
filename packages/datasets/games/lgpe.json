@@ -123,6 +123,17 @@
             ]
           }
         }
+      ],
+      "items": [
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Leaf Stone"
+        },
+        {
+          "name": "Super Potion"
+        }
       ]
     },
     {
@@ -250,6 +261,21 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Lure"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        }
       ]
     },
     {
@@ -341,6 +367,30 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Repel"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "PP Max"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        }
       ]
     },
     {
@@ -414,6 +464,21 @@
           "methods": [
             "overworld"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Nanab Berry"
+        },
+        {
+          "name": "Razz Berry",
+          "hidden": true
         }
       ]
     },
@@ -558,6 +623,21 @@
               "level": 15
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Guard Spec."
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
         }
       ]
     },
@@ -727,6 +807,30 @@
               "level": 3
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Antidote"
+        },
+        {
+          "name": "Razz Berry"
+        },
+        {
+          "name": "Tiny Mushroom"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Potion",
+          "hidden": true
+        },
+        {
+          "name": "Lure"
         }
       ]
     },
@@ -901,6 +1005,60 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Awakening"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Repel"
+        },
+        {
+          "name": "Pearl"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Moon Stone",
+          "hidden": true
+        },
+        {
+          "name": "Moon Stone",
+          "hidden": true
+        }
       ]
     },
     {
@@ -1030,6 +1188,11 @@
               "level": 30
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Elixir"
         }
       ]
     },
@@ -1237,6 +1400,21 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Fire Stone"
+        },
+        {
+          "name": "X Speed"
+        },
+        {
+          "name": "Big Mushroom"
+        },
+        {
+          "name": "Silver Pinap Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -1406,6 +1584,24 @@
               "level": 22
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Pinap Berry",
+          "hidden": true
         }
       ]
     },
@@ -1583,6 +1779,28 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Thunder Stone"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Super Lure",
+          "hidden": true
+        },
+        {
+          "name": "Nanab Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -1744,6 +1962,22 @@
               "level": 11
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Razz Berry"
+        },
+        {
+          "name": "X Sp. Def"
+        },
+        {
+          "name": "Pecha Berry",
+          "hidden": true
+        },
+        {
+          "name": "Pinap Berry",
+          "hidden": true
         }
       ]
     },
@@ -1948,6 +2182,25 @@
               "level": 16
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "TM16 (Thunder Wave)"
+        },
+        {
+          "name": "Lure"
+        },
+        {
+          "name": "Ether",
+          "hidden": true
+        },
+        {
+          "name": "Nanab Berry",
+          "hidden": true
         }
       ]
     },
@@ -2207,6 +2460,45 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Repel"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Stardust"
+        },
+        {
+          "name": "Pearl"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Revive"
+        },
+        {
+          "name": "Dire Hit"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Stardust"
+        }
       ]
     },
     {
@@ -2332,6 +2624,40 @@
               "level": 45
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Thunder Stone"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "X Sp. Def"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "TM38 (Thunder)"
+        },
+        {
+          "name": "Paralyze Heal"
+        },
+        {
+          "name": "Voltorb Candy",
+          "hidden": true
+        },
+        {
+          "name": "Pretty Wing",
+          "hidden": true
         }
       ]
     },
@@ -2488,6 +2814,27 @@
               "level": 16
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "X Defend"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Lure"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
         }
       ]
     },
@@ -2698,6 +3045,33 @@
               "level": 39
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM24 (X-Scissor)"
+        },
+        {
+          "name": "Repel"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Water Stone"
+        },
+        {
+          "name": "Awakening"
+        },
+        {
+          "name": "Max Lure"
+        },
+        {
+          "name": "Lure"
+        },
+        {
+          "name": "Silver Pinap Berry",
+          "hidden": true
         }
       ]
     },
@@ -2958,6 +3332,23 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "PP Up",
+          "hidden": true
+        },
+        {
+          "name": "Golden Pinap Berry",
+          "hidden": true
+        },
+        {
+          "name": "Silver Nanab Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -3196,6 +3587,18 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Golden Razz Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -3390,6 +3793,21 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM47 (Surf)"
+        },
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Golden Nanab Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -3503,6 +3921,21 @@
               "level": 35
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Awakening",
+          "hidden": true
         }
       ]
     },
@@ -3718,6 +4151,44 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Elixir"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Razz Berry",
+          "hidden": true
+        },
+        {
+          "name": "Nanab Berry"
+        },
+        {
+          "name": "Pinap Berry"
+        },
+        {
+          "name": "Silver Razz Berry",
+          "hidden": true
+        },
+        {
+          "name": "Silver Nanab Berry"
+        },
+        {
+          "name": "Silver Pinap Berry",
+          "hidden": true
+        }
       ]
     },
     {
@@ -3813,6 +4284,15 @@
               "level": 39
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Elixir"
+        },
+        {
+          "name": "Silver Razz Berry",
+          "hidden": true
         }
       ]
     },
@@ -3922,6 +4402,70 @@
               "level": 46
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Ice Heal"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Super Lure"
+        },
+        {
+          "name": "TM55 (Ice Beam)"
+        },
+        {
+          "name": "Ice Stone"
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Super Lure"
+        },
+        {
+          "name": "X Speed"
+        },
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Big Pearl"
+        },
+        {
+          "name": "Heart Scale",
+          "hidden": true
+        },
+        {
+          "name": "Heart Scale",
+          "hidden": true
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "Pretty Wing",
+          "hidden": true
         }
       ]
     },
@@ -4129,6 +4673,68 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Silver Razz Berry"
+        },
+        {
+          "name": "Fire Stone"
+        },
+        {
+          "name": "Max Repel"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Max Lure"
+        },
+        {
+          "name": "Max Ether"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "TM21 (Foul Play)"
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "X Accuracy"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "TM52 (Sludge Bomb)"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Secret Key"
+        }
       ]
     },
     {
@@ -4263,6 +4869,19 @@
               "level": 41
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
         }
       ]
     },
@@ -4456,6 +5075,33 @@
               "level": 46
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Heart Scale"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Max Repel"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
         }
       ]
     },
@@ -4751,6 +5397,25 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Water Stone"
+        },
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Stardust",
+          "hidden": true
+        }
       ]
     },
     {
@@ -4785,6 +5450,15 @@
           "methods": [
             "overworld"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Poké Ball"
+        },
+        {
+          "name": "Antidote",
+          "hidden": true
         }
       ]
     },
@@ -4880,6 +5554,34 @@
           "methods": [
             "overworld"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Golden Razz Berry"
+        },
+        {
+          "name": "Golden Razz Berry"
+        },
+        {
+          "name": "Golden Pinap Berry"
+        },
+        {
+          "name": "Golden Pinap Berry"
+        },
+        {
+          "name": "Golden Nanab Berry"
+        },
+        {
+          "name": "Golden Nanab Berry"
+        },
+        {
+          "name": "Max Ether",
+          "hidden": true
+        },
+        {
+          "name": "Max Elixir",
+          "hidden": true
         }
       ]
     },
@@ -5175,6 +5877,60 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "Leaf Stone"
+        },
+        {
+          "name": "TM56 (Stealth Rock)"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Tough Candy",
+          "hidden": true
+        },
+        {
+          "name": "TM45 (Solar Beam)"
+        },
+        {
+          "name": "TM49 (Superpower)"
+        },
+        {
+          "name": "PP Max"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Pretty Wing",
+          "hidden": true
+        },
+        {
+          "name": "TM51 (Blizzard)"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Max Potion"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Golden Nanab Berry"
+        },
+        {
+          "name": "Fresh Water",
+          "hidden": true
+        },
+        {
+          "name": "Mighty Candy",
+          "hidden": true
+        }
       ]
     },
     {
@@ -5257,6 +6013,60 @@
           "methods": [
             "overworld"
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "PP Max"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Full Heal"
+        },
+        {
+          "name": "Max Repel"
+        },
+        {
+          "name": "Full Restore",
+          "hidden": true
+        },
+        {
+          "name": "Rare Candy",
+          "hidden": true
+        },
+        {
+          "name": "Max Lure"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Max Revive"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Escape Rope"
+        },
+        {
+          "name": "Full Restore"
+        },
+        {
+          "name": "Max Elixir"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "PP Max",
+          "hidden": true
         }
       ]
     }
