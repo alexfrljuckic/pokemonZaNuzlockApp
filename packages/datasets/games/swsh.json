@@ -612,25 +612,6 @@
       "encounters": []
     },
     {
-      "id": "victory-road-swsh",
-      "name": "Victory Road",
-      "unlockAfter": "gym-8-raihan",
-      "tags": ["cave", "post-gym"],
-      "encounters": [
-        { "species": "golbat", "methods": ["walk"], "rate": 20 },
-        { "species": "boldore", "methods": ["walk"], "rate": 15 },
-        { "species": "conkeldurr", "methods": ["walk"], "rate": 10 },
-        { "species": "beartic", "methods": ["walk"], "rate": 10 },
-        { "species": "gigalith", "methods": ["walk"], "rate": 10 },
-        { "species": "aggron", "methods": ["walk"], "rate": 10 },
-        { "species": "noivern", "methods": ["walk"], "rate": 10 },
-        { "species": "druddigon", "methods": ["walk"], "rate": 10 },
-        { "species": "haxorus", "methods": ["walk"], "rate": 5 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 70 },
-        { "species": "basculin-red-striped", "methods": ["fish"], "rate": 30 }
-      ]
-    },
-    {
       "id": "postgame-route-10-hero-path",
       "name": "Hammerlocke Hills",
       "unlockAfter": "champion-leon",

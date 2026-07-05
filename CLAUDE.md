@@ -70,7 +70,7 @@ evening). `docs/BACKLOG.md` is the single work tracker — it opens with an
   starter-conditional milestone rosters (`rosterByStarter`), version-locked
   specials (`SpecialEncounter.conditions.version`). 33 tests.
 - **Datasets** (5 games): Z-A (25 areas, 35 milestones), BDSP (47/16 incl.
-  per-starter Barry rosters), LGPE (22/13), SwSh (27/12, conditions.weather +
+  per-starter Barry rosters), LGPE (22/13), SwSh (26/12, conditions.weather +
   max-raid), **PLA (7 zones, 8 milestones — Nobles + Volo/Giratina)**. Each
   declares `pokeapiVersionGroups` for per-game movepools (PR #47); Z-A has
   none in PokeAPI and falls back to the union pool. Generated:

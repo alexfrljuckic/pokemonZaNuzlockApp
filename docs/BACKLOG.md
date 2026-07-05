@@ -43,6 +43,14 @@ attach their ~25 already-researched trainers — the trainer lists (incl.
 BDSP-confirmed Austin-Chimchar on 207) are in PR #70's session notes, or
 re-fetch from serebii.net/pokearth/sinnoh route pages. One small dataset PR.
 
+**21. SwSh Slumbering Weald area.** The invented `victory-road-swsh` area was
+removed (Galar has no Victory Road; its cave table mixed DLC-only species —
+Golbat/Aggron/Druddigon are Expansion Pass exclusives per Serebii). The real
+base-game location the dataset is still missing is **Slumbering Weald**
+(outer low-level section + high-level inner section past the fog). Add it
+with a sourced encounter table (serebii.net/pokearth/galar/slumberingweald.shtml)
+— one small dataset PR.
+
 ## Deferred / low priority (unchanged)
 
 - **Z-A movepools**: PokeAPI has no move-learn data for `legends-za` /

@@ -57,7 +57,7 @@ Nothing here is implemented yet — this is the plan for the next session(s).
 |------|-----------|---------|--------------|------------------|------------|
 | bdsp | complete (audited PR #32) | 16/16 | **88/88** | **88/88** | yes (bdsp-machines.json) |
 | lgpe | **10 routes missing**: 7, 8, 13, 14, 15, 19, 21, 23, 24, 25 (+ no victory-road area) | **0/13** | — | n/a (LGPE has no abilities) | no (LGPE has 60 TMs) |
-| swsh | 27 areas (Giant's Cap rebuilt #43) | 12/12 | **0/49** | **0/49** | no |
+| swsh | 26 areas (Giant's Cap rebuilt #43; invented victory-road-swsh removed — Galar has no Victory Road) | 12/12 | **0/49** | **0/49** | no |
 | pla  | 7 zones | 8/8 | **0/14** | n/a (PLA has no abilities) | n/a (PLA uses the move shop, no TMs) |
 | plza | 25 areas | **0/35** | — | — | no PokeAPI data at all |
 
