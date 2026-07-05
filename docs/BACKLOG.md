@@ -2,8 +2,29 @@
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`. Last reconciled with git history:
-2026-07-06 (PRs #72-#110 merged) — when in doubt, trust `git log --oneline
---merges main` over this file's checkboxes; it has drifted before.
+2026-07-05 session (PRs #112/#113/#116 merged) — when in doubt, trust
+`git log --oneline --merges main` over this file's checkboxes; it has
+drifted before.
+
+## Shipped this session (2026-07-05, merge authorized by Alex mid-session)
+
+- **#112 mobile map fix** — Alex reported the route map unusable on phones
+  (cut off at viewport width, invisible pan). RouteMap now fits the whole
+  map to the screen and zooms/pans through the SVG viewBox (pinch, drag,
+  +/−/reset buttons). Mobile audit of all five tabs found no other
+  overflow — the map was the one blocker. Future nice-to-have: sticky
+  mobile tab bar.
+- **#113 item 25** — next-boss pick: `next_boss_set`
+  event + `state.nextBossId`; `nextBoss()` prefers the pinned uncleared
+  gating milestone, falls back to dataset order. MilestoneCard pin/unpin
+  buttons + "◎ next (your pick)" badge; spectator + timeline covered.
+- **#116 item 26** (supersedes #114, which GitHub auto-closed when its
+  stacked base merged) — per-game honor packs: PLA (use-only first catch,
+  no crafted revives, no distortions, outbreak-shiny non-exemption on by
+  default; noble two-attempt off), SV (raid + picnic-egg bans on;
+  symmetric Tera off, hardcore preset enables it), Z-A (symmetric Mega
+  off; `za-rogue-caps` enforced toggle — off means rogue-mega milestones
+  stop gating the cap).
 
 **Where to work:** the canonical checkout is `C:\dev\nuzlocke-app` (moved
 off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
@@ -44,18 +65,6 @@ Add an `isAlpha` encounter flag (guaranteed Alphas excluded by default,
 images re-uploaded + a one-map-per-zone registry extension (GameMap per
 sub-region or a zone-switcher in RoutesTab). Big dataset PR + engine flag
 + map-registry PR.
-
-**25. SV next-boss level cap affordance.** Milestones already complete in
-any order; add the "which boss am I doing next" pick so the displayed
-level cap keys off the user's chosen next milestone instead of dataset
-order (docs/CHALLENGE-MODES.md, SV section). Small engine selector + Boss
-Fights UI. Ship the merged 18-boss suggested order as the default sort.
-
-**26. Per-game honor-rule packs.** PLA: use-only-first-catch wording,
-no-crafted-revives, distortion + outbreak-shiny bans, noble two-attempt
-clause; SV: raid/picnic-egg bans (default-on), symmetric-Tera clause;
-Z-A: symmetric-Mega clause, rogue-battle cap toggle. All honor rules
-gated via `appliesTo` — data + rules-tab display, no enforcement.
 
 **32. Towns-wave crumbs.** SwSh Ball Guy gifts (add across the 9 gym towns
 if wanted); BDSP Ramanas Park + Pokémon League specialty-ball marts
