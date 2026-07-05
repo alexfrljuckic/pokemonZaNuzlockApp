@@ -31,9 +31,8 @@ describe('SwSh dataset', () => {
     expect(dataset.gameId).toBe('swsh');
     expect(dataset.versions).toEqual(['sword', 'shield']);
     expect(dataset.areas.length).toBeGreaterThanOrEqual(20);
-    // 59 = 29 base-game areas + 16 Isle of Armor + 14 Crown Tundra DLC
-    // zones; drops by one when the victory-road-swsh artifact is removed
-    // (#77).
+    // 58 = 28 base-game areas + 16 Isle of Armor + 14 Crown Tundra DLC
+    // zones (the invented victory-road-swsh artifact is gone).
     expect(dataset.areas.length).toBeLessThanOrEqual(60);
     expect(dataset.milestones.length).toBeGreaterThan(0);
   });

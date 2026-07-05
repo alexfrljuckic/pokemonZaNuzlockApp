@@ -1,14 +1,11 @@
 // Galar layout for the SwSh interactive map. Node positions are calibrated
 // against the backdrop at public/maps/galar.jpg (728x1420, official-style
 // map: Postwick south / Wyndon north, numbered route banners, Isle of Armor
-// inset right and Crown Tundra south — both DLC regions deliberately have
-// no nodes; base-game dataset areas only). Wild Area zones get nodes across
-// the two lobes (south = Rolling Fields, north = Riverbank/Bridge Field,
-// north-west = Giant's Cap / Dusty Bowl / Lake of Outrage).
-// victory-road-swsh is being removed (#77) and gets no node. Calibrated live
-// with the debug overlay (stroked .route-region rects) per the standing map
-// lesson; route-8 added with its area (BACKLOG 21) on the steam path between
-// Route 7 and Circhester.
+// inset right and Crown Tundra south — both DLC regions have nodes on their
+// insets since #88). Wild Area zones get nodes across the two lobes (south
+// = Rolling Fields, north = Riverbank/Bridge Field, north-west = Giant's
+// Cap / Dusty Bowl / Lake of Outrage). Calibrated live with the debug
+// overlay (stroked .route-region rects) per the standing map lesson.
 import type { GameMap } from './types';
 
 export const GALAR_MAP: GameMap = {
