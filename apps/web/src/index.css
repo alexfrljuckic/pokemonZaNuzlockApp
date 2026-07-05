@@ -1195,6 +1195,37 @@ button.danger:hover:not(:disabled) {
 
 /* ---------- Back button: quiet ghost chip, arrow slides on hover ---------- */
 
+/* Circular leading back icon in the run header row — the back action lives
+   with the thing it navigates from, app-bar style. */
+.run-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+button.back-icon {
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  box-shadow: none;
+  color: var(--text);
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  line-height: 1;
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+button.back-icon:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg-chip));
+  transform: translateX(-2px);
+  box-shadow: none;
+  filter: none;
+}
+
 button.back-btn {
   background: transparent;
   border: none;

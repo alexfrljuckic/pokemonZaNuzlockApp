@@ -122,18 +122,19 @@ export function RunView({
 
   return (
     <>
-      <button className="back-btn" onClick={onBack}>
-        Back to runs
-      </button>
-
       <section>
         <div className="run-header-row">
-          <div>
-            <h2>{ctx.dataset?.name ?? run.gameId}</h2>
-            <p className="muted">
-              {run.version} · preset {state.ruleset.presetId} ·{' '}
-              <span className={`status-${state.status}`}>{state.status}</span>
-            </p>
+          <div className="run-header-left">
+            <button className="back-icon" aria-label="Back to runs" title="Back to runs" onClick={onBack}>
+              ←
+            </button>
+            <div>
+              <h2>{ctx.dataset?.name ?? run.gameId}</h2>
+              <p className="muted">
+                {run.version} · preset {state.ruleset.presetId} ·{' '}
+                <span className={`status-${state.status}`}>{state.status}</span>
+              </p>
+            </div>
           </div>
           <div className="run-header-actions">
             {SYNC_AVAILABLE && session && <SharePopover runId={run.id} />}
