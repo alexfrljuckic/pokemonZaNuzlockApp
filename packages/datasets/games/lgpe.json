@@ -6,586 +6,5258 @@
     "lets-go-pikachu",
     "lets-go-eevee"
   ],
-  "pokeapiVersionGroups": ["lets-go-pikachu-lets-go-eevee"],
+  "pokeapiVersionGroups": [
+    "lets-go-pikachu-lets-go-eevee"
+  ],
   "rostersRequired": true,
   "areas": [
     {
       "id": "route-1",
       "name": "Route 1",
       "unlockAfter": null,
-      "tags": ["route", "unlock:start"],
+      "tags": [
+        "route",
+        "unlock:start"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Ronny",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "rattata",
+              "level": 3
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-2",
       "name": "Route 2",
       "unlockAfter": null,
-      "tags": ["route", "unlock:start"],
+      "tags": [
+        "route",
+        "unlock:start"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "caterpie", "methods": ["overworld"] },
-        { "species": "weedle", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
       ]
     },
     {
       "id": "route-3",
       "name": "Route 3",
       "unlockAfter": "gym-1-brock",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "sandshrew", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "mankey", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "ekans", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Janice",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "oddish",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Kareem",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "bulbasaur",
+              "level": 11
+            }
+          ]
+        },
+        {
+          "name": "Calvin",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "spearow",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Victor",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "nidoran-m",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "name": "Robin",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "nidoran-f",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "name": "Ben",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "rattata",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Greg",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "kakuna",
+              "level": 5
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-4",
       "name": "Route 4",
       "unlockAfter": "gym-1-brock",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "charmander", "methods": ["overworld"] },
-        { "species": "sandshrew", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "mankey", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "ekans", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Oberon",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "meowth",
+              "level": 13
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-5",
       "name": "Route 5",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "jigglypuff", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "abra", "methods": ["overworld"] },
-        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "jigglypuff",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
       ]
     },
     {
       "id": "route-6",
       "name": "Route 6",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "jigglypuff", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "abra", "methods": ["overworld"] },
-        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "jigglypuff",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Ricky",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "sandshrew",
+              "level": 15
+            },
+            {
+              "species": "nidoran-m",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Nancy",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "nidoran-f",
+              "level": 15
+            },
+            {
+              "species": "jigglypuff",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Edward",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "eevee",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "name": "Elijah",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "tentacool",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "name": "Isabelle",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "charmander",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Jeff",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "bellsprout",
+              "level": 15
+            }
+          ]
+        }
       ]
     },
     {
       "id": "viridian-forest",
       "name": "Viridian Forest",
       "unlockAfter": null,
-      "tags": ["forest", "unlock:start"],
+      "tags": [
+        "forest",
+        "unlock:start"
+      ],
       "encounters": [
-        { "species": "caterpie", "methods": ["overworld"] },
-        { "species": "weedle", "methods": ["overworld"] },
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "metapod", "methods": ["overworld"] },
-        { "species": "kakuna", "methods": ["overworld"] },
-        { "species": "pikachu", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "butterfree", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "beedrill", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "bulbasaur", "methods": ["overworld"] }
+        {
+          "species": "caterpie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "metapod",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kakuna",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "butterfree",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "beedrill",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Joana",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "rattata",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "name": "Brian",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "weedle",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "name": "Rick",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "caterpie",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "name": "Brittany",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "nidoran-f",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "name": "Doug",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "kakuna",
+              "level": 3
+            }
+          ]
+        },
+        {
+          "name": "Jocelyn",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "pidgey",
+              "level": 4
+            }
+          ]
+        },
+        {
+          "name": "Sammy",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "metapod",
+              "level": 3
+            }
+          ]
+        }
       ]
     },
     {
       "id": "mt-moon",
       "name": "Mt. Moon",
       "unlockAfter": null,
-      "tags": ["cave", "unlock:start"],
+      "tags": [
+        "cave",
+        "unlock:start"
+      ],
       "encounters": [
-        { "species": "zubat", "methods": ["overworld"] },
-        { "species": "geodude", "methods": ["overworld"] },
-        { "species": "paras", "methods": ["overworld"] },
-        { "species": "clefairy", "methods": ["overworld"] },
-        { "species": "onix", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "clefable", "methods": ["overworld"] }
+        {
+          "species": "zubat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "clefairy",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "clefable",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Kent",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "butterfree",
+              "level": 7
+            }
+          ]
+        },
+        {
+          "name": "Evelyn",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "bellsprout",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "name": "Jovan",
+          "class": "Super Nerd",
+          "team": [
+            {
+              "species": "grimer",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Robby",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "mankey",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "name": "Miriam",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "clefairy",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "name": "Josh",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "sandshrew",
+              "level": 8
+            }
+          ]
+        },
+        {
+          "name": "Marcos",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 10
+            },
+            {
+              "species": "geodude",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Rocket Grunt",
+          "team": [
+            {
+              "species": "rattata",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Rocket Grunt",
+          "team": [
+            {
+              "species": "drowzee",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Rocket Grunt",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Miguel",
+          "class": "Super Nerd",
+          "team": [
+            {
+              "species": "voltorb",
+              "level": 10
+            },
+            {
+              "species": "magnemite",
+              "level": 10
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-7",
       "name": "Route 7",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "jigglypuff", "methods": ["overworld"] },
-        { "species": "abra", "methods": ["overworld"] },
-        { "species": "kadabra", "methods": ["overworld"] },
-        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "arcanine", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "ninetales", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "jigglypuff",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "arcanine",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Yvette",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "raichu",
+              "level": 28
+            },
+            {
+              "species": "dugtrio",
+              "level": 29
+            },
+            {
+              "species": "seel",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Alpesh",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "farfetchd",
+              "level": 29
+            },
+            {
+              "species": "wigglytuff",
+              "level": 30
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-8",
       "name": "Route 8",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "jigglypuff", "methods": ["overworld"] },
-        { "species": "abra", "methods": ["overworld"] },
-        { "species": "kadabra", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "growlithe", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "arcanine", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "vulpix", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "ninetales", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "jigglypuff",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "abra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "arcanine",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Aubrey",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "clefairy",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Rich",
+          "class": "Gamer",
+          "team": [
+            {
+              "species": "seaking",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "name": "Kyla",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 28
+            },
+            {
+              "species": "machoke",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Aidan",
+          "class": "Super Nerd",
+          "team": [
+            {
+              "species": "koffing",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Glenn",
+          "class": "Rocker",
+          "team": [
+            {
+              "species": "jolteon",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Stan",
+          "class": "Gamer",
+          "team": [
+            {
+              "species": "rhyhorn",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "name": "Andrea",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "meowth",
+              "level": 25
+            },
+            {
+              "species": "meowth",
+              "level": 25
+            },
+            {
+              "species": "meowth",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Megan",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Leslie",
+          "class": "Super Nerd",
+          "team": [
+            {
+              "species": "magnemite",
+              "level": 27
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-9",
       "name": "Route 9",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "nidoran-f", "methods": ["overworld"] },
-        { "species": "nidoran-m", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "fearow", "methods": ["overworld"] },
-        { "species": "nidorina", "methods": ["overworld"] },
-        { "species": "nidorino", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Alicia",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "eevee",
+              "level": 21
+            },
+            {
+              "species": "gloom",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Conner",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "paras",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Jeremy",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Drew",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "sandshrew",
+              "level": 21
+            },
+            {
+              "species": "raticate",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Chris",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "diglett",
+              "level": 20
+            },
+            {
+              "species": "fearow",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "name": "Brice",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "mankey",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Caitlin",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 21
+            },
+            {
+              "species": "pidgeotto",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Alan",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 22
+            },
+            {
+              "species": "geodude",
+              "level": 22
+            },
+            {
+              "species": "geodude",
+              "level": 22
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-10",
       "name": "Route 10",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "nidoran-f", "methods": ["overworld"] },
-        { "species": "nidoran-m", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "fearow", "methods": ["overworld"] },
-        { "species": "krabby", "methods": ["overworld"] },
-        { "species": "nidorina", "methods": ["overworld"] },
-        { "species": "nidorino", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Grunt",
+          "class": "Team Rocket Grunt",
+          "team": [
+            {
+              "species": "raticate",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Vance",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "eevee",
+              "level": 22
+            },
+            {
+              "species": "psyduck",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Tasha",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "poliwhirl",
+              "level": 25
+            },
+            {
+              "species": "primeape",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Mark",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "rhyhorn",
+              "level": 42
+            },
+            {
+              "species": "lickitung",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Clark",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 25
+            },
+            {
+              "species": "graveler",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Carol",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 24
+            },
+            {
+              "species": "pidgeotto",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Trent",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "krabby",
+              "level": 24
+            },
+            {
+              "species": "sandslash",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Damian",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "charmeleon",
+              "level": 25
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-24",
       "name": "Route 24",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "venonat", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "squirtle", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "meowth", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "meowth",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Cale",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "venonat",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Ali",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "psyduck",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Timmy",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "sandshrew",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Reli",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "meowth",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Kevin",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "growlithe",
+              "level": 11
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Rocket Grunt",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 11
+            },
+            {
+              "species": "koffing",
+              "level": 11
+            }
+          ]
+        },
+        {
+          "name": "Shane",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "spearow",
+              "level": 11
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-25",
       "name": "Route 25",
       "unlockAfter": "gym-2-misty",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "venonat", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "squirtle", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "meowth", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "poliwag", "methods": ["overworld"] },
-        { "species": "poliwhirl", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "meowth",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Franklin",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Chad",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "diglett",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Joey",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "pidgeotto",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Dan",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "ekans",
+              "level": 12
+            },
+            {
+              "species": "rattata",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Nob",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 14
+            },
+            {
+              "species": "machop",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Kelsey",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Dustin",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "squirtle",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Haley",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "oddish",
+              "level": 12
+            },
+            {
+              "species": "pidgey",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Wayne",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "magikarp",
+              "level": 14
+            },
+            {
+              "species": "krabby",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Amala",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "machop",
+              "level": 16
+            }
+          ]
+        }
       ]
     },
     {
       "id": "rock-tunnel",
       "name": "Rock Tunnel",
       "unlockAfter": "gym-2-misty",
-      "tags": ["cave"],
+      "tags": [
+        "cave"
+      ],
       "encounters": [
-        { "species": "zubat", "methods": ["overworld"] },
-        { "species": "geodude", "methods": ["overworld"] },
-        { "species": "golbat", "methods": ["overworld"] },
-        { "species": "machop", "methods": ["overworld"] },
-        { "species": "graveler", "methods": ["overworld"] },
-        { "species": "onix", "methods": ["overworld"] },
-        { "species": "rhyhorn", "methods": ["overworld"] },
-        { "species": "cubone", "methods": ["overworld"] },
-        { "species": "kangaskhan", "methods": ["overworld"] },
-        { "species": "charmander", "methods": ["overworld"] }
+        {
+          "species": "zubat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kangaskhan",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Ashton",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "slowpoke",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Winston",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "kangaskhan",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Dudley",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "onix",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Allen",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 23
+            },
+            {
+              "species": "onix",
+              "level": 23
+            },
+            {
+              "species": "graveler",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Eric",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "mankey",
+              "level": 24
+            },
+            {
+              "species": "poliwhirl",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Lenny",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "growlithe",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Oliver",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 23
+            },
+            {
+              "species": "sandslash",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Claus",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "machop",
+              "level": 23
+            },
+            {
+              "species": "rhyhorn",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Cooper",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "ivysaur",
+              "level": 23
+            }
+          ]
+        },
+        {
+          "name": "Sofia",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "vulpix",
+              "level": 24
+            },
+            {
+              "species": "kadabra",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Charlie",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "diglett",
+              "level": 24
+            },
+            {
+              "species": "flareon",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Steve",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machop",
+              "level": 24
+            },
+            {
+              "species": "machop",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Leah",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "nidorina",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Leroy",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "nidorino",
+              "level": 22
+            }
+          ]
+        },
+        {
+          "name": "Dana",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "meowth",
+              "level": 22
+            },
+            {
+              "species": "vulpix",
+              "level": 22
+            }
+          ]
+        }
       ]
     },
     {
       "id": "power-plant",
       "name": "Power Plant",
       "unlockAfter": "gym-3-surge",
-      "tags": ["dungeon"],
+      "tags": [
+        "dungeon"
+      ],
       "encounters": [
-        { "species": "magnemite", "methods": ["overworld"] },
-        { "species": "voltorb", "methods": ["overworld"] },
-        { "species": "electabuzz", "methods": ["overworld"] },
-        { "species": "magneton", "methods": ["overworld"] },
-        { "species": "grimer", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "muk", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "electrode", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "koffing", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weezing", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "electrode", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "magnemite",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magneton",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "muk",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "electrode",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "electrode",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Mable",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "omastar",
+              "level": 44
+            },
+            {
+              "species": "kabutops",
+              "level": 44
+            },
+            {
+              "species": "aerodactyl",
+              "level": 45
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-11",
       "name": "Route 11",
       "unlockAfter": "gym-3-surge",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "drowzee", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "mr-mime", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "drowzee",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Will",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "rattata",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Dirk",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "poliwag",
+              "level": 18
+            },
+            {
+              "species": "machop",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Eddie",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "nidorino",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "name": "Wilco",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "vulpix",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Bernie",
+          "class": "Engineer",
+          "team": [
+            {
+              "species": "magnemite",
+              "level": 18
+            },
+            {
+              "species": "voltorb",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Braxton",
+          "class": "Engineer",
+          "team": [
+            {
+              "species": "voltorb",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Hugo",
+          "class": "Gamer",
+          "team": [
+            {
+              "species": "diglett",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Yasu",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "slowpoke",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Tomoe",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "jigglypuff",
+              "level": 16
+            },
+            {
+              "species": "nidorina",
+              "level": 16
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-12",
       "name": "Route 12",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "krabby", "methods": ["overworld"] },
-        { "species": "farfetchd", "methods": ["overworld"] },
-        { "species": "kingler", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Ned",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "staryu",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Chip",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "poliwhirl",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Hank",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "magikarp",
+              "level": 27
+            },
+            {
+              "species": "seaking",
+              "level": 27
+            },
+            {
+              "species": "poliwag",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Elliot",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 27
+            },
+            {
+              "species": "magikarp",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Zach",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "tangela",
+              "level": 28
+            },
+            {
+              "species": "onix",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Andrew",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "tentacool",
+              "level": 36
+            },
+            {
+              "species": "kingler",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Luca",
+          "class": "Rocker",
+          "team": [
+            {
+              "species": "electabuzz",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Justin",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "nidoran-m",
+              "level": 35
+            },
+            {
+              "species": "nidorino",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "name": "Priya",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "butterfree",
+              "level": 38
+            },
+            {
+              "species": "clefable",
+              "level": 39
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-13",
       "name": "Route 13",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "farfetchd", "methods": ["overworld"] },
-        { "species": "krabby", "methods": ["overworld"] },
-        { "species": "kingler", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "horsea", "methods": ["overworld"] },
-        { "species": "seadra", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Nash",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "sandshrew",
+              "level": 37
+            },
+            {
+              "species": "sandslash",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Susie",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "jigglypuff",
+              "level": 37
+            },
+            {
+              "species": "weepinbell",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Lola",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "chansey",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Kite",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "graveler",
+              "level": 39
+            },
+            {
+              "species": "magneton",
+              "level": 39
+            },
+            {
+              "species": "haunter",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Milo",
+          "class": "Bug Catcher",
+          "team": [
+            {
+              "species": "scyther",
+              "level": 36
+            },
+            {
+              "species": "pinsir",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Robert",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "doduo",
+              "level": 39
+            },
+            {
+              "species": "pidgeotto",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Gwen",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "raticate",
+              "level": 37
+            },
+            {
+              "species": "golduck",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Sheila",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "eevee",
+              "level": 37
+            },
+            {
+              "species": "persian",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Perry",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "growlithe",
+              "level": 37
+            },
+            {
+              "species": "nidorino",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Jared",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 38
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-14",
       "name": "Route 14",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "venonat", "methods": ["overworld"] },
-        { "species": "venomoth", "methods": ["overworld"] },
-        { "species": "tauros", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "scyther", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "pinsir", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Beck",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "flareon",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Carter",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "psyduck",
+              "level": 37
+            },
+            {
+              "species": "dugtrio",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Benny",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "pidgeotto",
+              "level": 39
+            },
+            {
+              "species": "fearow",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Donald",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "fearow",
+              "level": 39
+            },
+            {
+              "species": "pidgeot",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Kindra",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "vaporeon",
+              "level": 40
+            },
+            {
+              "species": "sandslash",
+              "level": 39
+            },
+            {
+              "species": "dodrio",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Harvey",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "raticate",
+              "level": 38
+            },
+            {
+              "species": "raticate",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Malik",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "rhyhorn",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Gerald",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "magmar",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Felix",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "weezing",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Zeek",
+          "class": "Roughneck",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 38
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-15",
       "name": "Route 15",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "venonat", "methods": ["overworld"] },
-        { "species": "venomoth", "methods": ["overworld"] },
-        { "species": "tauros", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "scyther", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "pinsir", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Midge",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 40
+            },
+            {
+              "species": "magmar",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Yazmin",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "tangela",
+              "level": 37
+            },
+            {
+              "species": "seaking",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Ernest",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "primeape",
+              "level": 38
+            },
+            {
+              "species": "muk",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Alex",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "arbok",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Lana",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "growlithe",
+              "level": 37
+            },
+            {
+              "species": "growlithe",
+              "level": 37
+            },
+            {
+              "species": "growlithe",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Edwin",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "dodrio",
+              "level": 39
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-16",
       "name": "Route 16",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "doduo", "methods": ["overworld"] },
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "dodrio", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "doduo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "dodrio",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Lao",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "onix",
+              "level": 36
+            },
+            {
+              "species": "muk",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Koji",
+          "class": "Roughneck",
+          "team": [
+            {
+              "species": "raticate",
+              "level": 36
+            },
+            {
+              "species": "rhyhorn",
+              "level": 36
+            },
+            {
+              "species": "koffing",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Hideo",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "arbok",
+              "level": 36
+            },
+            {
+              "species": "fearow",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Ruben",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "psyduck",
+              "level": 35
+            },
+            {
+              "species": "psyduck",
+              "level": 35
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-17",
       "name": "Route 17",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "ponyta", "methods": ["overworld"] },
-        { "species": "doduo", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "dodrio", "methods": ["overworld"] },
-        { "species": "rapidash", "methods": ["overworld"] },
-        { "species": "eevee", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "ponyta",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "dodrio",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Dalia",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "vaporeon",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Alexis",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "jolteon",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Mila",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "flareon",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Johnson",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "wartortle",
+              "level": 40
+            },
+            {
+              "species": "magneton",
+              "level": 39
+            },
+            {
+              "species": "marowak",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Corey",
+          "class": "Punk Guy",
+          "team": [
+            {
+              "species": "primeape",
+              "level": 38
+            },
+            {
+              "species": "graveler",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Grantley",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "fearow",
+              "level": 40
+            },
+            {
+              "species": "beedrill",
+              "level": 40
+            },
+            {
+              "species": "sandslash",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Samantha",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "weepinbell",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Orson",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "persian",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Maria",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "exeggutor",
+              "level": 40
+            },
+            {
+              "species": "ninetales",
+              "level": 39
+            },
+            {
+              "species": "starmie",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Misaki",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "vulpix",
+              "level": 37
+            },
+            {
+              "species": "ivysaur",
+              "level": 37
+            },
+            {
+              "species": "wigglytuff",
+              "level": 37
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-18",
       "name": "Route 18",
       "unlockAfter": "gym-4-erika",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "doduo", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "dodrio", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "dodrio",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Wilton",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "fearow",
+              "level": 39
+            },
+            {
+              "species": "dodrio",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Ramiro",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "pidgeot",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Jacob",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "farfetchd",
+              "level": 39
+            },
+            {
+              "species": "farfetchd",
+              "level": 39
+            },
+            {
+              "species": "farfetchd",
+              "level": 39
+            }
+          ]
+        }
       ]
     },
     {
       "id": "seafoam-islands",
       "name": "Seafoam Islands",
       "unlockAfter": "gym-6-sabrina",
-      "tags": ["cave", "island"],
+      "tags": [
+        "cave",
+        "island"
+      ],
       "encounters": [
-        { "species": "golbat", "methods": ["overworld"] },
-        { "species": "slowpoke", "methods": ["overworld"] },
-        { "species": "seel", "methods": ["overworld"] },
-        { "species": "zubat", "methods": ["overworld"] },
-        { "species": "jynx", "methods": ["overworld"] },
-        { "species": "slowbro", "methods": ["overworld"] },
-        { "species": "dewgong", "methods": ["overworld"] },
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "shellder", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "cloyster", "methods": ["overworld"] },
-        { "species": "squirtle", "methods": ["overworld"] }
+        {
+          "species": "golbat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "jynx",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "cloyster",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Yas",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "jolteon",
+              "level": 46
+            },
+            {
+              "species": "flareon",
+              "level": 47
+            },
+            {
+              "species": "vaporeon",
+              "level": 46
+            }
+          ]
+        }
       ]
     },
     {
       "id": "pokemon-mansion",
       "name": "Pokémon Mansion",
       "unlockAfter": "gym-6-sabrina",
-      "tags": ["dungeon"],
+      "tags": [
+        "dungeon"
+      ],
       "encounters": [
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "magmar", "methods": ["overworld"] },
-        { "species": "ditto", "methods": ["overworld"] },
-        { "species": "grimer", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "muk", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "koffing", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weezing", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "muk",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Arnie",
+          "class": "Burglar",
+          "team": [
+            {
+              "species": "rapidash",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Rita",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "graveler",
+              "level": 46
+            },
+            {
+              "species": "dugtrio",
+              "level": 46
+            },
+            {
+              "species": "poliwrath",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "name": "Simon",
+          "class": "Burglar",
+          "team": [
+            {
+              "species": "magmar",
+              "level": 44
+            },
+            {
+              "species": "muk",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Braydon",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "weezing",
+              "level": 45
+            },
+            {
+              "species": "magneton",
+              "level": 45
+            },
+            {
+              "species": "magmar",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Louis",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "kingler",
+              "level": 45
+            },
+            {
+              "species": "primeape",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Ted",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "electrode",
+              "level": 45
+            },
+            {
+              "species": "muk",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Lewis",
+          "class": "Burglar",
+          "team": [
+            {
+              "species": "koffing",
+              "level": 44
+            },
+            {
+              "species": "koffing",
+              "level": 44
+            },
+            {
+              "species": "koffing",
+              "level": 44
+            },
+            {
+              "species": "weezing",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Ivan",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "electabuzz",
+              "level": 45
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-19",
       "name": "Route 19",
       "unlockAfter": "gym-6-sabrina",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "staryu", "methods": ["overworld"] },
-        { "species": "starmie", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] },
-        { "species": "lapras", "methods": ["overworld"] }
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "starmie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lapras",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Reece",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "dratini",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Richard",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "starmie",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Alice",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "golduck",
+              "level": 41
+            },
+            {
+              "species": "cloyster",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Axle",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "poliwhirl",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "David",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "seel",
+              "level": 42
+            },
+            {
+              "species": "seel",
+              "level": 42
+            },
+            {
+              "species": "seadra",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Connie",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "vaporeon",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Anya",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "seel",
+              "level": 41
+            },
+            {
+              "species": "seaking",
+              "level": 41
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-20",
       "name": "Route 20",
       "unlockAfter": "gym-6-sabrina",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "gyarados", "methods": ["overworld"] },
-        { "species": "lapras", "methods": ["overworld"] }
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lapras",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Douglas",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Darrin",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "golduck",
+              "level": 44
+            },
+            {
+              "species": "gyarados",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Shirley",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "wartortle",
+              "level": 41
+            },
+            {
+              "species": "starmie",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Irene",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "marowak",
+              "level": 43
+            },
+            {
+              "species": "gloom",
+              "level": 43
+            },
+            {
+              "species": "wigglytuff",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Hansol",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "slowbro",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Roger",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "fearow",
+              "level": 45
+            },
+            {
+              "species": "dodrio",
+              "level": 45
+            },
+            {
+              "species": "pidgeot",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Dean",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "starmie",
+              "level": 44
+            },
+            {
+              "species": "tentacruel",
+              "level": 44
+            },
+            {
+              "species": "kingler",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Missy",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "jolteon",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Nora",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "cloyster",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Melissa",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "seaking",
+              "level": 43
+            },
+            {
+              "species": "jynx",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Marty",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "golem",
+              "level": 45
+            },
+            {
+              "species": "pinsir",
+              "level": 46
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-21",
       "name": "Route 21",
       "unlockAfter": "gym-6-sabrina",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "pidgey", "methods": ["overworld"] },
-        { "species": "pidgeotto", "methods": ["overworld"] },
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "raticate", "methods": ["overworld"] },
-        { "species": "tangela", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "oddish", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "gloom", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "vileplume", "methods": ["overworld"], "conditions": { "version": ["lets-go-pikachu"] } },
-        { "species": "bellsprout", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "weepinbell", "methods": ["overworld"], "conditions": { "version": ["lets-go-eevee"] } },
-        { "species": "tentacool", "methods": ["overworld"] },
-        { "species": "tentacruel", "methods": ["overworld"] },
-        { "species": "staryu", "methods": ["overworld"] },
-        { "species": "starmie", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "pidgey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "pidgeotto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "vileplume",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-pikachu"
+            ]
+          }
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "overworld"
+          ],
+          "conditions": {
+            "version": [
+              "lets-go-eevee"
+            ]
+          }
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "starmie",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Wade",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "magikarp",
+              "level": 42
+            },
+            {
+              "species": "magikarp",
+              "level": 42
+            },
+            {
+              "species": "magikarp",
+              "level": 42
+            },
+            {
+              "species": "magikarp",
+              "level": 42
+            },
+            {
+              "species": "magikarp",
+              "level": 42
+            },
+            {
+              "species": "magikarp",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Ronald",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "seadra",
+              "level": 42
+            },
+            {
+              "species": "gyarados",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Pam",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 44
+            },
+            {
+              "species": "jynx",
+              "level": 44
+            },
+            {
+              "species": "kangaskhan",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Martin",
+          "class": "Roughneck",
+          "team": [
+            {
+              "species": "raticate",
+              "level": 42
+            },
+            {
+              "species": "onix",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Spencer",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "seel",
+              "level": 42
+            },
+            {
+              "species": "seadra",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Jack",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "tentacool",
+              "level": 42
+            },
+            {
+              "species": "golduck",
+              "level": 42
+            },
+            {
+              "species": "tentacruel",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Nolan",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "tentacruel",
+              "level": 42
+            },
+            {
+              "species": "starmie",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Claude",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "primeape",
+              "level": 42
+            },
+            {
+              "species": "machoke",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Roland",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "starmie",
+              "level": 42
+            },
+            {
+              "species": "kingler",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Jerome",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "slowbro",
+              "level": 42
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-22",
       "name": "Route 22",
       "unlockAfter": null,
-      "tags": ["route", "unlock:start"],
+      "tags": [
+        "route",
+        "unlock:start"
+      ],
       "encounters": [
-        { "species": "rattata", "methods": ["overworld"] },
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "nidoran-f", "methods": ["overworld"] },
-        { "species": "nidoran-m", "methods": ["overworld"] }
+        {
+          "species": "rattata",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "overworld"
+          ]
+        }
       ]
     },
     {
       "id": "route-23",
       "name": "Route 23",
       "unlockAfter": "gym-8-giovanni",
-      "tags": ["route", "water"],
+      "tags": [
+        "route",
+        "water"
+      ],
       "encounters": [
-        { "species": "spearow", "methods": ["overworld"] },
-        { "species": "fearow", "methods": ["overworld"] },
-        { "species": "nidoran-f", "methods": ["overworld"] },
-        { "species": "nidoran-m", "methods": ["overworld"] },
-        { "species": "nidorina", "methods": ["overworld"] },
-        { "species": "nidorino", "methods": ["overworld"] },
-        { "species": "nidoqueen", "methods": ["overworld"] },
-        { "species": "nidoking", "methods": ["overworld"] },
-        { "species": "exeggcute", "methods": ["overworld"] },
-        { "species": "exeggutor", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "poliwag", "methods": ["overworld"] },
-        { "species": "poliwhirl", "methods": ["overworld"] },
-        { "species": "magikarp", "methods": ["overworld"] }
+        {
+          "species": "spearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "fearow",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoqueen",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "nidoking",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "exeggcute",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "exeggutor",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "overworld"
+          ]
+        }
       ]
     },
     {
       "id": "victory-road",
       "name": "Victory Road",
       "unlockAfter": "gym-8-giovanni",
-      "tags": ["cave"],
+      "tags": [
+        "cave"
+      ],
       "encounters": [
-        { "species": "zubat", "methods": ["overworld"] },
-        { "species": "golbat", "methods": ["overworld"] },
-        { "species": "machop", "methods": ["overworld"] },
-        { "species": "machoke", "methods": ["overworld"] },
-        { "species": "geodude", "methods": ["overworld"] },
-        { "species": "graveler", "methods": ["overworld"] },
-        { "species": "onix", "methods": ["overworld"] },
-        { "species": "rhyhorn", "methods": ["overworld"] },
-        { "species": "rhydon", "methods": ["overworld"] },
-        { "species": "hitmonlee", "methods": ["overworld"] },
-        { "species": "hitmonchan", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] }
+        {
+          "species": "zubat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "hitmonlee",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "hitmonchan",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Alemana",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "ditto",
+              "level": 49
+            }
+          ]
+        },
+        {
+          "name": "Naomi",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "kangaskhan",
+              "level": 47
+            },
+            {
+              "species": "venusaur",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "name": "Rolando",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "rapidash",
+              "level": 47
+            },
+            {
+              "species": "starmie",
+              "level": 47
+            },
+            {
+              "species": "victreebel",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "name": "Nelson",
+          "class": "Juggler",
+          "team": [
+            {
+              "species": "hypno",
+              "level": 46
+            },
+            {
+              "species": "slowbro",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Daisuke",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "hitmonlee",
+              "level": 47
+            },
+            {
+              "species": "poliwrath",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "name": "Vincent",
+          "class": "Tamer",
+          "team": [
+            {
+              "species": "primeape",
+              "level": 47
+            },
+            {
+              "species": "tauros",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "name": "Gregory",
+          "class": "Juggler",
+          "team": [
+            {
+              "species": "mr-mime",
+              "level": 46
+            },
+            {
+              "species": "alakazam",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "George",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "scyther",
+              "level": 48
+            },
+            {
+              "species": "marowak",
+              "level": 47
+            }
+          ]
+        },
+        {
+          "name": "Alexa",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "dragonair",
+              "level": 47
+            },
+            {
+              "species": "wigglytuff",
+              "level": 47
+            },
+            {
+              "species": "hitmonchan",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "name": "Colby",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "electrode",
+              "level": 47
+            },
+            {
+              "species": "kingler",
+              "level": 47
+            },
+            {
+              "species": "pidgeot",
+              "level": 47
+            },
+            {
+              "species": "rhydon",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "name": "Caroline",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "jynx",
+              "level": 47
+            },
+            {
+              "species": "golbat",
+              "level": 47
+            },
+            {
+              "species": "arcanine",
+              "level": 48
+            }
+          ]
+        },
+        {
+          "name": "Dawson",
+          "class": "Poké Maniac",
+          "team": [
+            {
+              "species": "lickitung",
+              "level": 46
+            },
+            {
+              "species": "onix",
+              "level": 46
+            },
+            {
+              "species": "blastoise",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Ryan",
+          "class": "Coach Trainer",
+          "team": [
+            {
+              "species": "primeape",
+              "level": 48
+            },
+            {
+              "species": "gyarados",
+              "level": 48
+            },
+            {
+              "species": "arcanine",
+              "level": 48
+            },
+            {
+              "species": "tauros",
+              "level": 49
+            }
+          ]
+        }
       ]
     },
     {
       "id": "cerulean-cave",
       "name": "Cerulean Cave",
       "unlockAfter": "champion-rival",
-      "tags": ["cave", "postgame"],
+      "tags": [
+        "cave",
+        "postgame"
+      ],
       "encounters": [
-        { "species": "golbat", "methods": ["overworld"] },
-        { "species": "golduck", "methods": ["overworld"] },
-        { "species": "graveler", "methods": ["overworld"] },
-        { "species": "zubat", "methods": ["overworld"] },
-        { "species": "geodude", "methods": ["overworld"] },
-        { "species": "lickitung", "methods": ["overworld"] },
-        { "species": "rhyhorn", "methods": ["overworld"] },
-        { "species": "ditto", "methods": ["overworld"] },
-        { "species": "rhydon", "methods": ["overworld"] },
-        { "species": "psyduck", "methods": ["overworld"] },
-        { "species": "chansey", "methods": ["overworld"] },
-        { "species": "snorlax", "methods": ["overworld"] }
+        {
+          "species": "golbat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "overworld"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "overworld"
+          ]
+        }
       ]
     }
   ],
@@ -595,14 +5267,22 @@
       "type": "gift",
       "species": "pikachu",
       "area": "route-1",
-      "conditions": { "version": ["lets-go-pikachu"] }
+      "conditions": {
+        "version": [
+          "lets-go-pikachu"
+        ]
+      }
     },
     {
       "id": "starter-eevee",
       "type": "gift",
       "species": "eevee",
       "area": "route-1",
-      "conditions": { "version": ["lets-go-eevee"] }
+      "conditions": {
+        "version": [
+          "lets-go-eevee"
+        ]
+      }
     },
     {
       "id": "articuno",
@@ -637,8 +5317,22 @@
       "order": 1,
       "aceLevel": 12,
       "roster": [
-        { "species": "geodude", "level": 11, "moves": ["tackle"] },
-        { "species": "onix", "level": 12, "moves": ["headbutt", "bind", "rock-throw"] }
+        {
+          "species": "geodude",
+          "level": 11,
+          "moves": [
+            "tackle"
+          ]
+        },
+        {
+          "species": "onix",
+          "level": 12,
+          "moves": [
+            "headbutt",
+            "bind",
+            "rock-throw"
+          ]
+        }
       ]
     },
     {
@@ -648,8 +5342,23 @@
       "order": 2,
       "aceLevel": 19,
       "roster": [
-        { "species": "psyduck", "level": 18, "moves": ["water-gun", "confusion"] },
-        { "species": "starmie", "level": 19, "moves": ["scald", "psywave", "swift"] }
+        {
+          "species": "psyduck",
+          "level": 18,
+          "moves": [
+            "water-gun",
+            "confusion"
+          ]
+        },
+        {
+          "species": "starmie",
+          "level": 19,
+          "moves": [
+            "scald",
+            "psywave",
+            "swift"
+          ]
+        }
       ]
     },
     {
@@ -659,9 +5368,32 @@
       "order": 3,
       "aceLevel": 26,
       "roster": [
-        { "species": "voltorb", "level": 25, "moves": ["thunderbolt", "swift", "light-screen"] },
-        { "species": "magnemite", "level": 25, "moves": ["thunderbolt", "sonic-boom"] },
-        { "species": "raichu", "level": 26, "moves": ["thunderbolt", "quick-attack", "double-kick"] }
+        {
+          "species": "voltorb",
+          "level": 25,
+          "moves": [
+            "thunderbolt",
+            "swift",
+            "light-screen"
+          ]
+        },
+        {
+          "species": "magnemite",
+          "level": 25,
+          "moves": [
+            "thunderbolt",
+            "sonic-boom"
+          ]
+        },
+        {
+          "species": "raichu",
+          "level": 26,
+          "moves": [
+            "thunderbolt",
+            "quick-attack",
+            "double-kick"
+          ]
+        }
       ]
     },
     {
@@ -671,9 +5403,31 @@
       "order": 4,
       "aceLevel": 34,
       "roster": [
-        { "species": "tangela", "level": 33, "moves": ["mega-drain", "sleep-powder", "bind"] },
-        { "species": "weepinbell", "level": 33, "moves": ["mega-drain", "poison-jab"] },
-        { "species": "vileplume", "level": 34, "moves": ["mega-drain", "moonblast"] }
+        {
+          "species": "tangela",
+          "level": 33,
+          "moves": [
+            "mega-drain",
+            "sleep-powder",
+            "bind"
+          ]
+        },
+        {
+          "species": "weepinbell",
+          "level": 33,
+          "moves": [
+            "mega-drain",
+            "poison-jab"
+          ]
+        },
+        {
+          "species": "vileplume",
+          "level": 34,
+          "moves": [
+            "mega-drain",
+            "moonblast"
+          ]
+        }
       ]
     },
     {
@@ -683,10 +5437,46 @@
       "order": 5,
       "aceLevel": 44,
       "roster": [
-        { "species": "weezing", "level": 43, "moves": ["toxic", "protect", "sludge-bomb", "explosion"] },
-        { "species": "muk", "level": 43, "moves": ["toxic", "protect", "sludge-bomb", "moonblast"] },
-        { "species": "golbat", "level": 43, "moves": ["toxic", "protect", "fly", "leech-life"] },
-        { "species": "venomoth", "level": 44, "moves": ["sludge-bomb", "protect", "psychic", "bug-buzz"] }
+        {
+          "species": "weezing",
+          "level": 43,
+          "moves": [
+            "toxic",
+            "protect",
+            "sludge-bomb",
+            "explosion"
+          ]
+        },
+        {
+          "species": "muk",
+          "level": 43,
+          "moves": [
+            "toxic",
+            "protect",
+            "sludge-bomb",
+            "moonblast"
+          ]
+        },
+        {
+          "species": "golbat",
+          "level": 43,
+          "moves": [
+            "toxic",
+            "protect",
+            "fly",
+            "leech-life"
+          ]
+        },
+        {
+          "species": "venomoth",
+          "level": 44,
+          "moves": [
+            "sludge-bomb",
+            "protect",
+            "psychic",
+            "bug-buzz"
+          ]
+        }
       ]
     },
     {
@@ -696,10 +5486,43 @@
       "order": 6,
       "aceLevel": 44,
       "roster": [
-        { "species": "mr-mime", "level": 43, "moves": ["psychic", "reflect", "light-screen", "double-slap"] },
-        { "species": "slowbro", "level": 43, "moves": ["psychic", "yawn", "surf", "calm-mind"] },
-        { "species": "jynx", "level": 43, "moves": ["psychic", "lovely-kiss", "ice-punch"] },
-        { "species": "alakazam", "level": 44, "moves": ["psychic", "night-shade"] }
+        {
+          "species": "mr-mime",
+          "level": 43,
+          "moves": [
+            "psychic",
+            "reflect",
+            "light-screen",
+            "double-slap"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "level": 43,
+          "moves": [
+            "psychic",
+            "yawn",
+            "surf",
+            "calm-mind"
+          ]
+        },
+        {
+          "species": "jynx",
+          "level": 43,
+          "moves": [
+            "psychic",
+            "lovely-kiss",
+            "ice-punch"
+          ]
+        },
+        {
+          "species": "alakazam",
+          "level": 44,
+          "moves": [
+            "psychic",
+            "night-shade"
+          ]
+        }
       ]
     },
     {
@@ -709,10 +5532,41 @@
       "order": 7,
       "aceLevel": 48,
       "roster": [
-        { "species": "magmar", "level": 47, "moves": ["flamethrower", "low-kick", "confuse-ray"] },
-        { "species": "rapidash", "level": 47, "moves": ["flare-blitz", "quick-attack", "fury-attack"] },
-        { "species": "ninetales", "level": 47, "moves": ["fire-blast", "quick-attack"] },
-        { "species": "arcanine", "level": 48, "moves": ["flare-blitz", "outrage", "crunch"] }
+        {
+          "species": "magmar",
+          "level": 47,
+          "moves": [
+            "flamethrower",
+            "low-kick",
+            "confuse-ray"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "level": 47,
+          "moves": [
+            "flare-blitz",
+            "quick-attack",
+            "fury-attack"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "level": 47,
+          "moves": [
+            "fire-blast",
+            "quick-attack"
+          ]
+        },
+        {
+          "species": "arcanine",
+          "level": 48,
+          "moves": [
+            "flare-blitz",
+            "outrage",
+            "crunch"
+          ]
+        }
       ]
     },
     {
@@ -722,10 +5576,43 @@
       "order": 8,
       "aceLevel": 50,
       "roster": [
-        { "species": "dugtrio", "level": 49, "moves": ["earthquake", "sucker-punch", "slash"] },
-        { "species": "nidoqueen", "level": 49, "moves": ["earthquake", "super-fang", "crunch"] },
-        { "species": "nidoking", "level": 49, "moves": ["earthquake", "horn-drill", "megahorn", "poison-jab"] },
-        { "species": "rhydon", "level": 50, "moves": ["earthquake", "rock-slide", "megahorn"] }
+        {
+          "species": "dugtrio",
+          "level": 49,
+          "moves": [
+            "earthquake",
+            "sucker-punch",
+            "slash"
+          ]
+        },
+        {
+          "species": "nidoqueen",
+          "level": 49,
+          "moves": [
+            "earthquake",
+            "super-fang",
+            "crunch"
+          ]
+        },
+        {
+          "species": "nidoking",
+          "level": 49,
+          "moves": [
+            "earthquake",
+            "horn-drill",
+            "megahorn",
+            "poison-jab"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "level": 50,
+          "moves": [
+            "earthquake",
+            "rock-slide",
+            "megahorn"
+          ]
+        }
       ]
     },
     {
@@ -735,11 +5622,51 @@
       "order": 9,
       "aceLevel": 52,
       "roster": [
-        { "species": "dewgong", "level": 51, "moves": ["aqua-jet", "ice-shard", "waterfall"] },
-        { "species": "jynx", "level": 51, "moves": ["lovely-kiss", "blizzard", "psychic"] },
-        { "species": "cloyster", "level": 51, "moves": ["ice-beam", "spike-cannon", "hydro-pump"] },
-        { "species": "slowbro", "level": 51, "moves": ["psychic", "surf", "flamethrower"] },
-        { "species": "lapras", "level": 52, "moves": ["hydro-pump", "blizzard", "dragon-pulse"] }
+        {
+          "species": "dewgong",
+          "level": 51,
+          "moves": [
+            "aqua-jet",
+            "ice-shard",
+            "waterfall"
+          ]
+        },
+        {
+          "species": "jynx",
+          "level": 51,
+          "moves": [
+            "lovely-kiss",
+            "blizzard",
+            "psychic"
+          ]
+        },
+        {
+          "species": "cloyster",
+          "level": 51,
+          "moves": [
+            "ice-beam",
+            "spike-cannon",
+            "hydro-pump"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "level": 51,
+          "moves": [
+            "psychic",
+            "surf",
+            "flamethrower"
+          ]
+        },
+        {
+          "species": "lapras",
+          "level": 52,
+          "moves": [
+            "hydro-pump",
+            "blizzard",
+            "dragon-pulse"
+          ]
+        }
       ]
     },
     {
@@ -749,11 +5676,51 @@
       "order": 10,
       "aceLevel": 53,
       "roster": [
-        { "species": "onix", "level": 52, "moves": ["iron-tail", "stealth-rock", "earthquake"] },
-        { "species": "hitmonlee", "level": 52, "moves": ["brick-break", "feint", "rock-slide"] },
-        { "species": "hitmonchan", "level": 52, "moves": ["ice-punch", "thunder-punch", "fire-punch"] },
-        { "species": "poliwrath", "level": 52, "moves": ["superpower", "waterfall", "body-slam"] },
-        { "species": "machamp", "level": 53, "moves": ["earthquake", "superpower", "rock-slide"] }
+        {
+          "species": "onix",
+          "level": 52,
+          "moves": [
+            "iron-tail",
+            "stealth-rock",
+            "earthquake"
+          ]
+        },
+        {
+          "species": "hitmonlee",
+          "level": 52,
+          "moves": [
+            "brick-break",
+            "feint",
+            "rock-slide"
+          ]
+        },
+        {
+          "species": "hitmonchan",
+          "level": 52,
+          "moves": [
+            "ice-punch",
+            "thunder-punch",
+            "fire-punch"
+          ]
+        },
+        {
+          "species": "poliwrath",
+          "level": 52,
+          "moves": [
+            "superpower",
+            "waterfall",
+            "body-slam"
+          ]
+        },
+        {
+          "species": "machamp",
+          "level": 53,
+          "moves": [
+            "earthquake",
+            "superpower",
+            "rock-slide"
+          ]
+        }
       ]
     },
     {
@@ -763,11 +5730,51 @@
       "order": 11,
       "aceLevel": 54,
       "roster": [
-        { "species": "arbok", "level": 53, "moves": ["glare", "crunch", "poison-jab"] },
-        { "species": "gengar", "level": 53, "moves": ["will-o-wisp", "shadow-ball", "sludge-bomb"] },
-        { "species": "golbat", "level": 53, "moves": ["air-slash", "crunch", "quick-attack"] },
-        { "species": "weezing", "level": 53, "moves": ["sludge-bomb", "shadow-ball", "thunderbolt"] },
-        { "species": "gengar", "level": 54, "moves": ["dazzling-gleam", "shadow-ball", "sludge-bomb"] }
+        {
+          "species": "arbok",
+          "level": 53,
+          "moves": [
+            "glare",
+            "crunch",
+            "poison-jab"
+          ]
+        },
+        {
+          "species": "gengar",
+          "level": 53,
+          "moves": [
+            "will-o-wisp",
+            "shadow-ball",
+            "sludge-bomb"
+          ]
+        },
+        {
+          "species": "golbat",
+          "level": 53,
+          "moves": [
+            "air-slash",
+            "crunch",
+            "quick-attack"
+          ]
+        },
+        {
+          "species": "weezing",
+          "level": 53,
+          "moves": [
+            "sludge-bomb",
+            "shadow-ball",
+            "thunderbolt"
+          ]
+        },
+        {
+          "species": "gengar",
+          "level": 54,
+          "moves": [
+            "dazzling-gleam",
+            "shadow-ball",
+            "sludge-bomb"
+          ]
+        }
       ]
     },
     {
@@ -777,44 +5784,228 @@
       "order": 12,
       "aceLevel": 55,
       "roster": [
-        { "species": "seadra", "level": 54, "moves": ["hydro-pump", "dragon-pulse", "hyper-beam"] },
-        { "species": "aerodactyl", "level": 54, "moves": ["rock-slide", "earthquake", "hyper-beam"] },
-        { "species": "gyarados", "level": 54, "moves": ["waterfall", "iron-tail", "hyper-beam"] },
-        { "species": "charizard", "level": 54, "moves": ["air-slash", "dragon-pulse", "hyper-beam"] },
-        { "species": "dragonite", "level": 55, "moves": ["outrage", "fire-punch", "hyper-beam"] }
+        {
+          "species": "seadra",
+          "level": 54,
+          "moves": [
+            "hydro-pump",
+            "dragon-pulse",
+            "hyper-beam"
+          ]
+        },
+        {
+          "species": "aerodactyl",
+          "level": 54,
+          "moves": [
+            "rock-slide",
+            "earthquake",
+            "hyper-beam"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "level": 54,
+          "moves": [
+            "waterfall",
+            "iron-tail",
+            "hyper-beam"
+          ]
+        },
+        {
+          "species": "charizard",
+          "level": 54,
+          "moves": [
+            "air-slash",
+            "dragon-pulse",
+            "hyper-beam"
+          ]
+        },
+        {
+          "species": "dragonite",
+          "level": 55,
+          "moves": [
+            "outrage",
+            "fire-punch",
+            "hyper-beam"
+          ]
+        }
       ]
     },
     {
       "id": "champion-rival",
-"trainerSprite": "trace",
+      "trainerSprite": "trace",
       "name": "Champion (Rival)",
       "type": "champion",
       "order": 13,
       "aceLevel": 57,
       "roster": [
-        { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
-        { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
-        { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
-        { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
-        { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
-        { "species": "jolteon", "level": 57, "moves": ["thunder", "quick-attack", "pin-missile"] }
+        {
+          "species": "pidgeot",
+          "level": 56,
+          "moves": [
+            "quick-attack",
+            "air-slash",
+            "heat-wave"
+          ]
+        },
+        {
+          "species": "vileplume",
+          "level": 56,
+          "moves": [
+            "solar-beam",
+            "reflect",
+            "sludge-bomb"
+          ]
+        },
+        {
+          "species": "marowak",
+          "level": 56,
+          "moves": [
+            "fire-punch",
+            "bonemerang",
+            "brick-break"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "level": 56,
+          "moves": [
+            "flare-blitz",
+            "quick-attack",
+            "poison-jab"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "level": 56,
+          "moves": [
+            "psychic",
+            "surf",
+            "light-screen"
+          ]
+        },
+        {
+          "species": "jolteon",
+          "level": 57,
+          "moves": [
+            "thunder",
+            "quick-attack",
+            "pin-missile"
+          ]
+        }
       ],
       "rosterByStarter": {
         "pikachu": [
-          { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
-          { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
-          { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
-          { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
-          { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
-          { "species": "jolteon", "level": 57, "moves": ["thunder", "quick-attack", "pin-missile"] }
+          {
+            "species": "pidgeot",
+            "level": 56,
+            "moves": [
+              "quick-attack",
+              "air-slash",
+              "heat-wave"
+            ]
+          },
+          {
+            "species": "vileplume",
+            "level": 56,
+            "moves": [
+              "solar-beam",
+              "reflect",
+              "sludge-bomb"
+            ]
+          },
+          {
+            "species": "marowak",
+            "level": 56,
+            "moves": [
+              "fire-punch",
+              "bonemerang",
+              "brick-break"
+            ]
+          },
+          {
+            "species": "rapidash",
+            "level": 56,
+            "moves": [
+              "flare-blitz",
+              "quick-attack",
+              "poison-jab"
+            ]
+          },
+          {
+            "species": "slowbro",
+            "level": 56,
+            "moves": [
+              "psychic",
+              "surf",
+              "light-screen"
+            ]
+          },
+          {
+            "species": "jolteon",
+            "level": 57,
+            "moves": [
+              "thunder",
+              "quick-attack",
+              "pin-missile"
+            ]
+          }
         ],
         "eevee": [
-          { "species": "pidgeot", "level": 56, "moves": ["quick-attack", "air-slash", "heat-wave"] },
-          { "species": "vileplume", "level": 56, "moves": ["solar-beam", "reflect", "sludge-bomb"] },
-          { "species": "marowak", "level": 56, "moves": ["fire-punch", "bonemerang", "brick-break"] },
-          { "species": "rapidash", "level": 56, "moves": ["flare-blitz", "quick-attack", "poison-jab"] },
-          { "species": "slowbro", "level": 56, "moves": ["psychic", "surf", "light-screen"] },
-          { "species": "raichu", "level": 57, "moves": ["thunder", "quick-attack", "iron-tail"] }
+          {
+            "species": "pidgeot",
+            "level": 56,
+            "moves": [
+              "quick-attack",
+              "air-slash",
+              "heat-wave"
+            ]
+          },
+          {
+            "species": "vileplume",
+            "level": 56,
+            "moves": [
+              "solar-beam",
+              "reflect",
+              "sludge-bomb"
+            ]
+          },
+          {
+            "species": "marowak",
+            "level": 56,
+            "moves": [
+              "fire-punch",
+              "bonemerang",
+              "brick-break"
+            ]
+          },
+          {
+            "species": "rapidash",
+            "level": 56,
+            "moves": [
+              "flare-blitz",
+              "quick-attack",
+              "poison-jab"
+            ]
+          },
+          {
+            "species": "slowbro",
+            "level": 56,
+            "moves": [
+              "psychic",
+              "surf",
+              "light-screen"
+            ]
+          },
+          {
+            "species": "raichu",
+            "level": 57,
+            "moves": [
+              "thunder",
+              "quick-attack",
+              "iron-tail"
+            ]
+          }
         ]
       }
     }
