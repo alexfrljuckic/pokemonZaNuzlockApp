@@ -14,6 +14,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
     pokemon: {},
     encounterOutcomes: {},
     milestonesCleared: [],
+    trainersBattled: [],
     reviveTokens: 0,
     wipes: [],
     ruleChanges: [],
@@ -126,6 +127,16 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
           const m = ctx.dataset.milestones.find((x) => x.id === ev.payload.milestoneId);
           if (m?.grants?.reviveTokens) state.reviveTokens += m.grants.reviveTokens;
         }
+        break;
+      }
+      case 'trainer_battled': {
+        const key = `${ev.payload.areaId}#${ev.payload.trainerIndex}`;
+        if (!state.trainersBattled.includes(key)) state.trainersBattled.push(key);
+        break;
+      }
+      case 'trainer_reset': {
+        const key = `${ev.payload.areaId}#${ev.payload.trainerIndex}`;
+        state.trainersBattled = state.trainersBattled.filter((k) => k !== key);
         break;
       }
       case 'rule_changed': {

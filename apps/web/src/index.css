@@ -452,7 +452,30 @@ button:disabled {
   flex: none;
 }
 
-.trainer-row-name { font-size: 0.9rem; }
+/* Boss-fight-scale head: bold name over the class, like milestone-card-title */
+.trainer-row-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+.trainer-row-title strong { font-size: 1.02rem; }
+.trainer-row-title .muted { font-size: 0.82rem; }
+
+.trainer-battled-badge {
+  margin-left: auto;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--success);
+  border: 1px solid color-mix(in srgb, var(--success) 45%, transparent);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+  white-space: nowrap;
+}
+
+.trainer-row.battled .trainer-row-team,
+.trainer-row.battled .trainer-row-sprite { opacity: 0.55; }
+
+.trainer-moves-note { font-size: 0.75rem; font-style: italic; }
 
 /* Expanded per-mon detail — same grid + mrd-* card treatment as the
    boss-fight MilestoneCard detail view. */
@@ -462,6 +485,11 @@ button:disabled {
   gap: 0.75rem;
   padding-top: 0.5rem;
   animation: fadeUp 0.2s ease both;
+}
+.trainer-row-detail > button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 0.25rem;
 }
 
 .trainer-row-team {
@@ -475,10 +503,10 @@ button:disabled {
   flex-direction: column;
   align-items: center;
   gap: 0.1rem;
-  min-width: 52px;
+  min-width: 60px;
 }
 
-.trainer-mon-lv { font-size: 0.72rem; }
+.trainer-mon-lv { font-size: 0.8rem; font-weight: 600; }
 
 /* Spectator timeline timestamp, right-aligned on the shared summary-item row. */
 .timeline-when {
