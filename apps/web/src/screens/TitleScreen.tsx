@@ -2,10 +2,12 @@ export function TitleScreen({
   hasRuns,
   onNewGame,
   onContinue,
+  onStats,
 }: {
   hasRuns: boolean;
   onNewGame: () => void;
   onContinue: () => void;
+  onStats: () => void;
 }) {
   return (
     <div className="title-screen">
@@ -16,6 +18,11 @@ export function TitleScreen({
       <button className={hasRuns ? 'secondary' : ''} onClick={onNewGame}>
         New Game
       </button>
+      {hasRuns && (
+        <button className="secondary" onClick={onStats}>
+          Your Stats
+        </button>
+      )}
     </div>
   );
 }
