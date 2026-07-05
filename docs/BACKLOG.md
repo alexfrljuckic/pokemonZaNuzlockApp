@@ -18,15 +18,72 @@ Wyndon) and the area's cave encounter table matches no base-game location;
 that session will trace its origin and open a rename-or-remove PR. Don't
 touch swsh.json's victory-road-swsh area until it lands.
 
-## Next up
+## Next up (Alex's queued feedback, 2026-07-05 — items 27-30 first)
+
+**27. Progressive next-area highlighting on maps.** As routes get resolved
+(seen on BDSP), the map doesn't advance which areas glow as "up next" —
+the frontier highlight should progressively update: resolving an area (or
+clearing its unlockAfter milestone) promotes the next reachable areas to
+the highlighted state. Audit `isFrontier` + `route-region-frontier` (they
+exist but don't visibly progress) and make the progression obvious in the
+map + area list. Applies to every game.
+
+**28. Compact collapsed trainer cards.** The collapsed trainer card is too
+tall — condense toward the Boss Fights collapsed treatment: one row with
+sprite, name/class, and the team as a tight horizontal strip; full detail
+stays behind the expand. Route panels with 10+ trainers should scan fast.
+
+**29. Items always visible + pickup tracking.** Drop the collapsed
+<details> — show the item chips directly (cap + "show all" for dungeon
+piles), and make each item markable as picked up: engine event pair
+item_picked / item_reset keyed `areaId#itemIndex` (same shape as
+trainer_battled), checked/dimmed chip state, n/m picked in the header.
+
+**30. Drop the "Pokémon" prefix on the game picker.** Card titles read
+"Brilliant Diamond / Shining Pearl" etc. — the franchise is implied.
+Display-side strip only (dataset `name` stays canonical). Tiny PR.
+
+**31. SV real-map swap (waiting on upload).** Alex has a Paldea map image
+(shared in the 2026-07-05 session — the region map with gym-leader pins)
+he's OK using as the SV backdrop. Same recipe as the Lumiose swap (#87):
+he uploads it to apps/web/public/maps/ (rename to paldea.jpg), then
+recalibrate the 16 zone nodes onto it (pixel-luminance/crop technique)
+and retire the hand-drawn paldea.svg. Blocked only on the upload.
 
 **24. PLA sub-area encounter granularity + alpha flag.** The community
-nuzlockes PLA per NAMED LOCATION (Horseshoe Plains, …), not per zone — our
-7-zone dataset is the biggest gap vs. practice (docs/CHALLENGE-MODES.md).
-Split pla.json areas into named sub-locations (Serebii has per-location
-spawn lists) or add a sub-area list per zone; add an `isAlpha`-style
-encounter flag so guaranteed Alphas can be excluded by default with a
-hard-mode "alphas count" toggle. Dataset + small engine/UI PR.
+nuzlockes PLA per NAMED LOCATION, not per zone — our 7-zone dataset is
+the biggest gap vs. practice (docs/CHALLENGE-MODES.md). Split pla.json
+areas into named sub-locations (Serebii has per-location spawn lists) or
+add a sub-area list per zone; add an `isAlpha`-style encounter flag so
+guaranteed Alphas can be excluded by default with a hard-mode "alphas
+count" toggle. Dataset + small engine/UI PR.
+**Sub-location names transcribed from Alex's reference maps (2026-07-05
+session; he can upload the map images à la pokemonZamap.jpg if we want
+per-zone backdrops — that needs a one-map-per-zone registry extension):**
+- Obsidian Fieldlands: Aspiration Hill, Floaro Gardens, Horseshoe Plains,
+  Grueling Grove, Worn Bridge, Deertrack Path, Deertrack Heights,
+  Windswept Run, Nature's Pantry, Tidewater Dam, Obsidian Falls,
+  Oreburrow Tunnel, Sandgem Flats, Ramanas Island, Lake Verity, The
+  Heartwood, Grandtree Arena.
+- Crimson Mirelands: Brava Arena, Shrouded Ruins, Cloudpool Ridge,
+  Diamond Heath, Diamond Settlement, Lake Valor, Solaceon Ruins, Golden
+  Lowlands, Bolderoll Slope, Scarlet Bog, Cottonsedge Prairie, Gapejaw
+  Bog, Droning Meadow, Sludge Mound, Ursa's Ring, Holm of Trials.
+- Cobalt Coastlands: Islespy Shore, Molten Arena, Firespit Island, Spring
+  Path, Seagrass Haven, Windbreak Stand, Veilstone Cape, Castaway Shore,
+  Lunker's Lair, Tranquility Cove, Ginkgo Landing, Crossing Slope, Sand's
+  Reach, Aipom Hill, Deadwood Haunt, Bathers' Lagoon, Tombolo Walk,
+  Hideaway Bay.
+- Coronet Highlands: Temple of Sinnoh, Cloudcap Pass, Moonview Arena,
+  Celestica Ruins, Sacred Plaza, Clamberclaw Cliffs, Stonetooth Rows,
+  Primeval Grotto, Celestica Trail, Lonely Spring, Bolderoll Ravine,
+  Sonorous Path, Ancient Quarry, Fabled Spring, Wayward Wood, Heavenward
+  Lookout.
+- Alabaster Icelands: Lake Acuity, Glacier Terrace, Snowfall Hot Spring,
+  Pearl Settlement, Heart's Crag, Icepeak Arena, Avalugg's Legacy,
+  Arena's Approach, Bonechill Wastes, Avalanche Slopes, Whiteout Valley,
+  Icebound Falls.
+- (Jubilife Village is the hub — items/vendors, no wild sub-areas.)
 
 **25. SV next-boss level cap affordance.** Milestones already complete in
 any order; add the "which boss am I doing next" pick so the displayed
