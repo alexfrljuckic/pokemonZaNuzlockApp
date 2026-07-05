@@ -80,8 +80,10 @@ export interface SpecialEncounter {
   // version-locked specials (e.g. LGPE's partner Pokémon: Pikachu on that
   // version, Eevee on the other — not a real in-game choice, just fixed by
   // which version you started). Absent = available regardless of version.
+  // dlc: true = only shown when the run's 'dlc-content' rule is on.
   conditions?: {
     version?: string[];
+    dlc?: boolean;
   };
 }
 
@@ -101,9 +103,11 @@ export interface Milestone {
   rosterByStarter?: Record<string, MilestoneRosterMember[]>;
   /** Version gating for a milestone present in only one version (e.g. SV's
    * Area Zero finale or the version-split Quaking Earth Titan). Absent = shown
-   * regardless of version. */
+   * regardless of version. dlc: true = only shown when the run's
+   * 'dlc-content' rule is on. */
   conditions?: {
     version?: string[];
+    dlc?: boolean;
   };
   /** Showdown trainer-sprite key when the default guess (id's last segment)
    * is wrong (e.g. rival-hop-1 → "hop"). Presentation data owned by datasets. */

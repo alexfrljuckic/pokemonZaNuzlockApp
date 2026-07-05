@@ -93,6 +93,19 @@ export const RULES: Record<string, RuleDef> = {
     hooks: [],
   },
 
+  'dlc-content': {
+    id: 'dlc-content',
+    name: 'Playing the DLC',
+    description:
+      'Show DLC content in this run: expansion areas, boss fights and one-time legendaries/gifts (SwSh: Isle of Armor + Crown Tundra). Off = base-game run; DLC areas, milestones and specials are hidden and never gate the level cap.',
+    category: 'core',
+    appliesTo: ['swsh'],
+    enforcement: 'enforced',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: ['filterEncounterPool', 'validateTeam'],
+  },
+
   // ---- Per-game honor packs (docs/CHALLENGE-MODES.md; sourced community
   // conventions). Honor rules are displayed and acknowledged, never enforced.
 
@@ -300,7 +313,7 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
   const rogueCaps = state.ruleset.rules['za-rogue-caps'];
   const roguesExcluded = rogueCaps != null && !rogueCaps.enabled;
-  const gating = milestonesFor(ctx.dataset, state.version).filter(
+  const gating = milestonesFor(ctx.dataset, state.version, state.ruleset).filter(
     (m) =>
       m.aceLevel !== null &&
       m.countsForLevelCap !== false &&
@@ -314,21 +327,48 @@ export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null 
   return gating.sort((a, b) => a.order - b.order)[0] ?? null;
 }
 
+/** Whether the run shows DLC-gated content. Keyed off the 'dlc-content' rule:
+ * enabled = show, disabled = base-game run. ABSENT = show — games without the
+ * rule have no DLC content anyway, and runs started before the rule existed
+ * keep seeing the DLC areas they could already use (absent ≠ off, same
+ * semantics as za-rogue-caps). */
+export function dlcEnabled(ruleset: Ruleset | undefined): boolean {
+  return ruleset?.rules['dlc-content']?.enabled ?? true;
+}
+
 /** Milestones that apply to the given run version — a few are version-gated
  * (e.g. SV's Area Zero finale, the split Quaking Earth Titan). Absent
  * conditions.version = shown in every version. Use this wherever the milestone
- * list is displayed or counted so a run never shows the other version's bosses. */
-export function milestonesFor(dataset: GameDataset, version: string): Milestone[] {
+ * list is displayed or counted so a run never shows the other version's bosses.
+ * Pass the run's ruleset so DLC-gated milestones respect the 'dlc-content'
+ * toggle; omitting it includes everything (legacy callers/tests). */
+export function milestonesFor(dataset: GameDataset, version: string, ruleset?: Ruleset): Milestone[] {
+  const withDlc = ruleset === undefined || dlcEnabled(ruleset);
   return dataset.milestones.filter(
-    (m) => !m.conditions?.version || m.conditions.version.includes(version),
+    (m) =>
+      (!m.conditions?.version || m.conditions.version.includes(version)) &&
+      (withDlc || !m.conditions?.dlc),
   );
+}
+
+/** Areas that apply to the run — everything, minus `dlc:*`-tagged areas when
+ * the 'dlc-content' rule is off. */
+export function areasFor(dataset: GameDataset, ruleset?: Ruleset): Area[] {
+  if (ruleset === undefined || dlcEnabled(ruleset)) return dataset.areas;
+  return dataset.areas.filter((a) => !a.tags.some((t) => t.startsWith('dlc:')));
 }
 
 /** Whether a special encounter is available for the given version — most
  * specials have no version lock and apply everywhere; a few (e.g. LGPE's
  * partner Pokémon: Pikachu on one version, Eevee on the other) are fixed by
- * which version you're playing, not a real in-game choice. */
-export function specialAppliesToVersion(special: SpecialEncounter, version: string): boolean {
+ * which version you're playing, not a real in-game choice. Pass the run's
+ * ruleset so DLC-gated specials respect the 'dlc-content' toggle. */
+export function specialAppliesToVersion(
+  special: SpecialEncounter,
+  version: string,
+  ruleset?: Ruleset,
+): boolean {
+  if (special.conditions?.dlc && ruleset !== undefined && !dlcEnabled(ruleset)) return false;
   return !special.conditions?.version || special.conditions.version.includes(version);
 }
 

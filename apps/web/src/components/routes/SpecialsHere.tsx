@@ -17,7 +17,7 @@ export function SpecialsHere({
   onChange: () => Promise<void>;
 }) {
   const here = (ctx.dataset.specials ?? []).filter(
-    (s) => s.area === areaId && !s.id.startsWith('starter-') && specialAppliesToVersion(s, state.version),
+    (s) => s.area === areaId && !s.id.startsWith('starter-') && specialAppliesToVersion(s, state.version, state.ruleset),
   );
   if (here.length === 0) return null;
   return (

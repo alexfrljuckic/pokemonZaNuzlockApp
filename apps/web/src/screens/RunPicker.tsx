@@ -1,5 +1,5 @@
 import { Fragment, useState, type CSSProperties } from 'react';
-import { buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
+import { RULES, buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
 import { listGames, speciesToLine } from '../lib/datasets';
 import { VERSION_MASCOT, cardColorFor } from '../games';
 import { createRun, loadEvents, type RunSummary } from '../lib/db';
@@ -47,6 +47,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   const game = games.find((g) => g.gameId === gameId) ?? null;
   const [version, setVersion] = useState('');
   const [preset, setPreset] = useState<(typeof PRESETS)[number]>('standard');
+  const [dlcOn, setDlcOn] = useState(false);
   const [houseRulesText, setHouseRulesText] = useState('');
   const [creating, setCreating] = useState(false);
   const [pendingRun, setPendingRun] = useState<{ id: string; events: RunEvent[] } | null>(null);
@@ -66,6 +67,9 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
     setCreating(true);
     try {
       const ruleset = buildRuleset(preset, game.gameId);
+      if (ruleset.rules['dlc-content']) {
+        ruleset.rules['dlc-content'] = { enabled: dlcOn, params: {} };
+      }
       ruleset.houseRules = houseRulesText
         .split('\n')
         .map((l) => l.trim())
@@ -161,6 +165,14 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
                     </button>
                   ))}
                 </div>
+
+                {RULES['dlc-content'].appliesTo !== 'all' && RULES['dlc-content'].appliesTo.includes(game.gameId) && (
+                  <label className="rule-toggle dlc-toggle">
+                    <input type="checkbox" checked={dlcOn} onChange={(e) => setDlcOn(e.target.checked)} />
+                    Playing the DLC{' '}
+                    <span className="muted">(expansion areas, bosses and legendaries; toggleable later in Rules)</span>
+                  </label>
+                )}
 
                 <label htmlFor="house-rules">
                   House rules (optional, one per line — honor rules, shown but not enforced)

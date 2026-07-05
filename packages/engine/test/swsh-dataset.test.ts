@@ -3,9 +3,12 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
+  areasFor,
   buildRuleset,
   deriveState,
   filterEncounterPool,
+  milestonesFor,
+  specialAppliesToVersion,
   type EngineContext,
   type GameDataset,
   type RunEvent,
@@ -118,5 +121,44 @@ describe('SwSh dataset', () => {
     for (const area of dataset.areas) {
       if (area.unlockAfter) expect(milestoneIds.has(area.unlockAfter)).toBe(true);
     }
+  });
+
+  it('gates all DLC bosses and specials behind the dlc-content rule (backlog 23)', () => {
+    const base = buildRuleset('standard', 'swsh'); // dlc-content off by default
+    const withDlc = buildRuleset('standard', 'swsh');
+    withDlc.rules['dlc-content'] = { enabled: true, params: {} };
+
+    // every dlc-prefixed milestone is conditions.dlc-gated; base runs never see them
+    const dlcMilestones = dataset.milestones.filter((m) => m.id.startsWith('dlc-'));
+    expect(dlcMilestones).toHaveLength(9);
+    for (const m of dlcMilestones) expect(m.conditions?.dlc, `${m.id} missing conditions.dlc`).toBe(true);
+    const baseIds = milestonesFor(dataset, 'sword', base).map((m) => m.id);
+    expect(baseIds.some((id) => id.startsWith('dlc-'))).toBe(false);
+    expect(baseIds).toHaveLength(12); // the original base-game ladder, untouched
+
+    // Klara is Sword's dojo rival, Avery Shield's — never both in one run
+    const swordIds = milestonesFor(dataset, 'sword', withDlc).map((m) => m.id);
+    const shieldIds = milestonesFor(dataset, 'shield', withDlc).map((m) => m.id);
+    expect(swordIds).toContain('dlc-klara-3');
+    expect(swordIds).not.toContain('dlc-avery-3');
+    expect(shieldIds).toContain('dlc-avery-3');
+    expect(shieldIds).not.toContain('dlc-klara-3');
+    expect(swordIds).toContain('dlc-mustard-final');
+    expect(shieldIds).toContain('dlc-mustard-final');
+
+    // specials: all dlc-gated, incl. Zapdos anchored in the base-game Wild Area
+    const dlcSpecials = dataset.specials.filter((s) => s.id.startsWith('dlc-'));
+    expect(dlcSpecials.length).toBeGreaterThanOrEqual(30);
+    for (const s of dlcSpecials) {
+      expect(s.conditions?.dlc, `${s.id} missing conditions.dlc`).toBe(true);
+      expect(specialAppliesToVersion(s, 'sword', base)).toBe(false);
+      expect(specialAppliesToVersion(s, 'sword', withDlc)).toBe(true);
+    }
+    const zapdos = dataset.specials.find((s) => s.id === 'dlc-static-zapdos-galar')!;
+    expect(dataset.areas.find((a) => a.id === zapdos.area)!.tags.some((t) => t.startsWith('dlc:'))).toBe(false);
+
+    // area filtering: 32 base areas vs 62 with DLC
+    expect(areasFor(dataset, base)).toHaveLength(32);
+    expect(areasFor(dataset, withDlc)).toHaveLength(62);
   });
 });

@@ -119,7 +119,11 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "version": { "type": "array", "items": { "type": "string" } }
+              "version": { "type": "array", "items": { "type": "string" } },
+              "dlc": {
+                "type": "boolean",
+                "description": "true = only shown when the run's 'dlc-content' rule is enabled (e.g. SwSh Isle of Armor / Crown Tundra legendaries and gifts)."
+              }
             }
           }
         }
@@ -145,7 +149,13 @@
           "conditions": {
             "type": "object",
             "additionalProperties": false,
-            "properties": { "version": { "type": "array", "items": { "type": "string" } } },
+            "properties": {
+              "version": { "type": "array", "items": { "type": "string" } },
+              "dlc": {
+                "type": "boolean",
+                "description": "true = only shown when the run's 'dlc-content' rule is enabled (e.g. SwSh Isle of Armor / Crown Tundra boss fights)."
+              }
+            },
             "description": "Optional version gating for a milestone present in only one version (e.g. the Scarlet/Violet Area Zero finale, or the version-split Quaking Earth Titan). The app shows it only for matching run versions."
           },
           "trainerSprite": {

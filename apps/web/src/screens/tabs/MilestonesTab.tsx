@@ -24,7 +24,7 @@ export function MilestonesTab({
   const boss = nextBoss(state, ctx);
   const violations = validateTeam(state, ctx);
   const starter = chosenStarter(state);
-  const milestones = milestonesFor(ctx.dataset, state.version).sort((a, b) => a.order - b.order);
+  const milestones = milestonesFor(ctx.dataset, state.version, state.ruleset).sort((a, b) => a.order - b.order);
   const allCleared = milestones.every((m) => state.milestonesCleared.includes(m.id));
 
   async function clear(id: string) {
