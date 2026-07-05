@@ -80,4 +80,8 @@ Variant modes; anything requiring new event types; server-side aggregation.
 
 1. Timeline placement: Stats section (recommended) or sixth tab?
 2. Which 33b panels are actually wanted vs. noise?
-3. Should cross-run stats include abandoned runs by default?
+3. ~~Should cross-run stats include abandoned runs by default?~~
+   **ANSWERED (2026-07-05): abandoned runs are a stat, not part of the
+   aggregates.** Cross-run aggregates (deaths by species/area, win rate,
+   species usage) exclude abandoned runs; the collection overview still
+   shows the abandoned count itself (e.g. "12 runs · 3 abandoned").
