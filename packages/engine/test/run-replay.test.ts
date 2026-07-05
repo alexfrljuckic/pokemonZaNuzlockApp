@@ -148,6 +148,29 @@ describe('synthetic BDSP run replay', () => {
     expect(state.ruleChanges[0].note).toBe('Gardenia is scary');
   });
 
+  it('audits mid-run house-rule edits (before AND after recorded)', () => {
+    const started = deriveState(events, ctx);
+    expect(started.ruleset.houseRules).toEqual([]);
+
+    const edited = [
+      ...events,
+      ev('house_rules_changed', { before: [], after: ['no legendaries', 'shiny clause'], note: 'tightening up' }),
+    ];
+    const state = deriveState(edited, ctx);
+    expect(state.ruleset.houseRules).toEqual(['no legendaries', 'shiny clause']);
+
+    // the audit trail lives in the event itself — both sides are present
+    const auditEv = edited[edited.length - 1];
+    if (auditEv.type !== 'house_rules_changed') throw new Error('unreachable');
+    expect(auditEv.payload.before).toEqual([]);
+    expect(auditEv.payload.after).toEqual(['no legendaries', 'shiny clause']);
+    expect(auditEv.payload.note).toBe('tightening up');
+
+    // a second edit replaces, not appends
+    const second = [...edited, ev('house_rules_changed', { before: ['no legendaries', 'shiny clause'], after: ['no legendaries'] })];
+    expect(deriveState(second, ctx).ruleset.houseRules).toEqual(['no legendaries']);
+  });
+
   it('detects a wipe, waits for a decision, and honors "continue for fun"', () => {
     const withSecond = [
       ...events,
@@ -166,6 +189,21 @@ describe('synthetic BDSP run replay', () => {
     state = deriveState(continued, ctx);
     expect(state.status).toBe('wiped-continuing');
     expect(pendingWipeDecision(state)).toBe(false);
+
+    // the 'reset' decision ends the run as 'wiped' — a real finished status,
+    // no companion run_ended event needed
+    const resetRun = [...wiped, ev('wipe_decision', { decision: 'reset' })];
+    state = deriveState(resetRun, ctx);
+    expect(state.status).toBe('wiped');
+    expect(pendingWipeDecision(state)).toBe(false);
+    expect(state.wipes).toHaveLength(1); // the wipe is never erased
+
+    // back-compat: legacy logs carry wipe_decision(reset) FOLLOWED BY
+    // run_ended(abandoned) (the old UI workaround) — run_ended comes later
+    // in seq order and wins, so those runs still derive to 'abandoned'
+    const legacy = [...resetRun, ev('run_ended', { result: 'abandoned' })];
+    state = deriveState(legacy, ctx);
+    expect(state.status).toBe('abandoned');
   });
 
   it('derives identical state regardless of event array order (sync-merge safety)', () => {

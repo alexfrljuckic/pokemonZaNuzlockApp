@@ -212,9 +212,17 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         });
         break;
       }
+      case 'house_rules_changed': {
+        // Mid-run house-rule edits are legal — the event records before AND
+        // after for the audit trail, mirroring rule_changed's spirit.
+        state.ruleset.houseRules = [...ev.payload.after];
+        break;
+      }
       case 'wipe_decision': {
-        // 'reset' is handled by the app starting a fresh run; 'continue' flags this one honestly.
+        // 'continue' flags this run honestly; 'reset' ends it as 'wiped' —
+        // the wipe stays in history and the player starts a fresh run.
         if (ev.payload.decision === 'continue') state.status = 'wiped-continuing';
+        else state.status = 'wiped';
         break;
       }
       case 'run_ended': {

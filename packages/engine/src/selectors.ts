@@ -52,10 +52,13 @@ export interface CrossRunStats {
   runs: number;
   victories: number;
   abandoned: number;
+  /** runs ended by a wipe with the 'reset' decision — real finished runs */
+  wiped: number;
   wipedContinuing: number;
   active: number;
   /** runs included in the aggregates below — abandoned runs are counted
-   * above but EXCLUDED here (decided 2026-07-05, see METRICS-DASHBOARD.md) */
+   * above but EXCLUDED here (decided 2026-07-05, see METRICS-DASHBOARD.md).
+   * Wiped runs ARE included: a wipe is a real finished run, not a discard. */
   aggregated: number;
   totalDeaths: number;
   deathsBySpecies: Record<string, number>;
@@ -70,6 +73,7 @@ export function aggregateRuns(states: RunState[]): CrossRunStats {
     runs: states.length,
     victories: 0,
     abandoned: 0,
+    wiped: 0,
     wipedContinuing: 0,
     active: 0,
     aggregated: 0,
@@ -80,6 +84,7 @@ export function aggregateRuns(states: RunState[]): CrossRunStats {
   for (const s of states) {
     if (s.status === 'victory') stats.victories++;
     else if (s.status === 'abandoned') stats.abandoned++;
+    else if (s.status === 'wiped') stats.wiped++;
     else if (s.status === 'wiped-continuing') stats.wipedContinuing++;
     else stats.active++;
 
