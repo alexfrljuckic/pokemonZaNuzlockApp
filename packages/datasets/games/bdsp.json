@@ -9345,6 +9345,62 @@
       ]
     },
     {
+      "id": "pokemon-league",
+      "name": "Pokémon League",
+      "unlockAfter": "gym-8-volkner",
+      "tags": [
+        "landmark",
+        "league"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "fight-area",
       "name": "Fight Area",
       "unlockAfter": "champion-cynthia",
@@ -12228,6 +12284,52 @@
               "shining-pearl"
             ]
           }
+        }
+      ],
+      "items": [
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
         }
       ]
     }
