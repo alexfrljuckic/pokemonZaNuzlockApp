@@ -12,6 +12,21 @@
   "rostersRequired": true,
   "areas": [
     {
+      "id": "twinleaf-town",
+      "name": "Twinleaf Town",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Odd Keystone",
+          "hidden": true
+        }
+      ]
+    },
+    {
       "id": "lake-verity",
       "name": "Lake Verity",
       "unlockAfter": null,
@@ -184,6 +199,93 @@
       ]
     },
     {
+      "id": "sandgem-town",
+      "name": "Sandgem Town",
+      "unlockAfter": null,
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "route-202",
       "name": "Route 202",
       "unlockAfter": null,
@@ -297,6 +399,104 @@
       "items": [
         {
           "name": "Potion"
+        }
+      ]
+    },
+    {
+      "id": "jubilife-city",
+      "name": "Jubilife City",
+      "unlockAfter": null,
+      "tags": [
+        "city"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Paralyze Heal",
+          "hidden": true
+        },
+        {
+          "name": "Quick Claw"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
         }
       ]
     },
@@ -722,6 +922,114 @@
       ]
     },
     {
+      "id": "oreburgh-city",
+      "name": "Oreburgh City",
+      "unlockAfter": null,
+      "tags": [
+        "city",
+        "gym-1"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Dusk Ball"
+        },
+        {
+          "name": "Heal Ball"
+        },
+        {
+          "name": "Great Ball"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "oreburgh-mine",
       "name": "Oreburgh Mine",
       "unlockAfter": null,
@@ -1019,6 +1327,104 @@
         },
         {
           "name": "Sea Incense"
+        }
+      ]
+    },
+    {
+      "id": "floaroma-town",
+      "name": "Floaroma Town",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM88 (Pluck)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
         }
       ]
     },
@@ -2326,6 +2732,102 @@
         },
         {
           "name": "TM93 (Cut)"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Powder",
+          "shop": true
+        },
+        {
+          "name": "Energy Powder",
+          "shop": true
+        },
+        {
+          "name": "Energy Root",
+          "shop": true
+        },
+        {
+          "name": "Revival Herb",
+          "shop": true
         }
       ]
     },
@@ -3205,6 +3707,94 @@
         {
           "name": "Honey",
           "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
         }
       ]
     },
@@ -3883,6 +4473,112 @@
         },
         {
           "name": "TM92 (Trick Room)"
+        }
+      ]
+    },
+    {
+      "id": "pastoria-city",
+      "name": "Pastoria City",
+      "unlockAfter": "gym-3-maylene",
+      "tags": [
+        "city",
+        "gym-4"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Mystic Water"
+        },
+        {
+          "name": "Macho Brace"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
         }
       ]
     },
@@ -4954,6 +5650,313 @@
       ]
     },
     {
+      "id": "veilstone-city",
+      "name": "Veilstone City",
+      "unlockAfter": "gym-2-gardenia",
+      "tags": [
+        "city",
+        "gym-3"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "PP Up"
+        },
+        {
+          "name": "Full Incense"
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Revive",
+          "hidden": true
+        },
+        {
+          "name": "Silk Scarf",
+          "hidden": true
+        },
+        {
+          "name": "Zoom Lens"
+        },
+        {
+          "name": "Wide Lens"
+        },
+        {
+          "name": "Metronome"
+        },
+        {
+          "name": "TM63 (Nasty Plot)"
+        },
+        {
+          "name": "Sticky Barb"
+        },
+        {
+          "name": "TM94 (Fly)"
+        },
+        {
+          "name": "Dusk Stone"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Poké Doll",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "X Attack",
+          "shop": true
+        },
+        {
+          "name": "X Defense",
+          "shop": true
+        },
+        {
+          "name": "X Sp. Atk",
+          "shop": true
+        },
+        {
+          "name": "X Sp. Def",
+          "shop": true
+        },
+        {
+          "name": "X Speed",
+          "shop": true
+        },
+        {
+          "name": "X Accuracy",
+          "shop": true
+        },
+        {
+          "name": "Guard Spec.",
+          "shop": true
+        },
+        {
+          "name": "Dire Hit",
+          "shop": true
+        },
+        {
+          "name": "HP Up",
+          "shop": true
+        },
+        {
+          "name": "Protein",
+          "shop": true
+        },
+        {
+          "name": "Iron",
+          "shop": true
+        },
+        {
+          "name": "Calcium",
+          "shop": true
+        },
+        {
+          "name": "Zinc",
+          "shop": true
+        },
+        {
+          "name": "Carbos",
+          "shop": true
+        },
+        {
+          "name": "TM10 (Work Up)",
+          "shop": true
+        },
+        {
+          "name": "TM13 (Ice Beam)",
+          "shop": true
+        },
+        {
+          "name": "TM14 (Blizzard)",
+          "shop": true
+        },
+        {
+          "name": "TM15 (Hyper Beam)",
+          "shop": true
+        },
+        {
+          "name": "TM16 (Light Screen)",
+          "shop": true
+        },
+        {
+          "name": "TM17 (Protect)",
+          "shop": true
+        },
+        {
+          "name": "TM20 (Safeguard)",
+          "shop": true
+        },
+        {
+          "name": "TM21 (Dazzling Gleam)",
+          "shop": true
+        },
+        {
+          "name": "TM22 (Solar Beam)",
+          "shop": true
+        },
+        {
+          "name": "TM24 (Thunderbolt)",
+          "shop": true
+        },
+        {
+          "name": "TM25 (Thunder)",
+          "shop": true
+        },
+        {
+          "name": "TM27 (Low Sweep)",
+          "shop": true
+        },
+        {
+          "name": "TM29 (Psychic)",
+          "shop": true
+        },
+        {
+          "name": "TM32 (Double Team)",
+          "shop": true
+        },
+        {
+          "name": "TM33 (Reflect)",
+          "shop": true
+        },
+        {
+          "name": "TM35 (Flamethrower)",
+          "shop": true
+        },
+        {
+          "name": "TM38 (Fire Blast)",
+          "shop": true
+        },
+        {
+          "name": "TM44 (Rest)",
+          "shop": true
+        },
+        {
+          "name": "TM52 (Focus Blast)",
+          "shop": true
+        },
+        {
+          "name": "TM54 (False Swipe)",
+          "shop": true
+        },
+        {
+          "name": "TM58 (Endure)",
+          "shop": true
+        },
+        {
+          "name": "TM68 (Giga Impact)",
+          "shop": true
+        },
+        {
+          "name": "TM70 (Flash)",
+          "shop": true
+        },
+        {
+          "name": "TM74 (Gyro Ball)",
+          "shop": true
+        },
+        {
+          "name": "TM75 (Swords Dance)",
+          "shop": true
+        },
+        {
+          "name": "TM83 (Bulldoze)",
+          "shop": true
+        },
+        {
+          "name": "TM89 (U-turn)",
+          "shop": true
+        },
+        {
+          "name": "TM90 (Substitute)",
+          "shop": true
+        },
+        {
+          "name": "Fresh Water",
+          "shop": true
+        },
+        {
+          "name": "Soda Pop",
+          "shop": true
+        },
+        {
+          "name": "Lemonade",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "canalave-city",
       "name": "Canalave City",
       "unlockAfter": "gym-4-wake",
@@ -4972,6 +5975,94 @@
         {
           "name": "Pearl",
           "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
+        },
+        {
+          "name": "Repeat Ball",
+          "shop": true
         }
       ]
     },
@@ -5900,6 +6991,117 @@
         {
           "name": "HP Up",
           "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "celestic-town",
+      "name": "Celestic Town",
+      "unlockAfter": "gym-4-wake",
+      "tags": [
+        "town"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM95 (Surf)"
+        },
+        {
+          "name": "Choice Specs"
+        },
+        {
+          "name": "BlackGlasses"
+        },
+        {
+          "name": "Wise Glasses"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
         }
       ]
     },
@@ -7038,6 +8240,94 @@
         {
           "name": "Hyper Potion",
           "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Dusk Ball",
+          "shop": true
+        },
+        {
+          "name": "Quick Ball",
+          "shop": true
+        },
+        {
+          "name": "Timer Ball",
+          "shop": true
         }
       ]
     },
@@ -8055,6 +9345,97 @@
       ]
     },
     {
+      "id": "fight-area",
+      "name": "Fight Area",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "town",
+        "post-game"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Scope Lens"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "route-225",
       "name": "Route 225",
       "unlockAfter": "champion-cynthia",
@@ -8529,6 +9910,101 @@
       ]
     },
     {
+      "id": "survival-area",
+      "name": "Survival Area",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "town",
+        "post-game"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "TM42 (Facade)"
+        },
+        {
+          "name": "Max Revive",
+          "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        }
+      ]
+    },
+    {
       "id": "route-228",
       "name": "Route 228",
       "unlockAfter": "champion-cynthia",
@@ -8860,6 +10336,25 @@
         },
         {
           "name": "Full Restore",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "resort-area",
+      "name": "Resort Area",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "town",
+        "post-game"
+      ],
+      "encounters": [],
+      "items": [
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Nugget",
           "hidden": true
         }
       ]
@@ -9575,6 +11070,94 @@
         },
         {
           "name": "Shell Bell"
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Nest Ball",
+          "shop": true
+        },
+        {
+          "name": "Net Ball",
+          "shop": true
+        },
+        {
+          "name": "Heal Ball",
+          "shop": true
         }
       ]
     },
@@ -10076,6 +11659,86 @@
         {
           "name": "Pearl",
           "hidden": true
+        },
+        {
+          "name": "Poké Ball",
+          "shop": true
+        },
+        {
+          "name": "Great Ball",
+          "shop": true
+        },
+        {
+          "name": "Ultra Ball",
+          "shop": true
+        },
+        {
+          "name": "Potion",
+          "shop": true
+        },
+        {
+          "name": "Super Potion",
+          "shop": true
+        },
+        {
+          "name": "Hyper Potion",
+          "shop": true
+        },
+        {
+          "name": "Max Potion",
+          "shop": true
+        },
+        {
+          "name": "Full Restore",
+          "shop": true
+        },
+        {
+          "name": "Revive",
+          "shop": true
+        },
+        {
+          "name": "Antidote",
+          "shop": true
+        },
+        {
+          "name": "Paralyze Heal",
+          "shop": true
+        },
+        {
+          "name": "Awakening",
+          "shop": true
+        },
+        {
+          "name": "Burn Heal",
+          "shop": true
+        },
+        {
+          "name": "Ice Heal",
+          "shop": true
+        },
+        {
+          "name": "Full Heal",
+          "shop": true
+        },
+        {
+          "name": "Escape Rope",
+          "shop": true
+        },
+        {
+          "name": "Repel",
+          "shop": true
+        },
+        {
+          "name": "Super Repel",
+          "shop": true
+        },
+        {
+          "name": "Max Repel",
+          "shop": true
+        },
+        {
+          "name": "Luxury Ball",
+          "shop": true
         }
       ]
     },
