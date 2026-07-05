@@ -40,6 +40,15 @@ export const SINNOH_MAP: GameMap = {
 
     // — West / Floaroma / Eterna —
     { id: 'route-204-south', x: 110, y: 452, w: 32, h: 56, kind: 'route' },
+    // — #73 areas (calibrated from a 3x crop of the backdrop: Ravaged Path
+    //   sits on the 204 road below Floaroma; 207 is the horizontal road
+    //   between the Cycling Road junction and Coronet's west base; 208
+    //   continues east of Coronet to Hearthome; Wayward Cave hangs off
+    //   206's east side) —
+    { id: 'ravaged-path', x: 144, y: 462, w: 26, h: 26, kind: 'cave' },
+    { id: 'route-207', x: 252, y: 480, w: 40, h: 24, kind: 'route' },
+    { id: 'route-208', x: 318, y: 476, w: 42, h: 26, kind: 'route' },
+    { id: 'wayward-cave', x: 276, y: 424, w: 22, h: 22, kind: 'cave' },
     { id: 'floaroma-meadow', x: 84, y: 392, w: 48, h: 46, kind: 'landmark' },
     { id: 'valley-windworks', x: 182, y: 418, w: 46, h: 38, kind: 'landmark' },
     { id: 'route-205-south', x: 188, y: 352, w: 38, h: 62, kind: 'route' },
@@ -108,6 +117,12 @@ export const SINNOH_MAP: GameMap = {
     ['canalave-city', 'iron-island'],
     ['canalave-city', 'route-218'],
     ['mt-coronet', 'hearthome-city'],
+    ['route-204-south', 'ravaged-path'],
+    ['route-206', 'wayward-cave'],
+    ['route-206', 'route-207'],
+    ['route-207', 'mt-coronet'],
+    ['mt-coronet', 'route-208'],
+    ['route-208', 'hearthome-city'],
     ['hearthome-city', 'amity-square'],
     ['hearthome-city', 'lost-tower'],
     ['hearthome-city', 'solaceon-town'],
