@@ -4,10 +4,12 @@
 // route banners 01-25) using real Kanto adjacency to place the areas our
 // dataset actually tracks. Every numbered banner now has a node, plus
 // Victory Road (top-left, above Route 23 toward the Indigo Plateau).
-// Coordinates for the routes added in the D1 pass (7, 8, 13-15, 19, 21,
-// 23-25, victory-road) are first-pass reads off the banners; the standing
-// calibration lesson is to nudge them live with the debug overlay
-// (temporarily stroke the .route-region rects) before final sign-off.
+// The D1 first-pass nodes (7, 8, 13-15, 19, 21, 23-25, victory-road) were
+// live-calibrated 2026-07-05 (debug overlay + native-res crops of the
+// backdrop): every route banner sits inside its rect; victory-road was
+// re-anchored on the purple dungeon marker above Route 23 — the diamond
+// marker higher up is the badge-check gates and the building at the very
+// top is the Indigo Plateau, neither of which is the cave.
 import type { GameMap } from './types';
 
 export const KANTO_MAP: GameMap = {
@@ -41,13 +43,13 @@ export const KANTO_MAP: GameMap = {
     { id: 'route-8', x: 1540, y: 498, w: 110, h: 90, kind: 'route' },
     { id: 'route-24', x: 1330, y: 110, w: 110, h: 90, kind: 'route' },
     { id: 'route-25', x: 1442, y: 40, w: 110, h: 90, kind: 'route' },
-    { id: 'route-13', x: 1600, y: 965, w: 90, h: 110, kind: 'route' },
+    { id: 'route-13', x: 1595, y: 965, w: 110, h: 90, kind: 'route' },
     { id: 'route-14', x: 1408, y: 1058, w: 110, h: 90, kind: 'route' },
     { id: 'route-15', x: 1150, y: 1112, w: 110, h: 90, kind: 'route' },
     { id: 'route-19', x: 1000, y: 1195, w: 90, h: 110, kind: 'route' },
     { id: 'route-21', x: 420, y: 1120, w: 110, h: 90, kind: 'route' },
     { id: 'route-23', x: 232, y: 500, w: 90, h: 120, kind: 'route' },
-    { id: 'victory-road', x: 230, y: 165, w: 100, h: 100, kind: 'cave' },
+    { id: 'victory-road', x: 195, y: 270, w: 100, h: 100, kind: 'cave' },
   ],
   edges: [
     ['route-22', 'route-1'],
