@@ -204,7 +204,8 @@ function EvolvePanel({
 }
 
 /** Undo for a misclick or wrong branch: pops the latest pre-evolution
- * snapshot (species AND level, so an evolve-time level bump is undone). */
+ * species. The level is left alone — un-evolving corrects the pick, the
+ * mon's actual level never went down (edit it manually if needed). */
 function UnevolveButton({
   p,
   runId,
@@ -232,7 +233,7 @@ function UnevolveButton({
         }
       }}
     >
-      {saving ? 'Reverting…' : `↩ Un-evolve to ${prev.species} (Lv ${prev.level})`}
+      {saving ? 'Reverting…' : `↩ Un-evolve to ${prev}`}
     </button>
   );
 }
@@ -308,7 +309,11 @@ export function MonCard({
           )}
           <MoveChips moves={p.moves} gameId={gameId} />
           <LevelUpMoves species={p.species} gameId={gameId} atLevel={p.level} />
-          {editable && <EditForm p={p} runId={runId} gameId={gameId} onSaved={onChange} />}
+          {/* key re-seeds the form when the mon changes outside it (evolution
+              changes species/nickname/level while the card stays expanded) */}
+          {editable && (
+            <EditForm key={`${p.id}:${p.species}:${p.level}`} p={p} runId={runId} gameId={gameId} onSaved={onChange} />
+          )}
         </div>
       )}
     </div>

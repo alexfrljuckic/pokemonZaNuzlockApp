@@ -121,7 +121,7 @@ describe('pokemon_evolution_reverted (un-evolve)', () => {
     ev('encounter_resolved', { areaId: 'route-201', species: 'turtwig', outcome: 'caught', pokemonId: 'p1', nickname: 'turtwig', level: 5 }),
   ];
 
-  it('restores species, level and a default nickname through multiple steps', () => {
+  it('restores species and a default nickname through multiple steps — the level stays', () => {
     const chain = [
       ...base,
       ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'grotle', level: 18 }),
@@ -129,7 +129,7 @@ describe('pokemon_evolution_reverted (un-evolve)', () => {
     ];
     const once = deriveState([...chain, ev('pokemon_evolution_reverted', { pokemonId: 'p1' })], ctx);
     expect(once.pokemon['p1'].species).toBe('grotle');
-    expect(once.pokemon['p1'].level).toBe(18);
+    expect(once.pokemon['p1'].level).toBe(32); // un-evolve never touches the level
     expect(once.pokemon['p1'].nickname).toBe('grotle');
 
     const twice = deriveState(
@@ -137,7 +137,7 @@ describe('pokemon_evolution_reverted (un-evolve)', () => {
       ctx,
     );
     expect(twice.pokemon['p1'].species).toBe('turtwig');
-    expect(twice.pokemon['p1'].level).toBe(5); // the evolve-time level bump is undone too
+    expect(twice.pokemon['p1'].level).toBe(32); // still untouched
     expect(twice.pokemon['p1'].preEvolutions).toBeUndefined();
   });
 

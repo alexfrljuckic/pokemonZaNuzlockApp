@@ -206,9 +206,11 @@ export interface PokemonInstance {
   moves?: string[];
   nature?: string;
   shiny?: boolean;
-  /** Stack of pre-evolution snapshots (oldest first), maintained by the
-   * pokemon_evolved / pokemon_evolution_reverted fold — powers un-evolve. */
-  preEvolutions?: { species: string; level: number }[];
+  /** Stack of pre-evolution species (oldest first), maintained by the
+   * pokemon_evolved / pokemon_evolution_reverted fold — powers un-evolve.
+   * Species only: un-evolving corrects a wrong pick, it never rolls the
+   * level back (the mon's actual level didn't change in-game). */
+  preEvolutions?: string[];
 }
 
 export interface RuleChangeRecord {

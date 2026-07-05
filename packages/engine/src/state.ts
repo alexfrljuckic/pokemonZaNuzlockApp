@@ -104,8 +104,8 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       case 'pokemon_evolved': {
         const p = state.pokemon[ev.payload.pokemonId];
         if (p) {
-          // remember what we were, so un-evolve can restore species AND level
-          p.preEvolutions = [...(p.preEvolutions ?? []), { species: p.species, level: p.level }];
+          // remember what we were, so un-evolve can restore the species
+          p.preEvolutions = [...(p.preEvolutions ?? []), p.species];
           // a default nickname (== the species slug) follows the evolution;
           // a real nickname stays put
           if (p.nickname === p.species) p.nickname = ev.payload.toSpecies;
@@ -118,13 +118,14 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       }
       case 'pokemon_evolution_reverted': {
         // Un-evolve (misclick / wrong branch): pop the latest pre-evolution
-        // snapshot; no-op when there's nothing to revert.
+        // species; no-op when there's nothing to revert. The LEVEL stays —
+        // un-evolving corrects the species pick, the mon's actual level in
+        // the game never went down.
         const p = state.pokemon[ev.payload.pokemonId];
         const prev = p?.preEvolutions?.pop();
         if (p && prev) {
-          if (p.nickname === p.species) p.nickname = prev.species;
-          p.species = prev.species;
-          p.level = prev.level;
+          if (p.nickname === p.species) p.nickname = prev;
+          p.species = prev;
           if (p.preEvolutions!.length === 0) delete p.preEvolutions;
         }
         break;
