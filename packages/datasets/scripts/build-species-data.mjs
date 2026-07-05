@@ -187,6 +187,12 @@ function walk(node, out) {
       trigger: d.trigger?.name ?? null,
       minLevel: d.min_level ?? null,
       item: d.item?.name ?? d.held_item?.name ?? null,
+      // extra condition detail for the evolve-panel requirement labels;
+      // omitted when absent to keep the JSON lean
+      ...(d.min_happiness != null ? { minHappiness: d.min_happiness } : {}),
+      ...(d.time_of_day ? { timeOfDay: d.time_of_day } : {}),
+      ...(d.known_move?.name ? { knownMove: d.known_move.name } : {}),
+      ...(d.location?.name ? { location: d.location.name } : {}),
     });
     walk(evo, out);
   }

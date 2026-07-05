@@ -2299,6 +2299,59 @@ button.back-icon:hover:not(:disabled) {
   font-size: 0.78rem;
   color: var(--highlight);
 }
+
+/* MonCard evolve panel */
+.evo-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  align-items: flex-start;
+}
+.evo-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.evo-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.45rem 0.6rem;
+  max-width: 170px;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+}
+.evo-option.selected {
+  border-color: var(--highlight);
+  background: color-mix(in srgb, var(--highlight) 15%, var(--bg-chip));
+}
+.evo-option.evo-not-ready {
+  opacity: 0.75;
+}
+.evo-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+.evo-req {
+  font-size: 0.72rem;
+  color: var(--highlight);
+}
+.evo-req-unmet {
+  color: var(--danger);
+}
+.evo-hint {
+  font-size: 0.68rem;
+  line-height: 1.25;
+  text-align: center;
+}
+.evo-undo {
+  font-size: 0.8rem;
+  align-self: flex-start;
+}
 .poke-stats {
   display: flex;
   flex-wrap: wrap;

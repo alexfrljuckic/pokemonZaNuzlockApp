@@ -63,3 +63,97 @@ describe('pokemon_updated event', () => {
     expect(deriveState([...events].reverse(), ctx)).toEqual(deriveState(events, ctx));
   });
 });
+
+describe('pokemon_evolved event', () => {
+  const base: RunEvent[] = [
+    ev('run_started', { gameId: 'bdsp', version: 'brilliant-diamond', ruleset: buildRuleset('standard', 'bdsp') }),
+    ev('encounter_resolved', { areaId: 'route-201', species: 'starly', outcome: 'caught', pokemonId: 'p1', nickname: 'starly', level: 14 }),
+    ev('encounter_resolved', { areaId: 'route-201', species: 'starly', outcome: 'caught', pokemonId: 'p2', nickname: 'Jet', level: 14 }),
+  ];
+
+  it('changes the species; a default nickname follows, a real one stays', () => {
+    const events = [
+      ...base,
+      ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' }),
+      ev('pokemon_evolved', { pokemonId: 'p2', toSpecies: 'staravia' }),
+    ];
+    const state = deriveState(events, ctx);
+    expect(state.pokemon['p1'].species).toBe('staravia');
+    expect(state.pokemon['p1'].nickname).toBe('staravia'); // default followed
+    expect(state.pokemon['p2'].species).toBe('staravia');
+    expect(state.pokemon['p2'].nickname).toBe('Jet'); // real nickname kept
+  });
+
+  it('no-ops on an unknown pokemonId and stays order-independent', () => {
+    const events = [...base, ev('pokemon_evolved', { pokemonId: 'ghost', toSpecies: 'staravia' })];
+    expect(deriveState(events, ctx).pokemon['p1'].species).toBe('starly');
+    const evolved = [...base, ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' })];
+    expect(deriveState([...evolved].reverse(), ctx)).toEqual(deriveState(evolved, ctx));
+  });
+
+  it('evolved species counts for the dupes clause (same line map lookup)', () => {
+    const lineCtx: EngineContext = { dataset, speciesToLine: { starly: 'starly', staravia: 'starly' } };
+    const evolved = [...base, ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' })];
+    const state = deriveState(evolved, ctx);
+    // staravia still maps to the starly line — owning it keeps blocking starly
+    expect(lineCtx.speciesToLine[state.pokemon['p1'].species]).toBe('starly');
+  });
+});
+
+describe('pokemon_evolved level bump', () => {
+  const base: RunEvent[] = [
+    ev('run_started', { gameId: 'bdsp', version: 'brilliant-diamond', ruleset: buildRuleset('standard', 'bdsp') }),
+    ev('encounter_resolved', { areaId: 'route-201', species: 'starly', outcome: 'caught', pokemonId: 'p1', nickname: 'Jet', level: 5 }),
+  ];
+
+  it('raises the level to the requirement when provided, keeps it otherwise', () => {
+    const bumped = deriveState([...base, ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia', level: 14 })], ctx);
+    expect(bumped.pokemon['p1'].level).toBe(14);
+    // no level in the payload = level untouched (already at/above requirement)
+    const kept = deriveState([...base, ev('level_up', { pokemonId: 'p1', level: 20 }), ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'staravia' })], ctx);
+    expect(kept.pokemon['p1'].level).toBe(20);
+  });
+});
+
+describe('pokemon_evolution_reverted (un-evolve)', () => {
+  const base: RunEvent[] = [
+    ev('run_started', { gameId: 'bdsp', version: 'brilliant-diamond', ruleset: buildRuleset('standard', 'bdsp') }),
+    ev('encounter_resolved', { areaId: 'route-201', species: 'turtwig', outcome: 'caught', pokemonId: 'p1', nickname: 'turtwig', level: 5 }),
+  ];
+
+  it('restores species, level and a default nickname through multiple steps', () => {
+    const chain = [
+      ...base,
+      ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'grotle', level: 18 }),
+      ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'torterra', level: 32 }),
+    ];
+    const once = deriveState([...chain, ev('pokemon_evolution_reverted', { pokemonId: 'p1' })], ctx);
+    expect(once.pokemon['p1'].species).toBe('grotle');
+    expect(once.pokemon['p1'].level).toBe(18);
+    expect(once.pokemon['p1'].nickname).toBe('grotle');
+
+    const twice = deriveState(
+      [...chain, ev('pokemon_evolution_reverted', { pokemonId: 'p1' }), ev('pokemon_evolution_reverted', { pokemonId: 'p1' })],
+      ctx,
+    );
+    expect(twice.pokemon['p1'].species).toBe('turtwig');
+    expect(twice.pokemon['p1'].level).toBe(5); // the evolve-time level bump is undone too
+    expect(twice.pokemon['p1'].preEvolutions).toBeUndefined();
+  });
+
+  it('no-ops with nothing to revert; keeps a real nickname', () => {
+    const noop = deriveState([...base, ev('pokemon_evolution_reverted', { pokemonId: 'p1' })], ctx);
+    expect(noop.pokemon['p1'].species).toBe('turtwig');
+    const named = deriveState(
+      [
+        ...base,
+        ev('pokemon_updated', { pokemonId: 'p1', nickname: 'Tank' }),
+        ev('pokemon_evolved', { pokemonId: 'p1', toSpecies: 'grotle', level: 18 }),
+        ev('pokemon_evolution_reverted', { pokemonId: 'p1' }),
+      ],
+      ctx,
+    );
+    expect(named.pokemon['p1'].nickname).toBe('Tank');
+    expect(named.pokemon['p1'].species).toBe('turtwig');
+  });
+});

@@ -2,7 +2,16 @@ import { useState } from 'react';
 import type { PokemonInstance } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
-import { HELD_ITEMS, evolutionSummary, learnLevel, machineType, movesFor, typesFor } from '../lib/speciesData';
+import {
+  HELD_ITEMS,
+  evolutionOptionsFor,
+  evolutionSummary,
+  learnLevel,
+  machineType,
+  movesFor,
+  typesFor,
+} from '../lib/speciesData';
+import { evoItemHint, tradeHint } from '../lib/evolutionHints';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
 import { LevelUpMoves } from './LevelUpMoves';
@@ -113,6 +122,121 @@ function EditForm({
   );
 }
 
+/** Interactive evolve panel: one option per branch (Eevee picks its stone,
+ * Applin its apple). Level requirements gate visually but never hard-block —
+ * the app can't see stones/friendship, so the player stays the authority.
+ * Item/trade requirements carry a where-to-find hint when we have one. */
+function EvolvePanel({
+  p,
+  runId,
+  gameId,
+  onEvolved,
+}: {
+  p: PokemonInstance;
+  runId: string;
+  gameId: string;
+  onEvolved: () => Promise<void>;
+}) {
+  const [pick, setPick] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const options = evolutionOptionsFor(p.species, p.level);
+  if (options.length === 0) return null;
+  // the species may have changed since the last pick (chained evolutions) —
+  // never let a stale pick target an option that no longer exists
+  const picked = options.find((o) => o.to === pick) ?? null;
+  // evolving below the documented level requirement raises the mon to it;
+  // a higher current level just stays
+  const levelAfter = picked?.minLevel != null ? Math.max(p.level, picked.minLevel) : p.level;
+
+  async function evolve() {
+    if (!picked) return;
+    setSaving(true);
+    try {
+      await appendEvent(runId, {
+        type: 'pokemon_evolved',
+        payload: {
+          pokemonId: p.id,
+          toSpecies: picked.to,
+          ...(levelAfter !== p.level ? { level: levelAfter } : {}),
+        },
+      } as never);
+      setPick(null);
+      await onEvolved();
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  return (
+    <div className="evo-panel">
+      <span className="muted">Evolve{options.length > 1 ? ' — pick the branch you took in-game' : ''}:</span>
+      <div className="evo-options">
+        {options.map((o) => {
+          const hint =
+            o.trigger === 'trade'
+              ? [evoItemHint(o.item, gameId), tradeHint(gameId)].filter(Boolean).join(' · ') || null
+              : evoItemHint(o.item, gameId);
+          return (
+            <button
+              key={o.to}
+              type="button"
+              className={`evo-option${pick === o.to ? ' selected' : ''}${o.ready ? '' : ' evo-not-ready'}`}
+              title={hint ?? undefined}
+              onClick={() => setPick((cur) => (cur === o.to ? null : o.to))}
+            >
+              <SpriteImg species={o.to} size={48} />
+              <span className="evo-name">{o.to}</span>
+              <span className={`evo-req${o.ready ? '' : ' evo-req-unmet'}`}>{o.requirement}</span>
+              {hint && <span className="evo-hint muted">{hint}</span>}
+            </button>
+          );
+        })}
+      </div>
+      {picked && (
+        <button disabled={saving} onClick={evolve}>
+          {saving
+            ? 'Evolving…'
+            : `Evolve into ${picked.to}${levelAfter !== p.level ? ` (Lv ${p.level} → ${levelAfter})` : ''} ✓`}
+        </button>
+      )}
+    </div>
+  );
+}
+
+/** Undo for a misclick or wrong branch: pops the latest pre-evolution
+ * snapshot (species AND level, so an evolve-time level bump is undone). */
+function UnevolveButton({
+  p,
+  runId,
+  onReverted,
+}: {
+  p: PokemonInstance;
+  runId: string;
+  onReverted: () => Promise<void>;
+}) {
+  const [saving, setSaving] = useState(false);
+  const prev = p.preEvolutions?.[p.preEvolutions.length - 1];
+  if (!prev) return null;
+  return (
+    <button
+      type="button"
+      className="secondary evo-undo"
+      disabled={saving}
+      onClick={async () => {
+        setSaving(true);
+        try {
+          await appendEvent(runId, { type: 'pokemon_evolution_reverted', payload: { pokemonId: p.id } } as never);
+          await onReverted();
+        } finally {
+          setSaving(false);
+        }
+      }}
+    >
+      {saving ? 'Reverting…' : `↩ Un-evolve to ${prev.species} (Lv ${prev.level})`}
+    </button>
+  );
+}
+
 /** Unified compact Pokémon card (team, box, graveyard). Condensed: sprite +
  * nickname + species + type, with action buttons below. Click the card to
  * expand full-width into details (+ the edit form when editable).
@@ -172,8 +296,15 @@ export function MonCard({
             {p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
-          {evolutionSummary(p.species) && (
-            <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
+          {editable ? (
+            <>
+              <EvolvePanel p={p} runId={runId} gameId={gameId} onEvolved={onChange} />
+              <UnevolveButton p={p} runId={runId} onReverted={onChange} />
+            </>
+          ) : (
+            evolutionSummary(p.species) && (
+              <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
+            )
           )}
           <MoveChips moves={p.moves} gameId={gameId} />
           <LevelUpMoves species={p.species} gameId={gameId} atLevel={p.level} />

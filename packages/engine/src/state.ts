@@ -101,6 +101,34 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         }
         break;
       }
+      case 'pokemon_evolved': {
+        const p = state.pokemon[ev.payload.pokemonId];
+        if (p) {
+          // remember what we were, so un-evolve can restore species AND level
+          p.preEvolutions = [...(p.preEvolutions ?? []), { species: p.species, level: p.level }];
+          // a default nickname (== the species slug) follows the evolution;
+          // a real nickname stays put
+          if (p.nickname === p.species) p.nickname = ev.payload.toSpecies;
+          p.species = ev.payload.toSpecies;
+          // evolving at the requirement level bumps the mon to it (UI sends
+          // the max of current level and the evolution's minLevel)
+          if (ev.payload.level != null) p.level = ev.payload.level;
+        }
+        break;
+      }
+      case 'pokemon_evolution_reverted': {
+        // Un-evolve (misclick / wrong branch): pop the latest pre-evolution
+        // snapshot; no-op when there's nothing to revert.
+        const p = state.pokemon[ev.payload.pokemonId];
+        const prev = p?.preEvolutions?.pop();
+        if (p && prev) {
+          if (p.nickname === p.species) p.nickname = prev.species;
+          p.species = prev.species;
+          p.level = prev.level;
+          if (p.preEvolutions!.length === 0) delete p.preEvolutions;
+        }
+        break;
+      }
       case 'faint': {
         const p = state.pokemon[ev.payload.pokemonId];
         if (p) {

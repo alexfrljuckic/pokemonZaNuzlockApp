@@ -11,6 +11,10 @@ export interface Evolution {
   trigger: string | null;
   minLevel: number | null;
   item: string | null;
+  minHappiness?: number;
+  timeOfDay?: string;
+  knownMove?: string;
+  location?: string;
 }
 
 interface SpeciesData {
@@ -75,6 +79,61 @@ export function expectedMovesAt(species: string, level: number, gameId?: string)
 }
 export const statsFor = (species: string): Record<string, number> | null => data.stats[species] ?? null;
 export const evolutionsFor = (species: string): Evolution[] => data.evolutions[species] ?? [];
+
+// ---- Interactive evolution support (MonCard "Evolve" panel) ----
+
+const FORM_SUFFIXES = ['hisui', 'galar', 'alola', 'paldea'];
+
+/** PokeAPI evolution chains are keyed by base species, so a regional form's
+ * target comes back suffix-less (growlithe-hisui → "arcanine"). When the
+ * evolving mon carries a regional suffix and the suffixed target exists in
+ * our data, prefer it — regional lines evolve within their region. */
+export function resolveEvolutionTarget(from: string, to: string): string {
+  const suffix = FORM_SUFFIXES.find((s) => from.endsWith(`-${s}`));
+  if (suffix && data.stats[`${to}-${suffix}`]) return `${to}-${suffix}`;
+  return to;
+}
+
+export interface EvolutionOption {
+  to: string; // resolved (form-aware) target slug
+  trigger: string | null;
+  minLevel: number | null;
+  item: string | null;
+  /** short requirement label, e.g. "Lv 36", "Use Thunder Stone", "Trade holding Metal Coat" */
+  requirement: string;
+  /** false only when a level-up requirement is documented and unmet */
+  ready: boolean;
+}
+
+const pretty = (slug: string) => slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
+function requirementLabel(e: Evolution): string {
+  if (e.trigger === 'use-item' && e.item) return `Use ${pretty(e.item)}`;
+  if (e.trigger === 'trade') return e.item ? `Trade holding ${pretty(e.item)}` : 'Trade';
+  if (e.trigger === 'level-up' || e.trigger == null) {
+    if (e.minLevel) return `Lv ${e.minLevel}`;
+    if (e.minHappiness != null) return `High friendship${e.timeOfDay ? ` (${e.timeOfDay})` : ''}`;
+    if (e.knownMove) return `Level up knowing ${pretty(e.knownMove)}`;
+    if (e.location) return 'Level up at a special location';
+    if (e.timeOfDay) return `Level up (${e.timeOfDay})`;
+    return e.item ? `Level up holding ${pretty(e.item)}` : 'Level up (special condition)';
+  }
+  return pretty(e.trigger);
+}
+
+/** The actionable evolution choices for a mon at a given level. Branching
+ * species (Eevee, Applin, Galarian Meowth's chain…) return several — the
+ * player picks the branch that matches what they did in-game. */
+export function evolutionOptionsFor(species: string, level: number): EvolutionOption[] {
+  return evolutionsFor(species).map((e) => ({
+    to: resolveEvolutionTarget(species, e.to),
+    trigger: e.trigger,
+    minLevel: e.minLevel,
+    item: e.item,
+    requirement: requirementLabel(e),
+    ready: !(e.trigger === 'level-up' && e.minLevel != null && level < e.minLevel),
+  }));
+}
 
 /** Plain-language "evolves into X at Lv N / with item" summary, or null. */
 export function evolutionSummary(species: string): string | null {
