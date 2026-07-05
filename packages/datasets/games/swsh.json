@@ -1238,6 +1238,9 @@
         {
           "name": "Poké Doll",
           "shop": true
+        },
+        {
+          "name": "Friend Ball (Ball Guy)"
         }
       ]
     },
@@ -4088,6 +4091,9 @@
         {
           "name": "Cell Battery",
           "shop": true
+        },
+        {
+          "name": "Dream Ball (Ball Guy)"
         }
       ]
     },
@@ -6602,6 +6608,9 @@
         {
           "name": "Luck Incense",
           "shop": true
+        },
+        {
+          "name": "Lure Ball (Ball Guy)"
         }
       ]
     },
@@ -6807,6 +6816,9 @@
         {
           "name": "TM94 (False Swipe)",
           "shop": true
+        },
+        {
+          "name": "Poké Ball (Ball Guy)"
         }
       ]
     },
@@ -7040,6 +7052,9 @@
         {
           "name": "Poké Doll",
           "shop": true
+        },
+        {
+          "name": "Heavy Ball (Ball Guy)"
         }
       ]
     },
@@ -7214,6 +7229,9 @@
         {
           "name": "Poké Doll",
           "shop": true
+        },
+        {
+          "name": "Love Ball (Ball Guy)"
         }
       ]
     },
@@ -7471,6 +7489,9 @@
         {
           "name": "Poké Doll",
           "shop": true
+        },
+        {
+          "name": "Moon Ball (Ball Guy)"
         }
       ]
     },
@@ -7962,6 +7983,9 @@
         {
           "name": "Destiny Knot",
           "shop": true
+        },
+        {
+          "name": "Level Ball (Ball Guy)"
         }
       ]
     },
