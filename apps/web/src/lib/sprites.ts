@@ -10,12 +10,22 @@ const BASE = 'https://play.pokemonshowdown.com/sprites/gen5';
 const BASE_SHINY = 'https://play.pokemonshowdown.com/sprites/gen5-shiny';
 const TRAINERS = 'https://play.pokemonshowdown.com/sprites/trainers';
 
+// PokeAPI slugs whose Showdown sprite lives under a different key (PokeAPI
+// has no /pokemon/darmanitan-galar, but Showdown has no
+// darmanitan-galar-standard.png — datasets carry the PokeAPI slug, sprites
+// remap here).
+const SPECIES_SPRITE_ALIAS: Record<string, string> = {
+  'darmanitan-galar-standard': 'darmanitan-galar',
+};
+
 export function spriteUrl(species: string, shiny = false): string {
-  return `${shiny ? BASE_SHINY : BASE}/${species}.png`;
+  const key = SPECIES_SPRITE_ALIAS[species] ?? species;
+  return `${shiny ? BASE_SHINY : BASE}/${key}.png`;
 }
 
 export function spriteFallbackUrl(species: string, shiny = false): string {
-  return `${shiny ? BASE_SHINY : BASE}/${species.replace(/-/g, '')}.png`;
+  const key = SPECIES_SPRITE_ALIAS[species] ?? species;
+  return `${shiny ? BASE_SHINY : BASE}/${key.replace(/-/g, '')}.png`;
 }
 
 /** Trainer sprite from Showdown's community CDN — same source as the Pokémon
