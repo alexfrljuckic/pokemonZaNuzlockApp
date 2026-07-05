@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { frontierAreas, type Area, type RunState } from '@nuzlocke/engine';
 import { mapHelpers, type GameMap } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
@@ -31,6 +31,10 @@ const BADGE_GLYPH: Partial<Record<NodeState, string>> = {
   skipped: '–',
 };
 
+const MAX_ZOOM = 8;
+
+type MapView = { x: number; y: number; scale: number };
+
 export function RouteMap({
   map,
   areas,
@@ -57,18 +61,164 @@ export function RouteMap({
   const frontier = useMemo(() => frontierAreas(areas, state), [areas, state]);
   const { w, h } = map.viewBox;
 
+  // Zoom + pan via the SVG viewBox, so the whole map always fits the screen
+  // at rest (crucial on phones) and regions become finger-sized when zoomed.
+  // scale 1 = full map; pan clamps inside the map bounds.
+  const svgRef = useRef<SVGSVGElement>(null);
+  const [view, setView] = useState<MapView>({ x: 0, y: 0, scale: 1 });
+  const viewRef = useRef(view);
+  // pointerId -> last position + gesture start, for drag-pan and pinch-zoom
+  const pointers = useRef(new Map<number, { x: number; y: number; startX: number; startY: number }>());
+  // set once a gesture moved past the tap threshold; suppresses the click
+  const dragging = useRef(false);
+
+  useEffect(() => {
+    const reset = { x: 0, y: 0, scale: 1 };
+    viewRef.current = reset;
+    setView(reset);
+    pointers.current.clear();
+  }, [map]);
+
+  const clampView = (v: MapView): MapView => {
+    const scale = Math.min(Math.max(v.scale, 1), MAX_ZOOM);
+    const vw = w / scale;
+    const vh = h / scale;
+    return {
+      scale,
+      x: Math.min(Math.max(v.x, 0), w - vw),
+      y: Math.min(Math.max(v.y, 0), h - vh),
+    };
+  };
+
+  const applyView = (v: MapView) => {
+    const next = clampView(v);
+    viewRef.current = next;
+    setView(next);
+  };
+
+  /** Zoom by `factor`, keeping the map point under (clientX, clientY) fixed;
+   * without a client point, zoom on the current center. */
+  const zoomBy = (factor: number, clientX?: number, clientY?: number) => {
+    const cur = viewRef.current;
+    const scale = Math.min(Math.max(cur.scale * factor, 1), MAX_ZOOM);
+    const vw = w / cur.scale;
+    const vh = h / cur.scale;
+    const nw = w / scale;
+    const nh = h / scale;
+    const rect = svgRef.current?.getBoundingClientRect();
+    // fraction of the viewport the anchor point sits at (default: center)
+    const fx = rect && clientX != null ? (clientX - rect.left) / rect.width : 0.5;
+    const fy = rect && clientY != null ? (clientY - rect.top) / rect.height : 0.5;
+    applyView({
+      scale,
+      x: cur.x + fx * vw - fx * nw,
+      y: cur.y + fy * vh - fy * nh,
+    });
+  };
+
+  const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY, startX: e.clientX, startY: e.clientY });
+    if (pointers.current.size === 1) dragging.current = false;
+    // A second finger is always a pinch — capture both so the gesture
+    // survives leaving the element. (Single pointers are only captured once
+    // they cross the tap threshold, so plain taps still click regions.)
+    if (pointers.current.size === 2) {
+      for (const id of pointers.current.keys()) {
+        try {
+          svgRef.current?.setPointerCapture(id);
+        } catch {
+          /* pointer may already be up */
+        }
+      }
+      dragging.current = true;
+    }
+  };
+
+  const onPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    const pts = pointers.current;
+    const prev = pts.get(e.pointerId);
+    if (!prev) return;
+
+    if (pts.size === 1) {
+      const moved = Math.hypot(e.clientX - prev.startX, e.clientY - prev.startY);
+      if (!dragging.current && moved > 8) {
+        dragging.current = true;
+        try {
+          svgRef.current?.setPointerCapture(e.pointerId);
+        } catch {
+          /* ignore */
+        }
+      }
+      if (dragging.current && viewRef.current.scale > 1) {
+        const rect = svgRef.current?.getBoundingClientRect();
+        if (rect) {
+          const cur = viewRef.current;
+          const vw = w / cur.scale;
+          const vh = h / cur.scale;
+          applyView({
+            ...cur,
+            x: cur.x - ((e.clientX - prev.x) * vw) / rect.width,
+            y: cur.y - ((e.clientY - prev.y) * vh) / rect.height,
+          });
+        }
+      }
+      pts.set(e.pointerId, { ...prev, x: e.clientX, y: e.clientY });
+    } else if (pts.size === 2) {
+      const [idA, idB] = [...pts.keys()];
+      const a = pts.get(idA)!;
+      const b = pts.get(idB)!;
+      const before = Math.hypot(a.x - b.x, a.y - b.y);
+      pts.set(e.pointerId, { ...prev, x: e.clientX, y: e.clientY });
+      const a2 = pts.get(idA)!;
+      const b2 = pts.get(idB)!;
+      const after = Math.hypot(a2.x - b2.x, a2.y - b2.y);
+      if (before > 0 && after > 0) {
+        zoomBy(after / before, (a2.x + b2.x) / 2, (a2.y + b2.y) / 2);
+      }
+    }
+  };
+
+  const onPointerEnd = (e: React.PointerEvent<SVGSVGElement>) => {
+    pointers.current.delete(e.pointerId);
+    // dragging stays set until the trailing click is suppressed
+  };
+
   const hoveredArea = hovered ? areaById.get(hovered) : null;
   const hoveredNode = hovered ? mapNode(hovered) : null;
   const hoveredState = hoveredArea ? nodeStateFor(hoveredArea, state) : null;
 
+  const vw = w / view.scale;
+  const vh = h / view.scale;
+  const zoomed = view.scale > 1.001;
+  const tipVisible =
+    hoveredNode &&
+    hoveredNode.x + hoveredNode.w / 2 >= view.x &&
+    hoveredNode.x + hoveredNode.w / 2 <= view.x + vw &&
+    hoveredNode.y + hoveredNode.h / 2 >= view.y &&
+    hoveredNode.y + hoveredNode.h / 2 <= view.y + vh;
+
   return (
     <div className="route-map">
       <svg
-        viewBox={`0 0 ${w} ${h}`}
-        className={`route-map-svg${bgOk ? '' : ' route-map-no-bg'}`}
-        style={{ aspectRatio: `${w} / ${h}` }}
+        ref={svgRef}
+        viewBox={`${view.x} ${view.y} ${vw} ${vh}`}
+        className={`route-map-svg${bgOk ? '' : ' route-map-no-bg'}${zoomed ? ' route-map-zoomed' : ''}`}
+        // When zoomed, one finger pans the map, so claim all touches; at rest
+        // let vertical swipes keep scrolling the page (pinch still reaches us).
+        style={{ aspectRatio: `${w} / ${h}`, touchAction: zoomed ? 'none' : 'pan-y' }}
         role="img"
         aria-label={map.ariaLabel}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerEnd}
+        onPointerCancel={onPointerEnd}
+        onClickCapture={(e) => {
+          if (dragging.current) {
+            e.preventDefault();
+            e.stopPropagation();
+            dragging.current = false;
+          }
+        }}
       >
         {/* optional image backdrop (see lib/maps / public/maps) */}
         {bgOk && (
@@ -141,12 +291,29 @@ export function RouteMap({
         })}
       </svg>
 
-      {hoveredArea && hoveredNode && (
+      <div className="route-map-controls" role="group" aria-label="Map zoom">
+        <button type="button" aria-label="Zoom in" disabled={view.scale >= MAX_ZOOM} onClick={() => zoomBy(1.6)}>
+          +
+        </button>
+        <button type="button" aria-label="Zoom out" disabled={!zoomed} onClick={() => zoomBy(1 / 1.6)}>
+          −
+        </button>
+        <button
+          type="button"
+          aria-label="Reset zoom"
+          disabled={!zoomed}
+          onClick={() => applyView({ x: 0, y: 0, scale: 1 })}
+        >
+          ⛶
+        </button>
+      </div>
+
+      {hoveredArea && hoveredNode && tipVisible && (
         <div
           className="route-tip"
           style={{
-            left: `${((hoveredNode.x + hoveredNode.w / 2) / w) * 100}%`,
-            top: `${(hoveredNode.y / h) * 100}%`,
+            left: `${(((hoveredNode.x + hoveredNode.w / 2) - view.x) / vw) * 100}%`,
+            top: `${((hoveredNode.y - view.y) / vh) * 100}%`,
           }}
         >
           <div className="route-tip-head">
