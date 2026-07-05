@@ -66,15 +66,7 @@ function EndRunControl({
   );
 }
 
-export function RunView({
-  run,
-  session,
-  onBack,
-}: {
-  run: RunSummary;
-  session: Session | null;
-  onBack: () => void;
-}) {
+export function RunView({ run, session }: { run: RunSummary; session: Session | null }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
   const [tab, setTab] = useState<Tab>('Routes');
 
@@ -111,11 +103,7 @@ export function RunView({
   const state = useMemo(() => (events.length ? deriveState(events, ctx) : null), [events, ctx]);
 
   if (!state) {
-    return (
-      <button className="back-btn" onClick={onBack}>
-        Back to runs
-      </button>
-    );
+    return <p className="muted">Loading run…</p>;
   }
 
   const showWipeScreen = pendingWipeDecision(state);
@@ -124,17 +112,12 @@ export function RunView({
     <>
       <section>
         <div className="run-header-row">
-          <div className="run-header-left">
-            <button className="back-icon" aria-label="Back to runs" title="Back to runs" onClick={onBack}>
-              ←
-            </button>
-            <div>
-              <h2>{ctx.dataset?.name ?? run.gameId}</h2>
-              <p className="muted">
-                {run.version} · preset {state.ruleset.presetId} ·{' '}
-                <span className={`status-${state.status}`}>{state.status}</span>
-              </p>
-            </div>
+          <div>
+            <h2>{ctx.dataset?.name ?? run.gameId}</h2>
+            <p className="muted">
+              {run.version} · preset {state.ruleset.presetId} ·{' '}
+              <span className={`status-${state.status}`}>{state.status}</span>
+            </p>
           </div>
           <div className="run-header-actions">
             {SYNC_AVAILABLE && session && <SharePopover runId={run.id} />}

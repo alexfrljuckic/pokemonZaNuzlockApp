@@ -542,37 +542,64 @@ button:disabled {
 
 /* ---------- Per-route fixed items ---------- */
 
-.items-group { margin-top: 1rem; }
-.items-group summary { cursor: pointer; }
+.items-group { margin-top: 1.25rem; }
+.items-group summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.items-group summary::-webkit-details-marker { display: none; }
+.items-group summary .chart-heading { margin: 0; }
+.items-count {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+.items-caret {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 0.8rem;
+  transition: transform 0.15s ease;
+}
+.items-group[open] .items-caret { transform: rotate(90deg); }
+
 .items-list {
   list-style: none;
-  margin: 0.45rem 0 0;
-  padding: 0.55rem 0.7rem;
-  background: var(--bg-inset);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-  gap: 0.25rem 0.9rem;
-  max-height: 260px;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  max-height: 280px;
   overflow-y: auto;
 }
-.items-list li {
-  display: flex;
+.item-chip {
+  display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
+  padding: 0.22rem 0.6rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: 999px;
 }
-.items-list li.item-hidden { color: var(--muted); }
-.item-qty { font-size: 0.75rem; color: var(--highlight); font-weight: 700; }
+.item-chip.item-machine {
+  border-color: color-mix(in srgb, var(--highlight) 40%, var(--border));
+  background: color-mix(in srgb, var(--highlight) 10%, var(--bg-inset));
+}
+.item-chip.item-hidden { color: var(--muted); border-style: dashed; }
+.item-qty { font-size: 0.72rem; color: var(--highlight); font-weight: 700; }
 .item-hidden-tag {
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  padding: 0.03rem 0.3rem;
-  border-radius: 4px;
-  border: 1px solid var(--border);
   color: var(--muted);
 }
 
@@ -1261,26 +1288,20 @@ button.danger:hover:not(:disabled) {
   margin-bottom: 0;
 }
 
-/* ---------- Back button: quiet ghost chip, arrow slides on hover ---------- */
+/* ---------- Global back icon (app header, top-left) ----------
+   One consistent place to leave any screen: run → run list, picker screens
+   → title. Hidden on the title screen where there is nowhere to go. */
 
-/* Circular leading back icon in the run header row — the back action lives
-   with the thing it navigates from, app-bar style. */
-.run-header-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  min-width: 0;
-}
 button.back-icon {
   background: var(--bg-chip);
   border: 1px solid var(--border);
   box-shadow: none;
   color: var(--text);
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border-radius: 50%;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   line-height: 1;
   flex: none;
   display: inline-flex;
@@ -1294,49 +1315,29 @@ button.back-icon:hover:not(:disabled) {
   filter: none;
 }
 
-button.back-btn {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  color: var(--muted);
-  padding: 0.3rem 0.5rem;
-  margin: 0 0 0.75rem -0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border-radius: 999px;
-}
-
-button.back-btn::before {
-  content: '←';
-  display: inline-block;
-  transition: transform 0.15s ease;
-}
-
-button.back-btn:hover:not(:disabled) {
-  color: var(--text);
-  background: var(--bg-chip);
-  transform: none;
-  box-shadow: none;
-  filter: none;
-}
-
-button.back-btn:hover:not(:disabled)::before {
-  transform: translateX(-4px);
-}
-
 /* ---------- App header ---------- */
 
 .app-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 0;
+}
+.app-header-left h1 { margin-bottom: 0; }
+
+/* Original per-game emblems on the picker cards (public/logos/<id>.svg) */
+.game-card-logo {
+  display: block;
+  margin: 0 auto 0.4rem;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.35));
 }
 
 .theme-select {
