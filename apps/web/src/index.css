@@ -198,19 +198,10 @@ body {
   }
 }
 
-/* Mobile: shrinking a whole region to ~340px makes nodes unidentifiable
-   and untappable. Render the map at a minimum readable width inside a
-   native horizontal pan instead — regions stay identifiable and tap
-   targets stay finger-sized. */
-@media (max-width: 700px) {
-  .route-map {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .route-map-svg {
-    min-width: 600px;
-  }
-}
+/* Mobile: the whole map always fits the viewport width (no sideways pan —
+   it hid half the map behind an invisible scrollbar). Tap targets get
+   finger-sized via pinch-zoom / the on-map zoom buttons (RouteMap.tsx pans
+   and zooms through the SVG viewBox). */
 
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
@@ -2034,6 +2025,35 @@ button.back-icon:hover:not(:disabled) {
   height: auto;
   display: block;
   overflow: visible;
+}
+/* zoomed in: clip to the panned viewBox and signal that the map drags */
+.route-map-svg.route-map-zoomed {
+  overflow: hidden;
+  cursor: grab;
+}
+.route-map-controls {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 10;
+}
+.route-map-controls button {
+  width: 2.2rem;
+  height: 2.2rem;
+  padding: 0;
+  font-size: 1.1rem;
+  line-height: 1;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--bg-panel) 88%, transparent);
+  border: 1px solid var(--border);
+  color: var(--text);
+  box-shadow: var(--shadow);
+}
+.route-map-controls button:disabled {
+  opacity: 0.35;
 }
 .route-edge {
   stroke: var(--border);
