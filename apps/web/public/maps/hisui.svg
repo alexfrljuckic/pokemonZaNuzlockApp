@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" font-family="system-ui, sans-serif">
+  <!-- Original schematic rendition of Hisui (proto-Sinnoh) for the nuzlocke
+       tracker — hand-authored flat-color vector art, no traced assets.
+       Five open zones around Mt. Coronet, Jubilife Village SW, Ramanas
+       Island off the southern coast. Parchment-toned to match the PLA theme. -->
+
+  <!-- sea -->
+  <rect width="1200" height="1200" fill="#5fc4c7"/>
+  <path d="M100 200 q50 -34 100 0 t100 0" stroke="#8fdadc" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M950 1050 q50 -34 100 0" stroke="#8fdadc" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M980 160 q40 -26 80 0" stroke="#8fdadc" stroke-width="8" fill="none" stroke-linecap="round"/>
+
+  <!-- landmass: proto-Sinnoh silhouette -->
+  <path fill="#a9c97a" stroke="#4fb7ba" stroke-width="13" d="
+    M600 90
+    C 740 80, 870 130, 940 230
+    C 1030 300, 1070 420, 1050 530
+    C 1100 610, 1090 720, 1030 790
+    C 1050 880, 1000 970, 910 1000
+    C 850 1080, 740 1110, 650 1080
+    C 560 1120, 450 1100, 390 1040
+    C 290 1030, 210 950, 210 860
+    C 130 800, 110 680, 160 600
+    C 130 490, 170 370, 260 300
+    C 300 200, 380 130, 480 110
+    C 520 95, 560 92, 600 90 Z"/>
+
+  <!-- inner meadow tone -->
+  <path fill="#bcd68d" d="
+    M600 170
+    C 720 162, 830 205, 890 290
+    C 965 350, 1000 450, 980 545
+    C 1020 610, 1010 700, 960 755
+    C 975 835, 930 905, 855 930
+    C 800 995, 705 1020, 625 995
+    C 545 1030, 450 1010, 400 955
+    C 315 945, 250 880, 255 800
+    C 190 750, 175 655, 215 590
+    C 195 495, 230 395, 305 340
+    C 340 255, 405 200, 490 185
+    C 527 172, 563 170, 600 170 Z"/>
+
+  <!-- Alabaster Icelands (N): snowfield -->
+  <path fill="#eef2f8" stroke="#ccd8e8" stroke-width="6" d="
+    M430 160 C 530 120, 700 120, 800 175 C 860 210, 880 265, 840 305
+    C 740 350, 560 355, 450 315 C 390 285, 380 205, 430 160 Z"/>
+  <path fill="#ffffff" d="M520 195 l40 -55 l40 55 Z M640 185 l35 -48 l35 48 Z"/>
+
+  <!-- Coronet Highlands (center): the great ridge -->
+  <g>
+    <path fill="#b09a7c" stroke="#93805f" stroke-width="6" d="
+      M520 430 L600 300 L680 430 L640 470 L560 470 Z"/>
+    <path fill="#c4b096" d="M450 520 L520 410 L590 520 Z"/>
+    <path fill="#c4b096" d="M610 520 L680 410 L750 520 Z"/>
+    <path fill="#ffffff" d="M570 350 L600 300 L630 350 L600 338 Z"/>
+    <path fill="#a08a68" d="M540 560 h120 a12 12 0 0 1 0 24 h-120 a12 12 0 0 1 0 -24 Z"/>
+  </g>
+
+  <!-- Obsidian Fieldlands (S): lush fields + lake -->
+  <path fill="#8fce62" stroke="#6fb54a" stroke-width="6" d="
+    M420 780 C 500 730, 640 725, 720 775 C 770 810, 770 875, 715 910
+    C 620 960, 480 955, 415 905 C 370 870, 375 815, 420 780 Z"/>
+  <ellipse cx="565" cy="850" rx="48" ry="30" fill="#57b7e8"/>
+
+  <!-- Crimson Mirelands (E-center): red bog -->
+  <path fill="#c98a66" stroke="#a96c4c" stroke-width="6" d="
+    M760 520 C 830 490, 930 500, 970 555 C 1000 600, 985 655, 930 680
+    C 855 710, 765 695, 730 645 C 705 600, 715 550, 760 520 Z"/>
+  <ellipse cx="835" cy="590" rx="30" ry="18" fill="#8a5a3e"/>
+  <ellipse cx="905" cy="625" rx="22" ry="13" fill="#8a5a3e"/>
+
+  <!-- Cobalt Coastlands (E coast): beach + cape -->
+  <path fill="#eede9d" stroke="#d9c47e" stroke-width="5" d="
+    M900 730 C 970 720, 1030 755, 1040 810 C 1045 865, 1000 905, 940 905
+    C 885 905, 845 865, 850 810 C 855 770, 870 740, 900 730 Z"/>
+  <path d="M1000 760 q28 30 8 78" stroke="#57b7e8" stroke-width="9" fill="none" stroke-linecap="round"/>
+
+  <!-- Jubilife Village (SW): hub -->
+  <g>
+    <rect x="300" y="880" width="120" height="66" rx="10" fill="#d9c9a8" stroke="#b3a17c" stroke-width="5"/>
+    <path d="M316 880 l28 -26 l28 26 Z M372 880 l24 -22 l24 22 Z" fill="#a96c4c"/>
+    <rect x="336" y="902" width="20" height="24" rx="4" fill="#8a6b4a"/>
+  </g>
+
+  <!-- Ramanas Island (S, offshore) -->
+  <path fill="#a9c97a" stroke="#4fb7ba" stroke-width="9" d="
+    M540 1105 C 575 1085, 630 1085, 660 1110 C 685 1132, 680 1160, 645 1172
+    C 600 1188, 545 1180, 525 1155 C 512 1135, 518 1118, 540 1105 Z"/>
+  <circle cx="590" cy="1135" r="12" fill="#6fb54a"/>
+
+  <!-- trees / texture -->
+  <g fill="#6fb54a">
+    <circle cx="350" cy="640" r="16"/><circle cx="390" cy="665" r="12"/>
+    <circle cx="800" cy="380" r="14"/><circle cx="840" cy="405" r="11"/>
+    <circle cx="480" cy="600" r="13"/><circle cx="920" cy="470" r="12"/>
+  </g>
+
+  <!-- wordmark -->
+  <text x="1170" y="1160" text-anchor="end" font-size="80" font-weight="800" font-style="italic" fill="#ffffff" opacity="0.92">Hisui</text>
+</svg>
