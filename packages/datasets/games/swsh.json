@@ -14597,6 +14597,285 @@
       "type": "gift",
       "species": "toxel",
       "area": "route-5"
+    },
+    {
+      "id": "dlc-gift-kubfu",
+      "type": "gift",
+      "species": "kubfu",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-slowpoke-galar",
+      "type": "static",
+      "species": "slowpoke-galar",
+      "area": "wedgehurst",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-5-meowth-alola",
+      "type": "gift",
+      "species": "meowth-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-10-slowpoke",
+      "type": "gift",
+      "species": "slowpoke",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-20-vulpix-alola",
+      "type": "gift",
+      "species": "vulpix-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-30-sandshrew-alola",
+      "type": "gift",
+      "species": "sandshrew-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-40-raichu-alola",
+      "type": "gift",
+      "species": "raichu-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-50-marowak-alola",
+      "type": "gift",
+      "species": "marowak-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-75-exeggutor-alola",
+      "type": "gift",
+      "species": "exeggutor-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-100-rowlet",
+      "type": "gift",
+      "species": "rowlet",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-100-litten",
+      "type": "gift",
+      "species": "litten",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-100-popplio",
+      "type": "gift",
+      "species": "popplio",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-diglett-150-diglett-alola",
+      "type": "gift",
+      "species": "diglett-alola",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-gift-cosmog",
+      "type": "gift",
+      "species": "cosmog",
+      "area": "slippery-slope",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-gift-poipole",
+      "type": "gift",
+      "species": "poipole",
+      "area": "slippery-slope",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-spiritomb",
+      "type": "static",
+      "species": "spiritomb",
+      "area": "ballimere-lake",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-keldeo",
+      "type": "static",
+      "species": "keldeo-ordinary",
+      "area": "ballimere-lake",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-cobalion",
+      "type": "static",
+      "species": "cobalion",
+      "area": "frigid-sea",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-terrakion",
+      "type": "static",
+      "species": "terrakion",
+      "area": "lakeside-cave",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-virizion",
+      "type": "static",
+      "species": "virizion",
+      "area": "giants-bed",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-regirock",
+      "type": "static",
+      "species": "regirock",
+      "area": "giants-bed",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-regice",
+      "type": "static",
+      "species": "regice",
+      "area": "snowslide-slope",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-registeel",
+      "type": "static",
+      "species": "registeel",
+      "area": "giants-bed",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-regieleki",
+      "type": "static",
+      "species": "regieleki",
+      "area": "three-point-pass",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-regidrago",
+      "type": "static",
+      "species": "regidrago",
+      "area": "three-point-pass",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-calyrex",
+      "type": "static",
+      "species": "calyrex",
+      "area": "path-to-the-peak",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-glastrier",
+      "type": "static",
+      "species": "glastrier",
+      "area": "snowslide-slope",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-spectrier",
+      "type": "static",
+      "species": "spectrier",
+      "area": "old-cemetery",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-articuno-galar",
+      "type": "static",
+      "species": "articuno-galar",
+      "area": "snowslide-slope",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-zapdos-galar",
+      "type": "static",
+      "species": "zapdos-galar",
+      "area": "rolling-fields",
+      "conditions": {
+        "dlc": true
+      }
+    },
+    {
+      "id": "dlc-static-moltres-galar",
+      "type": "static",
+      "species": "moltres-galar",
+      "area": "fields-of-honor",
+      "conditions": {
+        "dlc": true
+      }
     }
   ],
   "milestones": [
@@ -15236,6 +15515,419 @@
             "sucker-punch"
           ],
           "ability": "torrent"
+        }
+      ]
+    },
+    {
+      "id": "dlc-klara-1",
+      "name": "Klara — Dojo Entrance (IoA)",
+      "type": "dojo",
+      "order": 120,
+      "aceLevel": 60,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "sword"
+        ]
+      },
+      "trainerSprite": "klara",
+      "roster": [
+        {
+          "species": "venipede",
+          "level": 58,
+          "ability": "poison-point",
+          "moves": [
+            "poison-tail"
+          ]
+        },
+        {
+          "species": "slowpoke-galar",
+          "level": 60,
+          "ability": "gluttony",
+          "moves": [
+            "confusion",
+            "acid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-avery-1",
+      "name": "Avery — Dojo Entrance (IoA)",
+      "type": "dojo",
+      "order": 121,
+      "aceLevel": 60,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "shield"
+        ]
+      },
+      "trainerSprite": "avery",
+      "roster": [
+        {
+          "species": "abra",
+          "level": 58,
+          "ability": "synchronize",
+          "moves": [
+            "confusion",
+            "psychic"
+          ]
+        },
+        {
+          "species": "slowpoke-galar",
+          "level": 60,
+          "ability": "gluttony",
+          "moves": [
+            "confusion",
+            "psychic",
+            "acid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-mustard-1",
+      "name": "Mustard — First Battle (Master Dojo)",
+      "type": "dojo",
+      "order": 125,
+      "aceLevel": 61,
+      "conditions": {
+        "dlc": true
+      },
+      "trainerSprite": "mustard",
+      "roster": [
+        {
+          "species": "mienfoo",
+          "level": 61,
+          "ability": "inner-focus",
+          "moves": [
+            "fake-out",
+            "force-palm",
+            "u-turn"
+          ]
+        },
+        {
+          "species": "shinx",
+          "level": 61,
+          "ability": "intimidate",
+          "moves": [
+            "spark",
+            "bite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-klara-2",
+      "name": "Klara — Warm-Up Tunnel",
+      "type": "dojo",
+      "order": 130,
+      "aceLevel": 63,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "sword"
+        ]
+      },
+      "trainerSprite": "klara",
+      "roster": [
+        {
+          "species": "slowpoke-galar",
+          "level": 62,
+          "ability": "gluttony",
+          "moves": [
+            "confusion",
+            "acid"
+          ]
+        },
+        {
+          "species": "koffing",
+          "level": 62,
+          "ability": "levitate",
+          "moves": [
+            "clear-smog",
+            "assurance"
+          ]
+        },
+        {
+          "species": "whirlipede",
+          "level": 63,
+          "ability": "poison-point",
+          "moves": [
+            "poison-tail",
+            "bug-bite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-avery-2",
+      "name": "Avery — Warm-Up Tunnel",
+      "type": "dojo",
+      "order": 131,
+      "aceLevel": 63,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "shield"
+        ]
+      },
+      "trainerSprite": "avery",
+      "roster": [
+        {
+          "species": "slowpoke-galar",
+          "level": 62,
+          "ability": "gluttony",
+          "moves": [
+            "acid",
+            "confusion",
+            "psychic"
+          ]
+        },
+        {
+          "species": "woobat",
+          "level": 62,
+          "ability": "unaware",
+          "moves": [
+            "confusion",
+            "psychic",
+            "air-cutter"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "level": 63,
+          "ability": "synchronize",
+          "moves": [
+            "psybeam",
+            "psychic",
+            "swift"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-klara-3",
+      "name": "Klara — Battle Court",
+      "type": "dojo",
+      "order": 140,
+      "aceLevel": 67,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "sword"
+        ]
+      },
+      "trainerSprite": "klara",
+      "roster": [
+        {
+          "species": "skorupi",
+          "level": 65,
+          "ability": "battle-armor",
+          "moves": [
+            "bite",
+            "poison-fang"
+          ]
+        },
+        {
+          "species": "weezing-galar",
+          "level": 66,
+          "ability": "levitate",
+          "moves": [
+            "clear-smog",
+            "assurance"
+          ]
+        },
+        {
+          "species": "whirlipede",
+          "level": 66,
+          "ability": "poison-point",
+          "moves": [
+            "poison-tail",
+            "bug-bite"
+          ]
+        },
+        {
+          "species": "slowbro-galar",
+          "level": 67,
+          "ability": "quick-draw",
+          "moves": [
+            "water-pulse",
+            "shell-side-arm",
+            "confusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-avery-3",
+      "name": "Avery — Battle Court",
+      "type": "dojo",
+      "order": 141,
+      "aceLevel": 67,
+      "conditions": {
+        "dlc": true,
+        "version": [
+          "shield"
+        ]
+      },
+      "trainerSprite": "avery",
+      "roster": [
+        {
+          "species": "ponyta-galar",
+          "level": 65,
+          "ability": "run-away",
+          "moves": [
+            "psybeam",
+            "psychic",
+            "fairy-wind"
+          ]
+        },
+        {
+          "species": "swoobat",
+          "level": 66,
+          "ability": "unaware",
+          "moves": [
+            "confusion",
+            "psychic",
+            "air-cutter"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "level": 66,
+          "ability": "synchronize",
+          "moves": [
+            "psybeam",
+            "psychic",
+            "swift"
+          ]
+        },
+        {
+          "species": "slowbro-galar",
+          "level": 67,
+          "ability": "quick-draw",
+          "moves": [
+            "water-pulse",
+            "shell-side-arm",
+            "confusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-mustard-final",
+      "name": "Mustard — Final Battle (Battle Court)",
+      "type": "dojo",
+      "order": 150,
+      "aceLevel": 75,
+      "conditions": {
+        "dlc": true
+      },
+      "trainerSprite": "mustard",
+      "roster": [
+        {
+          "species": "mienshao",
+          "level": 73,
+          "ability": "inner-focus",
+          "moves": [
+            "fake-out",
+            "close-combat",
+            "blaze-kick",
+            "u-turn"
+          ]
+        },
+        {
+          "species": "luxray",
+          "level": 73,
+          "ability": "intimidate",
+          "moves": [
+            "wild-charge",
+            "crunch",
+            "psychic-fangs",
+            "play-rough"
+          ]
+        },
+        {
+          "species": "corviknight",
+          "level": 74,
+          "ability": "unnerve",
+          "moves": [
+            "iron-head",
+            "brave-bird",
+            "light-screen",
+            "body-press"
+          ]
+        },
+        {
+          "species": "lycanroc-midday",
+          "level": 75,
+          "ability": "keen-eye",
+          "moves": [
+            "stone-edge",
+            "accelerock",
+            "play-rough",
+            "stealth-rock"
+          ]
+        },
+        {
+          "species": "kommo-o",
+          "level": 75,
+          "ability": "soundproof",
+          "moves": [
+            "clanging-scales",
+            "flash-cannon",
+            "aura-sphere",
+            "clangorous-soul"
+          ]
+        },
+        {
+          "species": "urshifu-single-strike",
+          "level": 75,
+          "ability": "unseen-fist",
+          "moves": [
+            "wicked-blow",
+            "close-combat",
+            "poison-jab",
+            "iron-head"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dlc-peony",
+      "name": "Peony — Slippery Slope (CT)",
+      "type": "expedition",
+      "order": 160,
+      "aceLevel": 70,
+      "conditions": {
+        "dlc": true
+      },
+      "trainerSprite": "peony",
+      "roster": [
+        {
+          "species": "copperajah",
+          "level": 70,
+          "ability": "sheer-force",
+          "moves": [
+            "high-horsepower",
+            "heavy-slam",
+            "play-rough",
+            "superpower"
+          ]
+        },
+        {
+          "species": "aggron",
+          "level": 70,
+          "ability": "sturdy",
+          "heldItem": "sitrus-berry",
+          "moves": [
+            "body-press",
+            "stone-edge",
+            "crunch",
+            "iron-head"
+          ]
         }
       ]
     }
