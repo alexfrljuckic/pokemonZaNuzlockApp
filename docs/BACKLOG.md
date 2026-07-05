@@ -62,12 +62,16 @@ off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
 
 ## Next up
 
-**33. Metrics dashboard + timeline (READY TO BUILD — 33a first).** Design
-at `docs/METRICS-DASHBOARD.md`. Q3 answered (abandoned runs are a stat,
-excluded from cross-run aggregates). Q1 default: timeline lands as a
-Stats-tab section unless Alex objects; Q2 (which 33b panels) decided at
-implementation review. Order: 33a shared RunTimeline + filters → 33b
-panels → 33c cross-run aggregates.
+**33. Metrics dashboard + timeline — SHIPPED 2026-07-05 (#128–#130).**
+33a shared RunTimeline + tone filter chips (owner Stats section +
+spectator parity); 33b Stats panels: level-cap headroom step-line
+(headroomSeries prefix replay) + deaths-by-boss bars; 33c "Your Stats"
+title-screen entry with cross-run aggregates via engine aggregateRuns
+(abandoned runs counted but excluded, per Alex). Remaining design-doc
+candidates (catch rate by zone, time-in-run) deliberately unshipped —
+revisit on demand. Evolution feature (#125–#127, Alex's live request)
+also landed this session: evolve/un-evolve with branch choice, level
+bump, per-game item-location hints.
 
 **34. Genlocke campaigns (READY TO BUILD).** Design AGREED at
 `docs/GENLOCKE.md` (Alex 2026-07-05): surviving party only graduates;

@@ -13,6 +13,7 @@ import { THEMES } from './games';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
+import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
 import { TitleScreen } from './screens/TitleScreen';
@@ -77,7 +78,7 @@ export default function App() {
   return <OwnerApp />;
 }
 
-type Screen = 'title' | 'continue' | 'new';
+type Screen = 'title' | 'continue' | 'new' | 'stats';
 
 function OwnerApp() {
   const [runs, setRuns] = useState<RunSummary[]>([]);
@@ -149,11 +150,14 @@ function OwnerApp() {
           hasRuns={runs.length > 0}
           onNewGame={() => setScreen('new')}
           onContinue={() => setScreen('continue')}
+          onStats={() => setScreen('stats')}
         />
       ) : (
         <>
           {screen === 'continue' ? (
             <ContinueScreen runs={runs} onSelect={setActiveRunId} />
+          ) : screen === 'stats' ? (
+            <CrossRunStatsScreen runs={runs} />
           ) : (
             <NewGameScreen onCreated={handleCreated} />
           )}

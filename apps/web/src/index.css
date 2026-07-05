@@ -2560,3 +2560,13 @@ button.back-icon:hover:not(:disabled) {
   color: var(--muted);
   margin-bottom: 0.5rem;
 }
+
+/* Cross-run stats (33c): reuse the dbb bars; species usage is green */
+.dbb-bar-used {
+  background: var(--success);
+}
+.dbb-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}

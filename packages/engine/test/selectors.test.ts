@@ -7,12 +7,14 @@ import {
   buildRuleset,
   deriveState,
   fallen,
+  aggregateRuns,
   frontierAreas,
   isFrontier,
   party,
   type EngineContext,
   type GameDataset,
   type RunEvent,
+  type RunState,
 } from '../src/index.js';
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -95,5 +97,37 @@ describe('selectors', () => {
     const window = frontierAreas(areas, fresh);
     expect(window.has('town')).toBe(false);
     expect(window.size).toBe(4);
+  });
+});
+
+describe('aggregateRuns (cross-run stats, 33c)', () => {
+  const mon = (species: string, status: 'party' | 'box' | 'dead') =>
+    ({ id: species + status, species, nickname: species, level: 10, status, origin: {} });
+  const run = (status: RunState['status'], pokemon: Record<string, unknown>) =>
+    ({ status, pokemon } as unknown as RunState);
+
+  it('counts statuses and excludes abandoned runs from the aggregates', () => {
+    const stats = aggregateRuns([
+      run('victory', { a: mon('starly', 'party'), b: mon('bidoof', 'dead') }),
+      run('active', { c: mon('starly', 'dead') }),
+      run('abandoned', { d: mon('starly', 'dead'), e: mon('turtwig', 'party') }),
+      run('wiped-continuing', {}),
+    ]);
+    expect(stats.runs).toBe(4);
+    expect(stats.victories).toBe(1);
+    expect(stats.abandoned).toBe(1);
+    expect(stats.active).toBe(1);
+    expect(stats.wipedContinuing).toBe(1);
+    expect(stats.aggregated).toBe(3); // abandoned run left out
+    expect(stats.totalDeaths).toBe(2); // its starly death doesn't count
+    expect(stats.deathsBySpecies).toEqual({ bidoof: 1, starly: 1 });
+    expect(stats.usedSpecies).toEqual({ starly: 1 }); // abandoned turtwig excluded
+  });
+
+  it('handles an empty collection', () => {
+    const stats = aggregateRuns([]);
+    expect(stats.runs).toBe(0);
+    expect(stats.aggregated).toBe(0);
+    expect(stats.deathsBySpecies).toEqual({});
   });
 });

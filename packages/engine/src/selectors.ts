@@ -45,3 +45,55 @@ export function isFrontier(area: Area, state: RunState, allAreas?: Area[]): bool
   const cleared = new Set(state.milestonesCleared);
   return area.unlockAfter == null || cleared.has(area.unlockAfter);
 }
+
+// ---- Cross-run aggregates (backlog 33c) ----
+
+export interface CrossRunStats {
+  runs: number;
+  victories: number;
+  abandoned: number;
+  wipedContinuing: number;
+  active: number;
+  /** runs included in the aggregates below — abandoned runs are counted
+   * above but EXCLUDED here (decided 2026-07-05, see METRICS-DASHBOARD.md) */
+  aggregated: number;
+  totalDeaths: number;
+  deathsBySpecies: Record<string, number>;
+  /** party appearances per species across aggregated runs (final party) */
+  usedSpecies: Record<string, number>;
+}
+
+/** Fold a collection of derived run states into cross-run stats. Pure —
+ * callers derive each run's state from its own event log first. */
+export function aggregateRuns(states: RunState[]): CrossRunStats {
+  const stats: CrossRunStats = {
+    runs: states.length,
+    victories: 0,
+    abandoned: 0,
+    wipedContinuing: 0,
+    active: 0,
+    aggregated: 0,
+    totalDeaths: 0,
+    deathsBySpecies: {},
+    usedSpecies: {},
+  };
+  for (const s of states) {
+    if (s.status === 'victory') stats.victories++;
+    else if (s.status === 'abandoned') stats.abandoned++;
+    else if (s.status === 'wiped-continuing') stats.wipedContinuing++;
+    else stats.active++;
+
+    if (s.status === 'abandoned') continue;
+    stats.aggregated++;
+    for (const p of Object.values(s.pokemon)) {
+      if (p.status === 'dead') {
+        stats.totalDeaths++;
+        stats.deathsBySpecies[p.species] = (stats.deathsBySpecies[p.species] ?? 0) + 1;
+      }
+      if (p.status === 'party') {
+        stats.usedSpecies[p.species] = (stats.usedSpecies[p.species] ?? 0) + 1;
+      }
+    }
+  }
+  return stats;
+}
