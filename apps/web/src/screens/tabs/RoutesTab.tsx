@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { areasFor, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, mapHelpers } from '../../lib/maps';
-import { RouteMap } from '../../components/RouteMap';
+import { RouteMap, type ZoneSummary } from '../../components/RouteMap';
 import { StarterPicker, claimedSpecial, starterHeading } from '../../components/SpecialsSection';
 import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes/AllFilteredOut';
 import { AreaList } from '../../components/routes/AreaList';
@@ -11,6 +11,11 @@ import { EncounterForm, type Outcome } from '../../components/routes/EncounterFo
 import { ItemsHere } from '../../components/routes/ItemsHere';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
 import { TrainersHere } from '../../components/routes/TrainersHere';
+
+const zoneIdOf = (area: Area): string | null =>
+  area.tags.find((t) => t.startsWith('zone:'))?.slice('zone:'.length) ?? null;
+
+const zoneNameOf = (zoneId: string) => zoneId.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 export function RoutesTab({
   runId,
@@ -24,6 +29,7 @@ export function RoutesTab({
   onChange: () => Promise<void>;
 }) {
   const [openAreaId, setOpenAreaId] = useState<string | null>(null);
+  const [activeZone, setActiveZone] = useState<string | null>(null);
 
   async function resolve(area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) {
     await appendEvent(runId, {
@@ -89,7 +95,32 @@ export function RoutesTab({
   const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
   const selectedPool = selected ? filterEncounterPool(state, selected, ctx) : [];
   const { hasMapNode } = mapHelpers(map);
-  const offMapAreas = areas.filter((a) => !hasMapNode(a.id));
+
+  // Zone mode (PLA): areas carry zone:* tags and the map's zone nodes act as
+  // group selectors — the list below shows one zone at a time.
+  const zones = useMemo(() => {
+    const byZone = new Map<string, ZoneSummary>();
+    for (const a of areas) {
+      const z = zoneIdOf(a);
+      if (!z) continue;
+      const cur = byZone.get(z) ?? { id: z, name: zoneNameOf(z), resolved: 0, total: 0 };
+      cur.total += 1;
+      if (state.encounterOutcomes[a.id]) cur.resolved += 1;
+      byZone.set(z, cur);
+    }
+    return byZone;
+  }, [areas, state.encounterOutcomes]);
+  const zoneMode = zones.size > 0;
+
+  const offMapAreas = zoneMode
+    ? areas.filter((a) => (activeZone ? zoneIdOf(a) === activeZone : !zoneIdOf(a) && !hasMapNode(a.id)))
+    : areas.filter((a) => !hasMapNode(a.id));
+  const offMapTitle = zoneMode && activeZone ? zoneNameOf(activeZone) : 'Other areas';
+
+  function selectZone(zoneId: string) {
+    setActiveZone((cur) => (cur === zoneId ? null : zoneId));
+    setOpenAreaId(null);
+  }
 
   return (
     <section className="route-map-stage">
@@ -102,7 +133,32 @@ export function RoutesTab({
         </div>
       )}
 
-      <RouteMap map={map} areas={areas} state={state} version={state.version} onSelect={(id) => setOpenAreaId(id)} />
+      <RouteMap
+        map={map}
+        areas={areas}
+        state={state}
+        version={state.version}
+        onSelect={(id) => setOpenAreaId(id)}
+        zones={zoneMode ? zones : undefined}
+        onSelectZone={zoneMode ? selectZone : undefined}
+      />
+
+      {zoneMode && (
+        <div className="zone-chips" role="tablist" aria-label="Zones">
+          {[...zones.values()].map((z) => (
+            <button
+              key={z.id}
+              type="button"
+              role="tab"
+              aria-selected={activeZone === z.id}
+              className={`zone-chip${activeZone === z.id ? ' selected' : ''}`}
+              onClick={() => selectZone(z.id)}
+            >
+              {z.name} <span className="muted">{z.resolved}/{z.total}</span>
+            </button>
+          ))}
+        </div>
+      )}
 
       {selected && (
         <div className="route-resolve-panel">
@@ -139,9 +195,13 @@ export function RoutesTab({
         </div>
       )}
 
+      {zoneMode && !activeZone && offMapAreas.length === 0 && (
+        <p className="muted zone-hint">Pick a zone on the map (or a chip above) to browse its areas.</p>
+      )}
+
       {offMapAreas.length > 0 && (
         <div className="route-offmap">
-          <h3 className="route-offmap-title">Other areas</h3>
+          <h3 className="route-offmap-title">{offMapTitle}</h3>
           <AreaList
             areas={offMapAreas}
             state={state}

@@ -3,6 +3,7 @@ import {
   RULES,
   buildRuleset,
   deriveState,
+  filterEncounterPool,
   nextBoss,
   type EngineContext,
   type GameDataset,
@@ -85,6 +86,59 @@ const ctx: EngineContext = { dataset: zaDataset, speciesToLine: {} };
 let seq = 0;
 const ev = (type: RunEvent['type'], payload: unknown): RunEvent =>
   ({ seq: ++seq, at: new Date(1700000000000 + seq * 60000).toISOString(), type, payload } as RunEvent);
+
+describe('alphas-count toggle', () => {
+  const plaDataset: GameDataset = {
+    schemaVersion: 1,
+    gameId: 'pla',
+    name: 'Legends: Arceus (synthetic)',
+    versions: ['legends-arceus'],
+    areas: [
+      {
+        id: 'horseshoe-plains',
+        name: 'Horseshoe Plains',
+        unlockAfter: null,
+        tags: ['zone:obsidian-fieldlands'],
+        encounters: [
+          { species: 'bidoof', methods: ['walk'] },
+          { species: 'rapidash', methods: ['alpha'] },
+        ],
+      },
+    ],
+    specials: [],
+    milestones: [{ id: 'noble-kleavor', name: 'Kleavor', type: 'noble', order: 1, aceLevel: 18 }],
+    mechanics: { heldItems: false, wildBattles: true, setModeOption: false, raids: false, overworldAggro: true },
+  };
+  const plaCtx: EngineContext = { dataset: plaDataset, speciesToLine: {} };
+  const area = plaDataset.areas[0];
+
+  it('excludes guaranteed alphas by default and includes them in hard mode', () => {
+    expect(buildRuleset('standard', 'pla').rules['alphas-count'].enabled).toBe(false);
+    expect(buildRuleset('standard', 'bdsp').rules['alphas-count']).toBeUndefined();
+
+    const off = deriveState(
+      [ev('run_started', { gameId: 'pla', version: 'legends-arceus', ruleset: buildRuleset('standard', 'pla') })],
+      plaCtx,
+    );
+    expect(filterEncounterPool(off, area, plaCtx).map((s) => s.species)).toEqual(['bidoof']);
+
+    const hard = buildRuleset('standard', 'pla');
+    hard.rules['alphas-count'] = { enabled: true, params: {} };
+    const on = deriveState(
+      [ev('run_started', { gameId: 'pla', version: 'legends-arceus', ruleset: hard })],
+      plaCtx,
+    );
+    expect(filterEncounterPool(on, area, plaCtx).map((s) => s.species)).toEqual(['bidoof', 'rapidash']);
+  });
+
+  it('leaves runs without the rule untouched (absent ≠ off)', () => {
+    const legacy = deriveState(
+      [ev('run_started', { gameId: 'pla', version: 'legends-arceus', ruleset: { presetId: 'standard', rules: {}, houseRules: [] } })],
+      plaCtx,
+    );
+    expect(filterEncounterPool(legacy, area, plaCtx).map((s) => s.species)).toEqual(['bidoof', 'rapidash']);
+  });
+});
 
 describe('za-rogue-caps toggle', () => {
   const start = (preset: 'standard' | 'hardcore') =>

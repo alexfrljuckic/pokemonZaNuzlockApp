@@ -35,18 +35,32 @@ const MAX_ZOOM = 8;
 
 type MapView = { x: number; y: number; scale: number };
 
+/** A map node that stands for a whole group of sub-areas (PLA zones) rather
+ * than one area — clicking it browses the zone instead of resolving. */
+export interface ZoneSummary {
+  id: string;
+  name: string;
+  resolved: number;
+  total: number;
+}
+
 export function RouteMap({
   map,
   areas,
   state,
   version,
   onSelect,
+  zones,
+  onSelectZone,
 }: {
   map: GameMap;
   areas: Area[];
   state: RunState;
   version: string;
   onSelect: (areaId: string) => void;
+  /** zone-id → summary, for maps whose nodes are zone groups (PLA) */
+  zones?: Map<string, ZoneSummary>;
+  onSelectZone?: (zoneId: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
   // Optional backdrop: drop an image at public/maps/<map.backdropSrc> and it
@@ -184,6 +198,7 @@ export function RouteMap({
   };
 
   const hoveredArea = hovered ? areaById.get(hovered) : null;
+  const hoveredZone = hovered && !hoveredArea ? zones?.get(hovered) : null;
   const hoveredNode = hovered ? mapNode(hovered) : null;
   const hoveredState = hoveredArea ? nodeStateFor(hoveredArea, state) : null;
 
@@ -254,7 +269,39 @@ export function RouteMap({
         {/* area regions — blend with the art at rest, highlight on hover */}
         {map.nodes.map((node) => {
           const area = areaById.get(node.id);
-          if (!area) return null;
+          if (!area) {
+            // Zone node (PLA): stands for a group of sub-areas — clicking it
+            // browses the zone in the list below instead of resolving.
+            const zone = zones?.get(node.id);
+            if (!zone || !onSelectZone) return null;
+            const done = zone.total > 0 && zone.resolved >= zone.total;
+            return (
+              <g
+                key={node.id}
+                className={`route-region-g route-region-zone route-region-${done ? 'caught' : 'available'}`}
+                tabIndex={0}
+                role="button"
+                aria-label={`${zone.name} — browse ${zone.total} areas (${zone.resolved} resolved)`}
+                onMouseEnter={() => setHovered(node.id)}
+                onMouseLeave={() => setHovered((cur) => (cur === node.id ? null : cur))}
+                onFocus={() => setHovered(node.id)}
+                onBlur={() => setHovered((cur) => (cur === node.id ? null : cur))}
+                onClick={() => onSelectZone(node.id)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onSelectZone(node.id);
+                  }
+                }}
+              >
+                <rect className="route-region" x={node.x} y={node.y} width={node.w} height={node.h} rx={10} />
+                <g className="route-region-badge" transform={`translate(${node.x + node.w - 26} ${node.y + 14})`}>
+                  <rect x={-22} y={-11} width={46} height={22} rx={11} className="route-zone-count-bg" />
+                  <text y={4.5} fontSize={13}>{`${zone.resolved}/${zone.total}`}</text>
+                </g>
+              </g>
+            );
+          }
           const st = nodeStateFor(area, state);
           // any unlocked area is clickable — available opens the encounter
           // picker, a resolved one opens its outcome + reset.
@@ -334,6 +381,24 @@ export function RouteMap({
             )}
           </div>
           {hoveredState === 'available' && <div className="route-tip-cta">Click to resolve encounter</div>}
+        </div>
+      )}
+
+      {hoveredZone && hoveredNode && tipVisible && (
+        <div
+          className="route-tip"
+          style={{
+            left: `${(((hoveredNode.x + hoveredNode.w / 2) - view.x) / vw) * 100}%`,
+            top: `${((hoveredNode.y - view.y) / vh) * 100}%`,
+          }}
+        >
+          <div className="route-tip-head">
+            <strong>{hoveredZone.name}</strong>
+            <span className="route-tip-state">
+              {hoveredZone.resolved}/{hoveredZone.total} areas
+            </span>
+          </div>
+          <div className="route-tip-cta">Click to browse this zone's areas</div>
         </div>
       )}
     </div>

@@ -30,6 +30,43 @@ describe('PLA dataset', () => {
     }
   });
 
+  it('splits the five wild zones into named sub-locations (backlog 24)', () => {
+    // jubilife stays the hub; everything else is a named location in a zone
+    expect(dataset.areas.length).toBeGreaterThanOrEqual(80);
+    const hub = dataset.areas.find((a) => a.id === 'jubilife-village')!;
+    expect(hub.tags).toContain('hub');
+    const zones = new Set<string>();
+    for (const a of dataset.areas) {
+      if (a.id === 'jubilife-village') continue;
+      const zone = a.tags.find((t) => t.startsWith('zone:'));
+      expect(zone, `${a.id} must belong to a zone`).toBeTruthy();
+      zones.add(zone!);
+    }
+    expect([...zones].sort()).toEqual([
+      'zone:alabaster-icelands',
+      'zone:cobalt-coastlands',
+      'zone:coronet-highlands',
+      'zone:crimson-mirelands',
+      'zone:obsidian-fieldlands',
+    ]);
+    // the old monolithic zone areas are gone
+    for (const old of ['obsidian-fieldlands', 'crimson-mirelands', 'cobalt-coastlands', 'coronet-highlands', 'alabaster-icelands']) {
+      expect(dataset.areas.some((a) => a.id === old), `${old} should be split away`).toBe(false);
+    }
+    // specials re-anchored onto real sub-locations
+    const areaIds = new Set(dataset.areas.map((a) => a.id));
+    for (const s of dataset.specials) expect(areaIds.has(s.area), `${s.id} area ${s.area}`).toBe(true);
+    expect(dataset.specials.find((s) => s.id === 'static-uxie')!.area).toBe('lake-acuity');
+  });
+
+  it('flags guaranteed alphas with the alpha method (alphas-count rule keys off it)', () => {
+    const alphaSlots = dataset.areas.flatMap((a) => a.encounters.filter((e) => e.methods.includes('alpha')));
+    expect(alphaSlots.length).toBeGreaterThanOrEqual(60); // ~83 documented fixed alphas
+    // a known one: Horseshoe Plains' Alpha Rapidash
+    const horseshoe = dataset.areas.find((a) => a.id === 'horseshoe-plains')!;
+    expect(horseshoe.encounters.some((e) => e.species === 'rapidash' && e.methods.includes('alpha'))).toBe(true);
+  });
+
   it('includes the Kamado story battle before the Volo finale (regular Golem, not Hisuian)', () => {
     const kamado = dataset.milestones.find((m) => m.id === 'kamado');
     expect(kamado, 'kamado milestone should exist').toBeTruthy();

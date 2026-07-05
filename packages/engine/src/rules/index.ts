@@ -93,6 +93,18 @@ export const RULES: Record<string, RuleDef> = {
     hooks: [],
   },
 
+  'alphas-count': {
+    id: 'alphas-count',
+    name: 'Alphas Count as Encounters',
+    description:
+      'Hard mode: guaranteed (fixed-spawn) Alpha Pokémon count as legal encounters — "first Pokémon counts even if it\'s an Alpha". Off (the community default), fixed Alphas are excluded from the encounter pool: they are massively over-leveled for when you first reach them.',
+    category: 'encounter',
+    appliesTo: ['pla', 'plza'],
+    enforcement: 'enforced',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: ['filterEncounterPool'],
+  },
   'dlc-content': {
     id: 'dlc-content',
     name: 'Playing the DLC',
@@ -281,6 +293,14 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
   let pool = area.encounters.filter(
     (slot) => !slot.conditions?.version || slot.conditions.version.includes(state.version),
   );
+
+  // Guaranteed Alphas (method 'alpha') are excluded unless the run opted into
+  // the 'alphas-count' hard-mode toggle. ABSENT rule = included — runs started
+  // before the rule existed keep the pools they already had (absent ≠ off).
+  const alphas = rs['alphas-count'];
+  if (alphas != null && !alphas.enabled) {
+    pool = pool.filter((slot) => !slot.methods.includes('alpha'));
+  }
 
   const dupes = rs['dupes-clause'];
   if (dupes?.enabled) {
