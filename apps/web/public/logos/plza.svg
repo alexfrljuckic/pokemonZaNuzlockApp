@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <!-- Original emblem: Lumiose hex + ZA monogram (Z-A). -->
+  <path d="M48 8 L82 27 v38 L48 84 L14 65 V27 Z" fill="#221a20" stroke="#e0435a" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M30 34 h20 L30 58 h20" fill="none" stroke="#e0435a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M54 62 L64 32 L74 62 M58.5 51 h11" fill="none" stroke="#f2b04e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

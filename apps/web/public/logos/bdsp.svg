@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <!-- Original emblem: faceted diamond + pearl (BDSP). -->
+  <g transform="translate(8 14)">
+    <path d="M14 8 L34 8 L44 22 L24 52 L4 22 Z" fill="#3d7dca" stroke="#2b5c99" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M14 8 L24 22 L34 8 M4 22 L24 22 L44 22 M24 22 L24 52" stroke="#8ab4f8" stroke-width="2.5" fill="none"/>
+  </g>
+  <g>
+    <circle cx="66" cy="60" r="19" fill="#d1699a" stroke="#a94f79" stroke-width="3"/>
+    <circle cx="59" cy="53" r="6" fill="#f2c3d8"/>
+  </g>
+</svg>

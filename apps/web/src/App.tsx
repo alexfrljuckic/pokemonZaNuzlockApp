@@ -110,10 +110,25 @@ function OwnerApp() {
 
   const activeRun = runs.find((r) => r.id === activeRunId) ?? null;
 
+  // One global back affordance, always in the same top-left corner of the
+  // chrome: run → run list, picker screens → title. Null on the title screen.
+  const headerBack = activeRun
+    ? () => setActiveRunId(null)
+    : screen !== 'title'
+      ? () => setScreen('title')
+      : null;
+
   return (
     <>
       <div className="app-header">
-        <h1>Nuzlocke Tracker</h1>
+        <div className="app-header-left">
+          {headerBack && (
+            <button className="back-icon" aria-label="Back" title="Back" onClick={headerBack}>
+              ←
+            </button>
+          )}
+          <h1>Nuzlocke Tracker</h1>
+        </div>
         <ThemePicker />
       </div>
       {/* Reflects actual sync state, not just the env flag: sync only happens
@@ -128,7 +143,7 @@ function OwnerApp() {
       <AuthBar />
 
       {activeRun ? (
-        <RunView run={activeRun} session={session} onBack={() => setActiveRunId(null)} />
+        <RunView run={activeRun} session={session} />
       ) : screen === 'title' ? (
         <TitleScreen
           hasRuns={runs.length > 0}
@@ -137,7 +152,6 @@ function OwnerApp() {
         />
       ) : (
         <>
-          <button className="back-btn" onClick={() => setScreen('title')}>Title</button>
           {screen === 'continue' ? (
             <ContinueScreen runs={runs} onSelect={setActiveRunId} />
           ) : (
