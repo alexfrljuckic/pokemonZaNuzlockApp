@@ -134,7 +134,7 @@ export function RoutesTab({
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
           <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
-          <ItemsHere area={selected} version={state.version} />
+          <ItemsHere area={selected} version={state.version} state={state} runId={runId} onChange={onChange} />
         </div>
       )}
 

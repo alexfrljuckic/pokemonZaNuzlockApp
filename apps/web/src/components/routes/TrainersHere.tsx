@@ -65,23 +65,28 @@ function TrainerCard({
         }
       }}
     >
-      <div className="trainer-row-head">
-        {t.class && <TrainerSprite trainerKey={trainerKeyFromClass(t.class)} size={56} className="trainer-row-sprite" />}
-        <div className="trainer-row-title">
-          <strong>{t.name}</strong>
-          {t.class && <span className="muted">{t.class}</span>}
+      {/* Collapsed: one compact row — head left, team strip right (type
+          badges live in the expanded detail, like the Boss Fights cards). */}
+      <div className="trainer-row-main">
+        <div className="trainer-row-head">
+          {t.class && (
+            <TrainerSprite trainerKey={trainerKeyFromClass(t.class)} size={44} className="trainer-row-sprite" />
+          )}
+          <div className="trainer-row-title">
+            <strong>{t.name}</strong>
+            {t.class && <span className="muted">{t.class}</span>}
+          </div>
         </div>
-        {battled && <span className="trainer-battled-badge">✓ battled</span>}
+        <span className="trainer-row-team">
+          {t.team.map((p, j) => (
+            <span key={`${p.species}-${j}`} className="trainer-mon" title={`${p.species} Lv ${p.level}`}>
+              <SpriteImg species={p.species} size={44} />
+              <span className="trainer-mon-lv muted">Lv{p.level}</span>
+            </span>
+          ))}
+        </span>
+        {battled && <span className="trainer-battled-badge">✓</span>}
       </div>
-      <span className="trainer-row-team">
-        {t.team.map((p, j) => (
-          <span key={`${p.species}-${j}`} className="trainer-mon" title={`${p.species} Lv ${p.level}`}>
-            <SpriteImg species={p.species} size={56} />
-            <span className="trainer-mon-lv muted">Lv{p.level}</span>
-            <TypeBadges types={typesFor(p.species)} />
-          </span>
-        ))}
-      </span>
       {expanded && (
         <div className="trainer-row-detail">
           {t.team.map((p, j) => {

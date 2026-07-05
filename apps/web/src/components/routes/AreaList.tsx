@@ -1,4 +1,4 @@
-import { filterEncounterPool, isFrontier, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { filterEncounterPool, frontierAreas, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
 import { EncounterForm, type Outcome } from './EncounterForm';
@@ -29,15 +29,17 @@ export function AreaList({
   onReset: (area: Area) => void;
   onChange: () => Promise<void>;
 }) {
+  // Window computed over the FULL dataset order (this list may render only
+  // the off-map subset), so map and list agree on what's "up next".
+  const frontier = frontierAreas(ctx.dataset.areas, state);
   return (
     <>
       {areas.map((area) => {
         const outcome = state.encounterOutcomes[area.id];
         const pool = !outcome ? filterEncounterPool(state, area, ctx) : [];
 
-        const frontier = isFrontier(area, state);
         return (
-          <div key={area.id} className={`area-row${frontier ? ' area-row-frontier' : ''}`}>
+          <div key={area.id} className={`area-row${frontier.has(area.id) ? ' area-row-frontier' : ''}`}>
             <div
               className="area-row-header"
               onClick={() => setOpenAreaId(openAreaId === area.id ? null : area.id)}
@@ -70,7 +72,7 @@ export function AreaList({
               <>
                 <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
                 <TrainersHere area={area} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
-                <ItemsHere area={area} version={state.version} />
+                <ItemsHere area={area} version={state.version} state={state} runId={runId} onChange={onChange} />
               </>
             )}
           </div>

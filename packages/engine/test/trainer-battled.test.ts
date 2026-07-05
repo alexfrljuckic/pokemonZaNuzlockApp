@@ -17,6 +17,7 @@ const dataset: GameDataset = {
         { name: 'Tristan', class: 'Youngster', team: [{ species: 'starly', level: 5 }] },
         { name: 'Natalie', class: 'Lass', team: [{ species: 'bidoof', level: 5 }] },
       ],
+      items: [{ name: 'Potion' }, { name: 'Rare Candy', hidden: true }],
     },
   ],
   specials: [],
@@ -62,5 +63,17 @@ describe('trainer_battled / trainer_reset', () => {
   it('starts empty and tolerates resets for never-battled trainers', () => {
     const state = deriveState([start, ev('trainer_reset', { areaId: 'route-202', trainerIndex: 5 })], ctx);
     expect(state.trainersBattled).toEqual([]);
+  });
+
+  it('item_picked / item_reset track pickups by areaId#index, idempotently', () => {
+    const events = [
+      start,
+      ev('item_picked', { areaId: 'route-202', itemIndex: 0, name: 'Potion' }),
+      ev('item_picked', { areaId: 'route-202', itemIndex: 0 }),
+      ev('item_picked', { areaId: 'route-202', itemIndex: 1 }),
+      ev('item_reset', { areaId: 'route-202', itemIndex: 1 }),
+    ];
+    const state = deriveState(events, ctx);
+    expect(state.itemsPicked).toEqual(['route-202#0']);
   });
 });

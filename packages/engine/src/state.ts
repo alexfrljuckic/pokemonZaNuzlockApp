@@ -15,6 +15,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
     encounterOutcomes: {},
     milestonesCleared: [],
     trainersBattled: [],
+    itemsPicked: [],
     reviveTokens: 0,
     wipes: [],
     ruleChanges: [],
@@ -137,6 +138,16 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       case 'trainer_reset': {
         const key = `${ev.payload.areaId}#${ev.payload.trainerIndex}`;
         state.trainersBattled = state.trainersBattled.filter((k) => k !== key);
+        break;
+      }
+      case 'item_picked': {
+        const key = `${ev.payload.areaId}#${ev.payload.itemIndex}`;
+        if (!state.itemsPicked.includes(key)) state.itemsPicked.push(key);
+        break;
+      }
+      case 'item_reset': {
+        const key = `${ev.payload.areaId}#${ev.payload.itemIndex}`;
+        state.itemsPicked = state.itemsPicked.filter((k) => k !== key);
         break;
       }
       case 'rule_changed': {
