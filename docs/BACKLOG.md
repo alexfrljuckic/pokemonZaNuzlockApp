@@ -73,13 +73,14 @@ revisit on demand. Evolution feature (#125–#127, Alex's live request)
 also landed this session: evolve/un-evolve with branch choice, level
 bump, per-game item-location hints.
 
-**34. Genlocke campaigns (READY TO BUILD).** Design AGREED at
-`docs/GENLOCKE.md` (Alex 2026-07-05): surviving party only graduates;
-unavailable lines retire with a free successor pick; imports are free
-extras whose lines block dupes. New `pokemon_imported` event + campaigns
-store + import screen + campaign page.
+**34. Genlocke campaigns — SHELVED (Alex, 2026-07-05 late).** With only
+six same-era games the champion-chain format doesn't have enough room;
+revisit if/when the game roster grows. What exists stays: the design
+(`docs/GENLOCKE.md`) and the merged `pokemon_imported` engine event
+(#131 — harmless without UI, and useful for any future import feature).
+Campaign store / import screen / campaign page: NOT built, on purpose.
 
-**35. Profiles + follows (READY TO BUILD, after 33/34).** Design AGREED
+**35. Profiles + follows (READY TO BUILD — next big feature).** Design AGREED
 at `docs/PROFILES.md` (Alex 2026-07-05): profiles aggregate explicitly
 shared runs only; feed v1 = big beats only (boss/death/wipe/victory),
 poll-not-realtime; profiles/follows tables + handle-scoped SECURITY
