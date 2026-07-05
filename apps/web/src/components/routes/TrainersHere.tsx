@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import type { Area, AreaTrainer } from '@nuzlocke/engine';
-import { typesFor } from '../../lib/speciesData';
+import type { Area, AreaTrainer, RunState } from '@nuzlocke/engine';
+import { appendEvent } from '../../lib/db';
+import { expectedMovesAt, typesFor } from '../../lib/speciesData';
 import { trainerKeyFromClass } from '../../lib/sprites';
 import { MoveChips } from '../MoveChips';
 import { SpriteImg } from '../SpriteImg';
@@ -14,14 +15,45 @@ function appliesTo(t: AreaTrainer, version: string): boolean {
   return !t.conditions?.version || t.conditions.version.includes(version);
 }
 
-/** One trainer as an expandable card: class sprite + team strip collapsed,
- * full per-mon detail (weaknesses, moves, stat bars) expanded — the same
- * detail treatment as the boss-fight MilestoneCard, reusing its mrd-* styles. */
-function TrainerCard({ t, gameId }: { t: AreaTrainer; gameId: string }) {
+/** One trainer as an expandable card matching the Boss Fights treatment:
+ * class sprite + team strip collapsed; expanded, full per-mon detail with
+ * weaknesses, moves and stat bars. Documented movesets render as-is; when a
+ * moveset isn't documented we show the mon's last four level-up moves at its
+ * level — what the games actually give unspecified trainer mons — labelled
+ * "expected". Owners can mark a trainer battled (audited trainer_battled /
+ * trainer_reset events); omit runId/onChange for read-only. */
+function TrainerCard({
+  t,
+  index,
+  areaId,
+  gameId,
+  battled,
+  runId,
+  onChange,
+}: {
+  t: AreaTrainer;
+  index: number;
+  areaId: string;
+  gameId: string;
+  battled: boolean;
+  runId?: string;
+  onChange?: () => Promise<void>;
+}) {
   const [expanded, setExpanded] = useState(false);
+  const canMark = runId != null && onChange != null;
+
+  async function toggleBattled() {
+    if (!canMark) return;
+    await appendEvent(runId, {
+      type: battled ? 'trainer_reset' : 'trainer_battled',
+      payload: { areaId, trainerIndex: index, ...(battled ? {} : { name: t.name }) },
+    } as never);
+    await onChange();
+  }
+
   return (
     <div
-      className={`trainer-row${expanded ? ' expanded' : ''}`}
+      className={`trainer-row${expanded ? ' expanded' : ''}${battled ? ' battled' : ''}`}
       role="button"
       tabIndex={0}
       aria-expanded={expanded}
@@ -34,16 +66,17 @@ function TrainerCard({ t, gameId }: { t: AreaTrainer; gameId: string }) {
       }}
     >
       <div className="trainer-row-head">
-        {t.class && <TrainerSprite trainerKey={trainerKeyFromClass(t.class)} size={44} className="trainer-row-sprite" />}
-        <span className="trainer-row-name">
-          {t.class ? `${t.class} ` : ''}
+        {t.class && <TrainerSprite trainerKey={trainerKeyFromClass(t.class)} size={56} className="trainer-row-sprite" />}
+        <div className="trainer-row-title">
           <strong>{t.name}</strong>
-        </span>
+          {t.class && <span className="muted">{t.class}</span>}
+        </div>
+        {battled && <span className="trainer-battled-badge">✓ battled</span>}
       </div>
       <span className="trainer-row-team">
         {t.team.map((p, j) => (
           <span key={`${p.species}-${j}`} className="trainer-mon" title={`${p.species} Lv ${p.level}`}>
-            <SpriteImg species={p.species} size={40} />
+            <SpriteImg species={p.species} size={56} />
             <span className="trainer-mon-lv muted">Lv{p.level}</span>
             <TypeBadges types={typesFor(p.species)} />
           </span>
@@ -51,46 +84,92 @@ function TrainerCard({ t, gameId }: { t: AreaTrainer; gameId: string }) {
       </span>
       {expanded && (
         <div className="trainer-row-detail">
-          {t.team.map((p, j) => (
-            <div key={`${p.species}-${j}`} className="milestone-roster-detail-row">
-              <div className="mrd-head">
-                <SpriteImg species={p.species} size={76} />
-                <div className="mrd-title">
-                  <strong>{p.species}</strong>
-                  <span className="mrd-lv">Lv {p.level}</span>
-                  <TypeBadges types={typesFor(p.species)} />
-                  {(p.ability || p.heldItem) && (
-                    <span className="muted mrd-meta">
-                      {p.ability ?? ''}
-                      {p.ability && p.heldItem ? ' · ' : ''}
-                      {p.heldItem ? `@ ${p.heldItem}` : ''}
-                    </span>
-                  )}
+          {t.team.map((p, j) => {
+            const expected = p.moves?.length ? null : expectedMovesAt(p.species, p.level, gameId);
+            return (
+              <div key={`${p.species}-${j}`} className="milestone-roster-detail-row">
+                <div className="mrd-head">
+                  <SpriteImg species={p.species} size={76} />
+                  <div className="mrd-title">
+                    <strong>{p.species}</strong>
+                    <span className="mrd-lv">Lv {p.level}</span>
+                    <TypeBadges types={typesFor(p.species)} />
+                    {(p.ability || p.heldItem) && (
+                      <span className="muted mrd-meta">
+                        {p.ability ?? ''}
+                        {p.ability && p.heldItem ? ' · ' : ''}
+                        {p.heldItem ? `@ ${p.heldItem}` : ''}
+                      </span>
+                    )}
+                  </div>
                 </div>
+                <WeaknessRow types={typesFor(p.species)} />
+                <MoveChips moves={p.moves ?? expected ?? undefined} gameId={gameId} />
+                {expected && (
+                  <span className="muted trainer-moves-note">expected moves — last four learned by Lv {p.level}</span>
+                )}
+                <StatBars species={p.species} />
               </div>
-              <WeaknessRow types={typesFor(p.species)} />
-              <MoveChips moves={p.moves} gameId={gameId} />
-              <StatBars species={p.species} />
-            </div>
-          ))}
+            );
+          })}
+          {canMark && (
+            <button
+              className={battled ? 'secondary' : ''}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleBattled();
+              }}
+            >
+              {battled ? 'Unmark battled' : 'Mark battled'}
+            </button>
+          )}
         </div>
       )}
     </div>
   );
 }
 
-/** Documented trainer battles in this area — display-only route intel under
- * the encounter picker, so a player can see what fights are coming before
- * they commit. Renders nothing when the dataset has no trainer data here. */
-export function TrainersHere({ area, version, gameId }: { area: Area; version: string; gameId: string }) {
-  const trainers = (area.trainers ?? []).filter((t) => appliesTo(t, version));
+/** Documented trainer battles in this area — route intel under the encounter
+ * picker, so a player can see what fights are coming before they commit.
+ * Renders nothing when the dataset has no trainer data here. */
+export function TrainersHere({
+  area,
+  version,
+  gameId,
+  state,
+  runId,
+  onChange,
+}: {
+  area: Area;
+  version: string;
+  gameId: string;
+  state?: RunState;
+  runId?: string;
+  onChange?: () => Promise<void>;
+}) {
+  const trainers = (area.trainers ?? [])
+    .map((t, index) => ({ t, index }))
+    .filter(({ t }) => appliesTo(t, version));
   if (trainers.length === 0) return null;
+  const battled = (index: number) => state?.trainersBattled.includes(`${area.id}#${index}`) ?? false;
+  const battledCount = trainers.filter(({ index }) => battled(index)).length;
   return (
     <div className="trainers-group">
-      <p className="muted specials-group-label">Trainers here ({trainers.length})</p>
+      <p className="muted specials-group-label">
+        Trainers here ({battledCount > 0 ? `${battledCount}/${trainers.length} battled` : trainers.length})
+      </p>
       <div className="trainers-list">
-        {trainers.map((t, i) => (
-          <TrainerCard key={`${t.name}-${i}`} t={t} gameId={gameId} />
+        {trainers.map(({ t, index }) => (
+          <TrainerCard
+            key={`${t.name}-${index}`}
+            t={t}
+            index={index}
+            areaId={area.id}
+            gameId={gameId}
+            battled={battled(index)}
+            runId={runId}
+            onChange={onChange}
+          />
         ))}
       </div>
     </div>

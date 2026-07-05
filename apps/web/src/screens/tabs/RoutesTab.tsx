@@ -132,7 +132,7 @@ export function RoutesTab({
             <p className="muted">No wild encounters documented here.</p>
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
-          <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} />
+          <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
         </div>
       )}
 
