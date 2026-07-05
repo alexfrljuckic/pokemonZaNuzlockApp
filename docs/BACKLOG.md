@@ -20,6 +20,13 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up
 
+**32. Towns-wave crumbs.** From the 2026-07-06 towns/shops wave: SwSh Ball
+Guy gifts excluded for consistency (add across all 9 gym towns if wanted);
+BDSP Ramanas Park + Pokemon League marts sell all specialty balls (Ramanas
+exists as an area, could gain shopItems); LGPE X Defend/X Defense naming
+reconcile on route-11; Z-A shops still homeless (city IS the game - needs
+a pseudo-area decision from Alex, see outstanding questions).
+
 **Map scale-up demo AWAITING ALEX (PR #99, left open on purpose; now includes the real paldea.png).** Routes
 section full-bleeds to min(94vw, 1500px) on desktop, the old 720px map cap
 lifted, maps fit by height (86vh, aspect-ratio-aware). Merge it, tune the
