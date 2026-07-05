@@ -198,6 +198,20 @@ body {
   }
 }
 
+/* Mobile: shrinking a whole region to ~340px makes nodes unidentifiable
+   and untappable. Render the map at a minimum readable width inside a
+   native horizontal pan instead — regions stay identifiable and tap
+   targets stay finger-sized. */
+@media (max-width: 700px) {
+  .route-map {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .route-map-svg {
+    min-width: 600px;
+  }
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
