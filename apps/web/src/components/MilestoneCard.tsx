@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import type { Milestone, MilestoneRosterMember } from '@nuzlocke/engine';
-import { STAT_ORDER, statLabel, statsFor, typesFor } from '../lib/speciesData';
+import { typesFor } from '../lib/speciesData';
 import { trainerKeyFromMilestone } from '../lib/sprites';
 import { MoveChips } from './MoveChips';
 import { SpriteImg } from './SpriteImg';
+import { StatBars } from './StatBars';
 import { TrainerSprite } from './TrainerSprite';
 import { TypeBadges } from './TypeBadge';
 import { WeaknessRow } from './WeaknessRow';
@@ -96,23 +97,7 @@ export function MilestoneCard({
                 </div>
                 <WeaknessRow types={typesFor(p.species)} />
                 <MoveChips moves={p.moves} />
-                {(() => {
-                  const st = statsFor(p.species);
-                  if (!st) return null;
-                  return (
-                    <div className="poke-statbars">
-                      {STAT_ORDER.map((k) => (
-                        <div key={k} className="statbar">
-                          <span className="statbar-label">{statLabel(k)}</span>
-                          <span className="statbar-track">
-                            <span className="statbar-fill" style={{ width: `${Math.min(100, (st[k] / 200) * 100)}%` }} />
-                          </span>
-                          <span className="statbar-value">{st[k]}</span>
-                        </div>
-                      ))}
-                    </div>
-                  );
-                })()}
+                <StatBars species={p.species} />
               </div>
             ))
           ) : (
