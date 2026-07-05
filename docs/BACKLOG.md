@@ -2,15 +2,17 @@
 
 Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 `docs/nuzlocke-tracker-plan.md`. Last reconciled with git history: 2026-07-05
-(PRs #52-#68 merged) — when in doubt, trust `git log --oneline --merges main`
-over this file's checkboxes; it has drifted before.
+late (PRs #52-#70 merged) — when in doubt, trust `git log --oneline --merges
+main` over this file's checkboxes; it has drifted before.
 
-## In flight right now (2026-07-05)
+**Where to work:** the canonical checkout is now `C:\dev\nuzlocke-app`
+(moved off OneDrive — its sync locks broke `git worktree`; see the
+worktree-isolation memory note). The old OneDrive copy is deletable; run
+`git pull` in the new checkout first.
 
-- **BDSP per-route trainers data PR** (Wave-3 data pass #1). The foundation
-  (schema `trainers` on areas + validator guards + TrainersHere UI) merged in
-  #68; Serebii/Bulbapedia trainer research for BDSP is done and being
-  authored into bdsp.json. One game per data PR after that.
+## In flight right now
+
+Nothing — #52-#70 all merged, no open PRs. Pick from "Next up".
 
 ## Next up (no decision needed — pick one and go)
 
@@ -18,17 +20,28 @@ over this file's checkboxes; it has drifted before.
 (`apps/web/src/lib/maps/` registry — adding a game = one map file + one
 registry line + a backdrop image in `public/maps/`). BDSP (Sinnoh) and LGPE
 (Kanto) are done. Remaining, each its own small PR once an IP-safe backdrop
-exists: **SwSh (Galar — a galar.jpg backdrop candidate already sits
-uncommitted in public/maps)**, **SV (Paldea)**, **PLA (Hisui)**, **Z-A
-(Lumiose)**. Node calibration lesson from Kanto: do a live pass with the
-debug overlay (temporarily stroke the `.route-region` rects) before opening
-the PR. Also pending: the same live pass on the LGPE nodes added for routes
-7-25 + Victory Road in #52 (first-pass banner reads).
+exists: **SwSh (Galar — an untracked galar.jpg backdrop candidate sits in
+apps/web/public/maps in both checkouts; commit it with the map PR)**,
+**SV (Paldea)**, **PLA (Hisui)**, **Z-A (Lumiose)**. Node calibration lesson
+from Kanto: do a live pass with the debug overlay (temporarily stroke the
+`.route-region` rects) before opening the PR. Also pending: the same live
+pass on the LGPE nodes added for routes 7-25 + Victory Road in #52
+(first-pass banner reads).
 
-**19. Wave-3 trainer data passes** (after BDSP lands): LGPE, SwSh, SV — one
-game per PR, Serebii/Bulbapedia-sourced, species+levels first (moves/items
-only where documented; never invented). PLA/Z-A have few or no classic route
-trainers.
+**19. Wave-3 trainer data passes — remaining games.** BDSP landed in #70
+(200 trainers / 26 areas; the schema + validator guards + TrainersHere UI
+are #68). Remaining: **LGPE, SwSh, SV** — one game per PR, same recipe that
+worked for #70: parallel Serebii/Bulbapedia research (species+levels only;
+moves/items only where documented; never invented; partners and rematches
+excluded), then a one-shot inject script, regen species-data, validate.
+PLA/Z-A have few or no classic route trainers — skip unless someone asks.
+
+**20. BDSP missing areas + their trainers.** bdsp.json has no entries for
+**route-207, route-208, ravaged-path, wayward-cave** (and models 204/205 as
+-south halves only). Add the areas with encounter tables (Serebii BDSP), then
+attach their ~25 already-researched trainers — the trainer lists (incl.
+BDSP-confirmed Austin-Chimchar on 207) are in PR #70's session notes, or
+re-fetch from serebii.net/pokearth/sinnoh route pages. One small dataset PR.
 
 ## Deferred / low priority (unchanged)
 
