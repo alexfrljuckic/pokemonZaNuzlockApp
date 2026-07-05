@@ -85,8 +85,7 @@ migration 20260705220000 (profiles + follows, owner-only RLS,
 get_profile/get_feed SECURITY DEFINER RPCs — profile shows ONLY runs
 with a live share token; revoke = vanish), #u/<handle> route, profile
 setup chip, follow/unfollow, polled big-beats feed on the continue
-screen. **DEPLOY GATE: Alex must apply the migration in Supabase before
-the next web deploy** (until then profile UI just gets empty results).
+screen. Migration APPLIED by Alex 2026-07-05 — profiles are live once the next web deploy ships.
 Shipped in parallel with #133 (engine warts, background-agent built):
 mid-run house-rules editing (`house_rules_changed`, audited) + proper
 `wiped` status for wipe-reset (legacy logs still derive to abandoned).
