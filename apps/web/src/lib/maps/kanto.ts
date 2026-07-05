@@ -50,6 +50,18 @@ export const KANTO_MAP: GameMap = {
     { id: 'route-21', x: 420, y: 1120, w: 110, h: 90, kind: 'route' },
     { id: 'route-23', x: 232, y: 500, w: 90, h: 120, kind: 'route' },
     { id: 'victory-road', x: 195, y: 270, w: 100, h: 100, kind: 'cave' },
+    // — towns (shops + pickups; placed at their calibrated road junctions) —
+    { id: 'pallet-town', x: 495, y: 915, w: 115, h: 95, kind: 'town' },
+    { id: 'viridian-city', x: 490, y: 655, w: 115, h: 95, kind: 'city' },
+    { id: 'pewter-city', x: 590, y: 280, w: 115, h: 95, kind: 'city' },
+    { id: 'cerulean-city', x: 1318, y: 212, w: 115, h: 95, kind: 'city' },
+    { id: 'vermilion-city', x: 1368, y: 745, w: 115, h: 95, kind: 'city' },
+    { id: 'lavender-town', x: 1788, y: 562, w: 110, h: 90, kind: 'town' },
+    { id: 'celadon-city', x: 985, y: 478, w: 120, h: 95, kind: 'city' },
+    { id: 'saffron-city', x: 1340, y: 468, w: 120, h: 95, kind: 'city' },
+    { id: 'fuchsia-city', x: 1005, y: 1078, w: 118, h: 92, kind: 'city' },
+    { id: 'cinnabar-island', x: 515, y: 1300, w: 112, h: 92, kind: 'city' },
+    { id: 'indigo-plateau', x: 225, y: 45, w: 105, h: 95, kind: 'city' },
   ],
   edges: [
     ['route-22', 'route-1'],
