@@ -64,6 +64,20 @@ export function describeEvent(
         tone: 'faint',
       };
     }
+    case 'pokemon_imported': {
+      const name =
+        event.payload.nickname && event.payload.nickname !== event.payload.species
+          ? `${event.payload.nickname} the ${event.payload.species}`
+          : event.payload.species;
+      return {
+        key: `${event.seq}`,
+        text: event.payload.retiredSpecies
+          ? `${name} joined the campaign (legacy pick for the retired ${event.payload.retiredSpecies})`
+          : `${name} graduated in from a previous run`,
+        species: event.payload.species,
+        tone: 'catch',
+      };
+    }
     case 'pokemon_evolved': {
       const p = pokemon?.[event.payload.pokemonId];
       // the state map holds the POST-evolution species; the event carries the target
