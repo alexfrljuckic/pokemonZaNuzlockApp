@@ -963,6 +963,100 @@
       ]
     },
     {
+      "id": "ravaged-path",
+      "name": "Ravaged Path",
+      "unlockAfter": null,
+      "tags": [
+        "cave"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 78
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ]
+    },
+    {
       "id": "eterna-forest",
       "name": "Eterna Forest",
       "unlockAfter": "gym-1-roark",
@@ -2316,6 +2410,460 @@
             {
               "species": "pikachu",
               "level": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wayward-cave",
+      "name": "Wayward Cave",
+      "unlockAfter": "gym-2-gardenia",
+      "tags": [
+        "cave"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Reginald",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 15
+            },
+            {
+              "species": "machop",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Lorenzo",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Cassidy",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "buneary",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Wayne",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "bidoof",
+              "level": 13
+            },
+            {
+              "species": "zubat",
+              "level": 14
+            },
+            {
+              "species": "aipom",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Tori",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "silcoon",
+              "level": 15
+            },
+            {
+              "species": "beautifly",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Diego",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "cascoon",
+              "level": 13
+            },
+            {
+              "species": "dustox",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Ana",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "meditite",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Parker",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 15
+            },
+            {
+              "species": "shinx",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Terry",
+          "class": "Collector",
+          "team": [
+            {
+              "species": "gastly",
+              "level": 12
+            },
+            {
+              "species": "gastly",
+              "level": 13
+            },
+            {
+              "species": "gastly",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Gerald",
+          "class": "Ruin Maniac",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 15
+            },
+            {
+              "species": "bronzor",
+              "level": 17
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-207",
+      "name": "Route 207",
+      "unlockAfter": "gym-2-gardenia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 55,
+          "conditions": {
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "time": [
+              "day",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 55,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Anthony",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "ponyta",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Lauren",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "pachirisu",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Justin",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 16
+            },
+            {
+              "species": "bronzor",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Austin",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "starly",
+              "level": 15
+            },
+            {
+              "species": "geodude",
+              "level": 15
+            },
+            {
+              "species": "chimchar",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Kevyn",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 15
+            },
+            {
+              "species": "geodude",
+              "level": 16
+            },
+            {
+              "species": "zubat",
+              "level": 17
+            },
+            {
+              "species": "geodude",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "name": "Helen",
+          "class": "Battle Girl",
+          "team": [
+            {
+              "species": "meditite",
+              "level": 18
+            },
+            {
+              "species": "machop",
+              "level": 18
             }
           ]
         }
@@ -4563,6 +5111,330 @@
             {
               "species": "weavile",
               "level": 48
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-208",
+      "name": "Route 208",
+      "unlockAfter": "gym-2-gardenia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        },
+        {
+          "species": "dunsparce",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Robert",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 17
+            },
+            {
+              "species": "geodude",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Kyle",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machop",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Jonathan",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Hannah",
+          "class": "Aroma Lady",
+          "team": [
+            {
+              "species": "combee",
+              "level": 16
+            },
+            {
+              "species": "roselia",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "William",
+          "class": "Artist",
+          "team": [
+            {
+              "species": "mime-jr",
+              "level": 17
+            },
+            {
+              "species": "bonsly",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Cody",
+          "class": "Fisherman",
+          "team": [
+            {
+              "species": "barboach",
+              "level": 31
+            },
+            {
+              "species": "gyarados",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Alexander",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 35
+            },
+            {
+              "species": "graveler",
+              "level": 35
+            },
+            {
+              "species": "onix",
+              "level": 35
             }
           ]
         }
