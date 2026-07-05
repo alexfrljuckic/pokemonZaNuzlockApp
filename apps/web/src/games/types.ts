@@ -19,6 +19,10 @@ export interface GameAppConfig {
   cardColor: string;
   /** Optional schematic interactive route map. */
   map?: GameMap;
+  /** Optional per-zone maps, keyed by the zone id from the areas' `zone:*`
+   * tags (PLA). RoutesTab swaps one in while its zone is active; the main
+   * `map` stays the zone-selector overview. */
+  zoneMaps?: Record<string, GameMap>;
   /** One entry per slug in dataset.versions. */
   versions: Record<string, VersionAppConfig>;
 }
