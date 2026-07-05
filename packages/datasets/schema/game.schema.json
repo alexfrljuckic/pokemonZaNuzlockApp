@@ -91,6 +91,7 @@
               "properties": {
                 "name": { "type": "string", "minLength": 1 },
                 "hidden": { "type": "boolean", "description": "Hidden pickup (Dowsing Machine / Itemfinder spot)." },
+                "shop": { "type": "boolean", "description": "Purchasable in this area's shops rather than a ground pickup." },
                 "quantity": { "type": "integer", "minimum": 2, "description": "Only when a single pickup yields more than one." },
                 "conditions": {
                   "type": "object",
