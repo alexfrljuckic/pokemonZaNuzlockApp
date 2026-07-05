@@ -275,24 +275,46 @@
       ]
     },
     {
-      "id": "obsidian-fieldlands",
-      "name": "Obsidian Fieldlands",
+      "id": "aspiration-hill",
+      "name": "Aspiration Hill",
       "unlockAfter": null,
       "tags": [
-        "open-zone"
+        "named-location",
+        "zone:obsidian-fieldlands"
       ],
       "encounters": [
+        {
+          "species": "pichu",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
         {
           "species": "bidoof",
           "methods": [
             "walk"
-          ]
-        },
-        {
-          "species": "bibarel",
-          "methods": [
-            "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "starly",
@@ -301,173 +323,146 @@
           ]
         },
         {
-          "species": "staravia",
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "floaro-gardens",
+      "name": "Floaro Gardens",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "pichu",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "silcoon",
           "methods": [
             "walk"
           ]
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "shinx",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "luxio",
+          "species": "beautifly",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "psyduck",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "golduck",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "buizel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "floatzel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "burmy",
+          "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "wormadam-plant",
           "methods": [
-            "walk"
-          ]
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "mothim",
+          "species": "luxio",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "horseshoe-plains",
+      "name": "Horseshoe Plains",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "ponyta",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "combee",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "vespiquen",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kricketot",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kricketune",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cherubi",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cherrim",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "buneary",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lopunny",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "pachirisu",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "aipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ambipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "geodude",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "graveler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "onix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "machop",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "machoke",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "zubat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "golbat",
+          "species": "eevee",
           "methods": [
             "walk"
           ]
@@ -485,13 +480,81 @@
           ]
         },
         {
-          "species": "beautifly",
+          "species": "cascoon",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "cascoon",
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grueling-grove",
+      "name": "Grueling Grove",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "beautifly",
           "methods": [
             "walk"
           ]
@@ -500,42 +563,104 @@
           "species": "dustox",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
-          "species": "magikarp",
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "worn-bridge",
+      "name": "Worn Bridge",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "geodude",
           "methods": [
             "walk",
-            "surf"
-          ]
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "gyarados",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "voltorb-hisui",
+          "species": "buizel",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "electrode-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "abra",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kadabra",
+          "species": "starly",
           "methods": [
             "walk"
           ]
@@ -547,109 +672,214 @@
           ]
         },
         {
-          "species": "drifblim",
+          "species": "burmy",
           "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "murkrow",
-          "methods": [
-            "walk"
+            "shaking-tree"
           ],
           "conditions": {
             "time": [
-              "night"
+              "day"
             ]
           }
         },
         {
-          "species": "honchkrow",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "cranidos",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rampardos",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "shieldon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bastiodon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kricketune",
+          "species": "floatzel",
           "methods": [
             "alpha"
-          ]
-        },
-        {
-          "species": "bibarel",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "rampardos",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "bastiodon",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "kleavor",
-          "methods": [
-            "noble"
           ]
         }
       ]
     },
     {
-      "id": "crimson-mirelands",
-      "name": "Crimson Mirelands",
-      "unlockAfter": "noble-kleavor",
+      "id": "deertrack-path",
+      "name": "Deertrack Path",
+      "unlockAfter": null,
       "tags": [
-        "open-zone"
+        "named-location",
+        "zone:obsidian-fieldlands"
       ],
       "encounters": [
         {
-          "species": "pikachu",
+          "species": "zubat",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "raichu",
+          "species": "kricketot",
           "methods": [
             "walk"
           ]
         },
+        {
+          "species": "munchlax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deertrack-heights",
+      "name": "Deertrack Heights",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk",
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "chimchar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "monferno",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "windswept-run",
+      "name": "Windswept Run",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
         {
           "species": "zubat",
           "methods": [
@@ -663,183 +893,86 @@
           ]
         },
         {
-          "species": "paras",
+          "species": "abra",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "parasect",
+          "species": "kricketot",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "psyduck",
+          "species": "kricketune",
           "methods": [
-            "walk",
-            "surf"
+            "walk"
           ]
         },
         {
-          "species": "golduck",
+          "species": "buizel",
           "methods": [
-            "walk",
-            "surf"
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
           ]
         },
         {
           "species": "geodude",
           "methods": [
-            "walk"
+            "in-ore"
           ]
         },
         {
-          "species": "graveler",
+          "species": "staravia",
           "methods": [
-            "walk"
+            "alpha"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "natures-pantry",
+      "name": "Nature's Pantry",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
         {
-          "species": "gastly",
+          "species": "pikachu",
           "methods": [
             "walk"
           ],
           "conditions": {
             "time": [
-              "night"
+              "day"
             ]
           }
-        },
-        {
-          "species": "haunter",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "gengar",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "onix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lickitung",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lickilicky",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhyhorn",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhydon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhyperior",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "chansey",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "tangela",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "tangrowth",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "eevee",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "flareon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "porygon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "porygon2",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "porygon-z",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "snorlax",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cyndaquil",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "quilava",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "typhlosion-hisui",
-          "methods": [
-            "walk"
-          ]
         },
         {
           "species": "pichu",
@@ -848,37 +981,18 @@
           ]
         },
         {
-          "species": "togepi",
+          "species": "paras",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "togetic",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sudowoodo",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "yanma",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "yanmega",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "umbreon",
+          "species": "zubat",
           "methods": [
             "walk"
           ],
@@ -889,7 +1003,7 @@
           }
         },
         {
-          "species": "murkrow",
+          "species": "golbat",
           "methods": [
             "walk"
           ],
@@ -900,7 +1014,7 @@
           }
         },
         {
-          "species": "honchkrow",
+          "species": "kricketot",
           "methods": [
             "walk"
           ],
@@ -911,688 +1025,211 @@
           }
         },
         {
-          "species": "unown",
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "steelix",
+          "species": "staravia",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "heracross",
+          "species": "staraptor",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "teddiursa",
+          "species": "burmy",
           "methods": [
-            "walk"
-          ]
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "ursaring",
+          "species": "geodude",
           "methods": [
-            "walk"
-          ]
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "ursaluna",
+          "species": "parasect",
           "methods": [
-            "walk"
+            "alpha"
           ]
-        },
-        {
-          "species": "swinub",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "piloswine",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ralts",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kirlia",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "roselia",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "roserade",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "budew",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "barboach",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "whiscash",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "turtwig",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "grotle",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "torterra",
-          "methods": [
-            "walk"
-          ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "tidewater-dam",
+      "name": "Tidewater Dam",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
         {
           "species": "bidoof",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "bibarel",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "luxio",
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "luxray",
+          "species": "staravia",
           "methods": [
             "walk"
           ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "burmy",
           "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "wormadam-plant",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "combee",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "vespiquen",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "pachirisu",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "floatzel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "cherubi",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cherrim",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lopunny",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "stunky",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "skuntank",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bronzor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bronzong",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bonsly",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "happiny",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "spiritomb",
-          "methods": [
-            "walk"
+            "shaking-tree"
           ],
           "conditions": {
             "time": [
-              "night"
+              "day"
             ]
           }
-        },
-        {
-          "species": "hippopotas",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "hippowdon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "skorupi",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "drapion",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "croagunk",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "toxicroak",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "carnivine",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "petilil",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lilligant-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "goomy",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sliggoo-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "goodra-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "enamorus-incarnate",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "hippowdon",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "steelix",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "drapion",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "ursaring",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "lilligant-hisui",
-          "methods": [
-            "noble"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "cobalt-coastlands",
-      "name": "Cobalt Coastlands",
-      "unlockAfter": "noble-lilligant",
-      "tags": [
-        "open-zone"
-      ],
-      "encounters": [
-        {
-          "species": "tentacool",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "tentacruel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "qwilfish-hisui",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "overqwil",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "remoraid",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "octillery",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "shellos",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gastrodon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "finneon",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "lumineon",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "mantyke",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "mantine",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "buizel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "floatzel",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "basculin-white-striped",
-          "methods": [
-            "surf"
-          ]
-        },
-        {
-          "species": "basculegion-male",
-          "methods": [
-            "surf"
-          ]
-        },
-        {
-          "species": "growlithe-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "arcanine-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "zorua-hisui",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "zoroark-hisui",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "aipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ambipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "stantler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "wyrdeer",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "scyther",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "scizor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kleavor",
-          "methods": [
-            "walk"
-          ]
         },
         {
           "species": "geodude",
           "methods": [
-            "walk"
-          ]
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "graveler",
+          "species": "bibarel",
           "methods": [
-            "walk"
-          ]
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
-          "species": "golem",
+          "species": "kricketune",
           "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "onix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "steelix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magikarp",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "gyarados",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "psyduck",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "golduck",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "misdreavus",
-          "methods": [
-            "walk"
+            "alpha"
           ],
           "conditions": {
             "time": [
               "night"
             ]
           }
-        },
-        {
-          "species": "mismagius",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "sneasel-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasel-hisui",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "arcanine-hisui",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "scizor",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "arcanine-hisui",
-          "methods": [
-            "noble"
-          ]
         }
       ]
     },
     {
-      "id": "coronet-highlands",
-      "name": "Coronet Highlands",
-      "unlockAfter": "noble-arcanine",
+      "id": "obsidian-falls",
+      "name": "Obsidian Falls",
+      "unlockAfter": null,
       "tags": [
-        "open-zone",
-        "mountain"
+        "named-location",
+        "zone:obsidian-fieldlands"
       ],
       "encounters": [
-        {
-          "species": "clefairy",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "clefable",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cleffa",
-          "methods": [
-            "walk"
-          ]
-        },
         {
           "species": "zubat",
           "methods": [
@@ -1601,36 +1238,6 @@
         },
         {
           "species": "golbat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "crobat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "paras",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "parasect",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "psyduck",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "golduck",
           "methods": [
             "walk"
           ]
@@ -1654,359 +1261,84 @@
           ]
         },
         {
-          "species": "graveler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "golem",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ponyta",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rapidash",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gastly",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "haunter",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "gengar",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "onix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "steelix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "voltorb-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electrode-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhyhorn",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhydon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rhyperior",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "chansey",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "mr-mime",
+          "species": "happiny",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "scyther",
+          "species": "starly",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "scizor",
+          "species": "staravia",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "electabuzz",
+          "species": "burmy",
           "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electivire",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magmar",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magmortar",
-          "methods": [
-            "walk"
+            "shaking-tree"
           ]
         },
         {
           "species": "magikarp",
           "methods": [
-            "walk"
+            "surf"
           ]
         },
         {
           "species": "gyarados",
           "methods": [
-            "walk"
+            "surf"
           ]
         },
         {
-          "species": "eevee",
+          "species": "graveler",
           "methods": [
-            "walk"
+            "alpha"
           ]
         },
         {
-          "species": "jolteon",
+          "species": "blissey",
           "methods": [
-            "walk"
+            "alpha"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "oreburrow-tunnel",
+      "name": "Oreburrow Tunnel",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
         {
-          "species": "sudowoodo",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "yanma",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "yanmega",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "misdreavus",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "mismagius",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "unown",
+          "species": "zubat",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "gligar",
+          "species": "golbat",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "gliscor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "heracross",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasel-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "teddiursa",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ursaring",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "octillery",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "stantler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "wyrdeer",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "nosepass",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "probopass",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "roselia",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "roserade",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "barboach",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "whiscash",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "duskull",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "dusclops",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "dusknoir",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "chimecho",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "chingling",
+          "species": "machop",
           "methods": [
             "walk"
           ]
@@ -2024,7 +1356,1189 @@
           ]
         },
         {
+          "species": "combee",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sandgem-flats",
+      "name": "Sandgem Flats",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "abra",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
           "species": "luxray",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "alakazam",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ramanas-island",
+      "name": "Ramanas Island",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "chimchar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "monferno",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "infernape",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "lake-verity",
+      "name": "Lake Verity",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staraptor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "togekiss",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wormadam-plant",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "the-heartwood",
+      "name": "The Heartwood",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "beautifly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dustox",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grandtree-arena",
+      "name": "Grandtree Arena",
+      "unlockAfter": null,
+      "tags": [
+        "named-location",
+        "zone:obsidian-fieldlands"
+      ],
+      "encounters": [
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "brava-arena",
+      "name": "Brava Arena",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": []
+    },
+    {
+      "id": "shrouded-ruins",
+      "name": "Shrouded Ruins",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "lickilicky",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloudpool-ridge",
+      "name": "Cloudpool Ridge",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "honchkrow",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "diamond-heath",
+      "name": "Diamond Heath",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diamond-settlement",
+      "name": "Diamond Settlement",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lake-valor",
+      "name": "Lake Valor",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "solaceon-ruins",
+      "name": "Solaceon Ruins",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "unown",
+          "methods": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "golden-lowlands",
+      "name": "Golden Lowlands",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "pichu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kricketune",
           "methods": [
             "walk"
           ]
@@ -2036,25 +2550,7 @@
           ]
         },
         {
-          "species": "cranidos",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rampardos",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "shieldon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bastiodon",
+          "species": "carnivine",
           "methods": [
             "walk"
           ]
@@ -2062,41 +2558,153 @@
         {
           "species": "burmy",
           "methods": [
-            "walk"
+            "shaking-tree"
           ]
         },
         {
-          "species": "wormadam-plant",
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "raichu",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolderoll-slope",
+      "name": "Bolderoll Slope",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "rhyhorn",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "mothim",
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "togetic",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "cherubi",
+          "species": "burmy",
           "methods": [
-            "walk"
+            "shaking-tree"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scarlet-bog",
+      "name": "Scarlet Bog",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk",
+            "in-ore"
           ]
         },
         {
-          "species": "cherrim",
+          "species": "graveler",
           "methods": [
-            "walk"
+            "walk",
+            "in-ore"
           ]
         },
         {
-          "species": "ambipom",
+          "species": "gastly",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
-          "species": "chingling",
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "onix",
           "methods": [
             "walk"
           ]
@@ -2114,54 +2722,6 @@
           ]
         },
         {
-          "species": "bronzor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bronzong",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "bonsly",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "mime-jr",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "happiny",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gible",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gabite",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "garchomp",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "hippopotas",
           "methods": [
             "walk"
@@ -2174,19 +2734,157 @@
           ]
         },
         {
-          "species": "drapion",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "croagunk",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "toxicroak",
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cottonsedge-prairie",
+      "name": "Cottonsedge Prairie",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "petilil",
           "methods": [
             "walk"
           ]
@@ -2198,204 +2896,273 @@
           ]
         },
         {
-          "species": "snover",
+          "species": "togetic",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "abomasnow",
+          "species": "burmy",
           "methods": [
-            "walk"
+            "shaking-tree"
           ]
         },
         {
-          "species": "magnezone",
+          "species": "geodude",
           "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rotom",
-          "methods": [
-            "static"
-          ]
-        },
-        {
-          "species": "cresselia",
-          "methods": [
-            "static"
-          ]
-        },
-        {
-          "species": "darkrai",
-          "methods": [
-            "static"
-          ]
-        },
-        {
-          "species": "basculin-white-striped",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sylveon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "goomy",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sliggoo-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "goodra-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "rowlet",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "dartrix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "decidueye-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electrode-hisui",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "garchomp",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "gliscor",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "electrode-hisui",
-          "methods": [
-            "noble"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "alabaster-icelands",
-      "name": "Alabaster Icelands",
-      "unlockAfter": "noble-electrode",
-      "tags": [
-        "open-zone",
-        "snow"
-      ],
-      "encounters": [
-        {
-          "species": "pikachu",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "raichu",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "vulpix",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ninetales",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "zubat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "golbat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "crobat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "abra",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kadabra",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "alakazam",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "machop",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "machoke",
-          "methods": [
-            "walk"
+            "in-ore"
           ]
         },
         {
           "species": "graveler",
           "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gapejaw-bog",
+      "name": "Gapejaw Bog",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
             "walk"
           ]
         },
         {
-          "species": "rapidash",
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "droning-meadow",
+      "name": "Droning Meadow",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
           "methods": [
             "walk"
           ]
@@ -2412,115 +3179,7 @@
           }
         },
         {
-          "species": "lickitung",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "lickilicky",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "chansey",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "blissey",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "scyther",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "scizor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electabuzz",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electivire",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magmar",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magmortar",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "eevee",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "espeon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "glaceon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "snorlax",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "crobat",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "aipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ambipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "espeon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "misdreavus",
+          "species": "haunter",
           "methods": [
             "walk"
           ],
@@ -2531,192 +3190,235 @@
           }
         },
         {
-          "species": "mismagius",
+          "species": "yanma",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "turtwig",
           "methods": [
             "walk"
           ],
           "conditions": {
             "time": [
-              "night"
+              "day"
             ]
           }
         },
         {
-          "species": "gligar",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gliscor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "scizor",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasel-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "sneasler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "swinub",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "piloswine",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "mamoswine",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "stantler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "wyrdeer",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "electabuzz",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "magby",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "blissey",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "ralts",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "kirlia",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gardevoir",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "gallade",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "duskull",
+          "species": "grotle",
           "methods": [
             "walk"
           ],
           "conditions": {
             "time": [
-              "night"
+              "day"
             ]
           }
         },
         {
-          "species": "dusclops",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "dusknoir",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "chimecho",
+          "species": "bidoof",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "snorunt",
+          "species": "bibarel",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "glalie",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "froslass",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "sealeo",
+          "species": "combee",
           "methods": [
             "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
             "surf"
           ]
         },
         {
-          "species": "walrein",
+          "species": "whiscash",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "yanmega",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sludge-mound",
+      "name": "Sludge Mound",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
           "methods": [
             "walk",
-            "surf"
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ursas-ring",
+      "name": "Ursa's Ring",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "walk"
           ]
         },
         {
@@ -2732,25 +3434,798 @@
           ]
         },
         {
-          "species": "burmy",
+          "species": "yanma",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "wormadam-plant",
+          "species": "burmy",
           "methods": [
-            "walk"
+            "shaking-tree"
           ]
         },
         {
           "species": "pachirisu",
           "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "holm-of-trials",
+      "name": "Holm of Trials",
+      "unlockAfter": "noble-kleavor",
+      "tags": [
+        "named-location",
+        "zone:crimson-mirelands"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
             "walk"
           ]
         },
         {
-          "species": "ambipom",
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "petilil",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goomy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "torterra",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "sliggoo-hisui",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "islespy-shore",
+      "name": "Islespy Shore",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "walk",
+            "surf"
+          ]
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "empoleon",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "molten-arena",
+      "name": "Molten Arena",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": []
+    },
+    {
+      "id": "firespit-island",
+      "name": "Firespit Island",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spring-path",
+      "name": "Spring Path",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piplup",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "prinplup",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "staraptor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seagrass-haven",
+      "name": "Seagrass Haven",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "windbreak-stand",
+      "name": "Windbreak Stand",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "growlithe-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "veilstone-cape",
+      "name": "Veilstone Cape",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "growlithe-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "beautifly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "dustox",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "castaway-shore",
+      "name": "Castaway Shore",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staraptor",
           "methods": [
             "walk"
           ]
@@ -2758,29 +4233,421 @@
         {
           "species": "drifloon",
           "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lunkers-lair",
+      "name": "Lunker's Lair",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tranquility-cove",
+      "name": "Tranquility Cove",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "togepi",
+          "methods": [
             "walk"
+          ]
+        },
+        {
+          "species": "togetic",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staraptor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ginkgo-landing",
+      "name": "Ginkgo Landing",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
           ]
         },
         {
           "species": "drifblim",
           "methods": [
-            "walk"
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
           ]
         },
         {
-          "species": "buneary",
+          "species": "machoke",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "drapion",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crossing-slope",
+      "name": "Crossing Slope",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "tangela",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "lopunny",
+          "species": "eevee",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "mismagius",
+          "species": "murkrow",
           "methods": [
             "walk"
           ],
@@ -2803,7 +4670,969 @@
           ]
         },
         {
-          "species": "chingling",
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sands-reach",
+      "name": "Sand's Reach",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aipom-hill",
+      "name": "Aipom Hill",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deadwood-haunt",
+      "name": "Deadwood Haunt",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "staraptor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chatot",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "dusknoir",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "bathers-lagoon",
+      "name": "Bathers' Lagoon",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "beautifly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "dustox",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "honchkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk",
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tombolo-walk",
+      "name": "Tombolo Walk",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "hideaway-bay",
+      "name": "Hideaway Bay",
+      "unlockAfter": "noble-lilligant",
+      "tags": [
+        "named-location",
+        "zone:cobalt-coastlands"
+      ],
+      "encounters": [
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "happiny",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "surf"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "temple-of-sinnoh",
+      "name": "Temple of Sinnoh",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": []
+    },
+    {
+      "id": "cloudcap-pass",
+      "name": "Cloudcap Pass",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "nosepass",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "electivire",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moonview-arena",
+      "name": "Moonview Arena",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": []
+    },
+    {
+      "id": "celestica-ruins",
+      "name": "Celestica Ruins",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "nosepass",
           "methods": [
             "walk"
           ]
@@ -2821,7 +5650,267 @@
           ]
         },
         {
-          "species": "happiny",
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "voltorb-hisui",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sacred-plaza",
+      "name": "Sacred Plaza",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "voltorb-hisui",
+          "methods": [
+            "walk",
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "walk",
+            "in-ore"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "nosepass",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "rhyperior",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "clamberclaw-cliffs",
+      "name": "Clamberclaw Cliffs",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bronzong",
           "methods": [
             "walk"
           ]
@@ -2829,17 +5918,1145 @@
         {
           "species": "gible",
           "methods": [
-            "walk"
+            "walk",
+            "in-ore"
           ]
         },
         {
-          "species": "gabite",
+          "species": "magnezone",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "garchomp",
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stonetooth-rows",
+      "name": "Stonetooth Rows",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "primeval-grotto",
+      "name": "Primeval Grotto",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "nosepass",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gliscor",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "probopass",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celestica-trail",
+      "name": "Celestica Trail",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magnezone",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lonely-spring",
+      "name": "Lonely Spring",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bolderoll-ravine",
+      "name": "Bolderoll Ravine",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "cherrim",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "golem",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sonorous-path",
+      "name": "Sonorous Path",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "teddiursa",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ursaring",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ancient-quarry",
+      "name": "Ancient Quarry",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "goomy",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sliggoo-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "goodra-hisui",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fabled-spring",
+      "name": "Fabled Spring",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "clefairy",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "cleffa",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "magnezone",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "clefable",
+          "methods": [
+            "alpha"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "wayward-wood",
+      "name": "Wayward Wood",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "walk",
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mothim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heavenward-lookout",
+      "name": "Heavenward Lookout",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "luxray",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "yanmega",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-sandy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wayward-cave",
+      "name": "Wayward Cave",
+      "unlockAfter": "noble-arcanine",
+      "tags": [
+        "named-location",
+        "zone:coronet-highlands"
+      ],
+      "encounters": [
+        {
+          "species": "barboach",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "crobat",
+          "methods": [
+            "alpha"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lake-acuity",
+      "name": "Lake Acuity",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "abra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "bronzong",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "braviary-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glacier-terrace",
+      "name": "Glacier Terrace",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zoroark-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snowfall-hot-spring",
+      "name": "Snowfall Hot Spring",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorlax",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lopunny",
           "methods": [
             "walk"
           ]
@@ -2863,6 +7080,294 @@
           ]
         },
         {
+          "species": "bergmite",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pearl-settlement",
+      "name": "Pearl Settlement",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hearts-crag",
+      "name": "Heart's Crag",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "icepeak-arena",
+      "name": "Icepeak Arena",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": []
+    },
+    {
+      "id": "avaluggs-legacy",
+      "name": "Avalugg's Legacy",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "mamoswine",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
           "species": "snover",
           "methods": [
             "walk"
@@ -2875,43 +7380,193 @@
           ]
         },
         {
-          "species": "lickilicky",
+          "species": "froslass",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "tangrowth",
+          "species": "bergmite",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "avalugg-hisui",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "electivire",
+          "species": "rufflet",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "glaceon",
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "basculin-white-striped",
+          "methods": [
+            "surf"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arenas-approach",
+      "name": "Arena's Approach",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "mamoswine",
+          "species": "machoke",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "gallade",
+          "species": "machamp",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "elekid",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "dusknoir",
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "in-ore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bonechill-wastes",
+      "name": "Bonechill Wastes",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "gastly",
           "methods": [
             "walk"
           ],
@@ -2920,6 +7575,113 @@
               "night"
             ]
           }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "alpha"
+          ]
         },
         {
           "species": "froslass",
@@ -2933,182 +7695,324 @@
           }
         },
         {
-          "species": "uxie",
-          "methods": [
-            "static"
-          ]
-        },
-        {
-          "species": "oshawott",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "dewott",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "samurott-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "basculin-white-striped",
-          "methods": [
-            "walk",
-            "surf"
-          ]
-        },
-        {
-          "species": "zorua-hisui",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "zoroark-hisui",
-          "methods": [
-            "walk"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
-        },
-        {
-          "species": "rufflet",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "braviary-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "tornadus-incarnate",
-          "methods": [
-            "static"
-          ]
-        },
-        {
           "species": "bergmite",
           "methods": [
-            "walk"
+            "walk",
+            "in-ore"
           ]
         },
         {
-          "species": "avalugg-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "avalugg-hisui",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "mamoswine",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "braviary-hisui",
-          "methods": [
-            "alpha"
-          ]
-        },
-        {
-          "species": "avalugg-hisui",
-          "methods": [
-            "noble"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "ramanas-island",
-      "name": "Ramanas Island",
-      "unlockAfter": "noble-arcanine",
-      "tags": [
-        "island",
-        "landmark",
-        "remote"
-      ],
-      "encounters": [
-        {
-          "species": "combee",
+          "species": "burmy",
           "methods": [
             "shaking-tree"
           ]
         },
         {
-          "species": "vespiquen",
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "avalanche-slopes",
+      "name": "Avalanche Slopes",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "lickitung",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "growlithe-hisui",
+          "species": "lickilicky",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "arcanine-hisui",
+          "species": "chansey",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "zorua-hisui",
+          "species": "happiny",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "steelix",
+          "species": "blissey",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "bronzong",
+          "species": "eevee",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "graveler",
+          "species": "aipom",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "sneasel-hisui",
+          "species": "ambipom",
           "methods": [
             "walk"
           ]
         },
         {
-          "species": "vespiquen",
+          "species": "misdreavus",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "garchomp",
           "methods": [
             "alpha"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "whiteout-valley",
+      "name": "Whiteout Valley",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk",
+            "in-ore"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "icebound-falls",
+      "name": "Icebound Falls",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "ambipom",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "riolu",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "alpha"
+          ]
+        },
+        {
+          "species": "crobat",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "wormadam-trash",
+          "methods": [
+            "shaking-tree"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "in-ore"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "in-ore"
           ]
         }
       ]
@@ -3137,31 +8041,31 @@
       "id": "static-growlithe-hisui",
       "type": "static",
       "species": "growlithe-hisui",
-      "area": "cobalt-coastlands"
+      "area": "veilstone-cape"
     },
     {
       "id": "static-voltorb-hisui",
       "type": "static",
       "species": "voltorb-hisui",
-      "area": "obsidian-fieldlands"
+      "area": "sandgem-flats"
     },
     {
       "id": "static-uxie",
       "type": "static",
       "species": "uxie",
-      "area": "alabaster-icelands"
+      "area": "lake-acuity"
     },
     {
       "id": "static-cresselia",
       "type": "static",
       "species": "cresselia",
-      "area": "coronet-highlands"
+      "area": "moonview-arena"
     },
     {
       "id": "static-rotom",
       "type": "static",
       "species": "rotom",
-      "area": "coronet-highlands"
+      "area": "sacred-plaza"
     }
   ],
   "milestones": [
