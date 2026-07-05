@@ -1,6 +1,7 @@
 import { RULES, nextBoss, party, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { describeEvent, type DescribedEvent } from '../lib/describeEvent';
 import { SpriteImg } from './SpriteImg';
+import { TrainerSprite } from './TrainerSprite';
 
 export function RunSummaryStrip({
   events,
@@ -15,7 +16,7 @@ export function RunSummaryStrip({
 }) {
   const items: DescribedEvent[] = [];
   for (let i = events.length - 1; i >= 0 && items.length < limit; i--) {
-    const item = describeEvent(events[i], ctx);
+    const item = describeEvent(events[i], ctx, state.pokemon);
     if (item) items.push(item);
   }
 
@@ -67,6 +68,7 @@ export function RunSummaryStrip({
             {items.map((item) => (
               <li key={item.key} className={`summary-item summary-${item.tone}`}>
                 {item.species && <SpriteImg species={item.species} size={28} />}
+                {!item.species && item.trainerKey && <TrainerSprite trainerKey={item.trainerKey} size={28} />}
                 <span>{item.text}</span>
               </li>
             ))}

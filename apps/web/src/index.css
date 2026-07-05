@@ -420,29 +420,61 @@ button:disabled {
 
 /* ---------- Per-route trainers (Wave 3) ---------- */
 
-.trainers-group { margin-top: 1rem; }
+.trainers-group { margin-top: 1.25rem; }
+
+.trainers-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+.trainers-header .chart-heading { margin: 0; }
+.trainers-progress {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+.trainers-progress.done {
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 45%, transparent);
+}
+
+.trainers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
 
 .trainer-row {
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  padding: 0.5rem 0.4rem;
-  margin: 0 -0.4rem;
-  border-bottom: 1px solid var(--border);
+  gap: 0.55rem;
+  padding: 0.7rem 0.8rem;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  transition: border-color 0.12s ease, background 0.12s ease;
 }
 
 .trainer-row:hover {
-  background: color-mix(in srgb, var(--accent) 8%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-inset));
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
-.trainer-row:last-child { border-bottom: none; }
+.trainer-row.expanded {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+}
 
 .trainer-row-head {
   display: flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 0.7rem;
 }
 
 .trainer-row-sprite {

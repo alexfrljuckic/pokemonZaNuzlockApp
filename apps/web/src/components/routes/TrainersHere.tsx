@@ -155,9 +155,12 @@ export function TrainersHere({
   const battledCount = trainers.filter(({ index }) => battled(index)).length;
   return (
     <div className="trainers-group">
-      <p className="muted specials-group-label">
-        Trainers here ({battledCount > 0 ? `${battledCount}/${trainers.length} battled` : trainers.length})
-      </p>
+      <div className="trainers-header">
+        <h3 className="chart-heading">Trainers</h3>
+        <span className={`trainers-progress${battledCount === trainers.length ? ' done' : ''}`}>
+          {battledCount}/{trainers.length} battled
+        </span>
+      </div>
       <div className="trainers-list">
         {trainers.map(({ t, index }) => (
           <TrainerCard
