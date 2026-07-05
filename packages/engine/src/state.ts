@@ -103,12 +103,13 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       }
       case 'pokemon_evolved': {
         const p = state.pokemon[ev.payload.pokemonId];
-        if (p) {
+        // A self-evolution is meaningless — ignore it entirely so a stray
+        // event (the pre-#126 stale-pick bug emitted them) can't pollute the
+        // un-evolve stack on replay. The NICKNAME never changes: evolving
+        // updates what the Pokémon IS, not what the player calls it.
+        if (p && ev.payload.toSpecies !== p.species) {
           // remember what we were, so un-evolve can restore the species
           p.preEvolutions = [...(p.preEvolutions ?? []), p.species];
-          // a default nickname (== the species slug) follows the evolution;
-          // a real nickname stays put
-          if (p.nickname === p.species) p.nickname = ev.payload.toSpecies;
           p.species = ev.payload.toSpecies;
           // evolving at the requirement level bumps the mon to it (UI sends
           // the max of current level and the evolution's minLevel)
@@ -118,13 +119,11 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       }
       case 'pokemon_evolution_reverted': {
         // Un-evolve (misclick / wrong branch): pop the latest pre-evolution
-        // species; no-op when there's nothing to revert. The LEVEL stays —
-        // un-evolving corrects the species pick, the mon's actual level in
-        // the game never went down.
+        // species; no-op when there's nothing to revert. LEVEL and NICKNAME
+        // both stay — this corrects the species pick, nothing else.
         const p = state.pokemon[ev.payload.pokemonId];
         const prev = p?.preEvolutions?.pop();
         if (p && prev) {
-          if (p.nickname === p.species) p.nickname = prev;
           p.species = prev;
           if (p.preEvolutions!.length === 0) delete p.preEvolutions;
         }
