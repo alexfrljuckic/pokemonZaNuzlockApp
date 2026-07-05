@@ -167,6 +167,51 @@ body {
   }
 }
 
+/* Map scale-up (demo): the Routes section breaks out of the column to near
+   viewport width, so the interactive map renders substantially larger. The
+   classic full-bleed trick — symmetric margins computed from the container
+   vs target width keep it viewport-centered; everything inside (resolve
+   panel, off-map list) stays column-width via its own max-width. */
+@media (min-width: 1100px) {
+  section.route-map-stage {
+    --stage-w: min(94vw, 1500px);
+    width: var(--stage-w);
+    margin-left: calc((100% - var(--stage-w)) / 2);
+    margin-right: calc((100% - var(--stage-w)) / 2);
+  }
+  section.route-map-stage .route-resolve-panel,
+  section.route-map-stage .route-offmap {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* lift the old 720px map cap inside the stage; fit by viewport height so
+     portrait maps (Galar is 1:1.95) don't become endless scrolls */
+  section.route-map-stage .route-map {
+    max-width: none;
+  }
+  section.route-map-stage .route-map-svg {
+    width: auto;
+    max-width: 100%;
+    max-height: 86vh;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile: shrinking a whole region to ~340px makes nodes unidentifiable
+   and untappable. Render the map at a minimum readable width inside a
+   native horizontal pan instead — regions stay identifiable and tap
+   targets stay finger-sized. */
+@media (max-width: 700px) {
+  .route-map {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .route-map-svg {
+    min-width: 600px;
+  }
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }

@@ -66,6 +66,7 @@ export function RouteMap({
       <svg
         viewBox={`0 0 ${w} ${h}`}
         className={`route-map-svg${bgOk ? '' : ' route-map-no-bg'}`}
+        style={{ aspectRatio: `${w} / ${h}` }}
         role="img"
         aria-label={map.ariaLabel}
       >

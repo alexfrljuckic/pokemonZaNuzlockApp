@@ -91,7 +91,7 @@ export function RoutesTab({
   const offMapAreas = areas.filter((a) => !hasMapNode(a.id));
 
   return (
-    <section>
+    <section className="route-map-stage">
       <h2>Routes</h2>
 
       {starterUnclaimed && (
