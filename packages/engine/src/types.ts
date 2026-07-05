@@ -25,6 +25,20 @@ export interface Area {
   /** Documented trainer battles in this area (display-only route intel;
    * sourced, never invented — see the dataset PR rules). */
   trainers?: AreaTrainer[];
+  /** Fixed overworld item pickups (display-only route intel; sourced —
+   * shop stock, renewables and quest rewards excluded). */
+  items?: AreaItem[];
+}
+
+export interface AreaItem {
+  name: string;
+  /** Hidden pickup (Dowsing Machine / Itemfinder spot). */
+  hidden?: boolean;
+  /** Only when a single pickup yields more than one. */
+  quantity?: number;
+  conditions?: {
+    version?: string[];
+  };
 }
 
 export interface AreaTrainer {

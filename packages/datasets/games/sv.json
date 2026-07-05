@@ -268,6 +268,77 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM007 (Protect)"
+        },
+        {
+          "name": "TM013 (Acid Spray)"
+        },
+        {
+          "name": "TM015 (Struggle Bug)"
+        },
+        {
+          "name": "TM016 (Psybeam)"
+        },
+        {
+          "name": "TM017 (Confuse Ray)"
+        },
+        {
+          "name": "TM031 (Metal Claw)"
+        },
+        {
+          "name": "TM032 (Swift)"
+        },
+        {
+          "name": "TM041 (Stored Power)"
+        },
+        {
+          "name": "TM042 (Night Shade)"
+        },
+        {
+          "name": "TM047 (Endure)"
+        },
+        {
+          "name": "TM065 (Air Slash)"
+        },
+        {
+          "name": "TM076 (Rock Blast)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM127 (Play Rough)"
+        },
+        {
+          "name": "TM129 (Calm Mind)"
+        },
+        {
+          "name": "TM131 (Pollen Puff)"
+        },
+        {
+          "name": "TM082 (Thunder Wave) — League rep, Mesagoza South PC, beat 4 trainers"
+        },
+        {
+          "name": "Rare Candy (x3 — Cabo Poco islands, east side alcove)"
+        },
+        {
+          "name": "Max Revive (above Inlet Grotto upper exit)"
+        },
+        {
+          "name": "HP Up (ruins, atop a pillar)"
+        },
+        {
+          "name": "Zinc (ledge above northernmost alcove)"
+        },
+        {
+          "name": "Carbos (cliff west of river mouth)"
+        },
+        {
+          "name": "Calcium (ledge southwest of Los Platos PC)"
+        }
       ]
     },
     {
@@ -535,6 +606,44 @@
               "level": 10
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM004 (Agility)"
+        },
+        {
+          "name": "TM005 (Mud-Slap)"
+        },
+        {
+          "name": "TM012 (Low Kick)"
+        },
+        {
+          "name": "TM018 (Thief)"
+        },
+        {
+          "name": "TM019 (Disarming Voice)"
+        },
+        {
+          "name": "TM030 (Snarl)"
+        },
+        {
+          "name": "TM040 (Air Cutter)"
+        },
+        {
+          "name": "TM042 (Night Shade)"
+        },
+        {
+          "name": "TM045 (Venoshock)"
+        },
+        {
+          "name": "TM072 (Electro Ball)"
+        },
+        {
+          "name": "TM116 (Stealth Rock)"
+        },
+        {
+          "name": "TM027 (Aerial Ace) — League rep, Cortondo PC, beat 5 trainers"
         }
       ]
     },
@@ -855,6 +964,56 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM004 (Agility)"
+        },
+        {
+          "name": "TM005 (Mud-Slap)"
+        },
+        {
+          "name": "TM006 (Scary Face)"
+        },
+        {
+          "name": "TM014 (Acrobatics)"
+        },
+        {
+          "name": "TM031 (Metal Claw)"
+        },
+        {
+          "name": "TM033 (Magical Leaf)"
+        },
+        {
+          "name": "TM042 (Night Shade)"
+        },
+        {
+          "name": "TM043 (Fling)"
+        },
+        {
+          "name": "TM055 (Dig)"
+        },
+        {
+          "name": "TM080 (Metronome)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "TM093 (Flash Cannon)"
+        },
+        {
+          "name": "TM101 (Power Gem)"
+        },
+        {
+          "name": "TM110 (Liquidation)"
+        },
+        {
+          "name": "TM121 (Heavy Slam)"
+        },
+        {
+          "name": "Shell Bell — League rep, Area Three PC, beat 7 trainers"
+        }
       ]
     },
     {
@@ -1085,6 +1244,35 @@
               "level": 20
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM007 (Protect)"
+        },
+        {
+          "name": "TM024 (Fire Spin)"
+        },
+        {
+          "name": "TM033 (Magical Leaf)"
+        },
+        {
+          "name": "TM036 (Rock Tomb)"
+        },
+        {
+          "name": "TM042 (Night Shade)"
+        },
+        {
+          "name": "TM078 (Dragon Claw)"
+        },
+        {
+          "name": "TM089 (Body Press)"
+        },
+        {
+          "name": "TM122 (Encore)"
+        },
+        {
+          "name": "Rocky Helmet — League rep at the Area Four watchtower, beat 5 trainers"
         }
       ]
     },
@@ -1350,6 +1538,62 @@
               "level": 24
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM003 (Fake Tears)"
+        },
+        {
+          "name": "TM016 (Psybeam)"
+        },
+        {
+          "name": "TM026 (Poison Tail)"
+        },
+        {
+          "name": "TM030 (Snarl)"
+        },
+        {
+          "name": "TM032 (Swift)"
+        },
+        {
+          "name": "TM037 (Draining Kiss)"
+        },
+        {
+          "name": "TM041 (Stored Power)"
+        },
+        {
+          "name": "TM049 (Sunny Day)"
+        },
+        {
+          "name": "TM071 (Seed Bomb)"
+        },
+        {
+          "name": "TM078 (Dragon Claw)"
+        },
+        {
+          "name": "TM085 (Rest)"
+        },
+        {
+          "name": "TM097 (Fly)"
+        },
+        {
+          "name": "TM103 (Substitute)"
+        },
+        {
+          "name": "TM104 (Iron Defense)"
+        },
+        {
+          "name": "TM105 (X-Scissor)"
+        },
+        {
+          "name": "TM113 (Tailwind)"
+        },
+        {
+          "name": "TM119 (Energy Ball)"
+        },
+        {
+          "name": "Loaded Dice — League rep, Area One PC, beat 5 trainers"
         }
       ]
     },
@@ -1694,6 +1938,77 @@
               "level": 24
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM001 (Take Down)"
+        },
+        {
+          "name": "TM004 (Agility)"
+        },
+        {
+          "name": "TM009 (Thunder Fang)"
+        },
+        {
+          "name": "TM014 (Acrobatics)"
+        },
+        {
+          "name": "TM016 (Psybeam)"
+        },
+        {
+          "name": "TM024 (Fire Spin)"
+        },
+        {
+          "name": "TM028 (Bulldoze)"
+        },
+        {
+          "name": "TM029 (Hex)"
+        },
+        {
+          "name": "TM032 (Swift)"
+        },
+        {
+          "name": "TM035 (Mud Shot)"
+        },
+        {
+          "name": "TM044 (Dragon Tail)"
+        },
+        {
+          "name": "TM051 (Sandstorm)"
+        },
+        {
+          "name": "TM058 (Brick Break)"
+        },
+        {
+          "name": "TM074 (Reflect)"
+        },
+        {
+          "name": "TM086 (Rock Slide)"
+        },
+        {
+          "name": "TM089 (Body Press)"
+        },
+        {
+          "name": "TM090 (Spikes)"
+        },
+        {
+          "name": "TM093 (Flash Cannon)"
+        },
+        {
+          "name": "TM094 (Dark Pulse)"
+        },
+        {
+          "name": "TM104 (Iron Defense)"
+        },
+        {
+          "name": "TM106 (Drill Run)"
+        },
+        {
+          "name": "TM108 (Crunch)"
+        },
+        {
+          "name": "Punching Glove — League rep, Zapapico PC, beat 7 trainers"
         }
       ]
     },
@@ -2099,6 +2414,113 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM001 (Take Down)"
+        },
+        {
+          "name": "TM002 (Charm)"
+        },
+        {
+          "name": "TM004 (Agility)"
+        },
+        {
+          "name": "TM005 (Mud-Slap)"
+        },
+        {
+          "name": "TM006 (Scary Face)"
+        },
+        {
+          "name": "TM007 (Protect)"
+        },
+        {
+          "name": "TM008 (Fire Fang)"
+        },
+        {
+          "name": "TM012 (Low Kick)"
+        },
+        {
+          "name": "TM014 (Acrobatics)"
+        },
+        {
+          "name": "TM015 (Struggle Bug)"
+        },
+        {
+          "name": "TM018 (Thief)"
+        },
+        {
+          "name": "TM028 (Bulldoze)"
+        },
+        {
+          "name": "TM030 (Snarl)"
+        },
+        {
+          "name": "TM031 (Metal Claw)"
+        },
+        {
+          "name": "TM039 (Low Sweep)"
+        },
+        {
+          "name": "TM040 (Air Cutter)"
+        },
+        {
+          "name": "TM044 (Dragon Tail)"
+        },
+        {
+          "name": "TM049 (Sunny Day)"
+        },
+        {
+          "name": "TM052 (Snowscape)"
+        },
+        {
+          "name": "TM055 (Dig)"
+        },
+        {
+          "name": "TM060 (U-turn)"
+        },
+        {
+          "name": "TM061 (Shadow Claw)"
+        },
+        {
+          "name": "TM072 (Electro Ball)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM088 (Swords Dance)"
+        },
+        {
+          "name": "TM090 (Spikes)"
+        },
+        {
+          "name": "TM097 (Fly)"
+        },
+        {
+          "name": "TM099 (Iron Head)"
+        },
+        {
+          "name": "TM100 (Dragon Dance)"
+        },
+        {
+          "name": "TM109 (Trick)"
+        },
+        {
+          "name": "TM113 (Tailwind)"
+        },
+        {
+          "name": "TM119 (Energy Ball)"
+        },
+        {
+          "name": "TM121 (Heavy Slam)"
+        },
+        {
+          "name": "Clear Amulet — League rep, Area One North PC, beat 9 trainers"
+        }
       ]
     },
     {
@@ -2296,6 +2718,32 @@
               "level": 23
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM033 (Magical Leaf)"
+        },
+        {
+          "name": "TM041 (Stored Power)"
+        },
+        {
+          "name": "TM059 (Zen Headbutt)"
+        },
+        {
+          "name": "TM080 (Metronome)"
+        },
+        {
+          "name": "TM085 (Rest)"
+        },
+        {
+          "name": "TM097 (Fly)"
+        },
+        {
+          "name": "TM116 (Stealth Rock)"
+        },
+        {
+          "name": "Focus Sash — League rep, Porto Marinada PC, beat 4 trainers"
         }
       ]
     },
@@ -2529,6 +2977,50 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM013 (Acid Spray)"
+        },
+        {
+          "name": "TM017 (Confuse Ray)"
+        },
+        {
+          "name": "TM024 (Fire Spin)"
+        },
+        {
+          "name": "TM030 (Snarl)"
+        },
+        {
+          "name": "TM050 (Rain Dance)"
+        },
+        {
+          "name": "TM051 (Sandstorm)"
+        },
+        {
+          "name": "TM056 (Bullet Seed)"
+        },
+        {
+          "name": "TM058 (Brick Break)"
+        },
+        {
+          "name": "TM064 (Bulk Up)"
+        },
+        {
+          "name": "TM075 (Light Screen)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM090 (Spikes)"
+        },
+        {
+          "name": "TM118 (Heat Wave)"
+        },
+        {
+          "name": "TM149 (Earthquake) — League rep, Cascarrafa North PC, beat 5 trainers in Asado Desert"
+        }
       ]
     },
     {
@@ -2673,6 +3165,20 @@
               "level": 26
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM046 (Avalanche)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "TM091 (Toxic Spikes)"
+        },
+        {
+          "name": "TM095 (Leech Life)"
         }
       ]
     },
@@ -2887,6 +3393,59 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM013 (Acid Spray)"
+        },
+        {
+          "name": "TM043 (Fling)"
+        },
+        {
+          "name": "TM044 (Dragon Tail)"
+        },
+        {
+          "name": "TM047 (Endure)"
+        },
+        {
+          "name": "TM053 (Smart Strike)"
+        },
+        {
+          "name": "TM058 (Brick Break)"
+        },
+        {
+          "name": "TM061 (Shadow Claw)"
+        },
+        {
+          "name": "TM064 (Bulk Up)"
+        },
+        {
+          "name": "TM071 (Seed Bomb)"
+        },
+        {
+          "name": "TM083 (Poison Jab)"
+        },
+        {
+          "name": "TM088 (Swords Dance)"
+        },
+        {
+          "name": "TM095 (Leech Life)"
+        },
+        {
+          "name": "TM100 (Dragon Dance)"
+        },
+        {
+          "name": "TM104 (Iron Defense)"
+        },
+        {
+          "name": "TM110 (Liquidation)"
+        },
+        {
+          "name": "TM115 (Dragon Pulse)"
+        },
+        {
+          "name": "TM150 (Stone Edge) — League rep, Area One PC, beat 6 trainers"
+        }
       ]
     },
     {
@@ -3091,6 +3650,35 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM029 (Hex)"
+        },
+        {
+          "name": "TM071 (Seed Bomb)"
+        },
+        {
+          "name": "TM086 (Rock Slide)"
+        },
+        {
+          "name": "TM092 (Imprison)"
+        },
+        {
+          "name": "TM094 (Dark Pulse)"
+        },
+        {
+          "name": "TM100 (Dragon Dance)"
+        },
+        {
+          "name": "TM107 (Will-O-Wisp)"
+        },
+        {
+          "name": "TM115 (Dragon Pulse)"
+        },
+        {
+          "name": "TM156 (Outrage) — League rep, Area Two PC, beat 5 trainers"
+        }
       ]
     },
     {
@@ -3255,6 +3843,20 @@
               "level": 46
             }
           ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM028 (Bulldoze)"
+        },
+        {
+          "name": "TM089 (Body Press)"
+        },
+        {
+          "name": "TM122 (Encore)"
+        },
+        {
+          "name": "TM159 (Leaf Storm) — League rep, Area Three PC, beat 4 trainers"
         }
       ]
     },
@@ -3809,6 +4411,71 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM003 (Fake Tears)"
+        },
+        {
+          "name": "TM018 (Thief)"
+        },
+        {
+          "name": "TM024 (Fire Spin)"
+        },
+        {
+          "name": "TM026 (Poison Tail)"
+        },
+        {
+          "name": "TM037 (Draining Kiss)"
+        },
+        {
+          "name": "TM039 (Low Sweep)"
+        },
+        {
+          "name": "TM052 (Snowscape)"
+        },
+        {
+          "name": "TM054 (Psyshock)"
+        },
+        {
+          "name": "TM063 (Psychic Fangs)"
+        },
+        {
+          "name": "TM064 (Bulk Up)"
+        },
+        {
+          "name": "TM080 (Metronome)"
+        },
+        {
+          "name": "TM081 (Grass Knot)"
+        },
+        {
+          "name": "TM083 (Poison Jab)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM089 (Body Press)"
+        },
+        {
+          "name": "TM094 (Dark Pulse)"
+        },
+        {
+          "name": "TM108 (Crunch)"
+        },
+        {
+          "name": "TM110 (Liquidation)"
+        },
+        {
+          "name": "TM121 (Heavy Slam)"
+        },
+        {
+          "name": "TM124 (Ice Spinner)"
+        },
+        {
+          "name": "TM143 (Blizzard) — League rep, Glaseado Gym PC, beat 10 trainers"
+        }
       ]
     },
     {
@@ -4098,6 +4765,59 @@
             }
           ]
         }
+      ],
+      "items": [
+        {
+          "name": "TM002 (Charm)"
+        },
+        {
+          "name": "TM014 (Acrobatics)"
+        },
+        {
+          "name": "TM034 (Icy Wind)"
+        },
+        {
+          "name": "TM041 (Stored Power)"
+        },
+        {
+          "name": "TM056 (Bullet Seed)"
+        },
+        {
+          "name": "TM058 (Brick Break)"
+        },
+        {
+          "name": "TM060 (U-turn)"
+        },
+        {
+          "name": "TM064 (Bulk Up)"
+        },
+        {
+          "name": "TM076 (Rock Blast)"
+        },
+        {
+          "name": "TM077 (Waterfall)"
+        },
+        {
+          "name": "TM078 (Dragon Claw)"
+        },
+        {
+          "name": "TM087 (Taunt)"
+        },
+        {
+          "name": "TM088 (Swords Dance)"
+        },
+        {
+          "name": "TM099 (Iron Head)"
+        },
+        {
+          "name": "TM111 (Giga Drain)"
+        },
+        {
+          "name": "TM122 (Encore)"
+        },
+        {
+          "name": "TM142 (Hydro Pump) — League rep, Casseroya Watchtower No. 2, beat 7 trainers"
+        }
       ]
     },
     {
@@ -4263,6 +4983,131 @@
               "violet"
             ]
           }
+        }
+      ],
+      "items": [
+        {
+          "name": "TM027 (Aerial Ace)"
+        },
+        {
+          "name": "TM038 (Flame Charge)"
+        },
+        {
+          "name": "TM053 (Smart Strike)"
+        },
+        {
+          "name": "TM062 (Foul Play)"
+        },
+        {
+          "name": "TM078 (Dragon Claw)"
+        },
+        {
+          "name": "TM079 (Dazzling Gleam)"
+        },
+        {
+          "name": "TM084 (Stomping Tantrum)"
+        },
+        {
+          "name": "TM093 (Flash Cannon)"
+        },
+        {
+          "name": "TM097 (Fly)"
+        },
+        {
+          "name": "TM100 (Dragon Dance)"
+        },
+        {
+          "name": "TM101 (Power Gem)"
+        },
+        {
+          "name": "TM102 (Gunk Shot)"
+        },
+        {
+          "name": "TM111 (Giga Drain)"
+        },
+        {
+          "name": "TM114 (Shadow Ball)"
+        },
+        {
+          "name": "TM133 (Earth Power)"
+        },
+        {
+          "name": "TM137 (Grassy Terrain)"
+        },
+        {
+          "name": "TM138 (Psychic Terrain)"
+        },
+        {
+          "name": "TM140 (Nasty Plot)"
+        },
+        {
+          "name": "TM142 (Hydro Pump)"
+        },
+        {
+          "name": "TM143 (Blizzard)"
+        },
+        {
+          "name": "TM149 (Earthquake)"
+        },
+        {
+          "name": "TM150 (Stone Edge)"
+        },
+        {
+          "name": "TM152 (Giga Impact)"
+        },
+        {
+          "name": "TM156 (Outrage)"
+        },
+        {
+          "name": "TM158 (Focus Blast)"
+        },
+        {
+          "name": "TM159 (Leaf Storm)"
+        },
+        {
+          "name": "TM161 (Trick Room)"
+        },
+        {
+          "name": "TM165 (Flare Blitz)"
+        },
+        {
+          "name": "TM170 (Steel Beam)"
+        },
+        {
+          "name": "TM171 (Tera Blast)"
+        },
+        {
+          "name": "Dusk Stone"
+        },
+        {
+          "name": "Shiny Stone"
+        },
+        {
+          "name": "Bright Powder"
+        },
+        {
+          "name": "Adamant Mint"
+        },
+        {
+          "name": "Bold Mint"
+        },
+        {
+          "name": "Naive Mint"
+        },
+        {
+          "name": "Apicot Berry"
+        },
+        {
+          "name": "Ganlon Berry"
+        },
+        {
+          "name": "Liechi Berry"
+        },
+        {
+          "name": "Petaya Berry"
+        },
+        {
+          "name": "Salac Berry"
         }
       ]
     }

@@ -80,6 +80,25 @@
                 }
               }
             }
+          },
+          "items": {
+            "type": "array",
+            "description": "Optional fixed overworld item pickups in this area (Serebii/Bulbapedia-sourced; shop stock, renewables and quest rewards excluded). Display-only route intel.",
+            "items": {
+              "type": "object",
+              "required": ["name"],
+              "additionalProperties": false,
+              "properties": {
+                "name": { "type": "string", "minLength": 1 },
+                "hidden": { "type": "boolean", "description": "Hidden pickup (Dowsing Machine / Itemfinder spot)." },
+                "quantity": { "type": "integer", "minimum": 2, "description": "Only when a single pickup yields more than one." },
+                "conditions": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": { "version": { "type": "array", "items": { "type": "string" } } }
+                }
+              }
+            }
           }
         }
       }
