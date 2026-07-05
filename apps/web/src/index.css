@@ -863,6 +863,19 @@ button.item-chip.item-picked {
   margin-left: auto;
 }
 
+.milestone-next-badge {
+  font-size: 0.78rem;
+  color: var(--highlight);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.milestone-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 .milestone-card-title {
   display: flex;
   flex-direction: column;

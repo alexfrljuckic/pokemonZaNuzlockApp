@@ -14,6 +14,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
     pokemon: {},
     encounterOutcomes: {},
     milestonesCleared: [],
+    nextBossId: null,
     trainersBattled: [],
     itemsPicked: [],
     reviveTokens: 0,
@@ -128,6 +129,10 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
           const m = ctx.dataset.milestones.find((x) => x.id === ev.payload.milestoneId);
           if (m?.grants?.reviveTokens) state.reviveTokens += m.grants.reviveTokens;
         }
+        break;
+      }
+      case 'next_boss_set': {
+        state.nextBossId = ev.payload.milestoneId;
         break;
       }
       case 'trainer_battled': {

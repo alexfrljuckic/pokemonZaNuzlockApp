@@ -176,6 +176,7 @@ export type RunEvent =
   | { seq: number; at: string; type: 'faint'; payload: { pokemonId: string; cause?: string; killer?: string; milestoneId?: string } }
   | { seq: number; at: string; type: 'revive'; payload: { pokemonId: string } }
   | { seq: number; at: string; type: 'milestone_cleared'; payload: { milestoneId: string } }
+  | { seq: number; at: string; type: 'next_boss_set'; payload: { milestoneId: string | null } }
   | { seq: number; at: string; type: 'trainer_battled'; payload: { areaId: string; trainerIndex: number; name?: string } }
   | { seq: number; at: string; type: 'trainer_reset'; payload: { areaId: string; trainerIndex: number } }
   | { seq: number; at: string; type: 'item_picked'; payload: { areaId: string; itemIndex: number; name?: string } }
@@ -218,6 +219,9 @@ export interface RunState {
   /** areaId -> outcome of that area's one legal encounter */
   encounterOutcomes: Record<string, 'caught' | 'failed' | 'skipped'>;
   milestonesCleared: string[];
+  /** User-designated next boss (open-order games like SV) — the level cap keys
+   * off this milestone while it stays uncleared; null = follow dataset order. */
+  nextBossId: string | null;
   /** `${areaId}#${trainerIndex}` keys of route trainers marked battled */
   trainersBattled: string[];
   /** `${areaId}#${itemIndex}` keys of route items marked picked up */

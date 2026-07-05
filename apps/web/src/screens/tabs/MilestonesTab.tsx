@@ -32,6 +32,16 @@ export function MilestonesTab({
     await onChange();
   }
 
+  // Open-order games (SV): pick which boss you're doing next — the level cap
+  // keys off it. Picking the boss that's already next reverts to dataset order.
+  async function setNext(id: string) {
+    await appendEvent(runId, {
+      type: 'next_boss_set',
+      payload: { milestoneId: state.nextBossId === id ? null : id },
+    });
+    await onChange();
+  }
+
   async function declareVictory() {
     await appendEvent(runId, { type: 'run_ended', payload: { result: 'victory' } });
     await onChange();
@@ -60,7 +70,11 @@ export function MilestonesTab({
             roster={milestoneRoster(m, starter) ?? []}
             cleared={state.milestonesCleared.includes(m.id)}
             isNext={boss?.id === m.id}
+            isPinnedNext={state.nextBossId === m.id}
             onClear={() => clear(m.id)}
+            onSetNext={
+              m.aceLevel !== null && m.countsForLevelCap !== false ? () => setNext(m.id) : undefined
+            }
           />
         ))}
       </div>
