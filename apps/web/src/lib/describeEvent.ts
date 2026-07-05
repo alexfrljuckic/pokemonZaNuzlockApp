@@ -73,6 +73,21 @@ export function describeEvent(
         tone: 'milestone',
       };
     }
+    case 'next_boss_set': {
+      const milestone = event.payload.milestoneId
+        ? ctx.dataset?.milestones.find((m) => m.id === event.payload.milestoneId)
+        : null;
+      return {
+        key: `${event.seq}`,
+        text: event.payload.milestoneId
+          ? `Next boss: ${milestone?.name ?? event.payload.milestoneId}`
+          : 'Next boss: back to suggested order',
+        trainerKey: milestone
+          ? milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)
+          : undefined,
+        tone: 'neutral',
+      };
+    }
     case 'trainer_battled': {
       const area = ctx.dataset?.areas.find((a) => a.id === event.payload.areaId);
       const t = area?.trainers?.[event.payload.trainerIndex];

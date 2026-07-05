@@ -144,6 +144,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
               roster={milestoneRoster(m, starter) ?? []}
               cleared={state.milestonesCleared.includes(m.id)}
               isNext={boss?.id === m.id}
+              isPinnedNext={state.nextBossId === m.id}
             />
           ))}
         </div>

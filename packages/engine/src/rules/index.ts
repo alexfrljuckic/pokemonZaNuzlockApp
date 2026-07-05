@@ -155,21 +155,27 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
 }
 
 /**
- * Next uncleared battle milestone that gates the level cap, by order.
+ * Next uncleared battle milestone that gates the level cap.
  * Milestones with countsForLevelCap === false (e.g. rival battles) are tracked and
  * displayed like any other milestone, but never targeted by the level-cap rule.
+ *
+ * Open-order games (SV): the user can designate any uncleared gating milestone
+ * as their next boss (`next_boss_set` event) and the cap keys off it. Once that
+ * milestone clears — or if the id never matches a gating milestone — we fall
+ * back to dataset order, so a stale choice can never wedge the cap.
  */
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
-  return (
-    milestonesFor(ctx.dataset, state.version)
-      .filter(
-        (m) =>
-          m.aceLevel !== null &&
-          m.countsForLevelCap !== false &&
-          !state.milestonesCleared.includes(m.id),
-      )
-      .sort((a, b) => a.order - b.order)[0] ?? null
+  const gating = milestonesFor(ctx.dataset, state.version).filter(
+    (m) =>
+      m.aceLevel !== null &&
+      m.countsForLevelCap !== false &&
+      !state.milestonesCleared.includes(m.id),
   );
+  if (state.nextBossId) {
+    const chosen = gating.find((m) => m.id === state.nextBossId);
+    if (chosen) return chosen;
+  }
+  return gating.sort((a, b) => a.order - b.order)[0] ?? null;
 }
 
 /** Milestones that apply to the given run version — a few are version-gated

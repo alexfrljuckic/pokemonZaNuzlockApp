@@ -76,4 +76,13 @@ describe('describeEvent', () => {
   it('gives milestone clears the boss trainer sprite key', () => {
     expect(describeEvent(ev('milestone_cleared', { milestoneId: 'gym-1' }), ctx)?.trainerKey).toBe('brock');
   });
+
+  it('describes next-boss picks and reverts (SV out-of-order affordance)', () => {
+    const picked = describeEvent(ev('next_boss_set', { milestoneId: 'gym-1' }), ctx);
+    expect(picked?.text).toBe('Next boss: Brock (Pewter Gym)');
+    expect(picked?.trainerKey).toBe('brock');
+    expect(describeEvent(ev('next_boss_set', { milestoneId: null }), ctx)?.text).toBe(
+      'Next boss: back to suggested order',
+    );
+  });
 });

@@ -19,13 +19,19 @@ export function MilestoneCard({
   roster,
   cleared,
   isNext,
+  isPinnedNext = false,
   onClear,
+  onSetNext,
 }: {
   milestone: Milestone;
   roster: MilestoneRosterMember[];
   cleared: boolean;
   isNext: boolean;
+  /** true when the player explicitly picked this boss as next (vs. dataset order) */
+  isPinnedNext?: boolean;
   onClear?: () => void;
+  /** present only on cap-gating milestones in owner views — toggles the next-boss pick */
+  onSetNext?: () => void;
 }) {
   const [expanded, setExpanded] = useState(false);
   const hasRoster = roster.length > 0;
@@ -58,6 +64,9 @@ export function MilestoneCard({
           </span>
         </div>
         {cleared && <span className="milestone-cleared-badge">✓ cleared</span>}
+        {!cleared && isNext && (
+          <span className="milestone-next-badge">{isPinnedNext ? '◎ next (your pick)' : '◎ next'}</span>
+        )}
       </div>
 
       {hasRoster ? (
@@ -106,16 +115,31 @@ export function MilestoneCard({
           {milestone.grants?.reviveTokens ? (
             <p className="muted">Grants {milestone.grants.reviveTokens} revive token(s) on clear.</p>
           ) : null}
-          {!cleared && onClear && (
-            <button
-              className={isNext ? '' : 'secondary'}
-              onClick={(e) => {
-                e.stopPropagation();
-                onClear();
-              }}
-            >
-              Clear
-            </button>
+          {!cleared && (onClear || onSetNext) && (
+            <div className="milestone-card-actions">
+              {onClear && (
+                <button
+                  className={isNext ? '' : 'secondary'}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onClear();
+                  }}
+                >
+                  Clear
+                </button>
+              )}
+              {onSetNext && (
+                <button
+                  className="secondary"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSetNext();
+                  }}
+                >
+                  {isPinnedNext ? 'Unpin — follow suggested order' : 'Fight this next (sets level cap)'}
+                </button>
+              )}
+            </div>
           )}
         </div>
       )}

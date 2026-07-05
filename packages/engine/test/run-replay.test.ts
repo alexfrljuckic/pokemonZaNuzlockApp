@@ -6,6 +6,7 @@ import {
   buildRuleset,
   deriveState,
   filterEncounterPool,
+  nextBoss,
   pendingWipeDecision,
   validateTeam,
   type EngineContext,
@@ -107,6 +108,28 @@ describe('synthetic BDSP run replay', () => {
     // Clearing Roark raises the cap to Gardenia's ace (22) — team becomes legal again.
     const cleared = [...over, ev('milestone_cleared', { milestoneId: 'gym-1-roark' })];
     expect(validateTeam(deriveState(cleared, ctx), ctx)).toEqual([]);
+  });
+
+  it('lets the player pick the next boss out of order, and falls back safely', () => {
+    // designate Gardenia while Roark is still uncleared — cap keys off her ace
+    const picked = [...events, ev('next_boss_set', { milestoneId: 'gym-2-gardenia' })];
+    let state = deriveState(picked, ctx);
+    expect(nextBoss(state, ctx)?.id).toBe('gym-2-gardenia');
+    const lv15 = [...picked, ev('level_up', { pokemonId: 'p1', level: 15 })];
+    expect(validateTeam(deriveState(lv15, ctx), ctx)).toEqual([]); // 15 <= 22
+
+    // clearing the chosen boss falls back to dataset order (Roark again)
+    const cleared = [...picked, ev('milestone_cleared', { milestoneId: 'gym-2-gardenia' })];
+    state = deriveState(cleared, ctx);
+    expect(nextBoss(state, ctx)?.id).toBe('gym-1-roark');
+
+    // an id that matches no gating milestone never wedges the cap
+    const bogus = [...events, ev('next_boss_set', { milestoneId: 'not-a-milestone' })];
+    expect(nextBoss(deriveState(bogus, ctx), ctx)?.id).toBe('gym-1-roark');
+
+    // explicit null reverts to dataset order
+    const reverted = [...picked, ev('next_boss_set', { milestoneId: null })];
+    expect(nextBoss(deriveState(reverted, ctx), ctx)?.id).toBe('gym-1-roark');
   });
 
   it('audits mid-run rule changes', () => {
