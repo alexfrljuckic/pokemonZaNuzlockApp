@@ -92,6 +92,132 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: {},
     hooks: [],
   },
+
+  // ---- Per-game honor packs (docs/CHALLENGE-MODES.md; sourced community
+  // conventions). Honor rules are displayed and acknowledged, never enforced.
+
+  'pla-use-only-first-catch': {
+    id: 'pla-use-only-first-catch',
+    name: 'Use-Only First Catch',
+    description:
+      'PLA variant of first-encounter: keep catching Pokémon freely for Grit items and materials income, but only the first catch from each named location may be used on your team.',
+    category: 'honor',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'pla-no-crafted-revives': {
+    id: 'pla-no-crafted-revives',
+    name: 'No Crafted or Bought Revives',
+    description:
+      'Revives and Max Revives may not be crafted or bought — unrestricted crafting trivializes deaths. Milestone revive tokens are the sanctioned second chance.',
+    category: 'honor',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'pla-no-distortions': {
+    id: 'pla-no-distortions',
+    name: 'No Distortion Encounters',
+    description:
+      'Space-time distortion spawns are not legal encounters and may not be used on your team (repeatable high-value spawns; the community does not count them).',
+    category: 'honor',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'pla-outbreak-shiny-clause': {
+    id: 'pla-outbreak-shiny-clause',
+    name: 'Outbreak Shinies Not Exempt',
+    description:
+      'Mass-outbreak shinies do not get the shiny-clause exemption — outbreaks are repeatable with boosted odds, so exempting them means never running out of Pokémon.',
+    category: 'honor',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'pla-noble-two-attempts': {
+    id: 'pla-noble-two-attempts',
+    name: 'Noble Two-Attempt Clause',
+    description:
+      'Your first loss to a Noble is free — retreat and retry with no deaths counted. From the second attempt on, deaths are permanent.',
+    category: 'honor',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: [],
+  },
+
+  'sv-no-raid-encounters': {
+    id: 'sv-no-raid-encounters',
+    name: 'No Raid Encounters or Rewards',
+    description:
+      'Tera raids are not legal encounters, and raid rewards (items, XP candy) are banned — raids are repeatable, high-BST fountains.',
+    category: 'honor',
+    appliesTo: ['sv'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'sv-no-picnic-eggs': {
+    id: 'sv-no-picnic-eggs',
+    name: 'No Picnic Eggs',
+    description:
+      'Eggs from picnic breeding are not legal encounters — infinite breeding means never running out of Pokémon. Allowed only in egglocke variants.',
+    category: 'honor',
+    appliesTo: ['sv'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
+  'sv-symmetric-tera': {
+    id: 'sv-symmetric-tera',
+    name: 'Symmetric Terastallization',
+    description:
+      'Terastallize only in fights where the opponent does (gyms, Elite Four, rivals) — no free Tera in regular battles. Stricter variants (full ban, once per boss) go in house rules.',
+    category: 'honor',
+    appliesTo: ['sv'],
+    enforcement: 'honor',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: [],
+  },
+
+  'za-symmetric-mega': {
+    id: 'za-symmetric-mega',
+    name: 'Symmetric Mega Evolution',
+    description:
+      'Mega Evolve only in fights where the opponent does — the Z-A analog of the SV symmetric-Tera clause (early community convention).',
+    category: 'honor',
+    appliesTo: ['plza'],
+    enforcement: 'honor',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: [],
+  },
+  'za-rogue-caps': {
+    id: 'za-rogue-caps',
+    name: 'Rogue Battles Gate the Level Cap',
+    description:
+      'On: Rogue mega-boss milestones count for the level cap like promotion matches. Off: rogues become optional targets and the cap tracks promotion matches only (Nuzlocke University lists rogue caps as optional).',
+    category: 'difficulty',
+    appliesTo: ['plza'],
+    enforcement: 'enforced',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: ['validateTeam'],
+  },
 };
 
 // ---------- Presets ----------
@@ -107,6 +233,9 @@ export function buildRuleset(presetId: 'standard' | 'hardcore' | 'casual', gameI
     rules['level-cap'] = { enabled: true, params: { mode: 'ace', offset: 0 } };
     rules['no-items-in-battle'] = { enabled: true, params: {} };
     rules['set-mode'] = { enabled: true, params: {} };
+    // "no free Tera on trash fights" is the hardcore norm (docs/CHALLENGE-MODES.md);
+    // guard on presence so the bump only lands where the rule applies (SV).
+    if (rules['sv-symmetric-tera']) rules['sv-symmetric-tera'] = { enabled: true, params: {} };
   }
   return { presetId, rules, houseRules: [] };
 }
@@ -163,12 +292,19 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
  * as their next boss (`next_boss_set` event) and the cap keys off it. Once that
  * milestone clears — or if the id never matches a gating milestone — we fall
  * back to dataset order, so a stale choice can never wedge the cap.
+ *
+ * Z-A: the 'za-rogue-caps' rule, when present and switched OFF, drops
+ * rogue-mega milestones from cap gating — the cap then tracks promotion
+ * matches only. Absent (other games, older runs) or enabled = no change.
  */
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
+  const rogueCaps = state.ruleset.rules['za-rogue-caps'];
+  const roguesExcluded = rogueCaps != null && !rogueCaps.enabled;
   const gating = milestonesFor(ctx.dataset, state.version).filter(
     (m) =>
       m.aceLevel !== null &&
       m.countsForLevelCap !== false &&
+      !(roguesExcluded && m.type === 'rogue-mega') &&
       !state.milestonesCleared.includes(m.id),
   );
   if (state.nextBossId) {
