@@ -148,7 +148,7 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
           {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Boss Fights' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
           {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} />}
+          {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} timeline />}
         </>
       )}
     </>

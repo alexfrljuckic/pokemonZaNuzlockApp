@@ -2209,6 +2209,13 @@ button.back-icon:hover:not(:disabled) {
   text-align: center;
   margin-bottom: 1rem;
 }
+/* Timeline filter chips (RunTimeline) — reuse the zone-chip look */
+.tl-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0.75rem;
+}
 .zone-map-head {
   display: flex;
   align-items: center;
