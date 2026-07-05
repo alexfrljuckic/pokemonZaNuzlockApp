@@ -62,27 +62,32 @@ off OneDrive — its sync locks broke `git worktree`). Run `git pull` first.
 
 ## Next up
 
-**33. Metrics dashboard + timeline (WANTED — DESIGN WRITTEN, needs
-Alex's review).** See `docs/METRICS-DASHBOARD.md`: 33a owner timeline
-(extract spectator timeline into shared RunTimeline + tone filters),
-33b per-run dashboard panels, 33c cross-run aggregates (local-first,
-engine aggregation selectors). Open questions for Alex are at the end of
-the doc (timeline placement, panel picks, abandoned-run inclusion).
+**33. Metrics dashboard + timeline (READY TO BUILD — 33a first).** Design
+at `docs/METRICS-DASHBOARD.md`. Q3 answered (abandoned runs are a stat,
+excluded from cross-run aggregates). Q1 default: timeline lands as a
+Stats-tab section unless Alex objects; Q2 (which 33b panels) decided at
+implementation review. Order: 33a shared RunTimeline + filters → 33b
+panels → 33c cross-run aggregates.
 
-**34. Genlocke campaigns (WANTED).** Champion export/import across games
-in sequence, availability fallbacks when a species line doesn't exist in
-the next game. Event-sourced: campaign = linked run ids + import events.
-Design doc first (docs/nuzlocke-tracker-plan.md has the phase sketch).
+**34. Genlocke campaigns (READY TO BUILD).** Design AGREED at
+`docs/GENLOCKE.md` (Alex 2026-07-05): surviving party only graduates;
+unavailable lines retire with a free successor pick; imports are free
+extras whose lines block dupes. New `pokemon_imported` event + campaigns
+store + import screen + campaign page.
 
-**35. Profiles + follows (WANTED).** Public profile pages aggregating a
-user's shared runs, follow feeds. Builds on the share-link/Supabase layer;
-must stay degrade-to-free (COSTS.md). Design doc first.
+**35. Profiles + follows (READY TO BUILD, after 33/34).** Design AGREED
+at `docs/PROFILES.md` (Alex 2026-07-05): profiles aggregate explicitly
+shared runs only; feed v1 = big beats only (boss/death/wipe/victory),
+poll-not-realtime; profiles/follows tables + handle-scoped SECURITY
+DEFINER RPCs mirroring the spectator pattern.
 
 **36. PLA per-zone map backdrops (BLOCKED on Alex).** The #120 split ships
-a zone-switcher; real per-zone maps need Alex to re-upload his five zone
-images to apps/web/public/maps/, then: one GameMap per zone + a
-map-per-zone registry extension, nodes calibrated to the images (same
-live-overlay recipe as Kanto/Lumiose).
+a zone-switcher; real per-zone maps need Alex's five zone images uploaded
+to apps/web/public/maps/ as hisui-obsidian-fieldlands / hisui-crimson-
+mirelands / hisui-cobalt-coastlands / hisui-coronet-highlands /
+hisui-alabaster-icelands (.jpg or .png — naming agreed 2026-07-05), then:
+one GameMap per zone + a map-per-zone registry extension, nodes
+calibrated to the images (same live-overlay recipe as Kanto/Lumiose).
 
 (Variant modes — soul link, wedlocke, monolocke — OUT OF SCOPE per Alex.)
 
