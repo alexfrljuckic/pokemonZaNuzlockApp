@@ -20,16 +20,14 @@ touch swsh.json's victory-road-swsh area until it lands.
 
 ## Next up (no decision needed — pick one and go)
 
-**18. Route maps — remaining: PLA (Hisui), Z-A (Lumiose).** Galar (#79,
-committed galar.jpg backdrop) and Paldea (#82, ORIGINAL hand-authored SVG
-backdrop — the pattern for regions with no IP-safe art: draw a flat-color
-schematic in public/maps/<region>.svg, same visual language) are done, as
-is the LGPE Kanto calibration pass (#80). Hisui/Lumiose can use either
-path: Alex uploads art he's comfortable with, or another original SVG.
-Node calibration lesson stands: live pass with the debug overlay (stroke
-`.route-region`) + native-res crops of the backdrop for ambiguous banners.
-Also pending: Sinnoh map nodes for the four areas added in #73 (they
-currently render under "Other areas").
+**18-leftover. Sinnoh map nodes for the #73 areas.** All six games now have
+interactive maps (item 18 otherwise COMPLETE — see shipped). Remaining
+crumb: routes 207/208, Ravaged Path, Wayward Cave have no Sinnoh map nodes
+and render under "Other areas". One tiny PR: four nodes in
+`lib/maps/sinnoh.ts`, calibrated with the debug overlay + native-res crops.
+If any region's original-SVG backdrop (Paldea/Hisui/Lumiose) ever gets
+replaced with uploaded art, keep the node ids and recalibrate coordinates
+against the new image.
 
 ## Deferred / low priority (unchanged)
 
@@ -91,12 +89,17 @@ species). Research provenance + parked Route 8 trainers:
 docs/SWSH-TRAINER-NOTES.md. GitHub Pages disabled same day (v1 leftover
 serving raw source with flaky deploys; Vercel is the host — see DEPLOY.md).
 
-2026-07-05 late sweep (PRs #79-#82 + this one): **Galar map (#79)**, **Kanto
+2026-07-05 late sweep (PRs #79-#84): **Galar map (#79)**, **Kanto
 calibration (#80)**, **darmanitan sprite alias, was item 22 (#81)**,
 **Paldea map w/ original SVG backdrop (#82)**, **SwSh missing areas, was
-item 21** — route-8 (31 slots incl. Steamdrift, + the 5 parked trainers) and
-galar-mine-no-2 (12 slots, 5 trainers) with map nodes; route-7 unlockAfter
-corrected gym-4 → gym-5-opal (reached after Ballonlea per progression).
+item 21 (#83)** — route-8 (31 slots incl. Steamdrift, + the 5 parked
+trainers) and galar-mine-no-2 (12 slots, 5 trainers) with map nodes;
+route-7 unlockAfter corrected gym-4 → gym-5-opal (reached after Ballonlea
+per progression); **Hisui + Lumiose maps (#84)** — item 18 COMPLETE, all
+six games have interactive maps. Original-SVG backdrop pattern for regions
+without IP-safe art: hand-authored flat-color schematic in
+public/maps/<region>.svg (paldea/hisui/lumiose); Lumiose is deliberately
+schematic (zones ringed by number, hyperspace zones off-map on purpose).
 
 ## Standing rules for every PR
 
