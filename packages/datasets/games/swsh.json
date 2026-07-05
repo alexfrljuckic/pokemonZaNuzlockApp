@@ -2,675 +2,5455 @@
   "schemaVersion": 1,
   "gameId": "swsh",
   "name": "Pokémon Sword / Shield",
-  "versions": ["sword", "shield"],
-  "pokeapiVersionGroups": ["sword-shield","the-isle-of-armor","the-crown-tundra"],
+  "versions": [
+    "sword",
+    "shield"
+  ],
+  "pokeapiVersionGroups": [
+    "sword-shield",
+    "the-isle-of-armor",
+    "the-crown-tundra"
+  ],
   "rostersRequired": true,
   "areas": [
     {
       "id": "route-1",
       "name": "Route 1",
       "unlockAfter": null,
-      "tags": ["route", "starter-area"],
+      "tags": [
+        "route",
+        "starter-area"
+      ],
       "encounters": [
-        { "species": "skwovet", "methods": ["walk"], "rate": 50 },
-        { "species": "rookidee", "methods": ["walk"], "rate": 30 },
-        { "species": "wooloo", "methods": ["walk"], "rate": 15 },
-        { "species": "nickit", "methods": ["walk"], "rate": 5 },
-        { "species": "skwovet", "methods": ["grass"], "rate": 40 },
-        { "species": "blipbug", "methods": ["grass"], "rate": 30 },
-        { "species": "caterpie", "methods": ["grass"], "rate": 15 },
-        { "species": "grubbin", "methods": ["grass"], "rate": 10 },
-        { "species": "hoothoot", "methods": ["grass"], "rate": 5 }
+        {
+          "species": "skwovet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "rookidee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "wooloo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "nickit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "skwovet",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "blipbug",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        }
       ]
     },
     {
       "id": "route-2",
       "name": "Route 2",
       "unlockAfter": null,
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "skwovet", "methods": ["walk"], "rate": 38 },
-        { "species": "rookidee", "methods": ["walk"], "rate": 30 },
-        { "species": "nickit", "methods": ["walk"], "rate": 15 },
-        { "species": "chewtle", "methods": ["walk"], "rate": 10 },
-        { "species": "yamper", "methods": ["walk"], "rate": 5 },
-        { "species": "zigzagoon", "methods": ["walk"], "rate": 2 },
-        { "species": "blipbug", "methods": ["grass"], "rate": 40 },
-        { "species": "rookidee", "methods": ["grass"], "rate": 25 },
-        { "species": "seedot", "methods": ["grass"], "rate": 20, "conditions": { "version": ["sword"] } },
-        { "species": "lotad", "methods": ["grass"], "rate": 20, "conditions": { "version": ["shield"] } },
-        { "species": "purrloin", "methods": ["grass"], "rate": 10 },
-        { "species": "hoothoot", "methods": ["grass"], "rate": 5 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 80 },
-        { "species": "chewtle", "methods": ["fish"], "rate": 15 },
-        { "species": "arrokuda", "methods": ["fish"], "rate": 5 }
+        {
+          "species": "skwovet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 38
+        },
+        {
+          "species": "rookidee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "nickit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "blipbug",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "rookidee",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 80
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "fish"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Jake",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "skwovet",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Lauren",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "chewtle",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Benjamin",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "blipbug",
+              "level": 5
+            },
+            {
+              "species": "nickit",
+              "level": 7
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-3",
       "name": "Route 3",
       "unlockAfter": "gym-1-milo",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "zigzagoon", "methods": ["walk"], "rate": 38 },
-        { "species": "gossifleur", "methods": ["walk"], "rate": 30 },
-        { "species": "vulpix", "methods": ["walk"], "rate": 15, "conditions": { "version": ["sword"] } },
-        { "species": "growlithe", "methods": ["walk"], "rate": 15, "conditions": { "version": ["shield"] } },
-        { "species": "stunky", "methods": ["walk"], "rate": 10 },
-        { "species": "trubbish", "methods": ["walk"], "rate": 5 },
-        { "species": "tyrogue", "methods": ["walk"], "rate": 2 },
-        { "species": "rookidee", "methods": ["grass"], "rate": 35 },
-        { "species": "machop", "methods": ["grass"], "rate": 20 },
-        { "species": "pancham", "methods": ["grass"], "rate": 20 },
-        { "species": "mudbray", "methods": ["grass"], "rate": 15 },
-        { "species": "klink", "methods": ["grass"], "rate": 9 },
-        { "species": "sizzlipede", "methods": ["grass"], "rate": 1 },
-        { "species": "skwovet", "methods": ["berry-tree"], "rate": 80 },
-        { "species": "cherubi", "methods": ["berry-tree"], "rate": 20 }
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 38
+        },
+        {
+          "species": "gossifleur",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "trubbish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "rookidee",
+          "methods": [
+            "grass"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "grass"
+          ],
+          "rate": 9
+        },
+        {
+          "species": "sizzlipede",
+          "methods": [
+            "grass"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "skwovet",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 80
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 20
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Rei",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "vulpix",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Hannah",
+          "class": "Schoolgirl",
+          "team": [
+            {
+              "species": "pancham",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Marvin",
+          "class": "Schoolboy",
+          "team": [
+            {
+              "species": "budew",
+              "level": 12
+            },
+            {
+              "species": "gossifleur",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Kayleigh",
+          "class": "Schoolgirl",
+          "team": [
+            {
+              "species": "purrloin",
+              "level": 12
+            },
+            {
+              "species": "skwovet",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Tad",
+          "class": "Postman",
+          "team": [
+            {
+              "species": "delibird",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Peter",
+          "class": "Schoolboy",
+          "team": [
+            {
+              "species": "sizzlipede",
+              "level": 13
+            },
+            {
+              "species": "dottler",
+              "level": 14
+            }
+          ]
+        }
       ]
     },
     {
       "id": "galar-mine",
       "name": "Galar Mine",
       "unlockAfter": "gym-1-milo",
-      "tags": ["cave"],
+      "tags": [
+        "cave"
+      ],
       "encounters": [
-        { "species": "rolycoly", "methods": ["walk"], "rate": 35 },
-        { "species": "timburr", "methods": ["walk"], "rate": 25, "conditions": { "version": ["sword"] } },
-        { "species": "roggenrola", "methods": ["walk"], "rate": 25, "conditions": { "version": ["shield"] } },
-        { "species": "woobat", "methods": ["walk"], "rate": 15 },
-        { "species": "diglett", "methods": ["walk"], "rate": 10 },
-        { "species": "drilbur", "methods": ["walk"], "rate": 10 },
-        { "species": "roggenrola", "methods": ["walk"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "timburr", "methods": ["walk"], "rate": 5, "conditions": { "version": ["shield"] } }
+        {
+          "species": "rolycoly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "timburr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "roggenrola",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "woobat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "diglett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "roggenrola",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "timburr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Keith",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "roggenrola",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Georgia",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "timburr",
+              "level": 14
+            },
+            {
+              "species": "timburr",
+              "level": 14
+            },
+            {
+              "species": "timburr",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Sandra",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "diglett",
+              "level": 14
+            },
+            {
+              "species": "drilbur",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Russel",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "rolycoly",
+              "level": 15
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-4",
       "name": "Route 4",
       "unlockAfter": "gym-1-milo",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "electrike", "methods": ["walk"], "rate": 30 },
-        { "species": "meowth-galar", "methods": ["walk"], "rate": 23 },
-        { "species": "yamper", "methods": ["walk"], "rate": 20 },
-        { "species": "pumpkaboo-average", "methods": ["walk"], "rate": 15 },
-        { "species": "pikachu", "methods": ["walk"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "eevee", "methods": ["walk"], "rate": 5, "conditions": { "version": ["shield"] } },
-        { "species": "meowth-galar", "methods": ["grass"], "rate": 35 },
-        { "species": "wooloo", "methods": ["grass"], "rate": 25 },
-        { "species": "milcery", "methods": ["grass"], "rate": 20 },
-        { "species": "joltik", "methods": ["grass"], "rate": 10 },
-        { "species": "cutiefly", "methods": ["grass"], "rate": 5 },
-        { "species": "budew", "methods": ["grass"], "rate": 4 },
-        { "species": "ferroseed", "methods": ["grass"], "rate": 1 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 70 },
-        { "species": "chewtle", "methods": ["fish"], "rate": 20 },
-        { "species": "goldeen", "methods": ["fish"], "rate": 10 }
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "meowth-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 23
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "pumpkaboo-average",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "meowth-galar",
+          "methods": [
+            "grass"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "wooloo",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "milcery",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cutiefly",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "grass"
+          ],
+          "rate": 4
+        },
+        {
+          "species": "ferroseed",
+          "methods": [
+            "grass"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "fish"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Jaime",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "meowth-galar",
+              "level": 14
+            },
+            {
+              "species": "seedot",
+              "level": 14
+            },
+            {
+              "species": "butterfree",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Shane",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Bradley",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "electrike",
+              "level": 15
+            },
+            {
+              "species": "lotad",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Sunny",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "milcery",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Mia",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "eevee",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Rhys",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "joltik",
+              "level": 14
+            },
+            {
+              "species": "grubbin",
+              "level": 14
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-5",
       "name": "Route 5",
       "unlockAfter": "gym-2-nessa",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "stufful", "methods": ["walk"], "rate": 35 },
-        { "species": "swirlix", "methods": ["walk"], "rate": 30, "conditions": { "version": ["sword"] } },
-        { "species": "spritzee", "methods": ["walk"], "rate": 30, "conditions": { "version": ["shield"] } },
-        { "species": "minccino", "methods": ["walk"], "rate": 15 },
-        { "species": "wobbuffet", "methods": ["walk"], "rate": 10 },
-        { "species": "farfetchd", "methods": ["walk"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "drifloon", "methods": ["walk"], "rate": 5 },
-        { "species": "dottler", "methods": ["grass"], "rate": 26 },
-        { "species": "espurr", "methods": ["grass"], "rate": 20 },
-        { "species": "nuzleaf", "methods": ["grass"], "rate": 20, "conditions": { "version": ["sword"] } },
-        { "species": "lombre", "methods": ["grass"], "rate": 20, "conditions": { "version": ["shield"] } },
-        { "species": "applin", "methods": ["grass"], "rate": 10 },
-        { "species": "dewpider", "methods": ["grass"], "rate": 5 },
-        { "species": "nincada", "methods": ["grass"], "rate": 5 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 70 },
-        { "species": "chewtle", "methods": ["fish"], "rate": 20 },
-        { "species": "goldeen", "methods": ["fish"], "rate": 10 }
+        {
+          "species": "stufful",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "swirlix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "spritzee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 26
+        },
+        {
+          "species": "espurr",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "fish"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Gillian & Cam",
+          "class": "Interviewers",
+          "team": [
+            {
+              "species": "helioptile",
+              "level": 18
+            },
+            {
+              "species": "klink",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Debra",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "minccino",
+              "level": 17
+            },
+            {
+              "species": "steenee",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Stuart",
+          "class": "Cook",
+          "team": [
+            {
+              "species": "applin",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "name": "Adrian",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "stufful",
+              "level": 17
+            },
+            {
+              "species": "cutiefly",
+              "level": 18
+            },
+            {
+              "species": "ralts",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "zigzagoon-galar",
+              "level": 17
+            },
+            {
+              "species": "thievul",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "sableye",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Denise",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "cherubi",
+              "level": 18
+            },
+            {
+              "species": "woobat",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Gabrielle",
+          "class": "Office Worker",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 19
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-6",
       "name": "Route 6",
       "unlockAfter": "gym-3-kabu",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "yamask-galar", "methods": ["walk"], "rate": 35 },
-        { "species": "helioptile", "methods": ["walk"], "rate": 29 },
-        { "species": "dugtrio", "methods": ["walk"], "rate": 20 },
-        { "species": "maractus", "methods": ["walk"], "rate": 10 },
-        { "species": "axew", "methods": ["walk"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "trapinch", "methods": ["walk"], "rate": 1, "conditions": { "version": ["shield"] } },
-        { "species": "silicobra", "methods": ["grass"], "rate": 30 },
-        { "species": "durant", "methods": ["grass"], "rate": 20, "conditions": { "version": ["sword"] } },
-        { "species": "heatmor", "methods": ["grass"], "rate": 20, "conditions": { "version": ["shield"] } },
-        { "species": "duskull", "methods": ["grass"], "rate": 18 },
-        { "species": "skorupi", "methods": ["grass"], "rate": 10 },
-        { "species": "hippopotas", "methods": ["grass"], "rate": 10 },
-        { "species": "torkoal", "methods": ["grass"], "rate": 5 },
-        { "species": "hawlucha", "methods": ["grass"], "rate": 2 },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 100 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 70 },
-        { "species": "drednaw", "methods": ["fish"], "rate": 20 },
-        { "species": "goldeen", "methods": ["fish"], "rate": 10 }
+        {
+          "species": "yamask-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "helioptile",
+          "methods": [
+            "walk"
+          ],
+          "rate": 29
+        },
+        {
+          "species": "dugtrio",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "maractus",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "axew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "trapinch",
+          "methods": [
+            "walk"
+          ],
+          "rate": 1,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "silicobra",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "heatmor",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "grass"
+          ],
+          "rate": 18
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "hawlucha",
+          "methods": [
+            "grass"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "fish"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "stunky",
+              "level": 29
+            },
+            {
+              "species": "linoone-galar",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "liepard",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Anita",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "clefairy",
+              "level": 29
+            },
+            {
+              "species": "clefable",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Iwan & Evelyn",
+          "class": "Medical Team",
+          "team": [
+            {
+              "species": "pawniard",
+              "level": 31
+            },
+            {
+              "species": "togetic",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Diane",
+          "class": "Backpacker",
+          "team": [
+            {
+              "species": "sawk",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Nicola",
+          "class": "Model",
+          "team": [
+            {
+              "species": "skorupi",
+              "level": 30
+            },
+            {
+              "species": "pawniard",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Ruth",
+          "class": "Backpacker",
+          "team": [
+            {
+              "species": "throh",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Duncan",
+          "class": "Artist",
+          "team": [
+            {
+              "species": "koffing",
+              "level": 29
+            },
+            {
+              "species": "sudowoodo",
+              "level": 31
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-7",
       "name": "Route 7",
       "unlockAfter": "gym-4-bea-allister",
-      "tags": ["route"],
+      "tags": [
+        "route"
+      ],
       "encounters": [
-        { "species": "perrserker", "methods": ["walk"], "rate": 30 },
-        { "species": "thievul", "methods": ["walk"], "rate": 20 },
-        { "species": "galvantula", "methods": ["walk"], "rate": 20 },
-        { "species": "liepard", "methods": ["walk"], "rate": 15 },
-        { "species": "inkay", "methods": ["walk"], "rate": 10 },
-        { "species": "morpeko-full-belly", "methods": ["walk"], "rate": 5 },
-        { "species": "toxel", "methods": ["grass"], "rate": 25 },
-        { "species": "karrablast", "methods": ["grass"], "rate": 25, "conditions": { "version": ["sword"] } },
-        { "species": "shelmet", "methods": ["grass"], "rate": 25, "conditions": { "version": ["shield"] } },
-        { "species": "corviknight", "methods": ["grass"], "rate": 20 },
-        { "species": "liepard", "methods": ["grass"], "rate": 10 },
-        { "species": "meowstic-male", "methods": ["grass"], "rate": 10 },
-        { "species": "seismitoad", "methods": ["grass"], "rate": 5 },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 100 }
+        {
+          "species": "perrserker",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "thievul",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "galvantula",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "inkay",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "morpeko-full-belly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "toxel",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "karrablast",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "shelmet",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "corviknight",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "meowstic-male",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "seismitoad",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 100
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Mila",
+          "class": "Model",
+          "team": [
+            {
+              "species": "ribombee",
+              "level": 35
+            },
+            {
+              "species": "vespiquen",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Bruce",
+          "class": "Cabbie",
+          "team": [
+            {
+              "species": "corvisquire",
+              "level": 35
+            },
+            {
+              "species": "rufflet",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Caden",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "doublade",
+              "level": 44
+            },
+            {
+              "species": "passimian",
+              "level": 44
+            },
+            {
+              "species": "polteageist",
+              "level": 44
+            }
+          ]
+        }
       ]
     },
     {
       "id": "glimwood-tangle",
       "name": "Glimwood Tangle",
       "unlockAfter": "gym-4-bea-allister",
-      "tags": ["forest", "special"],
+      "tags": [
+        "forest",
+        "special"
+      ],
       "encounters": [
-        { "species": "morgrem", "methods": ["grass"], "rate": 20 },
-        { "species": "shiinotic", "methods": ["grass"], "rate": 20, "conditions": { "version": ["sword"] } },
-        { "species": "shiinotic", "methods": ["grass"], "rate": 15, "conditions": { "version": ["shield"] } },
-        { "species": "ponyta-galar", "methods": ["grass"], "rate": 10, "conditions": { "version": ["shield"] } },
-        { "species": "hattrem", "methods": ["grass"], "rate": 15, "conditions": { "version": ["sword"] } },
-        { "species": "hattrem", "methods": ["grass"], "rate": 10, "conditions": { "version": ["shield"] } },
-        { "species": "sinistea", "methods": ["grass"], "rate": 10 },
-        { "species": "phantump", "methods": ["grass"], "rate": 10 },
-        { "species": "swirlix", "methods": ["grass"], "rate": 10, "conditions": { "version": ["sword"] } },
-        { "species": "spritzee", "methods": ["grass"], "rate": 10, "conditions": { "version": ["shield"] } },
-        { "species": "passimian", "methods": ["grass"], "rate": 9, "conditions": { "version": ["sword"] } },
-        { "species": "oranguru", "methods": ["grass"], "rate": 9, "conditions": { "version": ["shield"] } },
-        { "species": "indeedee-male", "methods": ["grass"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "indeedee-female", "methods": ["grass"], "rate": 5, "conditions": { "version": ["shield"] } },
-        { "species": "impidimp", "methods": ["walk"] },
-        { "species": "morgrem", "methods": ["walk"] }
+        {
+          "species": "morgrem",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "shiinotic",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "shiinotic",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "ponyta-galar",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "hattrem",
+          "methods": [
+            "grass"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "hattrem",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "sinistea",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "phantump",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "swirlix",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "spritzee",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "passimian",
+          "methods": [
+            "grass"
+          ],
+          "rate": 9,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "oranguru",
+          "methods": [
+            "grass"
+          ],
+          "rate": 9,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "indeedee-male",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "indeedee-female",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "impidimp",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "morgrem",
+          "methods": [
+            "walk"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Derek",
+          "class": "Cook",
+          "team": [
+            {
+              "species": "milcery",
+              "level": 33
+            },
+            {
+              "species": "sinistea",
+              "level": 33
+            },
+            {
+              "species": "shiinotic",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Robert & Jacqueline",
+          "class": "Daring Couple",
+          "team": [
+            {
+              "species": "ninetales",
+              "level": 34
+            },
+            {
+              "species": "kirlia",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Judy",
+          "class": "Madame",
+          "team": [
+            {
+              "species": "indeedee-male",
+              "level": 33
+            },
+            {
+              "species": "indeedee-male",
+              "level": 33
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-9",
       "name": "Route 9",
       "unlockAfter": "gym-6-gordie-melony",
-      "tags": ["route", "coastal"],
+      "tags": [
+        "route",
+        "coastal"
+      ],
       "encounters": [
-        { "species": "pelipper", "methods": ["walk"], "rate": 40 },
-        { "species": "mareanie", "methods": ["walk"], "rate": 35 },
-        { "species": "gastrodon", "methods": ["walk"], "rate": 15 },
-        { "species": "jellicent-male", "methods": ["walk"], "rate": 5 },
-        { "species": "pyukumuku", "methods": ["walk"], "rate": 5 },
-        { "species": "cramorant", "methods": ["grass"], "rate": 40 },
-        { "species": "octillery", "methods": ["grass"], "rate": 30 },
-        { "species": "kingler", "methods": ["grass"], "rate": 25 },
-        { "species": "pincurchin", "methods": ["grass"], "rate": 5 },
-        { "species": "pelipper", "methods": ["surf"], "rate": 40 },
-        { "species": "qwilfish", "methods": ["surf"], "rate": 30 },
-        { "species": "mantyke", "methods": ["surf"], "rate": 25 },
-        { "species": "jellicent-male", "methods": ["surf"], "rate": 5 },
-        { "species": "octillery", "methods": ["fish"], "rate": 60 },
-        { "species": "wishiwashi-solo", "methods": ["fish"], "rate": 30 },
-        { "species": "pyukumuku", "methods": ["fish"], "rate": 10 }
+        {
+          "species": "pelipper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "pincurchin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Harriet",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "barraskewda",
+              "level": 39
+            },
+            {
+              "species": "lanturn",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Zoe",
+          "class": "Dancer",
+          "team": [
+            {
+              "species": "darumaka-galar",
+              "level": 39
+            },
+            {
+              "species": "bellossom",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Owen & Andrea",
+          "class": "Music Crew",
+          "team": [
+            {
+              "species": "toxtricity-amped",
+              "level": 41
+            },
+            {
+              "species": "maractus",
+              "level": 41
+            }
+          ]
+        }
       ]
     },
     {
       "id": "circhester-bay",
       "name": "Circhester Bay",
       "unlockAfter": "gym-6-gordie-melony",
-      "tags": ["route", "coastal"],
+      "tags": [
+        "route",
+        "coastal"
+      ],
       "encounters": [
-        { "species": "clobbopus", "methods": ["walk"], "rate": 30 },
-        { "species": "octillery", "methods": ["walk"], "rate": 24 },
-        { "species": "toxapex", "methods": ["walk"], "rate": 20, "conditions": { "version": ["sword"] } },
-        { "species": "toxapex", "methods": ["walk"], "rate": 5, "conditions": { "version": ["shield"] } },
-        { "species": "barbaracle", "methods": ["walk"], "rate": 10, "conditions": { "version": ["sword"] } },
-        { "species": "barbaracle", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shield"] } },
-        { "species": "bergmite", "methods": ["walk"], "rate": 15, "conditions": { "version": ["sword"] } },
-        { "species": "bergmite", "methods": ["walk"], "rate": 20, "conditions": { "version": ["shield"] } },
-        { "species": "dhelmise", "methods": ["walk"], "rate": 1 },
-        { "species": "pincurchin", "methods": ["grass"], "rate": 39 },
-        { "species": "inkay", "methods": ["grass"], "rate": 24 },
-        { "species": "gastrodon", "methods": ["grass"], "rate": 21 },
-        { "species": "cramorant", "methods": ["grass"], "rate": 16 },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 100 }
+        {
+          "species": "clobbopus",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "walk"
+          ],
+          "rate": 24
+        },
+        {
+          "species": "toxapex",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "toxapex",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "barbaracle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "barbaracle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "bergmite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "dhelmise",
+          "methods": [
+            "walk"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "pincurchin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 39
+        },
+        {
+          "species": "inkay",
+          "methods": [
+            "grass"
+          ],
+          "rate": 24
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "grass"
+          ],
+          "rate": 21
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "grass"
+          ],
+          "rate": 16
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 100
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "linoone-galar",
+              "level": 39
+            },
+            {
+              "species": "pangoro",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Carter",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "grapploct",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Reece",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "sawk",
+              "level": 41
+            },
+            {
+              "species": "throh",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Marina",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "qwilfish",
+              "level": 39
+            },
+            {
+              "species": "pyukumuku",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Jacob",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "cloyster",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Logan",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "wishiwashi-solo",
+              "level": 40
+            },
+            {
+              "species": "wailord",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Scarlett",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "remoraid",
+              "level": 39
+            },
+            {
+              "species": "octillery",
+              "level": 40
+            },
+            {
+              "species": "mantine",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Layla",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "toxapex",
+              "level": 39
+            }
+          ]
+        }
       ]
     },
     {
       "id": "route-10",
       "name": "Route 10",
       "unlockAfter": "gym-8-raihan",
-      "tags": ["route", "post-gym", "snow"],
+      "tags": [
+        "route",
+        "post-gym",
+        "snow"
+      ],
       "encounters": [
-        { "species": "mr-mime-galar", "methods": ["walk"], "rate": 40 },
-        { "species": "snover", "methods": ["walk"], "rate": 30 },
-        { "species": "cubchoo", "methods": ["walk"], "rate": 15 },
-        { "species": "sneasel", "methods": ["walk"], "rate": 14 },
-        { "species": "duraludon", "methods": ["walk"], "rate": 1 },
-        { "species": "vanillish", "methods": ["grass"], "rate": 30 },
-        { "species": "abomasnow", "methods": ["grass"], "rate": 28 },
-        { "species": "beartic", "methods": ["grass"], "rate": 25 },
-        { "species": "snom", "methods": ["grass"], "rate": 10 },
-        { "species": "darumaka-galar", "methods": ["grass"], "rate": 5, "conditions": { "version": ["sword"] } },
-        { "species": "vanillish", "methods": ["grass"], "rate": 5, "conditions": { "version": ["shield"] } },
-        { "species": "stonjourner", "methods": ["grass"], "rate": 2, "conditions": { "version": ["sword"] } },
-        { "species": "eiscue-ice", "methods": ["grass"], "rate": 2, "conditions": { "version": ["shield"] } }
+        {
+          "species": "mr-mime-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 14
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "vanillish",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "abomasnow",
+          "methods": [
+            "grass"
+          ],
+          "rate": 28
+        },
+        {
+          "species": "beartic",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "snom",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "darumaka-galar",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "vanillish",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "stonjourner",
+          "methods": [
+            "grass"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "eiscue-ice",
+          "methods": [
+            "grass"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Graham",
+          "class": "Doctor",
+          "team": [
+            {
+              "species": "gardevoir",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Douglas",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "steelix",
+              "level": 45
+            },
+            {
+              "species": "mudsdale",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Ronald",
+          "class": "Office Worker",
+          "team": [
+            {
+              "species": "weavile",
+              "level": 45
+            },
+            {
+              "species": "claydol",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Geoffrey",
+          "class": "Cabbie",
+          "team": [
+            {
+              "species": "corviknight",
+              "level": 45
+            },
+            {
+              "species": "flygon",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Harper",
+          "class": "Postman",
+          "team": [
+            {
+              "species": "pelipper",
+              "level": 46
+            },
+            {
+              "species": "noctowl",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Donald",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "gigalith",
+              "level": 46
+            },
+            {
+              "species": "rhydon",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Glenn",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "darmanitan-galar-standard",
+              "level": 46
+            },
+            {
+              "species": "falinks",
+              "level": 46
+            },
+            {
+              "species": "grapploct",
+              "level": 46
+            }
+          ]
+        },
+        {
+          "name": "Gillian & Cam",
+          "class": "Interviewers",
+          "team": [
+            {
+              "species": "heliolisk",
+              "level": 46
+            },
+            {
+              "species": "noivern",
+              "level": 47
+            },
+            {
+              "species": "klinklang",
+              "level": 46
+            },
+            {
+              "species": "togedemaru",
+              "level": 47
+            }
+          ]
+        }
       ]
     },
     {
       "id": "rolling-fields",
       "name": "Wild Area: Rolling Fields",
       "unlockAfter": "gym-1-milo",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "combee", "methods": ["walk"], "rate": 25 },
-        { "species": "bunnelby", "methods": ["walk"], "rate": 25 },
-        { "species": "metapod", "methods": ["walk"], "rate": 20 },
-        { "species": "tyrogue", "methods": ["walk"], "rate": 15 },
-        { "species": "wingull", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["raining"] } },
-        { "species": "electrike", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "vanillite", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["snowing"] } },
-        { "species": "delibird", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "baltoy", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "ralts", "methods": ["walk"], "rate": 15, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "pikachu", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "onix", "methods": ["walk"], "rate": 5 },
-        { "species": "roselia", "methods": ["walk"], "rate": 5 },
-        { "species": "pangoro", "methods": ["walk"], "rate": 5 },
-        { "species": "vespiquen", "methods": ["walk"], "rate": 5 },
-        { "species": "ninjask", "methods": ["walk"], "rate": 5 },
-        { "species": "diggersby", "methods": ["walk"], "rate": 5 },
-        { "species": "mudsdale", "methods": ["walk"], "rate": 5 },
-        { "species": "dubwool", "methods": ["walk"], "rate": 5 },
-        { "species": "diglett", "methods": ["max-raid"] },
-        { "species": "chinchou", "methods": ["max-raid"] },
-        { "species": "lanturn", "methods": ["max-raid"] }
+        {
+          "species": "combee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "metapod",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pangoro",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "vespiquen",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "ninjask",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "mudsdale",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "dubwool",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "diglett",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "max-raid"
+          ]
+        }
       ]
     },
     {
       "id": "motostoke-riverbank",
       "name": "Wild Area: Motostoke Riverbank",
       "unlockAfter": "gym-1-milo",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "skorupi", "methods": ["walk"], "rate": 40 },
-        { "species": "purrloin", "methods": ["walk"], "rate": 20 },
-        { "species": "gossifleur", "methods": ["walk"], "rate": 25 },
-        { "species": "wooloo", "methods": ["walk"], "rate": 10 },
-        { "species": "munchlax", "methods": ["walk"], "rate": 5 },
-        { "species": "wimpod", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "dewpider", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "yamper", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "sneasel", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "salandit", "methods": ["walk"], "conditions": { "weather": ["intense-sun"], "version": ["shield"] } },
-        { "species": "corvisquire", "methods": ["grass"], "rate": 35 },
-        { "species": "noctowl", "methods": ["grass"], "rate": 30 },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 20 },
-        { "species": "dubwool", "methods": ["grass"], "rate": 10 },
-        { "species": "sigilyph", "methods": ["grass"], "rate": 5 },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 50 },
-        { "species": "skwovet", "methods": ["berry-tree"], "rate": 35 },
-        { "species": "cherubi", "methods": ["berry-tree"], "rate": 15 },
-        { "species": "arrokuda", "methods": ["fish"], "rate": 50 },
-        { "species": "basculin-red-striped", "methods": ["fish"], "rate": 35 },
-        { "species": "barraskewda", "methods": ["fish"], "rate": 10 },
-        { "species": "mareanie", "methods": ["fish"], "rate": 5 }
+        {
+          "species": "skorupi",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "gossifleur",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "wooloo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "corvisquire",
+          "methods": [
+            "grass"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "dubwool",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "sigilyph",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "skwovet",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "barraskewda",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        }
       ]
     },
     {
       "id": "bridge-field",
       "name": "Wild Area: Bridge Field",
       "unlockAfter": "gym-2-nessa",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "zigzagoon", "methods": ["walk"], "rate": 34 },
-        { "species": "cutiefly", "methods": ["walk"], "rate": 30 },
-        { "species": "wobbuffet", "methods": ["walk"], "rate": 10 },
-        { "species": "toxel", "methods": ["walk"], "rate": 5 },
-        { "species": "noibat", "methods": ["walk"], "rate": 10 },
-        { "species": "elgyem", "methods": ["walk"], "rate": 10 },
-        { "species": "cufant", "methods": ["walk"], "rate": 1 },
-        { "species": "stufful", "methods": ["walk"], "rate": 30, "conditions": { "weather": ["raining"] } },
-        { "species": "frillish-male", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "cubchoo", "methods": ["walk"], "rate": 40, "conditions": { "weather": ["snowing"] } },
-        { "species": "sneasel", "methods": ["walk"], "rate": 40, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "diglett", "methods": ["max-raid"] },
-        { "species": "mudbray", "methods": ["max-raid"] },
-        { "species": "nincada", "methods": ["max-raid"] },
-        { "species": "drilbur", "methods": ["max-raid"] },
-        { "species": "wooper", "methods": ["max-raid"] },
-        { "species": "golett", "methods": ["max-raid"] }
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 34
+        },
+        {
+          "species": "cutiefly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "toxel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "elgyem",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cufant",
+          "methods": [
+            "walk"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "stufful",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "diglett",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "max-raid"
+          ]
+        }
       ]
     },
     {
       "id": "dusty-bowl",
       "name": "Wild Area: Dusty Bowl",
       "unlockAfter": "gym-3-kabu",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "nickit", "methods": ["walk"], "rate": 50 },
-        { "species": "koffing", "methods": ["walk"], "rate": 35 },
-        { "species": "scraggy", "methods": ["walk"], "rate": 15, "conditions": { "version": ["sword"] } },
-        { "species": "croagunk", "methods": ["walk"], "rate": 15, "conditions": { "version": ["shield"] } },
-        { "species": "electrike", "methods": ["walk"], "rate": 50, "conditions": { "weather": ["raining"] } },
-        { "species": "electrike", "methods": ["walk"], "rate": 50, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "cubchoo", "methods": ["walk"], "rate": 50, "conditions": { "weather": ["snowing"] } },
-        { "species": "snover", "methods": ["walk"], "rate": 50, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "hippopotas", "methods": ["walk"], "rate": 55, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "hippopotas", "methods": ["walk"], "rate": 60, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "wobbuffet", "methods": ["walk"], "rate": 55, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 40 },
-        { "species": "dubwool", "methods": ["grass"], "rate": 30 },
-        { "species": "hattrem", "methods": ["grass"], "rate": 20 },
-        { "species": "applin", "methods": ["grass"], "rate": 10 },
-        { "species": "shellos", "methods": ["surf"] },
-        { "species": "frillish-male", "methods": ["surf"] },
-        { "species": "riolu", "methods": ["max-raid"] },
-        { "species": "machop", "methods": ["max-raid"] },
-        { "species": "scraggy", "methods": ["max-raid"] }
+        {
+          "species": "nickit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ],
+          "rate": 55,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 55,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "dubwool",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "hattrem",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "riolu",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "max-raid"
+          ]
+        }
       ]
     },
     {
       "id": "giants-cap",
       "name": "Wild Area: Giant's Cap",
       "unlockAfter": "gym-4-bea-allister",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "noctowl", "methods": ["walk"], "rate": 40 },
-        { "species": "linoone-galar", "methods": ["walk"], "rate": 35 },
-        { "species": "liepard", "methods": ["walk"], "rate": 10 },
-        { "species": "scraggy", "methods": ["walk"], "rate": 5 },
-        { "species": "minccino", "methods": ["walk"], "rate": 10 },
-        { "species": "nuzleaf", "methods": ["grass"], "rate": 40 },
-        { "species": "dottler", "methods": ["grass"], "rate": 30 },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 20 },
-        { "species": "stunky", "methods": ["grass"], "rate": 10 },
-        { "species": "rolycoly", "methods": ["underground"], "rate": 60 },
-        { "species": "boldore", "methods": ["underground"], "rate": 30 },
-        { "species": "rhyhorn", "methods": ["underground"], "rate": 10 },
-
-        { "species": "linoone-galar", "methods": ["walk"], "conditions": { "weather": ["overcast"] } },
-        { "species": "scraggy", "methods": ["walk"], "conditions": { "weather": ["overcast"] } },
-        { "species": "gloom", "methods": ["walk"], "conditions": { "weather": ["overcast"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["overcast"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["overcast"] } },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["overcast"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["overcast"] } },
-        { "species": "munna", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["overcast"] } },
-        { "species": "karrablast", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["overcast"], "version": ["sword"] } },
-        { "species": "shelmet", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["overcast"], "version": ["shield"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["overcast"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["overcast"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["overcast"] } },
-
-        { "species": "drednaw", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "quagsire", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "linoone-galar", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["raining"] } },
-        { "species": "palpitoad", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["raining"] } },
-        { "species": "shellos", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["raining"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["raining"] } },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["raining"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["raining"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["raining"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["raining"] } },
-
-        { "species": "quagsire", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "drednaw", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "manectric", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "joltik", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "toxel", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "shellos", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["thunderstorm"] } },
-
-        { "species": "vanillite", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "sneasel", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "linoone-galar", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["snowing"] } },
-        { "species": "snover", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["snowing"] } },
-        { "species": "snorunt", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["snowing"] } },
-        { "species": "delibird", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["snowing"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["snowing"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["snowing"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["snowing"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["snowing"] } },
-
-        { "species": "sneasel", "methods": ["walk"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "vanillite", "methods": ["walk"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "linoone-galar", "methods": ["walk"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "riolu", "methods": ["walk"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "snorunt", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "pawniard", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "delibird", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["snowstorm"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["snowstorm"] } },
-
-        { "species": "carkol", "methods": ["walk"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "diggersby", "methods": ["walk"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "torkoal", "methods": ["walk"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "golett", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "baltoy", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "drilbur", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "dugtrio", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["intense-sun"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["intense-sun"] } },
-
-        { "species": "carkol", "methods": ["walk"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "diggersby", "methods": ["walk"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "shuckle", "methods": ["walk"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "golett", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "drilbur", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "mudbray", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["sandstorm"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["sandstorm"] } },
-
-        { "species": "gothita", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"], "version": ["sword"] } },
-        { "species": "solosis", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"], "version": ["shield"] } },
-        { "species": "clefairy", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "noctowl", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "linoone-galar", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "minccino", "methods": ["walk"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "munna", "methods": ["grass"], "rate": 40, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "dottler", "methods": ["grass"], "rate": 30, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "duskull", "methods": ["grass"], "rate": 20, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "eldegoss", "methods": ["grass"], "rate": 10, "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "rolycoly", "methods": ["underground"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "boldore", "methods": ["underground"], "conditions": { "weather": ["heavy-fog"] } },
-        { "species": "rhyhorn", "methods": ["underground"], "conditions": { "weather": ["heavy-fog"] } },
-
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 75 },
-        { "species": "cherubi", "methods": ["berry-tree"], "rate": 25 },
-        { "species": "goldeen", "methods": ["fish"], "rate": 50 },
-        { "species": "krabby", "methods": ["fish"], "rate": 35 },
-        { "species": "corphish", "methods": ["fish"], "rate": 10 },
-        { "species": "gyarados", "methods": ["fish"], "rate": 5 },
-
-        { "species": "solrock", "methods": ["underground"], "rate": 100, "conditions": { "version": ["sword"] } },
-        { "species": "lunatone", "methods": ["underground"], "rate": 100, "conditions": { "version": ["shield"] } }
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "karrablast",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "shelmet",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "palpitoad",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "toxel",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "riolu",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "carkol",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "dugtrio",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "carkol",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "gothita",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "solosis",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "clefairy",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "linoone-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 75
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "underground"
+          ],
+          "rate": 100,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "underground"
+          ],
+          "rate": 100,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        }
       ]
     },
     {
       "id": "lake-of-outrage",
       "name": "Wild Area: Lake of Outrage",
       "unlockAfter": "gym-6-gordie-melony",
-      "tags": ["wild-area"],
+      "tags": [
+        "wild-area"
+      ],
       "encounters": [
-        { "species": "beheeyem", "methods": ["walk"], "rate": 32 },
-        { "species": "golurk", "methods": ["walk"], "rate": 20 },
-        { "species": "braviary", "methods": ["walk"], "rate": 25 },
-        { "species": "sigilyph", "methods": ["walk"], "rate": 13 },
-        { "species": "ditto", "methods": ["walk"], "rate": 10 },
-        { "species": "seismitoad", "methods": ["walk"], "rate": 30, "conditions": { "weather": ["raining"] } },
-        { "species": "araquanid", "methods": ["walk"], "rate": 25, "conditions": { "weather": ["raining"] } },
-        { "species": "rotom", "methods": ["walk"], "rate": 2, "conditions": { "weather": ["raining"] } },
-        { "species": "galvantula", "methods": ["walk"], "rate": 30, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "noivern", "methods": ["walk"], "rate": 27, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "drakloak", "methods": ["walk"], "rate": 2, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "haxorus", "methods": ["walk"], "rate": 5, "conditions": { "weather": ["thunderstorm"] } },
-        { "species": "glalie", "methods": ["walk"], "rate": 25, "conditions": { "weather": ["snowing"] } },
-        { "species": "vanilluxe", "methods": ["walk"], "rate": 25, "conditions": { "weather": ["snowing"] } },
-        { "species": "klinklang", "methods": ["walk"], "rate": 30, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "bisharp", "methods": ["walk"], "rate": 25, "conditions": { "weather": ["snowstorm"] } },
-        { "species": "ninetales", "methods": ["walk"], "rate": 25, "conditions": { "weather": ["intense-sun"] } },
-        { "species": "excadrill", "methods": ["walk"], "rate": 35, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 95 },
-        { "species": "cherubi", "methods": ["berry-tree"], "rate": 5 },
-        { "species": "barraskewda", "methods": ["fish"], "rate": 50 },
-        { "species": "lanturn", "methods": ["fish"], "rate": 35 },
-        { "species": "qwilfish", "methods": ["fish"], "rate": 10 },
-        { "species": "gyarados", "methods": ["fish"], "rate": 5 },
-        { "species": "dreepy", "methods": ["max-raid"] },
-        { "species": "applin", "methods": ["max-raid"] }
+        {
+          "species": "beheeyem",
+          "methods": [
+            "walk"
+          ],
+          "rate": 32
+        },
+        {
+          "species": "golurk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "braviary",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "sigilyph",
+          "methods": [
+            "walk"
+          ],
+          "rate": 13
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "seismitoad",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "araquanid",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "galvantula",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "noivern",
+          "methods": [
+            "walk"
+          ],
+          "rate": 27,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "drakloak",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "haxorus",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "vanilluxe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "klinklang",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "bisharp",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "excadrill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 95
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "barraskewda",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "fish"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "dreepy",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "max-raid"
+          ]
+        }
       ]
     },
     {
       "id": "hulbury",
       "name": "Hulbury",
       "unlockAfter": "gym-1-milo",
-      "tags": ["city", "gym-2"],
-      "encounters": []
+      "tags": [
+        "city",
+        "gym-2"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Julia",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "tympole",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Heather",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "krabby",
+              "level": 20
+            },
+            {
+              "species": "corphish",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "name": "Lynn",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "remoraid",
+              "level": 20
+            },
+            {
+              "species": "chewtle",
+              "level": 21
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "motostoke",
       "name": "Motostoke",
       "unlockAfter": "gym-2-nessa",
-      "tags": ["city", "gym-3"],
-      "encounters": []
+      "tags": [
+        "city",
+        "gym-3"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Grunt (Budew Drop Inn)",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "zigzagoon-galar",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Grunt (Budew Drop Inn)",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "nickit",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Grunt Duo (Budew Drop Inn, Multi Battle with Hop)",
+          "class": "Team Yell Grunts",
+          "team": [
+            {
+              "species": "zigzagoon-galar",
+              "level": 9
+            },
+            {
+              "species": "nickit",
+              "level": 9
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "stow-on-side",
       "name": "Stow-on-Side",
       "unlockAfter": "gym-3-kabu",
-      "tags": ["town", "gym-4"],
-      "encounters": []
+      "tags": [
+        "town",
+        "gym-4"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Ian",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "stufful",
+              "level": 31
+            },
+            {
+              "species": "bewear",
+              "level": 32
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Claire",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "farfetchd-galar",
+              "level": 32
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Simon",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "hitmonlee",
+              "level": 33
+            },
+            {
+              "species": "hitmonchan",
+              "level": 33
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Clive",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "pumpkaboo-average",
+              "level": 31
+            },
+            {
+              "species": "phantump",
+              "level": 31
+            },
+            {
+              "species": "pumpkaboo-average",
+              "level": 31
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "Lynne",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "corsola-galar",
+              "level": 32
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "Roy",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "haunter",
+              "level": 33
+            },
+            {
+              "species": "drifblim",
+              "level": 33
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "ballonlea",
       "name": "Ballonlea",
       "unlockAfter": "gym-4-bea-allister",
-      "tags": ["town", "gym-5"],
-      "encounters": []
+      "tags": [
+        "town",
+        "gym-5"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Elena",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "dottler",
+              "level": 30,
+              "heldItem": "eviolite"
+            }
+          ]
+        },
+        {
+          "name": "Annette",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "spritzee",
+              "level": 34
+            },
+            {
+              "species": "slurpuff",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Teresa",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "swirlix",
+              "level": 34
+            },
+            {
+              "species": "aromatisse",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Theodora",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "morgrem",
+              "level": 35
+            },
+            {
+              "species": "gardevoir",
+              "level": 35
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "circhester",
       "name": "Circhester",
       "unlockAfter": "gym-5-opal",
-      "tags": ["city", "gym-6"],
-      "encounters": []
+      "tags": [
+        "city",
+        "gym-6"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Abigail",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "boldore",
+              "level": 38
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Kiera",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "crustle",
+              "level": 38
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Oliver",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "carkol",
+              "level": 39
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Wendy",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "sudowoodo",
+              "level": 39
+            }
+          ],
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "name": "Lewis",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "snom",
+              "level": 38
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "Liana",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "cloyster",
+              "level": 38
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "Alexander",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "beartic",
+              "level": 39
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "name": "Micah",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "avalugg",
+              "level": 39
+            }
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ]
     },
     {
       "id": "spikemuth",
       "name": "Spikemuth",
       "unlockAfter": "gym-6-gordie-melony",
-      "tags": ["town", "gym-7"],
+      "tags": [
+        "town",
+        "gym-7"
+      ],
       "encounters": [
-        { "species": "perrserker", "methods": ["grass"], "rate": 40 },
-        { "species": "thievul", "methods": ["grass"], "rate": 30 },
-        { "species": "liepard", "methods": ["grass"], "rate": 25 },
-        { "species": "morpeko-full-belly", "methods": ["grass"], "rate": 5 },
-        { "species": "greedent", "methods": ["berry-tree"], "rate": 100 }
+        {
+          "species": "perrserker",
+          "methods": [
+            "grass"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "thievul",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "grass"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "morpeko-full-belly",
+          "methods": [
+            "grass"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 100
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "linoone-galar",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "thievul",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "scrafty",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Yell Grunt",
+          "team": [
+            {
+              "species": "weavile",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Grunt & Joshua (Double Battle)",
+          "class": "Team Yell Grunt & Gym Trainer",
+          "team": [
+            {
+              "species": "liepard",
+              "level": 43
+            },
+            {
+              "species": "drapion",
+              "level": 43
+            }
+          ]
+        }
       ]
     },
     {
       "id": "hammerlocke",
       "name": "Hammerlocke",
       "unlockAfter": "gym-7-piers",
-      "tags": ["city", "gym-8", "landmark"],
-      "encounters": []
+      "tags": [
+        "city",
+        "gym-8",
+        "landmark"
+      ],
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Brian",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "cottonee",
+              "level": 2,
+              "heldItem": "focus-sash"
+            }
+          ]
+        },
+        {
+          "name": "Sebastian",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "pelipper",
+              "level": 45
+            },
+            {
+              "species": "sliggoo",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Camilla",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "ninetales",
+              "level": 45
+            },
+            {
+              "species": "turtonator",
+              "level": 45
+            }
+          ]
+        },
+        {
+          "name": "Aria",
+          "class": "Gym Trainer",
+          "team": [
+            {
+              "species": "abomasnow",
+              "level": 45
+            },
+            {
+              "species": "hakamo-o",
+              "level": 45
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "victory-road-swsh",
       "name": "Victory Road",
       "unlockAfter": "gym-8-raihan",
-      "tags": ["cave", "post-gym"],
+      "tags": [
+        "cave",
+        "post-gym"
+      ],
       "encounters": [
-        { "species": "golbat", "methods": ["walk"], "rate": 20 },
-        { "species": "boldore", "methods": ["walk"], "rate": 15 },
-        { "species": "conkeldurr", "methods": ["walk"], "rate": 10 },
-        { "species": "beartic", "methods": ["walk"], "rate": 10 },
-        { "species": "gigalith", "methods": ["walk"], "rate": 10 },
-        { "species": "aggron", "methods": ["walk"], "rate": 10 },
-        { "species": "noivern", "methods": ["walk"], "rate": 10 },
-        { "species": "druddigon", "methods": ["walk"], "rate": 10 },
-        { "species": "haxorus", "methods": ["walk"], "rate": 5 },
-        { "species": "magikarp", "methods": ["fish"], "rate": 70 },
-        { "species": "basculin-red-striped", "methods": ["fish"], "rate": 30 }
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "conkeldurr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "beartic",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gigalith",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "aggron",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "noivern",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "druddigon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "haxorus",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ],
+          "rate": 30
+        }
       ]
     },
     {
       "id": "postgame-route-10-hero-path",
       "name": "Hammerlocke Hills",
       "unlockAfter": "champion-leon",
-      "tags": ["wild-area", "post-game"],
+      "tags": [
+        "wild-area",
+        "post-game"
+      ],
       "encounters": [
-        { "species": "trapinch", "methods": ["walk"], "rate": 30 },
-        { "species": "helioptile", "methods": ["walk"], "rate": 25 },
-        { "species": "duraludon", "methods": ["walk"], "rate": 5 },
-        { "species": "dugtrio", "methods": ["walk"], "rate": 20 },
-        { "species": "silicobra", "methods": ["walk"], "rate": 20 },
-        { "species": "excadrill", "methods": ["walk"], "rate": 20, "conditions": { "weather": ["sandstorm"] } },
-        { "species": "flygon", "methods": ["max-raid"] },
-        { "species": "duraludon", "methods": ["max-raid"] }
+        {
+          "species": "trapinch",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "helioptile",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "dugtrio",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "silicobra",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "excadrill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "flygon",
+          "methods": [
+            "max-raid"
+          ]
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "max-raid"
+          ]
+        }
       ]
     }
   ],
   "specials": [
-    { "id": "starter-grookey", "type": "gift", "species": "grookey", "area": "postwick" },
-    { "id": "starter-scorbunny", "type": "gift", "species": "scorbunny", "area": "postwick" },
-    { "id": "starter-sobble", "type": "gift", "species": "sobble", "area": "postwick" },
-    { "id": "fossil-dracozolt", "type": "fossil", "species": "dracozolt", "area": "route-6" },
-    { "id": "fossil-arctozolt", "type": "fossil", "species": "arctozolt", "area": "route-6" },
-    { "id": "fossil-dracovish", "type": "fossil", "species": "dracovish", "area": "route-6" },
-    { "id": "fossil-arctovish", "type": "fossil", "species": "arctovish", "area": "route-6" },
-    { "id": "gift-toxel", "type": "gift", "species": "toxel", "area": "route-5" }
+    {
+      "id": "starter-grookey",
+      "type": "gift",
+      "species": "grookey",
+      "area": "postwick"
+    },
+    {
+      "id": "starter-scorbunny",
+      "type": "gift",
+      "species": "scorbunny",
+      "area": "postwick"
+    },
+    {
+      "id": "starter-sobble",
+      "type": "gift",
+      "species": "sobble",
+      "area": "postwick"
+    },
+    {
+      "id": "fossil-dracozolt",
+      "type": "fossil",
+      "species": "dracozolt",
+      "area": "route-6"
+    },
+    {
+      "id": "fossil-arctozolt",
+      "type": "fossil",
+      "species": "arctozolt",
+      "area": "route-6"
+    },
+    {
+      "id": "fossil-dracovish",
+      "type": "fossil",
+      "species": "dracovish",
+      "area": "route-6"
+    },
+    {
+      "id": "fossil-arctovish",
+      "type": "fossil",
+      "species": "arctovish",
+      "area": "route-6"
+    },
+    {
+      "id": "gift-toxel",
+      "type": "gift",
+      "species": "toxel",
+      "area": "route-5"
+    }
   ],
   "milestones": [
     {
       "id": "rival-hop-1",
-"trainerSprite": "hop",
+      "trainerSprite": "hop",
       "name": "Hop (Postwick, First Battle)",
       "type": "rival",
       "order": 5,
       "aceLevel": 5,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "wooloo", "level": 3, "moves": ["tackle"], "ability": "fluffy" },
-        { "species": "grookey", "level": 5, "moves": ["scratch", "growl"], "ability": "overgrow" },
-        { "species": "scorbunny", "level": 5, "moves": ["tackle", "growl"], "ability": "blaze" },
-        { "species": "sobble", "level": 5, "moves": ["pound", "growl"], "ability": "torrent" }
+        {
+          "species": "wooloo",
+          "level": 3,
+          "moves": [
+            "tackle"
+          ],
+          "ability": "fluffy"
+        },
+        {
+          "species": "grookey",
+          "level": 5,
+          "moves": [
+            "scratch",
+            "growl"
+          ],
+          "ability": "overgrow"
+        },
+        {
+          "species": "scorbunny",
+          "level": 5,
+          "moves": [
+            "tackle",
+            "growl"
+          ],
+          "ability": "blaze"
+        },
+        {
+          "species": "sobble",
+          "level": 5,
+          "moves": [
+            "pound",
+            "growl"
+          ],
+          "ability": "torrent"
+        }
       ]
     },
     {
@@ -680,8 +5460,26 @@
       "order": 10,
       "aceLevel": 20,
       "roster": [
-        { "species": "gossifleur", "level": 19, "moves": ["magical-leaf", "round", "rapid-spin"], "ability": "regenerator" },
-        { "species": "eldegoss", "level": 20, "moves": ["magical-leaf", "leafage", "round"], "ability": "regenerator" }
+        {
+          "species": "gossifleur",
+          "level": 19,
+          "moves": [
+            "magical-leaf",
+            "round",
+            "rapid-spin"
+          ],
+          "ability": "regenerator"
+        },
+        {
+          "species": "eldegoss",
+          "level": 20,
+          "moves": [
+            "magical-leaf",
+            "leafage",
+            "round"
+          ],
+          "ability": "regenerator"
+        }
       ]
     },
     {
@@ -691,9 +5489,39 @@
       "order": 20,
       "aceLevel": 24,
       "roster": [
-        { "species": "goldeen", "level": 22, "moves": ["water-pulse", "whirlpool", "horn-attack", "agility"], "ability": "swift-swim" },
-        { "species": "arrokuda", "level": 23, "moves": ["aqua-jet", "bite", "whirlpool", "fury-attack"], "ability": "swift-swim" },
-        { "species": "drednaw", "level": 24, "moves": ["razor-shell", "water-gun", "bite", "headbutt"], "ability": "swift-swim" }
+        {
+          "species": "goldeen",
+          "level": 22,
+          "moves": [
+            "water-pulse",
+            "whirlpool",
+            "horn-attack",
+            "agility"
+          ],
+          "ability": "swift-swim"
+        },
+        {
+          "species": "arrokuda",
+          "level": 23,
+          "moves": [
+            "aqua-jet",
+            "bite",
+            "whirlpool",
+            "fury-attack"
+          ],
+          "ability": "swift-swim"
+        },
+        {
+          "species": "drednaw",
+          "level": 24,
+          "moves": [
+            "razor-shell",
+            "water-gun",
+            "bite",
+            "headbutt"
+          ],
+          "ability": "swift-swim"
+        }
       ]
     },
     {
@@ -703,23 +5531,93 @@
       "order": 30,
       "aceLevel": 27,
       "roster": [
-        { "species": "ninetales", "level": 25, "moves": ["will-o-wisp", "fire-spin", "quick-attack", "ember"], "ability": "flash-fire" },
-        { "species": "arcanine", "level": 25, "moves": ["will-o-wisp", "flame-wheel", "bite", "agility"], "ability": "intimidate" },
-        { "species": "centiskorch", "level": 27, "moves": ["flame-wheel", "coil", "bug-bite", "smokescreen"], "ability": "flash-fire" }
+        {
+          "species": "ninetales",
+          "level": 25,
+          "moves": [
+            "will-o-wisp",
+            "fire-spin",
+            "quick-attack",
+            "ember"
+          ],
+          "ability": "flash-fire"
+        },
+        {
+          "species": "arcanine",
+          "level": 25,
+          "moves": [
+            "will-o-wisp",
+            "flame-wheel",
+            "bite",
+            "agility"
+          ],
+          "ability": "intimidate"
+        },
+        {
+          "species": "centiskorch",
+          "level": 27,
+          "moves": [
+            "flame-wheel",
+            "coil",
+            "bug-bite",
+            "smokescreen"
+          ],
+          "ability": "flash-fire"
+        }
       ]
     },
     {
       "id": "gym-4-bea-allister",
-"trainerSprite": "bea",
+      "trainerSprite": "bea",
       "name": "Bea / Allister (Stow-on-Side Gym)",
       "type": "gym",
       "order": 40,
       "aceLevel": 36,
       "roster": [
-        { "species": "hitmontop", "level": 34, "moves": ["triple-kick", "quick-attack", "counter", "revenge"], "ability": "technician" },
-        { "species": "pangoro", "level": 34, "moves": ["bullet-punch", "circle-throw", "night-slash", "work-up"], "ability": "mold-breaker" },
-        { "species": "sirfetchd", "level": 35, "moves": ["detect", "swords-dance", "brutal-swing", "revenge"], "ability": "steadfast" },
-        { "species": "machamp", "level": 36, "moves": ["revenge", "knock-off", "strength", "scary-face"], "ability": "guts" }
+        {
+          "species": "hitmontop",
+          "level": 34,
+          "moves": [
+            "triple-kick",
+            "quick-attack",
+            "counter",
+            "revenge"
+          ],
+          "ability": "technician"
+        },
+        {
+          "species": "pangoro",
+          "level": 34,
+          "moves": [
+            "bullet-punch",
+            "circle-throw",
+            "night-slash",
+            "work-up"
+          ],
+          "ability": "mold-breaker"
+        },
+        {
+          "species": "sirfetchd",
+          "level": 35,
+          "moves": [
+            "detect",
+            "swords-dance",
+            "brutal-swing",
+            "revenge"
+          ],
+          "ability": "steadfast"
+        },
+        {
+          "species": "machamp",
+          "level": 36,
+          "moves": [
+            "revenge",
+            "knock-off",
+            "strength",
+            "scary-face"
+          ],
+          "ability": "guts"
+        }
       ]
     },
     {
@@ -729,24 +5627,100 @@
       "order": 50,
       "aceLevel": 38,
       "roster": [
-        { "species": "weezing-galar", "level": 36, "moves": ["sludge-bomb", "fairy-wind", "tackle"], "ability": "levitate" },
-        { "species": "mawile", "level": 36, "moves": ["draining-kiss", "crunch", "iron-defense", "astonish"], "ability": "intimidate" },
-        { "species": "togekiss", "level": 37, "moves": ["air-slash", "draining-kiss", "ancient-power"], "ability": "hustle" },
-        { "species": "alcremie", "level": 38, "moves": ["draining-kiss", "acid-armor", "sweet-kiss"], "ability": "sweet-veil" }
+        {
+          "species": "weezing-galar",
+          "level": 36,
+          "moves": [
+            "sludge-bomb",
+            "fairy-wind",
+            "tackle"
+          ],
+          "ability": "levitate"
+        },
+        {
+          "species": "mawile",
+          "level": 36,
+          "moves": [
+            "draining-kiss",
+            "crunch",
+            "iron-defense",
+            "astonish"
+          ],
+          "ability": "intimidate"
+        },
+        {
+          "species": "togekiss",
+          "level": 37,
+          "moves": [
+            "air-slash",
+            "draining-kiss",
+            "ancient-power"
+          ],
+          "ability": "hustle"
+        },
+        {
+          "species": "alcremie",
+          "level": 38,
+          "moves": [
+            "draining-kiss",
+            "acid-armor",
+            "sweet-kiss"
+          ],
+          "ability": "sweet-veil"
+        }
       ]
     },
     {
       "id": "gym-6-gordie-melony",
-"trainerSprite": "gordie",
+      "trainerSprite": "gordie",
       "name": "Gordie / Melony (Circhester Gym)",
       "type": "gym",
       "order": 60,
       "aceLevel": 42,
       "roster": [
-        { "species": "barbaracle", "level": 40, "moves": ["shell-smash", "rock-tomb", "razor-shell"], "ability": "tough-claws" },
-        { "species": "shuckle", "level": 40, "moves": ["power-split", "stone-edge", "struggle-bug", "rock-tomb"], "ability": "contrary" },
-        { "species": "stonjourner", "level": 41, "moves": ["stealth-rock", "rock-tomb", "body-slam", "wonder-room"], "ability": "power-spot" },
-        { "species": "coalossal", "level": 42, "moves": ["tar-shot", "stealth-rock", "heat-crash", "rock-tomb"], "ability": "steam-engine" }
+        {
+          "species": "barbaracle",
+          "level": 40,
+          "moves": [
+            "shell-smash",
+            "rock-tomb",
+            "razor-shell"
+          ],
+          "ability": "tough-claws"
+        },
+        {
+          "species": "shuckle",
+          "level": 40,
+          "moves": [
+            "power-split",
+            "stone-edge",
+            "struggle-bug",
+            "rock-tomb"
+          ],
+          "ability": "contrary"
+        },
+        {
+          "species": "stonjourner",
+          "level": 41,
+          "moves": [
+            "stealth-rock",
+            "rock-tomb",
+            "body-slam",
+            "wonder-room"
+          ],
+          "ability": "power-spot"
+        },
+        {
+          "species": "coalossal",
+          "level": 42,
+          "moves": [
+            "tar-shot",
+            "stealth-rock",
+            "heat-crash",
+            "rock-tomb"
+          ],
+          "ability": "steam-engine"
+        }
       ]
     },
     {
@@ -756,10 +5730,50 @@
       "order": 70,
       "aceLevel": 46,
       "roster": [
-        { "species": "scrafty", "level": 44, "moves": ["fake-out", "sand-attack", "brick-break", "payback"], "ability": "intimidate" },
-        { "species": "malamar", "level": 45, "moves": ["night-slash", "foul-play", "psycho-cut", "payback"], "ability": "contrary" },
-        { "species": "skuntank", "level": 45, "moves": ["sucker-punch", "screech", "toxic", "snarl"], "ability": "aftermath" },
-        { "species": "obstagoon", "level": 46, "moves": ["obstruct", "throat-chop", "counter", "shadow-claw"], "ability": "reckless" }
+        {
+          "species": "scrafty",
+          "level": 44,
+          "moves": [
+            "fake-out",
+            "sand-attack",
+            "brick-break",
+            "payback"
+          ],
+          "ability": "intimidate"
+        },
+        {
+          "species": "malamar",
+          "level": 45,
+          "moves": [
+            "night-slash",
+            "foul-play",
+            "psycho-cut",
+            "payback"
+          ],
+          "ability": "contrary"
+        },
+        {
+          "species": "skuntank",
+          "level": 45,
+          "moves": [
+            "sucker-punch",
+            "screech",
+            "toxic",
+            "snarl"
+          ],
+          "ability": "aftermath"
+        },
+        {
+          "species": "obstagoon",
+          "level": 46,
+          "moves": [
+            "obstruct",
+            "throat-chop",
+            "counter",
+            "shadow-claw"
+          ],
+          "ability": "reckless"
+        }
       ]
     },
     {
@@ -769,27 +5783,137 @@
       "order": 80,
       "aceLevel": 48,
       "roster": [
-        { "species": "gigalith", "level": 46, "moves": ["stealth-rock", "sand-tomb", "rock-blast", "body-press"], "ability": "sand-stream" },
-        { "species": "flygon", "level": 47, "moves": ["thunder-punch", "breaking-swipe", "crunch", "steel-wing"], "ability": "levitate" },
-        { "species": "sandaconda", "level": 46, "moves": ["protect", "glare", "fire-fang", "earth-power"], "ability": "sand-spit" },
-        { "species": "duraludon", "level": 48, "moves": ["breaking-swipe", "body-press", "stone-edge", "iron-head"], "ability": "heavy-metal" }
+        {
+          "species": "gigalith",
+          "level": 46,
+          "moves": [
+            "stealth-rock",
+            "sand-tomb",
+            "rock-blast",
+            "body-press"
+          ],
+          "ability": "sand-stream"
+        },
+        {
+          "species": "flygon",
+          "level": 47,
+          "moves": [
+            "thunder-punch",
+            "breaking-swipe",
+            "crunch",
+            "steel-wing"
+          ],
+          "ability": "levitate"
+        },
+        {
+          "species": "sandaconda",
+          "level": 46,
+          "moves": [
+            "protect",
+            "glare",
+            "fire-fang",
+            "earth-power"
+          ],
+          "ability": "sand-spit"
+        },
+        {
+          "species": "duraludon",
+          "level": 48,
+          "moves": [
+            "breaking-swipe",
+            "body-press",
+            "stone-edge",
+            "iron-head"
+          ],
+          "ability": "heavy-metal"
+        }
       ]
     },
     {
       "id": "champion-cup-semifinal",
-"trainerSprite": "hop",
+      "trainerSprite": "hop",
       "name": "Champion Cup Semi-Final (Hop)",
       "type": "champion-cup",
       "order": 90,
       "aceLevel": 49,
       "roster": [
-        { "species": "dubwool", "level": 48, "moves": ["cotton-guard", "double-kick", "double-edge", "headbutt"], "ability": "steadfast" },
-        { "species": "corviknight", "level": 48, "moves": ["steel-wing", "drill-peck", "swagger", "light-screen"], "ability": "unnerve" },
-        { "species": "pincurchin", "level": 47, "moves": ["zing-zap", "poison-jab", "liquidation", "recover"], "ability": "lightning-rod" },
-        { "species": "snorlax", "level": 47, "moves": ["hammer-arm", "earthquake", "heavy-slam", "crunch"], "ability": "thick-fat" },
-        { "species": "cinderace", "level": 49, "moves": ["gunk-shot", "iron-head", "pyro-ball", "zen-headbutt"], "ability": "blaze" },
-        { "species": "rillaboom", "level": 49, "moves": ["drum-beating", "slam", "knock-off", "high-horsepower"], "ability": "overgrow" },
-        { "species": "inteleon", "level": 49, "moves": ["snipe-shot", "sucker-punch", "ice-beam", "dark-pulse"], "ability": "torrent" }
+        {
+          "species": "dubwool",
+          "level": 48,
+          "moves": [
+            "cotton-guard",
+            "double-kick",
+            "double-edge",
+            "headbutt"
+          ],
+          "ability": "steadfast"
+        },
+        {
+          "species": "corviknight",
+          "level": 48,
+          "moves": [
+            "steel-wing",
+            "drill-peck",
+            "swagger",
+            "light-screen"
+          ],
+          "ability": "unnerve"
+        },
+        {
+          "species": "pincurchin",
+          "level": 47,
+          "moves": [
+            "zing-zap",
+            "poison-jab",
+            "liquidation",
+            "recover"
+          ],
+          "ability": "lightning-rod"
+        },
+        {
+          "species": "snorlax",
+          "level": 47,
+          "moves": [
+            "hammer-arm",
+            "earthquake",
+            "heavy-slam",
+            "crunch"
+          ],
+          "ability": "thick-fat"
+        },
+        {
+          "species": "cinderace",
+          "level": 49,
+          "moves": [
+            "gunk-shot",
+            "iron-head",
+            "pyro-ball",
+            "zen-headbutt"
+          ],
+          "ability": "blaze"
+        },
+        {
+          "species": "rillaboom",
+          "level": 49,
+          "moves": [
+            "drum-beating",
+            "slam",
+            "knock-off",
+            "high-horsepower"
+          ],
+          "ability": "overgrow"
+        },
+        {
+          "species": "inteleon",
+          "level": 49,
+          "moves": [
+            "snipe-shot",
+            "sucker-punch",
+            "ice-beam",
+            "dark-pulse"
+          ],
+          "ability": "torrent"
+        }
       ]
     },
     {
@@ -799,27 +5923,127 @@
       "order": 100,
       "aceLevel": 65,
       "roster": [
-        { "species": "aegislash-shield", "level": 62, "moves": ["kings-shield", "shadow-ball", "sacred-sword", "flash-cannon"], "ability": "stance-change" },
-        { "species": "dragapult", "level": 62, "moves": ["shadow-ball", "flamethrower", "thunderbolt", "dragon-breath"], "ability": "clear-body" },
-        { "species": "haxorus", "level": 63, "moves": ["poison-jab", "iron-tail", "outrage", "earthquake"], "ability": "mold-breaker" },
-        { "species": "charizard", "level": 65, "moves": ["fire-blast", "air-slash", "dragon-claw", "solar-beam"], "ability": "blaze" }
+        {
+          "species": "aegislash-shield",
+          "level": 62,
+          "moves": [
+            "kings-shield",
+            "shadow-ball",
+            "sacred-sword",
+            "flash-cannon"
+          ],
+          "ability": "stance-change"
+        },
+        {
+          "species": "dragapult",
+          "level": 62,
+          "moves": [
+            "shadow-ball",
+            "flamethrower",
+            "thunderbolt",
+            "dragon-breath"
+          ],
+          "ability": "clear-body"
+        },
+        {
+          "species": "haxorus",
+          "level": 63,
+          "moves": [
+            "poison-jab",
+            "iron-tail",
+            "outrage",
+            "earthquake"
+          ],
+          "ability": "mold-breaker"
+        },
+        {
+          "species": "charizard",
+          "level": 65,
+          "moves": [
+            "fire-blast",
+            "air-slash",
+            "dragon-claw",
+            "solar-beam"
+          ],
+          "ability": "blaze"
+        }
       ]
     },
     {
       "id": "rival-hop-final",
-"trainerSprite": "hop",
+      "trainerSprite": "hop",
       "name": "Hop (Wyndon Stadium, Final Battle)",
       "type": "rival",
       "order": 110,
       "aceLevel": 70,
       "countsForLevelCap": false,
       "roster": [
-        { "species": "dubwool", "level": 69, "moves": ["cotton-guard", "double-edge", "zen-headbutt", "headbutt"], "ability": "steadfast" },
-        { "species": "snorlax", "level": 68, "moves": ["hammer-arm", "earthquake", "heavy-slam", "crunch"], "ability": "thick-fat" },
-        { "species": "corviknight", "level": 70, "moves": ["steel-wing", "drill-peck", "iron-head", "brave-bird"], "ability": "unnerve" },
-        { "species": "cinderace", "level": 70, "moves": ["pyro-ball", "gunk-shot", "iron-head", "zen-headbutt"], "ability": "blaze" },
-        { "species": "rillaboom", "level": 70, "moves": ["drum-beating", "knock-off", "high-horsepower", "slam"], "ability": "overgrow" },
-        { "species": "inteleon", "level": 70, "moves": ["snipe-shot", "ice-beam", "dark-pulse", "sucker-punch"], "ability": "torrent" }
+        {
+          "species": "dubwool",
+          "level": 69,
+          "moves": [
+            "cotton-guard",
+            "double-edge",
+            "zen-headbutt",
+            "headbutt"
+          ],
+          "ability": "steadfast"
+        },
+        {
+          "species": "snorlax",
+          "level": 68,
+          "moves": [
+            "hammer-arm",
+            "earthquake",
+            "heavy-slam",
+            "crunch"
+          ],
+          "ability": "thick-fat"
+        },
+        {
+          "species": "corviknight",
+          "level": 70,
+          "moves": [
+            "steel-wing",
+            "drill-peck",
+            "iron-head",
+            "brave-bird"
+          ],
+          "ability": "unnerve"
+        },
+        {
+          "species": "cinderace",
+          "level": 70,
+          "moves": [
+            "pyro-ball",
+            "gunk-shot",
+            "iron-head",
+            "zen-headbutt"
+          ],
+          "ability": "blaze"
+        },
+        {
+          "species": "rillaboom",
+          "level": 70,
+          "moves": [
+            "drum-beating",
+            "knock-off",
+            "high-horsepower",
+            "slam"
+          ],
+          "ability": "overgrow"
+        },
+        {
+          "species": "inteleon",
+          "level": 70,
+          "moves": [
+            "snipe-shot",
+            "ice-beam",
+            "dark-pulse",
+            "sucker-punch"
+          ],
+          "ability": "torrent"
+        }
       ]
     }
   ],
