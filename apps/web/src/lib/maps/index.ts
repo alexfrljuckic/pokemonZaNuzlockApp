@@ -3,4 +3,4 @@ export { mapHelpers } from './types';
 
 // Route maps are now declared on each game's config (games/<id>.ts) and
 // collected in the registry. Re-exported here so map importers are unchanged.
-export { GAME_MAPS } from '../../games';
+export { GAME_MAPS, ZONE_MAPS } from '../../games';

@@ -81,13 +81,14 @@ shared runs only; feed v1 = big beats only (boss/death/wipe/victory),
 poll-not-realtime; profiles/follows tables + handle-scoped SECURITY
 DEFINER RPCs mirroring the spectator pattern.
 
-**36. PLA per-zone map backdrops (BLOCKED on Alex).** The #120 split ships
-a zone-switcher; real per-zone maps need Alex's five zone images uploaded
-to apps/web/public/maps/ as hisui-obsidian-fieldlands / hisui-crimson-
-mirelands / hisui-cobalt-coastlands / hisui-coronet-highlands /
-hisui-alabaster-icelands (.jpg or .png — naming agreed 2026-07-05), then:
-one GameMap per zone + a map-per-zone registry extension, nodes
-calibrated to the images (same live-overlay recipe as Kanto/Lumiose).
+**36. PLA per-zone map backdrops — SHIPPED 2026-07-05 (same session).**
+Alex uploaded his six zone images (arc1–arc6) mid-session → renamed to
+hisui-<zone>.webp/png, `zoneMaps` on GameAppConfig + ZONE_MAPS registry,
+RoutesTab swaps the zone map in while a zone is active ("← All zones" to
+return), 79 nodes calibrated to the printed in-game labels across the
+five maps (wayward-cave stays list-only — the in-game map doesn't label
+it; hisui-jubilife-village.png parked unused, the hub resolves from the
+overview). Integrity test pins node ids ⊆ zone areas.
 
 (Variant modes — soul link, wedlocke, monolocke — OUT OF SCOPE per Alex.)
 

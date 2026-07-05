@@ -29,6 +29,12 @@ export const GAME_MAPS: Record<string, GameMap> = Object.fromEntries(
   GAMES.filter((g) => g.map).map((g) => [g.dataset.gameId, g.map as GameMap]),
 );
 
+// Per-zone maps (PLA): gameId -> zoneId -> map. RoutesTab swaps one in while
+// its zone is active; the game's `map` stays the zone-selector overview.
+export const ZONE_MAPS: Record<string, Record<string, GameMap>> = Object.fromEntries(
+  GAMES.filter((g) => g.zoneMaps).map((g) => [g.dataset.gameId, g.zoneMaps as Record<string, GameMap>]),
+);
+
 const versionEntries = GAMES.flatMap((g) => Object.entries(g.versions));
 
 // version slug -> cover mascot species.

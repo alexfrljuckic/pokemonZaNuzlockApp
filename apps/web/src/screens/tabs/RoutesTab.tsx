@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { areasFor, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
-import { GAME_MAPS, mapHelpers } from '../../lib/maps';
+import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
 import { RouteMap, type ZoneSummary } from '../../components/RouteMap';
 import { StarterPicker, claimedSpecial, starterHeading } from '../../components/SpecialsSection';
 import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes/AllFilteredOut';
@@ -94,10 +94,10 @@ export function RoutesTab({
   const selected = openAreaId ? areas.find((a) => a.id === openAreaId) ?? null : null;
   const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
   const selectedPool = selected ? filterEncounterPool(state, selected, ctx) : [];
-  const { hasMapNode } = mapHelpers(map);
 
   // Zone mode (PLA): areas carry zone:* tags and the map's zone nodes act as
-  // group selectors — the list below shows one zone at a time.
+  // group selectors — the list below shows one zone at a time. When the game
+  // has a per-zone map for the active zone, it replaces the overview.
   const zones = useMemo(() => {
     const byZone = new Map<string, ZoneSummary>();
     for (const a of areas) {
@@ -112,10 +112,20 @@ export function RoutesTab({
   }, [areas, state.encounterOutcomes]);
   const zoneMode = zones.size > 0;
 
+  const zoneMap = activeZone ? ZONE_MAPS[ctx.dataset.gameId]?.[activeZone] : undefined;
+  const activeMap = zoneMap ?? map;
+  const { hasMapNode } = mapHelpers(activeMap);
+
   const offMapAreas = zoneMode
-    ? areas.filter((a) => (activeZone ? zoneIdOf(a) === activeZone : !zoneIdOf(a) && !hasMapNode(a.id)))
+    ? activeZone
+      ? areas.filter((a) => zoneIdOf(a) === activeZone && !hasMapNode(a.id))
+      : areas.filter((a) => !zoneIdOf(a) && !hasMapNode(a.id))
     : areas.filter((a) => !hasMapNode(a.id));
-  const offMapTitle = zoneMode && activeZone ? zoneNameOf(activeZone) : 'Other areas';
+  const offMapTitle = zoneMode && activeZone
+    ? zoneMap
+      ? `More in ${zoneNameOf(activeZone)}`
+      : zoneNameOf(activeZone)
+    : 'Other areas';
 
   function selectZone(zoneId: string) {
     setActiveZone((cur) => (cur === zoneId ? null : zoneId));
@@ -133,14 +143,24 @@ export function RoutesTab({
         </div>
       )}
 
+      {zoneMap && activeZone && (
+        <div className="zone-map-head">
+          <button type="button" className="secondary zone-back" onClick={() => setActiveZone(null)}>
+            ← All zones
+          </button>
+          <h3 className="route-offmap-title">{zoneNameOf(activeZone)}</h3>
+        </div>
+      )}
+
       <RouteMap
-        map={map}
+        key={zoneMap ? activeZone : 'overview'}
+        map={activeMap}
         areas={areas}
         state={state}
         version={state.version}
         onSelect={(id) => setOpenAreaId(id)}
-        zones={zoneMode ? zones : undefined}
-        onSelectZone={zoneMode ? selectZone : undefined}
+        zones={zoneMode && !zoneMap ? zones : undefined}
+        onSelectZone={zoneMode && !zoneMap ? selectZone : undefined}
       />
 
       {zoneMode && (
