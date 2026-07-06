@@ -41,21 +41,21 @@ export const GALAR_MAP: GameMap = {
     // — Turffield (Grass Gym) + Route 4/5 west —
     { id: 'turffield', x: 483, y: 523, w: 56, h: 46, kind: 'town' },
     { id: 'route-4', x: 468, y: 559, w: 34, h: 28, kind: 'route' },
-    { id: 'route-5', x: 540, y: 520, w: 65, h: 40, kind: 'route' },
+    { id: 'route-5', x: 542, y: 541, w: 34, h: 28, kind: 'route' },
     // — Hulbury (Water Gym) east + Galar Mine No.2 —
     { id: 'hulbury', x: 695, y: 510, w: 58, h: 45, kind: 'city' },
     { id: 'galar-mine-no-2', x: 668, y: 576, w: 50, h: 40, kind: 'cave' },
     // — Motostoke Outskirts (#15) + Riverbank (#13) around Motostoke, into the
     //   North Wild Area (Bridge Field / Giant's Cap / Dusty Bowl / Lake of Outrage) —
     { id: 'motostoke-outskirts', x: 637, y: 614, w: 34, h: 28, kind: 'route' },
-    { id: 'motostoke-riverbank', x: 623, y: 637, w: 34, h: 28, kind: 'route' },
-    { id: 'bridge-field', x: 618, y: 556, w: 55, h: 45, kind: 'route' },
-    { id: 'giants-cap', x: 572, y: 486, w: 52, h: 42, kind: 'route' },
-    { id: 'dusty-bowl', x: 640, y: 488, w: 46, h: 40, kind: 'route' },
-    { id: 'lake-of-outrage', x: 530, y: 473, w: 46, h: 40, kind: 'route' },
-    { id: 'postgame-route-10-hero-path', x: 612, y: 484, w: 34, h: 28, kind: 'route' },
-    { id: 'giants-mirror', x: 614, y: 511, w: 34, h: 28, kind: 'route' },
-    { id: 'stony-wilderness', x: 612, y: 535, w: 34, h: 28, kind: 'route' },
+    { id: 'motostoke-riverbank', x: 626, y: 639, w: 28, h: 24, kind: 'route' },
+    { id: 'bridge-field', x: 615, y: 581, w: 28, h: 24, kind: 'route' },
+    { id: 'giants-cap', x: 573, y: 506, w: 28, h: 24, kind: 'route' },
+    { id: 'dusty-bowl', x: 597, y: 516, w: 28, h: 24, kind: 'route' },
+    { id: 'lake-of-outrage', x: 558, y: 497, w: 28, h: 24, kind: 'route' },
+    { id: 'postgame-route-10-hero-path', x: 615, y: 487, w: 28, h: 24, kind: 'route' },
+    { id: 'giants-mirror', x: 617, y: 514, w: 28, h: 24, kind: 'route' },
+    { id: 'stony-wilderness', x: 615, y: 537, w: 28, h: 24, kind: 'route' },
     // — Hammerlocke (Dragon Gym) central + Route 6 west to Stow/Ballonlea —
     { id: 'hammerlocke', x: 552, y: 450, w: 80, h: 55, kind: 'city' },
     { id: 'route-6', x: 511, y: 443, w: 34, h: 28, kind: 'route' },
