@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitest/config';
+import { defineConfig, configDefaults } from 'vitest/config';
 
 // Standalone test config — deliberately NOT reusing vite.config.ts, whose
 // plugins (react fast-refresh, PWA service-worker generation) have no place in
@@ -8,5 +8,8 @@ import { defineConfig } from 'vitest/config';
 export default defineConfig({
   test: {
     include: ['src/**/*.test.{ts,tsx}'],
+    // never pick up test copies inside throwaway agent worktrees (a positional
+    // path filter would otherwise match .claude/worktrees/*/apps/web/src)
+    exclude: [...configDefaults.exclude, '**/.claude/**'],
   },
 });
