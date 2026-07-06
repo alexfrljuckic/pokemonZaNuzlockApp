@@ -5,13 +5,63 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, second wave shipped)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06 late, everything merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
 REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
+
+### Tomorrow's work queue (from Alex, 2026-07-06 night)
+
+1. **Regional-form evolution paths per game (BUG, top priority).** Alex:
+   "the starters evolution route didn't show their hisui forms" in a PLA
+   run — Dartrix offers Kanto Decidueye instead of decidueye-hisui. The
+   evolve panel derives options from PokeAPI chains, which are
+   species-level (chain node = 'decidueye'); which VARIETY a mon evolves
+   into depends on the GAME. Needs a per-game evolution-target override
+   layer in the evolve options (speciesData.ts evolutionOptionsFor /
+   resolveEvolutionTarget) or in generated data, covering at least:
+   - PLA: dartrix→decidueye-hisui, quilava→typhlosion-hisui,
+     dewott→samurott-hisui, petilil→lilligant-hisui,
+     rufflet→braviary-hisui, goomy→sliggoo-hisui→goodra-hisui,
+     bergmite→avalugg-hisui; plus the new-species evolutions
+     scyther→kleavor, stantler→wyrdeer, ursaring→ursaluna,
+     qwilfish-hisui→overqwil, sneasel-hisui→sneasler,
+     basculin-white-striped→basculegion (verify PokeAPI chains carry
+     these; suffixed parents may already resolve).
+   - SwSh: koffing→weezing-galar (Galar-only!), plus verify the galar
+     lines resolve (meowth-galar→perrserker, yamask-galar→runerigus,
+     farfetchd-galar→sirfetchd, corsola-galar→cursola,
+     mr-mime-galar→mr-rime, linoone-galar→obstagoon,
+     darumaka-galar→darmanitan-galar-standard,
+     slowpoke-galar→slowbro-galar/slowking-galar via Galarica items).
+   - LGPE/SV/BDSP/Z-A: sweep for the same class (e.g. LGPE Alolan trade
+     mons evolving into Alolan finals: rattata-alola→raticate-alola etc.;
+     Z-A hyperspace hisui/galar mons). Research from Bulbapedia per game;
+     tests pin at least PLA starters + koffing (swsh).
+   Alex ALSO saw this on mobile — same bug, both form factors.
+2. **"Weird bug" from Alex's mobile screenshot (needs a repro chat).**
+   Screenshot shows a Sword run: encounter pool tiles incl. a `max-raid`
+   Flygon, the new level-validation error, and **"Giant's Mirror — 0
+   available"** in Other areas. Most likely culprit: giants-mirror
+   (added in #155) has ONE slot, Shield-locked corsola-galar, so Sword
+   runs see a permanently-0 area that can't be resolved or skipped
+   (hasDocumentedEncounters is version-aware → "No wild encounters
+   documented here", no skip button). Fix candidates: hide areas whose
+   documented pool is empty FOR THE RUN'S VERSION, or give the
+   no-encounters panel a skip; plus flesh out giants-mirror's table.
+   Confirm with Alex that this is what he meant.
+3. Then the standing pool below (audit judgment calls, optional pool).
+
+**Shipped 2026-07-06 third wave (#160, #162, #163):** #160 Vercel Speed
+Insights (bot PR, evaluated + merged — correct Vite/React integration,
+CSP additions are dev-script-only, prod script is same-origin; free
+Hobby tier per COSTS policy); #163 compact sign-in card (desktop = one
+~195px horizontal band, phones = buttons + "Why sign in?" details
+collapse — Alex: never push the app down the page); #162 backlog
+reconcile.
 
 **Shipped 2026-07-06 second wave (#153–#159, #161, all merged + deployed):**
 - **#153** PLA picker tile mascot kleavor → arceus.
