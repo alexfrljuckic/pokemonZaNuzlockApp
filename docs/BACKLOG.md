@@ -5,7 +5,7 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06 late, everything merged)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, fourth wave #166–#175 merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
@@ -13,47 +13,76 @@ REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
 
-### Tomorrow's work queue (from Alex, 2026-07-06 night)
+### Tomorrow's work queue (from Alex, 2026-07-06 night) — items 1 & 2 SHIPPED
 
-1. **Regional-form evolution paths per game (BUG, top priority).** Alex:
-   "the starters evolution route didn't show their hisui forms" in a PLA
-   run — Dartrix offers Kanto Decidueye instead of decidueye-hisui. The
-   evolve panel derives options from PokeAPI chains, which are
-   species-level (chain node = 'decidueye'); which VARIETY a mon evolves
-   into depends on the GAME. Needs a per-game evolution-target override
-   layer in the evolve options (speciesData.ts evolutionOptionsFor /
-   resolveEvolutionTarget) or in generated data, covering at least:
-   - PLA: dartrix→decidueye-hisui, quilava→typhlosion-hisui,
-     dewott→samurott-hisui, petilil→lilligant-hisui,
-     rufflet→braviary-hisui, goomy→sliggoo-hisui→goodra-hisui,
-     bergmite→avalugg-hisui; plus the new-species evolutions
-     scyther→kleavor, stantler→wyrdeer, ursaring→ursaluna,
-     qwilfish-hisui→overqwil, sneasel-hisui→sneasler,
-     basculin-white-striped→basculegion (verify PokeAPI chains carry
-     these; suffixed parents may already resolve).
-   - SwSh: koffing→weezing-galar (Galar-only!), plus verify the galar
-     lines resolve (meowth-galar→perrserker, yamask-galar→runerigus,
-     farfetchd-galar→sirfetchd, corsola-galar→cursola,
-     mr-mime-galar→mr-rime, linoone-galar→obstagoon,
-     darumaka-galar→darmanitan-galar-standard,
-     slowpoke-galar→slowbro-galar/slowking-galar via Galarica items).
-   - LGPE/SV/BDSP/Z-A: sweep for the same class (e.g. LGPE Alolan trade
-     mons evolving into Alolan finals: rattata-alola→raticate-alola etc.;
-     Z-A hyperspace hisui/galar mons). Research from Bulbapedia per game;
-     tests pin at least PLA starters + koffing (swsh).
-   Alex ALSO saw this on mobile — same bug, both form factors.
-2. **"Weird bug" from Alex's mobile screenshot (needs a repro chat).**
-   Screenshot shows a Sword run: encounter pool tiles incl. a `max-raid`
-   Flygon, the new level-validation error, and **"Giant's Mirror — 0
-   available"** in Other areas. Most likely culprit: giants-mirror
-   (added in #155) has ONE slot, Shield-locked corsola-galar, so Sword
-   runs see a permanently-0 area that can't be resolved or skipped
-   (hasDocumentedEncounters is version-aware → "No wild encounters
-   documented here", no skip button). Fix candidates: hide areas whose
-   documented pool is empty FOR THE RUN'S VERSION, or give the
-   no-encounters panel a skip; plus flesh out giants-mirror's table.
-   Confirm with Alex that this is what he meant.
+1. **Regional-form evolution paths per game — SHIPPED (#167).** Per-game
+   evolution-target override layer (`apps/web/src/lib/evolutionOverrides.ts`;
+   `evolutionOptionsFor(species, level, gameId)`). PLA starters
+   dartrix→decidueye-hisui / quilava→typhlosion-hisui / dewott→samurott-hisui
+   are INJECTED — the mid-stages aren't in any encounter pool so they had NO
+   evolution row at all (that's why the panel showed nothing, not Kanto
+   Decidueye). Plus petilil/rufflet/goomy/bergmite Hisui lines; SwSh
+   koffing→weezing-galar + darumaka-galar. Every other regional line
+   (new-species Hisui evos, Galar cross-gen, LGPE/SV/BDSP/Z-A) was verified to
+   already resolve correctly — no bogus overrides added. Tests pin PLA
+   starters + koffing. (The "still broken in prod" report was a stale cached
+   bundle — a hard refresh shows the fix; verified the live bundle carries it.)
+2. **Giant's Mirror "0 available" dead area — SHIPPED (#166).** Chose to HIDE
+   version-dead areas over adding a skip button. New engine
+   `isVersionDeadArea` / `areasForVersion`: an area that DOCUMENTS encounters
+   but has every slot locked to the OTHER version is dropped for the run's
+   version (Sword no longer sees the Shield-only Giant's Mirror; Shield still
+   does). Towns/item-stops (zero documented encounters) and fully-resolved
+   areas stay visible. Engine tests pin both directions. giants-mirror's table
+   left minimal (still just corsola-galar) — optional to flesh out.
 3. Then the standing pool below (audit judgment calls, optional pool).
+
+**Shipped 2026-07-06 fourth wave (#166–#175, all merged + deployed):** a
+10-PR parallel-agent batch — each built in its own git worktree, merged only
+on green CI (tests + validate:datasets).
+- **#166 Giant's Mirror** version-dead-area hide (item 2 above).
+- **#167 per-game evolution targets** (item 1 above).
+- **#168 bundle code-splitting**: `vite.config` manualChunks splits vendors
+  (react; supabase, gated on sync-on) and generated data (species-data /
+  game-data / dataset-meta) out of the app chunk — main app code 2,794 kB →
+  147 kB (gzip 460 → 43 kB). species-data.json is one 2 MB JSON module so it
+  still trips the 500 kB warning ALONE; fully clearing it needs a dynamic
+  import of `speciesData.ts`'s static import (deferred, owned-file at the time).
+- **#169 trainer movesets**: centralized `resolveTrainerMoves(mon, gameId)` →
+  confirmed | expected (last-4 level-up ≤ level, labelled) | unknown (Z-A has
+  no PokeAPI move data → "not documented", never invented). Hardened the
+  `?? []` empty-array trap. No phantom bug — normal-trainer fallback was
+  already wired; every mon in the 4 games with trainers resolves.
+- **#170 Stats panels**: catch-rate-by-area (per-area outcome bars + run
+  roll-up + cross-run aggregate) and time-in-run (total duration + per-boss
+  bars, timestamp-null-tolerant). New engine selectors in `selectors.ts`.
+- **#171 trainer sprites**: generic inline-SVG silhouette fallback (local,
+  themeable, offline/CSP-safe, no error loop) so every trainer shows SOMETHING;
+  audited all 85 dataset trainer classes, aliased ~15 more to real Showdown
+  sprites (Coach/Gym Trainer→acetrainer, grunts, Fisher→fisherman, …).
+- **#172 special-condition evolution labels**: real conditions instead of
+  "(special condition)" — data-derived (friendship/time/knownMove/location/
+  held-item) + curated `evolutionConditions.ts` (Bulbapedia-cited): feebas
+  (per-game), sylveon, inkay, pancham, tyrogue 3-way, mantyke, sliggoo(-hisui),
+  toxel, milcery, applin, clamperl, karrablast/shelmet, white-striped basculin,
+  + more. Left on fallback: sneasel→weavile / gligar→gliscor show just "holding
+  Razor Claw" (item right; night qualifier not appended in the held-item branch).
+- **#173 Team/Box full-width rows**: reflowed the wrapping grid (which
+  mis-spaced on expand) into vertically-stacked full-width rows like the boss
+  cards; expanding grows in place. Team/Box/Graveyard stay SEPARATE stacked
+  sections (never side-by-side — Alex's standing preference).
+- **#174 URL routing** (Alex request): extended the hand-rolled hash router
+  (no dependency) — `#run/<runId>/<tab>`, `#share/<token>/<tab>`, `#u/<handle>`;
+  tab slugs routes/team/bosses/rules/stats are a STABLE contract (`lib/route.ts`,
+  pure + tested). Browser back/forward across tabs, refresh-stays-on-tab,
+  spectator tab deep-links, missing-run guard (no white-screen), OAuth hash
+  untouched. Deferred: cross-run "Your Stats" + New Game picker left as
+  non-URL local state (could add `#stats`/`#new` later).
+- **#175 Team/Box card tweaks** (Alex feedback on #173): condensed row shows
+  MOVES (type-dotted chips) instead of the stat spark; the WHOLE row toggles
+  expand (head stays the keyboard button; action buttons stopPropagation);
+  expanded StatBars put the numeric value BEFORE the bar and colour-grade the
+  fill by value — <60 red, 60–99 yellow, 100+ green (Alex OK'd the range).
 
 **Shipped 2026-07-06 third wave (#160, #162, #163):** #160 Vercel Speed
 Insights (bot PR, evaluated + merged — correct Vite/React integration,
@@ -162,12 +191,16 @@ Security follow-ups (docs/SECURITY-AUDIT.md): L4 realtime private
 channels if ever adopted; dev-dependency major-bump pass (npm audit is
 all dev-only).
 
-Also still in the optional pool: catch-rate-by-zone / time-in-run stats
-panels, code-splitting the 2.7 MB bundle (chunk warning in build), Z-A
-movepool hand-curation, sync seq-collision (out of MVP), Z-A hyperspace
-standalone evolutions (perrserker / mr-rime / overqwil — same Serebii
-pages as #155's adds), fuller giants-mirror encounter table (ships with
-only corsola-galar).
+Also still in the optional pool (catch-rate-by-zone + time-in-run SHIPPED
+#170; bundle code-splitting SHIPPED #168 — but species-data.json alone
+still trips the 500 kB warning): Z-A movepool hand-curation, sync
+seq-collision (out of MVP), Z-A hyperspace standalone evolutions
+(perrserker / mr-rime / overqwil — same Serebii pages as #155's adds),
+fuller giants-mirror encounter table (ships with only corsola-galar).
+Fourth-wave follow-ups worth a look: dynamic-import species-data.json to
+clear the chunk warning; `#stats`/`#new` URL routes (cross-run Stats + New
+Game picker are still non-URL local state); sneasel→weavile / gligar→gliscor
+evolution label should append the night qualifier in the held-item branch.
 
 ## Shipped 2026-07-05 session, wave 2 (#121–#137)
 
