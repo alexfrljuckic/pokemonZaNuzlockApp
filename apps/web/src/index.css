@@ -1614,37 +1614,46 @@ input[aria-invalid='true'] {
 .auth-bar button { margin-top: 0; padding: 0.25rem 0.6rem; font-size: 0.8rem; }
 .auth-error { color: var(--danger); font-size: 0.8rem; display: block; margin-top: 0.5rem; }
 
-/* Signed-out sign-in card: the value prop (sync / share / follow), then the
-   OAuth provider buttons. Renders only when VITE_OAUTH_PROVIDERS is set. */
-/* Compact by design: a full-width horizontal band on desktop, a slim
-   buttons-first block on phones (benefits behind "Why sign in?") — it must
-   never push the app itself below the fold. */
-.auth-card {
-  margin: 0 0 1.5rem;
-  padding: 0.85rem 1.1rem;
+/* Signed-out sign-in: zero page footprint — one small trigger, and the value
+   prop (sync / share / follow) + provider buttons live in a dialog popover
+   anchored to it (desktop and phones alike; the panel caps to the viewport).
+   Renders only when VITE_OAUTH_PROVIDERS is set. */
+.auth-popover {
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+.auth-signin-trigger {
+  margin-top: 0;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+}
+.auth-signin-hint {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: none;
+  font-weight: 400;
+}
+.auth-popover-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 40;
+  width: min(340px, calc(100vw - 2rem));
+  padding: 1rem 1.1rem 0.9rem;
   background:
     linear-gradient(150deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 45%),
-    var(--bg-inset);
+    var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  animation: fadeUp 0.4s ease both;
-}
-.auth-card-main {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem 2rem;
-}
-.auth-card-pitch {
-  flex: 1 1 300px;
-  min-width: 0;
-}
-.auth-card-cta {
-  flex: 0 1 300px;
-  min-width: 240px;
+  box-shadow: var(--shadow-lift);
+  animation: fadeUp 0.18s ease both;
 }
 .auth-card-title {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.7rem;
   font-size: 1.02rem;
   font-weight: 800;
   font-style: italic;
@@ -1653,32 +1662,11 @@ input[aria-invalid='true'] {
 }
 .auth-benefits {
   list-style: none;
-  margin: 0;
+  margin: 0 0 0.9rem;
   padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-}
-/* desktop: the three benefits sit in one row inside the band */
-@media (min-width: 900px) {
-  .auth-benefits {
-    flex-direction: row;
-    gap: 1.5rem;
-  }
-  .auth-benefits li {
-    flex: 1 1 0;
-  }
-}
-.auth-benefits-details summary {
-  cursor: pointer;
-  color: var(--muted);
-  font-size: 0.82rem;
-}
-.auth-benefits-details summary:hover {
-  color: var(--text);
-}
-.auth-benefits-details[open] summary {
-  margin-bottom: 0.5rem;
 }
 .auth-benefits li {
   display: flex;
@@ -1719,7 +1707,7 @@ input[aria-invalid='true'] {
 }
 .auth-provider-btn svg { flex: none; }
 .auth-card-footnote {
-  margin: 0.45rem 0 0;
+  margin: 0.7rem 0 0;
   font-size: 0.74rem;
 }
 

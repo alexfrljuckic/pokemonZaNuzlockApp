@@ -1,21 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useAuth } from '../lib/useAuth';
 import { OAUTH_PROVIDERS, type OAuthProvider } from '../lib/env';
-
-/** Tracks a media query; guarded so node-side test renders default to the
- * wide (fully expanded) variant. */
-function useIsNarrow(query = '(max-width: 899px)') {
-  const [narrow, setNarrow] = useState(
-    () => typeof window !== 'undefined' && 'matchMedia' in window && window.matchMedia(query).matches,
-  );
-  useEffect(() => {
-    const mq = window.matchMedia(query);
-    const onChange = () => setNarrow(mq.matches);
-    mq.addEventListener('change', onChange);
-    return () => mq.removeEventListener('change', onChange);
-  }, [query]);
-  return narrow;
-}
+import { usePopoverDialog } from '../components/usePopoverDialog';
 
 const PROVIDER_LABEL: Record<OAuthProvider, string> = {
   google: 'Google',
@@ -91,7 +77,11 @@ const BENEFITS: { icon: JSX.Element; title: string; desc: string }[] = [
 export function AuthBar() {
   const { session, loading, available, signInWithProvider, signOut } = useAuth();
   const [error, setError] = useState<string | null>(null);
-  const narrow = useIsNarrow();
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  usePopoverDialog(open, () => setOpen(false), { root: rootRef, panel: panelRef, trigger: triggerRef });
 
   if (!available || loading) return null;
 
@@ -129,38 +119,37 @@ export function AuthBar() {
     if (oauthError) setError(oauthError.message);
   }
 
-  const benefits = (
-    <ul className="auth-benefits">
-      {BENEFITS.map((b) => (
-        <li key={b.title}>
-          <span className="auth-benefit-icon">{b.icon}</span>
-          <span>
-            <strong>{b.title}</strong>
-            <span className="muted auth-benefit-desc">{b.desc}</span>
-          </span>
-        </li>
-      ))}
-    </ul>
-  );
-
-  // Compact by design (Alex: don't push the app down the page): one
-  // horizontal band on desktop; on phones the benefits collapse behind
-  // "Why sign in?" so the buttons stay one slim block.
+  // Zero page footprint (Alex): the pitch + provider buttons live in a
+  // dialog popover behind one small trigger, on every screen size — the
+  // panel just caps to the viewport width on phones.
   return (
-    <section className="auth-card" aria-label="Sign in">
-      <div className="auth-card-main">
-        <div className="auth-card-pitch">
+    <div className="auth-popover" ref={rootRef}>
+      <button
+        ref={triggerRef}
+        type="button"
+        className="secondary auth-signin-trigger"
+        aria-expanded={open}
+        aria-haspopup="dialog"
+        onClick={() => setOpen((v) => !v)}
+      >
+        Sign in
+        <span className="auth-signin-hint">sync · share · follow</span>
+      </button>
+
+      {open && (
+        <div ref={panelRef} className="auth-popover-panel" role="dialog" aria-modal="true" aria-label="Sign in">
           <h3 className="auth-card-title">Take your run everywhere</h3>
-          {narrow ? (
-            <details className="auth-benefits-details">
-              <summary>Why sign in?</summary>
-              {benefits}
-            </details>
-          ) : (
-            benefits
-          )}
-        </div>
-        <div className="auth-card-cta">
+          <ul className="auth-benefits">
+            {BENEFITS.map((b) => (
+              <li key={b.title}>
+                <span className="auth-benefit-icon">{b.icon}</span>
+                <span>
+                  <strong>{b.title}</strong>
+                  <span className="muted auth-benefit-desc">{b.desc}</span>
+                </span>
+              </li>
+            ))}
+          </ul>
           <div className="auth-providers">
             {OAUTH_PROVIDERS.map((provider) => (
               <button
@@ -176,13 +165,13 @@ export function AuthBar() {
           <p className="muted auth-card-footnote">
             Free — and everything keeps working on this device without an account.
           </p>
+          {error && (
+            <span className="auth-error" role="alert">
+              {error}
+            </span>
+          )}
         </div>
-      </div>
-      {error && (
-        <span className="auth-error" role="alert">
-          {error}
-        </span>
       )}
-    </section>
+    </div>
   );
 }
