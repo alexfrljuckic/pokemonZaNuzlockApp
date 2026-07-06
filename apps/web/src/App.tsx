@@ -3,21 +3,13 @@ import { SpeedInsights } from '@vercel/speed-insights/react';
 import { listRuns, type RunSummary } from './lib/db';
 import { SYNC_ENABLED } from './lib/env';
 import { pullAllRuns } from './lib/sync';
-import {
-  applyTheme,
-  applyThemeExplicit,
-  currentTheme,
-  THEME_CHANGE_EVENT,
-  type ThemeId,
-} from './lib/theme';
-import { THEMES } from './games';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
 import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
-import { ProfileSetup } from './components/ProfileSetup';
+import { SettingsMenu } from './screens/SettingsMenu';
 import { FollowFeed } from './components/FollowFeed';
 import { TrainerSearch } from './components/TrainerSearch';
 import { RunView } from './screens/RunView';
@@ -48,35 +40,6 @@ function navigate(route: Route, mode: 'push' | 'replace' = 'push') {
   // pushState/replaceState never fire hashchange; dispatch one so the single
   // listener in App re-derives the route. (Back/Forward DO fire it natively.)
   window.dispatchEvent(new Event('hashchange'));
-}
-
-function ThemePicker() {
-  const [theme, setTheme] = useState<ThemeId>(currentTheme);
-
-  useEffect(() => {
-    // Apply the stored theme once on load. Opening/creating a run may later
-    // switch to that game's version theme (unless the user has chosen one
-    // explicitly) — reflect any such change in the dropdown's displayed value.
-    applyTheme(currentTheme());
-    const onThemeChange = (e: Event) => setTheme((e as CustomEvent<ThemeId>).detail);
-    window.addEventListener(THEME_CHANGE_EVENT, onThemeChange);
-    return () => window.removeEventListener(THEME_CHANGE_EVENT, onThemeChange);
-  }, []);
-
-  return (
-    <select
-      className="theme-select"
-      value={theme}
-      onChange={(e) => applyThemeExplicit(e.target.value as ThemeId)}
-      aria-label="Color theme"
-    >
-      {THEMES.map((t) => (
-        <option key={t.id} value={t.id}>
-          {t.name}
-        </option>
-      ))}
-    </select>
-  );
 }
 
 export default function App() {
@@ -119,7 +82,7 @@ export default function App() {
             </button>
             <h1>Nuzlocke Tracker</h1>
           </div>
-          <ThemePicker />
+          <SettingsMenu session={null} />
         </div>
         {route.screen === 'share' ? (
           <SpectatorView
@@ -221,26 +184,28 @@ function OwnerApp({ route }: { route: Route }) {
           {/* tabIndex -1: focus target for the read-only route's back button */}
           <h1 tabIndex={-1}>Nuzlocke Tracker</h1>
         </div>
-        <ThemePicker />
+        <SettingsMenu session={session} />
       </div>
-      {/* Reflects actual sync state, not just the env flag: sync only happens
-          when the deployment has credentials AND the user is signed in.
-          role="status" announces sync-state changes to screen readers. */}
-      {!SYNC_ENABLED ? (
-        <span className="sync-badge" role="status">
-          Local only
-        </span>
-      ) : session ? (
-        <span className="sync-badge sync-on" role="status">
-          ● Syncing
-        </span>
-      ) : (
-        <span className="sync-badge sync-wait" role="status">
-          ○ Sign in to sync
-        </span>
-      )}
-      <AuthBar />
-      <ProfileSetup session={session} />
+      {/* Clean status-only account bar: sync state + identity. All the actions
+          (theme, sign out, profile setup/delete) live in the SettingsMenu cog,
+          so nothing here is a mismatched button. role="status" announces sync
+          changes; reflects ACTUAL sync state, not just the env flag. */}
+      <div className="account-bar">
+        {!SYNC_ENABLED ? (
+          <span className="sync-badge" role="status">
+            Local only
+          </span>
+        ) : session ? (
+          <span className="sync-badge sync-on" role="status">
+            ● Syncing
+          </span>
+        ) : (
+          <span className="sync-badge sync-wait" role="status">
+            ○ Sign in to sync
+          </span>
+        )}
+        <AuthBar />
+      </div>
 
       {/* Boundary around the whole content area so one broken run (or screen)
           can never white-screen the app — the fallback offers "back to runs"
