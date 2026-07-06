@@ -5,7 +5,7 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, fourth wave #166–#175 merged)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–5 #166–#181 merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
@@ -83,6 +83,22 @@ on green CI (tests + validate:datasets).
   expand (head stays the keyboard button; action buttons stopPropagation);
   expanded StatBars put the numeric value BEFORE the bar and colour-grade the
   fill by value — <60 red, 60–99 yellow, 100+ green (Alex OK'd the range).
+
+**Shipped 2026-07-06 fifth wave (#176–#181, all merged + deployed):**
+- **#176** backlog reconcile (fourth wave).
+- **#177** whole-card hover on Team/Box (matches boss rows) + next-boss
+  picker gated to open-order games via new `openBossOrder` GameAppConfig
+  flag (SV only; BDSP/LGPE/SwSh/PLA/Z-A follow dataset order) + restyled the
+  button into an accent pill.
+- **#178** Z-A hyperspace cross-gen evolutions (meowth-galar→perrserker
+  etc., no spurious Kanto options) + "at night" qualifier on Sneasel/Gligar
+  Razor-Claw/Fang labels.
+- **#179** `#stats` / `#new` hash routes (cross-run Stats + New Game picker
+  now deep-linkable; finishes the #174 routing).
+- **#180** web workspace fully `tsc --noEmit` clean (MonCard.test fixture
+  `origin`; speciesData JSON cast via `unknown`).
+- **#181** route map legend (Up next · Available · Caught · Fled/fainted ·
+  Skipped), inside RouteMap for spectator parity — UX-audit item done.
 
 **Shipped 2026-07-06 third wave (#160, #162, #163):** #160 Vercel Speed
 Insights (bot PR, evaluated + merged — correct Vite/React integration,
@@ -177,13 +193,18 @@ supabase` (global npm install disabled on Windows).
 
 ## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0/NF-*/P1/P2 mechanical: ALL DONE)
 
-Two judgment calls remain (need a product decision, not code):
+- **Frontier map legend — SHIPPED (#181).** The route map now carries a
+  legend (Up next · Available · ✓ Caught · ✕ Fled/fainted · – Skipped),
+  inside RouteMap so spectator view gets it too; verified live.
+- **Next-boss pin discoverability — partly addressed.** #177 gated the
+  "fight this next" pin to open-order games only (SV) and restyled it; the
+  level cap + next boss already surface in RunSummaryStrip. No further work
+  unless Alex wants the pin more prominent for SV.
+
+One judgment call still needs a product decision (not code):
 - **Graveyard has two homes** (Team & Box interactive cards vs Stats
   death-cause list) — audit says pick one; both carry info the other
-  lacks, so decide before cutting.
-- **Next-boss pin discoverability + frontier map legend** — the pin is
-  buried in an expanded boss card; the pulsing "up next" map highlight
-  has no legend.
+  lacks, so Alex should decide before cutting.
 Plus one manual check for Alex: SharePopover's new focus trap needs
 sync + a session, which local previews lack — one click on prod.
 
