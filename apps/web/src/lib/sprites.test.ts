@@ -28,7 +28,7 @@ describe('spriteUrl species alias', () => {
 describe('trainerKeyFromClass', () => {
   it('squashes multi-word classes', () => {
     expect(trainerKeyFromClass('Ace Trainer')).toBe('acetrainer');
-    expect(trainerKeyFromClass('Coach Trainer')).toBe('coachtrainer');
+    expect(trainerKeyFromClass('Bug Catcher')).toBe('bugcatcher');
   });
 
   it('strips diacritics (Pokéfan → pokefan)', () => {
@@ -39,6 +39,33 @@ describe('trainerKeyFromClass', () => {
   it('passes simple classes through lowercased', () => {
     expect(trainerKeyFromClass('Youngster')).toBe('youngster');
     expect(trainerKeyFromClass('Lass')).toBe('lass');
+  });
+
+  it('remaps classes whose squashed name has no Showdown sprite to a real key', () => {
+    // Every target below returns 200 on the Showdown trainers CDN.
+    expect(trainerKeyFromClass('Coach Trainer')).toBe('acetrainer');
+    expect(trainerKeyFromClass('Gym Trainer')).toBe('acetrainer');
+    expect(trainerKeyFromClass('Student')).toBe('schoolkid');
+    expect(trainerKeyFromClass('Fisher')).toBe('fisherman');
+    expect(trainerKeyFromClass('Rocker')).toBe('guitarist');
+    expect(trainerKeyFromClass('Police Officer')).toBe('policeman');
+    expect(trainerKeyFromClass('Daring Couple')).toBe('youngcouple');
+    expect(trainerKeyFromClass('Medical Team')).toBe('doctor');
+  });
+
+  it('strips the dataset "Team" prefix from grunt classes', () => {
+    expect(trainerKeyFromClass('Team Galactic Grunt')).toBe('galacticgrunt');
+    expect(trainerKeyFromClass('Team Rocket Grunt')).toBe('rocketgrunt');
+    expect(trainerKeyFromClass('Team Yell Grunt')).toBe('yellgrunt');
+    expect(trainerKeyFromClass('Team Yell Grunts')).toBe('yellgrunt');
+  });
+
+  it('leaves classes with no reasonable match to squash (→ generic fallback)', () => {
+    // These have no Showdown sprite; TrainerSprite renders the generic
+    // silhouette for them rather than pointing at a guessed 404 URL.
+    expect(trainerKeyFromClass('Commander')).toBe('commander');
+    expect(trainerKeyFromClass('Engineer')).toBe('engineer');
+    expect(trainerKeyFromClass('Gamer')).toBe('gamer');
   });
 });
 
