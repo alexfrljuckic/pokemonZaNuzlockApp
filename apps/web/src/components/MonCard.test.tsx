@@ -16,6 +16,7 @@ const mon: PokemonInstance = {
   heldItem: 'oran-berry',
   nature: 'Modest',
   moves: ['tackle', 'vine-whip'],
+  origin: { areaId: 'route-201' },
 };
 
 async function render(node: React.ReactElement) {

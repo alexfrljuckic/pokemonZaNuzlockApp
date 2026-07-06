@@ -30,7 +30,10 @@ interface SpeciesData {
   heldItems: string[];
 }
 
-const data = raw as SpeciesData;
+// generated JSON widens tuple/record types (e.g. levelUpMovesByGame entries
+// read as (string|number)[][] not [string, number][]); the shape is correct by
+// construction, so cast through unknown rather than fight the inferred JSON type
+const data = raw as unknown as SpeciesData;
 
 export const HELD_ITEMS: string[] = data.heldItems;
 
