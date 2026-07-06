@@ -9,11 +9,14 @@ import { TrainerSprite } from './TrainerSprite';
 import { TypeBadges } from './TypeBadge';
 import { WeaknessRow } from './WeaknessRow';
 
-/** Expandable boss-fight card: trainer sprite, roster strip, and full per-mon
- * detail (weaknesses, moves, stat bars) when expanded.
+/** Expandable boss-fight row: one full-width horizontal card — trainer sprite
+ * and title left, roster strip center, status + Defeated button right — with
+ * full per-mon detail (weaknesses, moves, stat bars) below when expanded.
+ * Full-width rows keep the tab organized no matter how many are open at once
+ * (grid cards used to reflow around each expanded one).
  *
- * Read-only mode (SpectatorView): omit onClear — the Clear button disappears,
- * everything else renders identically. */
+ * Read-only mode (SpectatorView): omit onClear — the Defeated button
+ * disappears, everything else renders identically. */
 export function MilestoneCard({
   milestone,
   roster,
@@ -50,38 +53,56 @@ export function MilestoneCard({
         }
       }}
     >
-      <div className="milestone-card-head">
-        <TrainerSprite
-          trainerKey={milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)}
-          size={60}
-          className="milestone-trainer-sprite"
-        />
-        <div className="milestone-card-title">
-          <strong>{milestone.name}</strong>
-          <span className="muted">
-            {milestone.type}
-            {milestone.aceLevel != null ? ` · ace Lv ${milestone.aceLevel}` : ''}
-          </span>
-        </div>
-        {cleared && <span className="milestone-cleared-badge">✓ cleared</span>}
-        {!cleared && isNext && (
-          <span className="milestone-next-badge">{isPinnedNext ? '◎ next (your pick)' : '◎ next'}</span>
-        )}
-      </div>
-
-      {hasRoster ? (
-        <div className="milestone-roster-row">
-          {roster.map((p, i) => (
-            <span key={`${p.species}-${i}`} className="milestone-roster-mon">
-              <SpriteImg species={p.species} size={64} />
-              <span className="milestone-roster-lv muted">Lv{p.level}</span>
-              <TypeBadges types={typesFor(p.species)} />
+      <div className="milestone-card-main">
+        <div className="milestone-card-head">
+          <TrainerSprite
+            trainerKey={milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)}
+            size={60}
+            className="milestone-trainer-sprite"
+          />
+          <div className="milestone-card-title">
+            <strong>{milestone.name}</strong>
+            <span className="muted">
+              {milestone.type}
+              {milestone.aceLevel != null ? ` · ace Lv ${milestone.aceLevel}` : ''}
             </span>
-          ))}
+          </div>
         </div>
-      ) : milestone.aceLevel != null ? (
-        <p className="muted milestone-roster-fallback">Ace Lv {milestone.aceLevel} · full team not documented</p>
-      ) : null}
+
+        {hasRoster ? (
+          <div className="milestone-roster-row">
+            {roster.map((p, i) => (
+              <span key={`${p.species}-${i}`} className="milestone-roster-mon">
+                <SpriteImg species={p.species} size={64} />
+                <span className="milestone-roster-lv muted">Lv{p.level}</span>
+                <TypeBadges types={typesFor(p.species)} />
+              </span>
+            ))}
+          </div>
+        ) : milestone.aceLevel != null ? (
+          <p className="muted milestone-roster-fallback">Ace Lv {milestone.aceLevel} · full team not documented</p>
+        ) : null}
+
+        <div className="milestone-card-side">
+          {cleared && <span className="milestone-cleared-badge">✓ defeated</span>}
+          {!cleared && isNext && (
+            <span className="milestone-next-badge">{isPinnedNext ? '◎ next (your pick)' : '◎ next'}</span>
+          )}
+          {/* always-visible defeat action — no need to expand the card first */}
+          {!cleared && onClear && (
+            <button
+              className={isNext ? '' : 'secondary'}
+              aria-label={`Mark ${milestone.name} defeated`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onClear();
+              }}
+            >
+              Defeated
+            </button>
+          )}
+        </div>
+      </div>
 
       {expanded && (
         <div className="milestone-card-detail">
@@ -113,32 +134,19 @@ export function MilestoneCard({
             <p className="muted">No full roster documented for this milestone yet.</p>
           )}
           {milestone.grants?.reviveTokens ? (
-            <p className="muted">Grants {milestone.grants.reviveTokens} revive token(s) on clear.</p>
+            <p className="muted">Grants {milestone.grants.reviveTokens} revive token(s) when defeated.</p>
           ) : null}
-          {!cleared && (onClear || onSetNext) && (
+          {!cleared && onSetNext && (
             <div className="milestone-card-actions">
-              {onClear && (
-                <button
-                  className={isNext ? '' : 'secondary'}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onClear();
-                  }}
-                >
-                  Clear
-                </button>
-              )}
-              {onSetNext && (
-                <button
-                  className="secondary"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    onSetNext();
-                  }}
-                >
-                  {isPinnedNext ? 'Unpin — follow suggested order' : 'Fight this next (sets level cap)'}
-                </button>
-              )}
+              <button
+                className="secondary"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  onSetNext();
+                }}
+              >
+                {isPinnedNext ? 'Unpin — follow suggested order' : 'Fight this next (sets level cap)'}
+              </button>
             </div>
           )}
         </div>
