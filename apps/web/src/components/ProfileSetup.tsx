@@ -57,7 +57,7 @@ export function ProfileSetup({ session }: { session: Session | null }) {
           {!confirmingDelete && (
             <>
               {' · '}
-              <button className="secondary" onClick={() => setConfirmingDelete(true)}>
+              <button className="secondary link-danger" onClick={() => setConfirmingDelete(true)}>
                 Delete profile
               </button>
             </>
@@ -69,7 +69,13 @@ export function ProfileSetup({ session }: { session: Session | null }) {
             <button className="danger" disabled={deleting} onClick={handleDelete}>
               {deleting ? 'Deleting…' : 'Delete'}
             </button>{' '}
-            <button className="secondary" disabled={deleting} onClick={() => setConfirmingDelete(false)}>
+            {/* autoFocus lands keyboard users on the SAFE choice, not the destructive one */}
+            <button
+              className="secondary"
+              autoFocus
+              disabled={deleting}
+              onClick={() => setConfirmingDelete(false)}
+            >
               Cancel
             </button>
           </p>

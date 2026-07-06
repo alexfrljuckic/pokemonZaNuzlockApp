@@ -79,9 +79,12 @@ export default function App() {
   // required to view (the follow button asks for one when relevant).
   if (shareToken || profileHandle) {
     // Leave the read-only route back to the main app by clearing the hash.
+    // The React tree swaps out under the clicked button, so move focus to the
+    // main app's <h1> — otherwise keyboard focus silently drops to <body>.
     const goHome = () => {
       history.replaceState(null, '', location.pathname + location.search);
       window.dispatchEvent(new Event('hashchange'));
+      requestAnimationFrame(() => document.querySelector<HTMLElement>('.app-header h1')?.focus());
     };
     return (
       <>
@@ -152,18 +155,26 @@ function OwnerApp() {
               ←
             </button>
           )}
-          <h1>Nuzlocke Tracker</h1>
+          {/* tabIndex -1: focus target for the read-only route's back button */}
+          <h1 tabIndex={-1}>Nuzlocke Tracker</h1>
         </div>
         <ThemePicker />
       </div>
       {/* Reflects actual sync state, not just the env flag: sync only happens
-          when the deployment has credentials AND the user is signed in. */}
+          when the deployment has credentials AND the user is signed in.
+          role="status" announces sync-state changes to screen readers. */}
       {!SYNC_ENABLED ? (
-        <span className="sync-badge">Local only</span>
+        <span className="sync-badge" role="status">
+          Local only
+        </span>
       ) : session ? (
-        <span className="sync-badge sync-on">● Syncing</span>
+        <span className="sync-badge sync-on" role="status">
+          ● Syncing
+        </span>
       ) : (
-        <span className="sync-badge sync-wait">○ Sign in to sync</span>
+        <span className="sync-badge sync-wait" role="status">
+          ○ Sign in to sync
+        </span>
       )}
       <AuthBar />
       <ProfileSetup session={session} />
@@ -179,9 +190,15 @@ function OwnerApp() {
             onStats={() => setScreen('stats')}
           />
           {/* Social discovery lives on the landing page — finding other trainers
-              shouldn't require opening a run. Both render nothing when signed out. */}
-          <TrainerSearch session={session} />
-          <FollowFeed session={session} />
+              shouldn't require opening a run. The wrapper only renders when the
+              children can (signed in + sync on) so signed-out users don't get an
+              empty bordered section. */}
+          {SYNC_ENABLED && session && (
+            <section className="landing-social" aria-label="Trainers and friends">
+              <TrainerSearch session={session} />
+              <FollowFeed session={session} />
+            </section>
+          )}
         </>
       ) : (
         <>
