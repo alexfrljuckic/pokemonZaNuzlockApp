@@ -7,6 +7,8 @@ export const svConfig: GameAppConfig = {
   dataset: dataset as GameDataset,
   cardColor: '#c8102e',
   map: PALDEA_MAP,
+  // gyms / titans / Team Star bases are cleared in any order the player likes
+  openBossOrder: true,
   versions: {
     scarlet: { mascot: 'koraidon', theme: { id: 'sv-scarlet', name: 'Scarlet' } },
     violet: { mascot: 'miraidon', theme: { id: 'sv-violet', name: 'Violet' } },

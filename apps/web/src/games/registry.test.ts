@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { DATASETS, GAMES, gameName } from './index';
+import { DATASETS, GAMES, gameName, openBossOrderFor } from './index';
 
 // The dataset-guard contract RunView's unsupported-run panel relies on:
 // unknown/legacy game ids must look up to undefined (and get caught by the
@@ -27,5 +27,17 @@ describe('gameName', () => {
 
   it('falls back to the raw id for unknown games (rows must still render for export/delete)', () => {
     expect(gameName('no-such-game')).toBe('no-such-game');
+  });
+});
+
+describe('openBossOrderFor', () => {
+  it('is true for open-order SV', () => {
+    expect(openBossOrderFor('sv')).toBe(true);
+  });
+
+  it('is false for linear games and unknown ids (no next-boss picker)', () => {
+    expect(openBossOrderFor('bdsp')).toBe(false);
+    expect(openBossOrderFor('lgpe')).toBe(false);
+    expect(openBossOrderFor('no-such-game')).toBe(false);
   });
 });

@@ -1142,6 +1142,33 @@ input[aria-invalid='true'] {
   gap: 0.5rem;
 }
 
+/* "fight this next" pick — a soft accent pill instead of a plain grey button
+   (open-order games only) */
+.milestone-setnext {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  border-radius: 999px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.milestone-setnext:hover {
+  background: color-mix(in srgb, var(--accent) 20%, transparent);
+  border-color: var(--accent);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.milestone-setnext.pinned {
+  background: color-mix(in srgb, var(--accent) 24%, transparent);
+  border-color: var(--accent);
+}
+
 .milestone-card-title {
   display: flex;
   flex-direction: column;
@@ -2404,7 +2431,13 @@ button.back-icon:hover:not(:disabled) {
   background: var(--bg-inset);
   overflow: hidden;
   animation: fadeUp 0.25s ease both;
-  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+/* whole card is the hover target, matching the boss-fight rows (.milestone-card) */
+.mon-card:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg-inset));
+  box-shadow: var(--shadow);
 }
 .mon-card.expanded {
   border-color: var(--highlight);
@@ -2446,10 +2479,11 @@ button.back-icon:hover:not(:disabled) {
   }
 }
 .mon-card-head:hover:not(:disabled) {
+  /* the whole card handles the hover highlight now (like boss rows); the head
+     button only needs to cancel the global button hover transform/shadow */
   transform: none;
   box-shadow: none;
   filter: none;
-  background: color-mix(in srgb, var(--accent) 9%, transparent);
 }
 .mon-card-head img,
 .mon-card-head .sprite-missing {

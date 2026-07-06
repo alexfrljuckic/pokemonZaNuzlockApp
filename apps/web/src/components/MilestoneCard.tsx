@@ -139,13 +139,14 @@ export function MilestoneCard({
           {!cleared && onSetNext && (
             <div className="milestone-card-actions">
               <button
-                className="secondary"
+                className={`milestone-setnext${isPinnedNext ? ' pinned' : ''}`}
+                title="Sets the level cap to this boss's ace"
                 onClick={(e) => {
                   e.stopPropagation();
                   onSetNext();
                 }}
               >
-                {isPinnedNext ? 'Unpin — follow suggested order' : 'Fight this next (sets level cap)'}
+                {isPinnedNext ? '◎ Pinned as next — unpin' : '◎ Fight this next'}
               </button>
             </div>
           )}
