@@ -37,4 +37,9 @@ describe('AuthBar signed-out sign-in card', () => {
   it('says the app keeps working without an account (local-first invariant)', () => {
     expect(html).toMatch(/keeps working on this device without an account/);
   });
+
+  it('renders the wide band variant outside a narrow viewport (no collapse toggle)', () => {
+    expect(html).toContain('auth-card-main'); // horizontal band structure
+    expect(html).not.toContain('Why sign in?'); // details toggle is narrow-only
+  });
 });
