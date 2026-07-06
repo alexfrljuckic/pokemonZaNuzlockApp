@@ -44,7 +44,10 @@ export interface ProfileSearchResult {
  * the search_profiles RPC exposes only public (handle, display_name) pairs. */
 export async function searchProfiles(query: string): Promise<ProfileSearchResult[]> {
   if (!supabase) return [];
-  const q = query.trim();
+  // Handles are stored without the '@', but we display them everywhere WITH it
+  // (and the input invites "@handle"), so a leading '@' the user typed must be
+  // stripped or the prefix match finds nothing.
+  const q = query.trim().replace(/^@+/, '');
   if (q.length < 2) return [];
   const { data, error } = await supabase.rpc('search_profiles', { p_query: q, p_limit: 10 });
   if (error || !data) return [];
