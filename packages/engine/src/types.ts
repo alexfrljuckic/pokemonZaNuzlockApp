@@ -112,6 +112,10 @@ export interface Milestone {
   /** Showdown trainer-sprite key when the default guess (id's last segment)
    * is wrong (e.g. rival-hop-1 → "hop"). Presentation data owned by datasets. */
   trainerSprite?: string;
+  /** When the boss IS a Pokémon (Z-A rogue-mega bosses, legendary encounters)
+   * rather than a trainer — render this species as a Pokémon sprite instead of
+   * a trainer sprite. e.g. "absol-mega". */
+  species?: string;
 }
 
 export interface MilestoneRosterMember {

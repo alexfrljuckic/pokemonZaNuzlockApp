@@ -55,11 +55,16 @@ export function MilestoneCard({
     >
       <div className="milestone-card-main">
         <div className="milestone-card-head">
-          <TrainerSprite
-            trainerKey={milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)}
-            size={60}
-            className="milestone-trainer-sprite"
-          />
+          {milestone.species ? (
+            // Pokémon boss (Z-A rogue megas etc.) — a Pokémon sprite, not a trainer.
+            <SpriteImg species={milestone.species} size={60} className="milestone-trainer-sprite" />
+          ) : (
+            <TrainerSprite
+              trainerKey={milestone.trainerSprite ?? trainerKeyFromMilestone(milestone.id)}
+              size={60}
+              className="milestone-trainer-sprite"
+            />
+          )}
           <div className="milestone-card-title">
             <strong>{milestone.name}</strong>
             <span className="muted">

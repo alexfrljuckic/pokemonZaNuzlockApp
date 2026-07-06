@@ -163,6 +163,11 @@
             "pattern": "^[a-z0-9-]+$",
             "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong — e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
           },
+          "species": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$",
+            "description": "When the boss IS a Pokémon rather than a trainer (Z-A rogue-mega bosses, legendary encounters), the species slug to render as a Pokémon sprite instead of a trainer sprite — e.g. \"absol-mega\"."
+          },
           "grants": {
             "type": "object",
             "additionalProperties": false,
