@@ -2610,3 +2610,33 @@ button.back-icon:hover:not(:disabled) {
 .follow-feed {
   margin-top: 1.5rem;
 }
+
+/* Trainer discovery search (landing page) */
+.trainer-search {
+  margin-top: 1.5rem;
+}
+.trainer-search-input {
+  max-width: 340px;
+}
+.trainer-search-results {
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.trainer-search-results li a {
+  display: block;
+  padding: 0.4rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-decoration: none;
+}
+.trainer-search-results li a:hover {
+  border-color: var(--accent);
+}
+
+.profile-delete-confirm {
+  margin-top: 0.4rem;
+}
