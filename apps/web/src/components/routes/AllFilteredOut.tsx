@@ -15,7 +15,8 @@ export function AllFilteredOut({ onSkip }: { onSkip: () => void }) {
   return (
     <div className="route-all-filtered">
       <p className="muted">
-        Every wild Pokémon here is already covered by your dupes clause — nothing left to catch.
+        Every species that lives here is already part of your run, so the dupes clause (no duplicate
+        catches) leaves nothing new to catch.
       </p>
       <button className="secondary" onClick={onSkip}>
         Skip route

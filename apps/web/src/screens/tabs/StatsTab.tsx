@@ -51,6 +51,9 @@ export function StatsTab({
         </div>
         <div className="stats-cell">
           <h3 className="chart-heading">Level-cap headroom</h3>
+          <p className="muted chart-caption">
+            How far your strongest party member sits below the next boss's level cap.
+          </p>
           <LevelCapHeadroom events={events} ctx={ctx} />
         </div>
         <div className="stats-cell">

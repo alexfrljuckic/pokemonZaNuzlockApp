@@ -23,6 +23,29 @@ export function TitleScreen({
           Your Stats
         </button>
       )}
+
+      {/* the audit's onboarding gap: nothing in the app stated the two core
+          rules. Native details/summary = collapsible with no JS. */}
+      <details className="nuzlocke-explainer">
+        <summary>New to nuzlockes?</summary>
+        <p>
+          A nuzlocke is a self-imposed challenge run with two core rules:
+        </p>
+        <ul>
+          <li>
+            <strong>One chance per route.</strong> You may only catch the <em>first</em> wild Pokémon
+            you meet in each area. Miss it, faint it, or flee — that area is done.
+          </li>
+          <li>
+            <strong>Faints are forever.</strong> A Pokémon that faints is considered dead. No revives —
+            it goes to the graveyard and never battles again.
+          </li>
+        </ul>
+        <p>
+          Everything else — level caps, no duplicate species, item bans — is optional. This tracker
+          enforces the rules it can check and keeps you honest about the rest.
+        </p>
+      </details>
     </div>
   );
 }
