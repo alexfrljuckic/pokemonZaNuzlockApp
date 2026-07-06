@@ -174,3 +174,81 @@ offer export/delete only.
 Full per-dimension finding lists (with every low-severity item) were produced by the
 four audit agents in the 2026-07-05 session and are summarized above; nothing material
 was dropped, but the long tail of sub-12px-font and micro-contrast nits lives in P2.
+
+---
+
+# Follow-up assessment — in-flight PR changes (2026-07-05, post-deploy)
+
+After the initial audit, changes shipped that touch UX surfaces: **OAuth-only sign-in**
+(#142 — magic-link email removed) and **profile discovery + fixes** (#143 — trainer
+search moved to the landing page, self-service profile delete, a back button on the
+profile/spectator route, and the get_profile not-found fix). This section evaluates those
+against the audit above and adds findings for the new surfaces (independent assessment).
+
+## What the changes did to existing findings
+
+- **P1 Onboarding "Login value-prop" — partially addressed.** OAuth buttons make signing
+  in one click instead of typing an email — the mechanical half the audit anticipated. But
+  the *copy* half is still missing: signed-out users still see only `○ Sign in to sync`
+  with no statement of what sync unlocks, and TrainerSearch/FollowFeed/ProfileSetup still
+  render nothing when signed out. Reduced, not resolved.
+- **P2 "Live regions" — partially addressed.** The auth *error* is now wrapped in
+  `role="alert"` (`AuthBar.tsx`), as the audit predicted. The sync badge still isn't in a
+  live region. Half done.
+- **P1 Mobile ".auth-bar flex-wrap" — addressed.** The signed-out bar now stacks providers
+  full-width in a 340px column (`.auth-bar-stack`).
+- **P1 Keyboard "clickable `<div>`s must be buttons" — now MORE relevant.** The public
+  profile page renders each shared-run row as `<div onClick>` (`ProfileScreen.tsx:81`) —
+  the same anti-pattern the audit flags for AreaList/RunPicker. Trainer search now routes
+  users straight into ProfileScreen, so this keyboard trap is more reachable. Add
+  ProfileScreen rows to that finding's list.
+- **Two gaps the original audit did NOT list are now closed:** back-navigation from the
+  profile/spectator route (a real dead end before), and trainer discovery (no way to find
+  a profile without knowing its exact handle). Credit, not resolutions.
+
+## New findings on the new surfaces
+
+### High
+
+- **NF-H1 — OAuth-only can dead-end sign-in with no recovery.** With email removed, if
+  `VITE_OAUTH_PROVIDERS` is unset/misconfigured in a deploy, a signed-out user sees the
+  `○ Sign in to sync` badge but the auth bar renders `null` — **no control to sign in at
+  all** (`AuthBar.tsx`, the `OAUTH_PROVIDERS.length === 0` early return). Email used to be
+  an always-available fallback; now one missing env var silently bricks auth with no
+  on-screen diagnostic. Fix: when signed out with zero providers, render a visible
+  "sign-in temporarily unavailable" fallback and/or stop presenting the sync badge as
+  actionable; log a dev warning. (Flip side of the same env-gating that caused the earlier
+  prod crash — treat providers-empty as a real UI state.)
+
+### Medium
+
+- **NF-M1 — TrainerSearch fires a Supabase RPC on every keystroke (no debounce)**
+  (`TrainerSearch.tsx`). "pikachu" = 6 RPCs. The `latest` ref prevents out-of-order
+  *rendering* but not the *requests* — metered cost + rate-limit exposure (COSTS.md). Fix:
+  debounce ~250–300ms before `searchProfiles`, keep the `latest` guard for the response.
+  (Also fixes NF-L3.)
+- **NF-M2 — Search result rows are sub-44px touch targets and lack a live region.** Result
+  `<a>` rows are ~30–32px tall (`.trainer-search-results`) — under the 44px mobile bar —
+  and the results/"Searching…" region isn't `aria-live`. Fix: ≥44px touch height; wrap
+  results in `aria-live="polite"`.
+- **NF-M3 — Landing social section has weak hierarchy and sits below the fold.** The title
+  hero fills most of a phone viewport, so TrainerSearch + FollowFeed land below it with no
+  scroll cue, and both use the muted, recessive `route-offmap-title` heading (a borrowed
+  class), so discovery reads as an afterthought. Fix: wrap the social area in a real
+  section with a proper heading + top border/margin; don't reuse the muted route heading.
+
+### Low
+
+- **NF-L1 — "Delete profile" trigger has no danger cue and doesn't move focus on expand.**
+  The expand-to-confirm is correct and the copy is clear, but the entry button is
+  `.secondary` (only the second button is `.danger`) and focus isn't moved into the confirm
+  row. Low because the destructive action is behind the second click.
+- **NF-L2 — Back button on the read-only route doesn't reset focus after navigating home**
+  (`App.tsx` goHome). Lands on the title screen correctly, but focus drops to `<body>`.
+- **NF-L3 — "No trainers match" flickers for a keystroke before the next result resolves.**
+  Symptom of NF-M1's missing debounce; fixed by adding it.
+
+**Bottom line:** net-positive (two unlisted gaps closed, mechanical halves of two findings
+delivered), but the copy/announcement halves remain open and there's one real regression
+risk (NF-H1) plus a metered-cost issue (NF-M1). Suggested follow-up order: NF-H1 →
+NF-M1/M2 → the remaining copy/live-region halves → NF-M3/L1/L2 polish.
