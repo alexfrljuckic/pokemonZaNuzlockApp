@@ -56,6 +56,12 @@ export const THEMES: { id: ThemeId; name: string }[] = [
 export const cardColorFor = (gameId: string): string =>
   GAMES.find((g) => g.dataset.gameId === gameId)?.cardColor ?? 'var(--accent)';
 
+/** Friendly game name for run lists ("Legends: Arceus", not "pla"). Falls
+ * back to the raw id for runs from unknown/removed games — those rows still
+ * need to render (for export/delete) even though they can't be opened. */
+export const gameName = (gameId: string): string =>
+  GAMES.find((g) => g.dataset.gameId === gameId)?.dataset.name.replace(/^Pokémon\s+/, '') ?? gameId;
+
 // Dev-only completeness check: every dataset version needs an app config so the
 // picker never renders a version with no mascot/theme. Cheap; runs once on load.
 if (import.meta.env?.DEV) {

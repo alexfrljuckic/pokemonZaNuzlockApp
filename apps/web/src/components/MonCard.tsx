@@ -14,6 +14,7 @@ import {
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
+import { ConfirmAction } from './ConfirmAction';
 import { LevelUpMoves } from './LevelUpMoves';
 import { MoveChips } from './MoveChips';
 import { TypeBadges } from './TypeBadge';
@@ -257,7 +258,13 @@ export function MonCard({
   gameId: string;
   runId?: string;
   onChange?: () => Promise<void>;
-  actions?: { label: string; onClick: () => void; secondary?: boolean }[];
+  actions?: {
+    label: string;
+    onClick: () => void;
+    secondary?: boolean;
+    /** Destructive actions expand to an inline confirm before firing. */
+    confirm?: { prompt: string; ariaLabel?: string };
+  }[];
 }) {
   const [expanded, setExpanded] = useState(false);
   const editable = p.status !== 'dead' && runId != null && onChange != null;
@@ -278,11 +285,22 @@ export function MonCard({
 
       {actions.length > 0 && (
         <div className="mon-card-actions">
-          {actions.map((a) => (
-            <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
-              {a.label}
-            </button>
-          ))}
+          {actions.map((a) =>
+            a.confirm ? (
+              <ConfirmAction
+                key={a.label}
+                label={a.label}
+                prompt={a.confirm.prompt}
+                ariaLabel={a.confirm.ariaLabel}
+                onConfirm={a.onClick}
+                triggerClass={a.secondary ? 'secondary' : ''}
+              />
+            ) : (
+              <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
+                {a.label}
+              </button>
+            ),
+          )}
         </div>
       )}
 

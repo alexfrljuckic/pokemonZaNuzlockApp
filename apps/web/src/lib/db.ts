@@ -74,6 +74,24 @@ export async function loadEvents(runId: string): Promise<RunEvent[]> {
   return rows.map((r) => r.event).sort((a, b) => a.seq - b.seq);
 }
 
+/**
+ * Permanently removes a run and its entire event log from local storage.
+ * The log is append-only *within* a run; deleting the whole run is the one
+ * sanctioned destructive operation (always behind an explicit confirm in the
+ * UI — remote cleanup lives in sync.ts `deleteRemoteRun`).
+ */
+export async function deleteRun(runId: string): Promise<void> {
+  const db = await getDB();
+  const tx = db.transaction(['runs', 'events'], 'readwrite');
+  tx.objectStore('runs').delete(runId);
+  let cursor = await tx.objectStore('events').index('byRun').openCursor(runId);
+  while (cursor) {
+    cursor.delete();
+    cursor = await cursor.continue();
+  }
+  await tx.done;
+}
+
 /** Adds a run summary pulled from a remote sync source, if not already known locally. */
 export async function upsertRunSummary(run: RunSummary): Promise<void> {
   const db = await getDB();

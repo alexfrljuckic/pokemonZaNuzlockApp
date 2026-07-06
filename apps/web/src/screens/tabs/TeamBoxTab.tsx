@@ -24,10 +24,22 @@ export function TeamBoxTab({
   }
 
   async function markFaint(id: string) {
-    // One seamless click — no prompts. Payload still supports cause/killer later.
+    // Payload still supports cause/killer later.
     await appendEvent(runId, { type: 'faint', payload: { pokemonId: id } });
     await onChange();
   }
+
+  // A faint is the most consequential act in a nuzlocke — inline confirm
+  // (via MonCard's ConfirmAction rendering), never a bare one-click.
+  const faintAction = (p: { id: string; nickname: string }) => ({
+    label: 'Fainted',
+    onClick: () => markFaint(p.id),
+    secondary: true,
+    confirm: {
+      prompt: `Mark ${p.nickname} as fainted?`,
+      ariaLabel: `Mark ${p.nickname} as fainted`,
+    },
+  });
 
   async function revive(id: string) {
     await appendEvent(runId, { type: 'revive', payload: { pokemonId: id } });
@@ -49,7 +61,7 @@ export function TeamBoxTab({
               onChange={onChange}
               actions={[
                 { label: 'Box', onClick: () => move(p.id, 'box'), secondary: true },
-                { label: 'Fainted', onClick: () => markFaint(p.id), secondary: true },
+                faintAction(p),
               ]}
             />
           ))}
@@ -69,7 +81,7 @@ export function TeamBoxTab({
               onChange={onChange}
               actions={[
                 { label: 'Party', onClick: () => move(p.id, 'party') },
-                { label: 'Fainted', onClick: () => markFaint(p.id), secondary: true },
+                faintAction(p),
               ]}
             />
           ))}

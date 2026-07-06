@@ -3,6 +3,7 @@ import type { Session } from '@supabase/supabase-js';
 import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { appendEvent, loadEvents, type RunSummary } from '../lib/db';
+import { downloadRunExport } from '../lib/exportRun';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
 import { applyVersionTheme } from '../lib/theme';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
@@ -100,7 +101,36 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
 
   // The engine's deriveState is the ONLY place run state is computed — nothing here
   // stores or mutates derived fields; every render replays the same events fresh.
-  const state = useMemo(() => (events.length ? deriveState(events, ctx) : null), [events, ctx]);
+  // Guarded on the dataset existing: deriveState against an undefined dataset throws.
+  const state = useMemo(
+    () => (events.length && ctx.dataset ? deriveState(events, ctx) : null),
+    [events, ctx],
+  );
+
+  // A run whose gameId has no dataset in this build (removed game, legacy id)
+  // can't be opened, but it must never white-screen the app — its event log is
+  // intact, so offer export and a way back instead.
+  if (!ctx.dataset) {
+    return (
+      <section>
+        <h2>Unsupported run</h2>
+        <p className="muted">
+          This run was created for “{run.gameId}” ({run.version}), which this version of the app
+          has no game data for. It can't be opened, but its full event log is safe — export it
+          below, or use the ← button above to go back to your runs.
+        </p>
+        <p className="muted">Started {new Date(run.createdAt).toLocaleDateString()}</p>
+        <div className="panel-actions">
+          <button
+            className="secondary"
+            onClick={async () => downloadRunExport(run, await loadEvents(run.id))}
+          >
+            Export JSON
+          </button>
+        </div>
+      </section>
+    );
+  }
 
   if (!state) {
     return <p className="muted">Loading run…</p>;

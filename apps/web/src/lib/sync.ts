@@ -43,6 +43,17 @@ export async function syncRun(run: RunSummary, userId: string): Promise<boolean>
   return pullRun(run.id);
 }
 
+/**
+ * Deletes a run's remote rows after a local delete, so the next pullAllRuns
+ * doesn't resurrect it. Owner-only RLS scopes the delete; run_events cascade
+ * from runs. No-op when sync is disabled; when signed out the delete matches
+ * nothing server-side (local delete alone is the correct outcome then).
+ */
+export async function deleteRemoteRun(runId: string): Promise<void> {
+  if (!supabase) return;
+  await supabase.from('runs').delete().eq('id', runId);
+}
+
 /** On sign-in: pull every remote run this device doesn't know about yet, and merge events for all of them. */
 export async function pullAllRuns(userId: string): Promise<void> {
   if (!supabase) return;
