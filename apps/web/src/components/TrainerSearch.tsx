@@ -56,8 +56,8 @@ export function TrainerSearch({ session }: { session: Session | null }) {
         className="trainer-search-input"
         value={query}
         onChange={(e) => onInput(e.target.value)}
-        placeholder="search by @handle or name"
-        aria-label="Search trainers by handle or display name"
+        placeholder="search by @handle"
+        aria-label="Search trainers by handle"
       />
       <div aria-live="polite">
         {searching && <p className="muted">Searching…</p>}
@@ -68,10 +68,7 @@ export function TrainerSearch({ session }: { session: Session | null }) {
           <ul className="trainer-search-results">
             {results.map((r) => (
               <li key={r.handle}>
-                <a href={`#u/${r.handle}`}>
-                  {r.displayName && <span>{r.displayName} </span>}
-                  <span className="muted">@{r.handle}</span>
-                </a>
+                <a href={`#u/${r.handle}`}>@{r.handle}</a>
               </li>
             ))}
           </ul>

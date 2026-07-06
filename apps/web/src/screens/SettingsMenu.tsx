@@ -98,9 +98,9 @@ export function SettingsMenu({ session }: { session: Session | null }) {
   );
 }
 
-/** Public-profile management inside the settings menu: claim a handle, edit the
- * handle / display name, or delete the profile. Owns its own fetch so the link,
- * edit form and delete action never drift out of sync. */
+/** Public-profile management inside the settings menu: claim a handle, edit it,
+ * or delete the profile. Owns its own fetch so the link, edit form and delete
+ * action never drift out of sync. */
 function ProfileSection({ session }: { session: Session }) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -108,7 +108,6 @@ function ProfileSection({ session }: { session: Session }) {
   // EXISTING profile (so we render Save/Cancel); a fresh claim always shows it.
   const [editing, setEditing] = useState(false);
   const [handle, setHandle] = useState('');
-  const [displayName, setDisplayName] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [confirmingDelete, setConfirmingDelete] = useState(false);
@@ -131,7 +130,6 @@ function ProfileSection({ session }: { session: Session }) {
   function startEdit() {
     if (!profile) return;
     setHandle(profile.handle);
-    setDisplayName(profile.displayName);
     setError(null);
     setEditing(true);
   }
@@ -142,8 +140,8 @@ function ProfileSection({ session }: { session: Session }) {
     try {
       const clean = sanitizeHandle(handle);
       const err = profile
-        ? await updateProfile(session.user.id, clean, displayName)
-        : await claimProfile(session.user.id, clean, displayName);
+        ? await updateProfile(session.user.id, clean)
+        : await claimProfile(session.user.id, clean);
       if (err) {
         setError(err);
       } else {
@@ -179,12 +177,9 @@ function ProfileSection({ session }: { session: Session }) {
 
       {profile && !editing && (
         <>
-          <div className="settings-profile-identity">
-            {profile.displayName && <strong>{profile.displayName}</strong>}
-            <a className="settings-profile-link" href={`#u/${profile.handle}`}>
-              @{profile.handle}
-            </a>
-          </div>
+          <a className="settings-profile-link" href={`#u/${profile.handle}`}>
+            @{profile.handle}
+          </a>
           {!confirmingDelete ? (
             <span className="settings-confirm-actions">
               <button type="button" className="secondary" onClick={startEdit}>
@@ -214,9 +209,8 @@ function ProfileSection({ session }: { session: Session }) {
       {showForm && (
         <div className="profile-claim">
           <p className="muted profile-field-help">
-            Your <strong>handle</strong> is your unique @address — it’s your profile link and how
-            people find you in search. Your <strong>display name</strong> is the friendly name shown
-            to others; it doesn’t have to be unique.
+            Your <strong>handle</strong> is your unique @address — it’s your public profile link and
+            how other trainers find you in search.
           </p>
           <label className="profile-field">
             <span className="profile-field-label">Handle</span>
@@ -231,16 +225,6 @@ function ProfileSection({ session }: { session: Session }) {
                 autoComplete="off"
               />
             </span>
-          </label>
-          <label className="profile-field">
-            <span className="profile-field-label">Display name</span>
-            <input
-              type="text"
-              placeholder="optional"
-              value={displayName}
-              onChange={(e) => setDisplayName(e.target.value)}
-              aria-label="Display name"
-            />
           </label>
           <span className="settings-confirm-actions">
             <button type="button" disabled={!canSubmit} onClick={save}>

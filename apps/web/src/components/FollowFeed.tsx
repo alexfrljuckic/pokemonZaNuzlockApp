@@ -48,7 +48,7 @@ export function FollowFeed({ session }: { session: Session | null }) {
             {desc.species && <SpriteImg species={desc.species} size={28} />}
             {!desc.species && desc.trainerKey && <TrainerSprite trainerKey={desc.trainerKey} size={28} />}
             <span>
-              <a href={`#share/${item.token}`}>{item.displayName || `@${item.handle}`}</a>: {desc.text}
+              <a href={`#share/${item.token}`}>@{item.handle}</a>: {desc.text}
             </span>
             <span className="muted timeline-when">{new Date(item.event.at).toLocaleString()}</span>
           </li>

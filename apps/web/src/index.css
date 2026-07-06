@@ -3360,12 +3360,7 @@ button.back-icon:hover:not(:disabled) {
   padding: 0.3rem 0.5rem;
   font-size: 0.85rem;
 }
-/* Public-profile identity + claim/edit form (settings menu) */
-.settings-profile-identity {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
+/* Public-profile claim/edit form (settings menu) */
 .profile-field-help {
   margin: 0 0 0.15rem;
   font-size: 0.78rem;

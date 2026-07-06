@@ -8,7 +8,6 @@ import { supabase } from './supabase';
 export interface Profile {
   userId: string;
   handle: string;
-  displayName: string;
   createdAt: string;
 }
 
@@ -26,7 +25,6 @@ export interface PublicProfile extends Profile {
 
 export interface FeedItem {
   handle: string;
-  displayName: string;
   token: string;
   gameId: string;
   version: string;
@@ -37,11 +35,10 @@ export const HANDLE_RE = /^[a-z0-9][a-z0-9-]{2,23}$/;
 
 export interface ProfileSearchResult {
   handle: string;
-  displayName: string;
 }
 
-/** Discovery search by handle/display-name prefix (>=2 chars). Anonymous-safe —
- * the search_profiles RPC exposes only public (handle, display_name) pairs. */
+/** Discovery search by handle prefix (>=2 chars). Anonymous-safe — the
+ * search_profiles RPC exposes only public handles. */
 export async function searchProfiles(query: string): Promise<ProfileSearchResult[]> {
   if (!supabase) return [];
   // Handles are stored without the '@', but we display them everywhere WITH it
@@ -51,10 +48,7 @@ export async function searchProfiles(query: string): Promise<ProfileSearchResult
   if (q.length < 2) return [];
   const { data, error } = await supabase.rpc('search_profiles', { p_query: q, p_limit: 10 });
   if (error || !data) return [];
-  return data.map((r: Record<string, unknown>) => ({
-    handle: r.handle as string,
-    displayName: (r.display_name as string) ?? '',
-  }));
+  return data.map((r: Record<string, unknown>) => ({ handle: r.handle as string }));
 }
 
 /** The signed-in user's own profile row, or null (none claimed / sync off). */
@@ -62,31 +56,26 @@ export async function getMyProfile(userId: string): Promise<Profile | null> {
   if (!supabase) return null;
   const { data, error } = await supabase.from('profiles').select('*').eq('user_id', userId).maybeSingle();
   if (error || !data) return null;
-  return { userId: data.user_id, handle: data.handle, displayName: data.display_name, createdAt: data.created_at };
+  return { userId: data.user_id, handle: data.handle, createdAt: data.created_at };
 }
 
 /** Claim a handle. Returns an error message (e.g. handle taken) or null on success. */
-export async function claimProfile(userId: string, handle: string, displayName: string): Promise<string | null> {
+export async function claimProfile(userId: string, handle: string): Promise<string | null> {
   if (!supabase) return 'Sync is disabled.';
   if (!HANDLE_RE.test(handle)) return 'Handles are 3–24 chars: lowercase letters, digits, dashes.';
-  const { error } = await supabase
-    .from('profiles')
-    .insert({ user_id: userId, handle, display_name: displayName.trim() });
+  const { error } = await supabase.from('profiles').insert({ user_id: userId, handle });
   if (!error) return null;
   return /duplicate|unique/i.test(error.message) ? 'That handle is already taken.' : error.message;
 }
 
-/** Change the signed-in user's handle and/or display name. Same rules and
- * taken-handle error as claiming; RLS ("profiles owner-only", for all) permits
- * the owner to update their row. Changing the handle changes the profile URL
- * (#u/<handle>) but not follows, which key off user_id. */
-export async function updateProfile(userId: string, handle: string, displayName: string): Promise<string | null> {
+/** Change the signed-in user's handle. Same rules and taken-handle error as
+ * claiming; RLS ("profiles owner-only", for all) permits the owner to update
+ * their row. Changing the handle changes the profile URL (#u/<handle>) but not
+ * follows, which key off user_id. */
+export async function updateProfile(userId: string, handle: string): Promise<string | null> {
   if (!supabase) return 'Sync is disabled.';
   if (!HANDLE_RE.test(handle)) return 'Handles are 3–24 chars: lowercase letters, digits, dashes.';
-  const { error } = await supabase
-    .from('profiles')
-    .update({ handle, display_name: displayName.trim() })
-    .eq('user_id', userId);
+  const { error } = await supabase.from('profiles').update({ handle }).eq('user_id', userId);
   if (!error) return null;
   return /duplicate|unique/i.test(error.message) ? 'That handle is already taken.' : error.message;
 }
@@ -119,7 +108,6 @@ export async function fetchProfile(handle: string): Promise<PublicProfile | null
   return {
     userId: head.user_id,
     handle: head.handle,
-    displayName: head.display_name,
     createdAt: head.created_at,
     runs,
   };
@@ -149,7 +137,6 @@ export async function fetchFeed(limit = 30): Promise<FeedItem[]> {
   if (error || !data) return [];
   return data.map((r: Record<string, unknown>) => ({
     handle: r.handle as string,
-    displayName: r.display_name as string,
     token: r.run_token as string,
     gameId: r.game_id as string,
     version: r.version as string,
