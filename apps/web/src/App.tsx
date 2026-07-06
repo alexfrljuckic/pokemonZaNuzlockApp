@@ -23,15 +23,31 @@ import { TrainerSearch } from './components/TrainerSearch';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
 import { TitleScreen } from './screens/TitleScreen';
+import { formatHash, parseHash, type Route } from './lib/route';
 
-function readShareToken(): string | null {
-  const match = /^#share\/(.+)$/.exec(location.hash);
-  return match ? match[1] : null;
+// Single source of truth for the current hash-route. Never throws — a garbage
+// hash parses to { screen: 'home' }.
+function readRoute(): Route {
+  return parseHash(location.hash);
 }
 
-function readProfileHandle(): string | null {
-  const match = /^#u\/([a-z0-9-]+)$/.exec(location.hash);
-  return match ? match[1] : null;
+// Programmatic hash writer used by every navigation in the owner app. Guards
+// against no-op writes (which would fire a redundant hashchange) and lets the
+// caller choose push (new history entry, Back returns here) vs replace (no
+// entry). We compare against the *current* hash rather than tracking a flag,
+// so user-driven Back/Forward — which change location.hash before firing
+// hashchange — never round-trips back through here.
+function navigate(route: Route, mode: 'push' | 'replace' = 'push') {
+  const next = formatHash(route);
+  // location.hash is '' when empty; formatHash('home') is also ''. Normalize.
+  const current = location.hash;
+  if (next === current || (next === '' && current === '')) return;
+  const url = next === '' ? location.pathname + location.search : next;
+  if (mode === 'push') history.pushState(null, '', url);
+  else history.replaceState(null, '', url);
+  // pushState/replaceState never fire hashchange; dispatch one so the single
+  // listener in App re-derives the route. (Back/Forward DO fire it natively.)
+  window.dispatchEvent(new Event('hashchange'));
 }
 
 function ThemePicker() {
@@ -64,27 +80,33 @@ function ThemePicker() {
 }
 
 export default function App() {
-  const [shareToken, setShareToken] = useState(readShareToken);
-  const [profileHandle, setProfileHandle] = useState(readProfileHandle);
+  const [route, setRoute] = useState<Route>(readRoute);
 
   useEffect(() => {
-    const onHashChange = () => {
-      setShareToken(readShareToken());
-      setProfileHandle(readProfileHandle());
-    };
+    // Fires for both user-driven (Back/Forward, manual edit) and programmatic
+    // (pushState/replaceState do NOT fire it, so navigate() dispatches it)
+    // hash changes. Re-deriving from location.hash keeps this the one place
+    // that reflects the URL into app state.
+    const onHashChange = () => setRoute(readRoute());
     window.addEventListener('hashchange', onHashChange);
-    return () => window.removeEventListener('hashchange', onHashChange);
+    // popstate covers Back/Forward across our pushState entries (hashchange
+    // also fires when the hash differs, but popstate is the reliable signal).
+    window.addEventListener('popstate', onHashChange);
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+      window.removeEventListener('popstate', onHashChange);
+    };
   }, []);
 
   // Share links and profile pages are fully separate, unauthenticated
   // read-only routes — no run-picker, no local run loading, no sign-in
   // required to view (the follow button asks for one when relevant).
-  if (shareToken || profileHandle) {
+  if (route.screen === 'share' || route.screen === 'profile') {
     // Leave the read-only route back to the main app by clearing the hash.
     // The React tree swaps out under the clicked button, so move focus to the
     // main app's <h1> — otherwise keyboard focus silently drops to <body>.
     const goHome = () => {
-      history.replaceState(null, '', location.pathname + location.search);
+      history.pushState(null, '', location.pathname + location.search);
       window.dispatchEvent(new Event('hashchange'));
       requestAnimationFrame(() => document.querySelector<HTMLElement>('.app-header h1')?.focus());
     };
@@ -99,25 +121,41 @@ export default function App() {
           </div>
           <ThemePicker />
         </div>
-        {shareToken ? <SpectatorView token={shareToken} /> : <ProfileScreen handle={profileHandle!} />}
+        {route.screen === 'share' ? (
+          <SpectatorView
+            token={route.token}
+            tab={route.tab}
+            onTabChange={(tab) => navigate({ screen: 'share', token: route.token, tab })}
+          />
+        ) : (
+          <ProfileScreen handle={route.handle} />
+        )}
         <SpeedInsights />
       </>
     );
   }
 
-  return <OwnerApp />;
+  return <OwnerApp route={route} />;
 }
 
 type Screen = 'title' | 'continue' | 'new' | 'stats';
 
-function OwnerApp() {
+function OwnerApp({ route }: { route: Route }) {
   const [runs, setRuns] = useState<RunSummary[]>([]);
+  const [runsLoaded, setRunsLoaded] = useState(false);
   const [screen, setScreen] = useState<Screen>('title');
-  const [activeRunId, setActiveRunId] = useState<string | null>(null);
   const { session } = useAuth();
+
+  // The URL is the source of truth for which run is open: activeRunId is
+  // whatever #run/<id>/<tab> names, or null on any non-run route. Navigation
+  // (open/close a run) happens by writing the hash — the route flows back down
+  // via App's hashchange listener, so there's no separate activeRunId state to
+  // keep in sync.
+  const activeRunId = route.screen === 'run' ? route.runId : null;
 
   async function refreshRuns() {
     setRuns(await listRuns());
+    setRunsLoaded(true);
   }
 
   useEffect(() => {
@@ -134,17 +172,26 @@ function OwnerApp() {
       .catch(() => {});
   }, [session]);
 
+  const openRun = (runId: string) => navigate({ screen: 'run', runId, tab: 'routes' });
+  const closeRun = () => navigate({ screen: 'home' });
+
   async function handleCreated(runId: string) {
     await refreshRuns();
-    setActiveRunId(runId);
+    openRun(runId);
   }
 
   const activeRun = runs.find((r) => r.id === activeRunId) ?? null;
 
+  // Deep-link guard (local-first): the hash may name a run that doesn't live in
+  // this browser's IndexedDB — a stale bookmark, a link from another device, or
+  // a deleted run. Once runs have loaded and it's still missing, show a
+  // friendly not-found instead of a blank screen or a silent redirect.
+  const runMissing = activeRunId != null && runsLoaded && !activeRun;
+
   // One global back affordance, always in the same top-left corner of the
   // chrome: run → run list, picker screens → title. Null on the title screen.
-  const headerBack = activeRun
-    ? () => setActiveRunId(null)
+  const headerBack = activeRunId
+    ? closeRun
     : screen !== 'title'
       ? () => setScreen('title')
       : null;
@@ -185,9 +232,30 @@ function OwnerApp() {
       {/* Boundary around the whole content area so one broken run (or screen)
           can never white-screen the app — the fallback offers "back to runs"
           plus a raw export of the active run's events. */}
-      <ErrorBoundary run={activeRun} onReset={() => setActiveRunId(null)}>
+      <ErrorBoundary run={activeRun} onReset={closeRun}>
         {activeRun ? (
-          <RunView run={activeRun} session={session} onSwitchRun={handleCreated} />
+          <RunView
+            run={activeRun}
+            session={session}
+            tab={route.screen === 'run' ? route.tab : 'routes'}
+            onTabChange={(tab) => navigate({ screen: 'run', runId: activeRun.id, tab })}
+            onSwitchRun={handleCreated}
+          />
+        ) : runMissing ? (
+          <section>
+            <h2>Run not found</h2>
+            <p className="muted">
+              This link points to a run that isn't on this device. Runs live only in the browser
+              that created them (and any device you've signed in on) — check you're signed in, or go
+              back to your runs.
+            </p>
+            <div className="panel-actions">
+              <button onClick={closeRun}>Back to runs</button>
+            </div>
+          </section>
+        ) : activeRunId ? (
+          // Route names a run but the run list hasn't loaded yet — brief.
+          <p className="muted">Loading run…</p>
         ) : screen === 'title' ? (
           <>
             <TitleScreen
@@ -210,7 +278,7 @@ function OwnerApp() {
         ) : (
           <>
             {screen === 'continue' ? (
-              <ContinueScreen runs={runs} onSelect={setActiveRunId} onDeleted={refreshRuns} />
+              <ContinueScreen runs={runs} onSelect={openRun} onDeleted={refreshRuns} />
             ) : screen === 'stats' ? (
               <CrossRunStatsScreen runs={runs} />
             ) : (
