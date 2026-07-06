@@ -2617,7 +2617,9 @@ button.back-icon:hover:not(:disabled) {
   gap: 0.15rem;
 }
 .trainer-search-results li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px; /* touch-target floor (UX-AUDIT NF-M2) */
   padding: 0.4rem 0.6rem;
   border-radius: 8px;
   border: 1px solid var(--border);
