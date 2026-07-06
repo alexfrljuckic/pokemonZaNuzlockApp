@@ -185,7 +185,7 @@ function OwnerApp() {
           plus a raw export of the active run's events. */}
       <ErrorBoundary run={activeRun} onReset={() => setActiveRunId(null)}>
         {activeRun ? (
-          <RunView run={activeRun} session={session} />
+          <RunView run={activeRun} session={session} onSwitchRun={handleCreated} />
         ) : screen === 'title' ? (
           <>
             <TitleScreen
