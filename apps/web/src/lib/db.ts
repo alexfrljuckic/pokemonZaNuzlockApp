@@ -70,8 +70,17 @@ export async function importRun(
   return id;
 }
 
+/** Applies Omit to EACH member of a union (a plain `Omit<Union, K>` collapses a
+ * discriminated union and loses the type↔payload link). */
+type DistributiveOmit<T, K extends PropertyKey> = T extends unknown ? Omit<T, K> : never;
+
+/** A RunEvent as emitted by the app — the store assigns `seq`/`at`. Distributive
+ * so each event's `type` still constrains its `payload` at the call site (no
+ * more `as never` escape hatches on the event log). */
+export type NewRunEvent = DistributiveOmit<RunEvent, 'seq' | 'at'>;
+
 /** Appends an event to a run's log, assigning the next seq. The log is append-only. */
-export async function appendEvent(runId: string, partial: Omit<RunEvent, 'seq' | 'at'>): Promise<RunEvent> {
+export async function appendEvent(runId: string, partial: NewRunEvent): Promise<RunEvent> {
   const db = await getDB();
   const existing = await db.getAllFromIndex('events', 'byRun', runId);
   // max+1 rather than count+1 so seq stays monotonic even after a sync pull

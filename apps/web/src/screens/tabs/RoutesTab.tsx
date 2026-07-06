@@ -50,7 +50,7 @@ export function RoutesTab({
   }
 
   async function resetRoute(area: Area) {
-    await appendEvent(runId, { type: 'encounter_reset', payload: { areaId: area.id } } as never);
+    await appendEvent(runId, { type: 'encounter_reset', payload: { areaId: area.id } });
     setOpenAreaId(null);
     await onChange();
   }

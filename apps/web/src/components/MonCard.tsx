@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { PokemonInstance } from '@nuzlocke/engine';
+import type { PokemonInstance, RunEvent } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
 import {
@@ -67,7 +67,7 @@ function EditForm({
     setSaving(true);
     try {
       // Emit only what changed; null explicitly clears an optional field.
-      const payload: Record<string, unknown> = { pokemonId: p.id };
+      const payload: Extract<RunEvent, { type: 'pokemon_updated' }>['payload'] = { pokemonId: p.id };
       if (nickname.trim() && nickname.trim() !== p.nickname) payload.nickname = nickname.trim();
       // only touch the level when something numeric was entered — an empty
       // field means "leave it alone", not "reset to 1"
@@ -80,7 +80,7 @@ function EditForm({
       const cleanMoves = moves.map((m) => m.trim()).filter(Boolean);
       if (JSON.stringify(cleanMoves) !== JSON.stringify(p.moves ?? [])) payload.moves = cleanMoves;
       if (Object.keys(payload).length > 1) {
-        await appendEvent(runId, { type: 'pokemon_updated', payload } as never);
+        await appendEvent(runId, { type: 'pokemon_updated', payload });
       }
       await onSaved();
     } finally {
@@ -200,7 +200,7 @@ function EvolvePanel({
           toSpecies: picked.to,
           ...(levelAfter !== p.level ? { level: levelAfter } : {}),
         },
-      } as never);
+      });
       setPick(null);
       await onEvolved();
     } finally {
@@ -266,7 +266,7 @@ function UnevolveButton({
       prompt={`Revert ${p.nickname} to ${prev}? The level stays as it is.`}
       ariaLabel={`Un-evolve ${p.nickname} to ${prev}`}
       onConfirm={async () => {
-        await appendEvent(runId, { type: 'pokemon_evolution_reverted', payload: { pokemonId: p.id } } as never);
+        await appendEvent(runId, { type: 'pokemon_evolution_reverted', payload: { pokemonId: p.id } });
         await onReverted();
       }}
     />

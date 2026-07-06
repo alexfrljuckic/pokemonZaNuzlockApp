@@ -37,10 +37,11 @@ export function ItemsHere({
 
   async function toggle(index: number, name: string) {
     if (!canMark) return;
-    await appendEvent(runId, {
-      type: picked(index) ? 'item_reset' : 'item_picked',
-      payload: { areaId: area.id, itemIndex: index, ...(picked(index) ? {} : { name }) },
-    } as never);
+    if (picked(index)) {
+      await appendEvent(runId, { type: 'item_reset', payload: { areaId: area.id, itemIndex: index } });
+    } else {
+      await appendEvent(runId, { type: 'item_picked', payload: { areaId: area.id, itemIndex: index, name } });
+    }
     await onChange();
   }
 

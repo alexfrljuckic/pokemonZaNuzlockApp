@@ -44,10 +44,11 @@ function TrainerCard({
 
   async function toggleBattled() {
     if (!canMark) return;
-    await appendEvent(runId, {
-      type: battled ? 'trainer_reset' : 'trainer_battled',
-      payload: { areaId, trainerIndex: index, ...(battled ? {} : { name: t.name }) },
-    } as never);
+    if (battled) {
+      await appendEvent(runId, { type: 'trainer_reset', payload: { areaId, trainerIndex: index } });
+    } else {
+      await appendEvent(runId, { type: 'trainer_battled', payload: { areaId, trainerIndex: index, name: t.name } });
+    }
     await onChange();
   }
 
