@@ -7244,6 +7244,29 @@
       ]
     },
     {
+      "id": "icepeak-cavern",
+      "name": "Icepeak Cavern",
+      "unlockAfter": "noble-electrode",
+      "tags": [
+        "named-location",
+        "zone:alabaster-icelands"
+      ],
+      "encounters": [
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "zoroark-hisui",
+          "methods": [
+            "walk"
+          ]
+        }
+      ]
+    },
+    {
       "id": "icepeak-arena",
       "name": "Icepeak Arena",
       "unlockAfter": "noble-electrode",

@@ -157,8 +157,9 @@ describe('SwSh dataset', () => {
     const zapdos = dataset.specials.find((s) => s.id === 'dlc-static-zapdos-galar')!;
     expect(dataset.areas.find((a) => a.id === zapdos.area)!.tags.some((t) => t.startsWith('dlc:'))).toBe(false);
 
-    // area filtering: 32 base areas vs 62 with DLC
-    expect(areasFor(dataset, base)).toHaveLength(32);
-    expect(areasFor(dataset, withDlc)).toHaveLength(62);
+    // area filtering: 33 base areas (Giant's Mirror added with corsola-galar)
+    // vs 63 with DLC
+    expect(areasFor(dataset, base)).toHaveLength(33);
+    expect(areasFor(dataset, withDlc)).toHaveLength(63);
   });
 });

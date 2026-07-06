@@ -1676,6 +1676,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "items": [
@@ -1931,6 +1937,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "items": [
@@ -2448,6 +2460,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "trainers": [
@@ -2792,6 +2810,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "items": [
@@ -3798,6 +3822,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "trainers": [
@@ -4968,6 +4998,28 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "tauros-paldea-blaze-breed",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "scarlet"
+            ]
+          }
+        },
+        {
+          "species": "tauros-paldea-aqua-breed",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "violet"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -5289,6 +5341,12 @@
         },
         {
           "species": "toedscool",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wooper-paldea",
           "methods": [
             "walk"
           ]
@@ -5899,6 +5957,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "trainers": [
@@ -6044,6 +6108,12 @@
         },
         {
           "species": "houndstone",
+          "methods": [
+            "walk"
+          ]
+        },
+        {
+          "species": "wooper-paldea",
           "methods": [
             "walk"
           ]
@@ -6947,6 +7017,12 @@
               "violet"
             ]
           }
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "walk"
+          ]
         }
       ],
       "trainers": [
@@ -8307,6 +8383,18 @@
           "violet"
         ]
       }
+    },
+    {
+      "id": "gift-meowth-galar",
+      "type": "gift",
+      "species": "meowth-galar",
+      "area": "mesagoza"
+    },
+    {
+      "id": "trade-wooper-johto",
+      "type": "trade",
+      "species": "wooper",
+      "area": "cascarrafa"
     }
   ],
   "milestones": [

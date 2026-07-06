@@ -7629,6 +7629,86 @@
       "type": "static",
       "species": "mewtwo",
       "area": "cerulean-cave"
+    },
+    {
+      "id": "trade-rattata-alola",
+      "type": "trade",
+      "species": "rattata-alola",
+      "area": "cerulean-city"
+    },
+    {
+      "id": "trade-geodude-alola",
+      "type": "trade",
+      "species": "geodude-alola",
+      "area": "vermilion-city"
+    },
+    {
+      "id": "trade-diglett-alola",
+      "type": "trade",
+      "species": "diglett-alola",
+      "area": "lavender-town"
+    },
+    {
+      "id": "trade-sandshrew-alola",
+      "type": "trade",
+      "species": "sandshrew-alola",
+      "area": "celadon-city",
+      "conditions": {
+        "version": [
+          "lets-go-pikachu"
+        ]
+      }
+    },
+    {
+      "id": "trade-vulpix-alola",
+      "type": "trade",
+      "species": "vulpix-alola",
+      "area": "celadon-city",
+      "conditions": {
+        "version": [
+          "lets-go-eevee"
+        ]
+      }
+    },
+    {
+      "id": "trade-raichu-alola",
+      "type": "trade",
+      "species": "raichu-alola",
+      "area": "saffron-city"
+    },
+    {
+      "id": "trade-marowak-alola",
+      "type": "trade",
+      "species": "marowak-alola",
+      "area": "fuchsia-city"
+    },
+    {
+      "id": "trade-grimer-alola",
+      "type": "trade",
+      "species": "grimer-alola",
+      "area": "cinnabar-island",
+      "conditions": {
+        "version": [
+          "lets-go-pikachu"
+        ]
+      }
+    },
+    {
+      "id": "trade-meowth-alola",
+      "type": "trade",
+      "species": "meowth-alola",
+      "area": "cinnabar-island",
+      "conditions": {
+        "version": [
+          "lets-go-eevee"
+        ]
+      }
+    },
+    {
+      "id": "trade-exeggutor-alola",
+      "type": "trade",
+      "species": "exeggutor-alola",
+      "area": "indigo-plateau"
     }
   ],
   "milestones": [

@@ -274,7 +274,7 @@
           "rate": 5
         },
         {
-          "species": "zigzagoon",
+          "species": "zigzagoon-galar",
           "methods": [
             "walk"
           ],
@@ -448,7 +448,7 @@
       ],
       "encounters": [
         {
-          "species": "zigzagoon",
+          "species": "zigzagoon-galar",
           "methods": [
             "walk"
           ],
@@ -1298,7 +1298,7 @@
           "rate": 10
         },
         {
-          "species": "farfetchd",
+          "species": "farfetchd-galar",
           "methods": [
             "walk"
           ],
@@ -4501,7 +4501,7 @@
       ],
       "encounters": [
         {
-          "species": "zigzagoon",
+          "species": "zigzagoon-galar",
           "methods": [
             "walk"
           ],
@@ -4840,6 +4840,27 @@
         },
         {
           "name": "TM73 (Cross Poison)"
+        }
+      ]
+    },
+    {
+      "id": "giants-mirror",
+      "name": "Giant's Mirror",
+      "unlockAfter": "gym-3-kabu",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
         }
       ]
     },
@@ -6382,6 +6403,12 @@
           "species": "applin",
           "methods": [
             "max-raid"
+          ]
+        },
+        {
+          "species": "weezing-galar",
+          "methods": [
+            "walk"
           ]
         }
       ],
@@ -12295,6 +12322,17 @@
               "heavy-fog"
             ]
           }
+        },
+        {
+          "species": "rapidash-galar",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
         }
       ]
     },
@@ -12597,6 +12635,17 @@
           "conditions": {
             "weather": [
               "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "darmanitan-galar-standard",
+          "methods": [
+            "walk"
+          ],
+          "conditions": {
+            "version": [
+              "sword"
             ]
           }
         }
