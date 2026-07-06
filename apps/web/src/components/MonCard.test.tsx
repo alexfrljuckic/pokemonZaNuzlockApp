@@ -45,17 +45,44 @@ describe('MonCard full-width row layout', () => {
     expect(container.querySelector('.mon-card-top')).toBeNull();
   });
 
-  it('surfaces at-a-glance detail in the condensed row (item, nature, stat spark, next evolution)', async () => {
+  it('surfaces at-a-glance detail in the condensed row (item, nature, moves, next evolution)', async () => {
     const { container } = await render(<MonCard p={mon} gameId="bdsp" />);
     const glance = container.querySelector('.mon-card-glance');
     expect(glance).toBeTruthy();
     // held item + nature now visible WITHOUT expanding
     expect(glance!.textContent).toContain('oran-berry');
     expect(glance!.textContent).toContain('Modest');
-    // compact stat spark present (bulbasaur has stat data)
-    expect(container.querySelector('.mon-stat-spark')).toBeTruthy();
+    // the condensed row shows moves (more useful than the stat spread here)
+    const moves = container.querySelector('.mon-card-moves');
+    expect(moves).toBeTruthy();
+    expect(moves!.textContent).toContain('tackle');
+    expect(moves!.textContent).toContain('vine whip');
+    // …and no longer the base-stat spark
+    expect(container.querySelector('.mon-stat-spark')).toBeNull();
     // next-evolution nudge (bulbasaur -> ivysaur)
     expect(container.querySelector('.mon-card-evo')?.textContent?.toLowerCase()).toContain('ivysaur');
+  });
+
+  it('toggles expand when clicking anywhere on the row, but not when clicking an action button', async () => {
+    let boxed = 0;
+    const { container, click } = await render(
+      <MonCard p={mon} gameId="bdsp" actions={[{ label: 'Box', onClick: () => (boxed += 1) }]} />,
+    );
+    const card = container.querySelector('.mon-card')!;
+    const main = container.querySelector('.mon-card-main')!;
+    // clicking the row (not the head button) expands
+    await click(main);
+    expect(card.classList.contains('expanded')).toBe(true);
+    // clicking it again collapses
+    await click(main);
+    expect(card.classList.contains('expanded')).toBe(false);
+    // an action button fires its handler WITHOUT toggling the row open
+    const boxBtn = [...container.querySelectorAll('.mon-card-actions button')].find(
+      (b) => b.textContent === 'Box',
+    )!;
+    await click(boxBtn);
+    expect(boxed).toBe(1);
+    expect(card.classList.contains('expanded')).toBe(false);
   });
 
   it('expands in place — detail appears under the row without a wrapping change', async () => {
