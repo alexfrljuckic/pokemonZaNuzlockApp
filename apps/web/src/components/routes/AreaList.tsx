@@ -1,4 +1,5 @@
 import { filterEncounterPool, frontierAreas, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { ConfirmAction } from '../ConfirmAction';
 import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
 import { EncounterForm, type Outcome } from './EncounterForm';
@@ -57,9 +58,13 @@ export function AreaList({
                   </p>
                   <CaughtHere areaId={area.id} state={state} />
                   <p className="muted">Resetting clears the outcome and removes any Pokémon caught here.</p>
-                  <button className="secondary route-reset-btn" onClick={() => onReset(area)}>
-                    Reset route
-                  </button>
+                  <ConfirmAction
+                    label="Reset route"
+                    triggerClass="secondary route-reset-btn"
+                    prompt={`Reset ${area.name}? Removes any Pokémon caught here.`}
+                    ariaLabel={`Reset ${area.name}`}
+                    onConfirm={() => onReset(area)}
+                  />
                 </div>
               ) : pool.length > 0 ? (
                 <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl, sh) => onResolve(area, sp, out, nick, lvl, sh)} />

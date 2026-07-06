@@ -3,6 +3,7 @@ import type { RunState, SpecialEncounter } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { typesFor } from '../lib/speciesData';
 import { CatchFields } from './CatchFields';
+import { ConfirmAction } from './ConfirmAction';
 import { SpriteImg } from './SpriteImg';
 import { TypeBadges } from './TypeBadge';
 
@@ -112,9 +113,13 @@ export function SpecialCard({
             </span>
           </div>
         </div>
-        <button className="secondary special-card-reset" onClick={reset}>
-          Reset
-        </button>
+        <ConfirmAction
+          label="Reset"
+          triggerClass="secondary special-card-reset"
+          prompt={`Reset this claim? Removes ${mon.nickname} from your run.`}
+          ariaLabel={`Reset ${s.species} claim`}
+          onConfirm={reset}
+        />
       </div>
     );
   }

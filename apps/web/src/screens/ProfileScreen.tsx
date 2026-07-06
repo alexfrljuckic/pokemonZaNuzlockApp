@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GAMES } from '../games';
+import { gameName } from '../games';
 import { useAuth } from '../lib/useAuth';
 import {
   fetchProfile,
@@ -8,9 +8,6 @@ import {
   unfollow,
   type PublicProfile,
 } from '../lib/profiles';
-
-const gameName = (gameId: string) =>
-  GAMES.find((g) => g.dataset.gameId === gameId)?.dataset.name.replace(/^Pokémon\s+/, '') ?? gameId;
 
 /** Public profile page (#u/<handle>): display name, @handle, and one card per
  * EXPLICITLY SHARED run linking into the spectator view. Anonymous-safe —

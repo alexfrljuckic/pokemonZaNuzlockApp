@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react';
 import { areasFor, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
+import { ConfirmAction } from '../../components/ConfirmAction';
 import { RouteMap, type ZoneSummary } from '../../components/RouteMap';
 import { StarterPicker, claimedSpecial, starterHeading } from '../../components/SpecialsSection';
 import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes/AllFilteredOut';
@@ -198,9 +199,13 @@ export function RoutesTab({
               <p className="muted">
                 Resetting clears the outcome and removes any Pokémon caught here from your team, box and graveyard.
               </p>
-              <button className="secondary route-reset-btn" onClick={() => resetRoute(selected)}>
-                Reset route
-              </button>
+              <ConfirmAction
+                label="Reset route"
+                triggerClass="secondary route-reset-btn"
+                prompt={`Reset ${selected.name}? Removes any Pokémon caught here.`}
+                ariaLabel={`Reset ${selected.name}`}
+                onConfirm={() => resetRoute(selected)}
+              />
             </div>
           ) : selectedPool.length > 0 ? (
             <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)} />

@@ -1,8 +1,11 @@
 import { Fragment, useState, type CSSProperties } from 'react';
 import { RULES, buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
 import { listGames, speciesToLine } from '../lib/datasets';
-import { VERSION_MASCOT, cardColorFor } from '../games';
-import { createRun, loadEvents, type RunSummary } from '../lib/db';
+import { VERSION_MASCOT, cardColorFor, gameName } from '../games';
+import { createRun, deleteRun, loadEvents, type RunSummary } from '../lib/db';
+import { deleteRemoteRun } from '../lib/sync';
+import { downloadRunExport } from '../lib/exportRun';
+import { ConfirmAction } from '../components/ConfirmAction';
 import { SpriteImg } from '../components/SpriteImg';
 import { StarterPicker, starterHeading } from '../components/SpecialsSection';
 
@@ -16,24 +19,60 @@ const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
 
 const prettyVersion = (v: string) => v.replace(/-/g, ' ');
 
-/** "Continue" flow: just the existing runs. */
+/** "Continue" flow: the existing runs, each with export/delete actions. */
 export function ContinueScreen({
   runs,
   onSelect,
+  onDeleted,
 }: {
   runs: RunSummary[];
   onSelect: (runId: string) => void;
+  onDeleted: () => Promise<void>;
 }) {
+  async function exportRun(r: RunSummary) {
+    downloadRunExport(r, await loadEvents(r.id));
+  }
+
+  async function handleDelete(r: RunSummary) {
+    await deleteRun(r.id);
+    // Best-effort remote cleanup — without it, a signed-in user's next
+    // pullAllRuns would resurrect the run. A failure (offline) is swallowed:
+    // the local delete already happened, per the local-first invariant.
+    await deleteRemoteRun(r.id).catch(() => {});
+    await onDeleted();
+  }
+
   return (
     <section>
       <h2>Continue a run</h2>
       {runs.length === 0 && <p className="muted">No runs yet — start a new game.</p>}
       {runs.map((r) => (
-        <div key={r.id} className="run-list-item" onClick={() => onSelect(r.id)}>
-          <span>
-            {r.gameId} · {r.version}
-          </span>
-          <span className="muted">{new Date(r.createdAt).toLocaleDateString()}</span>
+        <div key={r.id} className="run-list-item">
+          <button
+            className="run-list-open"
+            onClick={() => onSelect(r.id)}
+            aria-label={`Continue ${gameName(r.gameId)} (${prettyVersion(r.version)}) run`}
+          >
+            <span>
+              {gameName(r.gameId)} · {prettyVersion(r.version)}
+            </span>
+            <span className="muted">{new Date(r.createdAt).toLocaleDateString()}</span>
+          </button>
+          <div className="run-list-actions">
+            <button
+              className="secondary"
+              onClick={() => exportRun(r)}
+              aria-label={`Export ${gameName(r.gameId)} run as JSON`}
+            >
+              Export
+            </button>
+            <ConfirmAction
+              label="Delete"
+              prompt="Delete this run permanently? This can't be undone."
+              ariaLabel={`Delete ${gameName(r.gameId)} run`}
+              onConfirm={() => handleDelete(r)}
+            />
+          </div>
         </div>
       ))}
     </section>

@@ -12,6 +12,7 @@ import {
 import { THEMES } from './games';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
+import { ErrorBoundary } from './components/ErrorBoundary';
 import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
 import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
@@ -179,38 +180,43 @@ function OwnerApp() {
       <AuthBar />
       <ProfileSetup session={session} />
 
-      {activeRun ? (
-        <RunView run={activeRun} session={session} />
-      ) : screen === 'title' ? (
-        <>
-          <TitleScreen
-            hasRuns={runs.length > 0}
-            onNewGame={() => setScreen('new')}
-            onContinue={() => setScreen('continue')}
-            onStats={() => setScreen('stats')}
-          />
-          {/* Social discovery lives on the landing page — finding other trainers
-              shouldn't require opening a run. The wrapper only renders when the
-              children can (signed in + sync on) so signed-out users don't get an
-              empty bordered section. */}
-          {SYNC_ENABLED && session && (
-            <section className="landing-social" aria-label="Trainers and friends">
-              <TrainerSearch session={session} />
-              <FollowFeed session={session} />
-            </section>
-          )}
-        </>
-      ) : (
-        <>
-          {screen === 'continue' ? (
-            <ContinueScreen runs={runs} onSelect={setActiveRunId} />
-          ) : screen === 'stats' ? (
-            <CrossRunStatsScreen runs={runs} />
-          ) : (
-            <NewGameScreen onCreated={handleCreated} />
-          )}
-        </>
-      )}
+      {/* Boundary around the whole content area so one broken run (or screen)
+          can never white-screen the app — the fallback offers "back to runs"
+          plus a raw export of the active run's events. */}
+      <ErrorBoundary run={activeRun} onReset={() => setActiveRunId(null)}>
+        {activeRun ? (
+          <RunView run={activeRun} session={session} />
+        ) : screen === 'title' ? (
+          <>
+            <TitleScreen
+              hasRuns={runs.length > 0}
+              onNewGame={() => setScreen('new')}
+              onContinue={() => setScreen('continue')}
+              onStats={() => setScreen('stats')}
+            />
+            {/* Social discovery lives on the landing page — finding other trainers
+                shouldn't require opening a run. The wrapper only renders when the
+                children can (signed in + sync on) so signed-out users don't get an
+                empty bordered section. */}
+            {SYNC_ENABLED && session && (
+              <section className="landing-social" aria-label="Trainers and friends">
+                <TrainerSearch session={session} />
+                <FollowFeed session={session} />
+              </section>
+            )}
+          </>
+        ) : (
+          <>
+            {screen === 'continue' ? (
+              <ContinueScreen runs={runs} onSelect={setActiveRunId} onDeleted={refreshRuns} />
+            ) : screen === 'stats' ? (
+              <CrossRunStatsScreen runs={runs} />
+            ) : (
+              <NewGameScreen onCreated={handleCreated} />
+            )}
+          </>
+        )}
+      </ErrorBoundary>
     </>
   );
 }
