@@ -4,7 +4,6 @@ export {
   party,
   boxed,
   fallen,
-  isFrontier,
   frontierAreas,
   aggregateRuns,
   catchRateByArea,
