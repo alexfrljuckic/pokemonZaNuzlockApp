@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { Area, AreaTrainer, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
-import { expectedMovesAt, typesFor } from '../../lib/speciesData';
+import { resolveTrainerMoves, typesFor } from '../../lib/speciesData';
 import { trainerKeyFromClass } from '../../lib/sprites';
 import { MoveChips } from '../MoveChips';
 import { SpriteImg } from '../SpriteImg';
@@ -90,7 +90,7 @@ function TrainerCard({
       {expanded && (
         <div className="trainer-row-detail">
           {t.team.map((p, j) => {
-            const expected = p.moves?.length ? null : expectedMovesAt(p.species, p.level, gameId);
+            const resolved = resolveTrainerMoves(p, gameId);
             return (
               <div key={`${p.species}-${j}`} className="milestone-roster-detail-row">
                 <div className="mrd-head">
@@ -109,9 +109,12 @@ function TrainerCard({
                   </div>
                 </div>
                 <WeaknessRow types={typesFor(p.species)} />
-                <MoveChips moves={p.moves ?? expected ?? undefined} gameId={gameId} />
-                {expected && (
+                <MoveChips moves={resolved.moves ?? undefined} gameId={gameId} />
+                {resolved.source === 'expected' && (
                   <span className="muted trainer-moves-note">expected moves — last four learned by Lv {p.level}</span>
+                )}
+                {resolved.source === 'unknown' && (
+                  <span className="muted trainer-moves-note">moves not documented</span>
                 )}
                 <StatBars species={p.species} />
               </div>

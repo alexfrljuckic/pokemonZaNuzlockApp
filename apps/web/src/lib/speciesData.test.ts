@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, typesFor } from './speciesData';
+import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, resolveTrainerMoves, typesFor } from './speciesData';
 
 // These run against the real generated species-data / machines-by-game
 // artifacts, locking the per-game → union fallback semantics the pickers
@@ -54,6 +54,48 @@ describe('level-up learnsets', () => {
   it('returns unknown (null / empty) for Z-A, which has no PokeAPI move data', () => {
     expect(levelUpMovesFor('pikachu', 'plza')).toEqual([]);
     expect(expectedMovesAt('pikachu', 20, 'plza')).toBeNull();
+  });
+});
+
+describe('resolveTrainerMoves (trainer card moveset resolution)', () => {
+  it('a normal trainer mon with level-up data yields expected (not confirmed) moves', () => {
+    // Youngster Tristan's Starly on BDSP Route 202 — no documented moveset,
+    // so the card shows the last four level-up moves at its level, labelled.
+    const r = resolveTrainerMoves({ species: 'starly', level: 5 }, 'bdsp');
+    expect(r.source).toBe('expected'); // labelled expected, NEVER confirmed
+    expect(r.moves).not.toBeNull();
+    expect(r.moves!.length).toBeGreaterThan(0);
+    expect(r.moves!.length).toBeLessThanOrEqual(4);
+    for (const m of r.moves!) expect(learnLevel(m, 'starly', 'bdsp')!).toBeLessThanOrEqual(5);
+    // matches the raw fallback the note describes
+    expect(r.moves).toEqual(expectedMovesAt('starly', 5, 'bdsp'));
+  });
+
+  it('documented moves are reported as confirmed and rendered as-is', () => {
+    const moves = ['thunderbolt', 'quick-attack'];
+    const r = resolveTrainerMoves({ species: 'pikachu', level: 30, moves }, 'bdsp');
+    expect(r.source).toBe('confirmed');
+    expect(r.moves).toBe(moves);
+  });
+
+  it('an empty explicit moves array is treated as undocumented, not blank-confirmed', () => {
+    // Latent bug guard: [] must fall through to the expected fallback so a
+    // note never renders without chips.
+    const r = resolveTrainerMoves({ species: 'starly', level: 15, moves: [] }, 'bdsp');
+    expect(r.source).toBe('expected');
+    expect(r.moves).toEqual(expectedMovesAt('starly', 15, 'bdsp'));
+  });
+
+  it('reports unknown (no chips, no invented moves) when the game has no learnset — Z-A', () => {
+    const r = resolveTrainerMoves({ species: 'pikachu', level: 20 }, 'plza');
+    expect(r.source).toBe('unknown');
+    expect(r.moves).toBeNull();
+  });
+
+  it('reports unknown for an unrecognised species instead of throwing', () => {
+    const r = resolveTrainerMoves({ species: 'not-a-species', level: 20 }, 'bdsp');
+    expect(r.source).toBe('unknown');
+    expect(r.moves).toBeNull();
   });
 });
 
