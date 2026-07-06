@@ -32,7 +32,7 @@ export function AreaList({
 }) {
   // Window computed over the FULL dataset order (this list may render only
   // the off-map subset), so map and list agree on what's "up next".
-  const frontier = frontierAreas(ctx.dataset.areas, state);
+  const frontier = frontierAreas(ctx.dataset.areas, state, ctx.dataset.milestones);
   return (
     <>
       {areas.map((area) => {

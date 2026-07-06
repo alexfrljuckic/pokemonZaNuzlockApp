@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { frontierAreas, type Area, type RunState } from '@nuzlocke/engine';
+import { frontierAreas, type Area, type Milestone, type RunState } from '@nuzlocke/engine';
 import { mapHelpers, type GameMap, type MapNode } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
 
@@ -54,6 +54,7 @@ export function RouteMap({
   areas,
   state,
   version,
+  milestones,
   onSelect,
   zones,
   onSelectZone,
@@ -62,6 +63,8 @@ export function RouteMap({
   areas: Area[];
   state: RunState;
   version: string;
+  /** dataset milestones, for the frontier's progression (unlock-tier) ordering */
+  milestones: Milestone[];
   onSelect: (areaId: string) => void;
   /** zone-id → summary, for maps whose nodes are zone groups (PLA) */
   zones?: Map<string, ZoneSummary>;
@@ -82,7 +85,7 @@ export function RouteMap({
   const { mapNode } = useMemo(() => mapHelpers(map), [map]);
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
   // "up next" window: progresses as areas resolve, not just on milestones
-  const frontier = useMemo(() => frontierAreas(areas, state), [areas, state]);
+  const frontier = useMemo(() => frontierAreas(areas, state, milestones), [areas, state, milestones]);
   const { w, h } = map.viewBox;
 
   // Zoom + pan via the SVG viewBox, so the whole map always fits the screen

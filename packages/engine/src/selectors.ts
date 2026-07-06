@@ -1,6 +1,6 @@
 // Pure RunState selectors — derived reads shared by the app's views so the
 // same question is never re-implemented per screen. Engine stays pure TS.
-import type { Area, EngineContext, PokemonInstance, RunEvent, RunState } from './types.js';
+import type { Area, EngineContext, Milestone, PokemonInstance, RunEvent, RunState } from './types.js';
 
 /** Current party members. */
 export function party(state: RunState): PokemonInstance[] {
@@ -17,24 +17,31 @@ export function fallen(state: RunState): PokemonInstance[] {
   return Object.values(state.pokemon).filter((p) => p.status === 'dead');
 }
 
-/** The "up next" areas — a sliding window that progresses as routes get
- * resolved, not just when milestones clear (the old most-recent-milestone
- * rule went dark between badges). Frontier = the first `windowSize`
- * unresolved areas, in dataset (story) order, whose gate is satisfied
- * (no `unlockAfter`, or any cleared milestone). A hint, not a lock. */
-export function frontierAreas(areas: Area[], state: RunState, windowSize = 4): Set<string> {
-  const cleared = new Set(state.milestonesCleared);
-  const next = new Set<string>();
-  for (const area of areas) {
-    if (next.size >= windowSize) break;
-    // towns and other encounter-less areas have nothing to resolve — they
-    // must not clog the window forever
-    if (area.encounters.length === 0) continue;
-    if (state.encounterOutcomes[area.id]) continue;
-    if (area.unlockAfter != null && !cleared.has(area.unlockAfter)) continue;
-    next.add(area.id);
-  }
-  return next;
+/** The "up next" areas — a sliding window over the UNRESOLVED encounter areas,
+ * ordered by progression (unlock tier = the `order` of an area's `unlockAfter`
+ * milestone, ungated = 0; ties broken by dataset order). It advances purely as
+ * areas get resolved, never on milestone clears, so it never goes dark between
+ * badges. The map never hard-locks a route (every area is resolvable at any
+ * time), so gated-but-upcoming areas surface here too once the earlier-tier
+ * ones are done — a "where to head next" hint, not a lock. Pass `milestones`
+ * for the tier ordering; omitted → plain dataset order. */
+export function frontierAreas(
+  areas: Area[],
+  state: RunState,
+  milestones: Milestone[] = [],
+  windowSize = 4,
+): Set<string> {
+  const tier = new Map(milestones.map((m) => [m.id, m.order]));
+  const tierOf = (a: Area) => (a.unlockAfter == null ? 0 : tier.get(a.unlockAfter) ?? 0);
+  const datasetOrder = new Map(areas.map((a, i) => [a.id, i]));
+  const next = areas
+    // towns and other encounter-less areas have nothing to resolve — they must
+    // not clog the window; resolved areas drop out so the window slides forward
+    .filter((a) => a.encounters.length > 0 && !state.encounterOutcomes[a.id])
+    .sort((x, y) => tierOf(x) - tierOf(y) || datasetOrder.get(x.id)! - datasetOrder.get(y.id)!)
+    .slice(0, windowSize)
+    .map((a) => a.id);
+  return new Set(next);
 }
 
 // ---- Cross-run aggregates (backlog 33c) ----

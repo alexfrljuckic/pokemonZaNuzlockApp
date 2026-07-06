@@ -58,34 +58,31 @@ describe('selectors', () => {
     );
   });
 
-  it('frontierAreas: a sliding window over unresolved reachable areas that advances on resolves', () => {
+  it('frontierAreas: a progression-ordered window that advances as areas resolve', () => {
     const fresh = stateWith([]);
-    const first = frontierAreas(dataset.areas, fresh);
-    // fresh run: the first 4 reachable areas in dataset order
+    const first = frontierAreas(dataset.areas, fresh, dataset.milestones);
+    // fresh run: the lowest-tier unresolved areas — the available-from-start
+    // ones fill the window ahead of gated routes like route-3 (gym-1-brock)
     expect(first.size).toBe(4);
     expect(first.has('route-1')).toBe(true);
-    expect(first.has('route-3')).toBe(false); // gated on gym-1-brock
+    expect(first.has('route-3')).toBe(false);
 
-    // resolving an area advances the window WITHOUT any milestone clearing —
-    // the old rule went dark here
-    const oneResolved = stateWith([
-      ev('encounter_resolved', { areaId: 'route-1', species: 'pidgey', outcome: 'skipped' }),
-    ]);
-    const advanced = frontierAreas(dataset.areas, oneResolved);
-    expect(advanced.has('route-1')).toBe(false);
-    expect(advanced.size).toBe(4); // a new area was promoted into the window
-    expect([...advanced].some((id) => !first.has(id))).toBe(true);
+    // resolving the whole window advances it with NO milestone clearing — the
+    // old gate rule went dark here; a gated route now surfaces as "up next"
+    // (the map never hard-locks a route, so it's always resolvable)
+    const resolvedWindow = stateWith(
+      [...first].map((id) => ev('encounter_resolved', { areaId: id, species: 'x', outcome: 'skipped' })),
+    );
+    const advanced = frontierAreas(dataset.areas, resolvedWindow, dataset.milestones);
+    for (const id of first) expect(advanced.has(id)).toBe(false);
+    expect(advanced.size).toBe(4);
+    expect(advanced.has('route-3')).toBe(true);
 
-    // clearing a gate lets its areas enter the window once reached
-    const afterBrock = stateWith([ev('milestone_cleared', { milestoneId: 'gym-1-brock' })]);
-    expect(frontierAreas(dataset.areas, afterBrock).has('route-3')).toBe(true);
-
-    // a resolved area is never frontier
-    const resolved = stateWith([
-      ev('milestone_cleared', { milestoneId: 'gym-1-brock' }),
+    // a resolved area is never frontier, even without touching its gate
+    const resolvedRoute3 = stateWith([
       ev('encounter_resolved', { areaId: 'route-3', species: 'spearow', outcome: 'skipped' }),
     ]);
-    expect(frontierAreas(dataset.areas, resolved).has('route-3')).toBe(false);
+    expect(frontierAreas(dataset.areas, resolvedRoute3, dataset.milestones).has('route-3')).toBe(false);
   });
 
   it('frontierAreas skips encounter-less areas (towns must not clog the window)', () => {
