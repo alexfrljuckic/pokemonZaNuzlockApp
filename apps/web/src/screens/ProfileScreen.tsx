@@ -75,13 +75,16 @@ export function ProfileScreen({ handle }: { handle: string }) {
         <p className="muted">No shared runs yet.</p>
       ) : (
         profile.runs.map((r) => (
-          <div key={r.token} className="run-list-item" onClick={() => (location.hash = `#share/${r.token}`)}>
-            <span>
-              {gameName(r.gameId)} · {r.version.replace(/-/g, ' ')}
-            </span>
-            <span className="muted">
-              {r.eventCount} events · {new Date(r.createdAt).toLocaleDateString()}
-            </span>
+          // navigation, so a real link: keyboard-reachable, middle-clickable
+          <div key={r.token} className="run-list-item">
+            <a className="run-list-open" href={`#share/${r.token}`}>
+              <span>
+                {gameName(r.gameId)} · {r.version.replace(/-/g, ' ')}
+              </span>
+              <span className="muted">
+                {r.eventCount} events · {new Date(r.createdAt).toLocaleDateString()}
+              </span>
+            </a>
           </div>
         ))
       )}

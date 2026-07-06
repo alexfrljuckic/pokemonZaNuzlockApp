@@ -363,9 +363,17 @@ button:active:not(:disabled) {
   transform: translateY(0) scale(0.97);
 }
 
-button:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--highlight) 50%, transparent);
+/* One robust keyboard-focus token for every interactive element. Outline
+   (not box-shadow) so the many component-level `box-shadow: none` overrides
+   can never suppress it — the audit found several controls with no visible
+   focus at all. Mouse focus stays clean (:focus-visible only). */
+button:focus-visible,
+a:focus-visible,
+summary:focus-visible,
+[role='button']:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--highlight);
+  outline-offset: 2px;
 }
 
 button.secondary {
@@ -456,8 +464,12 @@ button:disabled {
 
 .run-list-item:last-child { border-bottom: none; }
 
-/* The "open this run" half of a row: a real button (keyboard-reachable) that
-   keeps the old row look — no gradient/shadow, hover slide preserved. */
+/* The "open this run" half of a row: a real button or link
+   (keyboard-reachable) that keeps the old row look — no gradient/shadow,
+   hover slide preserved. */
+a.run-list-open {
+  text-decoration: none;
+}
 .run-list-open {
   flex: 1 1 14rem;
   display: flex;
@@ -777,7 +789,7 @@ button.item-chip.item-picked {
 
 /* Stronger active-tab treatment than fill-color alone (UX audit): a ring
    plus weight, so the selected tab reads at a glance on every theme. */
-.tabs button[aria-current='page'] {
+.tabs button[aria-selected='true'] {
   font-weight: 700;
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent);
 }
@@ -863,10 +875,28 @@ button.item-chip.item-picked {
   animation: frontierEdgeBreathe 2.6s ease-in-out infinite;
 }
 
+/* a real button (keyboard-reachable) that keeps the plain row look */
 .area-row-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin-top: 0;
+  padding: 0.15rem 0.25rem;
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: left;
+  border-radius: var(--radius-sm);
+}
+.area-row-header:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  transform: none;
+  box-shadow: none;
+  filter: none;
 }
 
 .encounter-form {

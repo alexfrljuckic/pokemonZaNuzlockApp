@@ -27,6 +27,8 @@ const TAB_SHORT: Record<Tab, string> = {
   Stats: 'Stats',
 };
 
+const tabDomId = (t: Tab) => `run-tab-${t.replace(/\W+/g, '-').toLowerCase()}`;
+
 // End a run from any tab. Inline expanding confirm (no window.confirm — Alex
 // hates browser prompts). Hidden once the run is already finished
 // (victory/wiped/abandoned); available for active and wiped-continuing runs.
@@ -171,7 +173,20 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
         <>
           <RunSummaryStrip events={events} state={state} ctx={ctx} />
 
-          <nav className="tabs">
+          {/* proper tabs pattern: roving tabIndex, arrows move selection */}
+          <nav
+            className="tabs"
+            role="tablist"
+            aria-label="Run sections"
+            onKeyDown={(e) => {
+              const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+              if (!dir) return;
+              e.preventDefault();
+              const next = TABS[(TABS.indexOf(tab) + dir + TABS.length) % TABS.length];
+              setTab(next);
+              requestAnimationFrame(() => document.getElementById(tabDomId(next))?.focus());
+            }}
+          >
             {TABS.map((t) => {
               // per-tab counts (audit: "Team & Box · 6") — desktop labels only
               const count =
@@ -183,8 +198,12 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
               return (
                 <button
                   key={t}
+                  id={tabDomId(t)}
+                  role="tab"
                   className={t === tab ? '' : 'secondary'}
-                  aria-current={t === tab ? 'page' : undefined}
+                  aria-selected={t === tab}
+                  aria-controls="run-tabpanel"
+                  tabIndex={t === tab ? 0 : -1}
                   onClick={() => setTab(t)}
                 >
                   <span className="tab-label-full">{t}</span>
@@ -195,11 +214,13 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
             })}
           </nav>
 
-          {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Boss Fights' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-          {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} timeline />}
+          <div id="run-tabpanel" role="tabpanel" aria-labelledby={tabDomId(tab)}>
+            {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Boss Fights' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} timeline />}
+          </div>
         </>
       )}
     </>
