@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { listRuns, type RunSummary } from './lib/db';
 import { SYNC_ENABLED } from './lib/env';
 import { pullAllRuns } from './lib/sync';
@@ -99,6 +100,7 @@ export default function App() {
           <ThemePicker />
         </div>
         {shareToken ? <SpectatorView token={shareToken} /> : <ProfileScreen handle={profileHandle!} />}
+        <SpeedInsights />
       </>
     );
   }
@@ -217,6 +219,7 @@ function OwnerApp() {
           </>
         )}
       </ErrorBoundary>
+      <SpeedInsights />
     </>
   );
 }
