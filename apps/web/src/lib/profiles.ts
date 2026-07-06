@@ -76,6 +76,21 @@ export async function claimProfile(userId: string, handle: string, displayName: 
   return /duplicate|unique/i.test(error.message) ? 'That handle is already taken.' : error.message;
 }
 
+/** Change the signed-in user's handle and/or display name. Same rules and
+ * taken-handle error as claiming; RLS ("profiles owner-only", for all) permits
+ * the owner to update their row. Changing the handle changes the profile URL
+ * (#u/<handle>) but not follows, which key off user_id. */
+export async function updateProfile(userId: string, handle: string, displayName: string): Promise<string | null> {
+  if (!supabase) return 'Sync is disabled.';
+  if (!HANDLE_RE.test(handle)) return 'Handles are 3–24 chars: lowercase letters, digits, dashes.';
+  const { error } = await supabase
+    .from('profiles')
+    .update({ handle, display_name: displayName.trim() })
+    .eq('user_id', userId);
+  if (!error) return null;
+  return /duplicate|unique/i.test(error.message) ? 'That handle is already taken.' : error.message;
+}
+
 /** Delete the signed-in user's own profile: frees the handle and removes their
  * public presence (follow edges cascade via the FK). Runs and share links are
  * unaffected — this only removes the public profile, not the account or its data.

@@ -3360,6 +3360,53 @@ button.back-icon:hover:not(:disabled) {
   padding: 0.3rem 0.5rem;
   font-size: 0.85rem;
 }
+/* Public-profile identity + claim/edit form (settings menu) */
+.settings-profile-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.profile-field-help {
+  margin: 0 0 0.15rem;
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+.profile-field-help strong {
+  color: var(--text);
+}
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  width: 100%;
+}
+.profile-field-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+/* @-prefixed handle input: the '@' is a fixed adornment so users know not to
+   type it (and that this field is their unique address, not the display name) */
+.handle-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-inset);
+  padding-left: 0.5rem;
+}
+.handle-input > span[aria-hidden] {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.handle-input input {
+  border: none;
+  background: transparent;
+  flex: 1;
+  min-width: 0;
+  padding-left: 0.15rem;
+}
 .profile-error {
   color: var(--danger);
   flex-basis: 100%;

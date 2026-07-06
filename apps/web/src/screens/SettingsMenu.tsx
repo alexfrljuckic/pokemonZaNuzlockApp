@@ -5,7 +5,18 @@ import { usePopoverDialog } from '../components/usePopoverDialog';
 import { THEME_CHANGE_EVENT, applyTheme, applyThemeExplicit, currentTheme, type ThemeId } from '../lib/theme';
 import { THEMES } from '../games';
 import { SYNC_ENABLED } from '../lib/env';
-import { HANDLE_RE, claimProfile, deleteProfile, getMyProfile, type Profile } from '../lib/profiles';
+import {
+  HANDLE_RE,
+  claimProfile,
+  deleteProfile,
+  getMyProfile,
+  updateProfile,
+  type Profile,
+} from '../lib/profiles';
+
+/** Normalize what the user typed into a stored handle: no leading '@' (we show
+ * it but don't store it), lowercase, trimmed. */
+const sanitizeHandle = (raw: string) => raw.trim().toLowerCase().replace(/^@+/, '');
 
 /* Inline gear glyph — no external request (CSP forbids remote assets). */
 const GearIcon = () => (
@@ -87,12 +98,15 @@ export function SettingsMenu({ session }: { session: Session | null }) {
   );
 }
 
-/** Public-profile management inside the settings menu: claim a handle, or view
- * and delete an existing one. Owns its own profile fetch so the link and the
- * delete action never drift out of sync. */
+/** Public-profile management inside the settings menu: claim a handle, edit the
+ * handle / display name, or delete the profile. Owns its own fetch so the link,
+ * edit form and delete action never drift out of sync. */
 function ProfileSection({ session }: { session: Session }) {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loaded, setLoaded] = useState(false);
+  // The claim/edit form. `editing` is true while the form is shown for an
+  // EXISTING profile (so we render Save/Cancel); a fresh claim always shows it.
+  const [editing, setEditing] = useState(false);
   const [handle, setHandle] = useState('');
   const [displayName, setDisplayName] = useState('');
   const [busy, setBusy] = useState(false);
@@ -114,13 +128,28 @@ function ProfileSection({ session }: { session: Session }) {
     };
   }, [session]);
 
-  async function claim() {
+  function startEdit() {
+    if (!profile) return;
+    setHandle(profile.handle);
+    setDisplayName(profile.displayName);
+    setError(null);
+    setEditing(true);
+  }
+
+  async function save() {
     setBusy(true);
     setError(null);
     try {
-      const err = await claimProfile(session.user.id, handle.trim().toLowerCase(), displayName);
-      if (err) setError(err);
-      else setProfile(await getMyProfile(session.user.id));
+      const clean = sanitizeHandle(handle);
+      const err = profile
+        ? await updateProfile(session.user.id, clean, displayName)
+        : await claimProfile(session.user.id, clean, displayName);
+      if (err) {
+        setError(err);
+      } else {
+        setProfile(await getMyProfile(session.user.id));
+        setEditing(false);
+      }
     } finally {
       setBusy(false);
     }
@@ -140,18 +169,31 @@ function ProfileSection({ session }: { session: Session }) {
 
   if (!loaded) return <p className="muted settings-note">Loading profile…</p>;
 
+  // Form shown for a fresh claim (no profile) or when editing an existing one.
+  const showForm = !profile || editing;
+  const canSubmit = !busy && HANDLE_RE.test(sanitizeHandle(handle));
+
   return (
     <div className="settings-profile">
       <span className="settings-label">Public profile</span>
-      {profile ? (
+
+      {profile && !editing && (
         <>
-          <a className="settings-profile-link" href={`#u/${profile.handle}`}>
-            @{profile.handle}
-          </a>
+          <div className="settings-profile-identity">
+            {profile.displayName && <strong>{profile.displayName}</strong>}
+            <a className="settings-profile-link" href={`#u/${profile.handle}`}>
+              @{profile.handle}
+            </a>
+          </div>
           {!confirmingDelete ? (
-            <button type="button" className="secondary link-danger" onClick={() => setConfirmingDelete(true)}>
-              Delete profile
-            </button>
+            <span className="settings-confirm-actions">
+              <button type="button" className="secondary" onClick={startEdit}>
+                Edit
+              </button>
+              <button type="button" className="secondary link-danger" onClick={() => setConfirmingDelete(true)}>
+                Delete
+              </button>
+            </span>
           ) : (
             <span className="settings-delete-confirm">
               <span className="muted">Delete @{profile.handle}? Your runs and account stay.</span>
@@ -167,25 +209,49 @@ function ProfileSection({ session }: { session: Session }) {
             </span>
           )}
         </>
-      ) : (
+      )}
+
+      {showForm && (
         <div className="profile-claim">
-          <input
-            type="text"
-            placeholder="handle (a–z, 0–9, -)"
-            value={handle}
-            onChange={(e) => setHandle(e.target.value)}
-            aria-label="Handle"
-          />
-          <input
-            type="text"
-            placeholder="display name (optional)"
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            aria-label="Display name"
-          />
-          <button type="button" disabled={busy || !HANDLE_RE.test(handle.trim().toLowerCase())} onClick={claim}>
-            {busy ? 'Claiming…' : 'Claim'}
-          </button>
+          <p className="muted profile-field-help">
+            Your <strong>handle</strong> is your unique @address — it’s your profile link and how
+            people find you in search. Your <strong>display name</strong> is the friendly name shown
+            to others; it doesn’t have to be unique.
+          </p>
+          <label className="profile-field">
+            <span className="profile-field-label">Handle</span>
+            <span className="handle-input">
+              <span aria-hidden="true">@</span>
+              <input
+                type="text"
+                placeholder="your-handle"
+                value={handle}
+                onChange={(e) => setHandle(e.target.value)}
+                aria-label="Handle"
+                autoComplete="off"
+              />
+            </span>
+          </label>
+          <label className="profile-field">
+            <span className="profile-field-label">Display name</span>
+            <input
+              type="text"
+              placeholder="optional"
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              aria-label="Display name"
+            />
+          </label>
+          <span className="settings-confirm-actions">
+            <button type="button" disabled={!canSubmit} onClick={save}>
+              {busy ? 'Saving…' : profile ? 'Save' : 'Claim'}
+            </button>
+            {profile && (
+              <button type="button" className="secondary" disabled={busy} onClick={() => setEditing(false)}>
+                Cancel
+              </button>
+            )}
+          </span>
         </div>
       )}
       {error && <span className="muted profile-error">{error}</span>}
