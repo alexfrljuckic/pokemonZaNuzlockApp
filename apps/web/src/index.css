@@ -1398,6 +1398,20 @@ input[aria-invalid='true'] {
 .summary-cap.over .summary-cap-value {
   color: var(--danger);
 }
+/* Clickable variant: the cap doubles as a shortcut to the Boss Fights tab.
+   Reset the app's default button chrome so it reads as the same chip, just
+   interactive (pointer + subtle hover). */
+.summary-cap-button {
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: border-color 0.12s, background 0.12s;
+}
+.summary-cap-button:hover {
+  border-color: var(--highlight);
+  background: var(--bg-chip);
+}
 
 .summary-list {
   list-style: none;
