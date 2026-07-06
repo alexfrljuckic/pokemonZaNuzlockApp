@@ -230,8 +230,10 @@ all dev-only).
 Also still in the optional pool (catch-rate-by-zone + time-in-run SHIPPED
 #170; bundle code-splitting SHIPPED #168 — but species-data.json alone
 still trips the 500 kB warning; Z-A hyperspace standalone evolutions
-SHIPPED #178; giants-mirror table fleshed out #185): Z-A movepool
-hand-curation, sync seq-collision (out of MVP), and giants-mirror's
+SHIPPED #178; giants-mirror table fleshed out #185; **Z-A movepools SHIPPED**
+— Serebii-scraped via build-za-movepools.mjs, 420/485 species, gaps fall
+back to the union; the first agent hung on a timeout-less fetch and was
+recovered): sync seq-collision (out of MVP), and giants-mirror's
 Underground + strong-symbol "special encounters" (omitted from #185 for
 lack of two-source-agreed per-weather rates — candidate follow-up).
 Fourth-wave follow-ups worth a look: dynamic-import species-data.json to
@@ -402,10 +404,16 @@ coordinates against the new image.
 
 ## Deferred / low priority
 
-- **Z-A movepools**: PokeAPI has no move-learn data for `legends-za` /
-  `mega-dimension` at all, so Z-A uses the union-fallback pool (documented in
-  `speciesData.ts`). Only fixable by hand-curating movepools — skip unless it
-  actually bothers someone mid-run.
+- **Z-A movepools — SHIPPED.** PokeAPI has no `legends-za`/`mega-dimension`
+  learnsets, so they're scraped from Serebii's SV Pokédex (Z-A section) by
+  `build-za-movepools.mjs` → `generated/za-movepools.json`, merged into
+  `species-data.json` as `movesByGame.plza` / `levelUpMovesByGame.plza` by
+  `build-species-data.mjs`. Coverage 420/485 species (every emitted move slug
+  validated against the known set — 2 dropped: "Nihil Light" not in PokeAPI,
+  "Water Shuriken" not in our move universe). Gaps: species outside the Z-A dex
+  + ~10 Serebii form/slug 404s (Galarian Corsola/Obstagoon, Togepi line) fall
+  back to the union pool. Follow-up if wanted: SEREBII_SLUG overrides for those
+  ~10 forms to lift coverage.
 - **Sync seq-collision edge case**: two devices appending to the same run
   while both offline and never-synced can collide on `seq` (documented in
   `apps/web/src/lib/db.ts`). Full CRDT-style resolution deliberately out of

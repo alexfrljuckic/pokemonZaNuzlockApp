@@ -18,9 +18,14 @@ describe('movesFor', () => {
     for (const m of lgpe) expect(union).toContain(m);
   });
 
-  it('falls back to the union pool when a game has no per-game data (Z-A)', () => {
-    // PokeAPI has zero move-learn data for legends-za/mega-dimension.
-    expect(movesFor('pikachu', 'plza')).toEqual(movesFor('pikachu'));
+  it('uses the scraped Z-A pool when present, else the union fallback', () => {
+    // PokeAPI has no legends-za learnsets; plza pools are hand-scraped from
+    // Serebii (build-za-movepools.mjs) for species in the Z-A dex.
+    const pika = movesFor('pikachu', 'plza');
+    expect(pika.length).toBeGreaterThan(0);
+    expect(pika).not.toEqual(movesFor('pikachu')); // a real Z-A pool, not the union
+    // a species outside the Z-A dex has no scraped pool → union fallback.
+    expect(movesFor('aerodactyl', 'plza')).toEqual(movesFor('aerodactyl'));
   });
 
   it('returns [] for unknown species instead of throwing', () => {
@@ -51,9 +56,14 @@ describe('level-up learnsets', () => {
     for (const m of expected!) expect(learnLevel(m, 'starly', 'bdsp')!).toBeLessThanOrEqual(15);
   });
 
-  it('returns unknown (null / empty) for Z-A, which has no PokeAPI move data', () => {
-    expect(levelUpMovesFor('pikachu', 'plza')).toEqual([]);
-    expect(expectedMovesAt('pikachu', 20, 'plza')).toBeNull();
+  it('has real Z-A learnsets for dex species (Serebii-scraped), null for the gaps', () => {
+    const lu = levelUpMovesFor('pikachu', 'plza');
+    expect(lu.length).toBeGreaterThan(0);
+    for (let i = 1; i < lu.length; i++) expect(lu[i].level).toBeGreaterThanOrEqual(lu[i - 1].level);
+    expect(expectedMovesAt('pikachu', 20, 'plza')).not.toBeNull();
+    // a species outside the Z-A dex still has no learnset
+    expect(levelUpMovesFor('aerodactyl', 'plza')).toEqual([]);
+    expect(expectedMovesAt('aerodactyl', 20, 'plza')).toBeNull();
   });
 });
 
@@ -86,10 +96,15 @@ describe('resolveTrainerMoves (trainer card moveset resolution)', () => {
     expect(r.moves).toEqual(expectedMovesAt('starly', 15, 'bdsp'));
   });
 
-  it('reports unknown (no chips, no invented moves) when the game has no learnset — Z-A', () => {
-    const r = resolveTrainerMoves({ species: 'pikachu', level: 20 }, 'plza');
-    expect(r.source).toBe('unknown');
-    expect(r.moves).toBeNull();
+  it('resolves Z-A dex species to expected moves, gaps to unknown', () => {
+    // pikachu now has a Serebii-scraped Z-A learnset → expected (labelled).
+    const known = resolveTrainerMoves({ species: 'pikachu', level: 20 }, 'plza');
+    expect(known.source).toBe('expected');
+    expect(known.moves?.length).toBeGreaterThan(0);
+    // a species outside the Z-A dex has no learnset → unknown, nothing invented.
+    const gap = resolveTrainerMoves({ species: 'aerodactyl', level: 20 }, 'plza');
+    expect(gap.source).toBe('unknown');
+    expect(gap.moves).toBeNull();
   });
 
   it('reports unknown for an unrecognised species instead of throwing', () => {

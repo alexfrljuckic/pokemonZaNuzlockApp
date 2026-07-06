@@ -14,6 +14,8 @@ npm run validate:datasets                           # schema + referential integ
 npm run dev                                         # apps/web dev server (Vite), http://localhost:5173
 node packages/datasets/scripts/port-za.mjs <path>   # regenerate plza.json from v1 data.js
 node packages/datasets/scripts/build-species-lines.mjs  # regenerate generated/species-lines.json from PokeAPI
+node packages/datasets/scripts/build-za-movepools.mjs   # scrape Z-A learnsets from Serebii → generated/za-movepools.json
+node packages/datasets/scripts/build-species-data.mjs   # merges za-movepools.json into species-data.json (movesByGame.plza)
 ```
 
 CI (`.github/workflows/ci.yml`) runs tests + dataset validation on every push/PR.
