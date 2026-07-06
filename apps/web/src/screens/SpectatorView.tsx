@@ -125,7 +125,7 @@ function SpectatorRun({ shared }: { shared: SharedRun }) {
 
       <section>
         <h2>
-          Boss fights ({clearedCount}/{milestones.length} cleared)
+          Boss fights ({clearedCount}/{milestones.length} defeated)
         </h2>
         <div className="milestone-card-grid">
           {milestones.map((m) => (

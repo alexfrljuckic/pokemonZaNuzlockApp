@@ -18,7 +18,7 @@ export function MilestoneProgressBar({ cleared, total }: { cleared: number; tota
         <rect x="0" y="4" width={300 * fraction} height="16" rx="8" fill="var(--accent)" />
       </svg>
       <p className="muted chart-caption">
-        {cleared}/{total} boss fights cleared ({percent}%)
+        {cleared}/{total} boss fights defeated ({percent}%)
       </p>
     </div>
   );

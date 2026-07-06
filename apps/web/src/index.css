@@ -978,23 +978,40 @@ button.item-chip.item-picked {
 
 /* ---------- Milestone trainer cards (section C) ---------- */
 
+/* Full-width horizontal rows: expanding any card only grows downward, so the
+   tab stays organized no matter how many are open at once (the old auto-fill
+   grid reflowed around every expanded card). */
 .milestone-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0.75rem;
-  align-items: start;
+  grid-template-columns: 1fr;
+  gap: 0.6rem;
 }
 
-/* an expanded card takes the whole row so its roster detail has room; on
-   wide grids (4+ columns) cap it to two tracks so expanding one card doesn't
-   shove the entire row down */
-.milestone-card.expanded {
-  grid-column: 1 / -1;
+/* the condensed strip: head | roster | status+action, wrapping on phones */
+.milestone-card-main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1.25rem;
+  padding: 0.6rem 0.85rem;
 }
-@media (min-width: 1100px) {
-  .milestone-card.expanded {
-    grid-column: span 2;
+/* fixed head column on wide screens so roster strips align across rows */
+@media (min-width: 720px) {
+  .milestone-card-main .milestone-card-head {
+    flex: 0 0 240px;
   }
+}
+.milestone-card-side {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: none;
+}
+.milestone-card-side button {
+  margin-top: 0;
+  padding: 0.35rem 0.9rem;
+  white-space: nowrap;
 }
 
 .milestone-card {
@@ -1025,27 +1042,23 @@ button.item-chip.item-picked {
 }
 
 .milestone-card-head {
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.7rem;
   text-align: left;
-  padding: 0.75rem 0.85rem 0.4rem;
 }
 
 .milestone-cleared-badge {
   font-size: 0.78rem;
   color: var(--success);
   white-space: nowrap;
-  margin-left: auto;
 }
 
 .milestone-next-badge {
   font-size: 0.78rem;
   color: var(--highlight);
   white-space: nowrap;
-  margin-left: auto;
 }
 
 .milestone-card-actions {
@@ -1064,7 +1077,7 @@ button.item-chip.item-picked {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding: 0 0.85rem 0.75rem;
+  flex: 1 1 320px;
 }
 
 .milestone-roster-mon {
@@ -1086,8 +1099,9 @@ button.item-chip.item-picked {
 }
 
 .milestone-roster-fallback {
-  padding: 0 0.85rem 0.75rem;
+  padding: 0;
   margin: 0;
+  flex: 1 1 320px;
 }
 
 .milestone-card-detail {
