@@ -4,11 +4,14 @@ import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
 import {
   HELD_ITEMS,
+  STAT_ORDER,
   evolutionOptionsFor,
   evolutionSummary,
   learnLevel,
   machineType,
   orderedMovesFor,
+  statLabel,
+  statsFor,
   typesFor,
 } from '../lib/speciesData';
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
@@ -18,8 +21,27 @@ import { Combobox } from './Combobox';
 import { ConfirmAction } from './ConfirmAction';
 import { LevelUpMoves } from './LevelUpMoves';
 import { MoveChips } from './MoveChips';
+import { StatBars } from './StatBars';
 import { TypeBadges } from './TypeBadge';
 import { WeaknessRow } from './WeaknessRow';
+
+/** Tiny inline base-stat spark for the condensed row: six mini bars keyed to
+ * each stat, tooltip'd with the numeric spread. A whole-body StatBars block
+ * would crowd the row; this is the at-a-glance version. Renders nothing when
+ * the species has no stat data. */
+function StatSpark({ species }: { species: string }) {
+  const st = statsFor(species);
+  if (!st) return null;
+  const total = STAT_ORDER.reduce((sum, k) => sum + (st[k] ?? 0), 0);
+  const title = `${STAT_ORDER.map((k) => `${statLabel(k)} ${st[k]}`).join(' · ')} — BST ${total}`;
+  return (
+    <span className="mon-stat-spark" title={title} aria-label={title}>
+      {STAT_ORDER.map((k) => (
+        <span key={k} className="mon-stat-spark-bar" style={{ height: `${Math.min(100, (st[k] / 200) * 100)}%` }} />
+      ))}
+    </span>
+  );
+}
 
 function EditForm({
   p,
@@ -254,9 +276,15 @@ function UnevolveButton({
   );
 }
 
-/** Unified compact Pokémon card (team, box, graveyard). Condensed: sprite +
- * nickname + species + type, with action buttons below. Click the card to
- * expand full-width into details (+ the edit form when editable).
+/** Unified Pokémon card (team, box, graveyard) rendered as a full-width
+ * horizontal row — mirrors the boss-fight rows (MilestoneCard): fixed head
+ * column (sprite + name) on the left, an at-a-glance detail strip in the
+ * middle (types · status · held item · nature · stat spark · next evolution),
+ * and action buttons on the right. Clicking the head expands the row
+ * DOWNWARD in place (no grid reflow) into full detail + the edit form.
+ *
+ * Rows stack vertically (one per line), so expanding one never mis-spaces its
+ * neighbours the way the old wrapping grid did.
  *
  * Read-only mode (SpectatorView): omit runId/onChange — the edit form and
  * actions disappear, everything else renders identically. */
@@ -281,41 +309,82 @@ export function MonCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const editable = p.status !== 'dead' && runId != null && onChange != null;
+  const types = typesFor(p.species);
+  const nextEvo = evolutionSummary(p.species);
+  // condensed-row status word: box/graveyard get a chip; party is the default
+  // (unmarked) state, so no chip there to keep the row uncluttered.
+  const statusLabel = p.status === 'dead' ? 'Fainted' : p.status === 'box' ? 'Boxed' : null;
 
   return (
     <div className={`mon-card${expanded ? ' expanded' : ''}${p.status === 'dead' ? ' dead' : ''}`}>
-      <button type="button" className="mon-card-top" onClick={() => setExpanded((e) => !e)} aria-expanded={expanded}>
-        <SpriteImg species={p.species} size={64} shiny={p.shiny} className={p.status === 'dead' ? 'sprite-dead' : ''} />
-        <span className="mon-card-name">
-          {p.nickname}
-          {p.shiny && <span className="shiny-star" title="Shiny"> ✦</span>}
-        </span>
-        <span className="mon-card-species muted">
-          {p.species} · Lv {p.level}
-        </span>
-        <TypeBadges types={typesFor(p.species)} />
-      </button>
+      <div className="mon-card-main">
+        <button
+          type="button"
+          className="mon-card-head"
+          onClick={() => setExpanded((e) => !e)}
+          aria-expanded={expanded}
+        >
+          <SpriteImg
+            species={p.species}
+            size={56}
+            shiny={p.shiny}
+            className={p.status === 'dead' ? 'sprite-dead' : ''}
+          />
+          <span className="mon-card-title">
+            <span className="mon-card-name">
+              {p.nickname}
+              {p.shiny && (
+                <span className="shiny-star" title="Shiny">
+                  {' '}
+                  ✦
+                </span>
+              )}
+            </span>
+            <span className="mon-card-species muted">
+              {p.species} · Lv {p.level}
+            </span>
+          </span>
+        </button>
 
-      {actions.length > 0 && (
-        <div className="mon-card-actions">
-          {actions.map((a) =>
-            a.confirm ? (
-              <ConfirmAction
-                key={a.label}
-                label={a.label}
-                prompt={a.confirm.prompt}
-                ariaLabel={a.confirm.ariaLabel}
-                onConfirm={a.onClick}
-                triggerClass={a.secondary ? 'secondary' : ''}
-              />
-            ) : (
-              <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
-                {a.label}
-              </button>
-            ),
+        {/* at-a-glance strip — the full-width row lets us surface here what
+            used to hide behind an expand: types, status, item, nature, a
+            compact stat spark and the next-evolution nudge */}
+        <div className="mon-card-glance">
+          <TypeBadges types={types} />
+          {statusLabel && <span className={`mon-status-chip mon-status-${p.status}`}>{statusLabel}</span>}
+          <span className="mon-card-meta muted">
+            {p.heldItem ? `@ ${p.heldItem}` : 'No item'}
+            {p.nature ? ` · ${p.nature}` : ''}
+          </span>
+          <StatSpark species={p.species} />
+          {nextEvo && (
+            <span className="mon-card-evo muted" title={`Evolves into ${nextEvo}`}>
+              ↗ {nextEvo}
+            </span>
           )}
         </div>
-      )}
+
+        {actions.length > 0 && (
+          <div className="mon-card-actions">
+            {actions.map((a) =>
+              a.confirm ? (
+                <ConfirmAction
+                  key={a.label}
+                  label={a.label}
+                  prompt={a.confirm.prompt}
+                  ariaLabel={a.confirm.ariaLabel}
+                  onConfirm={a.onClick}
+                  triggerClass={a.secondary ? 'secondary' : ''}
+                />
+              ) : (
+                <button key={a.label} className={a.secondary ? 'secondary' : ''} onClick={a.onClick}>
+                  {a.label}
+                </button>
+              ),
+            )}
+          </div>
+        )}
+      </div>
 
       {expanded && (
         <div className="mon-card-detail">
@@ -325,20 +394,15 @@ export function MonCard({
               {p.death.killer ? ` — ${p.death.killer}` : ''}
             </span>
           )}
-          <WeaknessRow types={typesFor(p.species)} />
-          <span className="muted">
-            {p.heldItem ? `Holding: ${p.heldItem}` : 'No held item'}
-            {p.nature ? ` · ${p.nature}` : ''}
-          </span>
+          <WeaknessRow types={types} />
+          <StatBars species={p.species} />
           {editable ? (
             <>
               <EvolvePanel p={p} runId={runId} gameId={gameId} onEvolved={onChange} />
               <UnevolveButton p={p} runId={runId} onReverted={onChange} />
             </>
           ) : (
-            evolutionSummary(p.species) && (
-              <span className="poke-evo muted">↗ Evolves into {evolutionSummary(p.species)}</span>
-            )
+            nextEvo && <span className="poke-evo muted">↗ Evolves into {nextEvo}</span>
           )}
           <MoveChips moves={p.moves} gameId={gameId} />
           <LevelUpMoves species={p.species} gameId={gameId} atLevel={p.level} />
