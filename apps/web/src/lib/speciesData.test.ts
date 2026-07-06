@@ -102,3 +102,57 @@ describe('evolutionOptionsFor (MonCard evolve panel)', () => {
     expect(resolveEvolutionTarget('meowth-galar', 'persian')).toBe('persian');
   });
 });
+
+describe('per-game evolution-target overrides', () => {
+  const to = (opts: { to: string }[]) => opts.map((o) => o.to);
+
+  it('PLA evolves the starter mid-stages into their Hisuian finals', () => {
+    // These mid-stages aren't in any encounter pool, so PokeAPI-derived data
+    // has no evolution row at all — the override injects them.
+    expect(to(evolutionOptionsFor('dartrix', 36, 'pla'))).toEqual(['decidueye-hisui']);
+    expect(to(evolutionOptionsFor('quilava', 36, 'pla'))).toEqual(['typhlosion-hisui']);
+    expect(to(evolutionOptionsFor('dewott', 36, 'pla'))).toEqual(['samurott-hisui']);
+    // level gate still applies through the override
+    expect(evolutionOptionsFor('dartrix', 20, 'pla')[0].ready).toBe(false);
+    expect(evolutionOptionsFor('dartrix', 36, 'pla')[0].ready).toBe(true);
+  });
+
+  it('PLA redirects suffix-less parents to the Hisuian variety', () => {
+    expect(to(evolutionOptionsFor('petilil', 30, 'pla'))).toEqual(['lilligant-hisui']);
+    expect(to(evolutionOptionsFor('rufflet', 60, 'pla'))).toEqual(['braviary-hisui']);
+    expect(to(evolutionOptionsFor('goomy', 40, 'pla'))).toEqual(['sliggoo-hisui']);
+    expect(to(evolutionOptionsFor('bergmite', 37, 'pla'))).toEqual(['avalugg-hisui']);
+  });
+
+  it('SwSh evolves Koffing into Galarian Weezing', () => {
+    expect(to(evolutionOptionsFor('koffing', 35, 'swsh'))).toEqual(['weezing-galar']);
+    // Galarian Darumaka → Galarian Darmanitan (Standard)
+    expect(to(evolutionOptionsFor('darumaka-galar', 35, 'swsh'))).toEqual(['darmanitan-galar-standard']);
+  });
+
+  it('leaves the vanilla variety alone where no override applies', () => {
+    // Koffing in a game without the override plays the PokeAPI-derived line
+    // (Kanto Weezing). No non-PLA/SwSh game has Koffing in its pool, but the
+    // builder must still yield the base variety when gameId lacks an override.
+    expect(to(evolutionOptionsFor('koffing', 35, 'bdsp'))).toEqual(['weezing']);
+    expect(to(evolutionOptionsFor('koffing', 35))).toEqual(['weezing']);
+    // Petilil in SwSh (has Petilil, no Hisui override) → Kanto/Unova Lilligant
+    expect(to(evolutionOptionsFor('petilil', 30, 'swsh'))).toEqual(['lilligant']);
+  });
+
+  it('overrides only fire for the matching game', () => {
+    // dartrix has no derived row anywhere; outside PLA it yields nothing
+    expect(evolutionOptionsFor('dartrix', 36, 'bdsp')).toEqual([]);
+    expect(evolutionOptionsFor('dartrix', 36)).toEqual([]);
+  });
+
+  it('lines PokeAPI already resolves correctly need no override', () => {
+    // New Hisui species and Galar cross-gen evos are their own chain node.
+    expect(to(evolutionOptionsFor('scyther', 30, 'pla'))).toContain('kleavor');
+    expect(to(evolutionOptionsFor('sliggoo-hisui', 40, 'pla'))).toEqual(['goodra-hisui']);
+    expect(to(evolutionOptionsFor('meowth-galar', 30, 'swsh'))).toContain('perrserker');
+    expect(to(evolutionOptionsFor('slowpoke-galar', 40, 'swsh'))).toEqual(
+      expect.arrayContaining(['slowbro-galar', 'slowking-galar']),
+    );
+  });
+});
