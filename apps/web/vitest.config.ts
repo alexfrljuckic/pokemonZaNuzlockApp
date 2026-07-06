@@ -7,6 +7,6 @@ import { defineConfig } from 'vitest/config';
 // `// @vitest-environment happy-dom` pragma.
 export default defineConfig({
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ['src/**/*.test.{ts,tsx}'],
   },
 });
