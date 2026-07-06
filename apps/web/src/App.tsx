@@ -191,6 +191,10 @@ function OwnerApp({ route }: { route: Route }) {
           so nothing here is a mismatched button. role="status" announces sync
           changes; reflects ACTUAL sync state, not just the env flag. */}
       <div className="account-bar">
+        {/* Signed out (with sync available) the AuthBar's "Sign in" button
+            already invites syncing, so the old "Sign in to sync" badge was
+            redundant and sat awkwardly beside it — show a status badge only
+            when it says something the button doesn't. */}
         {!SYNC_ENABLED ? (
           <span className="sync-badge" role="status">
             Local only
@@ -199,11 +203,7 @@ function OwnerApp({ route }: { route: Route }) {
           <span className="sync-badge sync-on" role="status">
             ● Syncing
           </span>
-        ) : (
-          <span className="sync-badge sync-wait" role="status">
-            ○ Sign in to sync
-          </span>
-        )}
+        ) : null}
         <AuthBar />
       </div>
 
