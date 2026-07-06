@@ -5,13 +5,37 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, session fully wrapped)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, UX P1 shipped)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
 REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
+
+**Shipped 2026-07-06 (#148–#151, the full UX-audit P1 stack, merged in
+order + deployed):**
+- **#148 mobile stylesheet**: sticky bottom tab bar ≤520px (compact
+  labels), touch-first map preview (first tap = species/rate tip, second
+  tap resolves; mouse/keyboard unchanged), route-tip clamped to the map,
+  44px zoom controls under pointer:coarse, minmax(min(100%,280px)) fixes
+  320px overflow.
+- **#149 desktop layout**: stats 2×3 chart grid (+ cross-run screen),
+  Rules 2-col, expanded-card span caps (milestone→2, mon→3), 820px
+  tablet breakpoint (#root 960 + map cap lifted), active-tab ring +
+  per-tab counts (Team & Box · n, Boss Fights c/t). Team/Box
+  side-by-side was built then REVERTED — **Alex prefers those sections
+  stacked vertically**; don't reintroduce.
+- **#150 onboarding/copy**: title-screen "New to nuzlockes?" explainer
+  (details/summary), Rules copy in plain English + enforced/honor
+  legend (no backticks/event names), set-mode + dupes + headroom
+  glosses. "frontier" is visual-only — map legend left for P2.
+- **#151 keyboard a11y**: AreaList headers are real buttons w/
+  aria-expanded; ProfileScreen run rows are real links; tabs are a full
+  tablist (roving tabIndex + arrow keys, aria-selected); ONE global
+  :focus-visible outline rule (outline so box-shadow:none overrides
+  can't suppress it; out-specifies outline:none on map regions/boss
+  cards); Combobox input ARIA (role/expanded/controls/activedescendant).
 
 **Shipped 2026-07-05 late session (#139–#146, all merged + deployed):**
 - **#139/#141/#142 auth**: Google+Discord OAuth (opt-in via
@@ -39,25 +63,15 @@ review the landing-page social layout in person.
 **CLI tooling:** Vercel CLI installed globally. Supabase CLI = `npx
 supabase` (global npm install disabled on Windows).
 
-## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0 + NF-* are DONE)
+## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0, NF-* and ALL P1 are DONE)
 
-- **P1 mobile stylesheet:** no phone breakpoint exists at all. Sticky
-  bottom tab bar, ≥44px touch targets, touch-first map/encounter preview
-  (tips are hover-only today), `minmax(300px)` grids that overflow at 320px.
-- **P1 desktop layout:** everything is one 1060px column. Grid the Stats
-  dashboard, Team/Box/Graveyard, Rules, cross-run charts; cap expanded-card
-  span (currently `1 / -1` reflows the whole row); add a 768–1099px tablet
-  breakpoint.
-- **P1 onboarding/copy:** no nuzlocke explainer anywhere; Rules copy leaks
-  literal backticks + internal event-type names; jargon unglossed
-  (honor/enforced, set mode, headroom, frontier). (ContinueScreen slugs +
-  login value-prop: DONE in #146/#144.)
-- **P1 keyboard a11y:** clickable `<div>`s in AreaList + ProfileScreen run
-  rows are keyboard-unreachable (RunPicker rows: DONE in #146);
-  focus-visible suppressed on many controls incl. map regions.
-- **P2 polish:** combobox ARIA, color-only status, muted-text contrast,
-  silent form coercion, share-popover focus mgmt, empty-state CTAs,
-  reduced-motion for looping keyframes, UnevolveButton confirm-gating.
+Only **P2 polish** remains: color-only status glyphs, muted-text
+contrast, silent level-input coercion (validate on blur + role=alert),
+share-popover focus trap/restore, empty-state CTAs, reduced-motion for
+looping keyframes (`animation: none`, not just duration 0),
+UnevolveButton confirm-gating, graveyard duplicated across two tabs,
+combobox reposition on mobile keyboard (visualViewport), map legend for
+the frontier pulse. (Combobox ARIA: DONE in #151.)
 
 Security follow-ups (docs/SECURITY-AUDIT.md): L4 realtime private
 channels if ever adopted; dev-dependency major-bump pass (npm audit is
