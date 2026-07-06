@@ -12,6 +12,7 @@ export const plaConfig: GameAppConfig = {
   map: HISUI_MAP,
   zoneMaps: HISUI_ZONE_MAPS,
   versions: {
-    'legends-arceus': { mascot: 'kleavor', theme: { id: 'pla', name: 'Legends: Arceus' } },
+    // Arceus itself — the cover legendary, matching every other game's tile
+    'legends-arceus': { mascot: 'arceus', theme: { id: 'pla', name: 'Legends: Arceus' } },
   },
 };
