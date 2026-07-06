@@ -32,6 +32,7 @@ export const GALAR_MAP: GameMap = {
     { id: 'giants-seat', x: 471, y: 739, w: 30, h: 24, kind: 'route' },
     { id: 'rolling-fields', x: 393, y: 748, w: 30, h: 24, kind: 'route' },
     { id: 'dappled-grove', x: 368, y: 761, w: 30, h: 24, kind: 'route' },
+    { id: 'meetup-spot', x: 412, y: 790, w: 30, h: 24, kind: 'route' },
     // — Motostoke (Fire Gym) + its mine / routes —
     { id: 'motostoke', x: 389, y: 593, w: 78, h: 55, kind: 'city' },
     { id: 'route-3', x: 364, y: 570, w: 45, h: 38, kind: 'route' },
@@ -43,9 +44,10 @@ export const GALAR_MAP: GameMap = {
     // — Hulbury (Water Gym) east + Galar Mine No.2 —
     { id: 'hulbury', x: 529, y: 510, w: 58, h: 45, kind: 'city' },
     { id: 'galar-mine-no-2', x: 502, y: 576, w: 50, h: 40, kind: 'cave' },
-    // — North Wild Area (Riverbank / Bridge Field / Giant's Cap / Dusty Bowl /
-    //   Lake of Outrage) —
-    { id: 'motostoke-riverbank', x: 382, y: 556, w: 55, h: 45, kind: 'route' },
+    // — Motostoke Outskirts (#15) + Riverbank (#13) around Motostoke, into the
+    //   North Wild Area (Bridge Field / Giant's Cap / Dusty Bowl / Lake of Outrage) —
+    { id: 'motostoke-outskirts', x: 471, y: 614, w: 34, h: 28, kind: 'route' },
+    { id: 'motostoke-riverbank', x: 457, y: 637, w: 34, h: 28, kind: 'route' },
     { id: 'bridge-field', x: 452, y: 556, w: 55, h: 45, kind: 'route' },
     { id: 'giants-cap', x: 406, y: 486, w: 52, h: 42, kind: 'route' },
     { id: 'dusty-bowl', x: 474, y: 488, w: 46, h: 40, kind: 'route' },

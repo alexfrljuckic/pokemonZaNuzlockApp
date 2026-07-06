@@ -10698,6 +10698,188 @@
       ]
     },
     {
+      "id": "meetup-spot",
+      "name": "Wild Area: Meetup Spot",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        }
+      ]
+    },
+    {
+      "id": "motostoke-outskirts",
+      "name": "Wild Area: Motostoke Outskirts",
+      "unlockAfter": "gym-3-kabu",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "roggenrola",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "impidimp",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "hatenna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "swoobat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "id": "hulbury",
       "name": "Hulbury",
       "unlockAfter": "gym-1-milo",
