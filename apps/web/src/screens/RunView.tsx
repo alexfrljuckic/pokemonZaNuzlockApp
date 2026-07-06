@@ -6,6 +6,7 @@ import { appendEvent, loadEvents, type RunSummary } from '../lib/db';
 import { downloadRunExport } from '../lib/exportRun';
 import { syncRun, SYNC_AVAILABLE } from '../lib/sync';
 import { applyVersionTheme } from '../lib/theme';
+import { slugForTabLabel, tabLabelForSlug, type TabSlug } from '../lib/route';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { SharePopover } from '../components/SharePopover';
 import { RoutesTab } from './tabs/RoutesTab';
@@ -81,15 +82,25 @@ function EndRunControl({
 export function RunView({
   run,
   session,
+  tab: tabSlug,
+  onTabChange,
   onSwitchRun,
 }: {
   run: RunSummary;
   session: Session | null;
+  /** Active tab, as a url slug — the URL is the source of truth. */
+  tab: TabSlug;
+  /** Switch tabs by writing the URL; the new slug flows back down as `tab`. */
+  onTabChange: (tab: TabSlug) => void;
   /** Open another run (used by the post-wipe "start a fresh run" flow). */
   onSwitchRun: (runId: string) => Promise<void> | void;
 }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
-  const [tab, setTab] = useState<Tab>('Routes');
+  // The open tab is derived from the route (via the tab slug prop); switching a
+  // tab writes the hash and the new slug comes back down. setTab is a thin
+  // adapter so the existing label-based switcher/keyboard code is untouched.
+  const tab = tabLabelForSlug(tabSlug) as Tab;
+  const setTab = (t: Tab) => onTabChange(slugForTabLabel(t));
 
   // Opening a run themes the app to that game's version, unless the user has
   // explicitly picked a theme from the header dropdown.
