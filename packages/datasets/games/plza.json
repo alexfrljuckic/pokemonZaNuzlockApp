@@ -2170,19 +2170,19 @@
   ],
   "specials": [
     {
-      "id": "s0-chikorita",
+      "id": "starter-chikorita",
       "type": "gift",
       "species": "chikorita",
       "area": "lumiose-city"
     },
     {
-      "id": "s0-tepig",
+      "id": "starter-tepig",
       "type": "gift",
       "species": "tepig",
       "area": "lumiose-city"
     },
     {
-      "id": "s0-totodile",
+      "id": "starter-totodile",
       "type": "gift",
       "species": "totodile",
       "area": "lumiose-city"
