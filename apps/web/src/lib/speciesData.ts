@@ -102,6 +102,27 @@ export function expectedMovesAt(species: string, level: number, gameId?: string)
   const known = learnset.filter((e) => e.level <= level);
   return known.slice(-4).map((e) => e.move);
 }
+
+/** How a trainer mon's moves should be shown:
+ *  - `confirmed`  — the dataset documents this exact moveset (render as-is);
+ *  - `expected`   — undocumented, so we surface the last four level-up moves at
+ *                   the mon's level (what the games actually assign), labelled
+ *                   as expected/not-confirmed — never presented as truth;
+ *  - `unknown`    — undocumented AND no level-up data (Z-A), so we invent
+ *                   nothing and render no chips and no "expected" note.
+ * `moves` is null only for `unknown`. An empty explicit `moves` array counts as
+ * undocumented (falls through to expected/unknown) — a note never renders
+ * without chips. */
+export type TrainerMoveSource = 'confirmed' | 'expected' | 'unknown';
+export function resolveTrainerMoves(
+  mon: { species: string; level: number; moves?: string[] },
+  gameId?: string,
+): { source: TrainerMoveSource; moves: string[] | null } {
+  if (mon.moves && mon.moves.length > 0) return { source: 'confirmed', moves: mon.moves };
+  const expected = expectedMovesAt(mon.species, mon.level, gameId);
+  if (expected && expected.length > 0) return { source: 'expected', moves: expected };
+  return { source: 'unknown', moves: null };
+}
 export const statsFor = (species: string): Record<string, number> | null => data.stats[species] ?? null;
 export const evolutionsFor = (species: string): Evolution[] => data.evolutions[species] ?? [];
 
