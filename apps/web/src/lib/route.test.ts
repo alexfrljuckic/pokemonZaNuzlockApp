@@ -17,6 +17,21 @@ describe('parseHash', () => {
     expect(parseHash('#')).toEqual({ screen: 'home' });
   });
 
+  it('parses #new → the New Game screen', () => {
+    expect(parseHash('#new')).toEqual({ screen: 'new' });
+    expect(parseHash('new')).toEqual({ screen: 'new' });
+  });
+
+  it('parses #stats → the cross-run stats screen', () => {
+    expect(parseHash('#stats')).toEqual({ screen: 'stats' });
+    expect(parseHash('stats')).toEqual({ screen: 'stats' });
+  });
+
+  it('#new / #stats ignore any trailing junk segments', () => {
+    expect(parseHash('#new/whatever')).toEqual({ screen: 'new' });
+    expect(parseHash('#stats/whatever')).toEqual({ screen: 'stats' });
+  });
+
   it('parses a run + tab', () => {
     expect(parseHash('#run/abc/stats')).toEqual({ screen: 'run', runId: 'abc', tab: 'stats' });
   });
@@ -93,6 +108,14 @@ describe('formatHash', () => {
     expect(formatHash({ screen: 'home' })).toBe('');
   });
 
+  it('new', () => {
+    expect(formatHash({ screen: 'new' })).toBe('#new');
+  });
+
+  it('stats', () => {
+    expect(formatHash({ screen: 'stats' })).toBe('#stats');
+  });
+
   it('run', () => {
     expect(formatHash({ screen: 'run', runId: 'abc', tab: 'stats' })).toBe('#run/abc/stats');
   });
@@ -109,6 +132,8 @@ describe('formatHash', () => {
 describe('round-trips', () => {
   const cases: Route[] = [
     { screen: 'home' },
+    { screen: 'new' },
+    { screen: 'stats' },
     { screen: 'run', runId: 'abc', tab: 'routes' },
     { screen: 'run', runId: 'deadbeef-1234', tab: 'stats' },
     { screen: 'share', token: 'shareTok', tab: 'bosses' },
