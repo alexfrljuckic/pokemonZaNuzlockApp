@@ -88,14 +88,14 @@ export function SpecialCard({
     await appendEvent(runId, {
       type: 'special_claimed',
       payload: { specialId: s.id, species: s.species, pokemonId: crypto.randomUUID(), nickname, level, ...(shiny ? { shiny: true } : {}) },
-    } as never);
+    });
     setOpen(false);
     setShiny(false);
     await onChange();
   }
 
   async function reset() {
-    await appendEvent(runId, { type: 'special_reset', payload: { specialId: s.id } } as never);
+    await appendEvent(runId, { type: 'special_reset', payload: { specialId: s.id } });
     setOpen(false);
     await onChange();
   }
