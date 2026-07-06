@@ -9,6 +9,7 @@
 //   (empty)                       → home / run picker
 //   #new                          → the New Game / game-picker flow
 //   #stats                        → the cross-run "Your Stats" screen
+//   #trainers                     → the "Find Trainers" discovery + feed screen
 //   #run/<runId>/<tab>            → an owned run open on <tab>
 //   #run/<runId>                  → same, defaults to the first tab
 //   #share/<token>/<tab>          → read-only spectator view on <tab>
@@ -56,6 +57,7 @@ export type Route =
   | { screen: 'home' }
   | { screen: 'new' }
   | { screen: 'stats' }
+  | { screen: 'trainers' }
   | { screen: 'run'; runId: string; tab: TabSlug }
   | { screen: 'share'; token: string; tab: TabSlug }
   | { screen: 'profile'; handle: string };
@@ -82,6 +84,7 @@ export function parseHash(hash: string): Route {
   // (e.g. #new/junk) still resolves to the screen rather than falling to home.
   if (head === 'new') return { screen: 'new' };
   if (head === 'stats') return { screen: 'stats' };
+  if (head === 'trainers') return { screen: 'trainers' };
 
   if (head === 'run') {
     const runId = rest[0];
@@ -121,6 +124,8 @@ export function formatHash(route: Route): string {
       return '#new';
     case 'stats':
       return '#stats';
+    case 'trainers':
+      return '#trainers';
     case 'run':
       return `#run/${route.runId}/${route.tab}`;
     case 'share':

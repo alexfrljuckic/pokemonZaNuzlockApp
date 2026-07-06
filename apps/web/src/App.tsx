@@ -10,11 +10,10 @@ import { ContinueScreen, NewGameScreen } from './screens/RunPicker';
 import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { SettingsMenu } from './screens/SettingsMenu';
-import { FollowFeed } from './components/FollowFeed';
-import { TrainerSearch } from './components/TrainerSearch';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
 import { TitleScreen } from './screens/TitleScreen';
+import { TrainersScreen } from './screens/TrainersScreen';
 import { formatHash, parseHash, type Route } from './lib/route';
 
 // Single source of truth for the current hash-route. Never throws — a garbage
@@ -163,7 +162,8 @@ function OwnerApp({ route }: { route: Route }) {
   // The #new / #stats screens live in the URL, so their Back writes the home
   // hash (pushing a history entry the browser Back button also honors); the
   // local "continue" list just flips local state.
-  const onSubScreen = route.screen === 'new' || route.screen === 'stats';
+  const onSubScreen =
+    route.screen === 'new' || route.screen === 'stats' || route.screen === 'trainers';
   const headerBack = activeRunId
     ? closeRun
     : onSubScreen
@@ -238,6 +238,8 @@ function OwnerApp({ route }: { route: Route }) {
           <NewGameScreen onCreated={handleCreated} />
         ) : route.screen === 'stats' ? (
           <CrossRunStatsScreen runs={runs} />
+        ) : route.screen === 'trainers' ? (
+          <TrainersScreen session={session} />
         ) : screen === 'continue' ? (
           <ContinueScreen runs={runs} onSelect={openRun} onDeleted={refreshRuns} />
         ) : (
@@ -247,17 +249,13 @@ function OwnerApp({ route }: { route: Route }) {
               onNewGame={() => navigate({ screen: 'new' })}
               onContinue={() => setScreen('continue')}
               onStats={() => navigate({ screen: 'stats' })}
+              // Social discovery moved off the landing hero into its own screen
+              // so the main page stays short and scroll-free; the button only
+              // appears when discovery is actually available (signed in + sync).
+              onFindTrainers={
+                SYNC_ENABLED && session ? () => navigate({ screen: 'trainers' }) : undefined
+              }
             />
-            {/* Social discovery lives on the landing page — finding other trainers
-                shouldn't require opening a run. The wrapper only renders when the
-                children can (signed in + sync on) so signed-out users don't get an
-                empty bordered section. */}
-            {SYNC_ENABLED && session && (
-              <section className="landing-social" aria-label="Trainers and friends">
-                <TrainerSearch session={session} />
-                <FollowFeed session={session} />
-              </section>
-            )}
           </>
         )}
       </ErrorBoundary>
