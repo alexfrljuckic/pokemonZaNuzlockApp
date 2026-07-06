@@ -2651,6 +2651,18 @@ button.back-icon:hover:not(:disabled) {
   margin-top: 1.5rem;
 }
 
+/* Landing-page social zone: discovery + feed, visually separated from the
+   title hero so it reads as a section, not an afterthought (UX-AUDIT NF-M3). */
+.landing-social {
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+.landing-social .route-offmap-title {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
 /* Trainer discovery search (landing page) */
 .trainer-search {
   margin-top: 1.5rem;
@@ -2667,7 +2679,9 @@ button.back-icon:hover:not(:disabled) {
   gap: 0.15rem;
 }
 .trainer-search-results li a {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 44px; /* touch-target floor (UX-AUDIT NF-M2) */
   padding: 0.4rem 0.6rem;
   border-radius: 8px;
   border: 1px solid var(--border);
@@ -2679,4 +2693,19 @@ button.back-icon:hover:not(:disabled) {
 
 .profile-delete-confirm {
   margin-top: 0.4rem;
+}
+
+/* Destructive-action entry point: keep the quiet secondary shape but tint the
+   label so it doesn't read as a benign action (UX-AUDIT NF-L1). */
+button.link-danger {
+  color: var(--danger);
+}
+button.link-danger:hover:not(:disabled) {
+  border-color: var(--danger);
+}
+
+/* Value-prop line above the sign-in buttons (UX-AUDIT "login value-prop"). */
+.auth-value-prop {
+  margin: 0;
+  font-size: 0.85rem;
 }

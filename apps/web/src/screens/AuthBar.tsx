@@ -25,11 +25,19 @@ export function AuthBar() {
     );
   }
 
-  // Signed out with no OAuth providers configured (VITE_OAUTH_PROVIDERS unset):
-  // nothing to render. Sign-in is OAuth-only now (magic-link email was removed —
-  // Supabase's built-in email rate limit is too low for real use), so the env
-  // var is required for any sign-in; production sets it. See docs/OAUTH-SETUP.md.
-  if (OAUTH_PROVIDERS.length === 0) return null;
+  // Sign-in is OAuth-only (magic-link email was removed — Supabase's built-in
+  // email rate limit is too low for real use), so VITE_OAUTH_PROVIDERS is
+  // required for any sign-in. If sync is configured but the var is missing,
+  // say so instead of rendering nothing — a silent dead end here already cost
+  // us a debugging session (UX-AUDIT NF-H1). See docs/OAUTH-SETUP.md.
+  if (OAUTH_PROVIDERS.length === 0) {
+    return (
+      <p className="muted auth-bar">
+        Sign-in is unavailable in this deployment (no sign-in providers configured). Your runs still work
+        and stay on this device.
+      </p>
+    );
+  }
 
   async function handleProvider(provider: OAuthProvider) {
     setError(null);
@@ -41,6 +49,9 @@ export function AuthBar() {
 
   return (
     <div className="auth-bar auth-bar-stack">
+      <p className="muted auth-value-prop">
+        Sign in to sync across devices, share runs, and follow friends.
+      </p>
       <div className="auth-providers">
         {OAUTH_PROVIDERS.map((provider) => (
           <button
