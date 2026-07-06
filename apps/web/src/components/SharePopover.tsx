@@ -73,22 +73,59 @@ export function SharePopover({ runId }: { runId: string }) {
               {creating ? 'Creating…' : 'Create share link'}
             </button>
           ) : (
-            active.map((t) => {
-              const url = `${location.origin}${location.pathname}#share/${t.token}`;
-              return (
-                <div key={t.token} className="share-link-row">
-                  <input type="text" readOnly value={url} onClick={(e) => e.currentTarget.select()} />
-                  <button className="secondary" onClick={() => handleRevoke(t.token)}>
-                    Revoke
-                  </button>
-                </div>
-              );
-            })
+            active.map((t) => (
+              <ShareLinkRow
+                key={t.token}
+                url={`${location.origin}${location.pathname}#share/${t.token}`}
+                onRevoke={() => handleRevoke(t.token)}
+              />
+            ))
           )}
 
           {revokedCount > 0 && <p className="muted share-popover-revoked">{revokedCount} revoked link(s) — no longer work.</p>}
         </div>
       )}
+    </div>
+  );
+}
+
+/** One active share link: the (selectable) URL, a copy-to-clipboard button with
+ * transient "Copied!" feedback, and revoke. */
+function ShareLinkRow({ url, onRevoke }: { url: string; onRevoke: () => void }) {
+  const [copied, setCopied] = useState(false);
+
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // Fallback for non-secure contexts / browsers without the async Clipboard
+      // API: copy via a throwaway textarea. The input stays selectable either way.
+      const ta = document.createElement('textarea');
+      ta.value = url;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+      } catch {
+        /* give up silently — the user can still select the field and copy manually */
+      }
+      document.body.removeChild(ta);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }
+
+  return (
+    <div className="share-link-row">
+      <input type="text" readOnly value={url} onClick={(e) => e.currentTarget.select()} />
+      <button className="secondary share-copy-btn" onClick={copy} aria-label="Copy share link">
+        {copied ? 'Copied!' : 'Copy'}
+      </button>
+      <button className="secondary" onClick={onRevoke}>
+        Revoke
+      </button>
     </div>
   );
 }
