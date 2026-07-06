@@ -5,13 +5,46 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, UX P1 shipped)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, second wave shipped)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
 REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
+
+**Shipped 2026-07-06 second wave (#153–#159, #161, all merged + deployed):**
+- **#153** PLA picker tile mascot kleavor → arceus.
+- **#154 portrait maps**: Galar (h/w > 1.15) renders a two-column stage
+  on ≥1100px — sticky map left, resolve panel + area list right.
+- **#155 regional-variant dataset audit** (4 research agents, all 6
+  games, every entry Serebii/Bulbapedia-sourced): LGPE all 10 Alolan
+  Pokémon-Center trades (type "trade" specials, version-locked pairs);
+  SV Paldean Tauros Blaze/Aqua in West Province Two + wooper-paldea ×9
+  areas + Galarian Meowth gift + Cascarrafa Johto-Wooper trade; PLA
+  icepeak-cavern (zorua/zoroark-hisui — only real gap; outbreak-only
+  species stay excluded by design); SwSh slug FIXES (wild zigzagoon +
+  route-5 farfetchd are Galarian) + rapidash-galar/weezing-galar/
+  darmanitan-galar wilds + NEW giants-mirror area (corsola-galar,
+  Shield's only non-raid source; area ships minimal); Z-A 13 hyperspace
+  regional forms + SM39/SM108 trade specials; BDSP verified complete
+  (none exist). species-data regenerated → 880.
+- **#156 wipe flow**: "End this run" now offers "Start a fresh run
+  (same game & rules)" — append-only log means restart = new run.
+- **#157 boss fights**: full-width horizontal rows (fixed 240px head
+  column), "Clear"→"Defeated" everywhere visible, Defeated button on
+  the condensed row.
+- **#158 sign-in card**: value-prop card (sync/share/follow benefit
+  rows) + branded Google/Discord buttons; verified via component test
+  with mocked providers (env-gated lesson).
+- **#159 run import**: "Import run from file" on Continue; strict
+  validation (format marker, version, slug ids, 20k/5MB caps,
+  run_started first, seqs renumbered, fresh id ALWAYS minted).
+- **#161 UX-audit P2 polish**: reduced-motion animation:none for loops,
+  status glyphs (●★⚠✕–), muted-contrast bumps, level-input validation
+  (shared clampLevel; "150" no longer passes), SharePopover focus trap/
+  restore + aria-modal, Un-evolve confirm-gated, Combobox visualViewport
+  reposition, empty-Team CTA → Routes.
 
 **Shipped 2026-07-06 (#148–#151, the full UX-audit P1 stack, merged in
 order + deployed):**
@@ -63,15 +96,17 @@ review the landing-page social layout in person.
 **CLI tooling:** Vercel CLI installed globally. Supabase CLI = `npx
 supabase` (global npm install disabled on Windows).
 
-## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0, NF-* and ALL P1 are DONE)
+## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0/NF-*/P1/P2 mechanical: ALL DONE)
 
-Only **P2 polish** remains: color-only status glyphs, muted-text
-contrast, silent level-input coercion (validate on blur + role=alert),
-share-popover focus trap/restore, empty-state CTAs, reduced-motion for
-looping keyframes (`animation: none`, not just duration 0),
-UnevolveButton confirm-gating, graveyard duplicated across two tabs,
-combobox reposition on mobile keyboard (visualViewport), map legend for
-the frontier pulse. (Combobox ARIA: DONE in #151.)
+Two judgment calls remain (need a product decision, not code):
+- **Graveyard has two homes** (Team & Box interactive cards vs Stats
+  death-cause list) — audit says pick one; both carry info the other
+  lacks, so decide before cutting.
+- **Next-boss pin discoverability + frontier map legend** — the pin is
+  buried in an expanded boss card; the pulsing "up next" map highlight
+  has no legend.
+Plus one manual check for Alex: SharePopover's new focus trap needs
+sync + a session, which local previews lack — one click on prod.
 
 Security follow-ups (docs/SECURITY-AUDIT.md): L4 realtime private
 channels if ever adopted; dev-dependency major-bump pass (npm audit is
@@ -79,7 +114,10 @@ all dev-only).
 
 Also still in the optional pool: catch-rate-by-zone / time-in-run stats
 panels, code-splitting the 2.7 MB bundle (chunk warning in build), Z-A
-movepool hand-curation, sync seq-collision (out of MVP).
+movepool hand-curation, sync seq-collision (out of MVP), Z-A hyperspace
+standalone evolutions (perrserker / mr-rime / overqwil — same Serebii
+pages as #155's adds), fuller giants-mirror encounter table (ships with
+only corsola-galar).
 
 ## Shipped 2026-07-05 session, wave 2 (#121–#137)
 
