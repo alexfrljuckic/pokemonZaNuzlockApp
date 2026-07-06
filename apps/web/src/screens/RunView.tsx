@@ -171,7 +171,7 @@ export function RunView({
 
   return (
     <>
-      <section>
+      <section className="run-header">
         <div className="run-header-row">
           <div>
             <h2>{ctx.dataset?.name ?? run.gameId}</h2>

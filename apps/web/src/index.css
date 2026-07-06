@@ -1796,6 +1796,14 @@ input[aria-invalid='true'] {
 
 /* ---------- Share popover (run header) ---------- */
 
+/* Every `section` retains a transform (fadeUp + fill:both), making it a
+   stacking context — so the header's share popover was painted over by later
+   sections. Lift the header section's context above its siblings so its
+   dropdown escapes. */
+.run-header {
+  position: relative;
+  z-index: 30;
+}
 .run-header-row {
   display: flex;
   justify-content: space-between;
