@@ -75,7 +75,7 @@ const BENEFITS: { icon: JSX.Element; title: string; desc: string }[] = [
 ];
 
 export function AuthBar() {
-  const { session, loading, available, signInWithProvider, signOut } = useAuth();
+  const { session, loading, available, signInWithProvider } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -87,14 +87,8 @@ export function AuthBar() {
 
   if (session) {
     const who = session.user.email ?? session.user.user_metadata?.name ?? 'your account';
-    return (
-      <p className="muted auth-bar">
-        Signed in as {who} ·{' '}
-        <button className="secondary" onClick={() => signOut()}>
-          Sign out
-        </button>
-      </p>
-    );
+    // Sign out lives in the SettingsMenu cog now — keep this line pure status.
+    return <p className="muted auth-bar">Signed in as {who}</p>;
   }
 
   // Sign-in is OAuth-only (magic-link email was removed — Supabase's built-in

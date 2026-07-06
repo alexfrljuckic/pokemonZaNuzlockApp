@@ -1937,6 +1937,108 @@ button.back-icon:hover:not(:disabled) {
   border-radius: 999px;
 }
 
+/* ---------- Settings cog menu (theme + account actions) ---------- */
+.settings-menu {
+  position: relative;
+  flex: none;
+}
+.settings-cog {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.3rem;
+  height: 2.3rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 999px;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+}
+.settings-cog:hover:not(:disabled) {
+  color: var(--text);
+  border-color: var(--accent);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.settings-panel {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 40;
+  width: min(300px, calc(100vw - 2rem));
+  padding: 0.9rem 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  animation: fadeUp 0.18s ease both;
+  text-align: left;
+}
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.settings-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.settings-sep {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0.8rem 0;
+}
+.settings-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45rem;
+}
+.settings-profile-link {
+  font-weight: 600;
+}
+.settings-profile .profile-claim {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+}
+.settings-delete-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+.settings-confirm-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+.settings-signout {
+  width: 100%;
+  margin: 0;
+}
+.settings-note {
+  margin: 0;
+  font-size: 0.85rem;
+}
+/* On narrow screens the header can wrap the cog to the left, where `right: 0`
+   would push the panel off-screen — pin it to the viewport's top-right instead. */
+@media (max-width: 520px) {
+  .settings-panel {
+    position: fixed;
+    top: 3.5rem;
+    right: 0.75rem;
+    left: auto;
+    width: min(300px, calc(100vw - 1.5rem));
+  }
+}
+
 /* ---------- Pokéball (pure CSS) ---------- */
 
 .pokeball {

@@ -25,7 +25,7 @@ vi.mock('./lib/theme', () => ({
 vi.mock('./games', () => ({ THEMES: [{ id: 'dark', name: 'Dark' }] }));
 
 vi.mock('./screens/AuthBar', () => ({ AuthBar: () => null }));
-vi.mock('./components/ProfileSetup', () => ({ ProfileSetup: () => null }));
+vi.mock('./screens/SettingsMenu', () => ({ SettingsMenu: () => null }));
 vi.mock('./components/FollowFeed', () => ({ FollowFeed: () => null }));
 vi.mock('./components/TrainerSearch', () => ({ TrainerSearch: () => null }));
 vi.mock('./components/ErrorBoundary', () => ({
