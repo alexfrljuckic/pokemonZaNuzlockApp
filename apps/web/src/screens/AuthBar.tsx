@@ -49,6 +49,9 @@ export function AuthBar() {
 
   return (
     <div className="auth-bar auth-bar-stack">
+      <p className="muted auth-value-prop">
+        Sign in to sync across devices, share runs, and follow friends.
+      </p>
       <div className="auth-providers">
         {OAUTH_PROVIDERS.map((provider) => (
           <button
