@@ -7,6 +7,8 @@
 //
 // Hash formats:
 //   (empty)                       → home / run picker
+//   #new                          → the New Game / game-picker flow
+//   #stats                        → the cross-run "Your Stats" screen
 //   #run/<runId>/<tab>            → an owned run open on <tab>
 //   #run/<runId>                  → same, defaults to the first tab
 //   #share/<token>/<tab>          → read-only spectator view on <tab>
@@ -52,6 +54,8 @@ export function tabLabelForSlug(slug: TabSlug): TabLabel {
 
 export type Route =
   | { screen: 'home' }
+  | { screen: 'new' }
+  | { screen: 'stats' }
   | { screen: 'run'; runId: string; tab: TabSlug }
   | { screen: 'share'; token: string; tab: TabSlug }
   | { screen: 'profile'; handle: string };
@@ -73,6 +77,11 @@ export function parseHash(hash: string): Route {
   if (parts.length === 0) return { screen: 'home' };
 
   const [head, ...rest] = parts;
+
+  // Home-screen sub-screens: single-segment, no params. A stray extra segment
+  // (e.g. #new/junk) still resolves to the screen rather than falling to home.
+  if (head === 'new') return { screen: 'new' };
+  if (head === 'stats') return { screen: 'stats' };
 
   if (head === 'run') {
     const runId = rest[0];
@@ -108,6 +117,10 @@ export function formatHash(route: Route): string {
   switch (route.screen) {
     case 'home':
       return '';
+    case 'new':
+      return '#new';
+    case 'stats':
+      return '#stats';
     case 'run':
       return `#run/${route.runId}/${route.tab}`;
     case 'share':

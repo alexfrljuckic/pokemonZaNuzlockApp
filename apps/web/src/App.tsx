@@ -138,7 +138,10 @@ export default function App() {
   return <OwnerApp route={route} />;
 }
 
-type Screen = 'title' | 'continue' | 'new' | 'stats';
+// The New Game (#new) and Your Stats (#stats) screens live in the URL so they're
+// bookmarkable / back-button-friendly. The "Continue" run list stays local
+// state: it's a transient list-picker, not a place worth deep-linking to.
+type Screen = 'title' | 'continue';
 
 function OwnerApp({ route }: { route: Route }) {
   const [runs, setRuns] = useState<RunSummary[]>([]);
@@ -174,6 +177,10 @@ function OwnerApp({ route }: { route: Route }) {
 
   const openRun = (runId: string) => navigate({ screen: 'run', runId, tab: 'routes' });
   const closeRun = () => navigate({ screen: 'home' });
+  const goHome = () => {
+    setScreen('title');
+    navigate({ screen: 'home' });
+  };
 
   async function handleCreated(runId: string) {
     await refreshRuns();
@@ -190,11 +197,17 @@ function OwnerApp({ route }: { route: Route }) {
 
   // One global back affordance, always in the same top-left corner of the
   // chrome: run → run list, picker screens → title. Null on the title screen.
+  // The #new / #stats screens live in the URL, so their Back writes the home
+  // hash (pushing a history entry the browser Back button also honors); the
+  // local "continue" list just flips local state.
+  const onSubScreen = route.screen === 'new' || route.screen === 'stats';
   const headerBack = activeRunId
     ? closeRun
-    : screen !== 'title'
-      ? () => setScreen('title')
-      : null;
+    : onSubScreen
+      ? goHome
+      : screen !== 'title'
+        ? () => setScreen('title')
+        : null;
 
   return (
     <>
@@ -256,13 +269,19 @@ function OwnerApp({ route }: { route: Route }) {
         ) : activeRunId ? (
           // Route names a run but the run list hasn't loaded yet — brief.
           <p className="muted">Loading run…</p>
-        ) : screen === 'title' ? (
+        ) : route.screen === 'new' ? (
+          <NewGameScreen onCreated={handleCreated} />
+        ) : route.screen === 'stats' ? (
+          <CrossRunStatsScreen runs={runs} />
+        ) : screen === 'continue' ? (
+          <ContinueScreen runs={runs} onSelect={openRun} onDeleted={refreshRuns} />
+        ) : (
           <>
             <TitleScreen
               hasRuns={runs.length > 0}
-              onNewGame={() => setScreen('new')}
+              onNewGame={() => navigate({ screen: 'new' })}
               onContinue={() => setScreen('continue')}
-              onStats={() => setScreen('stats')}
+              onStats={() => navigate({ screen: 'stats' })}
             />
             {/* Social discovery lives on the landing page — finding other trainers
                 shouldn't require opening a run. The wrapper only renders when the
@@ -273,16 +292,6 @@ function OwnerApp({ route }: { route: Route }) {
                 <TrainerSearch session={session} />
                 <FollowFeed session={session} />
               </section>
-            )}
-          </>
-        ) : (
-          <>
-            {screen === 'continue' ? (
-              <ContinueScreen runs={runs} onSelect={openRun} onDeleted={refreshRuns} />
-            ) : screen === 'stats' ? (
-              <CrossRunStatsScreen runs={runs} />
-            ) : (
-              <NewGameScreen onCreated={handleCreated} />
             )}
           </>
         )}

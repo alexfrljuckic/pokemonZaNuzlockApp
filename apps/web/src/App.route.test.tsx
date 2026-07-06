@@ -31,17 +31,35 @@ vi.mock('./components/TrainerSearch', () => ({ TrainerSearch: () => null }));
 vi.mock('./components/ErrorBoundary', () => ({
   ErrorBoundary: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
-vi.mock('./screens/CrossRunStatsScreen', () => ({ CrossRunStatsScreen: () => null }));
+vi.mock('./screens/CrossRunStatsScreen', () => ({
+  CrossRunStatsScreen: () => <div data-testid="stats-screen" />,
+}));
 vi.mock('./screens/ProfileScreen', () => ({ ProfileScreen: () => <div data-testid="profile" /> }));
 vi.mock('./screens/SpectatorView', () => ({
   SpectatorView: ({ tab }: { tab: string }) => <div data-testid="spectator" data-tab={tab} />,
 }));
 
 vi.mock('./screens/TitleScreen', () => ({
-  TitleScreen: ({ onContinue }: { onContinue: () => void }) => (
-    <button data-testid="go-continue" onClick={onContinue}>
-      Continue
-    </button>
+  TitleScreen: ({
+    onContinue,
+    onNewGame,
+    onStats,
+  }: {
+    onContinue: () => void;
+    onNewGame: () => void;
+    onStats: () => void;
+  }) => (
+    <div data-testid="title">
+      <button data-testid="go-continue" onClick={onContinue}>
+        Continue
+      </button>
+      <button data-testid="go-new" onClick={onNewGame}>
+        New Game
+      </button>
+      <button data-testid="go-stats" onClick={onStats}>
+        Your Stats
+      </button>
+    </div>
   ),
 }));
 vi.mock('./screens/RunPicker', () => ({
@@ -50,7 +68,7 @@ vi.mock('./screens/RunPicker', () => ({
       Open run
     </button>
   ),
-  NewGameScreen: () => null,
+  NewGameScreen: () => <div data-testid="new-screen" />,
 }));
 
 // RunView stub echoes the tab it was handed and exposes a button to change tabs.
@@ -148,5 +166,48 @@ describe('App hash routing', () => {
     await render();
     await setHash('#share/tok');
     expect(container.querySelector('[data-testid="spectator"]')!.getAttribute('data-tab')).toBe('routes');
+  });
+
+  it('New Game writes #new and shows the picker; Back returns home', async () => {
+    await render();
+    await act(async () => {
+      container.querySelector<HTMLButtonElement>('[data-testid="go-new"]')!.click();
+    });
+    expect(location.hash).toBe('#new');
+    expect(container.querySelector('[data-testid="new-screen"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="title"]')).toBeNull();
+
+    // The header Back affordance clears the hash back to home.
+    await act(async () => {
+      container.querySelector<HTMLButtonElement>('.back-icon')!.click();
+    });
+    expect(location.hash).toBe('');
+    expect(container.querySelector('[data-testid="title"]')).toBeTruthy();
+  });
+
+  it('Your Stats writes #stats and shows the stats screen; Back returns home', async () => {
+    await render();
+    await act(async () => {
+      container.querySelector<HTMLButtonElement>('[data-testid="go-stats"]')!.click();
+    });
+    expect(location.hash).toBe('#stats');
+    expect(container.querySelector('[data-testid="stats-screen"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="title"]')).toBeNull();
+
+    await act(async () => {
+      container.querySelector<HTMLButtonElement>('.back-icon')!.click();
+    });
+    expect(location.hash).toBe('');
+    expect(container.querySelector('[data-testid="title"]')).toBeTruthy();
+  });
+
+  it('a direct #stats hash renders the stats screen (deep-link / bookmark)', async () => {
+    await render();
+    await setHash('#stats');
+    expect(container.querySelector('[data-testid="stats-screen"]')).toBeTruthy();
+    await setHash('#new');
+    expect(container.querySelector('[data-testid="new-screen"]')).toBeTruthy();
+    await setHash('');
+    expect(container.querySelector('[data-testid="title"]')).toBeTruthy();
   });
 });
