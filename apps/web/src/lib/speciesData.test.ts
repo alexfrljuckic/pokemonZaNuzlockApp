@@ -197,6 +197,25 @@ describe('special-condition requirement labels', () => {
     // time-of-day level evolutions keep their level and read naturally
     expect(evolutionOptionsFor('sneasel', 40).find((o) => o.to === 'weavile')!.requirement).toMatch(/Razor Claw/i);
   });
+
+  it('held-item evolutions with a time-of-day append the qualifier', () => {
+    // Sneasel → Weavile: Razor Claw AT NIGHT (the time was being dropped).
+    expect(evolutionOptionsFor('sneasel', 40).find((o) => o.to === 'weavile')!.requirement).toBe(
+      'Level up holding Razor Claw at night',
+    );
+    // Hisuian Sneasel → Sneasler: same item, DURING THE DAY.
+    expect(evolutionOptionsFor('sneasel', 40).find((o) => o.to === 'sneasler')!.requirement).toBe(
+      'Level up holding Razor Claw during the day',
+    );
+    // Gligar → Gliscor: Razor Fang AT NIGHT.
+    expect(evolutionOptionsFor('gligar', 40).find((o) => o.to === 'gliscor')!.requirement).toBe(
+      'Level up holding Razor Fang at night',
+    );
+    // Held-item trades with no time condition are unaffected (no trailing time).
+    expect(evolutionOptionsFor('onix', 30).find((o) => o.to === 'steelix')!.requirement).toBe(
+      'Trade holding Metal Coat',
+    );
+  });
 });
 
 describe('per-game evolution-target overrides', () => {
@@ -250,5 +269,52 @@ describe('per-game evolution-target overrides', () => {
     expect(to(evolutionOptionsFor('slowpoke-galar', 40, 'swsh'))).toEqual(
       expect.arrayContaining(['slowbro-galar', 'slowking-galar']),
     );
+  });
+});
+
+describe('Z-A hyperspace regional-form evolutions', () => {
+  const to = (opts: { to: string }[]) => opts.map((o) => o.to);
+  const req = (species: string, target: string, level = 60) =>
+    evolutionOptionsFor(species, level, 'plza').find((o) => o.to === target)?.requirement;
+
+  it('Galarian Meowth evolves ONLY into Perrserker (no Kanto Persian branch)', () => {
+    const opts = to(evolutionOptionsFor('meowth-galar', 30, 'plza'));
+    expect(opts).toEqual(['perrserker']);
+    expect(opts).not.toContain('persian');
+    expect(req('meowth-galar', 'perrserker', 30)).toBe('Lv 28');
+  });
+
+  it('Alolan Meowth evolves ONLY into Alolan Persian by friendship', () => {
+    const opts = to(evolutionOptionsFor('meowth-alola', 30, 'plza'));
+    expect(opts).toEqual(['persian-alola']);
+    expect(opts).not.toContain('perrserker');
+    expect(req('meowth-alola', 'persian-alola', 30)).toMatch(/friendship/i);
+  });
+
+  it('Galarian Yamask evolves ONLY into Runerigus (no Unova Cofagrigus branch)', () => {
+    const opts = to(evolutionOptionsFor('yamask-galar', 40, 'plza'));
+    expect(opts).toEqual(['runerigus']);
+    expect(opts).not.toContain('cofagrigus');
+    // curated label from evolutionConditions.ts spells the real method out
+    expect(req('yamask-galar', 'runerigus', 40)).toMatch(/damage/i);
+  });
+
+  it('Galarian Slowpoke uses the Galarica items, not the Kanto methods', () => {
+    expect(to(evolutionOptionsFor('slowpoke-galar', 40, 'plza'))).toEqual(['slowbro-galar', 'slowking-galar']);
+    expect(req('slowpoke-galar', 'slowbro-galar', 40)).toBe('Use Galarica Cuff');
+    expect(req('slowpoke-galar', 'slowking-galar', 40)).toBe('Use Galarica Wreath');
+  });
+
+  it('hyperspace lines that already resolve correctly get NO override', () => {
+    // Mr. Rime (Lv 42), Sirfetch'd (3 crits), Overqwil (Strong-Style ×20) and
+    // Hisuian Goodra (rain/fog) resolve via the chain + curated labels — the
+    // plza map must not shadow them.
+    expect(to(evolutionOptionsFor('mr-mime-galar', 45, 'plza'))).toEqual(['mr-rime']);
+    expect(req('mr-mime-galar', 'mr-rime', 45)).toBe('Lv 42');
+    expect(to(evolutionOptionsFor('farfetchd-galar', 30, 'plza'))).toEqual(['sirfetchd']);
+    expect(req('farfetchd-galar', 'sirfetchd', 30)).toMatch(/critical hits/i);
+    expect(to(evolutionOptionsFor('qwilfish-hisui', 30, 'plza'))).toEqual(['overqwil']);
+    expect(req('qwilfish-hisui', 'overqwil', 30)).toMatch(/Barb Barrage/i);
+    expect(to(evolutionOptionsFor('sliggoo-hisui', 55, 'plza'))).toEqual(['goodra-hisui']);
   });
 });

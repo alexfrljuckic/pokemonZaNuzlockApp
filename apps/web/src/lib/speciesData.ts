@@ -192,7 +192,13 @@ function requirementLabel(e: Evolution, from: string, to: string, gameId?: strin
   if (e.trigger === 'level-up' || e.trigger == null) {
     if (e.minHappiness != null) return `Level up with high friendship${e.timeOfDay ? ` ${timePhrase(e.timeOfDay)}` : ''}`;
     if (e.knownMove) return `Level up knowing ${pretty(e.knownMove)}`;
-    if (e.item) return `Level up holding ${pretty(e.item)}`;
+    if (e.item)
+      // Razor Claw (Weavile at night / Sneasler by day) and Razor Fang (Gliscor
+      // at night) also carry a time-of-day — append it so the held item isn't
+      // shown without its qualifier. Held-item TRADES (Metal Coat, Dragon
+      // Scale …) hit the earlier trade branch and have no timeOfDay, so they're
+      // unaffected.
+      return `Level up holding ${pretty(e.item)}${e.timeOfDay ? ` ${timePhrase(e.timeOfDay)}` : ''}`;
     if (e.location) return `Level up at ${pretty(e.location)}`;
     if (e.timeOfDay) return `Level up ${timePhrase(e.timeOfDay)}`;
     return 'Level up (special condition)';
