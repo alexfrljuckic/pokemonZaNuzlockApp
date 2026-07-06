@@ -2414,6 +2414,7 @@
     },
     {
       "id": "rogue-absol",
+      "species": "absol-mega",
       "name": "Mega Absol",
       "type": "rogue-mega",
       "order": 6,
@@ -2509,6 +2510,7 @@
     },
     {
       "id": "rogue-slowbro",
+      "species": "slowbro-mega",
       "name": "Mega Slowbro",
       "type": "rogue-mega",
       "order": 9,
@@ -2519,6 +2521,7 @@
     },
     {
       "id": "rogue-camerupt",
+      "species": "camerupt-mega",
       "name": "Mega Camerupt",
       "type": "rogue-mega",
       "order": 10,
@@ -2529,6 +2532,7 @@
     },
     {
       "id": "rogue-victreebel",
+      "species": "victreebel-mega",
       "name": "Mega Victreebel",
       "type": "rogue-mega",
       "order": 11,
@@ -2539,6 +2543,7 @@
     },
     {
       "id": "zygarde1",
+      "species": "zygarde",
       "name": "Zygarde 50% (first)",
       "type": "story",
       "order": 12,
@@ -2595,6 +2600,7 @@
     },
     {
       "id": "rogue-beedrill",
+      "species": "beedrill-mega",
       "name": "Mega Beedrill",
       "type": "rogue-mega",
       "order": 15,
@@ -2605,6 +2611,7 @@
     },
     {
       "id": "rogue-hawlucha",
+      "species": "hawlucha-mega",
       "name": "Mega Hawlucha",
       "type": "rogue-mega",
       "order": 16,
@@ -2615,6 +2622,7 @@
     },
     {
       "id": "rogue-banette",
+      "species": "banette-mega",
       "name": "Mega Banette",
       "type": "rogue-mega",
       "order": 17,
@@ -2653,6 +2661,7 @@
     },
     {
       "id": "rogue-mawile",
+      "species": "mawile-mega",
       "name": "Mega Mawile",
       "type": "rogue-mega",
       "order": 19,
@@ -2663,6 +2672,7 @@
     },
     {
       "id": "rogue-barbaracle",
+      "species": "barbaracle-mega",
       "name": "Mega Barbaracle",
       "type": "rogue-mega",
       "order": 20,
@@ -2673,6 +2683,7 @@
     },
     {
       "id": "rogue-ampharos",
+      "species": "ampharos-mega",
       "name": "Mega Ampharos",
       "type": "rogue-mega",
       "order": 21,
@@ -2718,6 +2729,7 @@
     },
     {
       "id": "rogue-froslass",
+      "species": "froslass-mega",
       "name": "Mega Froslass",
       "type": "rogue-mega",
       "order": 24,
@@ -2728,6 +2740,7 @@
     },
     {
       "id": "rogue-altaria",
+      "species": "altaria-mega",
       "name": "Mega Altaria",
       "type": "rogue-mega",
       "order": 25,
@@ -2738,6 +2751,7 @@
     },
     {
       "id": "rogue-venusaur",
+      "species": "venusaur-mega",
       "name": "Mega Venusaur",
       "type": "rogue-mega",
       "order": 26,
@@ -2780,6 +2794,7 @@
     },
     {
       "id": "zygarde2",
+      "species": "zygarde",
       "name": "Zygarde (tournament)",
       "type": "story",
       "order": 28,
@@ -2787,6 +2802,7 @@
     },
     {
       "id": "rogue-dragonite",
+      "species": "dragonite-mega",
       "name": "Mega Dragonite",
       "type": "rogue-mega",
       "order": 29,
@@ -2797,6 +2813,7 @@
     },
     {
       "id": "rogue-tyranitar",
+      "species": "tyranitar-mega",
       "name": "Mega Tyranitar",
       "type": "rogue-mega",
       "order": 30,
@@ -2807,6 +2824,7 @@
     },
     {
       "id": "rogue-starmie",
+      "species": "starmie-mega",
       "name": "Mega Starmie",
       "type": "rogue-mega",
       "order": 31,

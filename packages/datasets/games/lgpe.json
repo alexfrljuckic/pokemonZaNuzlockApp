@@ -7765,6 +7765,8 @@
     },
     {
       "id": "gym-3-surge",
+
+      "trainerSprite": "ltsurge",
       "name": "Lt. Surge (Vermilion Gym)",
       "type": "gym",
       "order": 3,
@@ -8019,6 +8021,8 @@
     },
     {
       "id": "e4-lorelei",
+
+      "trainerSprite": "lorelei-gen1",
       "name": "Elite Four Lorelei",
       "type": "elite-four",
       "order": 9,
@@ -8127,6 +8131,8 @@
     },
     {
       "id": "e4-agatha",
+
+      "trainerSprite": "agatha-gen1",
       "name": "Elite Four Agatha",
       "type": "elite-four",
       "order": 11,
