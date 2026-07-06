@@ -35,6 +35,25 @@ export interface FeedItem {
 
 export const HANDLE_RE = /^[a-z0-9][a-z0-9-]{2,23}$/;
 
+export interface ProfileSearchResult {
+  handle: string;
+  displayName: string;
+}
+
+/** Discovery search by handle/display-name prefix (>=2 chars). Anonymous-safe —
+ * the search_profiles RPC exposes only public (handle, display_name) pairs. */
+export async function searchProfiles(query: string): Promise<ProfileSearchResult[]> {
+  if (!supabase) return [];
+  const q = query.trim();
+  if (q.length < 2) return [];
+  const { data, error } = await supabase.rpc('search_profiles', { p_query: q, p_limit: 10 });
+  if (error || !data) return [];
+  return data.map((r: Record<string, unknown>) => ({
+    handle: r.handle as string,
+    displayName: (r.display_name as string) ?? '',
+  }));
+}
+
 /** The signed-in user's own profile row, or null (none claimed / sync off). */
 export async function getMyProfile(userId: string): Promise<Profile | null> {
   if (!supabase) return null;
@@ -52,6 +71,16 @@ export async function claimProfile(userId: string, handle: string, displayName: 
     .insert({ user_id: userId, handle, display_name: displayName.trim() });
   if (!error) return null;
   return /duplicate|unique/i.test(error.message) ? 'That handle is already taken.' : error.message;
+}
+
+/** Delete the signed-in user's own profile: frees the handle and removes their
+ * public presence (follow edges cascade via the FK). Runs and share links are
+ * unaffected — this only removes the public profile, not the account or its data.
+ * Owner-only RLS already scopes the delete to the caller's row. */
+export async function deleteProfile(userId: string): Promise<string | null> {
+  if (!supabase) return 'Sync is disabled.';
+  const { error } = await supabase.from('profiles').delete().eq('user_id', userId);
+  return error ? error.message : null;
 }
 
 /** Public profile by handle — anonymous-safe (handle-gated SECURITY DEFINER RPC). */

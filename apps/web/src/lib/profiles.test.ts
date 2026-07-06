@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { HANDLE_RE, claimProfile, fetchFeed, fetchProfile, getMyProfile } from './profiles';
+import {
+  HANDLE_RE,
+  claimProfile,
+  deleteProfile,
+  fetchFeed,
+  fetchProfile,
+  getMyProfile,
+  searchProfiles,
+} from './profiles';
 import { describeFeedItem } from '../components/FollowFeed';
 import type { FeedItem } from './profiles';
 
@@ -11,6 +19,8 @@ describe('profiles lib with sync disabled', () => {
     expect(await fetchProfile('somebody')).toBeNull();
     expect(await fetchFeed()).toEqual([]);
     expect(await claimProfile('u1', 'valid-handle', '')).toBe('Sync is disabled.');
+    expect(await deleteProfile('u1')).toBe('Sync is disabled.');
+    expect(await searchProfiles('alex')).toEqual([]);
   });
 
   it('validates handles', () => {

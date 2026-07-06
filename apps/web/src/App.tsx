@@ -17,6 +17,7 @@ import { CrossRunStatsScreen } from './screens/CrossRunStatsScreen';
 import { ProfileScreen } from './screens/ProfileScreen';
 import { ProfileSetup } from './components/ProfileSetup';
 import { FollowFeed } from './components/FollowFeed';
+import { TrainerSearch } from './components/TrainerSearch';
 import { RunView } from './screens/RunView';
 import { SpectatorView } from './screens/SpectatorView';
 import { TitleScreen } from './screens/TitleScreen';
@@ -77,10 +78,20 @@ export default function App() {
   // read-only routes — no run-picker, no local run loading, no sign-in
   // required to view (the follow button asks for one when relevant).
   if (shareToken || profileHandle) {
+    // Leave the read-only route back to the main app by clearing the hash.
+    const goHome = () => {
+      history.replaceState(null, '', location.pathname + location.search);
+      window.dispatchEvent(new Event('hashchange'));
+    };
     return (
       <>
         <div className="app-header">
-          <h1>Nuzlocke Tracker</h1>
+          <div className="app-header-left">
+            <button className="back-icon" aria-label="Back to app" title="Back to app" onClick={goHome}>
+              ←
+            </button>
+            <h1>Nuzlocke Tracker</h1>
+          </div>
           <ThemePicker />
         </div>
         {shareToken ? <SpectatorView token={shareToken} /> : <ProfileScreen handle={profileHandle!} />}
@@ -160,19 +171,22 @@ function OwnerApp() {
       {activeRun ? (
         <RunView run={activeRun} session={session} />
       ) : screen === 'title' ? (
-        <TitleScreen
-          hasRuns={runs.length > 0}
-          onNewGame={() => setScreen('new')}
-          onContinue={() => setScreen('continue')}
-          onStats={() => setScreen('stats')}
-        />
+        <>
+          <TitleScreen
+            hasRuns={runs.length > 0}
+            onNewGame={() => setScreen('new')}
+            onContinue={() => setScreen('continue')}
+            onStats={() => setScreen('stats')}
+          />
+          {/* Social discovery lives on the landing page — finding other trainers
+              shouldn't require opening a run. Both render nothing when signed out. */}
+          <TrainerSearch session={session} />
+          <FollowFeed session={session} />
+        </>
       ) : (
         <>
           {screen === 'continue' ? (
-            <>
-              <ContinueScreen runs={runs} onSelect={setActiveRunId} />
-              <FollowFeed session={session} />
-            </>
+            <ContinueScreen runs={runs} onSelect={setActiveRunId} />
           ) : screen === 'stats' ? (
             <CrossRunStatsScreen runs={runs} />
           ) : (

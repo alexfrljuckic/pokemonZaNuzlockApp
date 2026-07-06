@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
 import { SYNC_ENABLED } from '../lib/env';
-import { HANDLE_RE, claimProfile, getMyProfile, type Profile } from '../lib/profiles';
+import { HANDLE_RE, claimProfile, deleteProfile, getMyProfile, type Profile } from '../lib/profiles';
 
 /** One-line profile chip under the auth bar: claim a handle once, then a
  * permanent link to your public page. Renders nothing when sync is off or
@@ -14,6 +14,8 @@ export function ProfileSetup({ session }: { session: Session | null }) {
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const [confirmingDelete, setConfirmingDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -33,12 +35,47 @@ export function ProfileSetup({ session }: { session: Session | null }) {
 
   if (!SYNC_ENABLED || !session || !loaded) return null;
 
+  async function handleDelete() {
+    if (!session) return;
+    setDeleting(true);
+    setError(null);
+    const err = await deleteProfile(session.user.id);
+    setDeleting(false);
+    if (err) {
+      setError(err);
+    } else {
+      setProfile(null);
+      setConfirmingDelete(false);
+    }
+  }
+
   if (profile) {
     return (
-      <p className="muted profile-chip">
-        Public profile:{' '}
-        <a href={`#u/${profile.handle}`}>@{profile.handle}</a>
-      </p>
+      <div className="profile-chip">
+        <p className="muted">
+          Public profile: <a href={`#u/${profile.handle}`}>@{profile.handle}</a>
+          {!confirmingDelete && (
+            <>
+              {' · '}
+              <button className="secondary" onClick={() => setConfirmingDelete(true)}>
+                Delete profile
+              </button>
+            </>
+          )}
+        </p>
+        {confirmingDelete && (
+          <p className="muted profile-delete-confirm">
+            Delete your public profile and free @{profile.handle}? Your runs and account stay.{' '}
+            <button className="danger" disabled={deleting} onClick={handleDelete}>
+              {deleting ? 'Deleting…' : 'Delete'}
+            </button>{' '}
+            <button className="secondary" disabled={deleting} onClick={() => setConfirmingDelete(false)}>
+              Cancel
+            </button>
+          </p>
+        )}
+        {error && <span className="muted profile-error">{error}</span>}
+      </div>
     );
   }
 
