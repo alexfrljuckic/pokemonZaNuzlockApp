@@ -103,7 +103,14 @@ describe('MonCard full-width row layout', () => {
     const boxed = await render(<MonCard p={{ ...mon, status: 'box' }} gameId="bdsp" />);
     expect(boxed.container.querySelector('.mon-status-box')?.textContent).toBe('Boxed');
 
-    const dead = await render(<MonCard p={{ ...mon, status: 'dead' }} gameId="bdsp" />);
+    const dead = await render(
+      <MonCard
+        p={{ ...mon, status: 'dead', death: { at: 't0', cause: 'a wild Bidoof', killer: 'Bidoof' } }}
+        gameId="bdsp"
+      />,
+    );
     expect(dead.container.querySelector('.mon-status-dead')?.textContent).toBe('Fainted');
+    // Team & Box is the graveyard's single home now — the cause shows at a glance
+    expect(dead.container.querySelector('.mon-card-death')?.textContent).toContain('a wild Bidoof');
   });
 });

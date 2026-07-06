@@ -355,6 +355,12 @@ export function MonCard({
         <div className="mon-card-glance">
           <TypeBadges types={types} />
           {statusLabel && <span className={`mon-status-chip mon-status-${p.status}`}>{statusLabel}</span>}
+          {p.status === 'dead' && p.death && (
+            <span className="mon-card-death">
+              Fell to {p.death.cause ?? 'unknown cause'}
+              {p.death.killer ? ` — ${p.death.killer}` : ''}
+            </span>
+          )}
           <span className="mon-card-meta muted">
             {p.heldItem ? `@ ${p.heldItem}` : 'No item'}
             {p.nature ? ` · ${p.nature}` : ''}
