@@ -1563,13 +1563,79 @@ button.item-chip.item-picked {
 
 .auth-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
 .auth-bar button { margin-top: 0; padding: 0.25rem 0.6rem; font-size: 0.8rem; }
-.auth-error { color: var(--danger); font-size: 0.8rem; flex-basis: 100%; }
+.auth-error { color: var(--danger); font-size: 0.8rem; display: block; margin-top: 0.5rem; }
 
-/* OAuth-only sign-in: a stacked column of provider buttons. Renders only when
-   VITE_OAUTH_PROVIDERS is set (production). */
-.auth-bar-stack { flex-direction: column; align-items: stretch; gap: 0.6rem; max-width: 340px; }
-.auth-providers { display: flex; flex-direction: column; gap: 0.4rem; }
-.auth-provider-btn { width: 100%; justify-content: center; padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+/* Signed-out sign-in card: the value prop (sync / share / follow), then the
+   OAuth provider buttons. Renders only when VITE_OAUTH_PROVIDERS is set. */
+.auth-card {
+  max-width: 420px;
+  margin: 0 0 1.5rem;
+  padding: 1rem 1.1rem 0.9rem;
+  background:
+    linear-gradient(150deg, color-mix(in srgb, var(--accent) 9%, transparent), transparent 45%),
+    var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  animation: fadeUp 0.4s ease both;
+}
+.auth-card-title {
+  margin: 0 0 0.7rem;
+  font-size: 1.02rem;
+  font-weight: 800;
+  font-style: italic;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.auth-benefits {
+  list-style: none;
+  margin: 0 0 0.9rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.auth-benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.auth-benefit-icon {
+  color: var(--accent);
+  flex: none;
+  display: inline-flex;
+  margin-top: 0.1rem;
+}
+.auth-benefits strong {
+  display: block;
+  font-size: 0.88rem;
+}
+.auth-benefit-desc {
+  display: block;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.auth-providers { display: flex; flex-direction: column; gap: 0.45rem; }
+.auth-provider-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.55rem 0.75rem;
+  font-size: 0.88rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  transition: border-color 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+}
+.auth-provider-btn:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--bg-panel);
+}
+.auth-provider-btn svg { flex: none; }
+.auth-card-footnote {
+  margin: 0.7rem 0 0;
+  font-size: 0.74rem;
+}
 
 .share-link-row { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
 .share-link-row input { flex: 1; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
@@ -2957,8 +3023,3 @@ button.link-danger:hover:not(:disabled) {
   border-color: var(--danger);
 }
 
-/* Value-prop line above the sign-in buttons (UX-AUDIT "login value-prop"). */
-.auth-value-prop {
-  margin: 0;
-  font-size: 0.85rem;
-}
