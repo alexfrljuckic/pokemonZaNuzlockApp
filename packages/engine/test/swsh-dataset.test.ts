@@ -11,6 +11,7 @@ import {
   isVersionDeadArea,
   milestonesFor,
   specialAppliesToVersion,
+  type Area,
   type EngineContext,
   type GameDataset,
   type RunEvent,
@@ -165,23 +166,38 @@ describe('SwSh dataset', () => {
     expect(areasFor(dataset, withDlc)).toHaveLength(63);
   });
 
-  it("hides Giant's Mirror from a Sword run: its only documented slot is Shield-locked", () => {
-    const giantsMirror = dataset.areas.find((a) => a.id === 'giants-mirror')!;
-    // sanity: the area really does document only a Shield-locked encounter
-    expect(giantsMirror.encounters).toHaveLength(1);
-    expect(giantsMirror.encounters[0].species).toBe('corsola-galar');
-    expect(giantsMirror.encounters[0].conditions?.version).toEqual(['shield']);
+  it('flags an area as version-dead only when every documented slot is locked to the other version', () => {
+    // Tested on synthetic areas so it does not depend on dataset content, which
+    // changes as encounter tables get fleshed out. `isVersionDeadArea` only
+    // reads `area.encounters`, so a partial cast is sufficient.
+    const area = (encounters: unknown[]) => ({ id: 'fixture', name: 'Fixture', encounters }) as unknown as Area;
 
-    // dead end for Sword (all slots belong to the other version), live for Shield
-    expect(isVersionDeadArea(giantsMirror, 'sword')).toBe(true);
+    // every slot Shield-locked → dead for Sword, live for Shield
+    const shieldOnly = area([{ species: 'corsola-galar', method: 'walk', conditions: { version: ['shield'] } }]);
+    expect(isVersionDeadArea(shieldOnly, 'sword')).toBe(true);
+    expect(isVersionDeadArea(shieldOnly, 'shield')).toBe(false);
+
+    // at least one slot valid for this version → NOT dead
+    const mixed = area([
+      { species: 'woobat', method: 'walk' },
+      { species: 'corsola-galar', method: 'walk', conditions: { version: ['shield'] } },
+    ]);
+    expect(isVersionDeadArea(mixed, 'sword')).toBe(false);
+
+    // no documented encounters at all → NOT dead (towns/item stops stay visible)
+    expect(isVersionDeadArea(area([]), 'sword')).toBe(false);
+  });
+
+  it("keeps Giant's Mirror visible in both versions now that its table spans both", () => {
+    // Its encounter table was fleshed out (#185) with cross-version spawns, so
+    // it is no longer a Sword dead end — both versions can resolve it.
+    const giantsMirror = dataset.areas.find((a) => a.id === 'giants-mirror')!;
+    expect(isVersionDeadArea(giantsMirror, 'sword')).toBe(false);
     expect(isVersionDeadArea(giantsMirror, 'shield')).toBe(false);
 
     const base = buildRuleset('standard', 'swsh');
-    const swordAreas = areasForVersion(dataset, 'sword', base).map((a) => a.id);
-    const shieldAreas = areasForVersion(dataset, 'shield', base).map((a) => a.id);
-    // Sword never sees the unresolvable area; Shield still gets its Corsola
-    expect(swordAreas).not.toContain('giants-mirror');
-    expect(shieldAreas).toContain('giants-mirror');
+    expect(areasForVersion(dataset, 'sword', base).map((a) => a.id)).toContain('giants-mirror');
+    expect(areasForVersion(dataset, 'shield', base).map((a) => a.id)).toContain('giants-mirror');
   });
 
   it('does not hide towns/item-only stops or version-shared wild areas', () => {
