@@ -3,11 +3,16 @@ export function TitleScreen({
   onNewGame,
   onContinue,
   onStats,
+  onFindTrainers,
 }: {
   hasRuns: boolean;
   onNewGame: () => void;
   onContinue: () => void;
   onStats: () => void;
+  /** Only provided when social discovery is available (signed in + sync on).
+   * Opens the Find Trainers screen — kept off the landing page so it stays a
+   * short, scroll-free hero. */
+  onFindTrainers?: () => void;
 }) {
   return (
     <div className="title-screen">
@@ -21,6 +26,11 @@ export function TitleScreen({
       {hasRuns && (
         <button className="secondary" onClick={onStats}>
           Your Stats
+        </button>
+      )}
+      {onFindTrainers && (
+        <button className="secondary" onClick={onFindTrainers}>
+          Find Trainers
         </button>
       )}
 

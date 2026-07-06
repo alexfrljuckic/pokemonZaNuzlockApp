@@ -179,33 +179,19 @@ body {
   }
 }
 
-/* Map scale-up (demo): the Routes section breaks out of the column to near
-   viewport width, so the interactive map renders substantially larger. The
-   classic full-bleed trick — symmetric margins computed from the container
-   vs target width keep it viewport-centered; everything inside (resolve
-   panel, off-map list) stays column-width via its own max-width. */
+/* The routes stage aligns with the rest of the page column (no full-bleed
+   breakout — it used to widen to 94vw and drift out of alignment). The map is
+   height-capped well under the viewport so the encounter panel below it stays
+   in view without a long scroll; small click boxes stay usable because the map
+   auto-zooms to the "up next" frontier. */
 @media (min-width: 1100px) {
-  section.route-map-stage {
-    --stage-w: min(94vw, 1500px);
-    width: var(--stage-w);
-    margin-left: calc((100% - var(--stage-w)) / 2);
-    margin-right: calc((100% - var(--stage-w)) / 2);
-  }
-  section.route-map-stage .route-resolve-panel,
-  section.route-map-stage .route-offmap {
-    max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* lift the old 720px map cap inside the stage; fit by viewport height so
-     portrait maps (Galar is 1:1.95) don't become endless scrolls */
   section.route-map-stage .route-map {
     max-width: none;
   }
   section.route-map-stage .route-map-svg {
     width: auto;
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 60vh;
     margin: 0 auto;
   }
 
@@ -226,7 +212,7 @@ body {
   /* a definite height (not max-) so the svg derives its width from the
      aspect-ratio — in the grid's auto track, max-height alone collapses to 0 */
   section.route-stage-portrait .route-map-svg {
-    height: 86vh;
+    height: 60vh;
   }
   section.route-stage-portrait .route-resolve-panel,
   section.route-stage-portrait .route-offmap {

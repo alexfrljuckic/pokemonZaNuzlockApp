@@ -27,6 +27,12 @@ describe('parseHash', () => {
     expect(parseHash('stats')).toEqual({ screen: 'stats' });
   });
 
+  it('parses #trainers → the find-trainers screen', () => {
+    expect(parseHash('#trainers')).toEqual({ screen: 'trainers' });
+    expect(parseHash('trainers')).toEqual({ screen: 'trainers' });
+    expect(formatHash({ screen: 'trainers' })).toBe('#trainers');
+  });
+
   it('#new / #stats ignore any trailing junk segments', () => {
     expect(parseHash('#new/whatever')).toEqual({ screen: 'new' });
     expect(parseHash('#stats/whatever')).toEqual({ screen: 'stats' });
