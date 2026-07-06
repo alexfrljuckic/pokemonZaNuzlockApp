@@ -21,15 +21,12 @@ export function useAuth() {
     session,
     loading,
     available: !!supabase,
-    // Redirect the magic link back to wherever the app is actually running,
-    // so login works in any environment (localhost, preview, production)
-    // without depending solely on the Supabase dashboard Site URL setting.
-    signInWithEmail: (email: string) =>
-      supabase!.auth.signInWithOtp({ email, options: { emailRedirectTo: window.location.origin } }),
     // OAuth redirects the whole browser to the provider and back to the app's
-    // own origin (same reasoning as the magic link above — works in any env).
-    // If the provider isn't enabled in Supabase, the SDK returns an error here
-    // instead of redirecting, which the caller surfaces to the user.
+    // own origin, so login works in any environment (localhost, preview, prod)
+    // without depending solely on the Supabase Site URL. If the provider isn't
+    // enabled in Supabase, the SDK returns an error here instead of redirecting,
+    // which the caller surfaces to the user. (Magic-link email sign-in was
+    // removed — Supabase's built-in email rate limit is too low for real use.)
     signInWithProvider: (provider: OAuthProvider) =>
       supabase!.auth.signInWithOAuth({ provider, options: { redirectTo: window.location.origin } }),
     signOut: () => supabase!.auth.signOut(),

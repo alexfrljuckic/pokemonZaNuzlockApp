@@ -1,10 +1,12 @@
 # OAuth sign-in setup (Google + Discord)
 
-The app supports three sign-in methods: email magic link (always on), **Google**,
-and **Discord**. OAuth is opt-in: the provider buttons only render when
-`VITE_OAUTH_PROVIDERS` is set, so nothing half-wired ever ships. This doc covers
-the parts that need your own accounts — Claude can't do these (they require your
-Google Cloud / Discord Developer / Supabase logins).
+Sign-in is **OAuth-only**: **Google** and **Discord**. (Magic-link email sign-in
+was removed — Supabase's built-in email sender rate-limits too aggressively for
+real use.) The provider buttons render only when `VITE_OAUTH_PROVIDERS` is set, so
+**that env var is now REQUIRED for any sign-in** — with it unset the app still
+works fully offline/local (local-first invariant) but offers no way to sign in.
+This doc covers the parts that need your own accounts — Claude can't do these
+(they require your Google Cloud / Discord Developer / Supabase logins).
 
 The code side is already done (`apps/web/src/lib/useAuth.ts`,
 `apps/web/src/screens/AuthBar.tsx`, `apps/web/src/lib/env.ts`). You only need to
