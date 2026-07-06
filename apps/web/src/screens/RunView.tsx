@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import type { Session } from '@supabase/supabase-js';
-import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
+import { deriveState, milestonesFor, party, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { appendEvent, loadEvents, type RunSummary } from '../lib/db';
 import { downloadRunExport } from '../lib/exportRun';
@@ -172,17 +172,27 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
           <RunSummaryStrip events={events} state={state} ctx={ctx} />
 
           <nav className="tabs">
-            {TABS.map((t) => (
-              <button
-                key={t}
-                className={t === tab ? '' : 'secondary'}
-                aria-current={t === tab ? 'page' : undefined}
-                onClick={() => setTab(t)}
-              >
-                <span className="tab-label-full">{t}</span>
-                <span className="tab-label-short">{TAB_SHORT[t]}</span>
-              </button>
-            ))}
+            {TABS.map((t) => {
+              // per-tab counts (audit: "Team & Box · 6") — desktop labels only
+              const count =
+                t === 'Team & Box'
+                  ? String(party(state).length)
+                  : t === 'Boss Fights' && ctx.dataset
+                    ? `${state.milestonesCleared.length}/${milestonesFor(ctx.dataset, state.version, state.ruleset).length}`
+                    : null;
+              return (
+                <button
+                  key={t}
+                  className={t === tab ? '' : 'secondary'}
+                  aria-current={t === tab ? 'page' : undefined}
+                  onClick={() => setTab(t)}
+                >
+                  <span className="tab-label-full">{t}</span>
+                  <span className="tab-label-short">{TAB_SHORT[t]}</span>
+                  {count && <span className="tab-count">{count}</span>}
+                </button>
+              );
+            })}
           </nav>
 
           {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
