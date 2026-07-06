@@ -198,7 +198,7 @@ export function RunView({
         />
       ) : (
         <>
-          <RunSummaryStrip events={events} state={state} ctx={ctx} />
+          <RunSummaryStrip events={events} state={state} ctx={ctx} onGoToBosses={() => setTab('Boss Fights')} />
 
           {/* proper tabs pattern: roving tabIndex, arrows move selection */}
           <nav

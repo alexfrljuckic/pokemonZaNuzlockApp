@@ -8,11 +8,14 @@ export function RunSummaryStrip({
   state,
   ctx,
   limit = 5,
+  onGoToBosses,
 }: {
   events: RunEvent[];
   state: RunState;
   ctx: EngineContext;
   limit?: number;
+  /** Jump to the Boss Fights tab; wired from RunView so the hash stays in sync. */
+  onGoToBosses?: () => void;
 }) {
   // reverted evolutions are netted out of history entirely (visibleEvents)
   const shown = visibleEvents(events);
@@ -46,13 +49,28 @@ export function RunSummaryStrip({
     <section className="summary-strip">
       <h3 className="chart-heading">Active rules</h3>
       <div className="summary-rules">
-        {levelCap != null && (
-          <div className={`summary-cap${overCap ? ' over' : ''}`} title={boss ? `Next: ${boss.name}` : undefined}>
-            <span className="summary-cap-label">Level cap</span>
-            <span className="summary-cap-value">Lv {levelCap}</span>
-            {boss && <span className="summary-cap-boss muted">next: {boss.name}</span>}
-          </div>
-        )}
+        {levelCap != null &&
+          (boss && onGoToBosses ? (
+            // With a next boss we make the cap a real control that jumps to the
+            // Boss Fights tab (through RunView's tab-change/navigate path).
+            <button
+              type="button"
+              className={`summary-cap summary-cap-button${overCap ? ' over' : ''}`}
+              title={`Next: ${boss.name}`}
+              aria-label="Go to Boss Fights"
+              onClick={onGoToBosses}
+            >
+              <span className="summary-cap-label">Level cap</span>
+              <span className="summary-cap-value">Lv {levelCap}</span>
+              <span className="summary-cap-boss muted">next: {boss.name}</span>
+            </button>
+          ) : (
+            <div className={`summary-cap${overCap ? ' over' : ''}`} title={boss ? `Next: ${boss.name}` : undefined}>
+              <span className="summary-cap-label">Level cap</span>
+              <span className="summary-cap-value">Lv {levelCap}</span>
+              {boss && <span className="summary-cap-boss muted">next: {boss.name}</span>}
+            </div>
+          ))}
         {otherActiveRules.map((r) => (
           <span key={r.id} className={`rule-chip rule-chip-${r.enforcement}`} title={r.description}>
             {r.name}
