@@ -116,6 +116,9 @@ export function RoutesTab({
   const zoneMap = activeZone ? ZONE_MAPS[ctx.dataset.gameId]?.[activeZone] : undefined;
   const activeMap = zoneMap ?? map;
   const { hasMapNode } = mapHelpers(activeMap);
+  // Portrait maps (Galar is 1:1.95) are height-capped on desktop and would
+  // leave the stage's width empty — the side content moves next to them.
+  const portrait = activeMap.viewBox.h / activeMap.viewBox.w > 1.15;
 
   const offMapAreas = zoneMode
     ? activeZone
@@ -134,7 +137,7 @@ export function RoutesTab({
   }
 
   return (
-    <section className="route-map-stage">
+    <section className={`route-map-stage${portrait ? ' route-stage-portrait' : ''}`}>
       <h2>Routes</h2>
 
       {starterUnclaimed && (
@@ -144,43 +147,49 @@ export function RoutesTab({
         </div>
       )}
 
-      {zoneMap && activeZone && (
-        <div className="zone-map-head">
-          <button type="button" className="secondary zone-back" onClick={() => setActiveZone(null)}>
-            ← All zones
-          </button>
-          <h3 className="route-offmap-title">{zoneNameOf(activeZone)}</h3>
+      {/* plain block wrappers everywhere except desktop portrait mode, where
+          .route-stage-body becomes a map | side-content grid */}
+      <div className="route-stage-body">
+        <div className="route-stage-map">
+          {zoneMap && activeZone && (
+            <div className="zone-map-head">
+              <button type="button" className="secondary zone-back" onClick={() => setActiveZone(null)}>
+                ← All zones
+              </button>
+              <h3 className="route-offmap-title">{zoneNameOf(activeZone)}</h3>
+            </div>
+          )}
+
+          <RouteMap
+            key={zoneMap ? activeZone : 'overview'}
+            map={activeMap}
+            areas={areas}
+            state={state}
+            version={state.version}
+            onSelect={(id) => setOpenAreaId(id)}
+            zones={zoneMode && !zoneMap ? zones : undefined}
+            onSelectZone={zoneMode && !zoneMap ? selectZone : undefined}
+          />
+
+          {zoneMode && (
+            <div className="zone-chips" role="tablist" aria-label="Zones">
+              {[...zones.values()].map((z) => (
+                <button
+                  key={z.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={activeZone === z.id}
+                  className={`zone-chip${activeZone === z.id ? ' selected' : ''}`}
+                  onClick={() => selectZone(z.id)}
+                >
+                  {z.name} <span className="muted">{z.resolved}/{z.total}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      )}
 
-      <RouteMap
-        key={zoneMap ? activeZone : 'overview'}
-        map={activeMap}
-        areas={areas}
-        state={state}
-        version={state.version}
-        onSelect={(id) => setOpenAreaId(id)}
-        zones={zoneMode && !zoneMap ? zones : undefined}
-        onSelectZone={zoneMode && !zoneMap ? selectZone : undefined}
-      />
-
-      {zoneMode && (
-        <div className="zone-chips" role="tablist" aria-label="Zones">
-          {[...zones.values()].map((z) => (
-            <button
-              key={z.id}
-              type="button"
-              role="tab"
-              aria-selected={activeZone === z.id}
-              className={`zone-chip${activeZone === z.id ? ' selected' : ''}`}
-              onClick={() => selectZone(z.id)}
-            >
-              {z.name} <span className="muted">{z.resolved}/{z.total}</span>
-            </button>
-          ))}
-        </div>
-      )}
-
+        <div className="route-stage-side">
       {selected && (
         <div className="route-resolve-panel">
           <div className="route-resolve-head">
@@ -240,6 +249,8 @@ export function RoutesTab({
           />
         </div>
       )}
+        </div>
+      </div>
     </section>
   );
 }

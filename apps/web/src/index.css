@@ -208,6 +208,32 @@ body {
     max-height: 86vh;
     margin: 0 auto;
   }
+
+  /* Portrait maps (Galar) are height-capped above, so they'd sit as a narrow
+     strip with the rest of the stage empty — move the resolve panel + area
+     list beside them instead of below, and keep the map in view while the
+     side column scrolls. Landscape maps keep the stacked layout. */
+  section.route-stage-portrait .route-stage-body {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 2rem;
+    align-items: start;
+  }
+  section.route-stage-portrait .route-stage-map {
+    position: sticky;
+    top: 0.75rem;
+  }
+  /* a definite height (not max-) so the svg derives its width from the
+     aspect-ratio — in the grid's auto track, max-height alone collapses to 0 */
+  section.route-stage-portrait .route-map-svg {
+    height: 86vh;
+  }
+  section.route-stage-portrait .route-resolve-panel,
+  section.route-stage-portrait .route-offmap {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 /* Mobile: the whole map always fits the viewport width (no sideways pan —
