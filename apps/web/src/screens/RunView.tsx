@@ -18,6 +18,15 @@ import { WipeScreen } from './WipeScreen';
 const TABS = ['Routes', 'Team & Box', 'Boss Fights', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
+// Compact labels for the fixed bottom bar on phones (CSS swaps them in).
+const TAB_SHORT: Record<Tab, string> = {
+  Routes: 'Routes',
+  'Team & Box': 'Team',
+  'Boss Fights': 'Bosses',
+  Rules: 'Rules',
+  Stats: 'Stats',
+};
+
 // End a run from any tab. Inline expanding confirm (no window.confirm — Alex
 // hates browser prompts). Hidden once the run is already finished
 // (victory/wiped/abandoned); available for active and wiped-continuing runs.
@@ -167,9 +176,11 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
               <button
                 key={t}
                 className={t === tab ? '' : 'secondary'}
+                aria-current={t === tab ? 'page' : undefined}
                 onClick={() => setTab(t)}
               >
-                {t}
+                <span className="tab-label-full">{t}</span>
+                <span className="tab-label-short">{TAB_SHORT[t]}</span>
               </button>
             ))}
           </nav>
