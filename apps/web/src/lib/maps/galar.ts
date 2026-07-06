@@ -36,11 +36,11 @@ export const GALAR_MAP: GameMap = {
     { id: 'dappled-grove', x: 534, y: 761, w: 30, h: 24, kind: 'route' },
     // — Motostoke (Fire Gym) + its mine / routes —
     { id: 'motostoke', x: 555, y: 593, w: 78, h: 55, kind: 'city' },
-    { id: 'route-3', x: 530, y: 570, w: 45, h: 38, kind: 'route' },
+    { id: 'route-3', x: 508, y: 615, w: 34, h: 28, kind: 'route' },
     { id: 'galar-mine', x: 475, y: 588, w: 48, h: 42, kind: 'cave' },
     // — Turffield (Grass Gym) + Route 4/5 west —
     { id: 'turffield', x: 483, y: 523, w: 56, h: 46, kind: 'town' },
-    { id: 'route-4', x: 478, y: 488, w: 50, h: 40, kind: 'route' },
+    { id: 'route-4', x: 468, y: 559, w: 34, h: 28, kind: 'route' },
     { id: 'route-5', x: 540, y: 520, w: 65, h: 40, kind: 'route' },
     // — Hulbury (Water Gym) east + Galar Mine No.2 —
     { id: 'hulbury', x: 695, y: 510, w: 58, h: 45, kind: 'city' },
@@ -58,16 +58,16 @@ export const GALAR_MAP: GameMap = {
     { id: 'stony-wilderness', x: 612, y: 535, w: 34, h: 28, kind: 'route' },
     // — Hammerlocke (Dragon Gym) central + Route 6 west to Stow/Ballonlea —
     { id: 'hammerlocke', x: 552, y: 450, w: 80, h: 55, kind: 'city' },
-    { id: 'route-6', x: 518, y: 426, w: 50, h: 40, kind: 'route' },
+    { id: 'route-6', x: 511, y: 443, w: 34, h: 28, kind: 'route' },
     { id: 'stow-on-side', x: 502, y: 410, w: 56, h: 46, kind: 'town' },
     { id: 'glimwood-tangle', x: 482, y: 356, w: 58, h: 46, kind: 'forest' },
     { id: 'ballonlea', x: 462, y: 311, w: 52, h: 44, kind: 'town' },
     // — Route 7/8 east to Circhester (Rock/Ice Gym), Route 9 to Spikemuth —
-    { id: 'route-7', x: 638, y: 430, w: 55, h: 42, kind: 'route' },
-    { id: 'route-8', x: 655, y: 370, w: 60, h: 45, kind: 'route' },
+    { id: 'route-7', x: 651, y: 464, w: 34, h: 28, kind: 'route' },
+    { id: 'route-8', x: 666, y: 407, w: 34, h: 28, kind: 'route' },
     { id: 'circhester', x: 685, y: 300, w: 60, h: 46, kind: 'city' },
     { id: 'circhester-bay', x: 668, y: 350, w: 44, h: 42, kind: 'route' },
-    { id: 'route-9', x: 678, y: 440, w: 58, h: 48, kind: 'route' },
+    { id: 'route-9', x: 739, y: 368, w: 34, h: 28, kind: 'route' },
     { id: 'spikemuth', x: 728, y: 406, w: 52, h: 42, kind: 'town' },
     // — Route 10 up to Wyndon (Pokémon League / Rose Tower) —
     { id: 'route-10', x: 583, y: 240, w: 55, h: 95, kind: 'route' },
