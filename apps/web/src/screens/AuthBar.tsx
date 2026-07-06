@@ -1,6 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../lib/useAuth';
 import { OAUTH_PROVIDERS, type OAuthProvider } from '../lib/env';
+
+/** Tracks a media query; guarded so node-side test renders default to the
+ * wide (fully expanded) variant. */
+function useIsNarrow(query = '(max-width: 899px)') {
+  const [narrow, setNarrow] = useState(
+    () => typeof window !== 'undefined' && 'matchMedia' in window && window.matchMedia(query).matches,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = () => setNarrow(mq.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, [query]);
+  return narrow;
+}
 
 const PROVIDER_LABEL: Record<OAuthProvider, string> = {
   google: 'Google',
@@ -76,6 +91,7 @@ const BENEFITS: { icon: JSX.Element; title: string; desc: string }[] = [
 export function AuthBar() {
   const { session, loading, available, signInWithProvider, signOut } = useAuth();
   const [error, setError] = useState<string | null>(null);
+  const narrow = useIsNarrow();
 
   if (!available || loading) return null;
 
@@ -113,35 +129,55 @@ export function AuthBar() {
     if (oauthError) setError(oauthError.message);
   }
 
+  const benefits = (
+    <ul className="auth-benefits">
+      {BENEFITS.map((b) => (
+        <li key={b.title}>
+          <span className="auth-benefit-icon">{b.icon}</span>
+          <span>
+            <strong>{b.title}</strong>
+            <span className="muted auth-benefit-desc">{b.desc}</span>
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+
+  // Compact by design (Alex: don't push the app down the page): one
+  // horizontal band on desktop; on phones the benefits collapse behind
+  // "Why sign in?" so the buttons stay one slim block.
   return (
     <section className="auth-card" aria-label="Sign in">
-      <h3 className="auth-card-title">Take your run everywhere</h3>
-      <ul className="auth-benefits">
-        {BENEFITS.map((b) => (
-          <li key={b.title}>
-            <span className="auth-benefit-icon">{b.icon}</span>
-            <span>
-              <strong>{b.title}</strong>
-              <span className="muted auth-benefit-desc">{b.desc}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <div className="auth-providers">
-        {OAUTH_PROVIDERS.map((provider) => (
-          <button
-            key={provider}
-            className="secondary auth-provider-btn"
-            onClick={() => handleProvider(provider)}
-          >
-            {PROVIDER_ICON[provider]}
-            Continue with {PROVIDER_LABEL[provider]}
-          </button>
-        ))}
+      <div className="auth-card-main">
+        <div className="auth-card-pitch">
+          <h3 className="auth-card-title">Take your run everywhere</h3>
+          {narrow ? (
+            <details className="auth-benefits-details">
+              <summary>Why sign in?</summary>
+              {benefits}
+            </details>
+          ) : (
+            benefits
+          )}
+        </div>
+        <div className="auth-card-cta">
+          <div className="auth-providers">
+            {OAUTH_PROVIDERS.map((provider) => (
+              <button
+                key={provider}
+                className="secondary auth-provider-btn"
+                onClick={() => handleProvider(provider)}
+              >
+                {PROVIDER_ICON[provider]}
+                Continue with {PROVIDER_LABEL[provider]}
+              </button>
+            ))}
+          </div>
+          <p className="muted auth-card-footnote">
+            Free — and everything keeps working on this device without an account.
+          </p>
+        </div>
       </div>
-      <p className="muted auth-card-footnote">
-        Free — and everything keeps working on this device without an account.
-      </p>
       {error && (
         <span className="auth-error" role="alert">
           {error}
