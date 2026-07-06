@@ -12,7 +12,6 @@ import {
   catchRateSummary,
   formatDuration,
   frontierAreas,
-  isFrontier,
   party,
   runTiming,
   type EngineContext,
@@ -79,10 +78,7 @@ describe('selectors', () => {
 
     // clearing a gate lets its areas enter the window once reached
     const afterBrock = stateWith([ev('milestone_cleared', { milestoneId: 'gym-1-brock' })]);
-    const route3 = dataset.areas.find((a) => a.id === 'route-3')!;
-    expect(isFrontier(route3, afterBrock, dataset.areas)).toBe(
-      frontierAreas(dataset.areas, afterBrock).has('route-3'),
-    );
+    expect(frontierAreas(dataset.areas, afterBrock).has('route-3')).toBe(true);
 
     // a resolved area is never frontier
     const resolved = stateWith([

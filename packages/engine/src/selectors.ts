@@ -37,15 +37,6 @@ export function frontierAreas(areas: Area[], state: RunState, windowSize = 4): S
   return next;
 }
 
-/** Back-compat single-area check; prefer frontierAreas for whole views. */
-export function isFrontier(area: Area, state: RunState, allAreas?: Area[]): boolean {
-  if (allAreas) return frontierAreas(allAreas, state).has(area.id);
-  // Without ordering context, fall back to "unresolved and reachable".
-  if (state.encounterOutcomes[area.id]) return false;
-  const cleared = new Set(state.milestonesCleared);
-  return area.unlockAfter == null || cleared.has(area.unlockAfter);
-}
-
 // ---- Cross-run aggregates (backlog 33c) ----
 
 export interface CrossRunStats {

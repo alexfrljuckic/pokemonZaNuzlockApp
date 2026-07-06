@@ -10,6 +10,11 @@ export interface DescribedEvent {
   tone: 'catch' | 'faint' | 'milestone' | 'wipe' | 'neutral';
 }
 
+/** "Nickname the Species", or just the species when it's unnamed or the
+ * nickname is the species. */
+const displayName = (nickname: string | undefined, species: string): string =>
+  nickname && nickname !== species ? `${nickname} the ${species}` : species;
+
 /** Plain-language, sprite-annotated description of a "major" event; null for
  * minor bookkeeping events. Shared by the owner's summary strip and the
  * spectator timeline so both read the same language. Pass the derived
@@ -24,9 +29,7 @@ export function describeEvent(
     case 'encounter_resolved': {
       if (event.payload.outcome !== 'caught') return null;
       const area = ctx.dataset?.areas.find((a) => a.id === event.payload.areaId);
-      const name = event.payload.nickname && event.payload.nickname !== event.payload.species
-        ? `${event.payload.nickname} the ${event.payload.species}`
-        : event.payload.species;
+      const name = displayName(event.payload.nickname, event.payload.species);
       return {
         key: `${event.seq}`,
         text: `Caught ${name}${area ? ` on ${area.name}` : ''}`,
@@ -37,9 +40,7 @@ export function describeEvent(
     case 'special_claimed': {
       const special = ctx.dataset?.specials?.find((s) => s.id === event.payload.specialId);
       const isStarter = special?.id.startsWith('starter-') ?? false;
-      const name = event.payload.nickname && event.payload.nickname !== event.payload.species
-        ? `${event.payload.nickname} the ${event.payload.species}`
-        : event.payload.species;
+      const name = displayName(event.payload.nickname, event.payload.species);
       return {
         key: `${event.seq}`,
         text: isStarter ? `Chose ${name} as starter` : `Claimed ${name}${special ? ` (${special.type})` : ''}`,
@@ -52,11 +53,7 @@ export function describeEvent(
         ? ctx.dataset?.milestones.find((m) => m.id === event.payload.milestoneId)
         : null;
       const p = pokemon?.[event.payload.pokemonId];
-      const who = p
-        ? p.nickname && p.nickname !== p.species
-          ? `${p.nickname} the ${p.species}`
-          : p.species
-        : 'A Pokémon';
+      const who = p ? displayName(p.nickname, p.species) : 'A Pokémon';
       return {
         key: `${event.seq}`,
         text: `${who} fainted${milestone ? ` to ${milestone.name}` : event.payload.killer ? ` to ${event.payload.killer}` : ''}`,
@@ -65,10 +62,7 @@ export function describeEvent(
       };
     }
     case 'pokemon_imported': {
-      const name =
-        event.payload.nickname && event.payload.nickname !== event.payload.species
-          ? `${event.payload.nickname} the ${event.payload.species}`
-          : event.payload.species;
+      const name = displayName(event.payload.nickname, event.payload.species);
       return {
         key: `${event.seq}`,
         text: event.payload.retiredSpecies
