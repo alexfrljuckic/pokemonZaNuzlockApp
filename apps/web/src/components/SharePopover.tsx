@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { createShareToken, listShareTokens, revokeShareToken, type ShareToken } from '../lib/shareLinks';
+import { usePopoverDialog } from './usePopoverDialog';
 
 /**
  * Share-link management, relocated from the old Share tab (UX overhaul
@@ -25,45 +26,9 @@ export function SharePopover({ runId }: { runId: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, runId]);
 
-  // Dialog focus management (audit P2): move focus in on open, keep Tab
-  // inside while open, hand focus back to the trigger on close.
-  useEffect(() => {
-    if (!open) return;
-    const focusables = () =>
-      panelRef.current
-        ? [...panelRef.current.querySelectorAll<HTMLElement>('button, input, [tabindex]:not([tabindex="-1"])')]
-        : [];
-    const raf = requestAnimationFrame(() => focusables()[0]?.focus());
-    function onDocClick(e: MouseEvent) {
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
-    }
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') {
-        setOpen(false);
-        return;
-      }
-      if (e.key !== 'Tab') return;
-      const els = focusables();
-      if (els.length === 0) return;
-      const first = els[0];
-      const last = els[els.length - 1];
-      if (e.shiftKey && document.activeElement === first) {
-        e.preventDefault();
-        last.focus();
-      } else if (!e.shiftKey && document.activeElement === last) {
-        e.preventDefault();
-        first.focus();
-      }
-    }
-    document.addEventListener('mousedown', onDocClick);
-    document.addEventListener('keydown', onKeyDown);
-    return () => {
-      cancelAnimationFrame(raf);
-      document.removeEventListener('mousedown', onDocClick);
-      document.removeEventListener('keydown', onKeyDown);
-      triggerRef.current?.focus();
-    };
-  }, [open]);
+  // Dialog focus management (audit P2): shared popover behavior — outside
+  // click / Escape close, focus in, Tab trapped, focus restored on close.
+  usePopoverDialog(open, () => setOpen(false), { root: rootRef, panel: panelRef, trigger: triggerRef });
 
   async function handleCreate() {
     setCreating(true);
