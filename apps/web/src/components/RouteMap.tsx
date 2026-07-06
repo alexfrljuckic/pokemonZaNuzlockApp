@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { frontierAreas, type Area, type RunState } from '@nuzlocke/engine';
-import { mapHelpers, type GameMap } from '../lib/maps';
+import { mapHelpers, type GameMap, type MapNode } from '../lib/maps';
 import { SpriteImg } from './SpriteImg';
 
 type NodeState = 'locked' | 'available' | 'caught' | 'failed' | 'skipped';
@@ -32,6 +32,11 @@ const BADGE_GLYPH: Partial<Record<NodeState, string>> = {
 };
 
 const MAX_ZOOM = 8;
+// Auto-fit-to-frontier zoom is kept in a comfortable band: always zoom in a
+// little (MIN), but never slam to max on a single small area (the player can
+// still pinch/zoom to MAX_ZOOM by hand).
+const MIN_AUTO_ZOOM = 1.9;
+const MAX_AUTO_ZOOM = 3.5;
 
 type MapView = { x: number; y: number; scale: number };
 
@@ -91,13 +96,6 @@ export function RouteMap({
   // set once a gesture moved past the tap threshold; suppresses the click
   const dragging = useRef(false);
 
-  useEffect(() => {
-    const reset = { x: 0, y: 0, scale: 1 };
-    viewRef.current = reset;
-    setView(reset);
-    pointers.current.clear();
-  }, [map]);
-
   const clampView = (v: MapView): MapView => {
     const scale = Math.min(Math.max(v.scale, 1), MAX_ZOOM);
     const vw = w / scale;
@@ -108,6 +106,36 @@ export function RouteMap({
       y: Math.min(Math.max(v.y, 0), h - vh),
     };
   };
+
+  /** A view fitting the given nodes' bounding box (plus padding), centered —
+   * used to land zoomed in on the "up next" frontier instead of the whole map. */
+  const fitToNodes = (ns: MapNode[]): MapView => {
+    const minX = Math.min(...ns.map((n) => n.x));
+    const minY = Math.min(...ns.map((n) => n.y));
+    const maxX = Math.max(...ns.map((n) => n.x + n.w));
+    const maxY = Math.max(...ns.map((n) => n.y + n.h));
+    const pad = 0.35; // breathing room around the frontier so it isn't edge-to-edge
+    const bw = (maxX - minX) * (1 + pad * 2) || w;
+    const bh = (maxY - minY) * (1 + pad * 2) || h;
+    // Always land zoomed in (MIN_AUTO_ZOOM) even when the frontier is spread out
+    // early on — centre on it so the "up next" region fills the view; the player
+    // pans/resets to see the rest.
+    const scale = Math.max(MIN_AUTO_ZOOM, Math.min(MAX_AUTO_ZOOM, Math.min(w / bw, h / bh)));
+    return clampView({ scale, x: (minX + maxX) / 2 - w / scale / 2, y: (minY + maxY) / 2 - h / scale / 2 });
+  };
+
+  // Land the view on the "up next" frontier area(s) — zoomed in on where you
+  // are, not the whole map. Full map when there's no frontier (fresh/all done).
+  // Keyed on `map` only, so it sets the initial view without fighting the
+  // user's later manual pan/zoom as areas resolve.
+  useEffect(() => {
+    const fnodes = map.nodes.filter((n) => frontier.has(n.id));
+    const initial = fnodes.length ? fitToNodes(fnodes) : { x: 0, y: 0, scale: 1 };
+    viewRef.current = initial;
+    setView(initial);
+    pointers.current.clear();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [map]);
 
   const applyView = (v: MapView) => {
     const next = clampView(v);
