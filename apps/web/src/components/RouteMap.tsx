@@ -397,6 +397,33 @@ export function RouteMap({
         </button>
       </div>
 
+      <ul className="route-map-legend" aria-label="Map legend">
+        <li>
+          <span className="rlg-swatch rlg-frontier" aria-hidden="true" /> Up next
+        </li>
+        <li>
+          <span className="rlg-swatch rlg-available" aria-hidden="true" /> Available
+        </li>
+        <li>
+          <span className="rlg-swatch rlg-caught" aria-hidden="true">
+            ✓
+          </span>{' '}
+          Caught
+        </li>
+        <li>
+          <span className="rlg-swatch rlg-failed" aria-hidden="true">
+            ✕
+          </span>{' '}
+          Fled / fainted
+        </li>
+        <li>
+          <span className="rlg-swatch rlg-skipped" aria-hidden="true">
+            –
+          </span>{' '}
+          Skipped
+        </li>
+      </ul>
+
       {hoveredArea && hoveredNode && tipVisible && (
         <div className="route-tip" style={tipStyle}>
           <div className="route-tip-head">

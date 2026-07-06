@@ -275,7 +275,8 @@ body {
   .title-screen .pokeball,
   .game-card.selected,
   .box-slot.selected,
-  .route-region-frontier .route-region {
+  .route-region-frontier .route-region,
+  .rlg-frontier {
     animation: none !important;
   }
 }
@@ -2781,6 +2782,64 @@ button.back-icon:hover:not(:disabled) {
   fill: var(--highlight);
   animation: frontierBreathe 2.2s ease-in-out infinite;
   filter: drop-shadow(0 0 6px color-mix(in srgb, var(--highlight) 80%, transparent));
+}
+
+/* map legend — explains the region tints + the breathing "up next" glow */
+.route-map-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  margin: 0.5rem 0.15rem 0.15rem;
+  padding: 0;
+  list-style: none;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.route-map-legend li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.rlg-swatch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border-radius: 4px;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1;
+  flex: none;
+}
+.rlg-available {
+  background: color-mix(in srgb, var(--highlight) 28%, transparent);
+}
+.rlg-caught {
+  background: color-mix(in srgb, var(--success) 20%, transparent);
+  color: var(--success);
+}
+.rlg-failed {
+  background: color-mix(in srgb, var(--danger) 20%, transparent);
+  color: var(--danger);
+}
+.rlg-skipped {
+  background: color-mix(in srgb, var(--muted) 22%, transparent);
+  color: var(--muted);
+}
+.rlg-frontier {
+  background: color-mix(in srgb, var(--highlight) 22%, transparent);
+  border: 1.5px solid var(--highlight);
+  animation: rlgBreathe 2.2s ease-in-out infinite;
+}
+@keyframes rlgBreathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--highlight) 50%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--highlight) 8%, transparent);
+  }
 }
 
 /* fallback mode (no backdrop image): make regions visible boxes */
