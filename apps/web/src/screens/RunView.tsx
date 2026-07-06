@@ -78,7 +78,16 @@ function EndRunControl({
   );
 }
 
-export function RunView({ run, session }: { run: RunSummary; session: Session | null }) {
+export function RunView({
+  run,
+  session,
+  onSwitchRun,
+}: {
+  run: RunSummary;
+  session: Session | null;
+  /** Open another run (used by the post-wipe "start a fresh run" flow). */
+  onSwitchRun: (runId: string) => Promise<void> | void;
+}) {
   const [events, setEvents] = useState<RunEvent[]>([]);
   const [tab, setTab] = useState<Tab>('Routes');
 
@@ -168,7 +177,14 @@ export function RunView({ run, session }: { run: RunSummary; session: Session | 
       </section>
 
       {showWipeScreen ? (
-        <WipeScreen runId={run.id} onResolved={refresh} />
+        <WipeScreen
+          runId={run.id}
+          gameId={run.gameId}
+          version={run.version}
+          ruleset={state.ruleset}
+          onResolved={refresh}
+          onSwitchRun={onSwitchRun}
+        />
       ) : (
         <>
           <RunSummaryStrip events={events} state={state} ctx={ctx} />
