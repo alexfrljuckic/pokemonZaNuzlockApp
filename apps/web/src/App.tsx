@@ -223,24 +223,26 @@ function OwnerApp({ route }: { route: Route }) {
         </div>
         <ThemePicker />
       </div>
-      {/* Reflects actual sync state, not just the env flag: sync only happens
-          when the deployment has credentials AND the user is signed in.
-          role="status" announces sync-state changes to screen readers. */}
-      {!SYNC_ENABLED ? (
-        <span className="sync-badge" role="status">
-          Local only
-        </span>
-      ) : session ? (
-        <span className="sync-badge sync-on" role="status">
-          ● Syncing
-        </span>
-      ) : (
-        <span className="sync-badge sync-wait" role="status">
-          ○ Sign in to sync
-        </span>
-      )}
-      <AuthBar />
-      <ProfileSetup session={session} />
+      {/* One grouped account bar — sync status · identity · profile — instead of
+          three loose rows stacking at different sizes top-left. Reflects actual
+          sync state, not just the env flag; role="status" announces changes. */}
+      <div className="account-bar">
+        {!SYNC_ENABLED ? (
+          <span className="sync-badge" role="status">
+            Local only
+          </span>
+        ) : session ? (
+          <span className="sync-badge sync-on" role="status">
+            ● Syncing
+          </span>
+        ) : (
+          <span className="sync-badge sync-wait" role="status">
+            ○ Sign in to sync
+          </span>
+        )}
+        <AuthBar />
+        <ProfileSetup session={session} />
+      </div>
 
       {/* Boundary around the whole content area so one broken run (or screen)
           can never white-screen the app — the fallback offers "back to runs"
