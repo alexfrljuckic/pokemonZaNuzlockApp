@@ -5,7 +5,7 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–5 #166–#181 merged)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–6 #166–#185 merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
@@ -83,6 +83,20 @@ on green CI (tests + validate:datasets).
   expand (head stays the keyboard button; action buttons stopPropagation);
   expanded StatBars put the numeric value BEFORE the bar and colour-grade the
   fill by value — <60 red, 60–99 yellow, 100+ green (Alex OK'd the range).
+
+**Shipped 2026-07-06 sixth wave (#183–#185, all merged + deployed):**
+- **#183** run-header level-cap chip is now a button that jumps to the Boss
+  Fights tab (same navigate path, keeps the `#run/<id>/bosses` hash in sync).
+- **#184** graveyard consolidated into Team & Box (Alex's call): dead cards
+  surface "Fell to <cause> — <killer>" at a glance; the duplicate Stats
+  graveyard list is removed (Stats keeps deaths-by-boss / over-time /
+  survival-by-species).
+- **#185** SwSh Giant's Mirror wild table fleshed out (weather + version
+  splits, Serebii/Marriland-sourced; species-data 880→883). Correction found
+  mid-task: it's a BASE-game Galar Wild Area, NOT Crown Tundra DLC — so no DLC
+  gate was added. The #166 version-dead-area engine test was updated (Giant's
+  Mirror is no longer a Sword dead end now it has cross-version spawns);
+  lesson: run ENGINE tests too, not just web, when changing datasets.
 
 **Shipped 2026-07-06 fifth wave (#176–#181, all merged + deployed):**
 - **#176** backlog reconcile (fourth wave).
@@ -201,10 +215,11 @@ supabase` (global npm install disabled on Windows).
   level cap + next boss already surface in RunSummaryStrip. No further work
   unless Alex wants the pin more prominent for SV.
 
-One judgment call still needs a product decision (not code):
-- **Graveyard has two homes** (Team & Box interactive cards vs Stats
-  death-cause list) — audit says pick one; both carry info the other
-  lacks, so Alex should decide before cutting.
+UX-audit judgment calls — RESOLVED:
+- **Graveyard has two homes — DONE (#184).** Alex chose to consolidate into
+  Team & Box; dead cards now show the cause at a glance and the duplicate
+  Stats graveyard list is gone (Stats keeps the analytical death views:
+  deaths-by-boss, deaths-over-time, survival-by-species).
 Plus one manual check for Alex: SharePopover's new focus trap needs
 sync + a session, which local previews lack — one click on prod.
 
@@ -214,10 +229,11 @@ all dev-only).
 
 Also still in the optional pool (catch-rate-by-zone + time-in-run SHIPPED
 #170; bundle code-splitting SHIPPED #168 — but species-data.json alone
-still trips the 500 kB warning): Z-A movepool hand-curation, sync
-seq-collision (out of MVP), Z-A hyperspace standalone evolutions
-(perrserker / mr-rime / overqwil — same Serebii pages as #155's adds),
-fuller giants-mirror encounter table (ships with only corsola-galar).
+still trips the 500 kB warning; Z-A hyperspace standalone evolutions
+SHIPPED #178; giants-mirror table fleshed out #185): Z-A movepool
+hand-curation, sync seq-collision (out of MVP), and giants-mirror's
+Underground + strong-symbol "special encounters" (omitted from #185 for
+lack of two-source-agreed per-weather rates — candidate follow-up).
 Fourth-wave follow-ups worth a look: dynamic-import species-data.json to
 clear the chunk warning; `#stats`/`#new` URL routes (cross-run Stats + New
 Game picker are still non-URL local state); sneasel→weavile / gligar→gliscor
