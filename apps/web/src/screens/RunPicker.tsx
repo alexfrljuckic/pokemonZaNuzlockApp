@@ -12,8 +12,8 @@ import { StarterPicker, starterHeading } from '../components/SpecialsSection';
 const PRESETS = ['standard', 'hardcore', 'casual'] as const;
 
 const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
-  standard: 'First-encounter + dupes clause',
-  hardcore: 'Level caps + set mode',
+  standard: 'First encounter per route · no duplicate species',
+  hardcore: 'Adds level caps + set mode (no free switch after a KO)',
   casual: 'Relaxed — nothing enforced',
 };
 

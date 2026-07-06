@@ -1734,6 +1734,50 @@ button.back-icon:hover:not(:disabled) {
   animation-delay: 0.32s;
 }
 
+/* "New to nuzlockes?" collapsible explainer (native details/summary) */
+.nuzlocke-explainer {
+  width: min(440px, 88vw);
+  margin-top: 1.25rem;
+  text-align: left;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  animation: fadeUp 0.5s ease 0.4s both;
+}
+.nuzlocke-explainer summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.nuzlocke-explainer summary:hover,
+.nuzlocke-explainer[open] summary {
+  color: var(--text);
+}
+.nuzlocke-explainer p,
+.nuzlocke-explainer li {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.nuzlocke-explainer strong {
+  color: var(--text);
+}
+.nuzlocke-explainer ul {
+  margin: 0.4rem 0;
+  padding-left: 1.1rem;
+}
+.nuzlocke-explainer li + li {
+  margin-top: 0.35rem;
+}
+
+.rules-legend strong {
+  color: var(--text);
+}
+
 /* ---------- Game picker cards ---------- */
 
 .game-card-grid {

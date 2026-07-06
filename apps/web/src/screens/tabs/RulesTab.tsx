@@ -53,9 +53,15 @@ export function RulesTab({
   return (
     <section>
       <h2>Rules — preset: {state.ruleset.presetId}</h2>
+      {/* audit: no backticks/internal event names in user-facing copy, and
+          the enforced-vs-honor distinction needs a legend, not just tags */}
+      <p className="muted rules-legend">
+        <strong>enforced</strong> — the app applies it for you (illegal picks are blocked).{' '}
+        <strong>honor</strong> — tracked and displayed, but following it is up to you.
+      </p>
       <p className="muted">
-        Toggling a rule mid-run is allowed and always audited as a `rule_changed` event visible in the
-        event log.
+        You can change rules mid-run. Every change is recorded in the run's history with what it was
+        before and after, so a shared run always shows exactly when the rules changed.
       </p>
 
       <div className="rules-grid">
@@ -99,8 +105,8 @@ export function RulesTab({
 
       <h2>House rules</h2>
       <p className="muted">
-        Honor rules the app can't verify — shown verbatim, never enforced. Edits mid-run are allowed and
-        always audited as a `house_rules_changed` event visible in the event log.
+        Your own rules, in your own words — shown here and on shared views, never enforced by the app.
+        Edits mid-run are recorded in the run's history like any other rule change.
       </p>
       {editingHouseRules ? (
         <>
