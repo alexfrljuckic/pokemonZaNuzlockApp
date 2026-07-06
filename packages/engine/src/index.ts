@@ -9,6 +9,8 @@ export {
   nextBoss,
   milestonesFor,
   areasFor,
+  areasForVersion,
+  isVersionDeadArea,
   dlcEnabled,
   specialAppliesToVersion,
   chosenStarter,

@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { areasFor, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { areasForVersion, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
 import { ConfirmAction } from '../../components/ConfirmAction';
@@ -55,8 +55,10 @@ export function RoutesTab({
     await onChange();
   }
 
-  // respects the run's 'dlc-content' toggle (base-game runs hide DLC areas)
-  const areas = areasFor(ctx.dataset, state.ruleset);
+  // respects the run's 'dlc-content' toggle (base-game runs hide DLC areas),
+  // and hides areas whose only documented encounters are locked to the other
+  // version (e.g. Giant's Mirror on a Sword run — its lone slot is Shield-only)
+  const areas = areasForVersion(ctx.dataset, state.version, state.ruleset);
   const map = GAME_MAPS[ctx.dataset.gameId];
 
   // Starter is normally claimed in the game-picker flow before a run even

@@ -4,9 +4,11 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   areasFor,
+  areasForVersion,
   buildRuleset,
   deriveState,
   filterEncounterPool,
+  isVersionDeadArea,
   milestonesFor,
   specialAppliesToVersion,
   type EngineContext,
@@ -161,5 +163,42 @@ describe('SwSh dataset', () => {
     // vs 63 with DLC
     expect(areasFor(dataset, base)).toHaveLength(33);
     expect(areasFor(dataset, withDlc)).toHaveLength(63);
+  });
+
+  it("hides Giant's Mirror from a Sword run: its only documented slot is Shield-locked", () => {
+    const giantsMirror = dataset.areas.find((a) => a.id === 'giants-mirror')!;
+    // sanity: the area really does document only a Shield-locked encounter
+    expect(giantsMirror.encounters).toHaveLength(1);
+    expect(giantsMirror.encounters[0].species).toBe('corsola-galar');
+    expect(giantsMirror.encounters[0].conditions?.version).toEqual(['shield']);
+
+    // dead end for Sword (all slots belong to the other version), live for Shield
+    expect(isVersionDeadArea(giantsMirror, 'sword')).toBe(true);
+    expect(isVersionDeadArea(giantsMirror, 'shield')).toBe(false);
+
+    const base = buildRuleset('standard', 'swsh');
+    const swordAreas = areasForVersion(dataset, 'sword', base).map((a) => a.id);
+    const shieldAreas = areasForVersion(dataset, 'shield', base).map((a) => a.id);
+    // Sword never sees the unresolvable area; Shield still gets its Corsola
+    expect(swordAreas).not.toContain('giants-mirror');
+    expect(shieldAreas).toContain('giants-mirror');
+  });
+
+  it('does not hide towns/item-only stops or version-shared wild areas', () => {
+    const base = buildRuleset('standard', 'swsh');
+    const swordIds = areasForVersion(dataset, 'sword', base).map((a) => a.id);
+
+    // a starting town has no documented wild encounters — it must stay (items,
+    // trainers, the starter special all live on it), it is NOT a dead end
+    const postwick = dataset.areas.find((a) => a.id === 'postwick')!;
+    expect(postwick.encounters).toHaveLength(0);
+    expect(isVersionDeadArea(postwick, 'sword')).toBe(false);
+    expect(swordIds).toContain('postwick');
+
+    // giants-cap has version-agnostic wild encounters — visible in both versions
+    const giantsCap = dataset.areas.find((a) => a.id === 'giants-cap')!;
+    expect(isVersionDeadArea(giantsCap, 'sword')).toBe(false);
+    expect(isVersionDeadArea(giantsCap, 'shield')).toBe(false);
+    expect(swordIds).toContain('giants-cap');
   });
 });
