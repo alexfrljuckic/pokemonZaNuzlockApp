@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { EncounterSlot } from '@nuzlocke/engine';
 import { typesFor } from '../../lib/speciesData';
-import { CatchFields } from '../CatchFields';
+import { CatchFields, clampLevel } from '../CatchFields';
 import { SpriteImg } from '../SpriteImg';
 import { TypeBadges } from '../TypeBadge';
 
@@ -65,7 +65,7 @@ export function EncounterForm({
         className="encounter-fields"
       />
       <div className="encounter-actions">
-        <button onClick={() => onResolve(species, 'caught', nickname || species, Number(level) || 1, shiny)}>
+        <button onClick={() => onResolve(species, 'caught', nickname || species, clampLevel(level), shiny)}>
           Caught
         </button>
         <button className="secondary" onClick={() => onResolve(species, 'failed')}>

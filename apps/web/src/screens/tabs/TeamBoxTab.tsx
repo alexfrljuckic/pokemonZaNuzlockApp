@@ -7,11 +7,14 @@ export function TeamBoxTab({
   state,
   ctx,
   onChange,
+  onGoToRoutes,
 }: {
   runId: string;
   state: RunState;
   ctx: EngineContext;
   onChange: () => Promise<void>;
+  /** switch to the Routes tab — the empty-team CTA's destination */
+  onGoToRoutes?: () => void;
 }) {
   const gameId = ctx.dataset.gameId;
   const team = party(state);
@@ -50,7 +53,17 @@ export function TeamBoxTab({
     <>
       <section>
         <h2>Team ({team.length}/6)</h2>
-        {team.length === 0 && <p className="muted">No party members yet.</p>}
+        {/* the primary first-run empty state gets a CTA, not a bare "Empty." */}
+        {team.length === 0 && (
+          <div className="empty-cta">
+            <p className="muted">No party members yet — your team starts with a catch.</p>
+            {onGoToRoutes && (
+              <button className="secondary" onClick={onGoToRoutes}>
+                Find your first encounter → Routes
+              </button>
+            )}
+          </div>
+        )}
         <div className="mon-grid">
           {team.map((p) => (
             <MonCard
