@@ -23,6 +23,11 @@ export interface GameAppConfig {
    * tags (PLA). RoutesTab swaps one in while its zone is active; the main
    * `map` stays the zone-selector overview. */
   zoneMaps?: Record<string, GameMap>;
+  /** Bosses can be tackled in a player-chosen order (open-order games like
+   * Scarlet/Violet): shows the "fight this next" picker that pins the level
+   * cap. Absent/false for linear games (BDSP, LGPE, SwSh, …) where the dataset
+   * order IS the boss order, so the picker is just noise. */
+  openBossOrder?: boolean;
   /** One entry per slug in dataset.versions. */
   versions: Record<string, VersionAppConfig>;
 }

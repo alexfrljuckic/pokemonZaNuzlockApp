@@ -56,6 +56,12 @@ export const THEMES: { id: ThemeId; name: string }[] = [
 export const cardColorFor = (gameId: string): string =>
   GAMES.find((g) => g.dataset.gameId === gameId)?.cardColor ?? 'var(--accent)';
 
+/** Whether this game's bosses can be fought in a player-chosen order — drives
+ * the "fight this next" picker (SV). Linear games return false (no picker;
+ * the level cap just follows dataset order). */
+export const openBossOrderFor = (gameId: string): boolean =>
+  GAMES.find((g) => g.dataset.gameId === gameId)?.openBossOrder ?? false;
+
 /** Friendly game name for run lists ("Legends: Arceus", not "pla"). Falls
  * back to the raw id for runs from unknown/removed games — those rows still
  * need to render (for export/delete) even though they can't be opened. */

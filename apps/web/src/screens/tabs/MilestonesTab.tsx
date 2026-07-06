@@ -8,6 +8,7 @@ import {
   type RunState,
 } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
+import { openBossOrderFor } from '../../games';
 import { MilestoneCard } from '../../components/MilestoneCard';
 
 export function MilestonesTab({
@@ -24,6 +25,9 @@ export function MilestonesTab({
   const boss = nextBoss(state, ctx);
   const violations = validateTeam(state, ctx);
   const starter = chosenStarter(state);
+  // linear games (BDSP/LGPE/…) clear bosses in dataset order — no need to pick
+  // a next target; the picker shows only for open-order games (SV).
+  const openBoss = openBossOrderFor(ctx.dataset.gameId);
   const milestones = milestonesFor(ctx.dataset, state.version, state.ruleset).sort((a, b) => a.order - b.order);
   const allCleared = milestones.every((m) => state.milestonesCleared.includes(m.id));
 
@@ -73,7 +77,9 @@ export function MilestonesTab({
             isPinnedNext={state.nextBossId === m.id}
             onClear={() => clear(m.id)}
             onSetNext={
-              m.aceLevel !== null && m.countsForLevelCap !== false ? () => setNext(m.id) : undefined
+              openBoss && m.aceLevel !== null && m.countsForLevelCap !== false
+                ? () => setNext(m.id)
+                : undefined
             }
           />
         ))}
