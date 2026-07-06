@@ -608,7 +608,8 @@ button:disabled {
    boss-fight MilestoneCard detail view. */
 .trainer-row-detail {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* min(100%, …) so the track never forces overflow on ≤320px phones */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 0.75rem;
   padding-top: 0.5rem;
   animation: fadeUp 0.2s ease both;
@@ -755,6 +756,62 @@ button.item-chip.item-picked {
 .tabs button.secondary:hover:not(:disabled) {
   color: var(--text);
   box-shadow: none;
+}
+
+/* Compact tab labels only swap in inside the fixed phone bar below. */
+.tab-label-short {
+  display: none;
+}
+
+/* Phones: the tab bar becomes a fixed bottom bar (thumb-reachable, no
+   scroll-to-top to switch tabs after a long Routes/Team list). #root gets
+   matching bottom padding so content never hides behind it. */
+@media (max-width: 520px) {
+  .tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    width: auto;
+    margin: 0;
+    padding: 0.3rem 0.4rem calc(0.3rem + env(safe-area-inset-bottom));
+    gap: 0.15rem;
+    flex-wrap: nowrap;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-panel) 94%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .tabs button {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 44px;
+    padding: 0.4rem 0.15rem;
+    font-size: 0.74rem;
+    white-space: nowrap;
+  }
+  .tabs .tab-label-full {
+    display: none;
+  }
+  .tabs .tab-label-short {
+    display: inline;
+  }
+  #root {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+/* Touch devices: comfortable ≥44px targets for the on-map zoom controls
+   (2.2rem ≈ 35px is fine for a cursor, fiddly for a thumb). */
+@media (pointer: coarse) {
+  .route-map-controls button {
+    width: 2.75rem;
+    height: 2.75rem;
+    font-size: 1.25rem;
+  }
 }
 
 /* ---------- Areas ---------- */
@@ -969,7 +1026,8 @@ button.item-chip.item-picked {
   background: var(--bg-chip);
   animation: fadeUp 0.2s ease both;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* min(100%, …) so the track never forces overflow on ≤320px phones */
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 0.75rem;
 }
 

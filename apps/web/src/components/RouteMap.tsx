@@ -63,6 +63,11 @@ export function RouteMap({
   onSelectZone?: (zoneId: string) => void;
 }) {
   const [hovered, setHovered] = useState<string | null>(null);
+  // On touch there is no hover, so the first tap opens the preview tip and a
+  // second tap on the same region resolves — otherwise mobile users never see
+  // the species/catch-rate preview desktop users get for free.
+  const [tapPreview, setTapPreview] = useState(false);
+  const lastPointerType = useRef('mouse');
   // Optional backdrop: drop an image at public/maps/<map.backdropSrc> and it
   // renders under the interactive regions. If absent (404), we fall back to
   // drawing visible region boxes + connector edges. Region geometry is
@@ -131,6 +136,7 @@ export function RouteMap({
   };
 
   const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    lastPointerType.current = e.pointerType;
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY, startX: e.clientX, startY: e.clientY });
     if (pointers.current.size === 1) dragging.current = false;
     // A second finger is always a pinch — capture both so the gesture
@@ -197,6 +203,30 @@ export function RouteMap({
     // dragging stays set until the trailing click is suppressed
   };
 
+  // Browsers emulate mouseenter/focus on tap, which would skip the
+  // tap-to-preview step — so hover-in ignores touch (pointerdown has already
+  // recorded the pointer type by the time these fire).
+  const hoverIn = (id: string) => {
+    if (lastPointerType.current === 'touch') return;
+    setTapPreview(false);
+    setHovered(id);
+  };
+  const hoverOut = (id: string) => setHovered((cur) => (cur === id ? null : cur));
+
+  /** Mouse/keyboard activates a region immediately; on touch the first tap
+   * opens its preview tip and a second tap on the same region activates. */
+  const tapOrActivate = (id: string, activate: () => void) => {
+    if (lastPointerType.current === 'touch') {
+      if (hovered !== id) {
+        setTapPreview(true);
+        setHovered(id);
+        return;
+      }
+      setHovered(null);
+    }
+    activate();
+  };
+
   const hoveredArea = hovered ? areaById.get(hovered) : null;
   const hoveredZone = hovered && !hoveredArea ? zones?.get(hovered) : null;
   const hoveredNode = hovered ? mapNode(hovered) : null;
@@ -211,6 +241,14 @@ export function RouteMap({
     hoveredNode.x + hoveredNode.w / 2 <= view.x + vw &&
     hoveredNode.y + hoveredNode.h / 2 >= view.y &&
     hoveredNode.y + hoveredNode.h / 2 <= view.y + vh;
+  // clamp horizontally so edge-region tips (max-width 220px, centered) never
+  // spill outside the map container on narrow phones
+  const tipStyle = hoveredNode
+    ? {
+        left: `clamp(110px, ${(((hoveredNode.x + hoveredNode.w / 2) - view.x) / vw) * 100}%, calc(100% - 110px))`,
+        top: `${((hoveredNode.y - view.y) / vh) * 100}%`,
+      }
+    : undefined;
 
   return (
     <div className="route-map">
@@ -227,6 +265,10 @@ export function RouteMap({
         onPointerMove={onPointerMove}
         onPointerUp={onPointerEnd}
         onPointerCancel={onPointerEnd}
+        onKeyDown={() => {
+          // keyboard navigation after a tap: focus tips come back
+          lastPointerType.current = 'key';
+        }}
         onClickCapture={(e) => {
           if (dragging.current) {
             e.preventDefault();
@@ -282,11 +324,11 @@ export function RouteMap({
                 tabIndex={0}
                 role="button"
                 aria-label={`${zone.name} — browse ${zone.total} areas (${zone.resolved} resolved)`}
-                onMouseEnter={() => setHovered(node.id)}
-                onMouseLeave={() => setHovered((cur) => (cur === node.id ? null : cur))}
-                onFocus={() => setHovered(node.id)}
-                onBlur={() => setHovered((cur) => (cur === node.id ? null : cur))}
-                onClick={() => onSelectZone(node.id)}
+                onMouseEnter={() => hoverIn(node.id)}
+                onMouseLeave={() => hoverOut(node.id)}
+                onFocus={() => hoverIn(node.id)}
+                onBlur={() => hoverOut(node.id)}
+                onClick={() => tapOrActivate(node.id, () => onSelectZone(node.id))}
                 onKeyDown={(e) => {
                   if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
@@ -314,11 +356,11 @@ export function RouteMap({
               tabIndex={interactive ? 0 : -1}
               role={interactive ? 'button' : undefined}
               aria-label={`${area.name}${interactive ? ' — resolve encounter' : ` (${st})`}`}
-              onMouseEnter={() => setHovered(node.id)}
-              onMouseLeave={() => setHovered((cur) => (cur === node.id ? null : cur))}
-              onFocus={() => setHovered(node.id)}
-              onBlur={() => setHovered((cur) => (cur === node.id ? null : cur))}
-              onClick={() => interactive && onSelect(node.id)}
+              onMouseEnter={() => hoverIn(node.id)}
+              onMouseLeave={() => hoverOut(node.id)}
+              onFocus={() => hoverIn(node.id)}
+              onBlur={() => hoverOut(node.id)}
+              onClick={() => interactive && tapOrActivate(node.id, () => onSelect(node.id))}
               onKeyDown={(e) => {
                 if (interactive && (e.key === 'Enter' || e.key === ' ')) {
                   e.preventDefault();
@@ -356,13 +398,7 @@ export function RouteMap({
       </div>
 
       {hoveredArea && hoveredNode && tipVisible && (
-        <div
-          className="route-tip"
-          style={{
-            left: `${(((hoveredNode.x + hoveredNode.w / 2) - view.x) / vw) * 100}%`,
-            top: `${((hoveredNode.y - view.y) / vh) * 100}%`,
-          }}
-        >
+        <div className="route-tip" style={tipStyle}>
           <div className="route-tip-head">
             <strong>{hoveredArea.name}</strong>
             <span className={`route-tip-state route-tip-${hoveredState}`}>{hoveredState}</span>
@@ -380,25 +416,23 @@ export function RouteMap({
               <span className="muted">No wild encounters</span>
             )}
           </div>
-          {hoveredState === 'available' && <div className="route-tip-cta">Click to resolve encounter</div>}
+          {hoveredState === 'available' && (
+            <div className="route-tip-cta">{tapPreview ? 'Tap again to resolve encounter' : 'Click to resolve encounter'}</div>
+          )}
         </div>
       )}
 
       {hoveredZone && hoveredNode && tipVisible && (
-        <div
-          className="route-tip"
-          style={{
-            left: `${(((hoveredNode.x + hoveredNode.w / 2) - view.x) / vw) * 100}%`,
-            top: `${((hoveredNode.y - view.y) / vh) * 100}%`,
-          }}
-        >
+        <div className="route-tip" style={tipStyle}>
           <div className="route-tip-head">
             <strong>{hoveredZone.name}</strong>
             <span className="route-tip-state">
               {hoveredZone.resolved}/{hoveredZone.total} areas
             </span>
           </div>
-          <div className="route-tip-cta">Click to browse this zone's areas</div>
+          <div className="route-tip-cta">
+            {tapPreview ? "Tap again to browse this zone's areas" : "Click to browse this zone's areas"}
+          </div>
         </div>
       )}
     </div>
