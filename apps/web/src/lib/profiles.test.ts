@@ -18,7 +18,7 @@ describe('profiles lib with sync disabled', () => {
     expect(await getMyProfile('u1')).toBeNull();
     expect(await fetchProfile('somebody')).toBeNull();
     expect(await fetchFeed()).toEqual([]);
-    expect(await claimProfile('u1', 'valid-handle', '')).toBe('Sync is disabled.');
+    expect(await claimProfile('u1', 'valid-handle')).toBe('Sync is disabled.');
     expect(await deleteProfile('u1')).toBe('Sync is disabled.');
     expect(await searchProfiles('alex')).toEqual([]);
   });
@@ -36,7 +36,6 @@ describe('profiles lib with sync disabled', () => {
 describe('describeFeedItem', () => {
   const item = (gameId: string, type: string, payload: unknown): FeedItem => ({
     handle: 'alex',
-    displayName: 'Alex',
     token: 't',
     gameId,
     version: 'sword',

@@ -9,7 +9,7 @@ import {
   type PublicProfile,
 } from '../lib/profiles';
 
-/** Public profile page (#u/<handle>): display name, @handle, and one card per
+/** Public profile page (#u/<handle>): the @handle and one card per
  * EXPLICITLY SHARED run linking into the spectator view. Anonymous-safe —
  * the follow button appears only for signed-in non-owners. */
 export function ProfileScreen({ handle }: { handle: string }) {
@@ -59,9 +59,9 @@ export function ProfileScreen({ handle }: { handle: string }) {
 
   return (
     <section>
-      <h2>{profile.displayName || `@${profile.handle}`}</h2>
+      <h2>@{profile.handle}</h2>
       <p className="muted">
-        @{profile.handle} · joined {new Date(profile.createdAt).toLocaleDateString()} · {profile.runs.length} shared
+        Joined {new Date(profile.createdAt).toLocaleDateString()} · {profile.runs.length} shared
         run{profile.runs.length === 1 ? '' : 's'}
       </p>
       {session && !isSelf && (
