@@ -40,7 +40,7 @@ describe('SwSh dataset', () => {
     // 62 = 28 base-game wilds + 4 towns + 16 Isle of Armor + 14 Crown
     // Tundra DLC zones. Sanity bound, not an exact pin — raise it when
     // areas are added deliberately.
-    expect(dataset.areas.length).toBeLessThanOrEqual(70);
+    expect(dataset.areas.length).toBeLessThanOrEqual(80);
     expect(dataset.milestones.length).toBeGreaterThan(0);
   });
 
@@ -160,10 +160,10 @@ describe('SwSh dataset', () => {
     const zapdos = dataset.specials.find((s) => s.id === 'dlc-static-zapdos-galar')!;
     expect(dataset.areas.find((a) => a.id === zapdos.area)!.tags.some((t) => t.startsWith('dlc:'))).toBe(false);
 
-    // area filtering: 33 base areas (Giant's Mirror added with corsola-galar)
-    // vs 63 with DLC
-    expect(areasFor(dataset, base)).toHaveLength(33);
-    expect(areasFor(dataset, withDlc)).toHaveLength(63);
+    // area filtering: 43 base areas (Giant's Mirror + the added Wild Area
+    // sub-zones) vs 73 with DLC
+    expect(areasFor(dataset, base)).toHaveLength(43);
+    expect(areasFor(dataset, withDlc)).toHaveLength(73);
   });
 
   it('flags an area as version-dead only when every documented slot is locked to the other version', () => {

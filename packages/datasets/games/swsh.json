@@ -7516,6 +7516,3346 @@
       ]
     },
     {
+      "id": "dappled-grove",
+      "name": "Wild Area: Dappled Grove",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "skwovet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "bounsweet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "stufful",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "tympole",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "watchtower-ruins",
+      "name": "Wild Area: Watchtower Ruins",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "golett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "bounsweet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "pidove",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "corviknight",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast",
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "tympole",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "drifblim",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "golurk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "woobat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        }
+      ]
+    },
+    {
+      "id": "giants-seat",
+      "name": "Wild Area: Giant’s Seat",
+      "unlockAfter": "gym-2-nessa",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "bewear",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudsdale",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "xatu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 28,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cloyster",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        }
+      ]
+    },
+    {
+      "id": "west-lake-axewell",
+      "name": "Wild Area: West Lake Axewell",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "tympole",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "raining",
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "surf"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "lapras",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm",
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "overcast",
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        }
+      ]
+    },
+    {
+      "id": "axews-eye",
+      "name": "Wild Area: Axew’s Eye",
+      "unlockAfter": "gym-2-nessa",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "bewear",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "axew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "unfezant",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "charjabug",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "mudsdale",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "crustle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        }
+      ]
+    },
+    {
+      "id": "south-lake-miloch",
+      "name": "Wild Area: South Lake Miloch",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "corphish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast",
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "tympole",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ],
+          "rate": 55,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ],
+          "rate": 1
+        }
+      ]
+    },
+    {
+      "id": "east-lake-axewell",
+      "name": "Wild Area: East Lake Axewell",
+      "unlockAfter": "gym-1-milo",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "stufful",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "bounsweet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "pidove",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 55
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "surf"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "surf"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "surf"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "surf"
+          ],
+          "rate": 70,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "surf"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "butterfree",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        }
+      ]
+    },
+    {
+      "id": "north-lake-miloch",
+      "name": "Wild Area: North Lake Miloch",
+      "unlockAfter": "gym-2-nessa",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "pidove",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "skwovet",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast",
+              "raining",
+              "thunderstorm",
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "tympole",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "palpitoad",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "klink",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "drifloon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "walk"
+          ],
+          "rate": 2,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ],
+          "rate": 58
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "fish"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ],
+          "rate": 2
+        }
+      ]
+    },
+    {
+      "id": "stony-wilderness",
+      "name": "Wild Area: Stony Wilderness",
+      "unlockAfter": "gym-3-kabu",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "zigzagoon-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "ninjask",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "ribombee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "impidimp",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "eldegoss",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gurdurr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "cottonee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "swirlix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "spritzee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "toxel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "raining",
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "snowing",
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "ferroseed",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "maractus",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "carkol",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun",
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "hatenna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "nickit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "thievul",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "togetic",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "sigilyph",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        }
+      ]
+    },
+    {
+      "id": "motostoke-outskirts",
+      "name": "Wild Area: Motostoke Outskirts",
+      "unlockAfter": "gym-3-kabu",
+      "tags": [
+        "wild-area"
+      ],
+      "encounters": [
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "roggenrola",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "impidimp",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "hatenna",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "swoobat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "id": "hulbury",
       "name": "Hulbury",
       "unlockAfter": "gym-1-milo",
