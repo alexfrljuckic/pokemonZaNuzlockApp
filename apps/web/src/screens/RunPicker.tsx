@@ -1,10 +1,11 @@
-import { Fragment, useState, type CSSProperties } from 'react';
+import { Fragment, useRef, useState, type CSSProperties } from 'react';
 import { RULES, buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
 import { listGames, speciesToLine } from '../lib/datasets';
 import { VERSION_MASCOT, cardColorFor, gameName } from '../games';
-import { createRun, deleteRun, loadEvents, type RunSummary } from '../lib/db';
+import { createRun, deleteRun, importRun, loadEvents, type RunSummary } from '../lib/db';
 import { deleteRemoteRun } from '../lib/sync';
 import { downloadRunExport } from '../lib/exportRun';
+import { MAX_IMPORT_BYTES, parseRunExport } from '../lib/importRun';
 import { ConfirmAction } from '../components/ConfirmAction';
 import { SpriteImg } from '../components/SpriteImg';
 import { StarterPicker, starterHeading } from '../components/SpecialsSection';
@@ -42,6 +43,27 @@ export function ContinueScreen({
     await onDeleted();
   }
 
+  const fileRef = useRef<HTMLInputElement>(null);
+  const [importError, setImportError] = useState<string | null>(null);
+
+  async function handleImportFile(file: File) {
+    setImportError(null);
+    if (file.size > MAX_IMPORT_BYTES) {
+      setImportError('That file is too large to be a run export.');
+      return;
+    }
+    try {
+      // parseRunExport validates everything and throws readable messages;
+      // the stored run always gets a fresh id (see importRun in lib/db)
+      const parsed = parseRunExport(await file.text());
+      const id = await importRun(parsed.gameId, parsed.version, parsed.createdAt, parsed.events);
+      await onDeleted();
+      onSelect(id);
+    } catch (e) {
+      setImportError(e instanceof Error ? e.message : 'Could not import that file.');
+    }
+  }
+
   return (
     <section>
       <h2>Continue a run</h2>
@@ -75,6 +97,29 @@ export function ContinueScreen({
           </div>
         </div>
       ))}
+
+      {/* restore a backup / move a run between browsers — pairs with Export */}
+      <div className="run-import-row">
+        <input
+          ref={fileRef}
+          type="file"
+          accept="application/json,.json"
+          className="visually-hidden-input"
+          onChange={(e) => {
+            const f = e.target.files?.[0];
+            if (f) handleImportFile(f);
+            e.target.value = ''; // allow re-picking the same file
+          }}
+        />
+        <button className="secondary" onClick={() => fileRef.current?.click()}>
+          Import run from file
+        </button>
+        {importError && (
+          <span className="auth-error" role="alert">
+            {importError}
+          </span>
+        )}
+      </div>
     </section>
   );
 }

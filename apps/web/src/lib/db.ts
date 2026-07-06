@@ -52,6 +52,24 @@ export async function createRun(gameId: string, version: string, ruleset: Rulese
   return id;
 }
 
+/** Stores a validated run import (see importRun.ts) under a FRESH id — never
+ * the file's own id, so an import can't collide with an existing local run or
+ * squat on a run id someone else owns server-side. Returns the new run id. */
+export async function importRun(
+  gameId: string,
+  version: string,
+  createdAt: string,
+  events: RunEvent[],
+): Promise<string> {
+  const db = await getDB();
+  const id = crypto.randomUUID();
+  await db.add('runs', { id, gameId, version, createdAt });
+  const tx = db.transaction('events', 'readwrite');
+  for (const event of events) await tx.store.add({ runId: id, event });
+  await tx.done;
+  return id;
+}
+
 /** Appends an event to a run's log, assigning the next seq. The log is append-only. */
 export async function appendEvent(runId: string, partial: Omit<RunEvent, 'seq' | 'at'>): Promise<RunEvent> {
   const db = await getDB();
