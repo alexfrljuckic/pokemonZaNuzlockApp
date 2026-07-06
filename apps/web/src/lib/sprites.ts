@@ -66,16 +66,42 @@ export function trainerKeyFromMilestone(id: string): string {
   return TRAINER_ALIAS[tail] ?? tail;
 }
 
+// Trainer classes whose squashed name doesn't match a real Showdown sprite
+// filename, remapped to the closest sprite that exists. Every value here was
+// verified to return 200 on the Showdown trainers CDN. Classes with no
+// reasonable Showdown match (Commander, Galactic Boss, Engineer, Tamer, Gamer,
+// Model, Colleagues, Music Crew, Medical Team, PI, Rail Staff, ...) are
+// deliberately omitted so they fall through to the generic TrainerSprite fallback.
+const TRAINER_CLASS_ALIAS: Record<string, string> = {
+  coachtrainer: 'acetrainer', // SwSh generic trainer class → generic ace sprite
+  gymtrainer: 'acetrainer',
+  student: 'schoolkid',
+  fisher: 'fisherman',
+  rocker: 'guitarist',
+  ranchers: 'rancher',
+  policeofficer: 'policeman',
+  daringcouple: 'youngcouple',
+  medicalteam: 'doctor',
+  // Team grunts: datasets prefix "Team", Showdown files don't.
+  teamgalacticgrunt: 'galacticgrunt',
+  teamrocketgrunt: 'rocketgrunt',
+  teamyellgrunt: 'yellgrunt',
+  teamyellgrunts: 'yellgrunt',
+  teamyellgruntgymtrainer: 'yellgrunt',
+};
+
 /** Best-effort Showdown trainer key from a trainer class ("Ace Trainer" →
  * `acetrainer`, "Pokéfan" → `pokefan`). Showdown keys class sprites by the
- * squashed class name; the sprite hides itself on a miss, so a wrong guess
- * just renders spriteless. */
+ * squashed class name; classes whose squashed name has no Showdown file are
+ * remapped via TRAINER_CLASS_ALIAS. Any remaining miss renders the generic
+ * fallback sprite (see TrainerSprite), never nothing. */
 export function trainerKeyFromClass(cls: string): string {
-  return cls
+  const squashed = cls
     .normalize('NFD')
     .replace(/[̀-ͯ]/g, '') // é → e (Pokéfan, Pokémon Ranger)
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '');
+  return TRAINER_CLASS_ALIAS[squashed] ?? squashed;
 }
 
 export const NATURES = [
