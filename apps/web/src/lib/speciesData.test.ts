@@ -145,6 +145,60 @@ describe('evolutionOptionsFor (MonCard evolve panel)', () => {
   });
 });
 
+describe('special-condition requirement labels', () => {
+  const req = (species: string, to: string, level = 50, gameId?: string) =>
+    evolutionOptionsFor(species, level, gameId).find((o) => o.to === to)?.requirement;
+
+  it('feebas → milotic names the real condition, never the generic fallback', () => {
+    const general = req('feebas', 'milotic');
+    expect(general).toBeDefined();
+    expect(general).not.toBe('Level up (special condition)');
+    expect(general).toMatch(/Prism Scale/i);
+    // BDSP raises it by Beauty
+    expect(req('feebas', 'milotic', 50, 'bdsp')).toMatch(/Beauty/i);
+  });
+
+  it('sylveon shows the fairy-move + friendship condition', () => {
+    const label = req('eevee', 'sylveon', 20);
+    expect(label).not.toBe('Level up (special condition)');
+    expect(label).toMatch(/Fairy/i);
+    expect(label).toMatch(/friendship/i);
+  });
+
+  it('tyrogue splits by the Atk/Def branch', () => {
+    expect(req('tyrogue', 'hitmonlee', 20)).toBe('Lv 20 with Attack > Defense');
+    expect(req('tyrogue', 'hitmonchan', 20)).toBe('Lv 20 with Attack < Defense');
+    expect(req('tyrogue', 'hitmontop', 20)).toBe('Lv 20 with Attack = Defense');
+  });
+
+  it('covers the other curated specials that lack expressible data', () => {
+    expect(req('inkay', 'malamar', 30)).toMatch(/upside down/i);
+    expect(req('mantyke', 'mantine')).toMatch(/Remoraid/i);
+    expect(req('milcery', 'alcremie')).toMatch(/Spin/i);
+    expect(req('karrablast', 'escavalier')).toMatch(/Trade for a Shelmet/i);
+    expect(req('sliggoo-hisui', 'goodra-hisui')).toMatch(/rain or fog/i);
+    // ugly slug-cased triggers no longer leak through pretty()
+    expect(req('bisharp', 'kingambit')).not.toMatch(/Three Defeated/);
+    expect(req('stantler', 'wyrdeer')).not.toMatch(/Agile Style Move/);
+  });
+
+  it('renders friendship and known-move evolutions from the data fields', () => {
+    // Riolu: minHappiness (day) — data-derived, no curated entry needed
+    expect(req('riolu', 'lucario', 20)).toBe('Level up with high friendship during the day');
+    // Farfetch'd → Sirfetch'd is a curated 3-crit special
+    expect(req('farfetchd', 'sirfetchd')).toMatch(/critical hits/i);
+  });
+
+  it('does not regress plain level and item evolutions', () => {
+    expect(req('turtwig', 'grotle', 18)).toBe('Lv 18');
+    expect(evolutionOptionsFor('eevee', 20).find((o) => o.to === 'vaporeon')!.requirement).toBe('Use Water Stone');
+    expect(evolutionOptionsFor('scyther', 30).find((o) => o.to === 'scizor')!.requirement).toBe('Trade holding Metal Coat');
+    expect(evolutionOptionsFor('kadabra', 30)[0].requirement).toBe('Trade');
+    // time-of-day level evolutions keep their level and read naturally
+    expect(evolutionOptionsFor('sneasel', 40).find((o) => o.to === 'weavile')!.requirement).toMatch(/Razor Claw/i);
+  });
+});
+
 describe('per-game evolution-target overrides', () => {
   const to = (opts: { to: string }[]) => opts.map((o) => o.to);
 

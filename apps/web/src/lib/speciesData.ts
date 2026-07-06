@@ -6,6 +6,7 @@
 import raw from '@nuzlocke/datasets/generated/species-data.json';
 import machinesByGameRaw from '@nuzlocke/datasets/generated/machines-by-game.json';
 import { evolutionOverrideFor } from './evolutionOverrides';
+import { curatedEvolutionCondition } from './evolutionConditions';
 
 export interface Evolution {
   to: string;
@@ -154,16 +155,47 @@ export interface EvolutionOption {
 
 const pretty = (slug: string) => slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
-function requirementLabel(e: Evolution): string {
+// Day/night phrasing consistent with the curated map's tone.
+const TIME_PHRASE: Record<string, string> = {
+  day: 'during the day',
+  night: 'at night',
+  'full-moon': 'on a full moon',
+};
+const timePhrase = (t: string): string => TIME_PHRASE[t] ?? `(${t})`;
+
+/** Build the short requirement label for one evolution row.
+ *
+ * `from` (the evolving species) and the resolved target `to` let us consult
+ * the curated special-condition map first — it carries the real, human
+ * conditions for evolutions whose method our generated data can't express
+ * (Feebas' Beauty, Tyrogue's stat split, Inkay upside-down, the PLA
+ * style-move evolutions, …). Everything the data DOES describe cleanly (plain
+ * level, held/used item, trade, friendship, known move, time, location) is
+ * rendered from the fields directly; the curated map is the fallback for
+ * conditions the data drops and for the ugly slug-cased "other" triggers. */
+function requirementLabel(e: Evolution, from: string, to: string, gameId?: string): string {
+  // The curated map wins wherever it has an entry: it only covers evolutions
+  // whose real condition our generated fields can't express (Tyrogue's stat
+  // split and Inkay's upside-down both carry a minLevel that alone is
+  // misleading), so it takes precedence over the data-derived rendering.
+  const curated = curatedEvolutionCondition(from, to, gameId);
+  if (curated) return curated;
+
+  // Clean data-derived cases — already accurate and specific.
   if (e.trigger === 'use-item' && e.item) return `Use ${pretty(e.item)}`;
-  if (e.trigger === 'trade') return e.item ? `Trade holding ${pretty(e.item)}` : 'Trade';
+  if (e.trigger === 'trade' && e.item) return `Trade holding ${pretty(e.item)}`;
+  if ((e.trigger === 'level-up' || e.trigger == null) && e.minLevel) {
+    return e.timeOfDay ? `Lv ${e.minLevel} ${timePhrase(e.timeOfDay)}` : `Lv ${e.minLevel}`;
+  }
+
+  if (e.trigger === 'trade') return 'Trade';
   if (e.trigger === 'level-up' || e.trigger == null) {
-    if (e.minLevel) return `Lv ${e.minLevel}`;
-    if (e.minHappiness != null) return `High friendship${e.timeOfDay ? ` (${e.timeOfDay})` : ''}`;
+    if (e.minHappiness != null) return `Level up with high friendship${e.timeOfDay ? ` ${timePhrase(e.timeOfDay)}` : ''}`;
     if (e.knownMove) return `Level up knowing ${pretty(e.knownMove)}`;
-    if (e.location) return 'Level up at a special location';
-    if (e.timeOfDay) return `Level up (${e.timeOfDay})`;
-    return e.item ? `Level up holding ${pretty(e.item)}` : 'Level up (special condition)';
+    if (e.item) return `Level up holding ${pretty(e.item)}`;
+    if (e.location) return `Level up at ${pretty(e.location)}`;
+    if (e.timeOfDay) return `Level up ${timePhrase(e.timeOfDay)}`;
+    return 'Level up (special condition)';
   }
   return pretty(e.trigger);
 }
@@ -181,16 +213,19 @@ function requirementLabel(e: Evolution): string {
 export function evolutionOptionsFor(species: string, level: number, gameId?: string): EvolutionOption[] {
   const override = evolutionOverrideFor(species, gameId);
   const evos = override ?? evolutionsFor(species);
-  return evos.map((e) => ({
+  return evos.map((e) => {
     // an override row already names the exact variety; only derived rows need
     // the parent-suffix resolution pass
-    to: override ? e.to : resolveEvolutionTarget(species, e.to),
-    trigger: e.trigger,
-    minLevel: e.minLevel,
-    item: e.item,
-    requirement: requirementLabel(e),
-    ready: !(e.trigger === 'level-up' && e.minLevel != null && level < e.minLevel),
-  }));
+    const to = override ? e.to : resolveEvolutionTarget(species, e.to);
+    return {
+      to,
+      trigger: e.trigger,
+      minLevel: e.minLevel,
+      item: e.item,
+      requirement: requirementLabel(e, species, to, gameId),
+      ready: !(e.trigger === 'level-up' && e.minLevel != null && level < e.minLevel),
+    };
+  });
 }
 
 /** Plain-language "evolves into X at Lv N / with item" summary, or null. */
