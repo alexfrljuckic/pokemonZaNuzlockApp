@@ -4,14 +4,12 @@ import { appendEvent } from '../lib/db';
 import { NATURES } from '../lib/sprites';
 import {
   HELD_ITEMS,
-  STAT_ORDER,
   evolutionOptionsFor,
   evolutionSummary,
   learnLevel,
   machineType,
+  moveType,
   orderedMovesFor,
-  statLabel,
-  statsFor,
   typesFor,
 } from '../lib/speciesData';
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
@@ -22,22 +20,21 @@ import { ConfirmAction } from './ConfirmAction';
 import { LevelUpMoves } from './LevelUpMoves';
 import { MoveChips } from './MoveChips';
 import { StatBars } from './StatBars';
-import { TypeBadges } from './TypeBadge';
+import { TypeBadges, TypeDot } from './TypeBadge';
 import { WeaknessRow } from './WeaknessRow';
 
-/** Tiny inline base-stat spark for the condensed row: six mini bars keyed to
- * each stat, tooltip'd with the numeric spread. A whole-body StatBars block
- * would crowd the row; this is the at-a-glance version. Renders nothing when
- * the species has no stat data. */
-function StatSpark({ species }: { species: string }) {
-  const st = statsFor(species);
-  if (!st) return null;
-  const total = STAT_ORDER.reduce((sum, k) => sum + (st[k] ?? 0), 0);
-  const title = `${STAT_ORDER.map((k) => `${statLabel(k)} ${st[k]}`).join(' · ')} — BST ${total}`;
+/** Compact move list for the condensed row: type-dotted chips, no TM tags (the
+ * full tagged list lives in the expanded detail). Renders nothing when the mon
+ * has no moves recorded yet. */
+function MonMoves({ moves }: { moves?: string[] }) {
+  if (!moves || moves.length === 0) return null;
   return (
-    <span className="mon-stat-spark" title={title} aria-label={title}>
-      {STAT_ORDER.map((k) => (
-        <span key={k} className="mon-stat-spark-bar" style={{ height: `${Math.min(100, (st[k] / 200) * 100)}%` }} />
+    <span className="mon-card-moves">
+      {moves.slice(0, 4).map((m) => (
+        <span key={m} className="mon-move-chip">
+          <TypeDot type={moveType(m)} />
+          {m.replace(/-/g, ' ')}
+        </span>
       ))}
     </span>
   );
@@ -317,11 +314,17 @@ export function MonCard({
 
   return (
     <div className={`mon-card${expanded ? ' expanded' : ''}${p.status === 'dead' ? ' dead' : ''}`}>
-      <div className="mon-card-main">
+      {/* the whole condensed row toggles expand; interactive children — the
+          head button (keyboard target) and the action buttons — stop the click
+          from bubbling so they don't also toggle */}
+      <div className="mon-card-main" onClick={() => setExpanded((e) => !e)}>
         <button
           type="button"
           className="mon-card-head"
-          onClick={() => setExpanded((e) => !e)}
+          onClick={(e) => {
+            e.stopPropagation();
+            setExpanded((v) => !v);
+          }}
           aria-expanded={expanded}
         >
           <SpriteImg
@@ -356,7 +359,7 @@ export function MonCard({
             {p.heldItem ? `@ ${p.heldItem}` : 'No item'}
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
-          <StatSpark species={p.species} />
+          <MonMoves moves={p.moves} />
           {nextEvo && (
             <span className="mon-card-evo muted" title={`Evolves into ${nextEvo}`}>
               ↗ {nextEvo}
@@ -365,7 +368,7 @@ export function MonCard({
         </div>
 
         {actions.length > 0 && (
-          <div className="mon-card-actions">
+          <div className="mon-card-actions" onClick={(e) => e.stopPropagation()}>
             {actions.map((a) =>
               a.confirm ? (
                 <ConfirmAction

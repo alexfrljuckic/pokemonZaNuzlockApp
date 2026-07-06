@@ -1262,7 +1262,7 @@ input[aria-invalid='true'] {
 }
 .statbar {
   display: grid;
-  grid-template-columns: 2rem 1fr 1.7rem;
+  grid-template-columns: 2rem 1.7rem 1fr;
   align-items: center;
   gap: 0.4rem;
 }
@@ -1270,6 +1270,11 @@ input[aria-invalid='true'] {
   font-size: 0.68rem;
   color: var(--muted);
   text-transform: uppercase;
+}
+.statbar-value {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: right;
 }
 .statbar-track {
   height: 7px;
@@ -1281,12 +1286,17 @@ input[aria-invalid='true'] {
   display: block;
   height: 100%;
   border-radius: 4px;
-  background: linear-gradient(90deg, var(--accent), var(--highlight));
+  background: var(--accent);
 }
-.statbar-value {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-align: right;
+/* value-graded bar colour: low → red, okay → yellow, high → green */
+.statbar-fill.tone-low {
+  background: #e5534b;
+}
+.statbar-fill.tone-mid {
+  background: #e3b341;
+}
+.statbar-fill.tone-high {
+  background: #57ab5a;
 }
 
 /* the grant note + Clear button span the whole detail grid, not a single cell */
@@ -2411,6 +2421,7 @@ button.back-icon:hover:not(:disabled) {
   align-items: center;
   gap: 0.35rem 1rem;
   padding: 0.5rem 0.75rem;
+  cursor: pointer;
 }
 /* head is a button (toggles expand); fixed column on wide screens so the
    glance strips line up across rows, mirroring .milestone-card-head */
@@ -2503,20 +2514,25 @@ button.back-icon:hover:not(:disabled) {
   background: color-mix(in srgb, var(--danger) 15%, transparent);
 }
 
-/* compact six-stat spark — mini bars for a base-stat read without the full
-   StatBars block (which lives in the expanded detail) */
-.mon-stat-spark {
+/* compact move chips for the condensed row — the at-a-glance moveset, without
+   the TM/HM tags the expanded detail carries */
+.mon-card-moves {
   display: inline-flex;
-  align-items: flex-end;
-  gap: 2px;
-  height: 16px;
-  flex: none;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.2rem 0.3rem;
+  min-width: 0;
 }
-.mon-stat-spark-bar {
-  width: 4px;
-  min-height: 2px;
-  border-radius: 1px;
-  background: linear-gradient(180deg, var(--highlight), var(--accent));
+.mon-move-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.72rem;
+  text-transform: capitalize;
+  padding: 0.05rem 0.4rem;
+  background: var(--bg-chip);
+  border-radius: 999px;
+  white-space: nowrap;
 }
 
 .mon-card-actions {
