@@ -5,6 +5,8 @@ import { LevelCapHeadroom } from '../../components/charts/LevelCapHeadroom';
 import { EncounterOutcomeDonut } from '../../components/charts/EncounterOutcomeDonut';
 import { MilestoneProgressBar } from '../../components/charts/MilestoneProgressBar';
 import { SurvivalBySpeciesBars } from '../../components/charts/SurvivalBySpeciesBars';
+import { CatchRateByArea } from '../../components/charts/CatchRateByArea';
+import { RunTimePanel } from '../../components/charts/RunTimePanel';
 import { RunTimeline } from '../../components/RunTimeline';
 
 /** `timeline` is owner-only: SpectatorView composes StatsTab but renders its
@@ -63,6 +65,20 @@ export function StatsTab({
         <div className="stats-cell">
           <h3 className="chart-heading">Boss fight progress</h3>
           <MilestoneProgressBar cleared={state.milestonesCleared.length} total={milestonesTotal} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Catch rate by area</h3>
+          <p className="muted chart-caption">
+            Of the first-encounters you resolved per area, how many you caught vs lost or skipped.
+          </p>
+          <CatchRateByArea state={state} ctx={ctx} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Time in run</h3>
+          <p className="muted chart-caption">
+            Elapsed wall-clock time and how long each boss took, from event timestamps.
+          </p>
+          <RunTimePanel events={events} ctx={ctx} />
         </div>
       </div>
 

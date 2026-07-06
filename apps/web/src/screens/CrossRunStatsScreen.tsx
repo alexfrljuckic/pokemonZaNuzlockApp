@@ -64,6 +64,12 @@ export function CrossRunStatsScreen({ runs }: { runs: RunSummary[] }) {
         {stats.totalDeaths} death{stats.totalDeaths === 1 ? '' : 's'} across {stats.aggregated} counted run
         {stats.aggregated === 1 ? '' : 's'} (abandoned runs excluded)
       </p>
+      {stats.catchRate != null && (
+        <p className="muted">
+          Catch rate {Math.round(stats.catchRate * 100)}% ({stats.encountersCaught}/{stats.encountersOffered} first-encounters
+          caught)
+        </p>
+      )}
 
       {/* two chart columns on desktop, single stack on phones (.stats-grid) */}
       <div className="stats-grid">
