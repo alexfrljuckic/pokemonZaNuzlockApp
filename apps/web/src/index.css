@@ -1790,8 +1790,8 @@ input[aria-invalid='true'] {
   font-size: 0.74rem;
 }
 
-.share-link-row { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
-.share-link-row input { flex: 1; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
+.share-link-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
+.share-link-row input { flex: 1 1 8rem; min-width: 0; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
 .share-link-row button { margin-top: 0; }
 
 /* ---------- Share popover (run header) ---------- */
