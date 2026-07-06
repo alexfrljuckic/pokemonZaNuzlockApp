@@ -1,4 +1,4 @@
-import { fallen, milestonesFor, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
+import { milestonesFor, type EngineContext, type RunEvent, type RunState } from '@nuzlocke/engine';
 import { DeathsByBoss } from '../../components/charts/DeathsByBoss';
 import { DeathsOverTimeStrip } from '../../components/charts/DeathsOverTimeStrip';
 import { LevelCapHeadroom } from '../../components/charts/LevelCapHeadroom';
@@ -27,7 +27,6 @@ export function StatsTab({
     if (ev.type === 'encounter_resolved') outcomes[ev.payload.outcome]++;
   }
 
-  const deaths = fallen(state);
   const revives = events.filter((ev) => ev.type === 'revive').length;
   const ruleChanges = state.ruleChanges.length;
   const milestonesTotal = ctx.dataset ? milestonesFor(ctx.dataset, state.version, state.ruleset).length : 0;
@@ -94,22 +93,6 @@ export function StatsTab({
         </>
       )}
 
-      <h2>Graveyard ({deaths.length})</h2>
-      {deaths.length === 0 ? (
-        <p className="muted">No deaths yet.</p>
-      ) : (
-        deaths.map((p) => (
-          <div key={p.id} className="pokemon-card">
-            <span>
-              {p.nickname} <span className="muted">({p.species}, Lv {p.level})</span>
-            </span>
-            <span className="muted">
-              {p.death?.cause ?? 'unknown cause'}
-              {p.death?.killer ? ` — ${p.death.killer}` : ''}
-            </span>
-          </div>
-        ))
-      )}
     </section>
   );
 }

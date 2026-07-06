@@ -2523,6 +2523,12 @@ button.back-icon:hover:not(:disabled) {
   font-size: 0.78rem;
   text-transform: capitalize;
 }
+/* fallen mons surface their cause of death at a glance (the graveyard's single
+   home is Team & Box now, not a duplicate Stats list) */
+.mon-card-death {
+  font-size: 0.78rem;
+  color: var(--danger);
+}
 .mon-card-evo {
   font-size: 0.76rem;
   text-transform: capitalize;
