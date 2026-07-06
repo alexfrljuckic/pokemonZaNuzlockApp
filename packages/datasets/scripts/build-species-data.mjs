@@ -231,6 +231,18 @@ const holdable = await fetchJson('https://pokeapi.co/api/v2/item-attribute/holda
 const heldItems = holdable.items.map((i) => i.name).sort();
 console.log(`${heldItems.length} holdable items`);
 
+// Merge the hand-scraped Legends: Z-A movepools (PokeAPI has no plza learnsets;
+// see build-za-movepools.mjs). Its maps are keyed by species — slot them under
+// the 'plza' game so movesFor/levelUpMovesFor use them instead of the union.
+const zaFile = join(outDir, 'za-movepools.json');
+if (existsSync(zaFile)) {
+  const za = JSON.parse(readFileSync(zaFile, 'utf8'));
+  if (za.movesByGame && Object.keys(za.movesByGame).length) movesByGame.plza = za.movesByGame;
+  if (za.levelUpMovesByGame && Object.keys(za.levelUpMovesByGame).length)
+    levelUpMovesByGame.plza = za.levelUpMovesByGame;
+  console.log(`merged Z-A movepools for ${Object.keys(za.movesByGame ?? {}).length} species`);
+}
+
 const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
 const out = {
   stats: sortObj(stats),

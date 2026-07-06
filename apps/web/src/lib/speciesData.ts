@@ -51,9 +51,9 @@ export const machineType = (move: string, gameId: string): MachineTag | null =>
 /** A species' movepool, scoped to the given game where PokeAPI documents it.
  * Each game learns different moves (Pikachu knows 31 moves in LGPE, 50 in
  * BDSP, 8 in Legends Arceus) — the per-game pool comes from the game's
- * `pokeapiVersionGroups`. Falls back to the all-games union when there's no
- * per-game data: Legends Z-A (PokeAPI has no move data for it at all) and
- * the handful of species with per-game coverage gaps. */
+ * `pokeapiVersionGroups`. Legends Z-A has no PokeAPI learnsets, so its plza
+ * pools are hand-scraped from Serebii (build-za-movepools.mjs); species outside
+ * the Z-A dex (and any per-game coverage gaps) fall back to the all-games union. */
 export const movesFor = (species: string, gameId?: string): string[] =>
   (gameId ? data.movesByGame[gameId]?.[species] : undefined) ?? data.moves[species] ?? [];
 
