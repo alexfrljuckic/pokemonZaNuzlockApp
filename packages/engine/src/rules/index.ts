@@ -378,6 +378,24 @@ export function areasFor(dataset: GameDataset, ruleset?: Ruleset): Area[] {
   return dataset.areas.filter((a) => !a.tags.some((t) => t.startsWith('dlc:')));
 }
 
+/** Whether an area is a dead end for the given version: it documents wild
+ * encounters, but every one of them is locked to the OTHER version — so the
+ * player can never resolve it and it should be hidden. An area with NO
+ * documented encounters at all (a town, an item/trainer-only stop) is NOT a
+ * dead end — those carry items/trainers/specials and must stay visible. */
+export function isVersionDeadArea(area: Area, version: string): boolean {
+  if (area.encounters.length === 0) return false;
+  return !area.encounters.some((slot) => !slot.conditions?.version || slot.conditions.version.includes(version));
+}
+
+/** `areasFor`, additionally dropping areas whose only documented encounters
+ * belong to the other game version (e.g. SwSh's Giant's Mirror — a single
+ * Shield-locked Galarian Corsola — is hidden from Sword runs, and vice versa).
+ * Areas already resolved keep their real encounters, so they never trip this. */
+export function areasForVersion(dataset: GameDataset, version: string, ruleset?: Ruleset): Area[] {
+  return areasFor(dataset, ruleset).filter((a) => !isVersionDeadArea(a, version));
+}
+
 /** Whether a special encounter is available for the given version — most
  * specials have no version lock and apply everywhere; a few (e.g. LGPE's
  * partner Pokémon: Pikachu on one version, Eevee on the other) are fixed by
