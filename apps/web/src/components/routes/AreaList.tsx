@@ -41,15 +41,16 @@ export function AreaList({
 
         return (
           <div key={area.id} className={`area-row${frontier.has(area.id) ? ' area-row-frontier' : ''}`}>
-            <div
+            <button
+              type="button"
               className="area-row-header"
+              aria-expanded={openAreaId === area.id}
               onClick={() => setOpenAreaId(openAreaId === area.id ? null : area.id)}
-              style={{ cursor: 'pointer' }}
             >
               <span>{area.name}</span>
               {outcome && <span className={`outcome-${outcome}`}>{outcome}</span>}
               {!outcome && <span className="muted">{pool.length} available</span>}
-            </div>
+            </button>
             {openAreaId === area.id &&
               (outcome ? (
                 <div className="route-resolved-body">

@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 /** Lightweight autocomplete: a text input with a filtered suggestion list.
@@ -30,9 +30,11 @@ export function Combobox({
   const [active, setActive] = useState(0);
   const [rect, setRect] = useState<DOMRect | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const listId = `${useId()}-listbox`;
 
   const q = value.trim().toLowerCase();
   const matches = (q ? options.filter((o) => o.includes(q)) : options).slice(0, max);
+  const listOpen = open && matches.length > 0;
 
   const reposition = () => {
     if (inputRef.current) setRect(inputRef.current.getBoundingClientRect());
@@ -74,6 +76,11 @@ export function Combobox({
       <input
         ref={inputRef}
         type="text"
+        role="combobox"
+        aria-expanded={listOpen}
+        aria-controls={listId}
+        aria-autocomplete="list"
+        aria-activedescendant={listOpen && matches[active] ? `${listId}-opt-${active}` : undefined}
         value={value}
         placeholder={placeholder}
         onChange={(e) => {
@@ -92,11 +99,11 @@ export function Combobox({
           } else if (e.key === 'Escape') setOpen(false);
         }}
       />
-      {open &&
-        matches.length > 0 &&
+      {listOpen &&
         rect &&
         createPortal(
           <ul
+            id={listId}
             className="combobox-list"
             role="listbox"
             style={{ position: 'fixed', top: rect.bottom + 2, left: rect.left, width: rect.width }}
@@ -104,6 +111,7 @@ export function Combobox({
             {matches.map((o, i) => (
               <li
                 key={o}
+                id={`${listId}-opt-${i}`}
                 role="option"
                 aria-selected={i === active}
                 className={`combobox-option${i === active ? ' active' : ''}`}
