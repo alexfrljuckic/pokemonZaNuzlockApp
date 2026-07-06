@@ -161,7 +161,7 @@ function EvolvePanel({
 }) {
   const [pick, setPick] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  const options = evolutionOptionsFor(p.species, p.level);
+  const options = evolutionOptionsFor(p.species, p.level, gameId);
   if (options.length === 0) return null;
   // the species may have changed since the last pick (chained evolutions) —
   // never let a stale pick target an option that no longer exists

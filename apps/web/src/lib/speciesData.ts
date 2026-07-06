@@ -5,6 +5,7 @@
    degrade gracefully — the pickers stay free-text, previews just render nothing. */
 import raw from '@nuzlocke/datasets/generated/species-data.json';
 import machinesByGameRaw from '@nuzlocke/datasets/generated/machines-by-game.json';
+import { evolutionOverrideFor } from './evolutionOverrides';
 
 export interface Evolution {
   to: string;
@@ -148,10 +149,21 @@ function requirementLabel(e: Evolution): string {
 
 /** The actionable evolution choices for a mon at a given level. Branching
  * species (Eevee, Applin, Galarian Meowth's chain…) return several — the
- * player picks the branch that matches what they did in-game. */
-export function evolutionOptionsFor(species: string, level: number): EvolutionOption[] {
-  return evolutionsFor(species).map((e) => ({
-    to: resolveEvolutionTarget(species, e.to),
+ * player picks the branch that matches what they did in-game.
+ *
+ * `gameId` engages the per-game evolution-target override layer
+ * (`evolutionOverrides.ts`): PokeAPI chains are species-level, but which
+ * VARIETY a mon evolves into is game-specific (Dartrix → Hisuian Decidueye in
+ * PLA, Koffing → Galarian Weezing in SwSh). An override for the species in
+ * this game REPLACES the PokeAPI-derived rows; without one the derived,
+ * parent-suffix-resolved options stand. */
+export function evolutionOptionsFor(species: string, level: number, gameId?: string): EvolutionOption[] {
+  const override = evolutionOverrideFor(species, gameId);
+  const evos = override ?? evolutionsFor(species);
+  return evos.map((e) => ({
+    // an override row already names the exact variety; only derived rows need
+    // the parent-suffix resolution pass
+    to: override ? e.to : resolveEvolutionTarget(species, e.to),
     trigger: e.trigger,
     minLevel: e.minLevel,
     item: e.item,
