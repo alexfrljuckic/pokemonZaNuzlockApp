@@ -168,6 +168,7 @@ export function RoutesTab({
             areas={areas}
             state={state}
             version={state.version}
+            milestones={ctx.dataset.milestones}
             onSelect={(id) => setOpenAreaId(id)}
             zones={zoneMode && !zoneMap ? zones : undefined}
             onSelectZone={zoneMode && !zoneMap ? selectZone : undefined}
