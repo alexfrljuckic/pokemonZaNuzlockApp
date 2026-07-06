@@ -34,23 +34,34 @@ export function StatsTab({
     <section>
       <h2>Stats</h2>
 
-      <h3 className="chart-heading">Encounter outcomes</h3>
-      <EncounterOutcomeDonut outcomes={outcomes} />
-
-      <h3 className="chart-heading">Deaths over time</h3>
-      <DeathsOverTimeStrip events={events} />
-
-      <h3 className="chart-heading">Deaths by boss</h3>
-      <DeathsByBoss events={events} ctx={ctx} />
-
-      <h3 className="chart-heading">Level-cap headroom</h3>
-      <LevelCapHeadroom events={events} ctx={ctx} />
-
-      <h3 className="chart-heading">Survival by species</h3>
-      <SurvivalBySpeciesBars pokemon={state.pokemon} />
-
-      <h3 className="chart-heading">Boss fight progress</h3>
-      <MilestoneProgressBar cleared={state.milestonesCleared.length} total={milestonesTotal} />
+      {/* each heading+chart pair is a cell so the desktop grid can reflow
+          them side by side (single column on phones — see .stats-grid) */}
+      <div className="stats-grid">
+        <div className="stats-cell">
+          <h3 className="chart-heading">Encounter outcomes</h3>
+          <EncounterOutcomeDonut outcomes={outcomes} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Deaths over time</h3>
+          <DeathsOverTimeStrip events={events} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Deaths by boss</h3>
+          <DeathsByBoss events={events} ctx={ctx} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Level-cap headroom</h3>
+          <LevelCapHeadroom events={events} ctx={ctx} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Survival by species</h3>
+          <SurvivalBySpeciesBars pokemon={state.pokemon} />
+        </div>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Boss fight progress</h3>
+          <MilestoneProgressBar cleared={state.milestonesCleared.length} total={milestonesTotal} />
+        </div>
+      </div>
 
       <p className="muted">
         Wipes: {state.wipes.length} · Revives used: {revives} · Rule changes: {ruleChanges}

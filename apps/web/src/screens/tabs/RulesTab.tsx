@@ -58,6 +58,7 @@ export function RulesTab({
         event log.
       </p>
 
+      <div className="rules-grid">
       {applicable.map((def) => {
         const cfg = state.ruleset.rules[def.id];
         return (
@@ -94,6 +95,7 @@ export function RulesTab({
           </div>
         );
       })}
+      </div>
 
       <h2>House rules</h2>
       <p className="muted">

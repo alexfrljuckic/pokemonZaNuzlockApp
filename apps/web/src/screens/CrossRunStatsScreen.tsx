@@ -65,43 +65,49 @@ export function CrossRunStatsScreen({ runs }: { runs: RunSummary[] }) {
         {stats.aggregated === 1 ? '' : 's'} (abandoned runs excluded)
       </p>
 
-      <h3 className="chart-heading">Deaths by species</h3>
-      {topDeaths.length === 0 ? (
-        <p className="muted chart-caption">No deaths yet. Long may it last.</p>
-      ) : (
-        <div className="deaths-by-boss">
-          {topDeaths.map(([species, n]) => (
-            <div key={species} className="dbb-row">
-              <span className="dbb-name">
-                <SpriteImg species={species} size={26} /> {species}
-              </span>
-              <span className="dbb-bar-track">
-                <span className="dbb-bar" style={{ width: `${(n / maxDeath) * 100}%` }} />
-              </span>
-              <span className="dbb-count">{n}</span>
+      {/* two chart columns on desktop, single stack on phones (.stats-grid) */}
+      <div className="stats-grid">
+        <div className="stats-cell">
+          <h3 className="chart-heading">Deaths by species</h3>
+          {topDeaths.length === 0 ? (
+            <p className="muted chart-caption">No deaths yet. Long may it last.</p>
+          ) : (
+            <div className="deaths-by-boss">
+              {topDeaths.map(([species, n]) => (
+                <div key={species} className="dbb-row">
+                  <span className="dbb-name">
+                    <SpriteImg species={species} size={26} /> {species}
+                  </span>
+                  <span className="dbb-bar-track">
+                    <span className="dbb-bar" style={{ width: `${(n / maxDeath) * 100}%` }} />
+                  </span>
+                  <span className="dbb-count">{n}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      )}
-
-      <h3 className="chart-heading">Most-used party species</h3>
-      {topUsed.length === 0 ? (
-        <p className="muted chart-caption">No party members yet.</p>
-      ) : (
-        <div className="deaths-by-boss">
-          {topUsed.map(([species, n]) => (
-            <div key={species} className="dbb-row">
-              <span className="dbb-name">
-                <SpriteImg species={species} size={26} /> {species}
-              </span>
-              <span className="dbb-bar-track">
-                <span className="dbb-bar dbb-bar-used" style={{ width: `${(n / maxUsed) * 100}%` }} />
-              </span>
-              <span className="dbb-count">{n}</span>
+        <div className="stats-cell">
+          <h3 className="chart-heading">Most-used party species</h3>
+          {topUsed.length === 0 ? (
+            <p className="muted chart-caption">No party members yet.</p>
+          ) : (
+            <div className="deaths-by-boss">
+              {topUsed.map(([species, n]) => (
+                <div key={species} className="dbb-row">
+                  <span className="dbb-name">
+                    <SpriteImg species={species} size={26} /> {species}
+                  </span>
+                  <span className="dbb-bar-track">
+                    <span className="dbb-bar dbb-bar-used" style={{ width: `${(n / maxUsed) * 100}%` }} />
+                  </span>
+                  <span className="dbb-count">{n}</span>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
-      )}
+      </div>
     </section>
   );
 }

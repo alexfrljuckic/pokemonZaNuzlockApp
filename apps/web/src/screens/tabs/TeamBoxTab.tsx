@@ -48,6 +48,9 @@ export function TeamBoxTab({
 
   return (
     <>
+      {/* Team + Box render side by side on desktop (.teambox-columns grid) —
+          the PC mental model is seeing both at once; graveyard stays below. */}
+      <div className="teambox-columns">
       <section>
         <h2>Team ({team.length}/6)</h2>
         {team.length === 0 && <p className="muted">No party members yet.</p>}
@@ -87,6 +90,7 @@ export function TeamBoxTab({
           ))}
         </div>
       </section>
+      </div>
 
       <section>
         <h2>Graveyard ({graveyard.length})</h2>
