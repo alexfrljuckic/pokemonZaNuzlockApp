@@ -58,10 +58,16 @@ export function Combobox({
     };
     window.addEventListener('scroll', onScrollResize, true);
     window.addEventListener('resize', onScrollResize);
+    // the mobile on-screen keyboard resizes the VISUAL viewport without any
+    // window resize/scroll — without these the fixed list drifts (audit P2)
+    window.visualViewport?.addEventListener('resize', onScrollResize);
+    window.visualViewport?.addEventListener('scroll', onScrollResize);
     document.addEventListener('mousedown', onDoc);
     return () => {
       window.removeEventListener('scroll', onScrollResize, true);
       window.removeEventListener('resize', onScrollResize);
+      window.visualViewport?.removeEventListener('resize', onScrollResize);
+      window.visualViewport?.removeEventListener('scroll', onScrollResize);
       document.removeEventListener('mousedown', onDoc);
     };
   }, [open]);

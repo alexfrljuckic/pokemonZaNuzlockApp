@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { RunState, SpecialEncounter } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
 import { typesFor } from '../lib/speciesData';
-import { CatchFields } from './CatchFields';
+import { CatchFields, clampLevel } from './CatchFields';
 import { ConfirmAction } from './ConfirmAction';
 import { SpriteImg } from './SpriteImg';
 import { TypeBadges } from './TypeBadge';
@@ -43,7 +43,7 @@ function ClaimForm({
         onShiny={onShinyChange}
         className="special-claim-fields"
       />
-      <button onClick={() => onClaim(nickname || species, Number(level) || 1, shiny)}>Claim</button>
+      <button onClick={() => onClaim(nickname || species, clampLevel(level), shiny)}>Claim</button>
     </div>
   );
 }

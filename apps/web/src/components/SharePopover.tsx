@@ -13,6 +13,8 @@ export function SharePopover({ runId }: { runId: string }) {
   const [tokens, setTokens] = useState<ShareToken[]>([]);
   const [creating, setCreating] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   async function refresh() {
     setTokens(await listShareTokens(runId));
@@ -23,19 +25,43 @@ export function SharePopover({ runId }: { runId: string }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, runId]);
 
+  // Dialog focus management (audit P2): move focus in on open, keep Tab
+  // inside while open, hand focus back to the trigger on close.
   useEffect(() => {
     if (!open) return;
+    const focusables = () =>
+      panelRef.current
+        ? [...panelRef.current.querySelectorAll<HTMLElement>('button, input, [tabindex]:not([tabindex="-1"])')]
+        : [];
+    const raf = requestAnimationFrame(() => focusables()[0]?.focus());
     function onDocClick(e: MouseEvent) {
       if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
     }
     function onKeyDown(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const els = focusables();
+      if (els.length === 0) return;
+      const first = els[0];
+      const last = els[els.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     }
     document.addEventListener('mousedown', onDocClick);
     document.addEventListener('keydown', onKeyDown);
     return () => {
+      cancelAnimationFrame(raf);
       document.removeEventListener('mousedown', onDocClick);
       document.removeEventListener('keydown', onKeyDown);
+      triggerRef.current?.focus();
     };
   }, [open]);
 
@@ -60,6 +86,7 @@ export function SharePopover({ runId }: { runId: string }) {
   return (
     <div className="share-popover" ref={rootRef}>
       <button
+        ref={triggerRef}
         type="button"
         className="secondary share-popover-trigger"
         aria-expanded={open}
@@ -70,7 +97,7 @@ export function SharePopover({ runId }: { runId: string }) {
       </button>
 
       {open && (
-        <div className="share-popover-panel" role="dialog" aria-label="Share this run">
+        <div ref={panelRef} className="share-popover-panel" role="dialog" aria-modal="true" aria-label="Share this run">
           <p className="muted share-popover-desc">
             A share link gives read-only access to this run's team, graveyard, milestones, rules, and
             timeline — no sign-in required to view. It updates live while you play. Never grants write access.

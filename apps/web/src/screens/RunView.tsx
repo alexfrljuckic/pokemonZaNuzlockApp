@@ -232,7 +232,9 @@ export function RunView({
 
           <div id="run-tabpanel" role="tabpanel" aria-labelledby={tabDomId(tab)}>
             {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
-            {tab === 'Team & Box' && <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Team & Box' && (
+              <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} onGoToRoutes={() => setTab('Routes')} />
+            )}
             {tab === 'Boss Fights' && <MilestonesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
             {tab === 'Rules' && <RulesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
             {tab === 'Stats' && <StatsTab events={events} state={state} ctx={ctx} timeline />}

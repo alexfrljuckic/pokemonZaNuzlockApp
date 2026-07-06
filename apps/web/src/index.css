@@ -268,6 +268,16 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* looping decorative keyframes: the blanket rule above would freeze them at
+     an arbitrary mid-keyframe state (half-lifted ball, mid-pulse ring) — turn
+     them off entirely instead */
+  .area-row-frontier,
+  .title-screen .pokeball,
+  .game-card.selected,
+  .box-slot.selected,
+  .route-region-frontier .route-region {
+    animation: none !important;
+  }
 }
 
 /* ---------- Type ---------- */
@@ -786,11 +796,17 @@ button.item-chip.item-picked {
   white-space: nowrap;
 }
 
+/* status word gets a glyph so state never reads by color alone (audit P2) */
 .status-active { color: var(--success); }
+.status-active::before { content: '● '; }
 .status-victory { color: var(--warning); }
+.status-victory::before { content: '★ '; }
 .status-wiped-continuing { color: var(--warning-strong); }
+.status-wiped-continuing::before { content: '⚠ '; }
 .status-wiped { color: var(--danger); }
+.status-wiped::before { content: '✕ '; }
 .status-abandoned { color: var(--muted); }
+.status-abandoned::before { content: '– '; }
 
 /* ---------- Tabs: segmented control ---------- */
 
@@ -980,7 +996,23 @@ button.item-chip.item-picked {
 }
 .encounter-slot img { image-rendering: pixelated; }
 .encounter-slot-name { font-size: 0.8rem; text-transform: capitalize; text-align: center; line-height: 1.1; }
-.encounter-slot-method { font-size: 0.7rem; }
+/* small muted text was borderline AA on light per-theme panels — nudge both
+   size and lightness (audit P2) */
+.encounter-slot-method {
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--muted) 70%, var(--text));
+}
+/* inline invalid-input message (level fields — audit P2 "silent coercion") */
+.field-error {
+  display: block;
+  color: var(--danger);
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
+}
+input[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
 .encounter-fields {
   display: flex;
   gap: 0.75rem;
@@ -2040,8 +2072,9 @@ button.back-icon:hover:not(:disabled) {
   text-transform: capitalize;
 }
 .picker-tile-desc {
-  font-size: 0.7rem;
-  line-height: 1.2;
+  font-size: 0.74rem;
+  line-height: 1.25;
+  color: color-mix(in srgb, var(--muted) 70%, var(--text));
 }
 .picker-tile-preset {
   min-width: 130px;

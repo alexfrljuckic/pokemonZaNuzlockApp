@@ -12,6 +12,7 @@ import {
   typesFor,
 } from '../lib/speciesData';
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
+import { clampLevel } from './CatchFields';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
 import { ConfirmAction } from './ConfirmAction';
@@ -37,6 +38,8 @@ function EditForm({
   const [nature, setNature] = useState(p.nature ?? '');
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
+  const levelInvalid =
+    level.trim() !== '' && (!Number.isInteger(Number(level)) || Number(level) < 1 || Number(level) > 100);
   // level-up moves first (by level), then TM/TR/HM, then tutor/egg — the
   // learnable-by-playing options surface before the machine shopping list
   const movePool = orderedMovesFor(p.species, gameId);
@@ -47,8 +50,12 @@ function EditForm({
       // Emit only what changed; null explicitly clears an optional field.
       const payload: Record<string, unknown> = { pokemonId: p.id };
       if (nickname.trim() && nickname.trim() !== p.nickname) payload.nickname = nickname.trim();
-      const lvl = Number(level);
-      if (Number.isFinite(lvl) && lvl >= 1 && lvl !== p.level) payload.level = Math.floor(lvl);
+      // only touch the level when something numeric was entered — an empty
+      // field means "leave it alone", not "reset to 1"
+      if (level.trim() !== '' && Number.isFinite(Number(level))) {
+        const lvl = clampLevel(level);
+        if (lvl !== p.level) payload.level = lvl;
+      }
       if (heldItem.trim() !== (p.heldItem ?? '')) payload.heldItem = heldItem.trim() || null;
       if (nature !== (p.nature ?? '')) payload.nature = nature || null;
       const cleanMoves = moves.map((m) => m.trim()).filter(Boolean);
@@ -81,7 +88,19 @@ function EditForm({
         </label>
         <label>
           Level
-          <input type="number" min={1} max={100} value={level} onChange={(e) => setLevel(e.target.value)} />
+          <input
+            type="number"
+            min={1}
+            max={100}
+            value={level}
+            aria-invalid={levelInvalid || undefined}
+            onChange={(e) => setLevel(e.target.value)}
+          />
+          {levelInvalid && (
+            <span className="field-error" role="alert">
+              Levels are 1–100 — this will be saved as Lv {clampLevel(level)}.
+            </span>
+          )}
         </label>
         <label>
           Held item
@@ -218,26 +237,20 @@ function UnevolveButton({
   runId: string;
   onReverted: () => Promise<void>;
 }) {
-  const [saving, setSaving] = useState(false);
   const prev = p.preEvolutions?.[p.preEvolutions.length - 1];
   if (!prev) return null;
+  // confirm-gated like every other destructive-ish one-click (UX audit P2)
   return (
-    <button
-      type="button"
-      className="secondary evo-undo"
-      disabled={saving}
-      onClick={async () => {
-        setSaving(true);
-        try {
-          await appendEvent(runId, { type: 'pokemon_evolution_reverted', payload: { pokemonId: p.id } } as never);
-          await onReverted();
-        } finally {
-          setSaving(false);
-        }
+    <ConfirmAction
+      label={`↩ Un-evolve to ${prev}`}
+      triggerClass="secondary evo-undo"
+      prompt={`Revert ${p.nickname} to ${prev}? The level stays as it is.`}
+      ariaLabel={`Un-evolve ${p.nickname} to ${prev}`}
+      onConfirm={async () => {
+        await appendEvent(runId, { type: 'pokemon_evolution_reverted', payload: { pokemonId: p.id } } as never);
+        await onReverted();
       }}
-    >
-      {saving ? 'Reverting…' : `↩ Un-evolve to ${prev}`}
-    </button>
+    />
   );
 }
 
