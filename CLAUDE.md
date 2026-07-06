@@ -91,11 +91,14 @@ breaks worktrees).
   profiles + follows + big-beats feed (#u/<handle> route; Supabase
   migration 20260705220000 APPLIED); Supabase sync/share/spectator;
   9 themes. 57 web tests.
-- **Deploy**: Vercel project `pokemon-za-nuzlock-app-web` created by Alex
-  2026-07-05 (team PokemonVibeCoder). First deploy FAILED — root directory
-  was set to `apps/web`, which bypasses the repo-root vercel.json; fix =
-  clear Root Directory + add the three VITE_ env vars + redeploy, then
-  set the URL in Supabase Auth redirect config. GitHub Pages disabled.
+- **Deploy**: LIVE at https://nuzlocke-tracker-app.vercel.app (Vercel
+  project `nuzlocke-tracker`, team PokemonVibeCoder). URL is not hardcoded
+  (app uses `window.location.origin`); only docs + Supabase Auth config
+  carry it. Auth gotcha: a magic link redirecting to the wrong host means
+  the domain isn't in Supabase → Auth → URL Configuration → Redirect URLs
+  (it falls back to Site URL); dev is Vite 5173, not 3000. OAuth
+  (Google/Discord) is wired but opt-in via `VITE_OAUTH_PROVIDERS` — see
+  docs/OAUTH-SETUP.md. GitHub Pages disabled.
 - **Process lessons that bite**: gate merges on test output; PS5.1
   Get/Set-Content mangles UTF-8 (use the Edit tool); multi-line git/gh
   args via `-F`/`--body-file`; build test RunEvent arrays in seq order
