@@ -1309,10 +1309,25 @@ button.item-chip.item-picked {
 
 /* ---------- Auth / share ---------- */
 
-.auth-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+.auth-bar { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
 .auth-bar input { width: auto; margin-top: 0; }
 .auth-bar button { margin-top: 0; padding: 0.25rem 0.6rem; font-size: 0.8rem; }
-.auth-error { color: var(--danger); font-size: 0.8rem; }
+.auth-error { color: var(--danger); font-size: 0.8rem; flex-basis: 100%; }
+
+/* Stacked variant: OAuth provider buttons above an "or" divider above the
+   magic-link email row. Providers only render when VITE_OAUTH_PROVIDERS is set. */
+.auth-bar-stack { flex-direction: column; align-items: stretch; gap: 0.6rem; max-width: 340px; }
+.auth-providers { display: flex; flex-direction: column; gap: 0.4rem; }
+.auth-provider-btn { width: 100%; justify-content: center; padding: 0.5rem 0.75rem; font-size: 0.85rem; }
+.auth-divider {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+}
+.auth-divider::before, .auth-divider::after {
+  content: ''; flex: 1; height: 1px; background: var(--border);
+}
+.auth-email-row { display: flex; gap: 0.5rem; }
+.auth-email-row input { flex: 1; min-width: 0; }
 
 .share-link-row { display: flex; gap: 0.5rem; align-items: center; margin-top: 0.75rem; }
 .share-link-row input { flex: 1; margin-top: 0; font-family: ui-monospace, monospace; font-size: 0.8rem; }
