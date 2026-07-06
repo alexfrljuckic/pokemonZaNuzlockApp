@@ -34,7 +34,6 @@ export const GALAR_MAP: GameMap = {
     { id: 'giants-seat', x: 637, y: 739, w: 30, h: 24, kind: 'route' },
     { id: 'rolling-fields', x: 559, y: 748, w: 30, h: 24, kind: 'route' },
     { id: 'dappled-grove', x: 534, y: 761, w: 30, h: 24, kind: 'route' },
-    { id: 'meetup-spot', x: 578, y: 790, w: 30, h: 24, kind: 'route' },
     // — Motostoke (Fire Gym) + its mine / routes —
     { id: 'motostoke', x: 555, y: 593, w: 78, h: 55, kind: 'city' },
     { id: 'route-3', x: 530, y: 570, w: 45, h: 38, kind: 'route' },

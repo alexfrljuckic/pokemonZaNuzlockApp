@@ -10698,30 +10698,6 @@
       ]
     },
     {
-      "id": "meetup-spot",
-      "name": "Wild Area: Meetup Spot",
-      "unlockAfter": "gym-1-milo",
-      "tags": [
-        "wild-area"
-      ],
-      "encounters": [
-        {
-          "species": "pikachu",
-          "methods": [
-            "walk"
-          ],
-          "rate": 50
-        },
-        {
-          "species": "eevee",
-          "methods": [
-            "walk"
-          ],
-          "rate": 50
-        }
-      ]
-    },
-    {
       "id": "motostoke-outskirts",
       "name": "Wild Area: Motostoke Outskirts",
       "unlockAfter": "gym-3-kabu",
