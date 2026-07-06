@@ -88,17 +88,22 @@ breaks worktrees).
   item-location hints (lib/evolutionHints.ts); move pickers ordered
   level→TM→TR→HM; columnar learnsets; reverted evolutions net out of all
   history views (`visibleEvents` — apply it to ANY new history surface);
-  profiles + follows + big-beats feed (#u/<handle> route; Supabase
-  migration 20260705220000 APPLIED); Supabase sync/share/spectator;
-  9 themes. 57 web tests.
+  profiles + follows + big-beats feed (#u/<handle> route) + landing-page
+  trainer search + self-service profile delete; run robustness
+  (ErrorBoundary + missing-dataset guard, per-run Delete/Export,
+  ConfirmAction on destructive clicks); Supabase sync/share/spectator
+  (all migrations through 20260706000000 APPLIED); 9 themes. 71 web tests.
 - **Deploy**: LIVE at https://nuzlocke-tracker-app.vercel.app (Vercel
   project `nuzlocke-tracker`, team PokemonVibeCoder). URL is not hardcoded
   (app uses `window.location.origin`); only docs + Supabase Auth config
-  carry it. Auth gotcha: a magic link redirecting to the wrong host means
-  the domain isn't in Supabase → Auth → URL Configuration → Redirect URLs
-  (it falls back to Site URL); dev is Vite 5173, not 3000. OAuth
-  (Google/Discord) is wired but opt-in via `VITE_OAUTH_PROVIDERS` — see
-  docs/OAUTH-SETUP.md. GitHub Pages disabled.
+  carry it. Sign-in is OAuth-ONLY (Google/Discord via
+  `VITE_OAUTH_PROVIDERS` — REQUIRED for sign-in; magic-link email removed;
+  see docs/OAUTH-SETUP.md). Auth gotcha: a redirect to the wrong host
+  means the domain isn't in Supabase → Auth → URL Configuration → Redirect
+  URLs, WITH the https:// scheme (it silently falls back to Site URL);
+  dev is Vite 5173, not 3000. Security posture: docs/SECURITY-AUDIT.md
+  (headers in vercel.json; run_events append-only; search LIKE-escaped).
+  GitHub Pages disabled.
 - **Process lessons that bite**: gate merges on test output; PS5.1
   Get/Set-Content mangles UTF-8 (use the Edit tool); multi-line git/gh
   args via `-F`/`--body-file`; build test RunEvent arrays in seq order

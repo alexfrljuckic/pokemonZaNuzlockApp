@@ -5,50 +5,42 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-05 late — deploy live)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, session fully wrapped)
 
-**Deploy is LIVE and renamed.** The app is at
-**https://nuzlocke-tracker-app.vercel.app** (Vercel project renamed
-`pokemon-za-nuzlock-app-web` → `nuzlocke-tracker`; the old `-web` domain
-was replaced — renaming the project did NOT move the domain, it's a
-separate Domains-tab entry. `nuzlocke-tracker.vercel.app` and
-`nuzlocke-tracker-app.app` were both taken/wrong; landed on
-`nuzlocke-tracker-app.vercel.app`). URL is not hardcoded (app uses
-`window.location.origin`); only docs + Supabase config carry it.
+**App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
+OAuth-only (Google + Discord, verified end-to-end; magic-link email
+REMOVED — rate limit). All Supabase migrations through
+**20260706000000** are APPLIED (verified live: profile-not-found fixed,
+search scrape blocked). Security headers verified live. No open PRs.
 
-**OPEN PRs (opened this session, NOT merged — review + merge when back):**
-- **#139 feat/oauth-login** — Google + Discord OAuth alongside magic link.
-  Code done + tested (61/61, build clean). To activate: follow
-  `docs/OAUTH-SETUP.md` (register OAuth apps, Supabase provider config,
-  set `VITE_OAUTH_PROVIDERS=google,discord` in Vercel, redeploy).
-- **docs/ux-audit-jul5** — `docs/UX-AUDIT.md`, the full mobile+desktop
-  audit synthesis below.
+**Shipped 2026-07-05 late session (#139–#146, all merged + deployed):**
+- **#139/#141/#142 auth**: Google+Discord OAuth (opt-in via
+  `VITE_OAUTH_PROVIDERS`, REQUIRED for sign-in now); #141 hotfixed a
+  TDZ prod crash (lesson: test env-gated code paths in their ENABLED
+  state); #142 removed magic-link email.
+- **#143 profiles**: get_profile not-found fix, landing-page trainer
+  search (search_profiles RPC), self-service profile delete, back button
+  on read-only routes. Account linking by verified email = intentional.
+- **#140 + #144 UX**: docs/UX-AUDIT.md (4-dimension audit + follow-up
+  assessment of the in-flight PRs) and fixes for every NF-* finding.
+- **#145 security**: full-app audit CLEAN (report docs/SECURITY-AUDIT.md);
+  hardened: LIKE-escape on search (M1), CSP/XFO/HSTS headers (M2),
+  run_events now truly append-only (L3). L4 (realtime pings after share
+  revocation) accepted + documented.
+- **#146 P0 run robustness** (background-agent built, worktree recipe):
+  ErrorBoundary + missing-dataset guard (the white-screen crash is FIXED),
+  per-run Delete/Export on Continue (rows are real buttons w/ friendly
+  names), confirm-on-destructive (Fainted / Reset route / Reset special)
+  via shared ConfirmAction atom. Engine 90 / web 71 tests.
 
-**DEPLOY FOLLOW-UPS still on Alex:**
-1. Supabase → Authentication → URL Configuration: set Site URL +
-   Redirect URL `https://nuzlocke-tracker-app.vercel.app/**` (magic link
-   was redirecting to localhost:3000 because the domain wasn't
-   allow-listed → Supabase fell back to Site URL). Dev is Vite 5173, not
-   3000. See the deploy-auth memory note.
-2. Magic-link email hit Supabase's built-in rate limit (test-only sender,
-   ~few/hr) — for production set up custom SMTP (Resend/SendGrid) under
-   Auth → SMTP. Low priority; not blocking.
-3. Profiles migration (20260705220000) is APPLIED. Smoke-test
-   profiles/follows/feed on the live URL.
+**Still on Alex (low priority):** custom SMTP if email ever returns;
+review the landing-page social layout in person.
 
-**CLI tooling:** Vercel CLI installed globally this session. Supabase CLI
-global npm install is disabled on Windows — use `npx supabase` on demand.
+**CLI tooling:** Vercel CLI installed globally. Supabase CLI = `npx
+supabase` (global npm install disabled on Windows).
 
-## UX audit follow-ups (from docs/UX-AUDIT.md, prioritized)
+## UX audit follow-ups remaining (docs/UX-AUDIT.md — P0 + NF-* are DONE)
 
-Full detail + file:line in `docs/UX-AUDIT.md`. Suggested PR sequence:
-
-- **P0 — run robustness (has a real crash bug).** RunView has no
-  missing-dataset guard and there's no ErrorBoundary, so a broken run
-  (pre-split PLA / removed gameId) white-screens the whole app
-  (`RunView.tsx:99-103`). Same PR: per-run delete/export in
-  ContinueScreen, and confirm/undo on destructive actions (Fainted,
-  Reset route, Reset special all fire on one unguarded click). **Start here.**
 - **P1 mobile stylesheet:** no phone breakpoint exists at all. Sticky
   bottom tab bar, ≥44px touch targets, touch-first map/encounter preview
   (tips are hover-only today), `minmax(300px)` grids that overflow at 320px.
@@ -56,16 +48,20 @@ Full detail + file:line in `docs/UX-AUDIT.md`. Suggested PR sequence:
   dashboard, Team/Box/Graveyard, Rules, cross-run charts; cap expanded-card
   span (currently `1 / -1` reflows the whole row); add a 768–1099px tablet
   breakpoint.
-- **P1 onboarding/copy:** no nuzlocke explainer anywhere; ContinueScreen
-  shows raw gameId slugs; login value-prop invisible when signed out;
-  Rules copy leaks literal backticks + internal event-type names; jargon
-  ungloss­ed (honor/enforced, set mode, headroom, frontier).
-- **P1 keyboard a11y:** clickable `<div>`s in AreaList + RunPicker are
-  keyboard-unreachable (core tasks); focus-visible suppressed on many
-  controls incl. map regions.
+- **P1 onboarding/copy:** no nuzlocke explainer anywhere; Rules copy leaks
+  literal backticks + internal event-type names; jargon unglossed
+  (honor/enforced, set mode, headroom, frontier). (ContinueScreen slugs +
+  login value-prop: DONE in #146/#144.)
+- **P1 keyboard a11y:** clickable `<div>`s in AreaList + ProfileScreen run
+  rows are keyboard-unreachable (RunPicker rows: DONE in #146);
+  focus-visible suppressed on many controls incl. map regions.
 - **P2 polish:** combobox ARIA, color-only status, muted-text contrast,
-  silent form coercion, live regions, share-popover focus mgmt, empty-state
-  CTAs, reduced-motion for looping keyframes.
+  silent form coercion, share-popover focus mgmt, empty-state CTAs,
+  reduced-motion for looping keyframes, UnevolveButton confirm-gating.
+
+Security follow-ups (docs/SECURITY-AUDIT.md): L4 realtime private
+channels if ever adopted; dev-dependency major-bump pass (npm audit is
+all dev-only).
 
 Also still in the optional pool: catch-rate-by-zone / time-in-run stats
 panels, code-splitting the 2.7 MB bundle (chunk warning in build), Z-A
