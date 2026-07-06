@@ -2207,23 +2207,11 @@ button.back-icon:hover:not(:disabled) {
   border-color: var(--highlight);
   box-shadow: var(--shadow);
 }
-/* wide grids: ~3 tracks (≈500px) is enough for the expanded detail — inside
-   the ≥1024px Team/Box half-columns 3 tracks IS the full row, and in the
-   full-width graveyard it stops one card reflowing all six columns */
+/* wide grids: ~3 tracks (≈500px) is enough for the expanded detail — stops
+   one expanded card reflowing the whole six-column row */
 @media (min-width: 1100px) {
   .mon-card.expanded {
     grid-column: span 3;
-  }
-}
-
-/* Team & Box side-by-side on desktop — the "see team + PC box together"
-   mental model; graveyard stays full-width below. */
-@media (min-width: 1024px) {
-  .teambox-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.5rem;
-    align-items: start;
   }
 }
 .mon-card.dead {
