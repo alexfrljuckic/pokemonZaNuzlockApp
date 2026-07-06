@@ -4852,13 +4852,1104 @@
       ],
       "encounters": [
         {
+          "species": "woobat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "pumpkaboo-average",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "nickit",
+          "methods": [
+            "walk"
+          ],
+          "rate": 4
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "greedent",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 75
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "berry-tree"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "fish"
+          ],
+          "rate": 50
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "fish"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "butterfree",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd-galar",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
           "species": "corsola-galar",
           "methods": [
             "walk"
           ],
+          "rate": 5,
           "conditions": {
+            "weather": [
+              "overcast"
+            ],
             "version": [
               "shield"
+            ]
+          }
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "overcast"
+            ]
+          }
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "palpitoad",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "chewtle",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "raining"
+            ]
+          }
+        },
+        {
+          "species": "helioptile",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "applin",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "thunderstorm"
+            ]
+          }
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "heatmor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "heatmor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "diglett",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "intense-sun"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowing"
+            ]
+          }
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "snowstorm"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "tranquill",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "diggersby",
+          "methods": [
+            "grass"
+          ],
+          "rate": 30,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "dottler",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "sandstorm"
+            ]
+          }
+        },
+        {
+          "species": "swirlix",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ],
+            "version": [
+              "sword"
+            ]
+          }
+        },
+        {
+          "species": "spritzee",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ],
+            "version": [
+              "shield"
+            ]
+          }
+        },
+        {
+          "species": "morelull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "cutiefly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "impidimp",
+          "methods": [
+            "grass"
+          ],
+          "rate": 35,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "milcery",
+          "methods": [
+            "grass"
+          ],
+          "rate": 32,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "koffing",
+          "methods": [
+            "grass"
+          ],
+          "rate": 20,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ],
+          "rate": 10,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
+            ]
+          }
+        },
+        {
+          "species": "mimikyu-disguised",
+          "methods": [
+            "grass"
+          ],
+          "rate": 3,
+          "conditions": {
+            "weather": [
+              "heavy-fog"
             ]
           }
         }
