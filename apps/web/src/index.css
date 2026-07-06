@@ -506,6 +506,23 @@ a.run-list-open {
 
 .run-list-actions button { margin-top: 0; }
 
+/* Import-run control under the run list — pairs with per-run Export. */
+.run-import-row {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.run-import-row button { margin-top: 0; }
+.visually-hidden-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 /* Action row inside a fallback/info panel (ErrorBoundary, unsupported run). */
 .panel-actions {
   display: flex;
