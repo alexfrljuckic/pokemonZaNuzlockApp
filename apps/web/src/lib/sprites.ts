@@ -55,6 +55,13 @@ export function trainerSpriteUrl(key: string): string {
   return `${TRAINERS}/${key}.png`;
 }
 
+// Held-item icons from Showdown's itemicons CDN (24×24). Our held-item slugs
+// (choice-band, life-orb, …) match Showdown's item ids directly, so no remap.
+const ITEMICONS = 'https://play.pokemonshowdown.com/sprites/itemicons';
+export function itemSpriteUrl(item: string): string {
+  return `${ITEMICONS}/${item}.png`;
+}
+
 // Showdown trainer-sprite keys that don't match the milestone id's trailer.
 const TRAINER_ALIAS: Record<string, string> = {
   wake: 'crasherwake',

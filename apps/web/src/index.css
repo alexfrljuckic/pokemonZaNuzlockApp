@@ -2863,6 +2863,17 @@ button.back-icon:hover:not(:disabled) {
   text-transform: capitalize;
 }
 .combobox-option.active { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+/* leading item-sprite icon in the held-item picker list */
+.combobox-option-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.combobox-item-icon {
+  flex-shrink: 0;
+  image-rendering: pixelated;
+}
 
 /* TM/HM tags on machine moves */
 .combobox-badge,
@@ -3041,6 +3052,11 @@ button.back-icon:hover:not(:disabled) {
 .mon-card-meta {
   font-size: 0.78rem;
   text-transform: capitalize;
+}
+/* held-item icon in the condensed mon-card meta line (falls back to text) */
+.item-sprite {
+  vertical-align: middle;
+  image-rendering: pixelated;
 }
 /* fallen mons surface their cause of death at a glance (the graveyard's single
    home is Team & Box now, not a duplicate Stats list) */

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { PokemonInstance, RunEvent } from '@nuzlocke/engine';
 import { appendEvent } from '../lib/db';
-import { NATURES } from '../lib/sprites';
+import { NATURES, itemSpriteUrl } from '../lib/sprites';
 import {
   HELD_ITEMS,
   evolutionOptionsFor,
@@ -16,6 +16,7 @@ import { evoItemHint, tradeHint } from '../lib/evolutionHints';
 import { clampLevel } from './CatchFields';
 import { SpriteImg } from './SpriteImg';
 import { Combobox } from './Combobox';
+import { ItemSprite } from './ItemSprite';
 import { ConfirmAction } from './ConfirmAction';
 import { LevelUpMoves } from './LevelUpMoves';
 import { MoveChips } from './MoveChips';
@@ -123,7 +124,7 @@ function EditForm({
         </label>
         <label>
           Held item
-          <Combobox value={heldItem} onChange={setHeldItem} options={HELD_ITEMS} placeholder="none" />
+          <Combobox value={heldItem} onChange={setHeldItem} options={HELD_ITEMS} placeholder="none" icon={itemSpriteUrl} />
         </label>
         <label>
           Nature
@@ -362,7 +363,7 @@ export function MonCard({
             </span>
           )}
           <span className="mon-card-meta muted">
-            {p.heldItem ? `@ ${p.heldItem}` : 'No item'}
+            {p.heldItem ? <ItemSprite item={p.heldItem} /> : 'No item'}
             {p.nature ? ` · ${p.nature}` : ''}
           </span>
           <MonMoves moves={p.moves} />

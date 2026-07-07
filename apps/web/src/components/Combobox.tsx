@@ -18,6 +18,7 @@ export function Combobox({
   placeholder,
   max = 60,
   badge,
+  icon,
 }: {
   value: string;
   onChange: (v: string) => void;
@@ -25,6 +26,8 @@ export function Combobox({
   placeholder?: string;
   max?: number;
   badge?: (option: string) => ComboboxBadge | null;
+  /** Optional per-option leading icon URL (e.g. item sprite); hidden on 404. */
+  icon?: (option: string) => string | null;
 }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
@@ -127,7 +130,25 @@ export function Combobox({
                 }}
                 onMouseEnter={() => setActive(i)}
               >
-                <span>{o}</span>
+                <span className="combobox-option-label">
+                  {(() => {
+                    const src = icon?.(o);
+                    return src ? (
+                      <img
+                        className="combobox-item-icon"
+                        src={src}
+                        alt=""
+                        width={20}
+                        height={20}
+                        loading="lazy"
+                        onError={(e) => {
+                          (e.currentTarget as HTMLImageElement).style.visibility = 'hidden';
+                        }}
+                      />
+                    ) : null;
+                  })()}
+                  <span>{o}</span>
+                </span>
                 {(() => {
                   const b = badge?.(o);
                   return b ? <span className={`combobox-badge badge-${b.kind}`}>{b.text}</span> : null;
