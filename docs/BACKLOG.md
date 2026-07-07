@@ -13,6 +13,81 @@ REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
 
+## Shipped 2026-07-07 session (#207–#219, all merged to main on green CI)
+
+A parallel-agent batch (worktrees, merged only on green CI). Owner-reported
+bugs + UX asks + RR1 completion + a big BDSP completeness pass:
+- **#207** mobile map tooltip says "double-tap" (the touch preview→resolve
+  gesture needs a quick double-tap; slow taps lose hover state to emulated
+  mouseleave/blur — copy now names the working gesture). RouteMap.tsx.
+- **#208** cross-device run sync — REAL BUG fixed. Sign-in only *pulled*
+  remote runs; local runs pushed only when a run was reopened, so runs made
+  before sign-in never left the device. Added `pushAllRuns` (mirror of
+  `pullAllRuns`); sign-in now push-then-pull. Stranded runs self-heal on next
+  signed-in open. Degrade-to-free preserved (no-op when sync off).
+- **#209** nature stat arrows — `lib/natures.ts` (all 25 natures, HP never
+  affected, neutrals blank); ▲ raised / ▼ lowered on MonCard stat bars.
+- **#210** RR per-tier boss rosters (RR1 FINISHED) — `rosterByDifficulty`
+  schema + validator (normal==aceLevel, hardcore aceLevel..+3) + tier-aware
+  `milestoneRoster` (`difficultyForPreset` rr-normal→normal / rr-hardcore→
+  hardcore; mainline untouched). Normal+Hardcore teams for 8 gyms + E4 +
+  Champion from Rudo2204 RR v4.1 Showdown gists. Caught + flagged that the
+  research doc's "Normal" sheet was actually Radical Rogue. Rivals/Rocket
+  admins deferred (ambiguous slot; not fabricated).
+- **#211** Continue screen redesign → game-tinted save-file cards w/ live
+  team sprites (`lib/runCard.ts`), status pill, progress chips, empty states.
+- **#212** BDSP completeness I — 17 missing route areas (incl. 219/220/221;
+  N/S + W/E splits) + 68 town/building trainers (Jubilife Trainers' School +
+  TV, all 8 gym interiors, Galactic buildings). bdsp 63→80 areas; +2 species
+  (ledian, granbull). Serebii/Bulbapedia-sourced, low-confidence flagged
+  (route-224 Lv-23 parse anomaly + Natu-swarm mis-parse OMITTED).
+- **#213** weakness display now also shows Resists (½/¼) + Immune (×0) via
+  `lib/typeChart.ts` `resistances()`/`immunities()`. (LAYOUT follow-up: gets
+  unreadable when the resist list is long — redesign in progress, owner
+  choosing between aligned-columns vs multiplier-buckets.)
+- **#214** item access tooltips — optional `access` field (enum field-move
+  slugs) on items + "Requires Surf" badges in ItemsHere; 27 BDSP + 15 LGPE
+  items annotated (SwSh/SV are HM-free). `locationHint` field wired, unused.
+- **#215** placed the 17 new BDSP routes on the Sinnoh map (sinnoh.ts).
+  Coordinates are GEOMETRY-DERIVED (preview tooling was broken all session) —
+  WANT a visual calibration pass.
+- **#216** BDSP completeness II — non-route wild areas. Most already existed
+  w/ tables; created fuego-ironworks + sendoff-spring, added heatran +
+  giratina-altered statics + 3 Ramanas legendaries (latias/latios/mewtwo).
+  bdsp 80→82. Great Marsh (Safari) / Trophy Garden (rotation) rates DEFERRED
+  (need deeper sourcing — don't ship fabricated %s).
+- **#217** dupes-clause species now shown DIMMED, not hidden (owner request):
+  new engine `classifyEncounterPool` (single source of truth;
+  `filterEncounterPool` derives from it) tags each slot available vs
+  excluded:'dupes-clause'. Only dupes dims; version/alpha stay hidden.
+  All-dimmed area still shows species + Skip. RoutesTab + AreaList.
+- **#218** encounter pool grouped BY METHOD — Walking/Surfing/Fishing/Other,
+  real per-method rates (Psyduck: Walking 2% + Surfing 30%, was a misleading
+  merged "walk/surf 30%"). Data was already correct (per-method slots); this
+  was a display fix in EncounterForm's `uniqueSlots`. Fishing rod-tiers
+  broken out; #217 dimming preserved per group.
+- **#219** chore: giratina-altered sprite alias (Showdown uses plain
+  `giratina` for Altered Forme) + this reconcile.
+
+**Follow-ups from this session (not yet done):**
+- **Weakness/resist layout redesign** — #213's stacked layout is unreadable
+  with long lists; owner picking between Option A (aligned label column +
+  compact chips) and Option B (multiplier buckets). Implement in Encounter-
+  adjacent WeaknessRow.tsx + index.css.
+- **BDSP Sinnoh map-node visual calibration** — #215 coords are geometry-
+  derived; nudge against the real backdrop once preview tooling works. Also
+  place the non-route areas (fuego-ironworks etc.) on the map.
+- **Great Marsh + Trophy Garden** precise Safari/rotation encounter rates
+  (deferred in #216); **Old Chateau** ghost-event statics (omitted, unsourced).
+- **RR2** — RR-accurate species data (Showdown gen9rr4.0 override layer);
+  **RR3** — RR Kanto interactive map, tier-conditioned honor rules.
+- Verify standalone `tsc -p apps/web/tsconfig.json` cleanliness (item-tooltips
+  agent noted it lacks engine `paths`; CI/vite/vitest are green — low priority).
+- **Preview MCP tooling was broken all session** (mangled Windows backslash
+  paths, served the main checkout not the worktree, died mid-run) — most
+  visual changes this session were verified via DOM/component tests, not
+  screenshots. Worth an eyeball pass on the live app.
+
 ## RR1–RR3: Radical Red (romhack) support — first out-of-scope game
 
 Full research + design: `docs/RADICAL-RED-RESEARCH.md`. Radical Red is a
