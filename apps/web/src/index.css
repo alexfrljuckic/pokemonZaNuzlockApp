@@ -1312,6 +1312,20 @@ input[aria-invalid='true'] {
   color: var(--muted);
   text-transform: uppercase;
 }
+/* nature stat arrows: raised stat gets a warm ▲, lowered a muted ▼ —
+   theme-aware via CSS vars, never hardcoded colours */
+.statbar-nature {
+  margin-left: 0.15rem;
+  font-size: 0.6rem;
+  line-height: 1;
+  vertical-align: middle;
+}
+.statbar-nature-raised {
+  color: var(--success);
+}
+.statbar-nature-lowered {
+  color: var(--danger);
+}
 .statbar-value {
   font-size: 0.8rem;
   font-weight: 700;
