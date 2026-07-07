@@ -321,18 +321,47 @@ function ownedSpecies(state: RunState): Set<string> {
   return new Set(Object.values(state.pokemon).map((p) => p.species));
 }
 
+/** Why a base-pool slot is currently uncatchable. Only the dupes clause is a
+ * *dynamic* "not available anymore" exclusion (the species/line became owned
+ * mid-run) — version/alpha/first-encounter exclusions are "never in this run"
+ * and are never surfaced as classified entries (they don't enter the base pool
+ * / short-circuit to []). */
+export type EncounterExclusionReason = 'dupes-clause';
+
+/** A base-pool slot tagged with whether it's currently catchable. `available:
+ * false` always carries a `reason`. */
+export interface ClassifiedEncounter {
+  slot: EncounterSlot;
+  available: boolean;
+  reason?: EncounterExclusionReason;
+}
+
 /**
- * The legal encounter pool for an area under the active ruleset.
- * Returns [] if the area's encounter has already been used (first-encounter rule).
+ * The version/alpha/first-encounter-appropriate base pool for an area, with
+ * each slot tagged available vs excluded-by-dupes. Single source of truth for
+ * the encounter-pool rule logic — `filterEncounterPool` is derived from this.
+ *
+ * Returns [] when the area is already resolved under the first-encounter rule
+ * (the area is done — the resolved UI handles it), matching the legacy pool.
+ *
+ * The base pool applies the STATIC exclusions (other-version slots, guaranteed
+ * Alphas when 'alphas-count' is off) — those slots never belong to this run and
+ * are simply absent, never returned as dimmed. The DYNAMIC dupes-clause
+ * exclusion is expressed as `available: false, reason: 'dupes-clause'` so the UI
+ * can still show what lives here while keeping it non-catchable.
  */
-export function filterEncounterPool(state: RunState, area: Area, ctx: EngineContext): EncounterSlot[] {
+export function classifyEncounterPool(
+  state: RunState,
+  area: Area,
+  ctx: EngineContext,
+): ClassifiedEncounter[] {
   const rs = state.ruleset.rules;
 
   if (rs['first-encounter']?.enabled && state.encounterOutcomes[area.id]) {
     return [];
   }
 
-  let pool = area.encounters.filter(
+  let base = area.encounters.filter(
     (slot) => !slot.conditions?.version || slot.conditions.version.includes(state.version),
   );
 
@@ -341,21 +370,38 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
   // before the rule existed keep the pools they already had (absent ≠ off).
   const alphas = rs['alphas-count'];
   if (alphas != null && !alphas.enabled) {
-    pool = pool.filter((slot) => !slot.methods.includes('alpha'));
+    base = base.filter((slot) => !slot.methods.includes('alpha'));
   }
 
   const dupes = rs['dupes-clause'];
-  if (dupes?.enabled) {
-    if (dupes.params.scope === 'evolution-line') {
-      const lines = ownedLines(state, ctx);
-      pool = pool.filter((slot) => !lines.has(ctx.speciesToLine[slot.species] ?? slot.species));
-    } else {
-      const species = ownedSpecies(state);
-      pool = pool.filter((slot) => !species.has(slot.species));
-    }
-  }
+  const byLine = dupes?.enabled && dupes.params.scope === 'evolution-line';
+  const bySpecies = dupes?.enabled && !byLine;
+  const lines = byLine ? ownedLines(state, ctx) : null;
+  const species = bySpecies ? ownedSpecies(state) : null;
 
-  return pool;
+  return base.map((slot) => {
+    const owned = byLine
+      ? lines!.has(ctx.speciesToLine[slot.species] ?? slot.species)
+      : bySpecies
+        ? species!.has(slot.species)
+        : false;
+    return owned
+      ? { slot, available: false, reason: 'dupes-clause' as const }
+      : { slot, available: true };
+  });
+}
+
+/**
+ * The legal encounter pool for an area under the active ruleset.
+ * Returns [] if the area's encounter has already been used (first-encounter rule).
+ *
+ * Derived from `classifyEncounterPool` (single source of truth): the catchable
+ * pool is exactly the classified entries that are still available.
+ */
+export function filterEncounterPool(state: RunState, area: Area, ctx: EngineContext): EncounterSlot[] {
+  return classifyEncounterPool(state, area, ctx)
+    .filter((e) => e.available)
+    .map((e) => e.slot);
 }
 
 /**
