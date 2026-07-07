@@ -2593,6 +2593,250 @@
       ]
     },
     {
+      "id": "fuego-ironworks",
+      "name": "Fuego Ironworks",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "landmark"
+      ],
+      "encounters": [
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "skiploom",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        }
+      ]
+    },
+    {
       "id": "route-205-south",
       "name": "Route 205 (South)",
       "unlockAfter": "gym-1-roark",
@@ -5878,6 +6122,117 @@
         },
         {
           "name": "Rare Candy"
+        }
+      ]
+    },
+    {
+      "id": "sendoff-spring",
+      "name": "Sendoff Spring",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "landmark",
+        "post-game"
+      ],
+      "encounters": [
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "giratina-altered",
+          "methods": [
+            "static"
+          ],
+          "rate": 100
         }
       ]
     },
@@ -15939,6 +16294,13 @@
             "pokeradar"
           ],
           "rate": 12
+        },
+        {
+          "species": "heatran",
+          "methods": [
+            "static"
+          ],
+          "rate": 100
         }
       ],
       "trainers": [
@@ -17796,6 +18158,27 @@
         },
         {
           "species": "rayquaza",
+          "methods": [
+            "static"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "latias",
+          "methods": [
+            "static"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "latios",
+          "methods": [
+            "static"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "mewtwo",
           "methods": [
             "static"
           ],
