@@ -478,7 +478,7 @@ export function RouteMap({
             )}
           </div>
           {hoveredState === 'available' && (
-            <div className="route-tip-cta">{tapPreview ? 'Tap again to resolve encounter' : 'Click to resolve encounter'}</div>
+            <div className="route-tip-cta">{tapPreview ? 'Double-tap to resolve encounter' : 'Click to resolve encounter'}</div>
           )}
         </div>
       )}
@@ -492,7 +492,7 @@ export function RouteMap({
             </span>
           </div>
           <div className="route-tip-cta">
-            {tapPreview ? "Tap again to browse this zone's areas" : "Click to browse this zone's areas"}
+            {tapPreview ? "Double-tap to browse this zone's areas" : "Click to browse this zone's areas"}
           </div>
         </div>
       )}
