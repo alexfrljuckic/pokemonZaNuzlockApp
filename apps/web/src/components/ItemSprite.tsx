@@ -6,7 +6,7 @@ const pretty = (s: string) => s.replace(/-/g, ' ');
 /** Held-item icon (Showdown itemicons). Falls back to "@ name" text if the
  * sprite 404s, so an unknown/custom item still reads. Used in the condensed
  * mon-card meta line. */
-export function ItemSprite({ item, size = 20 }: { item: string; size?: number }) {
+export function ItemSprite({ item, size = 28 }: { item: string; size?: number }) {
   const [failed, setFailed] = useState(false);
   if (failed) return <span className="item-sprite-fallback">@ {pretty(item)}</span>;
   return (
