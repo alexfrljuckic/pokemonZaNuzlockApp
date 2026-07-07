@@ -86,7 +86,7 @@ function TrainerCard({
             </span>
           ))}
         </span>
-        {battled && <span className="trainer-battled-badge">✓</span>}
+        {battled && <span className="trainer-battled-badge">✓ defeated</span>}
       </div>
       {expanded && (
         <div className="trainer-row-detail">

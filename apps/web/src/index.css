@@ -931,8 +931,8 @@ a.run-list-open {
   white-space: nowrap;
 }
 
-.trainer-row.battled .trainer-row-team,
-.trainer-row.battled .trainer-row-sprite { opacity: 0.55; }
+/* Defeated trainers dim the whole row like a cleared Boss Fights card. */
+.trainer-row.battled { opacity: 0.72; }
 
 .trainer-moves-note { font-size: 0.75rem; font-style: italic; }
 
