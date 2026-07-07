@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, resolveTrainerMoves, statsFor, typesFor } from './speciesData';
+import { abilitiesFor, evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, resolveTrainerMoves, statsFor, typesFor } from './speciesData';
 
 // These run against the real generated species-data / machines-by-game
 // artifacts, locking the per-game → union fallback semantics the pickers
@@ -394,5 +394,38 @@ describe('Radical Red per-game stat/type/move overrides', () => {
     // dex for it under 'radical-red'.
     expect(statsFor('venusaur', 'radical-red')).toEqual(statsFor('venusaur'));
     expect(typesFor('venusaur', 'radical-red')).toEqual(typesFor('venusaur'));
+  });
+
+  it('abilitiesFor returns the RR ability set for RR, the global set otherwise', () => {
+    // RR retweaks each species' ability slots. Concrete before → after
+    // (from the gen9rr4.0 pokedex.ts abilities field):
+    //   arbok:     unnerve → strong-jaw (hidden slot)
+    //   farfetchd: keen-eye/defiant → frisk/sharpness
+    //   pidgeot:   keen-eye/tangled-feet/big-pecks → frisk/no-guard
+    expect(abilitiesFor('arbok', 'radical-red')).toEqual(['intimidate', 'shed-skin', 'strong-jaw']);
+    expect(abilitiesFor('farfetchd', 'radical-red')).toEqual(['frisk', 'inner-focus', 'sharpness']);
+    expect(abilitiesFor('pidgeot', 'radical-red')).toEqual(['frisk', 'no-guard']);
+    // The RR set genuinely DIFFERS from the mainline/global value…
+    expect(abilitiesFor('arbok', 'radical-red')).not.toEqual(abilitiesFor('arbok'));
+    expect(abilitiesFor('farfetchd', 'radical-red')).not.toEqual(abilitiesFor('farfetchd'));
+    // …and the mainline value is the untouched PokeAPI set.
+    expect(abilitiesFor('arbok')).toEqual(['intimidate', 'shed-skin', 'unnerve']);
+    expect(abilitiesFor('arbok', 'bdsp')).toEqual(['intimidate', 'shed-skin', 'unnerve']); // other game unaffected
+  });
+
+  it('a species RR does not retweak falls back to the global abilities', () => {
+    // Butterfree carries no `abilities` field in the RR mod, so there's no
+    // 'radical-red' override — abilitiesFor falls back to the global dex.
+    expect(abilitiesFor('butterfree', 'radical-red')).toEqual(abilitiesFor('butterfree'));
+    expect(abilitiesFor('butterfree', 'radical-red')).toEqual(['compound-eyes', 'tinted-lens']);
+    // No gameId also uses the global dex.
+    expect(abilitiesFor('pikachu')).toEqual(['static', 'lightning-rod']);
+  });
+
+  it('keeps RR-custom abilities (no PokeAPI equivalent) as their normalized slug', () => {
+    // Blaziken's RR slot-0 ability is "Striker", an RR-custom ability with no
+    // PokeAPI entry — it's kept verbatim as a normalized slug (the picker is a
+    // free-text combobox; abilities aren't referentially validated).
+    expect(abilitiesFor('blaziken', 'radical-red')).toContain('striker');
   });
 });
