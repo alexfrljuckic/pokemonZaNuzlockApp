@@ -69,7 +69,7 @@ bugs + UX asks + RR1 completion + a big BDSP completeness pass:
 - **#219** chore: giratina-altered sprite alias (Showdown uses plain
   `giratina` for Altered Forme) + this reconcile.
 
-**Shipped 2026-07-07 session, continued (#220–#230, all merged on green CI):**
+**Shipped 2026-07-07 session, continued (#220–#232, all merged on green CI):**
 - **#220** weakness/resist layout redesign — Option A (aligned label column +
   count + per-chip multiplier, hairline between groups). Fixed #213's
   unreadable long-list stacking. WeaknessRow.tsx + index.css.
@@ -99,8 +99,9 @@ bugs + UX asks + RR1 completion + a big BDSP completeness pass:
   checked first in `milestoneRoster`) since RR rivals are starter-dependent
   per tier. RR now 22 milestones. Teams from the Rudo2204 v4.1 gists.
 - **#230** defeated trainers show "✓ defeated" + dim the row like a cleared
-  boss card.
-- **#219** chore reconcile (this file, earlier in the session).
+  boss card; **#232** adds an always-visible "Defeated" mark button on the
+  trainer condensed row (no need to expand), matching the boss cards.
+- **#219 + #231** chore reconciles (this file, earlier in the session).
 
 **RR is now data-complete**: accurate stats/types/movepools/abilities +
 gyms/E4/Champion/rivals/Rocket boss tracking. Preview MCP tooling recovered

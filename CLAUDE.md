@@ -58,14 +58,14 @@ Never merge with either failing.
   when the paid/metered switch is off. See `docs/COSTS.md`.
 - Engine package stays pure TypeScript: no DOM, no network, no Supabase imports.
 
-## Current state (2026-07-07, reconciled after PR #230)
+## Current state (2026-07-07, reconciled after PR #232)
 
-Everything below is on `main`. PRs #3-#230 merged; the numbered backlog is
+Everything below is on `main`. PRs #3-#232 merged; the numbered backlog is
 EMPTY (shipped or deliberately shelved — see docs/BACKLOG.md, still the
 single work tracker). Work from `C:\dev\nuzlocke-app` (OneDrive checkout
 breaks worktrees).
 
-2026-07-07 session (#207–#230, see docs/BACKLOG.md for detail):
+2026-07-07 session (#207–#232, see docs/BACKLOG.md for detail):
 - **Radical Red is now data-complete** — per-tier boss rosters
   (`rosterByDifficulty`, #210), RR-accurate stats/types/movepools (#226) +
   abilities (#228) via per-game override maps parsed from the
@@ -87,7 +87,8 @@ breaks worktrees).
   layout (#213/#220), item HM-access tooltips (#214), held-item sprites in the
   mon row + picker (#223/#224), encounter pool grouped by method with real
   per-method rates (#218), defeated trainers marked "✓ defeated" like bosses
-  (#230), mobile map "double-tap" copy (#207).
+  and markable from the condensed row like bosses (#230/#232), mobile map
+  "double-tap" copy (#207).
 The preview MCP tooling was broken early in the session (served main not the
 worktree) then recovered; visual PRs were re-verified live.
 
