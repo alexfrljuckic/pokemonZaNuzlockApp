@@ -190,3 +190,23 @@ describe('MonCard full-width row layout', () => {
     expect(dead.container.querySelector('.mon-card-death')?.textContent).toContain('a wild Bidoof');
   });
 });
+
+describe('MonCard ability editor', () => {
+  const noop = async () => {};
+  it('shows an Ability picker for games with abilities, hides it for Let\'s Go', async () => {
+    const withAbil = await render(<MonCard p={mon} gameId="bdsp" runId="r1" onChange={noop} />);
+    await withAbil.click(withAbil.container.querySelector('.mon-card-head')!);
+    const bdspLabels = [...withAbil.container.querySelectorAll('label')].map((l) => l.textContent);
+    expect(bdspLabels.some((t) => t?.startsWith('Ability'))).toBe(true);
+
+    const noAbil = await render(<MonCard p={mon} gameId="lgpe" runId="r1" onChange={noop} />);
+    await noAbil.click(noAbil.container.querySelector('.mon-card-head')!);
+    const lgpeLabels = [...noAbil.container.querySelectorAll('label')].map((l) => l.textContent);
+    expect(lgpeLabels.some((t) => t?.startsWith('Ability'))).toBe(false);
+  });
+
+  it('surfaces a set ability in the condensed row', async () => {
+    const { container } = await render(<MonCard p={{ ...mon, ability: 'overgrow' }} gameId="bdsp" />);
+    expect(container.querySelector('.mon-card-meta')?.textContent).toContain('overgrow');
+  });
+});

@@ -205,7 +205,7 @@ export type RunEvent =
   | { seq: number; at: string; type: 'special_reset'; payload: { specialId: string } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
-  | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null } }
+  | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null; ability?: string | null } }
   | { seq: number; at: string; type: 'pokemon_evolved'; payload: { pokemonId: string; toSpecies: string; level?: number } }
   | { seq: number; at: string; type: 'pokemon_evolution_reverted'; payload: { pokemonId: string } }
   | { seq: number; at: string; type: 'pokemon_imported'; payload: { pokemonId: string; species: string; nickname?: string; level?: number; fromRunId: string; retiredSpecies?: string } }
@@ -236,6 +236,7 @@ export interface PokemonInstance {
   heldItem?: string;
   moves?: string[];
   nature?: string;
+  ability?: string;
   shiny?: boolean;
   /** Stack of pre-evolution species (oldest first), maintained by the
    * pokemon_evolved / pokemon_evolution_reverted fold — powers un-evolve.
