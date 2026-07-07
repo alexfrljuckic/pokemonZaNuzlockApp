@@ -1,8 +1,8 @@
-import { filterEncounterPool, frontierAreas, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { classifyEncounterPool, frontierAreas, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { ConfirmAction } from '../ConfirmAction';
 import { AllFilteredOut, hasDocumentedEncounters } from './AllFilteredOut';
 import { CaughtHere } from './CaughtHere';
-import { EncounterForm, type Outcome } from './EncounterForm';
+import { EncounterForm, dupesScope, type Outcome } from './EncounterForm';
 import { ItemsHere } from './ItemsHere';
 import { SpecialsHere } from './SpecialsHere';
 import { TrainersHere } from './TrainersHere';
@@ -37,7 +37,10 @@ export function AreaList({
     <>
       {areas.map((area) => {
         const outcome = state.encounterOutcomes[area.id];
-        const pool = !outcome ? filterEncounterPool(state, area, ctx) : [];
+        // Classified base pool: available species + dupes-dimmed ones (shown,
+        // not hidden). `available` is what the "N available" count reflects.
+        const pool = !outcome ? classifyEncounterPool(state, area, ctx) : [];
+        const availableCount = pool.filter((e) => e.available).length;
 
         return (
           <div key={area.id} className={`area-row${frontier.has(area.id) ? ' area-row-frontier' : ''}`}>
@@ -49,7 +52,7 @@ export function AreaList({
             >
               <span>{area.name}</span>
               {outcome && <span className={`outcome-${outcome}`}>{outcome}</span>}
-              {!outcome && <span className="muted">{pool.length} available</span>}
+              {!outcome && <span className="muted">{availableCount} available</span>}
             </button>
             {openAreaId === area.id &&
               (outcome ? (
@@ -68,8 +71,17 @@ export function AreaList({
                   />
                 </div>
               ) : pool.length > 0 ? (
-                <EncounterForm pool={pool} onResolve={(sp, out, nick, lvl, sh) => onResolve(area, sp, out, nick, lvl, sh)} />
+                // Base pool has species (available or dupes-dimmed) — the form
+                // renders them; dimmed-only areas keep a skip affordance.
+                <EncounterForm
+                  pool={pool}
+                  scope={dupesScope(state)}
+                  onResolve={(sp, out, nick, lvl, sh) => onResolve(area, sp, out, nick, lvl, sh)}
+                  onSkip={() => onResolve(area, '', 'skipped')}
+                />
               ) : hasDocumentedEncounters(area, state.version) ? (
+                // Base pool empty but the area documents encounters (all locked
+                // to the other version / alpha-only) — nothing to show; skip.
                 <AllFilteredOut onSkip={() => onResolve(area, '', 'skipped')} />
               ) : (
                 <p className="muted">No wild encounters documented here.</p>

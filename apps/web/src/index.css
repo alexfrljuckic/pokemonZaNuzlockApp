@@ -1274,6 +1274,27 @@ button.item-chip.item-picked .item-access {
   font-size: 0.72rem;
   color: color-mix(in srgb, var(--muted) 70%, var(--text));
 }
+/* Dupes-clause species: still shown so the player sees what lives here, but
+   dimmed and non-catchable (the clause stands). Reason surfaces in the tag +
+   title/aria-label. Uses theme vars only — no hardcoded colors. */
+.encounter-slot-unavailable {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+.encounter-slot-unavailable:hover { transform: none; border-color: var(--border); }
+.encounter-slot-unavailable-tag {
+  font-size: 0.68rem;
+  font-style: italic;
+  text-align: center;
+  line-height: 1.1;
+  color: color-mix(in srgb, var(--muted) 80%, var(--text));
+}
+/* All species here are dupes-dimmed — keep the skip affordance reachable. */
+.encounter-all-dimmed {
+  margin-top: 0.6rem;
+}
+.encounter-all-dimmed p { margin: 0 0 0.5rem; }
 /* inline invalid-input message (level fields — audit P2 "silent coercion") */
 .field-error {
   display: block;

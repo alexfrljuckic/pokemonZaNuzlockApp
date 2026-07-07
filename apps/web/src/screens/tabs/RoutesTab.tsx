@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { areasForVersion, filterEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { areasForVersion, classifyEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
 import { ConfirmAction } from '../../components/ConfirmAction';
@@ -8,7 +8,7 @@ import { StarterPicker, claimedSpecial, starterHeading } from '../../components/
 import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes/AllFilteredOut';
 import { AreaList } from '../../components/routes/AreaList';
 import { CaughtHere } from '../../components/routes/CaughtHere';
-import { EncounterForm, type Outcome } from '../../components/routes/EncounterForm';
+import { EncounterForm, dupesScope, type Outcome } from '../../components/routes/EncounterForm';
 import { ItemsHere } from '../../components/routes/ItemsHere';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
 import { TrainersHere } from '../../components/routes/TrainersHere';
@@ -96,7 +96,9 @@ export function RoutesTab({
 
   const selected = openAreaId ? areas.find((a) => a.id === openAreaId) ?? null : null;
   const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
-  const selectedPool = selected ? filterEncounterPool(state, selected, ctx) : [];
+  // Classified base pool: available species + dupes-dimmed ones (still shown so
+  // the player sees the full picture of what lives here).
+  const selectedPool = selected ? classifyEncounterPool(state, selected, ctx) : [];
 
   // Zone mode (PLA): areas carry zone:* tags and the map's zone nodes act as
   // group selectors — the list below shows one zone at a time. When the game
@@ -220,8 +222,17 @@ export function RoutesTab({
               />
             </div>
           ) : selectedPool.length > 0 ? (
-            <EncounterForm pool={selectedPool} onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)} />
+            // Base pool has species (available or dupes-dimmed) — the form shows
+            // them all; dimmed-only areas keep a skip affordance inside the form.
+            <EncounterForm
+              pool={selectedPool}
+              scope={dupesScope(state)}
+              onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)}
+              onSkip={() => resolve(selected, '', 'skipped')}
+            />
           ) : hasDocumentedEncounters(selected, state.version) ? (
+            // Base pool empty but the area documents encounters (all locked to
+            // the other version / alpha-only) — nothing to show; skip.
             <AllFilteredOut onSkip={() => resolve(selected, '', 'skipped')} />
           ) : (
             <p className="muted">No wild encounters documented here.</p>
