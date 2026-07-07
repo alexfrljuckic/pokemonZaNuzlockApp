@@ -209,6 +209,26 @@
                 }
               }
             }
+          },
+          "rosterByDifficulty": {
+            "type": "object",
+            "description": "Optional per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed by a difficulty slug (e.g. normal/hardcore). The app picks the variant matching the run's difficulty tier (mapped from the run's presetId: rr-normal→normal, rr-hardcore→hardcore), else falls back to `rosterByStarter`/`roster`. Mainline games omit this and are unaffected. Non-normal tiers may exceed aceLevel (RR Hardcore raises early-gym caps): the validator pins the `normal` variant to aceLevel and allows other tiers aceLevel..aceLevel+3.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["species", "level"],
+                "additionalProperties": false,
+                "properties": {
+                  "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                  "level": { "type": "integer", "minimum": 1 },
+                  "moves": { "type": "array", "items": { "type": "string" } },
+                  "ability": { "type": "string" },
+                  "heldItem": { "type": "string" },
+                  "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                }
+              }
+            }
           }
         }
       }

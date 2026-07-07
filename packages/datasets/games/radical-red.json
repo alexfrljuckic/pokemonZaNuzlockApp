@@ -8883,56 +8883,1951 @@
       "name": "Brock (Pewter Gym, Rock)",
       "type": "gym",
       "order": 1,
-      "aceLevel": 14
+      "aceLevel": 14,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "geodude-alola",
+            "level": 13,
+            "moves": [
+              "bulldoze",
+              "rock-tomb",
+              "spark",
+              "self-destruct"
+            ],
+            "ability": "sturdy",
+            "heldItem": "custap-berry"
+          },
+          {
+            "species": "varoom",
+            "level": 13,
+            "moves": [
+              "gyro-ball",
+              "bulldoze",
+              "toxic",
+              "protect"
+            ],
+            "ability": "overcoat",
+            "heldItem": "air-balloon"
+          },
+          {
+            "species": "onix",
+            "level": 14,
+            "moves": [
+              "rock-tomb",
+              "bulldoze",
+              "sleep-talk"
+            ],
+            "ability": "sturdy",
+            "heldItem": "berry-juice"
+          },
+          {
+            "species": "archen",
+            "level": 12,
+            "moves": [
+              "pluck",
+              "rock-tomb",
+              "bulldoze",
+              "facade"
+            ],
+            "ability": "defeatist",
+            "heldItem": "berry-juice"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "hippopotas",
+            "level": 13,
+            "moves": [
+              "bulldoze",
+              "rock-tomb",
+              "toxic",
+              "slack-off"
+            ],
+            "ability": "sand-stream",
+            "heldItem": "berry-juice"
+          },
+          {
+            "species": "cacnea",
+            "level": 15,
+            "moves": [
+              "power-up-punch",
+              "bullet-seed",
+              "thunder-punch",
+              "pin-missile"
+            ],
+            "ability": "sand-rush",
+            "heldItem": "eviolite"
+          },
+          {
+            "species": "lunatone",
+            "level": 14,
+            "moves": [
+              "ancient-power",
+              "psybeam",
+              "hidden-power",
+              "icy-wind"
+            ],
+            "ability": "levitate",
+            "heldItem": "lum-berry"
+          },
+          {
+            "species": "lileep",
+            "level": 16,
+            "moves": [
+              "stockpile",
+              "recover",
+              "hidden-power",
+              "mega-drain"
+            ],
+            "ability": "suction-cups",
+            "heldItem": "oran-berry"
+          },
+          {
+            "species": "archen",
+            "level": 14,
+            "moves": [
+              "wing-attack",
+              "rock-tomb",
+              "bulldoze",
+              "facade"
+            ],
+            "ability": "defeatist",
+            "heldItem": "iapapa-berry"
+          },
+          {
+            "species": "varoom",
+            "level": 15,
+            "moves": [
+              "bulldoze",
+              "gyro-ball",
+              "toxic",
+              "protect"
+            ],
+            "ability": "overcoat",
+            "heldItem": "air-balloon"
+          }
+        ]
+      }
     },
     {
       "id": "gym-2-misty",
       "name": "Misty (Cerulean Gym, Water)",
       "type": "gym",
       "order": 2,
-      "aceLevel": 27
+      "aceLevel": 27,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "frogadier",
+            "level": 25,
+            "moves": [
+              "ice-punch",
+              "rock-tomb",
+              "flip-turn",
+              "grass-knot"
+            ],
+            "ability": "torrent",
+            "heldItem": "eviolite"
+          },
+          {
+            "species": "floatzel",
+            "level": 25,
+            "moves": [
+              "water-pulse",
+              "flip-turn",
+              "icy-wind",
+              "hidden-power"
+            ],
+            "ability": "water-veil",
+            "heldItem": "mystic-water"
+          },
+          {
+            "species": "starmie",
+            "level": 27,
+            "moves": [
+              "psyshock",
+              "water-pulse",
+              "recover",
+              "aurora-beam"
+            ],
+            "ability": "analytic",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "clodsire",
+            "level": 26,
+            "moves": [
+              "poison-jab",
+              "bulldoze",
+              "rock-tomb",
+              "recover"
+            ],
+            "ability": "water-absorb",
+            "heldItem": "iapapa-berry"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "politoed",
+            "level": 27,
+            "moves": [
+              "flip-turn",
+              "scald",
+              "earthquake",
+              "toxic"
+            ],
+            "ability": "drizzle",
+            "heldItem": "iapapa-berry"
+          },
+          {
+            "species": "ludicolo",
+            "level": 28,
+            "moves": [
+              "giga-drain",
+              "scald",
+              "aurora-beam",
+              "thunder-punch"
+            ],
+            "ability": "swift-swim",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "mantine",
+            "level": 27,
+            "moves": [
+              "scald",
+              "hurricane",
+              "roost",
+              "hidden-power"
+            ],
+            "ability": "swift-swim",
+            "heldItem": "wacan-berry"
+          },
+          {
+            "species": "clodsire",
+            "level": 28,
+            "moves": [
+              "poison-jab",
+              "bulldoze",
+              "recover",
+              "toxic"
+            ],
+            "ability": "water-absorb",
+            "heldItem": "black-sludge"
+          },
+          {
+            "species": "starmie",
+            "level": 28,
+            "moves": [
+              "scald",
+              "thunderbolt",
+              "psyshock",
+              "aurora-beam"
+            ],
+            "ability": "analytic",
+            "heldItem": "mystic-water"
+          },
+          {
+            "species": "toxicroak",
+            "level": 27,
+            "moves": [
+              "swords-dance",
+              "drain-punch",
+              "poison-jab",
+              "sucker-punch"
+            ],
+            "ability": "dry-skin",
+            "heldItem": "life-orb"
+          }
+        ]
+      }
     },
     {
       "id": "gym-3-surge",
       "name": "Lt. Surge (Vermilion Gym, Electric)",
       "type": "gym",
       "order": 3,
-      "aceLevel": 34
+      "aceLevel": 34,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "pincurchin",
+            "level": 32,
+            "moves": [
+              "volt-switch",
+              "scald",
+              "discharge",
+              "hidden-power"
+            ],
+            "ability": "lightning-rod",
+            "heldItem": "terrain-extender"
+          },
+          {
+            "species": "vikavolt",
+            "level": 33,
+            "moves": [
+              "volt-switch",
+              "bug-buzz",
+              "roost",
+              "mud-shot"
+            ],
+            "ability": "levitate",
+            "heldItem": "occa-berry"
+          },
+          {
+            "species": "bellibolt",
+            "level": 33,
+            "moves": [
+              "parabolic-charge",
+              "muddy-water",
+              "thunder-wave",
+              "hidden-power"
+            ],
+            "ability": "electromrphosis",
+            "heldItem": "shuca-berry"
+          },
+          {
+            "species": "pawmot",
+            "level": 33,
+            "moves": [
+              "drain-punch",
+              "thunder-punch",
+              "ice-punch",
+              "mach-punch"
+            ],
+            "ability": "iron-fist",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "manectric",
+            "level": 34,
+            "moves": [
+              "charge-beam",
+              "volt-switch",
+              "flame-burst",
+              "hidden-power"
+            ],
+            "ability": "intimidate",
+            "heldItem": "manectite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "rotom-frost",
+            "level": 35,
+            "moves": [
+              "thunderbolt",
+              "blizzard",
+              "freeze-dry",
+              "nasty-plot"
+            ],
+            "ability": "levitate",
+            "heldItem": "icium-z"
+          },
+          {
+            "species": "electrode-hisui",
+            "level": 36,
+            "moves": [
+              "volt-switch",
+              "hidden-power",
+              "explosion"
+            ],
+            "ability": "reckless",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "raichu-alola",
+            "level": 36,
+            "moves": [
+              "rising-voltage",
+              "psyshock",
+              "nasty-plot",
+              "surf"
+            ],
+            "ability": "surge-surfer",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "hitmonlee",
+            "level": 36,
+            "moves": [
+              "knock-off",
+              "close-combat",
+              "rock-slide",
+              "bulk-up"
+            ],
+            "ability": "unburden",
+            "heldItem": "electric-seed"
+          },
+          {
+            "species": "pawmot",
+            "level": 36,
+            "moves": [
+              "plasma-fists",
+              "mach-punch",
+              "ice-punch",
+              "close-combat"
+            ],
+            "ability": "iron-fist",
+            "heldItem": "punching-glove"
+          },
+          {
+            "species": "ampharos",
+            "level": 36,
+            "moves": [
+              "volt-switch",
+              "dragon-pulse",
+              "focus-blast",
+              "hidden-power"
+            ],
+            "ability": "plus",
+            "heldItem": "ampharosite"
+          }
+        ]
+      }
     },
     {
       "id": "gym-4-erika",
       "name": "Erika (Celadon Gym, Grass)",
       "type": "gym",
       "order": 4,
-      "aceLevel": 44
+      "aceLevel": 44,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "rillaboom",
+            "level": 43,
+            "moves": [
+              "grassy-glide",
+              "u-turn",
+              "high-horsepower",
+              "drain-punch"
+            ],
+            "ability": "overgrow",
+            "heldItem": "terrain-extender"
+          },
+          {
+            "species": "meowscarada",
+            "level": 43,
+            "moves": [
+              "flower-trick",
+              "knock-off",
+              "u-turn",
+              "triple-axel"
+            ],
+            "ability": "overgrow",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "venusaur",
+            "level": 44,
+            "moves": [
+              "giga-drain",
+              "sludge-bomb",
+              "sleep-powder",
+              "earth-power"
+            ],
+            "ability": "overgrow",
+            "heldItem": "venusaurite"
+          },
+          {
+            "species": "meganium",
+            "level": 44,
+            "moves": [
+              "ancient-power",
+              "giga-drain",
+              "dazzling-gleam",
+              "hidden-power"
+            ],
+            "ability": "overgrow",
+            "heldItem": "grassy-seed"
+          },
+          {
+            "species": "electrode-hisui",
+            "level": 44,
+            "moves": [
+              "thunderbolt",
+              "hidden-power",
+              "explosion"
+            ],
+            "ability": "reckless",
+            "heldItem": "life-orb"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "ogerpon-cornerstone-mask",
+            "level": 44,
+            "moves": [
+              "ivy-cudgel",
+              "u-turn",
+              "power-whip",
+              "knock-off"
+            ],
+            "ability": "sturdy",
+            "heldItem": "cornerstone-mask"
+          },
+          {
+            "species": "hawlucha",
+            "level": 44,
+            "moves": [
+              "swords-dance",
+              "acrobatics",
+              "close-combat",
+              "stone-edge"
+            ],
+            "ability": "unburden",
+            "heldItem": "grassy-seed"
+          },
+          {
+            "species": "sceptile",
+            "level": 44,
+            "moves": [
+              "swords-dance",
+              "bullet-seed",
+              "high-horsepower"
+            ],
+            "ability": "overgrow",
+            "heldItem": "sceptilite"
+          },
+          {
+            "species": "toxtricity-amped",
+            "level": 44,
+            "moves": [
+              "boomburst",
+              "volt-switch",
+              "overdrive",
+              "hidden-power"
+            ],
+            "ability": "punk-rock",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "slowbro-galar",
+            "level": 44,
+            "moves": [
+              "thunder-wave",
+              "sludge-bomb",
+              "flamethrower",
+              "teleport"
+            ],
+            "ability": "regenerator",
+            "heldItem": "black-sludge"
+          },
+          {
+            "species": "kartana",
+            "level": 44,
+            "moves": [
+              "swords-dance",
+              "grassy-glide",
+              "cut",
+              "sacred-sword"
+            ],
+            "ability": "beast-boost",
+            "heldItem": "life-orb"
+          }
+        ]
+      }
     },
     {
       "id": "gym-5-sabrina",
       "name": "Sabrina (Saffron Gym, Psychic)",
       "type": "gym",
       "order": 5,
-      "aceLevel": 59
+      "aceLevel": 59,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "hatterene",
+            "level": 57,
+            "moves": [
+              "trick-room",
+              "expanding-force",
+              "draining-kiss",
+              "mystical-fire"
+            ],
+            "ability": "magic-bounce",
+            "heldItem": "psychic-seed"
+          },
+          {
+            "species": "indeedee-female",
+            "level": 57,
+            "moves": [
+              "expanding-force",
+              "hyper-voice",
+              "mystical-fire",
+              "shadow-ball"
+            ],
+            "ability": "psychic-surge",
+            "heldItem": "terrain-extender"
+          },
+          {
+            "species": "brute-bonnet",
+            "level": 58,
+            "moves": [
+              "knock-off",
+              "leaf-blade",
+              "close-combat",
+              "spore"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "porygon2",
+            "level": 58,
+            "moves": [
+              "trick-room",
+              "teleport",
+              "ice-beam",
+              "thunderbolt"
+            ],
+            "ability": "trace",
+            "heldItem": "eviolite"
+          },
+          {
+            "species": "ursaluna",
+            "level": 59,
+            "moves": [
+              "protect",
+              "high-horsepower",
+              "facade",
+              "crunch"
+            ],
+            "ability": "guts",
+            "heldItem": "flame-orb"
+          },
+          {
+            "species": "gardevoir",
+            "level": 59,
+            "moves": [
+              "hyper-voice",
+              "expanding-force",
+              "shadow-ball",
+              "trick-room"
+            ],
+            "ability": "trace",
+            "heldItem": "gardevoirite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "tapu-fini",
+            "level": 59,
+            "moves": [
+              "misty-explosion",
+              "muddy-water",
+              "moonblast",
+              "flip-turn"
+            ],
+            "ability": "misty-surge",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "camerupt",
+            "level": 59,
+            "moves": [
+              "flamethrower",
+              "earth-power",
+              "steam-eruption",
+              "slack-off"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "cameruptite"
+          },
+          {
+            "species": "glastrier",
+            "level": 59,
+            "moves": [
+              "swords-dance",
+              "ice-hammer",
+              "close-combat",
+              "high-horsepower"
+            ],
+            "ability": "moxie",
+            "heldItem": "iapapa-berry"
+          },
+          {
+            "species": "magearna",
+            "level": 59,
+            "moves": [
+              "moonblast",
+              "flash-cannon",
+              "focus-blast",
+              "thunderbolt"
+            ],
+            "ability": "soul-heart",
+            "heldItem": "fightinium-z"
+          },
+          {
+            "species": "iron-hands",
+            "level": 59,
+            "moves": [
+              "drain-punch",
+              "plasma-fists",
+              "knock-off",
+              "ice-punch"
+            ],
+            "ability": "quark-drive",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "jellicent-male",
+            "level": 59,
+            "moves": [
+              "water-spout",
+              "shadow-ball",
+              "strength-sap",
+              "hydro-pump"
+            ],
+            "ability": "water-bubble",
+            "heldItem": "mystic-water"
+          }
+        ]
+      }
     },
     {
       "id": "gym-6-koga",
       "name": "Koga (Fuchsia Gym, Poison)",
       "type": "gym",
       "order": 6,
-      "aceLevel": 68
+      "aceLevel": 68,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "swellow",
+            "level": 67,
+            "moves": [
+              "boomburst",
+              "u-turn"
+            ],
+            "ability": "guts",
+            "heldItem": "choice-specs"
+          },
+          {
+            "species": "accelgor",
+            "level": 68,
+            "moves": [
+              "bug-buzz",
+              "u-turn",
+              "focus-blast",
+              "sludge-bomb"
+            ],
+            "ability": "sheer-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "greninja",
+            "level": 68,
+            "moves": [
+              "hydro-pump",
+              "water-shuriken",
+              "dark-pulse",
+              "ice-beam"
+            ],
+            "ability": "battle-bond",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "drapion",
+            "level": 68,
+            "moves": [
+              "wicked-blow",
+              "cross-poison"
+            ],
+            "ability": "sniper",
+            "heldItem": "choice-scarf"
+          },
+          {
+            "species": "iron-valiant",
+            "level": 68,
+            "moves": [
+              "close-combat",
+              "spirit-break",
+              "knock-off",
+              "liquidation"
+            ],
+            "ability": "quark-drive",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "toxtricity-amped",
+            "level": 68,
+            "moves": [
+              "boomburst",
+              "overdrive",
+              "sludge-bomb",
+              "hidden-power"
+            ],
+            "ability": "punk-rock",
+            "heldItem": "toxtricitite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "tapu-lele",
+            "level": 68,
+            "moves": [
+              "psyshock",
+              "moonblast",
+              "focus-blast",
+              "hidden-power"
+            ],
+            "ability": "psychic-surge",
+            "heldItem": "twisted-spoon"
+          },
+          {
+            "species": "hoopa-unbound",
+            "level": 68,
+            "moves": [
+              "dark-pulse",
+              "expanding-force",
+              "thunderbolt",
+              "focus-blast"
+            ],
+            "ability": "magician",
+            "heldItem": "darkinium-z"
+          },
+          {
+            "species": "krookodile",
+            "level": 68,
+            "moves": [
+              "wicked-blow",
+              "earthquake",
+              "close-combat",
+              "stone-edge"
+            ],
+            "ability": "moxie",
+            "heldItem": "black-glasses"
+          },
+          {
+            "species": "chi-yu",
+            "level": 68,
+            "moves": [
+              "dark-pulse",
+              "flamethrower",
+              "psychic",
+              "hidden-power"
+            ],
+            "ability": "beads-of-ruin",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "nidoking",
+            "level": 68,
+            "moves": [
+              "earth-power",
+              "poison-jab",
+              "ice-beam",
+              "thunderbolt"
+            ],
+            "ability": "sheer-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "toxtricity-amped",
+            "level": 68,
+            "moves": [
+              "boomburst",
+              "overdrive",
+              "drain-punch",
+              "hidden-power"
+            ],
+            "ability": "punk-rock",
+            "heldItem": "toxtricitite"
+          }
+        ]
+      }
     },
     {
       "id": "gym-7-blaine",
       "name": "Blaine (Cinnabar Gym, Fire)",
       "type": "gym",
       "order": 7,
-      "aceLevel": 76
+      "aceLevel": 76,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "armarouge",
+            "level": 75,
+            "moves": [
+              "armor-cannon",
+              "psyshock",
+              "aura-sphere",
+              "energy-ball"
+            ],
+            "ability": "mega-launcher",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "slither-wing",
+            "level": 76,
+            "moves": [
+              "first-impression",
+              "u-turn",
+              "close-combat",
+              "flare-blitz"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "exeggutor",
+            "level": 76,
+            "moves": [
+              "growth",
+              "giga-drain",
+              "psyshock",
+              "weather-ball"
+            ],
+            "ability": "chlorophyll",
+            "heldItem": "lum-berry"
+          },
+          {
+            "species": "typhlosion",
+            "level": 76,
+            "moves": [
+              "eruption",
+              "flamethrower",
+              "hidden-power",
+              "focus-blast"
+            ],
+            "ability": "flash-fire",
+            "heldItem": "heavy-duty-boots"
+          },
+          {
+            "species": "ogerpon-hearthflame-mask",
+            "level": 76,
+            "moves": [
+              "ivy-cudgel",
+              "horn-leech",
+              "knock-off",
+              "u-turn"
+            ],
+            "ability": "mold-breaker",
+            "heldItem": "hearthflame-mask"
+          },
+          {
+            "species": "charizard",
+            "level": 76,
+            "moves": [
+              "flamethrower",
+              "air-slash",
+              "solar-beam",
+              "dragon-pulse"
+            ],
+            "ability": "blaze",
+            "heldItem": "charzardite-y"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "sandy-shocks",
+            "level": 76,
+            "moves": [
+              "earth-power",
+              "volt-switch",
+              "thunderbolt",
+              "hidden-power"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "shuca-berry"
+          },
+          {
+            "species": "great-tusk",
+            "level": 76,
+            "moves": [
+              "ice-spinner",
+              "knock-off",
+              "headlong-rush",
+              "close-combat"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "fighting-gem"
+          },
+          {
+            "species": "walking-wake",
+            "level": 76,
+            "moves": [
+              "hydro-steam",
+              "flamethrower",
+              "sleep-talk"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "water-gem"
+          },
+          {
+            "species": "venusaur",
+            "level": 76,
+            "moves": [
+              "growth",
+              "solar-beam",
+              "sludge-bomb",
+              "weather-ball"
+            ],
+            "ability": "overgrow",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "ho-oh",
+            "level": 76,
+            "moves": [
+              "sacred-fire",
+              "brave-bird",
+              "earthquake",
+              "solar-beam"
+            ],
+            "ability": "phoenix-down",
+            "heldItem": "flyinium-z"
+          },
+          {
+            "species": "charizard",
+            "level": 76,
+            "moves": [
+              "dragon-dance",
+              "flare-blitz",
+              "dragon-claw",
+              "earthquake"
+            ],
+            "ability": "blaze",
+            "heldItem": "charzardite-x"
+          }
+        ]
+      }
     },
     {
       "id": "gym-8-clair",
       "name": "Clair (Viridian Gym, Dragon)",
       "type": "gym",
       "order": 8,
-      "aceLevel": 81
+      "aceLevel": 81,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "aerodactyl",
+            "level": 80,
+            "moves": [
+              "stealth-rock",
+              "stone-edge",
+              "earthquake",
+              "taunt"
+            ],
+            "ability": "unnerve",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "roaring-moon",
+            "level": 81,
+            "moves": [
+              "dragon-dance",
+              "crunch",
+              "earthquake",
+              "iron-head"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "dragonite",
+            "level": 80,
+            "moves": [
+              "extreme-speed",
+              "dragon-dance",
+              "fire-punch",
+              "dual-wingbeat"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "weakness-policy"
+          },
+          {
+            "species": "magearna",
+            "level": 81,
+            "moves": [
+              "shift-gear",
+              "fleur-cannon",
+              "flash-cannon",
+              "aura-sphere"
+            ],
+            "ability": "soul-heart",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "gouging-fire",
+            "level": 81,
+            "moves": [
+              "dragon-dance",
+              "flare-blitz",
+              "earthquake",
+              "dragon-claw"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "naganadel",
+            "level": 81,
+            "moves": [
+              "flamethrower",
+              "nasty-plot",
+              "sludge-wave",
+              "draco-meteor"
+            ],
+            "ability": "beast-boost",
+            "heldItem": "life-orb"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "shuckle",
+            "level": 81,
+            "moves": [
+              "stealth-rock",
+              "sticky-web",
+              "knock-off",
+              "toxic"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "roaring-moon",
+            "level": 81,
+            "moves": [
+              "dragon-dance",
+              "knock-off",
+              "earthquake",
+              "scale-shot"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "magearna",
+            "level": 81,
+            "moves": [
+              "shift-gear",
+              "moonblast",
+              "thunderbolt",
+              "aura-sphere"
+            ],
+            "ability": "soul-heart",
+            "heldItem": "weakness-policy"
+          },
+          {
+            "species": "necrozma-dusk",
+            "level": 81,
+            "moves": [
+              "dragon-dance",
+              "photon-geyser",
+              "earthquake",
+              "dragon-hammer"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "necrozium-z"
+          },
+          {
+            "species": "eternatus",
+            "level": 81,
+            "moves": [
+              "dynamax-cannon",
+              "meteor-beam",
+              "flamethrower",
+              "recover"
+            ],
+            "ability": "pressure",
+            "heldItem": "power-herb"
+          },
+          {
+            "species": "archaludon",
+            "level": 81,
+            "moves": [
+              "draco-meteor",
+              "steel-beam",
+              "thunderbolt",
+              "body-press"
+            ],
+            "ability": "bad-company",
+            "heldItem": "assault-vest"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4-lorelei",
+      "name": "Elite Four Lorelei (Ice)",
+      "type": "elite-four",
+      "order": 9,
+      "aceLevel": 85,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "ninetales-alola",
+            "level": 85,
+            "moves": [
+              "blizzard",
+              "aurora-veil",
+              "freeze-dry",
+              "snowscape"
+            ],
+            "ability": "serene-grace",
+            "heldItem": "light-clay"
+          },
+          {
+            "species": "glaceon",
+            "level": 85,
+            "moves": [
+              "blizzard",
+              "freeze-dry",
+              "earth-power",
+              "hidden-power"
+            ],
+            "ability": "ice-body",
+            "heldItem": "choice-specs"
+          },
+          {
+            "species": "rotom-wash",
+            "level": 85,
+            "moves": [
+              "thunder-wave",
+              "volt-switch",
+              "scald",
+              "thunderbolt"
+            ],
+            "ability": "levitate",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "calyrex-ice",
+            "level": 85,
+            "moves": [
+              "glacial-lance",
+              "zen-headbutt",
+              "seed-bomb",
+              "high-horsepower"
+            ],
+            "ability": "as-one",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "abomasnow",
+            "level": 85,
+            "moves": [
+              "blizzard",
+              "giga-drain",
+              "focus-blast",
+              "hidden-power"
+            ],
+            "ability": "snow-warning",
+            "heldItem": "abomasite"
+          },
+          {
+            "species": "baxcalibur",
+            "level": 85,
+            "moves": [
+              "glaive-rush",
+              "ice-shard",
+              "icicle-crash",
+              "protect"
+            ],
+            "ability": "thermalexchange",
+            "heldItem": "dragon-fang"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "glaceon",
+            "level": 85,
+            "moves": [
+              "blizzard",
+              "earth-power",
+              "freeze-dry",
+              "hidden-power"
+            ],
+            "ability": "ice-body",
+            "heldItem": "choice-specs"
+          },
+          {
+            "species": "landorus-therian",
+            "level": 85,
+            "moves": [
+              "high-horsepower",
+              "stone-edge",
+              "u-turn",
+              "knock-off"
+            ],
+            "ability": "intimidate",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "chien-pao",
+            "level": 85,
+            "moves": [
+              "icicle-crash",
+              "knock-off",
+              "sacred-sword",
+              "ice-shard"
+            ],
+            "ability": "sword-of-ruin",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "tapu-fini",
+            "level": 85,
+            "moves": [
+              "calm-mind",
+              "muddy-water",
+              "moonblast",
+              "blizzard"
+            ],
+            "ability": "misty-surge",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "kyurem-white",
+            "level": 85,
+            "moves": [
+              "blizzard",
+              "fusion-flare",
+              "freeze-dry"
+            ],
+            "ability": "mold-breaker",
+            "heldItem": "dragonium-z"
+          },
+          {
+            "species": "abomasnow",
+            "level": 85,
+            "moves": [
+              "giga-drain",
+              "blizzard",
+              "earthquake",
+              "hidden-power"
+            ],
+            "ability": "snow-warning",
+            "heldItem": "abomasite"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4-bruno",
+      "name": "Elite Four Bruno (Fighting)",
+      "type": "elite-four",
+      "order": 10,
+      "aceLevel": 85,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "infernape",
+            "level": 85,
+            "moves": [
+              "stealth-rock",
+              "pyro-ball",
+              "close-combat",
+              "taunt"
+            ],
+            "ability": "blaze",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "urshifu-single-strike",
+            "level": 85,
+            "moves": [
+              "wicked-blow",
+              "swords-dance",
+              "close-combat",
+              "sucker-punch"
+            ],
+            "ability": "unseen-fist",
+            "heldItem": "black-glasses"
+          },
+          {
+            "species": "kommo-o",
+            "level": 85,
+            "moves": [
+              "clanging-scales",
+              "clangorous-soul",
+              "aura-sphere",
+              "flash-cannon"
+            ],
+            "ability": "overcoat",
+            "heldItem": "throat-spray"
+          },
+          {
+            "species": "iron-valiant",
+            "level": 85,
+            "moves": [
+              "moonblast",
+              "thunderbolt",
+              "aura-sphere",
+              "shadow-ball"
+            ],
+            "ability": "quark-drive",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "zacian-crowned",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "behemoth-blade",
+              "close-combat",
+              "wild-charge"
+            ],
+            "ability": "intrepid-sword",
+            "heldItem": "rusty-sword"
+          },
+          {
+            "species": "lucario",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "close-combat",
+              "bullet-punch",
+              "meteor-mash"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "lucarionite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "infernape",
+            "level": 85,
+            "moves": [
+              "stealth-rock",
+              "pyro-ball",
+              "close-combat",
+              "thunder-punch"
+            ],
+            "ability": "blaze",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "zeraora",
+            "level": 85,
+            "moves": [
+              "bulk-up",
+              "drain-punch",
+              "plasma-fists",
+              "knock-off"
+            ],
+            "ability": "volt-absorb",
+            "heldItem": "misty-seed"
+          },
+          {
+            "species": "iron-valiant",
+            "level": 85,
+            "moves": [
+              "calm-mind",
+              "moonblast",
+              "psyshock",
+              "shadow-ball"
+            ],
+            "ability": "quark-drive",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "necrozma-dusk",
+            "level": 85,
+            "moves": [
+              "dragon-dance",
+              "sunsteel-strike",
+              "earthquake",
+              "stone-edge"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "weakness-policy"
+          },
+          {
+            "species": "zacian-crowned",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "behemoth-blade",
+              "close-combat",
+              "wild-charge"
+            ],
+            "ability": "intrepid-sword",
+            "heldItem": "rusty-sword"
+          },
+          {
+            "species": "lucario",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "close-combat",
+              "bullet-punch",
+              "meteor-mash"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "lucarionite"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4-agatha",
+      "name": "Elite Four Agatha (Ghost)",
+      "type": "elite-four",
+      "order": 11,
+      "aceLevel": 85,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "zoroark",
+            "level": 85,
+            "moves": [
+              "dark-pulse",
+              "flamethrower",
+              "sludge-bomb",
+              "taunt"
+            ],
+            "ability": "illusion",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "gholdengo",
+            "level": 85,
+            "moves": [
+              "nasty-plot",
+              "shadow-ball",
+              "make-it-rain",
+              "focus-blast"
+            ],
+            "ability": "good-as-gold",
+            "heldItem": "air-balloon"
+          },
+          {
+            "species": "marshadow",
+            "level": 85,
+            "moves": [
+              "spectral-thief",
+              "close-combat",
+              "shadow-sneak",
+              "bulk-up"
+            ],
+            "ability": "technician",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "flutter-mane",
+            "level": 85,
+            "moves": [
+              "shadow-ball",
+              "moonblast",
+              "mystical-fire",
+              "psyshock"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "chien-pao",
+            "level": 85,
+            "moves": [
+              "crunch",
+              "icicle-crash",
+              "ice-shard",
+              "sacred-sword"
+            ],
+            "ability": "sword-of-ruin",
+            "heldItem": "black-glasses"
+          },
+          {
+            "species": "gengar",
+            "level": 85,
+            "moves": [
+              "shadow-ball",
+              "sludge-wave",
+              "aura-sphere",
+              "nasty-plot"
+            ],
+            "ability": "levitate",
+            "heldItem": "gengarite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "krookodile",
+            "level": 85,
+            "moves": [
+              "stealth-rock",
+              "earthquake",
+              "knock-off",
+              "stone-edge"
+            ],
+            "ability": "intimidate",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "mewtwo",
+            "level": 85,
+            "moves": [
+              "drain-punch",
+              "expanding-force",
+              "stone-edge",
+              "bulk-up"
+            ],
+            "ability": "pressure",
+            "heldItem": "mewtwonite-x"
+          },
+          {
+            "species": "yveltal",
+            "level": 85,
+            "moves": [
+              "oblivion-wing",
+              "heat-wave",
+              "u-turn"
+            ],
+            "ability": "dark-aura",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "flutter-mane",
+            "level": 85,
+            "moves": [
+              "shadow-ball",
+              "moonblast",
+              "mystical-fire",
+              "psyshock"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "victini",
+            "level": 85,
+            "moves": [
+              "celebrate",
+              "expanding-force",
+              "pyro-ball",
+              "focus-blast"
+            ],
+            "ability": "victory-star",
+            "heldItem": "normalium-z"
+          },
+          {
+            "species": "calyrex-shadow",
+            "level": 85,
+            "moves": [
+              "draining-kiss",
+              "expanding-force",
+              "astral-barrage",
+              "nasty-plot"
+            ],
+            "ability": "as-one",
+            "heldItem": "colbur-berry"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4-lance",
+      "name": "Elite Four Lance (Dragon)",
+      "type": "elite-four",
+      "order": 12,
+      "aceLevel": 85,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "aerodactyl",
+            "level": 85,
+            "moves": [
+              "stealth-rock",
+              "earthquake",
+              "stone-edge",
+              "taunt"
+            ],
+            "ability": "pressure",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "melmetal",
+            "level": 85,
+            "moves": [
+              "double-iron-bash",
+              "ice-punch",
+              "earthquake",
+              "thunder-punch"
+            ],
+            "ability": "iron-fist",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "iron-jugulis",
+            "level": 85,
+            "moves": [
+              "aeroblast",
+              "earth-power",
+              "flamethrower"
+            ],
+            "ability": "quark-drive",
+            "heldItem": "booster-energy"
+          },
+          {
+            "species": "dragonite",
+            "level": 85,
+            "moves": [
+              "dragon-dance",
+              "dual-wingbeat",
+              "earthquake",
+              "extreme-speed"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "weakness-policy"
+          },
+          {
+            "species": "dialga",
+            "level": 85,
+            "moves": [
+              "roar-of-time",
+              "flash-cannon",
+              "rest",
+              "sleep-talk"
+            ],
+            "ability": "pressure",
+            "heldItem": "adamant-orb"
+          },
+          {
+            "species": "salamence",
+            "level": 85,
+            "moves": [
+              "dragon-dance",
+              "double-edge",
+              "earthquake",
+              "fire-fang"
+            ],
+            "ability": "intimidate",
+            "heldItem": "salamencite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "glimmora",
+            "level": 85,
+            "moves": [
+              "stealth-rock",
+              "power-gem",
+              "earth-power",
+              "energy-ball"
+            ],
+            "ability": "toxic-debris",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "melmetal",
+            "level": 85,
+            "moves": [
+              "double-iron-bash",
+              "ice-punch",
+              "earthquake",
+              "thunder-punch"
+            ],
+            "ability": "iron-fist",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "arceus",
+            "level": 85,
+            "moves": [
+              "calm-mind",
+              "judgment",
+              "flamethrower",
+              "recover"
+            ],
+            "ability": "multitype",
+            "heldItem": "pixie-plate"
+          },
+          {
+            "species": "dragonite",
+            "level": 85,
+            "moves": [
+              "dragon-dance",
+              "dual-wingbeat",
+              "earthquake",
+              "extreme-speed"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "lum-berry"
+          },
+          {
+            "species": "dialga",
+            "level": 85,
+            "moves": [
+              "roar-of-time",
+              "flash-cannon",
+              "rest",
+              "sleep-talk"
+            ],
+            "ability": "pressure",
+            "heldItem": "adamant-orb"
+          },
+          {
+            "species": "rayquaza",
+            "level": 85,
+            "moves": [
+              "extreme-speed",
+              "flamethrower",
+              "earthquake",
+              "dragon-ascent"
+            ],
+            "ability": "cloud-nine",
+            "heldItem": "sharp-beak"
+          }
+        ]
+      }
+    },
+    {
+      "id": "champion-terry",
+      "name": "Champion Terry",
+      "type": "champion",
+      "order": 13,
+      "aceLevel": 85,
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "pheromosa",
+            "level": 85,
+            "moves": [
+              "close-combat",
+              "u-turn",
+              "triple-axel",
+              "poison-jab"
+            ],
+            "ability": "beast-boost",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "metagross",
+            "level": 85,
+            "moves": [
+              "meteor-mash",
+              "bullet-punch",
+              "zen-headbutt",
+              "fire-punch"
+            ],
+            "ability": "clear-body",
+            "heldItem": "metagrossite"
+          },
+          {
+            "species": "koraidon",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "collision-course",
+              "dragon-claw",
+              "flare-blitz"
+            ],
+            "ability": "orichalcumpulse",
+            "heldItem": "lum-berry"
+          },
+          {
+            "species": "yveltal",
+            "level": 85,
+            "moves": [
+              "oblivion-wing",
+              "heat-wave",
+              "sucker-punch"
+            ],
+            "ability": "dark-aura",
+            "heldItem": "assault-vest"
+          },
+          {
+            "species": "eternatus",
+            "level": 85,
+            "moves": [
+              "meteor-beam",
+              "sludge-wave",
+              "dynamax-cannon",
+              "flamethrower"
+            ],
+            "ability": "pressure",
+            "heldItem": "power-herb"
+          },
+          {
+            "species": "ditto",
+            "level": 85,
+            "moves": [
+              "transform"
+            ],
+            "ability": "limber",
+            "heldItem": "choice-scarf"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "kyogre",
+            "level": 85,
+            "moves": [
+              "origin-pulse",
+              "ice-beam",
+              "thunder",
+              "liquidation"
+            ],
+            "ability": "drizzle",
+            "heldItem": "blue-orb"
+          },
+          {
+            "species": "swampert",
+            "level": 85,
+            "moves": [
+              "waterfall",
+              "earthquake",
+              "ice-punch",
+              "stone-edge"
+            ],
+            "ability": "torrent",
+            "heldItem": "swampertite"
+          },
+          {
+            "species": "eternatus",
+            "level": 85,
+            "moves": [
+              "sludge-wave",
+              "thunder",
+              "recover"
+            ],
+            "ability": "pressure",
+            "heldItem": "eternamax-orb"
+          },
+          {
+            "species": "necrozma-dawn",
+            "level": 85,
+            "moves": [
+              "dragon-dance",
+              "photon-geyser",
+              "earthquake",
+              "stone-edge"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "necrozium-z"
+          },
+          {
+            "species": "arceus",
+            "level": 85,
+            "moves": [
+              "swords-dance",
+              "extreme-speed",
+              "shadow-claw",
+              "recover"
+            ],
+            "ability": "multitype",
+            "heldItem": "normalium-z"
+          },
+          {
+            "species": "walking-wake",
+            "level": 85,
+            "moves": [
+              "hydro-pump",
+              "flamethrower",
+              "hurricane"
+            ],
+            "ability": "protosynthesis",
+            "heldItem": "booster-energy"
+          }
+        ]
+      }
     }
   ],
   "mechanics": {

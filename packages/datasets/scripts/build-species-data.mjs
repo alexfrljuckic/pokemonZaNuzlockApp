@@ -79,6 +79,7 @@ for (const f of readdirSync(gamesDir).filter((n) => n.endsWith('.json'))) {
   for (const m of game.milestones ?? []) {
     for (const p of m.roster ?? []) addMon(p);
     for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) addMon(p);
+    for (const variant of Object.values(m.rosterByDifficulty ?? {})) for (const p of variant) addMon(p);
   }
 }
 const slugs = [...species].sort();

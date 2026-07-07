@@ -101,6 +101,11 @@ export interface Milestone {
   /** Per-player-starter roster variants (rival battles), keyed by the player's
    * chosen starter species slug. UI picks the matching variant, else `roster`. */
   rosterByStarter?: Record<string, MilestoneRosterMember[]>;
+  /** Per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed
+   * by a difficulty slug (normal/hardcore). UI picks the variant matching the
+   * run's tier (mapped from presetId), else falls back to rosterByStarter/roster.
+   * Mainline games omit this and are unaffected. */
+  rosterByDifficulty?: Record<string, MilestoneRosterMember[]>;
   /** Version gating for a milestone present in only one version (e.g. SV's
    * Area Zero finale or the version-split Quaking Earth Titan). Absent = shown
    * regardless of version. dlc: true = only shown when the run's
