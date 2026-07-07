@@ -254,17 +254,20 @@ if (existsSync(zaFile)) {
 // games (the app falls back to the global dex).
 const statsByGame = {};
 const typesByGame = {};
+const abilitiesByGame = {};
 const rrFile = join(outDir, 'radical-red-species.json');
 if (existsSync(rrFile)) {
   const rr = JSON.parse(readFileSync(rrFile, 'utf8'));
   if (rr.statsByGame && Object.keys(rr.statsByGame).length) statsByGame['radical-red'] = rr.statsByGame;
   if (rr.typesByGame && Object.keys(rr.typesByGame).length) typesByGame['radical-red'] = rr.typesByGame;
+  if (rr.abilities && Object.keys(rr.abilities).length) abilitiesByGame['radical-red'] = rr.abilities;
   if (rr.movesByGame && Object.keys(rr.movesByGame).length) movesByGame['radical-red'] = rr.movesByGame;
   if (rr.levelUpMovesByGame && Object.keys(rr.levelUpMovesByGame).length)
     levelUpMovesByGame['radical-red'] = rr.levelUpMovesByGame;
   console.log(
     `merged Radical Red overrides: ${Object.keys(rr.statsByGame ?? {}).length} stats, ` +
-      `${Object.keys(rr.typesByGame ?? {}).length} types, ${Object.keys(rr.movesByGame ?? {}).length} movepools`,
+      `${Object.keys(rr.typesByGame ?? {}).length} types, ${Object.keys(rr.abilities ?? {}).length} abilities, ` +
+      `${Object.keys(rr.movesByGame ?? {}).length} movepools`,
   );
 }
 
@@ -287,6 +290,7 @@ const out = {
   evolutions: sortObj(evolutions),
   heldItems,
   abilities: sortObj(abilities),
+  abilitiesByGame: sortNested(abilitiesByGame),
 };
 const outFile = join(outDir, 'species-data.json');
 writeFileSync(outFile, JSON.stringify(out) + '\n');

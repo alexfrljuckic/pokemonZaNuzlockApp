@@ -36,10 +36,22 @@
 // validated — an unmappable move is DROPPED and reported (never emitted, would
 // fail validate:datasets).
 //
+// Abilities: RR retweaks many species' ability sets. Showdown stores them as
+// `abilities: {0: "Intimidate", 1: "Moxie", H: "Compound Eyes"}` (0/1 regular
+// slots, H hidden). Even on an `inherit:true` entry an `abilities` field is a
+// FULL REPLACEMENT (not a partial delta), so we emit an override only for
+// species that actually carry one. Each name is normalized to a PokeAPI ability
+// slug (lowercase, spaces->hyphens, apostrophes/periods stripped:
+// "Compound Eyes" -> "compound-eyes", "Lightning Rod" -> "lightning-rod").
+// RR-custom abilities with no PokeAPI equivalent are kept as their normalized
+// slug (the picker is a free-text combobox; abilities aren't referentially
+// validated) and reported so they can be eyeballed.
+//
 // Output (merged into species-data.json by build-species-data.mjs):
 //   {
 //     statsByGame:        { "<slug>": {hp,attack,defense,special-attack,special-defense,speed} },
 //     typesByGame:        { "<slug>": ["type", ...] },
+//     abilities:          { "<slug>": ["ability-slug", ...] },    // slot order incl. hidden
 //     movesByGame:        { "<slug>": ["move-slug", ...] },       // full pool
 //     levelUpMovesByGame: { "<slug>": [["move-slug", level], ...] } // sorted by level
 //   }
@@ -100,6 +112,19 @@ function parseShowdownModule(src) {
 // nidoran-f -> nidoranf, farfetchd -> farfetchd, ho-oh -> hooh). ---
 const toId = (s) => s.toLowerCase().replace(/[^a-z0-9]/g, '');
 
+// --- Ability-name -> PokeAPI ability slug. PokeAPI slugs are the lowercased
+// name with spaces -> hyphens and apostrophes/periods stripped
+// ("Compound Eyes" -> "compound-eyes", "Lightning Rod" -> "lightning-rod").
+// Any other punctuation collapses to a hyphen too, and repeated/edge hyphens
+// are trimmed. RR-custom abilities with no PokeAPI equivalent still normalize
+// cleanly and are kept as-is (the picker is free-text). ---
+const toAbilitySlug = (name) =>
+  name
+    .toLowerCase()
+    .replace(/['.]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
 async function main() {
   const speciesData = JSON.parse(readFileSync(join(outDir, 'species-data.json'), 'utf8'));
   const baseStats = speciesData.stats;
@@ -156,16 +181,25 @@ async function main() {
   const pokedex = parseShowdownModule(pokedexSrc);
   const learnsets = parseShowdownModule(learnsetsSrc);
 
+  // Set of known PokeAPI ability slugs — the union of every ability across the
+  // base `abilities` dex in species-data.json. Used only to flag RR abilities
+  // that DON'T correspond to a real PokeAPI ability (likely RR-custom) so the
+  // PR can call them out; they're still emitted (free-text picker).
+  const knownAbilities = new Set(Object.values(speciesData.abilities ?? {}).flat());
+
   const statsByGame = {};
   const typesByGame = {};
+  const abilities = {};
   const movesByGame = {};
   const levelUpMovesByGame = {};
 
   const skippedNoInherit = []; // RR megas / new formes (no inherit) — out of scope
   const skippedUnmapped = []; // Showdown id we couldn't map to a slug
   const unmappedMoves = new Map(); // Showdown move id -> count (dropped)
+  const customAbilities = new Map(); // ability slug not in PokeAPI -> count (kept, flagged)
   let statOverrides = 0;
   let typeOverrides = 0;
+  let abilityOverrides = 0;
 
   // 1. Species deltas: baseStats + types. Resolve `inherit:true` against base.
   for (const [id, entry] of Object.entries(pokedex)) {
@@ -189,6 +223,30 @@ async function main() {
     if (entry.types) {
       typesByGame[slug] = entry.types.map((t) => t.toLowerCase());
       typeOverrides++;
+    }
+    if (entry.abilities) {
+      // Showdown ability slots: numeric keys (0, 1) are regular, "H" is hidden,
+      // "S" is a special/event slot. Emit in slot order (0, 1, then H, then S),
+      // deduped. `abilities` is a FULL replacement, not a delta.
+      const order = ['0', '1', '2', 'H', 'S'];
+      const slots = Object.keys(entry.abilities)
+        .filter((k) => entry.abilities[k])
+        .sort((a, b) => {
+          const ia = order.indexOf(a);
+          const ib = order.indexOf(b);
+          return (ia === -1 ? order.length : ia) - (ib === -1 ? order.length : ib);
+        });
+      const list = [];
+      for (const k of slots) {
+        const ab = toAbilitySlug(entry.abilities[k]);
+        if (!ab || list.includes(ab)) continue;
+        list.push(ab);
+        if (!knownAbilities.has(ab)) customAbilities.set(ab, (customAbilities.get(ab) ?? 0) + 1);
+      }
+      if (list.length) {
+        abilities[slug] = list;
+        abilityOverrides++;
+      }
     }
   }
 
@@ -230,6 +288,7 @@ async function main() {
     _generatedBy: 'packages/datasets/scripts/build-radical-red-species.mjs',
     statsByGame: sortObj(statsByGame),
     typesByGame: sortObj(typesByGame),
+    abilities: sortObj(abilities),
     movesByGame: sortObj(movesByGame),
     levelUpMovesByGame: sortObj(levelUpMovesByGame),
   };
@@ -239,6 +298,7 @@ async function main() {
   console.log('=== Radical Red species overrides ===');
   console.log(`stat overrides:      ${statOverrides}`);
   console.log(`type overrides:      ${typeOverrides}`);
+  console.log(`ability overrides:   ${abilityOverrides}`);
   console.log(`movepool overrides:  ${Object.keys(movesByGame).length}`);
   console.log(`level-up overrides:  ${Object.keys(levelUpMovesByGame).length}`);
   console.log(`skipped (RR mega / new forme, no inherit): ${skippedNoInherit.length}`);
@@ -247,6 +307,10 @@ async function main() {
   if (unmappedMoves.size) {
     console.log(`\nunmapped move ids (DROPPED — add an alias if legit):`);
     for (const [id, n] of [...unmappedMoves.entries()].sort()) console.log(`  "${id}" x${n}`);
+  }
+  if (customAbilities.size) {
+    console.log(`\nRR abilities with no PokeAPI equivalent (KEPT as normalized slug — likely RR-custom):`);
+    for (const [ab, n] of [...customAbilities.entries()].sort()) console.log(`  "${ab}" x${n}`);
   }
   console.log(`\nwrote ${outFile}`);
 }
