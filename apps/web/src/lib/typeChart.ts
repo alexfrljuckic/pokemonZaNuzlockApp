@@ -37,3 +37,19 @@ export function weaknesses(defenderTypes: string[]): { type: string; x: number }
     .filter((w) => w.x > 1)
     .sort((a, b) => b.x - a.x);
 }
+
+/** Attacking types the defender resists — half (½×) or quarter (¼×) damage,
+ * excluding outright immunities (×0). Sorted strongest resistance first (¼ before ½). */
+export function resistances(defenderTypes: string[]): { type: string; x: number }[] {
+  if (defenderTypes.length === 0) return [];
+  return ALL_TYPES.map((atk) => ({ type: atk, x: effectiveness(atk, defenderTypes) }))
+    .filter((w) => w.x < 1 && w.x > 0)
+    .sort((a, b) => a.x - b.x);
+}
+
+/** Attacking types the defender is immune to (×0). */
+export function immunities(defenderTypes: string[]): { type: string; x: number }[] {
+  if (defenderTypes.length === 0) return [];
+  return ALL_TYPES.map((atk) => ({ type: atk, x: effectiveness(atk, defenderTypes) }))
+    .filter((w) => w.x === 0);
+}

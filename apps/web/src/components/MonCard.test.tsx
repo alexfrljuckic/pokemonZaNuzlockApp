@@ -133,6 +133,43 @@ describe('MonCard full-width row layout', () => {
     expect(neutral.container.querySelector('.statbar-nature')).toBeNull();
   });
 
+  it('shows the type matchups — weaknesses, resistances and immunities — in the expanded detail', async () => {
+    // bulbasaur is grass/poison: weak to fire/psychic/flying/ice, resists water/grass/fighting/fairy, no immunity
+    const { container, click } = await render(<MonCard p={mon} gameId="bdsp" />);
+    await click(container.querySelector('.mon-card-head')!);
+    const matchups = container.querySelector('.mrd-matchups')!;
+    expect(matchups).toBeTruthy();
+
+    const weak = matchups.querySelector('.mrd-mu-weak')!;
+    expect(weak).toBeTruthy();
+    expect(weak.textContent).toContain('Weak to');
+    expect(weak.textContent).toContain('fire');
+
+    const resist = matchups.querySelector('.mrd-mu-resist')!;
+    expect(resist).toBeTruthy();
+    expect(resist.textContent).toContain('Resists');
+    // grass/poison resists water and fighting; NOT fire (a weakness)
+    expect(resist.textContent).toContain('water');
+    expect(resist.textContent).toContain('fighting');
+    expect(resist.textContent).not.toContain('fire');
+
+    // no immunity for grass/poison — the group is absent, not empty
+    expect(matchups.querySelector('.mrd-mu-immune')).toBeNull();
+  });
+
+  it('renders the Immune-to group for a mon with a ×0 matchup (gengar → normal/fighting)', async () => {
+    // gengar is ghost/poison: immune to normal (ghost) and fighting (ghost)
+    const { container, click } = await render(
+      <MonCard p={{ ...mon, species: 'gengar' }} gameId="bdsp" />,
+    );
+    await click(container.querySelector('.mon-card-head')!);
+    const immune = container.querySelector('.mrd-mu-immune')!;
+    expect(immune).toBeTruthy();
+    expect(immune.textContent).toContain('Immune to');
+    expect(immune.textContent).toContain('normal');
+    expect(immune.textContent).toContain('fighting');
+  });
+
   it('shows a Boxed status chip for boxed mons and a Fainted chip for dead ones', async () => {
     const boxed = await render(<MonCard p={{ ...mon, status: 'box' }} gameId="bdsp" />);
     expect(boxed.container.querySelector('.mon-status-box')?.textContent).toBe('Boxed');
