@@ -66,6 +66,7 @@ export const SINNOH_MAP: GameMap = {
     { id: 'wayward-cave', x: 276, y: 424, w: 22, h: 22, kind: 'cave' },
     { id: 'floaroma-meadow', x: 84, y: 392, w: 48, h: 46, kind: 'landmark' },
     { id: 'valley-windworks', x: 182, y: 418, w: 46, h: 38, kind: 'landmark' },
+    { id: 'fuego-ironworks', x: 110, y: 345, w: 42, h: 36, kind: 'landmark' },
     { id: 'route-205-south', x: 188, y: 360, w: 38, h: 46, kind: 'route' },
     // route-205-north: the north river segment past Eterna Forest / Valley
     // Windworks — placed just above 205-south, east of the forest cluster.
@@ -112,6 +113,7 @@ export const SINNOH_MAP: GameMap = {
     { id: 'route-213', x: 582, y: 578, w: 54, h: 34, kind: 'route' },
     { id: 'great-marsh', x: 509, y: 536, w: 48, h: 38, kind: 'landmark' },
     { id: 'lake-valor', x: 599, y: 526, w: 48, h: 44, kind: 'landmark' },
+    { id: 'sendoff-spring', x: 612, y: 478, w: 42, h: 36, kind: 'landmark' },
 
     // — SW sea routes (post-Surf, south of Sandgem toward Pal Park) —
     // route-219 → route-220 (open sea) → route-221 (grass), a chain running
@@ -162,6 +164,7 @@ export const SINNOH_MAP: GameMap = {
     ['route-204-south', 'valley-windworks'],
     ['route-205-south', 'route-205-north'],
     ['route-205-north', 'eterna-city'],
+    ['route-205-north', 'fuego-ironworks'],
     ['route-205-south', 'floaroma-meadow'],
     ['route-205-south', 'eterna-forest'],
     ['eterna-forest', 'old-chateau'],
@@ -223,6 +226,7 @@ export const SINNOH_MAP: GameMap = {
     ['survival-area', 'route-226'],
     ['route-226', 'route-227'],
     ['route-227', 'stark-mountain'],
+    ['route-214', 'sendoff-spring'],
     ['route-230', 'route-229'],
     ['route-229', 'resort-area'],
   ],
