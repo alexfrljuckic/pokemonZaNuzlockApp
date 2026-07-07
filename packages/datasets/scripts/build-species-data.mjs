@@ -244,15 +244,40 @@ if (existsSync(zaFile)) {
   console.log(`merged Z-A movepools for ${Object.keys(za.movesByGame ?? {}).length} species`);
 }
 
+// Merge the Radical Red per-species overrides (build-radical-red-species.mjs).
+// RR is a ROMhack that rebalances base stats, retypes some species and gives
+// custom learnsets, so PokeAPI's values are wrong for an RR run. The generator
+// resolved `inherit:true` deltas against this file's base stats/types, so the
+// maps carry the FULL RR value (not a delta) per species — slot them under the
+// 'radical-red' game so statsFor/typesFor/movesFor/levelUpMovesFor prefer them.
+// statsByGame/typesByGame are RR-only today; the maps stay empty for other
+// games (the app falls back to the global dex).
+const statsByGame = {};
+const typesByGame = {};
+const rrFile = join(outDir, 'radical-red-species.json');
+if (existsSync(rrFile)) {
+  const rr = JSON.parse(readFileSync(rrFile, 'utf8'));
+  if (rr.statsByGame && Object.keys(rr.statsByGame).length) statsByGame['radical-red'] = rr.statsByGame;
+  if (rr.typesByGame && Object.keys(rr.typesByGame).length) typesByGame['radical-red'] = rr.typesByGame;
+  if (rr.movesByGame && Object.keys(rr.movesByGame).length) movesByGame['radical-red'] = rr.movesByGame;
+  if (rr.levelUpMovesByGame && Object.keys(rr.levelUpMovesByGame).length)
+    levelUpMovesByGame['radical-red'] = rr.levelUpMovesByGame;
+  console.log(
+    `merged Radical Red overrides: ${Object.keys(rr.statsByGame ?? {}).length} stats, ` +
+      `${Object.keys(rr.typesByGame ?? {}).length} types, ${Object.keys(rr.movesByGame ?? {}).length} movepools`,
+  );
+}
+
 const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+const sortNested = (o) => sortObj(Object.fromEntries(Object.entries(o).map(([g, m]) => [g, sortObj(m)])));
 const out = {
   stats: sortObj(stats),
   types: sortObj(types),
+  statsByGame: sortNested(statsByGame),
+  typesByGame: sortNested(typesByGame),
   moves: sortObj(moves),
-  movesByGame: sortObj(Object.fromEntries(Object.entries(movesByGame).map(([g, m]) => [g, sortObj(m)]))),
-  levelUpMovesByGame: sortObj(
-    Object.fromEntries(Object.entries(levelUpMovesByGame).map(([g, m]) => [g, sortObj(m)])),
-  ),
+  movesByGame: sortNested(movesByGame),
+  levelUpMovesByGame: sortNested(levelUpMovesByGame),
   moveTypes: sortObj(moveTypes),
   evolutions: sortObj(evolutions),
   heldItems,
