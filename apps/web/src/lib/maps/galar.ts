@@ -17,6 +17,8 @@ export const GALAR_MAP: GameMap = {
   viewBox: { w: 1218, h: 976 },
   backdropSrc: '/maps/galar-combined.png',
   ariaLabel: 'Galar route map',
+  // Landscape triptych — the full view is unhelpful, so land on the frontier.
+  autoZoomToFrontier: true,
   nodes: [
     // — south: Postwick / Wedgehurst / Route 1-2 into the South Wild Area —
     { id: 'postwick', x: 625, y: 893, w: 55, h: 45, kind: 'town' },
