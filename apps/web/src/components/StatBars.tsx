@@ -14,9 +14,13 @@ function statTone(v: number): 'low' | 'mid' | 'high' {
  * stat data. Shared by MilestoneCard and TrainersHere detail views.
  *
  * When a `nature` is supplied, the stat it raises gets a ↑ and the stat it
- * lowers a ↓ next to the label — neutral/undefined natures show no arrows. */
-export function StatBars({ species, nature }: { species: string; nature?: string | null }) {
-  const st = statsFor(species);
+ * lowers a ↓ next to the label — neutral/undefined natures show no arrows.
+ *
+ * `gameId` routes the stat lookup through per-game overrides (Radical Red
+ * rebalances base stats); omit it (or pass a mainline game) for the PokeAPI
+ * global spread. */
+export function StatBars({ species, nature, gameId }: { species: string; nature?: string | null; gameId?: string }) {
+  const st = statsFor(species, gameId);
   if (!st) return null;
   const effect = natureEffect(nature);
   return (

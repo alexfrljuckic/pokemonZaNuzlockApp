@@ -76,7 +76,7 @@ export function RoutesTab({
         {starterUnclaimed && (
           <div className="specials-section">
             <h3 className="route-offmap-title">{starterHeading(starters)}</h3>
-            <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
+            <StarterPicker runId={runId} state={state} starters={starters} gameId={ctx.dataset.gameId} onChange={onChange} />
           </div>
         )}
         <AreaList
@@ -147,7 +147,7 @@ export function RoutesTab({
       {starterUnclaimed && (
         <div className="specials-section">
           <h3 className="route-offmap-title">{starterHeading(starters)}</h3>
-          <StarterPicker runId={runId} state={state} starters={starters} onChange={onChange} />
+          <StarterPicker runId={runId} state={state} starters={starters} gameId={ctx.dataset.gameId} onChange={onChange} />
         </div>
       )}
 
@@ -227,6 +227,7 @@ export function RoutesTab({
             <EncounterForm
               pool={selectedPool}
               scope={dupesScope(state)}
+              gameId={ctx.dataset.gameId}
               onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)}
               onSkip={() => resolve(selected, '', 'skipped')}
             />

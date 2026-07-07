@@ -398,6 +398,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
           runId={pendingRun.id}
           state={state}
           starters={starters}
+          gameId={game.gameId}
           onChange={async () => onCreated(pendingRun.id)}
         />
         <button className="secondary" onClick={() => onCreated(pendingRun.id)}>

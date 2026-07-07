@@ -115,6 +115,7 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
 export function EncounterForm({
   pool,
   scope,
+  gameId,
   onResolve,
   onSkip,
 }: {
@@ -122,6 +123,9 @@ export function EncounterForm({
   pool: ClassifiedEncounter[];
   /** dupes-clause scope ('evolution-line' | 'species') for reason wording. */
   scope?: string;
+  /** the run's game — routes type lookups through per-game overrides (Radical
+   * Red retypes some species). Optional; falls back to the global dex. */
+  gameId?: string;
   onResolve: (species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) => void;
   /** Shown as a "Skip route" affordance when every species is dimmed. */
   onSkip?: () => void;
@@ -161,7 +165,7 @@ export function EncounterForm({
                 >
                   <SpriteImg species={entry.species} size={72} shiny={shiny} />
                   <span className="encounter-slot-name">{entry.species}</span>
-                  <TypeBadges types={typesFor(entry.species)} />
+                  <TypeBadges types={typesFor(entry.species, gameId)} />
                   {disabled ? (
                     <span className="encounter-slot-unavailable-tag muted">{entry.unavailable}</span>
                   ) : (
