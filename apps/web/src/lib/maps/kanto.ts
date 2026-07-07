@@ -20,6 +20,9 @@ export const KANTO_MAP: GameMap = {
     { id: 'route-1', x: 501, y: 811, w: 110, h: 90, kind: 'route' },
     { id: 'route-2', x: 442, y: 519, w: 110, h: 90, kind: 'route' },
     { id: 'viridian-forest', x: 434, y: 408, w: 110, h: 105, kind: 'forest' },
+    // Radical Red-only areas (LGPE lacks them, so these nodes render only for
+    // RR): the expanded forest sits west of Viridian Forest.
+    { id: 'forest-expansion', x: 300, y: 415, w: 104, h: 100, kind: 'forest' },
     { id: 'route-3', x: 688, y: 275, w: 112, h: 90, kind: 'route' },
     { id: 'mt-moon', x: 906, y: 205, w: 100, h: 110, kind: 'cave' },
     { id: 'route-4', x: 1146, y: 259, w: 112, h: 90, kind: 'route' },
@@ -31,6 +34,7 @@ export const KANTO_MAP: GameMap = {
     { id: 'power-plant', x: 1860, y: 250, w: 100, h: 100, kind: 'landmark' },
     { id: 'rock-tunnel', x: 1860, y: 380, w: 100, h: 100, kind: 'cave' },
     { id: 'route-11', x: 1661, y: 780, w: 112, h: 90, kind: 'route' },
+    { id: 'diglett-cave', x: 1524, y: 690, w: 92, h: 88, kind: 'cave' },
     { id: 'route-12', x: 1836, y: 674, w: 90, h: 112, kind: 'route' },
     { id: 'route-16', x: 777, y: 422, w: 112, h: 90, kind: 'route' },
     { id: 'route-17', x: 729, y: 723, w: 90, h: 112, kind: 'route' },
@@ -48,6 +52,7 @@ export const KANTO_MAP: GameMap = {
     { id: 'route-15', x: 1150, y: 1112, w: 110, h: 90, kind: 'route' },
     { id: 'route-19', x: 1000, y: 1195, w: 90, h: 110, kind: 'route' },
     { id: 'route-21', x: 420, y: 1120, w: 110, h: 90, kind: 'route' },
+    { id: 'route-21a', x: 476, y: 1156, w: 104, h: 88, kind: 'route' },
     { id: 'route-23', x: 232, y: 504, w: 90, h: 112, kind: 'route' },
     { id: 'victory-road', x: 195, y: 270, w: 100, h: 100, kind: 'cave' },
     // — towns (shops + pickups; placed at their calibrated road junctions) —
