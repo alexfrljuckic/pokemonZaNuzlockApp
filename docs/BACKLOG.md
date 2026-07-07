@@ -5,13 +5,58 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–6 #166–#185 merged)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–6 #166–#185 + evening #197–#204 merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email
 REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
+
+**Shipped 2026-07-06 evening — Galar map overhaul + map/route UX + social
+polish (#197–#204, all merged):**
+- **#197 Galar map overhaul + missing Wild Area zones.** Combined base +
+  DLC into ONE theme-transparent backdrop and added the 10 Wild Area
+  sub-zones the dataset lacked but Serebii/the official map depict
+  (dappled-grove, watchtower-ruins, west/east-lake-axewell,
+  south/north-lake-miloch, giants-seat, axews-eye, stony-wilderness,
+  motostoke-outskirts). swsh 63→73 areas, ~300 weather/version-conditioned
+  encounters; +3 species (pidove/unfezant/charjabug) via build-species-data.
+  Backdrop is a LANDSCAPE TRIPTYCH (`galar-combined.png` 1218×976): base panel
+  centred, Crown Tundra + Isle of Armor insets flanking it, page margin
+  flood-filled transparent so `--bg-inset` shows through (matches theme).
+  Every area on-map on its official numbered point. Meetup Spot dropped (hub,
+  not a route). Serebii Pokéarth is now WebFetch-blocked mid-session → curl +
+  parse the HTML (weather is icon-only, so single-table areas can't
+  auto-extract weather).
+- **#198 frontier "up next" advances by progression order.** frontierAreas
+  now orders unresolved encounter areas by unlock-tier (milestone `order`) then
+  dataset order and takes the first N — so the highlight advances as areas
+  RESOLVE and never goes dark between badges (the map never hard-locks a route).
+  Threaded `milestones` through RouteMap/AreaList. Affects all games.
+- **#199 + #200 tighter click boxes (all games).** Principle: the frontier
+  highlight guides discovery, so click boxes stay small in crowded areas.
+  Galar routes 3/4/6/7/8/9 + North Wild Area recalibrated onto their banners
+  at ~28–34px; Paldea/Sinnoh/Kanto oversized/overlapping boxes capped toward
+  centre. See memory `map-clickbox-sizing`.
+- **#201 Find Trainers screen + map layout.** Trainer search + follow feed
+  moved off the landing hero into a dedicated `#trainers` screen (button below
+  Your Stats) so the landing is scroll-free. Dropped the routes-stage full-bleed
+  breakout (`--stage-w`) so the map aligns to the page column; capped the
+  desktop map at 60vh so the encounter panel stays in view.
+- **#202 search tolerates leading `@`** (handles stored w/o it).
+- **#203 → #204 profile is handle-only.** Added editable handle (updateProfile,
+  RLS already allowed owner update) + decluttered the account bar (dropped the
+  redundant "Sign in to sync" badge). Then REMOVED display name entirely — the
+  distinction wasn't worth it; profiles/search/feed identify by @handle. DB
+  `display_name` column left DORMANT (client omits it; RPCs still return it,
+  ignored) — droppable in a follow-up migration.
+
+- **Landing footer: GitHub + donation links — SHIPPED.** A quiet, muted
+  footer on the title screen: "Source on GitHub" → the repo, and "Buy me a
+  coffee" → https://paypal.me/projectAF (Alex's PayPal.Me). The coffee link
+  renders only when `COFFEE_URL` is set in TitleScreen, so it can be toggled
+  off by clearing it. Warm accent on hover; both open in a new tab.
 
 ### Tomorrow's work queue (from Alex, 2026-07-06 night) — items 1 & 2 SHIPPED
 
