@@ -51,10 +51,9 @@ export const SINNOH_MAP: GameMap = {
     { id: 'oreburgh-mine', x: 252, y: 548, w: 40, h: 40, kind: 'cave' },
 
     // — West / Floaroma / Eterna —
-    { id: 'route-204-south', x: 110, y: 457, w: 32, h: 46, kind: 'route' },
-    // route-204-north: continues past Ravaged Path up toward Floaroma Town —
-    // placed just above 204-south, between it and floaroma-town/-meadow.
-    { id: 'route-204-north', x: 118, y: 443, w: 28, h: 28, kind: 'route' },
+    // route-204 runs Jubilife / Ravaged Path up to Floaroma Town — one route
+    // (its north + south halves are a single encounter area).
+    { id: 'route-204', x: 110, y: 452, w: 32, h: 48, kind: 'route' },
     // — #73 areas (calibrated from a 3x crop of the backdrop: Ravaged Path
     //   sits on the 204 road below Floaroma; 207 is the horizontal road
     //   between the Cycling Road junction and Coronet's west base; 208
@@ -67,10 +66,8 @@ export const SINNOH_MAP: GameMap = {
     { id: 'floaroma-meadow', x: 84, y: 392, w: 48, h: 46, kind: 'landmark' },
     { id: 'valley-windworks', x: 182, y: 418, w: 46, h: 38, kind: 'landmark' },
     { id: 'fuego-ironworks', x: 110, y: 345, w: 42, h: 36, kind: 'landmark' },
-    { id: 'route-205-south', x: 188, y: 360, w: 38, h: 46, kind: 'route' },
-    // route-205-north: the north river segment past Eterna Forest / Valley
-    // Windworks — placed just above 205-south, east of the forest cluster.
-    { id: 'route-205-north', x: 222, y: 352, w: 26, h: 34, kind: 'route' },
+    // route-205 runs Floaroma → Eterna past Eterna Forest / Valley Windworks.
+    { id: 'route-205', x: 190, y: 356, w: 40, h: 50, kind: 'route' },
     { id: 'eterna-forest', x: 162, y: 280, w: 72, h: 56, kind: 'forest' },
     { id: 'old-chateau', x: 212, y: 264, w: 36, h: 32, kind: 'landmark' },
     { id: 'eterna-city', x: 242, y: 334, w: 44, h: 42, kind: 'city' },
@@ -83,10 +80,8 @@ export const SINNOH_MAP: GameMap = {
 
     // — Central spine —
     { id: 'mt-coronet', x: 299, y: 248, w: 48, h: 210, kind: 'cave' },
-    // route-211 straddles Mt. Coronet: -west on the Eterna side, -east on the
-    // Celestic side, flanking the spine at the same latitude.
-    { id: 'route-211-west', x: 274, y: 340, w: 30, h: 28, kind: 'route' },
-    { id: 'route-211-east', x: 336, y: 336, w: 30, h: 28, kind: 'route' },
+    // route-211 crosses Mt. Coronet between Eterna and Celestic (one route).
+    { id: 'route-211', x: 298, y: 336, w: 48, h: 30, kind: 'route' },
     { id: 'hearthome-city', x: 368, y: 463, w: 44, h: 42, kind: 'city' },
     { id: 'amity-square', x: 398, y: 432, w: 38, h: 34, kind: 'landmark' },
     { id: 'lost-tower', x: 436, y: 462, w: 36, h: 34, kind: 'landmark' },
@@ -97,18 +92,16 @@ export const SINNOH_MAP: GameMap = {
     { id: 'route-209', x: 421, y: 447, w: 32, h: 32, kind: 'route' },
     { id: 'solaceon-town', x: 463, y: 423, w: 44, h: 40, kind: 'town' },
     { id: 'solaceon-ruins', x: 496, y: 446, w: 34, h: 32, kind: 'cave' },
-    // route-210 (split by the Psyduck herd): -south on the Solaceon side,
-    // -north (foggy) climbing toward Celestic Town / Route 215.
-    { id: 'route-210-south', x: 435, y: 396, w: 28, h: 30, kind: 'route' },
-    { id: 'route-210-north', x: 400, y: 365, w: 28, h: 30, kind: 'route' },
+    // route-210 runs Solaceon → Celestic (one route; the foggy north and the
+    // Psyduck-herd south are a single encounter area).
+    { id: 'route-210', x: 405, y: 378, w: 34, h: 34, kind: 'route' },
 
     // — Toward Pastoria (SE-central) —
     { id: 'route-215', x: 522, y: 410, w: 54, h: 34, kind: 'route' },
     { id: 'trophy-garden', x: 354, y: 506, w: 48, h: 40, kind: 'landmark' },
-    // route-212 runs Hearthome → Pastoria: -north holds the Trophy Garden /
-    // Pokémon Mansion, -south is the marsh approaching Pastoria City.
-    { id: 'route-212-north', x: 412, y: 526, w: 28, h: 30, kind: 'route' },
-    { id: 'route-212-south', x: 452, y: 566, w: 28, h: 32, kind: 'route' },
+    // route-212 runs Hearthome → Pastoria past the Trophy Garden / Pokémon
+    // Mansion (one route).
+    { id: 'route-212', x: 420, y: 540, w: 34, h: 40, kind: 'route' },
     { id: 'route-214', x: 582, y: 446, w: 34, h: 46, kind: 'route' },
     { id: 'route-213', x: 582, y: 578, w: 54, h: 34, kind: 'route' },
     { id: 'great-marsh', x: 509, y: 536, w: 48, h: 38, kind: 'landmark' },
@@ -157,29 +150,26 @@ export const SINNOH_MAP: GameMap = {
     ['route-202', 'route-203'],
     ['route-203', 'oreburgh-gate'],
     ['oreburgh-gate', 'oreburgh-mine'],
-    ['route-202', 'route-204-south'],
-    ['route-204-south', 'route-204-north'],
-    ['route-204-north', 'floaroma-town'],
-    ['route-204-south', 'route-205-south'],
-    ['route-204-south', 'valley-windworks'],
-    ['route-205-south', 'route-205-north'],
-    ['route-205-north', 'eterna-city'],
-    ['route-205-north', 'fuego-ironworks'],
-    ['route-205-south', 'floaroma-meadow'],
-    ['route-205-south', 'eterna-forest'],
+    ['route-202', 'route-204'],
+    ['route-204', 'floaroma-town'],
+    ['route-204', 'route-205'],
+    ['route-204', 'valley-windworks'],
+    ['route-205', 'eterna-city'],
+    ['route-205', 'fuego-ironworks'],
+    ['route-205', 'floaroma-meadow'],
+    ['route-205', 'eterna-forest'],
     ['eterna-forest', 'old-chateau'],
     ['eterna-forest', 'eterna-city'],
     ['eterna-city', 'route-206'],
     ['eterna-city', 'mt-coronet'],
-    ['eterna-city', 'route-211-west'],
-    ['route-211-west', 'mt-coronet'],
-    ['mt-coronet', 'route-211-east'],
-    ['route-211-east', 'celestic-town'],
-    ['route-205-south', 'canalave-city'],
+    ['eterna-city', 'route-211'],
+    ['route-211', 'mt-coronet'],
+    ['route-211', 'celestic-town'],
+    ['route-205', 'canalave-city'],
     ['canalave-city', 'iron-island'],
     ['canalave-city', 'route-218'],
     ['mt-coronet', 'hearthome-city'],
-    ['route-204-south', 'ravaged-path'],
+    ['route-204', 'ravaged-path'],
     ['route-206', 'wayward-cave'],
     ['route-206', 'route-207'],
     ['route-207', 'mt-coronet'],
@@ -192,15 +182,13 @@ export const SINNOH_MAP: GameMap = {
     ['route-209', 'solaceon-town'],
     ['hearthome-city', 'solaceon-town'],
     ['solaceon-town', 'solaceon-ruins'],
-    ['solaceon-town', 'route-210-south'],
-    ['route-210-south', 'route-210-north'],
-    ['route-210-north', 'celestic-town'],
+    ['solaceon-town', 'route-210'],
+    ['route-210', 'celestic-town'],
     ['hearthome-city', 'route-215'],
     ['route-215', 'trophy-garden'],
-    ['hearthome-city', 'route-212-north'],
-    ['route-212-north', 'trophy-garden'],
-    ['route-212-north', 'route-212-south'],
-    ['route-212-south', 'pastoria-city'],
+    ['hearthome-city', 'route-212'],
+    ['route-212', 'trophy-garden'],
+    ['route-212', 'pastoria-city'],
     ['route-215', 'route-214'],
     ['route-214', 'route-213'],
     ['route-213', 'great-marsh'],
