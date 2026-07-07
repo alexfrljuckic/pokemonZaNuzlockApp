@@ -13,6 +13,55 @@ REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
 
+## RR1–RR3: Radical Red (romhack) support — first out-of-scope game
+
+Full research + design: `docs/RADICAL-RED-RESEARCH.md`. Radical Red is a
+FireRed romhack: Kanto map, modern mechanics (Phys/Special split, Fairy,
+Gen 8–9 mons/moves), **soft level cap tied to the next boss** (a glove fit
+for our `next_boss_set` + cap engine). ~54 encounter areas, ~46 boss
+battles. First game that is **not Switch-era, not mainline**, and the first
+where **PokeAPI-generated species data is actively wrong** (RR rebalances
+stats/abilities and gives custom movepools). Target = **base Radical Red
+v4.x** (Kanto + Sevii, 8 Kanto leaders). Data sources (both public Google
+Sheets, CSV-exportable per tab — see research doc for ids/gids): **wild
+encounters** from the base-RR obtainability sheet (method-per-tab matrices:
+grass/caves, fishing/surfing, fossils, safari, statics, raids, trades,
+gifts); **boss rosters + caps** from Showdown-format trainer gists (per
+version + Hardcore/Normal). NOT PokeAPI. A second sheet documents the
+"Radical Rogue" variant (different game — parked). Engine/schema need NO
+change except accommodating a game with no `pokeapiVersionGroups`.
+
+- **RR1 — playable tracker (encounters + caps + difficulty).** New
+  `radical-red.json`: areas/encounters (base-RR obtainability sheet) +
+  milestones (shared level-cap progression + boss rosters from the trainer
+  gists). RR ships a **two-axis** difficulty (see research doc): tier
+  (Normal/Hardcore/Easy — mutually exclusive, changes rosters) × toggles
+  (Minimal Grinding, Restricted). Build a run-level tier pick →
+  `rosterByDifficulty` (analog of `rosterByStarter`); populate **Normal +
+  Hardcore** first. No interactive map yet (degrades gracefully). Accept
+  PokeAPI species data for now, UI-flagged as not-yet-RR-accurate. AC:
+  `validate:datasets` green; game + tier selectable; caps + tier-correct
+  rosters drive next-boss picking; sources cited.
+- **RR2 — RR-accurate species data.** New per-game species-override layer
+  (schema + generator + `EngineContext`-injection like `speciesToLine`;
+  falls back to global dex on miss). **Source is SOLVED**: the RR Showdown
+  fork `RadicalRedShowdown/pokemon-showdown` `data/mods/gen9rr4.0/` (and
+  `gen9rr` latest) carries RR's stats/types/abilities/learnsets/moves/evos
+  in canonical Showdown TS with `inherit:true` deltas (authenticity verified
+  — Kleavor buff/ability/evo overrides present). Generator parses those TS
+  data files → per-game override JSON, never hand-merged. Needs a
+  Showdown-ID → PokeAPI-slug map (reuse `lib/sprites.ts` aliases). AC: RR
+  stats/abilities/learnsets match the mod for a sampled set; mainline
+  games unaffected.
+- **RR3 — polish.** Honor `RuleDef`s conditioned on tier (forced Set,
+  no-bag-vs-boss, Minimal Grinding, Restricted), optional Easy-tier rosters,
+  Kanto interactive map, raid-den encounters.
+
+**Remaining Qs for RR1:** (1) ship the **Easy** tier too, or Normal + Hardcore
+only (as nuzlocke.app does)? (2) pin **v4.1** (`gen9rr`) or **v4.0**
+(`gen9rr4.0`) data? Target, encounters, species-data source, and difficulty
+model are all resolved (see research doc).
+
 **Shipped 2026-07-06 evening — Galar map overhaul + map/route UX + social
 polish (#197–#204, all merged):**
 - **#197 Galar map overhaul + missing Wild Area zones.** Combined base +
