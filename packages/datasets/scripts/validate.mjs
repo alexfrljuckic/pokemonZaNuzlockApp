@@ -85,6 +85,36 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
         }
       }
     }
+    // Two-axis difficulty×starter variants (RR rival battles) get the same
+    // cap-drift guard, per difficulty tier: the `normal` starter variants must
+    // hit aceLevel exactly; harder tiers stay in [aceLevel, aceLevel + 3].
+    if (
+      m.aceLevel != null &&
+      m.rosterByDifficultyAndStarter &&
+      typeof m.rosterByDifficultyAndStarter === 'object'
+    ) {
+      for (const [diff, byStarter] of Object.entries(m.rosterByDifficultyAndStarter)) {
+        if (!byStarter || typeof byStarter !== 'object') continue;
+        for (const [starter, variant] of Object.entries(byStarter)) {
+          if (Array.isArray(variant) && variant.length) {
+            const maxV = Math.max(...variant.map((p) => p.level));
+            if (diff === 'normal') {
+              if (m.aceLevel !== maxV)
+                problems.push(
+                  `milestone "${m.id}" rosterByDifficultyAndStarter.normal.${starter} max level ` +
+                    `(${maxV}) does not match aceLevel (${m.aceLevel})`
+                );
+            } else if (maxV < m.aceLevel || maxV > m.aceLevel + 3) {
+              problems.push(
+                `milestone "${m.id}" rosterByDifficultyAndStarter.${diff}.${starter} max level ` +
+                  `(${maxV}) is outside the allowed aceLevel..aceLevel+3 range ` +
+                  `(${m.aceLevel}..${m.aceLevel + 3})`
+              );
+            }
+          }
+        }
+      }
+    }
   }
 
   // Roster move sanity. A move PokeAPI doesn't know at all is a typo/wrong slug
@@ -98,6 +128,9 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
       for (const p of variant) rosterMembers.push([m.id, p]);
     for (const variant of Object.values(m.rosterByDifficulty ?? {}))
       for (const p of variant) rosterMembers.push([m.id, p]);
+    for (const byStarter of Object.values(m.rosterByDifficultyAndStarter ?? {}))
+      for (const variant of Object.values(byStarter ?? {}))
+        for (const p of variant) rosterMembers.push([m.id, p]);
   }
   for (const [mid, p] of rosterMembers) {
     for (const mv of p.moves ?? []) {
@@ -124,7 +157,13 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
         (m.rosterByStarter &&
           Object.values(m.rosterByStarter).some((v) => Array.isArray(v) && v.length > 0)) ||
         (m.rosterByDifficulty &&
-          Object.values(m.rosterByDifficulty).some((v) => Array.isArray(v) && v.length > 0));
+          Object.values(m.rosterByDifficulty).some((v) => Array.isArray(v) && v.length > 0)) ||
+        (m.rosterByDifficultyAndStarter &&
+          Object.values(m.rosterByDifficultyAndStarter).some(
+            (byStarter) =>
+              byStarter &&
+              Object.values(byStarter).some((v) => Array.isArray(v) && v.length > 0)
+          ));
       if (!hasRoster)
         problems.push(`milestone "${m.id}" has no roster but the game sets rostersRequired: true`);
     }
@@ -153,6 +192,8 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
     for (const p of m.roster ?? []) referencedSpecies.add(p.species);
     for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) referencedSpecies.add(p.species);
     for (const variant of Object.values(m.rosterByDifficulty ?? {})) for (const p of variant) referencedSpecies.add(p.species);
+    for (const byStarter of Object.values(m.rosterByDifficultyAndStarter ?? {}))
+      for (const variant of Object.values(byStarter ?? {})) for (const p of variant) referencedSpecies.add(p.species);
   }
   const missingSpecies = [...referencedSpecies].filter((s) => !knownSpecies.has(s)).sort();
   if (missingSpecies.length) {

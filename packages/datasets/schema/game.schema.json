@@ -239,6 +239,29 @@
                 }
               }
             }
+          },
+          "rosterByDifficultyAndStarter": {
+            "type": "object",
+            "description": "Optional two-axis roster variants keyed difficulty -> starter (Radical Red rival battles, whose team depends on BOTH the run's difficulty tier AND the player's chosen starter — the rival takes the type-advantaged starter). The app uses the matching difficulty+starter variant when both are known, else falls back to rosterByDifficulty/rosterByStarter/roster. Same cap-drift guard as rosterByDifficulty applies per tier: the `normal` starter variants must hit aceLevel exactly; harder tiers stay in aceLevel..aceLevel+3.",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["species", "level"],
+                  "additionalProperties": false,
+                  "properties": {
+                    "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+                    "level": { "type": "integer", "minimum": 1 },
+                    "moves": { "type": "array", "items": { "type": "string" } },
+                    "ability": { "type": "string" },
+                    "heldItem": { "type": "string" },
+                    "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                  }
+                }
+              }
+            }
           }
         }
       }
