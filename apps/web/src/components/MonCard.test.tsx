@@ -99,6 +99,40 @@ describe('MonCard full-width row layout', () => {
     expect(card.querySelector('.mon-card-detail')).toBeTruthy();
   });
 
+  it('marks the nature-raised stat with an up arrow and the lowered stat with a down arrow', async () => {
+    // Adamant: +Attack / −Sp. Atk (labels "Atk" / "SpA")
+    const { container, click } = await render(
+      <MonCard p={{ ...mon, nature: 'adamant' }} gameId="bdsp" />,
+    );
+    await click(container.querySelector('.mon-card-head')!);
+    const bars = [...container.querySelectorAll('.statbar')];
+    const barFor = (label: string) =>
+      bars.find((b) => b.querySelector('.statbar-label')?.textContent?.startsWith(label));
+
+    const atk = barFor('Atk')!;
+    const spa = barFor('SpA')!;
+    expect(atk.querySelector('.statbar-nature-raised')).toBeTruthy();
+    expect(atk.querySelector('.statbar-nature-raised')?.textContent).toBe('▲');
+    expect(spa.querySelector('.statbar-nature-lowered')).toBeTruthy();
+    expect(spa.querySelector('.statbar-nature-lowered')?.textContent).toBe('▼');
+    // the tooltip reads the nature + which stat it moves
+    expect(atk.querySelector('.statbar-nature')?.getAttribute('title')).toContain('Adamant');
+    expect(atk.querySelector('.statbar-nature')?.getAttribute('title')).toContain('raises');
+    // exactly one up and one down arrow across all bars — HP never gets one
+    expect(container.querySelectorAll('.statbar-nature-raised').length).toBe(1);
+    expect(container.querySelectorAll('.statbar-nature-lowered').length).toBe(1);
+  });
+
+  it('renders no nature arrows for a natureless mon or a neutral nature', async () => {
+    const none = await render(<MonCard p={{ ...mon, nature: undefined }} gameId="bdsp" />);
+    await none.click(none.container.querySelector('.mon-card-head')!);
+    expect(none.container.querySelector('.statbar-nature')).toBeNull();
+
+    const neutral = await render(<MonCard p={{ ...mon, nature: 'hardy' }} gameId="bdsp" />);
+    await neutral.click(neutral.container.querySelector('.mon-card-head')!);
+    expect(neutral.container.querySelector('.statbar-nature')).toBeNull();
+  });
+
   it('shows a Boxed status chip for boxed mons and a Fainted chip for dead ones', async () => {
     const boxed = await render(<MonCard p={{ ...mon, status: 'box' }} gameId="bdsp" />);
     expect(boxed.container.querySelector('.mon-status-box')?.textContent).toBe('Boxed');

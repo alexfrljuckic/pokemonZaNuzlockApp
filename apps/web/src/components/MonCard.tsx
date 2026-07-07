@@ -404,7 +404,7 @@ export function MonCard({
             </span>
           )}
           <WeaknessRow types={types} />
-          <StatBars species={p.species} />
+          <StatBars species={p.species} nature={p.nature} />
           {editable ? (
             <>
               <EvolvePanel p={p} runId={runId} gameId={gameId} onEvolved={onChange} />
