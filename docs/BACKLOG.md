@@ -69,24 +69,56 @@ bugs + UX asks + RR1 completion + a big BDSP completeness pass:
 - **#219** chore: giratina-altered sprite alias (Showdown uses plain
   `giratina` for Altered Forme) + this reconcile.
 
-**Follow-ups from this session (not yet done):**
-- **Weakness/resist layout redesign** — #213's stacked layout is unreadable
-  with long lists; owner picking between Option A (aligned label column +
-  compact chips) and Option B (multiplier buckets). Implement in Encounter-
-  adjacent WeaknessRow.tsx + index.css.
-- **BDSP Sinnoh map-node visual calibration** — #215 coords are geometry-
-  derived; nudge against the real backdrop once preview tooling works. Also
-  place the non-route areas (fuego-ironworks etc.) on the map.
-- **Great Marsh + Trophy Garden** precise Safari/rotation encounter rates
-  (deferred in #216); **Old Chateau** ghost-event statics (omitted, unsourced).
-- **RR2** — RR-accurate species data (Showdown gen9rr4.0 override layer);
-  **RR3** — RR Kanto interactive map, tier-conditioned honor rules.
-- Verify standalone `tsc -p apps/web/tsconfig.json` cleanliness (item-tooltips
-  agent noted it lacks engine `paths`; CI/vite/vitest are green — low priority).
-- **Preview MCP tooling was broken all session** (mangled Windows backslash
-  paths, served the main checkout not the worktree, died mid-run) — most
-  visual changes this session were verified via DOM/component tests, not
-  screenshots. Worth an eyeball pass on the live app.
+**Shipped 2026-07-07 session, continued (#220–#230, all merged on green CI):**
+- **#220** weakness/resist layout redesign — Option A (aligned label column +
+  count + per-chip multiplier, hairline between groups). Fixed #213's
+  unreadable long-list stacking. WeaknessRow.tsx + index.css.
+- **#221** calibrated the 17 new BDSP route nodes on the Sinnoh map
+  (geometry-anchored to neighbour cities; backdrop PNG is 806×688 = viewBox,
+  1:1 pixels). #222 map-node audit: all other games already calibrated;
+  added fuego-ironworks/sendoff-spring nodes + RR route-21a/forest-expansion/
+  diglett-cave (RR floor-splits + Sevii stay list-only by design).
+- **#223 + #224** held-item sprites in the condensed mon row + picker list
+  (Showdown itemicons; text fallback on 404), bumped to 28px.
+- **#225** BDSP route de-split — merged 204/205/210/211/212 N/S + W/E halves
+  back into one route each (one route number = one first-encounter). bdsp
+  82→77 areas; method grouping shows the combined pool. Engine untouched.
+- **#226 RR2 — RR-accurate species data.** New per-game override layer parsed
+  from the RadicalRedShowdown gen9rr4.0 `pokedex.ts`/`learnsets.ts` (inherit
+  deltas): `statsByGame`/`typesByGame`/`movesByGame`/`levelUpMovesByGame`
+  ['radical-red'] + game-aware `typesFor`/`statsFor`. 196 stat / 29 type /
+  981 movepool overrides; mainline byte-for-byte unchanged.
+- **#227 edit a Pokémon's Ability** — engine `ability` on PokemonInstance +
+  `pokemon_updated`; per-species `abilities` in species-data (PokeAPI);
+  `abilitiesFor(species, gameId?)`; MonCard Ability picker gated by a
+  `hasAbilities` GameAppConfig flag (off for LGPE). **#228** added RR-accurate
+  ability overrides (`abilitiesByGame['radical-red']`, 337 species).
+- **#229 RR non-gym bosses** — 9 milestones (rival Terry ×3 + Brendan ×2,
+  Giovanni ×3-ish, Archer/Ariana), `countsForLevelCap:false`. New additive
+  engine field `rosterByDifficultyAndStarter` (difficulty→starter→team,
+  checked first in `milestoneRoster`) since RR rivals are starter-dependent
+  per tier. RR now 22 milestones. Teams from the Rudo2204 v4.1 gists.
+- **#230** defeated trainers show "✓ defeated" + dim the row like a cleared
+  boss card.
+- **#219** chore reconcile (this file, earlier in the session).
+
+**RR is now data-complete**: accurate stats/types/movepools/abilities +
+gyms/E4/Champion/rivals/Rocket boss tracking. Preview MCP tooling recovered
+mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
+
+**Remaining follow-ups (all minor / deferred-by-design):**
+- **Great Marsh + Trophy Garden** precise Safari/daily-rotation rates
+  (deferred #216 — need two-source-agreed %s); **Old Chateau** ghost-event
+  statics (unsourced).
+- **RR non-gym bosses deferred** (from #229): Brendan @ Fuchsia (low-
+  confidence mandatory), a possible "May" fight (unsourced in base Kanto),
+  the Cerulean Cave Giovanni double. RR3 tier-conditioned honor-rule display
+  + raid dens.
+- ~10 Z-A movepool `SEREBII_SLUG` overrides (form 404s fall back to the union).
+- PLA `icepeak-cavern` + `wayward-cave` are correctly list-only (the in-game
+  zone map doesn't label those caves — not a gap).
+- Standalone `tsc -p apps/web/tsconfig.json` lacks engine `paths` (CI/vite/
+  vitest green — cosmetic).
 
 ## RR1–RR3: Radical Red (romhack) support — first out-of-scope game
 

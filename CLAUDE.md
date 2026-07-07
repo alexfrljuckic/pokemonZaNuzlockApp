@@ -58,26 +58,38 @@ Never merge with either failing.
   when the paid/metered switch is off. See `docs/COSTS.md`.
 - Engine package stays pure TypeScript: no DOM, no network, no Supabase imports.
 
-## Current state (2026-07-07, reconciled after PR #219)
+## Current state (2026-07-07, reconciled after PR #230)
 
-Everything below is on `main`. PRs #3-#219 merged; the numbered backlog is
+Everything below is on `main`. PRs #3-#230 merged; the numbered backlog is
 EMPTY (shipped or deliberately shelved — see docs/BACKLOG.md, still the
 single work tracker). Work from `C:\dev\nuzlocke-app` (OneDrive checkout
 breaks worktrees).
 
-2026-07-07 session (#207–#219, see docs/BACKLOG.md for detail): Radical Red
-per-tier boss rosters finished (`rosterByDifficulty`); a big BDSP
-completeness pass (63→82 areas: 17 missing routes incl. 219/220/221 with
-N/S+W/E splits, 68 town/building trainers, non-route wild areas + statics/
-legendaries) with Sinnoh map nodes (geometry-derived — want a visual
-calibration pass); cross-device run-sync bug fixed (`pushAllRuns` on
-sign-in); UX — nature stat arrows, Continue save-file cards w/ team sprites,
-weakness display now shows resists+immunities (layout redesign pending),
-item HM-access tooltips, dupes-clause species shown dimmed not hidden
-(engine `classifyEncounterPool`), encounter pool grouped by method with real
-per-method rates. NOTE: the preview MCP tooling was broken this session
-(mangled Windows paths, served main not the worktree), so visual changes
-were verified via DOM/component tests — worth an eyeball on the live app.
+2026-07-07 session (#207–#230, see docs/BACKLOG.md for detail):
+- **Radical Red is now data-complete** — per-tier boss rosters
+  (`rosterByDifficulty`, #210), RR-accurate stats/types/movepools (#226) +
+  abilities (#228) via per-game override maps parsed from the
+  RadicalRedShowdown gen9rr4.0 data, and non-gym boss tracking (#229: rivals
+  Terry/Brendan + Rocket Giovanni/Archer/Ariana via the new additive
+  `rosterByDifficultyAndStarter` milestone field). 22 RR milestones.
+- **BDSP completeness** (63→82→77 areas): 17 missing routes + 68 town/building
+  trainers (#212), non-route wild areas + statics/legendaries (#216), then
+  N/S+W/E route splits MERGED back to one route each (#225 — one route number
+  = one first-encounter). Sinnoh map nodes calibrated (#221) + audited across
+  all games (#222).
+- **Engine/data**: cross-device run-sync bug fixed (`pushAllRuns` on sign-in,
+  #208); `classifyEncounterPool` (dupes species shown dimmed not hidden, #217);
+  edit a Pokémon's **ability** (`pokemon_updated.ability`, `hasAbilities`
+  flag, #227); per-game `statsByGame`/`typesByGame`/`abilitiesByGame` +
+  game-aware `typesFor`/`statsFor`/`abilitiesFor`.
+- **UX**: nature stat arrows (#209), Continue save-file cards w/ team sprites
+  (#211), weakness display shows resists+immunities in a readable aligned
+  layout (#213/#220), item HM-access tooltips (#214), held-item sprites in the
+  mon row + picker (#223/#224), encounter pool grouped by method with real
+  per-method rates (#218), defeated trainers marked "✓ defeated" like bosses
+  (#230), mobile map "double-tap" copy (#207).
+The preview MCP tooling was broken early in the session (served main not the
+worktree) then recovered; visual PRs were re-verified live.
 
 - **Engine** (`packages/engine`): event-sourced core — first-encounter,
   dupes-by-line, level caps + next-boss pick (`next_boss_set`), revive
