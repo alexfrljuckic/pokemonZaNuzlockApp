@@ -176,6 +176,7 @@ function SpectatorRun({
                 key={m.id}
                 milestone={m}
                 roster={milestoneRoster(m, starter, difficulty) ?? []}
+                gameId={gameId}
                 cleared={state.milestonesCleared.includes(m.id)}
                 isNext={boss?.id === m.id}
                 isPinnedNext={state.nextBossId === m.id}

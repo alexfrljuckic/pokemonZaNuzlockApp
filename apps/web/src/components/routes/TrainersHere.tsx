@@ -99,7 +99,7 @@ function TrainerCard({
                   <div className="mrd-title">
                     <strong>{p.species}</strong>
                     <span className="mrd-lv">Lv {p.level}</span>
-                    <TypeBadges types={typesFor(p.species)} />
+                    <TypeBadges types={typesFor(p.species, gameId)} />
                     {(p.ability || p.heldItem) && (
                       <span className="muted mrd-meta">
                         {p.ability ?? ''}
@@ -109,7 +109,7 @@ function TrainerCard({
                     )}
                   </div>
                 </div>
-                <WeaknessRow types={typesFor(p.species)} />
+                <WeaknessRow types={typesFor(p.species, gameId)} />
                 <MoveChips moves={resolved.moves ?? undefined} gameId={gameId} />
                 {resolved.source === 'expected' && (
                   <span className="muted trainer-moves-note">expected moves — last four learned by Lv {p.level}</span>
@@ -117,7 +117,7 @@ function TrainerCard({
                 {resolved.source === 'unknown' && (
                   <span className="muted trainer-moves-note">moves not documented</span>
                 )}
-                <StatBars species={p.species} />
+                <StatBars species={p.species} gameId={gameId} />
               </div>
             );
           })}

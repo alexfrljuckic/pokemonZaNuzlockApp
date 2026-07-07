@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, resolveTrainerMoves, typesFor } from './speciesData';
+import { evolutionOptionsFor, expectedMovesAt, learnLevel, levelUpMovesFor, machineType, movesFor, resolveEvolutionTarget, resolveTrainerMoves, statsFor, typesFor } from './speciesData';
 
 // These run against the real generated species-data / machines-by-game
 // artifacts, locking the per-game → union fallback semantics the pickers
@@ -331,5 +331,68 @@ describe('Z-A hyperspace regional-form evolutions', () => {
     expect(to(evolutionOptionsFor('qwilfish-hisui', 30, 'plza'))).toEqual(['overqwil']);
     expect(req('qwilfish-hisui', 'overqwil', 30)).toMatch(/Barb Barrage/i);
     expect(to(evolutionOptionsFor('sliggoo-hisui', 55, 'plza'))).toEqual(['goodra-hisui']);
+  });
+});
+
+describe('Radical Red per-game stat/type/move overrides', () => {
+  // RR is a ROMhack: it rebalances base stats, retypes some species and gives
+  // custom learnsets. statsFor/typesFor/movesFor must return the RR value for a
+  // 'radical-red' run and the untouched PokeAPI value for every mainline game.
+  // Values below are asserted against the RadicalRedShowdown gen9rr4.0 mod
+  // (data/mods/gen9rr4.0/pokedex.ts + learnsets.ts), the generator's source.
+
+  it('typesFor returns the RR typing for RR, the global typing otherwise', () => {
+    // Arbok: Poison → Poison/Dark in RR.
+    expect(typesFor('arbok', 'radical-red')).toEqual(['poison', 'dark']);
+    expect(typesFor('arbok')).toEqual(['poison']); // no gameId → global dex
+    expect(typesFor('arbok', 'bdsp')).toEqual(['poison']); // mainline unaffected
+    // Farfetch'd: Normal/Flying → Fighting/Flying in RR (also proves the
+    // farfetchd → farfetchd id mapping resolves).
+    expect(typesFor('farfetchd', 'radical-red')).toEqual(['fighting', 'flying']);
+    expect(typesFor('farfetchd')).toEqual(['normal', 'flying']);
+  });
+
+  it('statsFor returns the RR spread for RR, the global spread otherwise', () => {
+    // Butterfree: SpA 90 → 95 in RR (types unchanged).
+    expect(statsFor('butterfree', 'radical-red')!['special-attack']).toBe(95);
+    expect(statsFor('butterfree')!['special-attack']).toBe(90); // global
+    expect(statsFor('butterfree', 'swsh')!['special-attack']).toBe(90); // mainline unaffected
+    // Arbok: HP 60 → 75, Def 69 → 75 in RR.
+    expect(statsFor('arbok', 'radical-red')).toMatchObject({ hp: 75, defense: 75, attack: 95 });
+    expect(statsFor('arbok')).toMatchObject({ hp: 60, defense: 69 });
+    // Farfetch'd: HP 52 → 75, Def 55 → 70, SpD 62 → 77 in RR.
+    expect(statsFor('farfetchd', 'radical-red')).toMatchObject({ hp: 75, defense: 70, 'special-defense': 77 });
+    expect(statsFor('farfetchd')).toMatchObject({ hp: 52, defense: 55, 'special-defense': 62 });
+  });
+
+  it('mainline stats/types are byte-for-byte unchanged (no gameId AND for a mainline game)', () => {
+    // Guard against the override layer leaking into mainline games. Venusaur is
+    // not restatted/retyped by RR, so all three must be identical.
+    expect(typesFor('venusaur')).toEqual(['grass', 'poison']);
+    expect(typesFor('venusaur', 'radical-red')).toEqual(['grass', 'poison']);
+    expect(statsFor('pikachu')).toEqual(statsFor('pikachu', 'lgpe'));
+    expect(typesFor('pikachu')).toEqual(typesFor('pikachu', 'bdsp'));
+  });
+
+  it('movesFor / levelUpMovesFor use the RR learnset, differing from the union', () => {
+    const rr = movesFor('butterfree', 'radical-red');
+    const union = movesFor('butterfree');
+    expect(rr.length).toBeGreaterThan(0);
+    expect(rr).not.toEqual(union); // a real RR pool, not the union
+    // RR butterfree learns Poison Powder at Lv 13 (9L13 in the mod).
+    expect(learnLevel('poison-powder', 'butterfree', 'radical-red')).toBe(13);
+    const lu = levelUpMovesFor('butterfree', 'radical-red');
+    expect(lu.length).toBeGreaterThan(0);
+    for (let i = 1; i < lu.length; i++) expect(lu[i].level).toBeGreaterThanOrEqual(lu[i - 1].level);
+    // Quiver Dance is an RR level-up move (9L58) — in the RR pool.
+    expect(rr).toContain('quiver-dance');
+  });
+
+  it('a species with no RR override falls back to the global value', () => {
+    // Venusaur has an inherit entry in RR but no baseStats/types delta, so it
+    // gets no stat/type override — statsFor/typesFor fall back to the global
+    // dex for it under 'radical-red'.
+    expect(statsFor('venusaur', 'radical-red')).toEqual(statsFor('venusaur'));
+    expect(typesFor('venusaur', 'radical-red')).toEqual(typesFor('venusaur'));
   });
 });

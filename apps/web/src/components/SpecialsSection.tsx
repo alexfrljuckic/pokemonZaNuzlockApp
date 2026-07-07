@@ -69,6 +69,7 @@ export function SpecialCard({
   s,
   runId,
   state,
+  gameId,
   onChange,
   badge,
   hideBadge,
@@ -76,6 +77,9 @@ export function SpecialCard({
   s: SpecialEncounter;
   runId: string;
   state: RunState;
+  /** the run's game — routes type lookups through per-game overrides (Radical
+   * Red retypes some species). Optional; falls back to the global dex. */
+  gameId?: string;
   onChange: () => Promise<void>;
   badge?: string;
   hideBadge?: boolean;
@@ -131,7 +135,7 @@ export function SpecialCard({
         <div className="special-card-title">
           <strong>{s.species}</strong>
           {!hideBadge && <span className="muted">{badge ?? TYPE_LABEL[s.type]}</span>}
-          <TypeBadges types={typesFor(s.species)} />
+          <TypeBadges types={typesFor(s.species, gameId)} />
         </div>
       </button>
       {open && <ClaimForm species={s.species} shiny={shiny} onShinyChange={setShiny} onClaim={claim} />}
@@ -146,11 +150,15 @@ export function StarterPicker({
   runId,
   state,
   starters,
+  gameId,
   onChange,
 }: {
   runId: string;
   state: RunState;
   starters: SpecialEncounter[];
+  /** the run's game — routes type lookups through per-game overrides (Radical
+   * Red retypes some species). Optional; falls back to the global dex. */
+  gameId?: string;
   onChange: () => Promise<void>;
 }) {
   const chosen = starters.find((s) => claimedSpecial(s.id, state));
@@ -160,7 +168,7 @@ export function StarterPicker({
       <p className="muted specials-group-label">{label}</p>
       <div className="specials-grid">
         {(chosen ? [chosen] : starters).map((s) => (
-          <SpecialCard key={s.id} s={s} runId={runId} state={state} onChange={onChange} badge="Starter" hideBadge />
+          <SpecialCard key={s.id} s={s} runId={runId} state={state} gameId={gameId} onChange={onChange} badge="Starter" hideBadge />
         ))}
       </div>
     </div>

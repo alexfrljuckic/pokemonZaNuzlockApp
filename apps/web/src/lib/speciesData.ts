@@ -22,6 +22,13 @@ export interface Evolution {
 interface SpeciesData {
   stats: Record<string, Record<string, number>>;
   types: Record<string, string[]>;
+  /** Per-game base-stat overrides — Radical Red rebalances stats, so an RR run
+   * must show its values, not PokeAPI's. Games without an entry use the global
+   * `stats` dex. */
+  statsByGame: Record<string, Record<string, Record<string, number>>>;
+  /** Per-game type overrides — Radical Red retypes some species (Arbok →
+   * Poison/Dark, …). Games without an entry use the global `types` dex. */
+  typesByGame: Record<string, Record<string, string[]>>;
   moves: Record<string, string[]>;
   movesByGame: Record<string, Record<string, string[]>>;
   levelUpMovesByGame: Record<string, Record<string, [string, number][]>>;
@@ -37,7 +44,12 @@ const data = raw as unknown as SpeciesData;
 
 export const HELD_ITEMS: string[] = data.heldItems;
 
-export const typesFor = (species: string): string[] => data.types[species] ?? [];
+/** A species' types, scoped to the given game where it differs from the
+ * global dex. Radical Red retypes some species, so an RR run passes its
+ * gameId to get the RR typing; every other game (or no gameId) falls back to
+ * the PokeAPI-derived global `types` — exactly like `movesFor`. */
+export const typesFor = (species: string, gameId?: string): string[] =>
+  (gameId ? data.typesByGame[gameId]?.[species] : undefined) ?? data.types[species] ?? [];
 export const moveType = (move: string): string | null => data.moveTypes[move] ?? null;
 
 // Per-game machine tags: move slug -> "TM" | "HM" | "TR" for each game that has
@@ -128,7 +140,12 @@ export function resolveTrainerMoves(
   if (expected && expected.length > 0) return { source: 'expected', moves: expected };
   return { source: 'unknown', moves: null };
 }
-export const statsFor = (species: string): Record<string, number> | null => data.stats[species] ?? null;
+/** A species' base stats, scoped to the given game where it differs from the
+ * global dex. Radical Red rebalances base stats, so an RR run passes its
+ * gameId to get the RR spread; every other game (or no gameId) falls back to
+ * the PokeAPI-derived global `stats` — exactly like `movesFor`. */
+export const statsFor = (species: string, gameId?: string): Record<string, number> | null =>
+  (gameId ? data.statsByGame[gameId]?.[species] : undefined) ?? data.stats[species] ?? null;
 export const evolutionsFor = (species: string): Evolution[] => data.evolutions[species] ?? [];
 
 // ---- Interactive evolution support (MonCard "Evolve" panel) ----

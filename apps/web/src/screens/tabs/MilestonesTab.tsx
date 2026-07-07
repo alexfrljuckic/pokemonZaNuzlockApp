@@ -76,6 +76,7 @@ export function MilestonesTab({
             key={m.id}
             milestone={m}
             roster={milestoneRoster(m, starter, difficulty) ?? []}
+            gameId={ctx.dataset.gameId}
             cleared={state.milestonesCleared.includes(m.id)}
             isNext={boss?.id === m.id}
             isPinnedNext={state.nextBossId === m.id}

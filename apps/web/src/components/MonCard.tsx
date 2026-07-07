@@ -307,7 +307,7 @@ export function MonCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const editable = p.status !== 'dead' && runId != null && onChange != null;
-  const types = typesFor(p.species);
+  const types = typesFor(p.species, gameId);
   const nextEvo = evolutionSummary(p.species);
   // condensed-row status word: box/graveyard get a chip; party is the default
   // (unmarked) state, so no chip there to keep the row uncluttered.
@@ -405,7 +405,7 @@ export function MonCard({
             </span>
           )}
           <WeaknessRow types={types} />
-          <StatBars species={p.species} nature={p.nature} />
+          <StatBars species={p.species} nature={p.nature} gameId={gameId} />
           {editable ? (
             <>
               <EvolvePanel p={p} runId={runId} gameId={gameId} onEvolved={onChange} />

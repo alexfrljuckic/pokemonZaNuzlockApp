@@ -20,6 +20,7 @@ import { WeaknessRow } from './WeaknessRow';
 export function MilestoneCard({
   milestone,
   roster,
+  gameId,
   cleared,
   isNext,
   isPinnedNext = false,
@@ -28,6 +29,10 @@ export function MilestoneCard({
 }: {
   milestone: Milestone;
   roster: MilestoneRosterMember[];
+  /** the run's game — routes type/stat lookups through per-game overrides
+   * (Radical Red rebalances stats/types). Optional so read-only callers that
+   * lack it degrade to the global dex. */
+  gameId?: string;
   cleared: boolean;
   isNext: boolean;
   /** true when the player explicitly picked this boss as next (vs. dataset order) */
@@ -80,7 +85,7 @@ export function MilestoneCard({
               <span key={`${p.species}-${i}`} className="milestone-roster-mon">
                 <SpriteImg species={p.species} size={64} />
                 <span className="milestone-roster-lv muted">Lv{p.level}</span>
-                <TypeBadges types={typesFor(p.species)} />
+                <TypeBadges types={typesFor(p.species, gameId)} />
               </span>
             ))}
           </div>
@@ -119,7 +124,7 @@ export function MilestoneCard({
                   <div className="mrd-title">
                     <strong>{p.species}</strong>
                     <span className="mrd-lv">Lv {p.level}</span>
-                    <TypeBadges types={typesFor(p.species)} />
+                    <TypeBadges types={typesFor(p.species, gameId)} />
                     {(p.ability || p.heldItem || p.teraType) && (
                       <span className="muted mrd-meta">
                         {p.ability ?? ''}
@@ -130,9 +135,9 @@ export function MilestoneCard({
                     )}
                   </div>
                 </div>
-                <WeaknessRow types={typesFor(p.species)} />
-                <MoveChips moves={p.moves} />
-                <StatBars species={p.species} />
+                <WeaknessRow types={typesFor(p.species, gameId)} />
+                <MoveChips moves={p.moves} gameId={gameId} />
+                <StatBars species={p.species} gameId={gameId} />
               </div>
             ))
           ) : (

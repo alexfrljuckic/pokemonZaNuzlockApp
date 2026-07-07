@@ -25,7 +25,7 @@ export function SpecialsHere({
       <p className="muted specials-group-label">Gifts &amp; specials here</p>
       <div className="specials-grid">
         {here.map((s) => (
-          <SpecialCard key={s.id} s={s} runId={runId} state={state} onChange={onChange} />
+          <SpecialCard key={s.id} s={s} runId={runId} state={state} gameId={ctx.dataset.gameId} onChange={onChange} />
         ))}
       </div>
     </div>
