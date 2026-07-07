@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { listRuns, type RunSummary } from './lib/db';
 import { SYNC_ENABLED } from './lib/env';
-import { pullAllRuns } from './lib/sync';
+import { pullAllRuns, pushAllRuns } from './lib/sync';
 import { useAuth } from './lib/useAuth';
 import { AuthBar } from './screens/AuthBar';
 import { ErrorBoundary } from './components/ErrorBoundary';
@@ -127,12 +127,18 @@ function OwnerApp({ route }: { route: Route }) {
     refreshRuns();
   }, []);
 
-  // On sign-in, pull any runs from other devices/sessions into local storage
-  // before showing the run list, so "continue a run" reflects everything the
-  // account owns, not just what this browser created.
+  // On sign-in, reconcile this device with the account in BOTH directions:
+  // first push every local run up (so runs created here — or created before
+  // signing in, or never reopened since — actually reach the server), then
+  // pull any runs from other devices/sessions down. Without the push, a run
+  // only left the device when it was next OPENED, so a second device would see
+  // fewer runs than the one that created them. Best-effort; failures are
+  // swallowed per the local-first invariant.
   useEffect(() => {
     if (!session) return;
-    pullAllRuns(session.user.id)
+    const userId = session.user.id;
+    pushAllRuns(userId)
+      .then(() => pullAllRuns(userId))
       .then(refreshRuns)
       .catch(() => {});
   }, [session]);
