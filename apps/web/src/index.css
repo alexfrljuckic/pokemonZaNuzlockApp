@@ -1375,6 +1375,13 @@ input[aria-invalid='true'] {
   grid-template-columns: 1fr;
   gap: 0.6rem;
 }
+/* Boss Fights: cap the list to ~3.5 rows and scroll; MilestonesTab scrolls
+   the "up next" boss to the top on open. */
+.milestone-card-grid.boss-scroll {
+  max-height: 540px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
+}
 
 /* the condensed strip: head | roster | status+action, wrapping on phones */
 .milestone-card-main {
@@ -2962,6 +2969,12 @@ button.back-icon:hover:not(:disabled) {
   grid-template-columns: 1fr;
   gap: 0.6rem;
   align-items: start;
+}
+/* Box: show ~4 Pokémon, scroll the rest (Team + Graveyard stay uncapped). */
+.mon-grid.box-scroll {
+  max-height: 385px;
+  overflow-y: auto;
+  padding-right: 0.3rem;
 }
 .mon-card {
   border: 1px solid var(--border);
