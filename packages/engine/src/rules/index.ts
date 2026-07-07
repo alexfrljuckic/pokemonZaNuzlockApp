@@ -519,16 +519,19 @@ export function difficultyForPreset(presetId: string | undefined): string | null
   }
 }
 
-/** A milestone's effective roster. Precedence: the per-difficulty variant
- * matching the run's tier (RR Normal/Hardcore) > the per-starter variant
- * matching the chosen starter > the default `roster`. `difficulty` is the key
- * from difficultyForPreset(state.ruleset.presetId); null/absent leaves mainline
- * games on exactly their prior behavior. */
+/** A milestone's effective roster. Precedence: the two-axis
+ * difficulty×starter variant (RR rival battles) when BOTH are known > the
+ * per-difficulty variant matching the run's tier (RR Normal/Hardcore) > the
+ * per-starter variant matching the chosen starter > the default `roster`.
+ * `difficulty` is the key from difficultyForPreset(state.ruleset.presetId);
+ * null/absent leaves mainline games on exactly their prior behavior. */
 export function milestoneRoster(
   m: Milestone,
   starter: string | null,
   difficulty: string | null = null,
 ): Milestone['roster'] {
+  if (difficulty && starter && m.rosterByDifficultyAndStarter?.[difficulty]?.[starter])
+    return m.rosterByDifficultyAndStarter[difficulty][starter];
   if (difficulty && m.rosterByDifficulty?.[difficulty]) return m.rosterByDifficulty[difficulty];
   if (starter && m.rosterByStarter?.[starter]) return m.rosterByStarter[starter];
   return m.roster;

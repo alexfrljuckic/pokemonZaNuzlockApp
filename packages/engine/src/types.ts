@@ -126,6 +126,12 @@ export interface Milestone {
    * run's tier (mapped from presetId), else falls back to rosterByStarter/roster.
    * Mainline games omit this and are unaffected. */
   rosterByDifficulty?: Record<string, MilestoneRosterMember[]>;
+  /** Two-axis roster variants keyed difficulty -> starter (Radical Red rival
+   * battles, whose team depends on BOTH the run's tier AND the player's chosen
+   * starter — the rival takes the type-advantaged starter). Checked FIRST when
+   * both a difficulty and a starter are known; otherwise the loader falls back
+   * to rosterByDifficulty -> rosterByStarter -> roster. Mainline games omit it. */
+  rosterByDifficultyAndStarter?: Record<string, Record<string, MilestoneRosterMember[]>>;
   /** Version gating for a milestone present in only one version (e.g. SV's
    * Area Zero finale or the version-split Quaking Earth Titan). Absent = shown
    * regardless of version. dlc: true = only shown when the run's
