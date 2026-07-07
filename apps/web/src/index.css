@@ -1043,6 +1043,23 @@ button.item-chip.item-picked {
   letter-spacing: 0.04em;
   color: var(--muted);
 }
+/* HM / field-move access badge on an item chip ("Surf", "Cut", …). */
+.item-access {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.05rem 0.32rem;
+  border-radius: 999px;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+}
+button.item-chip.item-picked .item-access {
+  color: var(--muted);
+  background: transparent;
+  border-color: var(--border);
+}
 
 /* Spectator timeline timestamp, right-aligned on the shared summary-item row. */
 .timeline-when {

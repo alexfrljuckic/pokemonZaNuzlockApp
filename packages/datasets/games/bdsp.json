@@ -8723,10 +8723,16 @@
       ],
       "items": [
         {
-          "name": "TM47 (Steel Wing)"
+          "name": "TM47 (Steel Wing)",
+          "access": [
+            "cut"
+          ]
         },
         {
-          "name": "TM19 (Giga Drain)"
+          "name": "TM19 (Giga Drain)",
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Calcium",
@@ -9563,17 +9569,30 @@
           "name": "TM51 (Roost)"
         },
         {
-          "name": "TM30 (Shadow Ball)"
+          "name": "TM30 (Shadow Ball)",
+          "access": [
+            "rock-smash"
+          ]
         },
         {
-          "name": "Wave Incense"
+          "name": "Wave Incense",
+          "access": [
+            "surf",
+            "waterfall"
+          ]
         },
         {
-          "name": "Nugget"
+          "name": "Nugget",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
           "name": "Meadow Plate",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "waterfall"
+          ]
         },
         {
           "name": "Great Ball",
@@ -9747,7 +9766,10 @@
       ],
       "items": [
         {
-          "name": "TM12 (Taunt)"
+          "name": "TM12 (Taunt)",
+          "access": [
+            "rock-smash"
+          ]
         },
         {
           "name": "Poké Ball",
@@ -9994,14 +10016,24 @@
       ],
       "items": [
         {
-          "name": "TM77 (Psych Up)"
+          "name": "TM77 (Psych Up)",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
-          "name": "TM29 (Psychic)"
+          "name": "TM29 (Psychic)",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
           "name": "Zinc",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "rock-smash",
+            "rock-climb"
+          ]
         }
       ]
     },
@@ -10402,7 +10434,10 @@
           "name": "TM06 (Toxic)"
         },
         {
-          "name": "TM84 (Poison Jab)"
+          "name": "TM84 (Poison Jab)",
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Rare Candy"
@@ -10415,7 +10450,10 @@
           "name": "Heart Scale"
         },
         {
-          "name": "Protein"
+          "name": "Protein",
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -11307,7 +11345,10 @@
       "items": [
         {
           "name": "Super Potion",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -11508,16 +11549,28 @@
       "items": [
         {
           "name": "Pearl",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Ether"
+          "name": "Ether",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Splash Plate"
+          "name": "Splash Plate",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Carbos"
+          "name": "Carbos",
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -13012,11 +13065,17 @@
       "items": [
         {
           "name": "Pearl",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Big Pearl",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -14627,13 +14686,22 @@
       ],
       "items": [
         {
-          "name": "Carbos"
+          "name": "Carbos",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
-          "name": "Lagging Tail"
+          "name": "Lagging Tail",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
-          "name": "TM53 (Energy Ball)"
+          "name": "TM53 (Energy Ball)",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
           "name": "Big Pearl"
@@ -14896,10 +14964,16 @@
       ],
       "items": [
         {
-          "name": "Charcoal"
+          "name": "Charcoal",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
-          "name": "Protein"
+          "name": "Protein",
+          "access": [
+            "rock-climb"
+          ]
         },
         {
           "name": "Zinc"
@@ -15700,7 +15774,10 @@
       ],
       "items": [
         {
-          "name": "Protein"
+          "name": "Protein",
+          "access": [
+            "cut"
+          ]
         },
         {
           "name": "Nugget"
@@ -18201,7 +18278,10 @@
           "name": "Elixir"
         },
         {
-          "name": "TM11 (Sunny Day)"
+          "name": "TM11 (Sunny Day)",
+          "access": [
+            "cut"
+          ]
         },
         {
           "name": "TM87 (Swagger)"
@@ -18217,7 +18297,10 @@
           "quantity": 2
         },
         {
-          "name": "Rose Incense"
+          "name": "Rose Incense",
+          "access": [
+            "surf"
+          ]
         }
       ]
     }

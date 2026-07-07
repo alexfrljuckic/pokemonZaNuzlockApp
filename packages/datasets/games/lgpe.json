@@ -6250,15 +6250,24 @@
       ],
       "items": [
         {
-          "name": "Full Heal"
+          "name": "Full Heal",
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -6456,29 +6465,50 @@
       ],
       "items": [
         {
-          "name": "Heart Scale"
+          "name": "Heart Scale",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Ultra Ball"
+          "name": "Ultra Ball",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Max Repel"
+          "name": "Max Repel",
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Stardust",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -6777,21 +6807,36 @@
       ],
       "items": [
         {
-          "name": "Hyper Potion"
+          "name": "Hyper Potion",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "Water Stone"
+          "name": "Water Stone",
+          "access": [
+            "surf"
+          ]
         },
         {
-          "name": "PP Up"
+          "name": "PP Up",
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Revive",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         },
         {
           "name": "Stardust",
-          "hidden": true
+          "hidden": true,
+          "access": [
+            "surf"
+          ]
         }
       ]
     },
@@ -7765,7 +7810,6 @@
     },
     {
       "id": "gym-3-surge",
-
       "trainerSprite": "ltsurge",
       "name": "Lt. Surge (Vermilion Gym)",
       "type": "gym",
@@ -8021,7 +8065,6 @@
     },
     {
       "id": "e4-lorelei",
-
       "trainerSprite": "lorelei-gen1",
       "name": "Elite Four Lorelei",
       "type": "elite-four",
@@ -8131,7 +8174,6 @@
     },
     {
       "id": "e4-agatha",
-
       "trainerSprite": "agatha-gen1",
       "name": "Elite Four Agatha",
       "type": "elite-four",
