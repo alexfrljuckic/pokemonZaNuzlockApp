@@ -382,11 +382,17 @@ export function MonCard({
             {p.nature ? ` · ${p.nature}` : ''}
             {p.ability ? ` · ${p.ability.replace(/-/g, ' ')}` : ''}
           </span>
-          <MonMoves moves={p.moves} />
-          {nextEvo && (
-            <span className="mon-card-evo muted" title={`Evolves into ${nextEvo}`}>
-              ↗ {nextEvo}
-            </span>
+          {/* moves + next-evolution always drop to their own second line so
+              the row reads consistently, however short the meta line is */}
+          {((p.moves && p.moves.length > 0) || nextEvo) && (
+            <div className="mon-card-glance-row2">
+              <MonMoves moves={p.moves} />
+              {nextEvo && (
+                <span className="mon-card-evo muted" title={`Evolves into ${nextEvo}`}>
+                  ↗ {nextEvo}
+                </span>
+              )}
+            </div>
           )}
         </div>
 

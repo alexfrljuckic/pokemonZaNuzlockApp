@@ -3056,6 +3056,16 @@ button.back-icon:hover:not(:disabled) {
   flex: 1 1 260px;
   min-width: 0;
 }
+/* moves + next-evolution live on their own full-width second line, so they
+   never wrap up next to a short types/item/nature/ability line */
+.mon-card-glance-row2 {
+  flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+  min-width: 0;
+}
 .mon-card-meta {
   font-size: 0.78rem;
   text-transform: capitalize;
