@@ -2159,6 +2159,37 @@ button.back-icon:hover:not(:disabled) {
   margin-top: 0.35rem;
 }
 
+/* Landing sign-off: source + tip jar. Muted and small so it sits quietly
+   below the hero — a footer, not a banner. */
+.title-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2.5rem;
+}
+.title-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.title-footer-link:hover,
+.title-footer-link:focus-visible {
+  color: var(--text);
+}
+.title-footer-link svg {
+  opacity: 0.85;
+}
+/* the tip jar gets the one warm accent so it's inviting but not loud */
+.title-footer-coffee:hover,
+.title-footer-coffee:focus-visible {
+  color: var(--warning-strong);
+}
+
 .rules-legend strong {
   color: var(--text);
 }
