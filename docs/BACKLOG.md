@@ -5,7 +5,7 @@ Ordered, PR-sized. Each item lists acceptance criteria. Phases refer to
 2026-07-05 session END (PRs #112–#137 merged; numbered backlog EMPTY) —
 when in doubt, trust `git log --oneline --merges main` over this file.
 
-## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–6 #166–#185 + evening #197–#204 merged)
+## NEXT SESSION STARTS HERE (state as of 2026-07-06, waves 4–6 #166–#185 + evening #197–#205 merged)
 
 **App is LIVE at https://nuzlocke-tracker-app.vercel.app.** Auth is
 OAuth-only (Google + Discord, verified end-to-end; magic-link email

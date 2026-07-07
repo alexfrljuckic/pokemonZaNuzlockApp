@@ -24,7 +24,9 @@ pushes.
 
 - `profiles`: `{ user_id PK, handle UNIQUE (lowercase, [a-z0-9-]),
   display_name, created_at }` — created on first "set up my profile";
-  no auto-provisioning.
+  no auto-provisioning. NOTE: `display_name` is DORMANT since #204 — the
+  product is handle-only (the client no longer reads or writes it, though the
+  RPCs still return it); the column can be dropped in a follow-up migration.
 - `follows`: `{ follower_id, followee_id, created_at, PK (follower,
   followee) }` — RLS: insert/delete own follower rows; select where
   follower_id = auth.uid() (private follow lists v1).
@@ -40,9 +42,10 @@ pushes.
 
 ## Pages
 
-- `/u/<handle>`: display name, shared-run cards (status chips, game
-  logos), aggregate strip (victories, active runs). Follow button when
-  logged in.
+- `/u/<handle>` (route `#u/<handle>`): the @handle, shared-run cards (status
+  chips, game logos), aggregate strip (victories, active runs). Follow button
+  when logged in. Trainer discovery (search + follow feed) lives on its own
+  `#trainers` screen reached from the title, not the landing hero (#201).
 - Feed: a section on the run-picker screen ("From people you follow"),
   not a separate tab — cheap entry point, no new nav.
 

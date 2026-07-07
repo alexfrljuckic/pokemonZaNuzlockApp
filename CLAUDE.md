@@ -58,9 +58,9 @@ Never merge with either failing.
   when the paid/metered switch is off. See `docs/COSTS.md`.
 - Engine package stays pure TypeScript: no DOM, no network, no Supabase imports.
 
-## Current state (2026-07-05 evening, reconciled after PR #137)
+## Current state (2026-07-06, reconciled after PR #205)
 
-Everything below is on `main`. PRs #3-#137 merged; the numbered backlog is
+Everything below is on `main`. PRs #3-#205 merged; the numbered backlog is
 EMPTY (shipped or deliberately shelved — see docs/BACKLOG.md, still the
 single work tracker). Work from `C:\dev\nuzlocke-app` (OneDrive checkout
 breaks worktrees).
@@ -72,29 +72,40 @@ breaks worktrees).
   never changes, un-evolve keeps level, self-evos are fold no-ops),
   genlocke import event (dormant), cross-run `aggregateRuns`. Toggle rules
   (`dlc-content`, `alphas-count`, `za-rogue-caps`): ABSENT from a ruleset
-  = legacy behavior, never "off". 90 tests.
+  = legacy behavior, never "off". `frontierAreas` orders unresolved areas by
+  progression (unlock-tier then dataset order) so the "up next" map highlight
+  advances as areas RESOLVE, never dark between badges (#198). 103 tests.
 - **Datasets** (6 games, interactive maps + towns/shops): Z-A (25),
-  BDSP (63), LGPE (44), SwSh (62 + 9 DLC milestones + 31 DLC specials,
-  all `conditions.dlc`-gated), PLA (81 — full named-sub-location split
-  with per-zone in-game maps + zone-switcher; guaranteed alphas as
-  `alpha`-method slots), SV (41). Per-route trainers on BDSP/LGPE/SwSh/SV.
-  Generated: species-data.json (874: types/stats/moves/movesByGame/
+  BDSP (63), LGPE (44), SwSh (73 — the full Wild Area sub-zone split, now
+  incl. all base-game zones + 30 DLC zones `conditions.dlc`-gated; 21
+  milestones / 39 specials), PLA (82 — full named-sub-location split with
+  per-zone in-game maps + zone-switcher; guaranteed alphas as `alpha`-method
+  slots), SV (41). Per-route trainers on BDSP/LGPE/SwSh/SV.
+  Generated: species-data.json (886: types/stats/moves/movesByGame/
   levelUpMovesByGame/evolutions incl. happiness/time/knownMove detail),
   species-lines.json, machines-by-game.json — regenerate via scripts,
   NEVER hand-merge. PokeAPI gotchas: no Z-A move data (union fallback);
   default-variety slugs required, Showdown aliases in `lib/sprites.ts`.
 - **App** (`apps/web`): five tabs + owner timeline w/ filters, level-cap
   headroom + deaths-by-boss panels, cross-run "Your Stats" screen;
-  maps zoom/pan via SVG viewBox (pinch/drag/buttons — mobile-first);
+  maps zoom/pan via SVG viewBox (pinch/drag/buttons — mobile-first;
+  auto-zooms to the frontier), column-aligned + height-capped 60vh on
+  desktop so the encounter panel stays in view, tight click boxes in crowded
+  regions (see memory `map-clickbox-sizing`); Galar backdrop is a
+  theme-transparent LANDSCAPE TRIPTYCH (base panel centred, Crown Tundra +
+  Isle of Armor insets flanking, page margin flood-filled transparent);
   evolve/un-evolve UI with branch choice, level bump and per-game
   item-location hints (lib/evolutionHints.ts); move pickers ordered
   level→TM→TR→HM; columnar learnsets; reverted evolutions net out of all
   history views (`visibleEvents` — apply it to ANY new history surface);
-  profiles + follows + big-beats feed (#u/<handle> route) + landing-page
-  trainer search + self-service profile delete; run robustness
-  (ErrorBoundary + missing-dataset guard, per-run Delete/Export,
-  ConfirmAction on destructive clicks); Supabase sync/share/spectator
-  (all migrations through 20260706000000 APPLIED); 9 themes. 71 web tests.
+  profiles (handle-only @address, editable in the settings cog; NO display
+  name — dormant DB column) + follows + big-beats feed (#u/<handle>) +
+  a dedicated #trainers discovery screen (search + feed, OFF the landing
+  hero) + self-service profile delete; quiet landing footer (GitHub source +
+  paypal.me/projectAF tip jar); run robustness (ErrorBoundary +
+  missing-dataset guard, per-run Delete/Export, ConfirmAction on destructive
+  clicks); Supabase sync/share/spectator (all migrations through
+  20260706000000 APPLIED); 9 themes. 171 web tests.
 - **Deploy**: LIVE at https://nuzlocke-tracker-app.vercel.app (Vercel
   project `nuzlocke-tracker`, team PokemonVibeCoder). URL is not hardcoded
   (app uses `window.location.origin`); only docs + Supabase Auth config
