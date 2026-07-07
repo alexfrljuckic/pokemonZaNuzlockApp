@@ -54,7 +54,7 @@ export const SINNOH_MAP: GameMap = {
     { id: 'route-204-south', x: 110, y: 457, w: 32, h: 46, kind: 'route' },
     // route-204-north: continues past Ravaged Path up toward Floaroma Town —
     // placed just above 204-south, between it and floaroma-town/-meadow.
-    { id: 'route-204-north', x: 122, y: 424, w: 28, h: 28, kind: 'route' },
+    { id: 'route-204-north', x: 118, y: 443, w: 28, h: 28, kind: 'route' },
     // — #73 areas (calibrated from a 3x crop of the backdrop: Ravaged Path
     //   sits on the 204 road below Floaroma; 207 is the horizontal road
     //   between the Cycling Road junction and Coronet's west base; 208
@@ -69,7 +69,7 @@ export const SINNOH_MAP: GameMap = {
     { id: 'route-205-south', x: 188, y: 360, w: 38, h: 46, kind: 'route' },
     // route-205-north: the north river segment past Eterna Forest / Valley
     // Windworks — placed just above 205-south, east of the forest cluster.
-    { id: 'route-205-north', x: 214, y: 322, w: 26, h: 34, kind: 'route' },
+    { id: 'route-205-north', x: 222, y: 352, w: 26, h: 34, kind: 'route' },
     { id: 'eterna-forest', x: 162, y: 280, w: 72, h: 56, kind: 'forest' },
     { id: 'old-chateau', x: 212, y: 264, w: 36, h: 32, kind: 'landmark' },
     { id: 'eterna-city', x: 242, y: 334, w: 44, h: 42, kind: 'city' },
@@ -84,8 +84,8 @@ export const SINNOH_MAP: GameMap = {
     { id: 'mt-coronet', x: 299, y: 248, w: 48, h: 210, kind: 'cave' },
     // route-211 straddles Mt. Coronet: -west on the Eterna side, -east on the
     // Celestic side, flanking the spine at the same latitude.
-    { id: 'route-211-west', x: 262, y: 300, w: 30, h: 28, kind: 'route' },
-    { id: 'route-211-east', x: 354, y: 296, w: 30, h: 28, kind: 'route' },
+    { id: 'route-211-west', x: 274, y: 340, w: 30, h: 28, kind: 'route' },
+    { id: 'route-211-east', x: 336, y: 336, w: 30, h: 28, kind: 'route' },
     { id: 'hearthome-city', x: 368, y: 463, w: 44, h: 42, kind: 'city' },
     { id: 'amity-square', x: 398, y: 432, w: 38, h: 34, kind: 'landmark' },
     { id: 'lost-tower', x: 436, y: 462, w: 36, h: 34, kind: 'landmark' },
@@ -93,13 +93,13 @@ export const SINNOH_MAP: GameMap = {
     // — East —
     // route-209: long route south of Hearthome, home to the Lost Tower —
     // placed between Hearthome/Lost Tower and Solaceon along the east road.
-    { id: 'route-209', x: 424, y: 424, w: 32, h: 32, kind: 'route' },
+    { id: 'route-209', x: 421, y: 447, w: 32, h: 32, kind: 'route' },
     { id: 'solaceon-town', x: 463, y: 423, w: 44, h: 40, kind: 'town' },
     { id: 'solaceon-ruins', x: 496, y: 446, w: 34, h: 32, kind: 'cave' },
     // route-210 (split by the Psyduck herd): -south on the Solaceon side,
     // -north (foggy) climbing toward Celestic Town / Route 215.
-    { id: 'route-210-south', x: 444, y: 380, w: 28, h: 30, kind: 'route' },
-    { id: 'route-210-north', x: 416, y: 348, w: 28, h: 30, kind: 'route' },
+    { id: 'route-210-south', x: 435, y: 396, w: 28, h: 30, kind: 'route' },
+    { id: 'route-210-north', x: 400, y: 365, w: 28, h: 30, kind: 'route' },
 
     // — Toward Pastoria (SE-central) —
     { id: 'route-215', x: 522, y: 410, w: 54, h: 34, kind: 'route' },
@@ -116,9 +116,9 @@ export const SINNOH_MAP: GameMap = {
     // — SW sea routes (post-Surf, south of Sandgem toward Pal Park) —
     // route-219 → route-220 (open sea) → route-221 (grass), a chain running
     // south of Sandgem Town and east toward Ramanas Park.
-    { id: 'route-219', x: 98, y: 646, w: 28, h: 30, kind: 'route' },
-    { id: 'route-220', x: 138, y: 652, w: 28, h: 30, kind: 'route' },
-    { id: 'route-221', x: 178, y: 656, w: 26, h: 28, kind: 'route' },
+    { id: 'route-219', x: 126, y: 648, w: 28, h: 30, kind: 'route' },
+    { id: 'route-220', x: 162, y: 654, w: 28, h: 30, kind: 'route' },
+    { id: 'route-221', x: 196, y: 650, w: 26, h: 28, kind: 'route' },
 
     // — SE coast —
     { id: 'route-222', x: 652, y: 526, w: 48, h: 34, kind: 'route' },
@@ -140,14 +140,14 @@ export const SINNOH_MAP: GameMap = {
     { id: 'route-230', x: 578, y: 286, w: 50, h: 44, kind: 'route' },
     { id: 'stark-mountain', x: 597, y: 58, w: 48, h: 54, kind: 'cave' },
     // route-224: post-game route east past the Victory Road exit (coastal).
-    { id: 'route-224', x: 744, y: 296, w: 30, h: 40, kind: 'route' },
+    { id: 'route-224', x: 728, y: 312, w: 30, h: 40, kind: 'route' },
     // route-226 → route-227: post-game cliff routes climbing from the Survival
     // Area up toward Stark Mountain in the far NE.
     { id: 'route-226', x: 552, y: 150, w: 28, h: 32, kind: 'route' },
     { id: 'route-227', x: 592, y: 112, w: 28, h: 32, kind: 'route' },
     // route-229: post-game route in the Resort Area / Route 230 loop (SW of the
     // Battle Zone cluster).
-    { id: 'route-229', x: 628, y: 328, w: 28, h: 30, kind: 'route' },
+    { id: 'route-229', x: 626, y: 290, w: 28, h: 30, kind: 'route' },
   ],
   edges: [
     ['lake-verity', 'route-201'],
