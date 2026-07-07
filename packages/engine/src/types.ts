@@ -38,10 +38,30 @@ export interface AreaItem {
   shop?: boolean;
   /** Only when a single pickup yields more than one. */
   quantity?: number;
+  /** Field-move (HM) requirements needed to reach this pickup — lowercase-
+   * hyphenated slugs. Sourced, never invented; omit when freely reachable. */
+  access?: FieldMove[];
+  /** Optional short free-text spot within the area (research-backed only). */
+  locationHint?: string;
   conditions?: {
     version?: string[];
   };
 }
+
+/** HM / field-move slugs an item pickup may require. Kept in sync with the
+ * `access` enum in game.schema.json. */
+export type FieldMove =
+  | 'surf'
+  | 'cut'
+  | 'strength'
+  | 'rock-smash'
+  | 'waterfall'
+  | 'rock-climb'
+  | 'defog'
+  | 'fly'
+  | 'flash'
+  | 'whirlpool'
+  | 'dive';
 
 export interface AreaTrainer {
   name: string;

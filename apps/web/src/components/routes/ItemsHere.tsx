@@ -1,4 +1,4 @@
-import type { Area, AreaItem, RunState } from '@nuzlocke/engine';
+import type { Area, AreaItem, FieldMove, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 
 function appliesTo(i: AreaItem, version: string): boolean {
@@ -6,6 +6,23 @@ function appliesTo(i: AreaItem, version: string): boolean {
 }
 
 const isMachine = (name: string) => /^(TM|TR|HM)\d/i.test(name);
+
+/** Human labels for the field-move (HM) access slugs. */
+const FIELD_MOVE_LABEL: Record<FieldMove, string> = {
+  surf: 'Surf',
+  cut: 'Cut',
+  strength: 'Strength',
+  'rock-smash': 'Rock Smash',
+  waterfall: 'Waterfall',
+  'rock-climb': 'Rock Climb',
+  defog: 'Defog',
+  fly: 'Fly',
+  flash: 'Flash',
+  whirlpool: 'Whirlpool',
+  dive: 'Dive',
+};
+
+const moveLabel = (m: FieldMove) => FIELD_MOVE_LABEL[m] ?? m;
 
 /** Item availability in this area — always visible. Ground/hidden pickups
  * come first and count toward the "n/m picked up" header; shop stock (the
@@ -45,22 +62,37 @@ export function ItemsHere({
     await onChange();
   }
 
-  const chip = ({ item, index }: { item: AreaItem; index: number }) => (
-    <li key={`${item.name}-${index}`}>
-      <button
-        type="button"
-        className={`item-chip${item.hidden ? ' item-hidden' : ''}${isMachine(item.name) ? ' item-machine' : ''}${picked(index) ? ' item-picked' : ''}`}
-        disabled={!canMark}
-        onClick={() => toggle(index, item.name)}
-        title={canMark ? (picked(index) ? 'Unmark obtained' : 'Mark obtained') : undefined}
-      >
-        {picked(index) && <span className="item-tick">✓</span>}
-        {item.name}
-        {item.quantity ? <span className="item-qty">×{item.quantity}</span> : null}
-        {item.hidden && <span className="item-hidden-tag">hidden</span>}
-      </button>
-    </li>
-  );
+  const chip = ({ item, index }: { item: AreaItem; index: number }) => {
+    const access = item.access ?? [];
+    const requires = access.length > 0 ? `Requires ${access.map(moveLabel).join(' + ')}` : '';
+    // Tooltip: rough location (area name + any hint) plus the access requirement.
+    const locationBits = [area.name, item.locationHint].filter(Boolean).join(' — ');
+    const detail = [locationBits, requires].filter(Boolean).join('. ');
+    const markLabel = canMark ? (picked(index) ? 'Unmark obtained' : 'Mark obtained') : '';
+    const title = [detail, markLabel].filter(Boolean).join(' · ') || undefined;
+    return (
+      <li key={`${item.name}-${index}`}>
+        <button
+          type="button"
+          className={`item-chip${item.hidden ? ' item-hidden' : ''}${isMachine(item.name) ? ' item-machine' : ''}${picked(index) ? ' item-picked' : ''}`}
+          disabled={!canMark}
+          onClick={() => toggle(index, item.name)}
+          title={title}
+          aria-label={requires ? `${item.name}. ${requires}` : undefined}
+        >
+          {picked(index) && <span className="item-tick">✓</span>}
+          {item.name}
+          {item.quantity ? <span className="item-qty">×{item.quantity}</span> : null}
+          {item.hidden && <span className="item-hidden-tag">hidden</span>}
+          {access.map((m) => (
+            <span key={m} className="item-access" title={`Requires ${moveLabel(m)} to reach`}>
+              {moveLabel(m)}
+            </span>
+          ))}
+        </button>
+      </li>
+    );
+  };
 
   return (
     <div className="items-group">

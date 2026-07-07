@@ -93,6 +93,16 @@
                 "hidden": { "type": "boolean", "description": "Hidden pickup (Dowsing Machine / Itemfinder spot)." },
                 "shop": { "type": "boolean", "description": "Purchasable in this area's shops rather than a ground pickup." },
                 "quantity": { "type": "integer", "minimum": 2, "description": "Only when a single pickup yields more than one." },
+                "access": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": ["surf", "cut", "strength", "rock-smash", "waterfall", "rock-climb", "defog", "fly", "flash", "whirlpool", "dive"]
+                  },
+                  "description": "Field-move requirements (HMs) needed to reach this pickup, as lowercase-hyphenated slugs. Sourced from Serebii/Bulbapedia, never invented; omit when the item is freely reachable. Convention: surf | cut | strength | rock-smash | waterfall | rock-climb | defog | fly | flash | whirlpool | dive."
+                },
+                "locationHint": { "type": "string", "minLength": 1, "description": "Optional short free-text spot within the area (e.g. \"on the island south of the tubers\"). Populate only where research gives a clean spot; the area name already provides rough location so this is optional." },
                 "conditions": {
                   "type": "object",
                   "additionalProperties": false,
