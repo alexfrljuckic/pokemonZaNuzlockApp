@@ -142,12 +142,15 @@ describe('MonCard full-width row layout', () => {
 
     const weak = matchups.querySelector('.mrd-mu-weak')!;
     expect(weak).toBeTruthy();
-    expect(weak.textContent).toContain('Weak to');
+    expect(weak.textContent).toContain('Weak');
     expect(weak.textContent).toContain('fire');
+    // each chip carries its multiplier — grass/poison is weak ×2 to fire
+    expect(weak.textContent).toContain('×2');
 
     const resist = matchups.querySelector('.mrd-mu-resist')!;
     expect(resist).toBeTruthy();
     expect(resist.textContent).toContain('Resists');
+    expect(resist.textContent).toContain('×½');
     // grass/poison resists water and fighting; NOT fire (a weakness)
     expect(resist.textContent).toContain('water');
     expect(resist.textContent).toContain('fighting');
@@ -165,7 +168,7 @@ describe('MonCard full-width row layout', () => {
     await click(container.querySelector('.mon-card-head')!);
     const immune = container.querySelector('.mrd-mu-immune')!;
     expect(immune).toBeTruthy();
-    expect(immune.textContent).toContain('Immune to');
+    expect(immune.textContent).toContain('Immune');
     expect(immune.textContent).toContain('normal');
     expect(immune.textContent).toContain('fighting');
   });
