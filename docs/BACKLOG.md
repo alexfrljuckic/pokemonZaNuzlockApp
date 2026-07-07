@@ -52,10 +52,11 @@ polish (#197–#204, all merged):**
   `display_name` column left DORMANT (client omits it; RPCs still return it,
   ignored) — droppable in a follow-up migration.
 
-### In progress (this session, next up)
-- **Landing footer: GitHub + donation links.** Add a tasteful footer (GitHub
-  profile + a "buy me a coffee"-style donation link) — waiting on Alex's two
-  URLs; not committed yet.
+- **Landing footer: GitHub + donation links — SHIPPED.** A quiet, muted
+  footer on the title screen: "Source on GitHub" → the repo, and "Buy me a
+  coffee" → https://paypal.me/projectAF (Alex's PayPal.Me). The coffee link
+  renders only when `COFFEE_URL` is set in TitleScreen, so it can be toggled
+  off by clearing it. Warm accent on hover; both open in a new tab.
 
 ### Tomorrow's work queue (from Alex, 2026-07-06 night) — items 1 & 2 SHIPPED
 

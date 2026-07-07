@@ -2,7 +2,7 @@
 // donation/tip link — set it to a paypal.me/<handle> (or other tip page) to
 // show the "Buy me a coffee" link; leave it '' and the link stays hidden.
 const GITHUB_URL = 'https://github.com/alexfrljuckic/pokemonZaNuzlockApp';
-const COFFEE_URL = '';
+const COFFEE_URL = 'https://paypal.me/projectAF';
 
 const GitHubMark = () => (
   <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor" aria-hidden="true">
