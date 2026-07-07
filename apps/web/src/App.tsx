@@ -247,7 +247,12 @@ function OwnerApp({ route }: { route: Route }) {
         ) : route.screen === 'trainers' ? (
           <TrainersScreen session={session} />
         ) : screen === 'continue' ? (
-          <ContinueScreen runs={runs} onSelect={openRun} onDeleted={refreshRuns} />
+          <ContinueScreen
+            runs={runs}
+            onSelect={openRun}
+            onDeleted={refreshRuns}
+            onNewGame={() => navigate({ screen: 'new' })}
+          />
         ) : (
           <>
             <TitleScreen

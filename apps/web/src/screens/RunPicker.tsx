@@ -1,6 +1,6 @@
-import { Fragment, useRef, useState, type CSSProperties } from 'react';
+import { Fragment, useEffect, useRef, useState, type CSSProperties } from 'react';
 import { RULES, buildRuleset, deriveState, specialAppliesToVersion, type RunEvent } from '@nuzlocke/engine';
-import { listGames, speciesToLine } from '../lib/datasets';
+import { DATASETS, listGames, speciesToLine } from '../lib/datasets';
 import { VERSION_MASCOT, cardColorFor, gameName } from '../games';
 import { createRun, deleteRun, importRun, loadEvents, type RunSummary } from '../lib/db';
 import { deleteRemoteRun } from '../lib/sync';
@@ -9,6 +9,7 @@ import { MAX_IMPORT_BYTES, parseRunExport } from '../lib/importRun';
 import { ConfirmAction } from '../components/ConfirmAction';
 import { SpriteImg } from '../components/SpriteImg';
 import { StarterPicker, starterHeading } from '../components/SpecialsSection';
+import { relativeTime, summarizeRun, type RunCardSummary } from '../lib/runCard';
 
 // Radical Red replaces the generic presets with its own in-game difficulty
 // tiers (docs/RADICAL-RED-RESEARCH.md). Other games keep standard/hardcore/casual.
@@ -31,16 +32,182 @@ const PRESET_DESC: Record<string, string> = {
 
 const prettyVersion = (v: string) => v.replace(/-/g, ' ');
 
-/** "Continue" flow: the existing runs, each with export/delete actions. */
+/** Status glyph + short label, keyed off the derived run status. The glyph
+ * doubles as a visual cue in the badge; kept alongside gameName so the card
+ * never invents its own vocabulary. */
+const STATUS_GLYPH: Record<RunCardSummary['status'], string> = {
+  active: '▶',
+  'wiped-continuing': '↻',
+  wiped: '✖',
+  victory: '★',
+  abandoned: '⏹',
+};
+
+/** A single run rendered as a "save file" card: team sprites + at-a-glance
+ * metadata, still opened by a real button (keyboard-reachable, #151). */
+function RunCard({
+  run,
+  summary,
+  onSelect,
+  onExport,
+  onDelete,
+}: {
+  run: RunSummary;
+  summary: RunCardSummary | null;
+  onSelect: (runId: string) => void;
+  onExport: (r: RunSummary) => void;
+  onDelete: (r: RunSummary) => void;
+}) {
+  const name = gameName(run.gameId);
+  const supported = !!DATASETS[run.gameId];
+  const status = summary?.status;
+  const lastPlayed =
+    relativeTime(summary?.lastPlayedAt ?? run.createdAt) ?? new Date(run.createdAt).toLocaleDateString();
+
+  const bench = summary ? summary.boxedCount + summary.deathCount : 0;
+
+  return (
+    <div className="run-card" style={{ '--card-color': cardColorFor(run.gameId) } as CSSProperties}>
+      <button
+        className="run-card-open"
+        onClick={() => onSelect(run.id)}
+        aria-label={`Continue ${name} (${prettyVersion(run.version)}) run`}
+      >
+        <div className="run-card-head">
+          <span className="run-card-title">{name}</span>
+          {status && (
+            <span className={`run-status run-status-${status}`}>
+              <span aria-hidden="true">{STATUS_GLYPH[status]}</span> {summary!.statusLabel}
+            </span>
+          )}
+        </div>
+        <div className="run-card-sub muted">{prettyVersion(run.version)}</div>
+
+        {/* the party — the point of the redesign */}
+        {summary ? (
+          summary.team.length > 0 ? (
+            <div className="run-card-team">
+              {summary.team.map((m) => (
+                <span
+                  key={m.id}
+                  className={`run-team-mon${m.shiny ? ' shiny' : ''}`}
+                  title={`${m.nickname} · Lv ${m.level}${m.shiny ? ' · shiny' : ''}`}
+                >
+                  <SpriteImg species={m.species} size={44} shiny={m.shiny} />
+                </span>
+              ))}
+              {bench > 0 && (
+                <span className="run-team-bench muted" title="Boxed + fainted">
+                  +{bench}
+                </span>
+              )}
+            </div>
+          ) : (
+            <div className="run-card-team run-card-team-empty muted">
+              <span className="sprite-missing" aria-hidden="true">
+                ●
+              </span>
+              No team yet — catch your first Pokémon
+            </div>
+          )
+        ) : supported ? (
+          <div className="run-card-team run-card-team-empty muted">Loading team…</div>
+        ) : (
+          <div className="run-card-team run-card-team-empty muted">Dataset unavailable</div>
+        )}
+
+        {/* at-a-glance metadata */}
+        {summary && (
+          <div className="run-card-stats">
+            {summary.badgesTotal > 0 && (
+              <span className="run-stat" title="Boss badges / milestones cleared">
+                <span className="run-stat-label">Badges</span>
+                <span className="run-stat-value">
+                  {summary.badgesEarned}/{summary.badgesTotal}
+                </span>
+              </span>
+            )}
+            {summary.levelCap != null && (
+              <span
+                className="run-stat"
+                title={summary.nextBossName ? `Next: ${summary.nextBossName}` : 'Level cap'}
+              >
+                <span className="run-stat-label">Cap</span>
+                <span className="run-stat-value">Lv {summary.levelCap}</span>
+              </span>
+            )}
+            <span className="run-stat" title="Team size">
+              <span className="run-stat-label">Team</span>
+              <span className="run-stat-value">{summary.partyCount}</span>
+            </span>
+            <span className={`run-stat${summary.deathCount > 0 ? ' run-stat-deaths' : ''}`} title="Fainted">
+              <span className="run-stat-label">Lost</span>
+              <span className="run-stat-value">{summary.deathCount}</span>
+            </span>
+          </div>
+        )}
+
+        <div className="run-card-foot muted">Last played {lastPlayed}</div>
+      </button>
+
+      <div className="run-card-actions">
+        <button
+          className="secondary"
+          onClick={() => onExport(run)}
+          aria-label={`Export ${name} run as JSON`}
+        >
+          Export
+        </button>
+        <ConfirmAction
+          label="Delete"
+          prompt="Delete this run permanently? This can't be undone."
+          ariaLabel={`Delete ${name} run`}
+          onConfirm={() => onDelete(run)}
+        />
+      </div>
+    </div>
+  );
+}
+
+/** "Continue" flow: each saved run as a card with its team + progress. */
 export function ContinueScreen({
   runs,
   onSelect,
   onDeleted,
+  onNewGame,
 }: {
   runs: RunSummary[];
   onSelect: (runId: string) => void;
   onDeleted: () => Promise<void>;
+  /** Jump to the New Game screen from the empty state / card grid. Optional so
+   * older callers still compile; when absent the empty-state CTA is hidden. */
+  onNewGame?: () => void;
 }) {
+  // Fold every listed run's event log into its card summary (team + progress).
+  // Keyed by run id; a few hundred events per run derive in well under a frame
+  // (same local-first pattern as the cross-run stats screen).
+  const [summaries, setSummaries] = useState<Record<string, RunCardSummary>>({});
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const next: Record<string, RunCardSummary> = {};
+      for (const r of runs) {
+        const dataset = DATASETS[r.gameId];
+        if (!dataset) continue; // unknown/removed game — card still renders, just no team
+        try {
+          next[r.id] = summarizeRun(await loadEvents(r.id), dataset);
+        } catch {
+          // a corrupt log shouldn't sink the whole list — leave that card bare
+        }
+      }
+      if (!cancelled) setSummaries(next);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, [runs]);
+
   async function exportRun(r: RunSummary) {
     downloadRunExport(r, await loadEvents(r.id));
   }
@@ -75,39 +242,70 @@ export function ContinueScreen({
     }
   }
 
+  if (runs.length === 0) {
+    return (
+      <section>
+        <h2>Continue a run</h2>
+        <div className="run-empty">
+          <div className="run-empty-glyph" aria-hidden="true">
+            ●
+          </div>
+          <p className="run-empty-title">No runs yet</p>
+          <p className="muted">Start a new game to begin your first nuzlocke — its team will show up here.</p>
+          {onNewGame && (
+            <button className="run-empty-cta" onClick={onNewGame}>
+              New Game
+            </button>
+          )}
+          <div className="run-import-row">
+            <input
+              ref={fileRef}
+              type="file"
+              accept="application/json,.json"
+              className="visually-hidden-input"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) handleImportFile(f);
+                e.target.value = '';
+              }}
+            />
+            <button className="secondary" onClick={() => fileRef.current?.click()}>
+              Import run from file
+            </button>
+            {importError && (
+              <span className="auth-error" role="alert">
+                {importError}
+              </span>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section>
       <h2>Continue a run</h2>
-      {runs.length === 0 && <p className="muted">No runs yet — start a new game.</p>}
-      {runs.map((r) => (
-        <div key={r.id} className="run-list-item">
-          <button
-            className="run-list-open"
-            onClick={() => onSelect(r.id)}
-            aria-label={`Continue ${gameName(r.gameId)} (${prettyVersion(r.version)}) run`}
-          >
-            <span>
-              {gameName(r.gameId)} · {prettyVersion(r.version)}
+      <div className="run-card-grid">
+        {runs.map((r) => (
+          <RunCard
+            key={r.id}
+            run={r}
+            summary={summaries[r.id] ?? null}
+            onSelect={onSelect}
+            onExport={exportRun}
+            onDelete={handleDelete}
+          />
+        ))}
+        {onNewGame && (
+          <button className="run-card run-card-new" onClick={onNewGame}>
+            <span className="run-card-new-plus" aria-hidden="true">
+              +
             </span>
-            <span className="muted">{new Date(r.createdAt).toLocaleDateString()}</span>
+            <span>New Game</span>
           </button>
-          <div className="run-list-actions">
-            <button
-              className="secondary"
-              onClick={() => exportRun(r)}
-              aria-label={`Export ${gameName(r.gameId)} run as JSON`}
-            >
-              Export
-            </button>
-            <ConfirmAction
-              label="Delete"
-              prompt="Delete this run permanently? This can't be undone."
-              ariaLabel={`Delete ${gameName(r.gameId)} run`}
-              onConfirm={() => handleDelete(r)}
-            />
-          </div>
-        </div>
-      ))}
+        )}
+      </div>
 
       {/* restore a backup / move a run between browsers — pairs with Export */}
       <div className="run-import-row">
