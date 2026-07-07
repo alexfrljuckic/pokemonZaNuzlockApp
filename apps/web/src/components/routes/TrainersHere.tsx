@@ -86,7 +86,24 @@ function TrainerCard({
             </span>
           ))}
         </span>
-        {battled && <span className="trainer-battled-badge">✓ defeated</span>}
+        {/* always-visible defeat action on the condensed row, like the Boss
+            Fights cards — no need to expand first. */}
+        {battled ? (
+          <span className="trainer-battled-badge">✓ defeated</span>
+        ) : (
+          canMark && (
+            <button
+              className="secondary trainer-mark-btn"
+              aria-label={`Mark ${t.name} defeated`}
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleBattled();
+              }}
+            >
+              Defeated
+            </button>
+          )
+        )}
       </div>
       {expanded && (
         <div className="trainer-row-detail">

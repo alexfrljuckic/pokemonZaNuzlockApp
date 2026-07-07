@@ -930,6 +930,13 @@ a.run-list-open {
   padding: 0.15rem 0.55rem;
   white-space: nowrap;
 }
+/* condensed-row "Defeated" mark button (matches the Boss Fights card action) */
+.trainer-mark-btn {
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 0.78rem;
+  padding: 0.2rem 0.6rem;
+}
 
 /* Defeated trainers dim the whole row like a cleared Boss Fights card. */
 .trainer-row.battled { opacity: 0.72; }
