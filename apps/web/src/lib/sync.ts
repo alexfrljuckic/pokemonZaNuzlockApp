@@ -44,6 +44,22 @@ export async function syncRun(run: RunSummary, userId: string): Promise<boolean>
 }
 
 /**
+ * Pushes every local run this device holds to Supabase. The mirror of
+ * pullAllRuns: without it, a run only ever reached the server the next time it
+ * was OPENED (RunView's per-run sync), so a run created — or created before
+ * signing in — but not reopened since never left the device, and thus never
+ * appeared on a second device. Runs it (best-effort) on sign-in so "your
+ * account's runs" is symmetric in both directions. Failures per run are
+ * swallowed so one bad run can't stall the rest.
+ */
+export async function pushAllRuns(userId: string): Promise<void> {
+  if (!supabase) return;
+  for (const run of await listRuns()) {
+    await pushRun(run, userId).catch(() => {});
+  }
+}
+
+/**
  * Deletes a run's remote rows after a local delete, so the next pullAllRuns
  * doesn't resurrect it. Owner-only RLS scopes the delete; run_events cascade
  * from runs. No-op when sync is disabled; when signed out the delete matches

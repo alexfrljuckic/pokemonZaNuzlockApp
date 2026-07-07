@@ -11,7 +11,10 @@ import { createRoot, type Root } from 'react-dom/client';
 const RUN = { id: 'run-1', gameId: 'sv', version: 'scarlet', createdAt: '2026-01-01' };
 
 vi.mock('./lib/db', () => ({ listRuns: async () => [RUN] }));
-vi.mock('./lib/sync', () => ({ pullAllRuns: vi.fn(async () => {}) }));
+vi.mock('./lib/sync', () => ({
+  pullAllRuns: vi.fn(async () => {}),
+  pushAllRuns: vi.fn(async () => {}),
+}));
 vi.mock('./lib/env', () => ({ SYNC_ENABLED: false }));
 vi.mock('./lib/useAuth', () => ({ useAuth: () => ({ session: null }) }));
 vi.mock('@vercel/speed-insights/react', () => ({ SpeedInsights: () => null }));
