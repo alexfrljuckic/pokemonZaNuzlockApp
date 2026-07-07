@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import {
   chosenStarter,
   difficultyForPreset,
@@ -24,6 +25,13 @@ export function MilestonesTab({
   onChange: () => Promise<void>;
 }) {
   const boss = nextBoss(state, ctx);
+  // On open, scroll the "up next" boss to the top of the height-capped list.
+  const gridRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const grid = gridRef.current;
+    const next = grid?.querySelector<HTMLElement>('.milestone-card.next');
+    if (grid && next) grid.scrollTop += next.getBoundingClientRect().top - grid.getBoundingClientRect().top;
+  }, []);
   const violations = validateTeam(state, ctx);
   const starter = chosenStarter(state);
   // Radical Red: pick the boss roster for the run's difficulty tier (Normal /
@@ -70,7 +78,7 @@ export function MilestonesTab({
         </div>
       )}
 
-      <div className="milestone-card-grid">
+      <div className="milestone-card-grid boss-scroll" ref={gridRef}>
         {milestones.map((m) => (
           <MilestoneCard
             key={m.id}

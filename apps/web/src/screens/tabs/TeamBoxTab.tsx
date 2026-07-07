@@ -84,7 +84,7 @@ export function TeamBoxTab({
       <section>
         <h2>Box ({box.length})</h2>
         {box.length === 0 && <p className="muted">Empty.</p>}
-        <div className="mon-grid">
+        <div className="mon-grid box-scroll">
           {box.map((p) => (
             <MonCard
               key={p.id}
