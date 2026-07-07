@@ -118,6 +118,33 @@ export const RULES: Record<string, RuleDef> = {
     hooks: ['filterEncounterPool', 'validateTeam'],
   },
 
+  // ---- Radical Red difficulty tiers surface as presets (see buildRuleset);
+  // these are the toggles the tiers switch on. Honor rules — the app can't see
+  // your save. Minimal Grinding auto-pairs with Hardcore; Restricted is opt-in.
+  'rr-min-grinding': {
+    id: 'rr-min-grinding',
+    name: 'Minimal Grinding',
+    description:
+      "Radical Red's Minimal Grinding mode: perfect IVs and no EVs for you AND the AI, and trading is disabled. Auto-paired with Hardcore.",
+    category: 'honor',
+    appliesTo: ['radical-red'],
+    enforcement: 'honor',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: [],
+  },
+  'rr-restricted': {
+    id: 'rr-restricted',
+    name: 'Restricted',
+    description: "Radical Red's Restricted mode: no set-up / cheese team compositions.",
+    category: 'honor',
+    appliesTo: ['radical-red'],
+    enforcement: 'honor',
+    defaultEnabled: false,
+    defaultParams: {},
+    hooks: [],
+  },
+
   // ---- Per-game honor packs (docs/CHALLENGE-MODES.md; sourced community
   // conventions). Honor rules are displayed and acknowledged, never enforced.
 
@@ -247,12 +274,27 @@ export const RULES: Record<string, RuleDef> = {
 
 // ---------- Presets ----------
 
-export function buildRuleset(presetId: 'standard' | 'hardcore' | 'casual', gameId: string): Ruleset {
+// Non-RR games use the generic tiers; Radical Red replaces them with its own
+// in-game difficulty modes (see RR_PRESETS). presetId is stored verbatim.
+export function buildRuleset(presetId: string, gameId: string): Ruleset {
   const rules: Ruleset['rules'] = {};
   for (const def of Object.values(RULES)) {
     const applies = def.appliesTo === 'all' || def.appliesTo.includes(gameId);
     if (!applies) continue;
     rules[def.id] = { enabled: def.defaultEnabled, params: { ...def.defaultParams } };
+  }
+  // Radical Red: difficulty is an in-game TIER (Normal / Hardcore) that replaces
+  // the generic presets. The soft level cap (next boss's ace) is inherent to
+  // EVERY RR mode — not a difficulty toggle — so it's always on. Hardcore adds
+  // the player-facing restrictions RR enforces in that mode.
+  if (gameId === 'radical-red') {
+    rules['level-cap'] = { enabled: true, params: { mode: 'ace', offset: 0 } };
+    if (presetId === 'rr-hardcore') {
+      rules['set-mode'] = { enabled: true, params: {} }; // forced Set
+      rules['no-items-in-battle'] = { enabled: true, params: {} }; // no bag vs gym leaders/bosses
+      rules['rr-min-grinding'] = { enabled: true, params: {} }; // auto-paired with Hardcore
+    }
+    return { presetId, rules, houseRules: [] };
   }
   if (presetId === 'hardcore') {
     rules['level-cap'] = { enabled: true, params: { mode: 'ace', offset: 0 } };

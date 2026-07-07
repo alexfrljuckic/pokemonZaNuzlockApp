@@ -174,3 +174,37 @@ describe('za-rogue-caps toggle', () => {
     expect(nextBoss(state, ctx)?.id).toBe('rogue-absol');
   });
 });
+
+// Radical Red replaces the generic presets with its in-game difficulty tiers.
+describe('Radical Red difficulty tiers (buildRuleset)', () => {
+  it('always enforces the soft level cap — every RR mode has it, unlike other games', () => {
+    for (const preset of ['rr-normal', 'rr-hardcore']) {
+      const rs = buildRuleset(preset, 'radical-red');
+      expect(rs.rules['level-cap']?.enabled, `${preset} caps`).toBe(true);
+    }
+    // a generic game's "standard" preset does NOT enable caps (proves RR is special)
+    expect(buildRuleset('standard', 'sv').rules['level-cap']?.enabled).toBeFalsy();
+  });
+
+  it('Normal enables caps only; Hardcore adds Set + no-bag + Minimal Grinding', () => {
+    const normal = buildRuleset('rr-normal', 'radical-red').rules;
+    expect(normal['set-mode']?.enabled).toBeFalsy();
+    expect(normal['no-items-in-battle']?.enabled).toBeFalsy();
+    expect(normal['rr-min-grinding']?.enabled).toBeFalsy();
+
+    const hard = buildRuleset('rr-hardcore', 'radical-red').rules;
+    expect(hard['set-mode']?.enabled).toBe(true);
+    expect(hard['no-items-in-battle']?.enabled).toBe(true);
+    expect(hard['rr-min-grinding']?.enabled).toBe(true);
+  });
+
+  it("RR honor rules are gated to Radical Red and never enforced", () => {
+    for (const id of ['rr-min-grinding', 'rr-restricted']) {
+      expect(RULES[id].appliesTo).toEqual(['radical-red']);
+      expect(RULES[id].enforcement).toBe('honor');
+      expect(RULES[id].hooks).toEqual([]);
+    }
+    // not present for other games
+    expect(buildRuleset('standard', 'bdsp').rules['rr-min-grinding']).toBeUndefined();
+  });
+});
