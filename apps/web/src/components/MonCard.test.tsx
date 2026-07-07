@@ -50,8 +50,10 @@ describe('MonCard full-width row layout', () => {
     const { container } = await render(<MonCard p={mon} gameId="bdsp" />);
     const glance = container.querySelector('.mon-card-glance');
     expect(glance).toBeTruthy();
-    // held item + nature now visible WITHOUT expanding
-    expect(glance!.textContent).toContain('oran-berry');
+    // held item now shown as a sprite (with text fallback on 404); nature stays text
+    const itemImg = glance!.querySelector('.item-sprite') as HTMLImageElement | null;
+    expect(itemImg?.getAttribute('src')).toContain('oran-berry.png');
+    expect(itemImg?.getAttribute('alt')).toBe('oran berry');
     expect(glance!.textContent).toContain('Modest');
     // the condensed row shows moves (more useful than the stat spread here)
     const moves = container.querySelector('.mon-card-moves');
