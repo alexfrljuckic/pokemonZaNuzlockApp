@@ -410,6 +410,114 @@
         "city"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Harrison",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "abra",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Christine",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "abra",
+              "level": 6
+            }
+          ]
+        },
+        {
+          "name": "Ariel",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 15
+            },
+            {
+              "species": "pikachu",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Kinsey",
+          "class": "Reporter",
+          "team": [
+            {
+              "species": "chatot",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Arturo",
+          "class": "Guitarist",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 16
+            },
+            {
+              "species": "zubat",
+              "level": 16
+            }
+          ]
+        },
+        {
+          "name": "Grace",
+          "class": "Idol",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 15
+            },
+            {
+              "species": "clefairy",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Roxy & Oli",
+          "class": "Interviewers",
+          "team": [
+            {
+              "species": "wooper",
+              "level": 17
+            },
+            {
+              "species": "marill",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Tevin",
+          "class": "Cameraman",
+          "team": [
+            {
+              "species": "pachirisu",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Lee",
+          "class": "Clown",
+          "team": [
+            {
+              "species": "mr-mime",
+              "level": 17
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Paralyze Heal",
@@ -930,6 +1038,32 @@
         "gym-1"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Jonathon",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 10
+            }
+          ]
+        },
+        {
+          "name": "Darius",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 8
+            },
+            {
+              "species": "onix",
+              "level": 8
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Dusk Ball"
@@ -1327,6 +1461,105 @@
         },
         {
           "name": "Sea Incense"
+        }
+      ]
+    },
+    {
+      "id": "route-204-north",
+      "name": "Route 204 (North)",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "sunkern",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        }
+      ],
+      "items": [
+        {
+          "name": "Awakening"
+        },
+        {
+          "name": "TM09 (Bullet Seed)"
+        },
+        {
+          "name": "TM78 (Bulldoze)"
         }
       ]
     },
@@ -2707,6 +2940,138 @@
       ]
     },
     {
+      "id": "route-205-north",
+      "name": "Route 205 (North)",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skiploom",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "items": [
+        {
+          "name": "Potion"
+        },
+        {
+          "name": "Honey",
+          "hidden": true
+        }
+      ]
+    },
+    {
       "id": "eterna-city",
       "name": "Eterna City",
       "unlockAfter": "gym-1-roark",
@@ -2715,6 +3080,140 @@
         "gym-2"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Caroline",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "cherubi",
+              "level": 15
+            },
+            {
+              "species": "roselia",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Jenna",
+          "class": "Aroma Lady",
+          "team": [
+            {
+              "species": "budew",
+              "level": 14
+            },
+            {
+              "species": "budew",
+              "level": 13
+            },
+            {
+              "species": "budew",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Angela",
+          "class": "Aroma Lady",
+          "team": [
+            {
+              "species": "turtwig",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Lindsay",
+          "class": "Beauty",
+          "team": [
+            {
+              "species": "roselia",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 14
+            },
+            {
+              "species": "glameow",
+              "level": 14
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 13
+            },
+            {
+              "species": "cascoon",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "silcoon",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 13
+            },
+            {
+              "species": "zubat",
+              "level": 13
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 12
+            },
+            {
+              "species": "silcoon",
+              "level": 12
+            },
+            {
+              "species": "zubat",
+              "level": 12
+            }
+          ]
+        },
+        {
+          "name": "Travon",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 15
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Super Potion"
@@ -4485,6 +4984,92 @@
         "gym-4"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Jacky",
+          "class": "Tuber",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Walter",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "barboach",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Damian",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "wingull",
+              "level": 24
+            },
+            {
+              "species": "wingull",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Samson",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "shellos",
+              "level": 24
+            },
+            {
+              "species": "wingull",
+              "level": 24
+            },
+            {
+              "species": "shellos",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Erick",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 22
+            },
+            {
+              "species": "barboach",
+              "level": 23
+            },
+            {
+              "species": "gyarados",
+              "level": 24
+            }
+          ]
+        },
+        {
+          "name": "Caitlyn",
+          "class": "Tuber",
+          "team": [
+            {
+              "species": "azurill",
+              "level": 24
+            },
+            {
+              "species": "marill",
+              "level": 24
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Mystic Water"
@@ -5658,6 +6243,166 @@
         "gym-3"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Darren",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 25
+            },
+            {
+              "species": "machop",
+              "level": 25
+            },
+            {
+              "species": "machoke",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Jeffery",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 26
+            },
+            {
+              "species": "meditite",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Rafael",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "meditite",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Colby",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 25
+            },
+            {
+              "species": "machoke",
+              "level": 25
+            },
+            {
+              "species": "machoke",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "beautifly",
+              "level": 25
+            },
+            {
+              "species": "stunky",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "dustox",
+              "level": 25
+            },
+            {
+              "species": "croagunk",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 36
+            },
+            {
+              "species": "silcoon",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 36
+            },
+            {
+              "species": "golbat",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Darrius",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 35
+            },
+            {
+              "species": "stunky",
+              "level": 35
+            },
+            {
+              "species": "glameow",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "stunky",
+              "level": 36
+            },
+            {
+              "species": "croagunk",
+              "level": 36
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "PP Up"
@@ -5965,6 +6710,98 @@
         "gym-6"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Ricky",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "steelix",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "name": "Gary",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Jackson",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 28
+            },
+            {
+              "species": "onix",
+              "level": 28
+            },
+            {
+              "species": "onix",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Cesar",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "skorupi",
+              "level": 30
+            },
+            {
+              "species": "steelix",
+              "level": 32
+            }
+          ]
+        },
+        {
+          "name": "Gerardo",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "onix",
+              "level": 29
+            },
+            {
+              "species": "onix",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "David",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "onix",
+              "level": 30
+            },
+            {
+              "species": "steelix",
+              "level": 32
+            }
+          ]
+        },
+        {
+          "name": "Breanna",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "azumarill",
+              "level": 33
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "TM48 (Skill Swap)"
@@ -7002,6 +7839,22 @@
         "town"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "beautifly",
+              "level": 25
+            },
+            {
+              "species": "croagunk",
+              "level": 27
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "TM95 (Surf)"
@@ -7448,6 +8301,2121 @@
         },
         {
           "name": "Odd Keystone"
+        }
+      ]
+    },
+    {
+      "id": "route-209",
+      "name": "Route 209",
+      "unlockAfter": "gym-5-fantina",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 45,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "day",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "day",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Albert",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "bonsly",
+              "level": 16
+            },
+            {
+              "species": "budew",
+              "level": 15
+            },
+            {
+              "species": "pichu",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Emma & Lil",
+          "class": "Twins",
+          "team": [
+            {
+              "species": "bonsly",
+              "level": 19
+            },
+            {
+              "species": "mime-jr",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Danielle",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Jennifer",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "mime-jr",
+              "level": 16
+            },
+            {
+              "species": "budew",
+              "level": 15
+            },
+            {
+              "species": "cleffa",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Raul",
+          "class": "Jogger",
+          "team": [
+            {
+              "species": "staravia",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Richard",
+          "class": "Jogger",
+          "team": [
+            {
+              "species": "luxio",
+              "level": 19
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM47 (Steel Wing)"
+        },
+        {
+          "name": "TM19 (Giga Drain)"
+        },
+        {
+          "name": "Calcium",
+          "hidden": true
+        },
+        {
+          "name": "Tiny Mushroom"
+        },
+        {
+          "name": "Super Potion"
+        },
+        {
+          "name": "Honey"
+        },
+        {
+          "name": "Razz Berry",
+          "quantity": 2
+        }
+      ]
+    },
+    {
+      "id": "route-210-south",
+      "name": "Route 210 (South)",
+      "unlockAfter": "gym-5-fantina",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ],
+          "rate": 50,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "day",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "day",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Marco",
+          "class": "Rancher",
+          "team": [
+            {
+              "species": "aipom",
+              "level": 18
+            },
+            {
+              "species": "psyduck",
+              "level": 19
+            },
+            {
+              "species": "girafarig",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Teri & Tia",
+          "class": "Twins",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 21
+            },
+            {
+              "species": "clefairy",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Kahlil",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "pichu",
+              "level": 18
+            },
+            {
+              "species": "pikachu",
+              "level": 19
+            },
+            {
+              "species": "happiny",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Wyatt",
+          "class": "Jogger",
+          "team": [
+            {
+              "species": "ponyta",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Ava & Matt",
+          "class": "Ranchers",
+          "team": [
+            {
+              "species": "stunky",
+              "level": 21
+            },
+            {
+              "species": "glameow",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Amber",
+          "class": "Pokémon Breeder",
+          "team": [
+            {
+              "species": "cleffa",
+              "level": 19
+            },
+            {
+              "species": "clefairy",
+              "level": 17
+            },
+            {
+              "species": "happiny",
+              "level": 18
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "MooMoo Milk",
+          "shop": true
+        }
+      ]
+    },
+    {
+      "id": "route-210-north",
+      "name": "Route 210 (North)",
+      "unlockAfter": "gym-6-byron",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Brennan",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 25
+            },
+            {
+              "species": "skorupi",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Fabian",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 23
+            },
+            {
+              "species": "geodude",
+              "level": 23
+            },
+            {
+              "species": "geodude",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Bruce",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "stunky",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Joel",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 23
+            },
+            {
+              "species": "skorupi",
+              "level": 25
+            },
+            {
+              "species": "zubat",
+              "level": 23
+            },
+            {
+              "species": "golbat",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Alyssa",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "ponyta",
+              "level": 27
+            },
+            {
+              "species": "grotle",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Zac & Jen",
+          "class": "Double Team",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 27
+            },
+            {
+              "species": "raichu",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Davey",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "dustox",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Adam",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Nathan",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 25
+            },
+            {
+              "species": "golbat",
+              "level": 25
+            }
+          ]
+        },
+        {
+          "name": "Brianna",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 27
+            },
+            {
+              "species": "noctowl",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Brian",
+          "class": "Veteran",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 26
+            },
+            {
+              "species": "girafarig",
+              "level": 26
+            },
+            {
+              "species": "machoke",
+              "level": 26
+            }
+          ]
+        },
+        {
+          "name": "Patrick",
+          "class": "Dragon Tamer",
+          "team": [
+            {
+              "species": "gible",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Ernest",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "mothim",
+              "level": 25
+            },
+            {
+              "species": "onix",
+              "level": 26
+            },
+            {
+              "species": "luxio",
+              "level": 27
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM51 (Roost)"
+        },
+        {
+          "name": "TM30 (Shadow Ball)"
+        },
+        {
+          "name": "Wave Incense"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Meadow Plate",
+          "hidden": true
+        },
+        {
+          "name": "Great Ball",
+          "quantity": 2
+        },
+        {
+          "name": "Super Repel"
+        },
+        {
+          "name": "Hyper Potion"
+        },
+        {
+          "name": "Ultra Ball"
+        }
+      ]
+    },
+    {
+      "id": "route-211-west",
+      "name": "Route 211 (West)",
+      "unlockAfter": "gym-2-gardenia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Louis",
+          "class": "Hiker",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 15
+            },
+            {
+              "species": "onix",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Zach",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 13
+            },
+            {
+              "species": "zubat",
+              "level": 14
+            },
+            {
+              "species": "zubat",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Alexandra",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 19
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM12 (Taunt)"
+        },
+        {
+          "name": "Poké Ball",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-211-east",
+      "name": "Route 211 (East)",
+      "unlockAfter": "gym-6-byron",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "meditite",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "noctowl",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Sean",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 28
+            },
+            {
+              "species": "meditite",
+              "level": 27
+            },
+            {
+              "species": "machoke",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Katherine",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "noctowl",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Harry",
+          "class": "Ruin Maniac",
+          "team": [
+            {
+              "species": "bronzor",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Nick",
+          "class": "Ninja Boy",
+          "team": [
+            {
+              "species": "skorupi",
+              "level": 27
+            },
+            {
+              "species": "golbat",
+              "level": 27
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM77 (Psych Up)"
+        },
+        {
+          "name": "TM29 (Psychic)"
+        },
+        {
+          "name": "Zinc",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-212-south",
+      "name": "Route 212 (South)",
+      "unlockAfter": "gym-4-wake",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 35,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Jeffrey",
+          "class": "Pokémon Ranger",
+          "team": [
+            {
+              "species": "prinplup",
+              "level": 21
+            },
+            {
+              "species": "prinplup",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Allison",
+          "class": "Pokémon Ranger",
+          "team": [
+            {
+              "species": "aipom",
+              "level": 21
+            },
+            {
+              "species": "marill",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Stefano",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Danny",
+          "class": "Policeman",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 20
+            },
+            {
+              "species": "machop",
+              "level": 20
+            }
+          ]
+        },
+        {
+          "name": "Dominique",
+          "class": "Collector",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 18
+            },
+            {
+              "species": "geodude",
+              "level": 17
+            },
+            {
+              "species": "geodude",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Travis",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "barboach",
+              "level": 17
+            },
+            {
+              "species": "barboach",
+              "level": 18
+            },
+            {
+              "species": "shellos",
+              "level": 20
+            },
+            {
+              "species": "barboach",
+              "level": 17
+            }
+          ]
+        },
+        {
+          "name": "Cameron",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 19
+            },
+            {
+              "species": "barboach",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Juan",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Alexa",
+          "class": "Parasol Lady",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 19
+            },
+            {
+              "species": "buizel",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Taylor",
+          "class": "Pokémon Ranger",
+          "team": [
+            {
+              "species": "luxio",
+              "level": 21
+            },
+            {
+              "species": "buizel",
+              "level": 21
+            }
+          ]
+        },
+        {
+          "name": "Shaun",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "abra",
+              "level": 19
+            },
+            {
+              "species": "kadabra",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Sabrina",
+          "class": "Parasol Lady",
+          "team": [
+            {
+              "species": "psyduck",
+              "level": 21
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "TM62 (Silver Wind)"
+        },
+        {
+          "name": "TM06 (Toxic)"
+        },
+        {
+          "name": "TM84 (Poison Jab)"
+        },
+        {
+          "name": "Rare Candy"
+        },
+        {
+          "name": "Revive",
+          "quantity": 2
+        },
+        {
+          "name": "Heart Scale"
+        },
+        {
+          "name": "Protein"
         }
       ]
     },
@@ -8228,6 +11196,744 @@
       ]
     },
     {
+      "id": "route-219",
+      "name": "Route 219",
+      "unlockAfter": "gym-8-volkner",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Mariel",
+          "class": "Tuber",
+          "team": [
+            {
+              "species": "marill",
+              "level": 29
+            },
+            {
+              "species": "marill",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Trenton",
+          "class": "Tuber",
+          "team": [
+            {
+              "species": "shellos",
+              "level": 29
+            },
+            {
+              "species": "shellos",
+              "level": 29
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Super Potion",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-220",
+      "name": "Route 220",
+      "unlockAfter": "gym-8-volkner",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Jessica",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "goldeen",
+              "level": 28
+            },
+            {
+              "species": "goldeen",
+              "level": 28
+            },
+            {
+              "species": "goldeen",
+              "level": 28
+            },
+            {
+              "species": "goldeen",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Erica",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "remoraid",
+              "level": 29
+            },
+            {
+              "species": "psyduck",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Adrian",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "mantyke",
+              "level": 26
+            },
+            {
+              "species": "remoraid",
+              "level": 29
+            },
+            {
+              "species": "tentacool",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Vincent",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "pelipper",
+              "level": 29
+            },
+            {
+              "species": "whiscash",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Erik",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Claire",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Katelyn",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 28
+            },
+            {
+              "species": "medicham",
+              "level": 28
+            },
+            {
+              "species": "seaking",
+              "level": 28
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "Ether"
+        },
+        {
+          "name": "Splash Plate"
+        },
+        {
+          "name": "Carbos"
+        }
+      ]
+    },
+    {
+      "id": "route-221",
+      "name": "Route 221",
+      "unlockAfter": "gym-8-volkner",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "sudowoodo",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Dillon",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "shellos",
+              "level": 30
+            },
+            {
+              "species": "gastrodon",
+              "level": 32
+            }
+          ]
+        },
+        {
+          "name": "Vanessa",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "golduck",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "name": "Cory",
+          "class": "Fisher",
+          "team": [
+            {
+              "species": "magikarp",
+              "level": 28
+            },
+            {
+              "species": "finneon",
+              "level": 30
+            },
+            {
+              "species": "gyarados",
+              "level": 32
+            }
+          ]
+        },
+        {
+          "name": "Shannon",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "cherrim",
+              "level": 30
+            },
+            {
+              "species": "marill",
+              "level": 32
+            },
+            {
+              "species": "lopunny",
+              "level": 34
+            }
+          ]
+        },
+        {
+          "name": "Jake",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "staravia",
+              "level": 33
+            },
+            {
+              "species": "girafarig",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "name": "Ivan",
+          "class": "Collector",
+          "team": [
+            {
+              "species": "hippopotas",
+              "level": 28
+            },
+            {
+              "species": "hippopotas",
+              "level": 28
+            },
+            {
+              "species": "hippopotas",
+              "level": 34
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Honey"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Black Belt"
+        },
+        {
+          "name": "Focus Sash"
+        },
+        {
+          "name": "Ultra Ball"
+        },
+        {
+          "name": "Pure Incense"
+        },
+        {
+          "name": "Max Revive"
+        }
+      ]
+    },
+    {
       "id": "snowpoint-city",
       "name": "Snowpoint City",
       "unlockAfter": "gym-6-byron",
@@ -8236,6 +11942,84 @@
         "gym-7"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Alicia",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "sneasel",
+              "level": 37
+            },
+            {
+              "species": "tentacruel",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Anton",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "snover",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Sergio",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "floatzel",
+              "level": 37
+            },
+            {
+              "species": "sneasel",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Savannah",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "pelipper",
+              "level": 35
+            },
+            {
+              "species": "golduck",
+              "level": 36
+            },
+            {
+              "species": "steelix",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Isaiah",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "quagsire",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Brenna",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "snover",
+              "level": 39
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Hyper Potion",
@@ -8959,6 +12743,600 @@
         {
           "name": "Big Mushroom",
           "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-223",
+      "name": "Route 223",
+      "unlockAfter": "gym-8-volkner",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "wailord",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Miranda",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "lumineon",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Aubree",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "azurill",
+              "level": 41
+            },
+            {
+              "species": "azumarill",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Oscar",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "mantyke",
+              "level": 38
+            },
+            {
+              "species": "remoraid",
+              "level": 40
+            },
+            {
+              "species": "mantine",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Paige",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "marill",
+              "level": 39
+            },
+            {
+              "species": "wingull",
+              "level": 40
+            },
+            {
+              "species": "golduck",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Colton",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "wingull",
+              "level": 37
+            },
+            {
+              "species": "quagsire",
+              "level": 42
+            },
+            {
+              "species": "pelipper",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Ricardo",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "tentacruel",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Wesley",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "buizel",
+              "level": 41
+            },
+            {
+              "species": "tentacruel",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Crystal",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "wingull",
+              "level": 41
+            },
+            {
+              "species": "seaking",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Zachariah",
+          "class": "Sailor",
+          "team": [
+            {
+              "species": "pelipper",
+              "level": 38
+            },
+            {
+              "species": "machoke",
+              "level": 38
+            },
+            {
+              "species": "gastrodon",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Gabrielle",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "golduck",
+              "level": 43
+            }
+          ]
+        },
+        {
+          "name": "Cassandra",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "finneon",
+              "level": 41
+            },
+            {
+              "species": "pelipper",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Francisco",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "tentacool",
+              "level": 40
+            },
+            {
+              "species": "golduck",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Troy",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "gyarados",
+              "level": 43
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Pearl",
+          "hidden": true
+        },
+        {
+          "name": "Big Pearl",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-224",
+      "name": "Route 224",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "chatot",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "beautifly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 4
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "walk"
+          ],
+          "rate": 1
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 55
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 45
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 55
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 15
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Ruben",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "poliwhirl",
+              "level": 54
+            },
+            {
+              "species": "gyarados",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Maxwell",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "misdreavus",
+              "level": 52
+            },
+            {
+              "species": "haunter",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Brittney",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "medicham",
+              "level": 52
+            },
+            {
+              "species": "alakazam",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Armando",
+          "class": "Veteran",
+          "team": [
+            {
+              "species": "staravia",
+              "level": 52
+            },
+            {
+              "species": "pelipper",
+              "level": 53
+            },
+            {
+              "species": "golbat",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Carl",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 52
+            },
+            {
+              "species": "machamp",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Larry",
+          "class": "Ruin Maniac",
+          "team": [
+            {
+              "species": "steelix",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Hayden",
+          "class": "Dragon Tamer",
+          "team": [
+            {
+              "species": "swablu",
+              "level": 53
+            },
+            {
+              "species": "altaria",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Jamie",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "metagross",
+              "level": 56
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Rare Candy",
+          "quantity": 2
+        },
+        {
+          "name": "Razor Claw"
+        },
+        {
+          "name": "Destiny Knot"
+        },
+        {
+          "name": "Stardust"
+        },
+        {
+          "name": "PP Max"
+        },
+        {
+          "name": "Pearl",
+          "quantity": 2
+        },
+        {
+          "name": "Big Pearl"
         }
       ]
     },
@@ -9966,6 +14344,572 @@
       ]
     },
     {
+      "id": "route-226",
+      "name": "Route 226",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "fearow",
+          "methods": [
+            "walk"
+          ],
+          "rate": 40,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "fearow",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 60
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "surf"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 45
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 15
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Graham",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "skarmory",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Geneva",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 53
+            },
+            {
+              "species": "xatu",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Stanley",
+          "class": "Dragon Tamer",
+          "team": [
+            {
+              "species": "seadra",
+              "level": 56
+            },
+            {
+              "species": "gyarados",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Lydia",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "bibarel",
+              "level": 52
+            },
+            {
+              "species": "azumarill",
+              "level": 52
+            },
+            {
+              "species": "sealeo",
+              "level": 52
+            }
+          ]
+        },
+        {
+          "name": "Wade",
+          "class": "Swimmer",
+          "team": [
+            {
+              "species": "carvanha",
+              "level": 51
+            },
+            {
+              "species": "carvanha",
+              "level": 51
+            },
+            {
+              "species": "sharpedo",
+              "level": 54
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Carbos"
+        },
+        {
+          "name": "Lagging Tail"
+        },
+        {
+          "name": "TM53 (Energy Ball)"
+        },
+        {
+          "name": "Big Pearl"
+        },
+        {
+          "name": "Tiny Mushroom",
+          "hidden": true
+        },
+        {
+          "name": "Big Mushroom",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-227",
+      "name": "Route 227",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "fearow",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "fearow",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "time": [
+              "morning",
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        },
+        {
+          "species": "spinda",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "surf"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Saul",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "tauros",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "name": "Felicia",
+          "class": "Pokémon Ranger",
+          "team": [
+            {
+              "species": "lickitung",
+              "level": 57
+            },
+            {
+              "species": "vigoroth",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Griffin",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "cacturne",
+              "level": 57
+            },
+            {
+              "species": "machamp",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Mikayla",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "meowth",
+              "level": 56
+            },
+            {
+              "species": "persian",
+              "level": 56
+            },
+            {
+              "species": "hypno",
+              "level": 56
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Charcoal"
+        },
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Zinc"
+        },
+        {
+          "name": "Full Heal"
+        }
+      ]
+    },
+    {
       "id": "survival-area",
       "name": "Survival Area",
       "unlockAfter": "champion-cynthia",
@@ -10392,6 +15336,377 @@
         },
         {
           "name": "Full Restore",
+          "hidden": true
+        }
+      ]
+    },
+    {
+      "id": "route-229",
+      "name": "Route 229",
+      "unlockAfter": "champion-cynthia",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ],
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ],
+            "time": [
+              "morning",
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 2
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "swarm"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "surf"
+          ],
+          "rate": 70
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "surf"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 100
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Sandra",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "granbull",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Felix",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "dusclops",
+              "level": 55
+            },
+            {
+              "species": "salamence",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "name": "Dana",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "mightyena",
+              "level": 55
+            },
+            {
+              "species": "kirlia",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "name": "Deshawn",
+          "class": "Pokémon Ranger",
+          "team": [
+            {
+              "species": "spinda",
+              "level": 55
+            },
+            {
+              "species": "kecleon",
+              "level": 55
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Protein"
+        },
+        {
+          "name": "Nugget"
+        },
+        {
+          "name": "Big Mushroom",
           "hidden": true
         }
       ]
@@ -11119,6 +16434,120 @@
         "gym-5"
       ],
       "encounters": [],
+      "trainers": [
+        {
+          "name": "Donny",
+          "class": "Youngster",
+          "team": [
+            {
+              "species": "gastly",
+              "level": 27
+            },
+            {
+              "species": "haunter",
+              "level": 29
+            }
+          ]
+        },
+        {
+          "name": "Molly",
+          "class": "Lass",
+          "team": [
+            {
+              "species": "misdreavus",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Drew",
+          "class": "Camper",
+          "team": [
+            {
+              "species": "gastly",
+              "level": 27
+            },
+            {
+              "species": "gastly",
+              "level": 27
+            },
+            {
+              "species": "gastly",
+              "level": 27
+            }
+          ]
+        },
+        {
+          "name": "Cheyenne",
+          "class": "Picnicker",
+          "team": [
+            {
+              "species": "drifloon",
+              "level": 28
+            },
+            {
+              "species": "misdreavus",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Chance",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "haunter",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Mackenzie",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "drifloon",
+              "level": 28
+            },
+            {
+              "species": "drifloon",
+              "level": 28
+            }
+          ]
+        },
+        {
+          "name": "Allen",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "gastly",
+              "level": 26
+            },
+            {
+              "species": "haunter",
+              "level": 28
+            },
+            {
+              "species": "gengar",
+              "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Catherine",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "misdreavus",
+              "level": 30
+            },
+            {
+              "species": "drifblim",
+              "level": 30
+            }
+          ]
+        }
+      ],
       "items": [
         {
           "name": "Tiny Mushroom",
@@ -11699,6 +17128,112 @@
             "super-rod"
           ],
           "rate": 5
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Tiera",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "pachirisu",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Jerry",
+          "class": "Guitarist",
+          "team": [
+            {
+              "species": "luxio",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Forrest",
+          "class": "School Kid",
+          "team": [
+            {
+              "species": "mr-mime",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Meghan",
+          "class": "Poké Kid",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 41
+            },
+            {
+              "species": "pikachu",
+              "level": 41
+            },
+            {
+              "species": "pikachu",
+              "level": 41
+            },
+            {
+              "species": "pikachu",
+              "level": 41
+            }
+          ]
+        },
+        {
+          "name": "Lonnie",
+          "class": "Guitarist",
+          "team": [
+            {
+              "species": "raichu",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Destiny",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 44
+            },
+            {
+              "species": "raichu",
+              "level": 44
+            }
+          ]
+        },
+        {
+          "name": "Preston",
+          "class": "Guitarist",
+          "team": [
+            {
+              "species": "luxio",
+              "level": 42
+            },
+            {
+              "species": "bibarel",
+              "level": 42
+            }
+          ]
+        },
+        {
+          "name": "Zachery",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "steelix",
+              "level": 44
+            },
+            {
+              "species": "medicham",
+              "level": 44
+            }
+          ]
         }
       ],
       "items": [
@@ -12330,6 +17865,359 @@
         {
           "name": "Luxury Ball",
           "shop": true
+        }
+      ]
+    },
+    {
+      "id": "route-212-north",
+      "name": "Route 212 (North)",
+      "unlockAfter": "gym-4-wake",
+      "tags": [
+        "route"
+      ],
+      "encounters": [
+        {
+          "species": "budew",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 20,
+          "conditions": {
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "kricketune",
+          "methods": [
+            "walk"
+          ],
+          "rate": 30,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15,
+          "conditions": {
+            "time": [
+              "morning"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
+        },
+        {
+          "species": "staravia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "walk"
+          ],
+          "rate": 15
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 40
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 20
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "honey-tree"
+          ],
+          "rate": 5
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "honey-tree"
+          ]
+        },
+        {
+          "species": "smeargle",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 12
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 10
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "surf"
+          ],
+          "rate": 90
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "old-rod"
+          ],
+          "rate": 100
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "good-rod"
+          ],
+          "rate": 35
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 65
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 35
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Bobby",
+          "class": "Policeman",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 18
+            },
+            {
+              "species": "machop",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Alex",
+          "class": "Policeman",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 18
+            },
+            {
+              "species": "machop",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Dylan",
+          "class": "Policeman",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 18
+            },
+            {
+              "species": "meditite",
+              "level": 18
+            }
+          ]
+        },
+        {
+          "name": "Reina",
+          "class": "Madam",
+          "team": [
+            {
+              "species": "roselia",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Jeremy",
+          "class": "Gentleman",
+          "team": [
+            {
+              "species": "chatot",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Caleb",
+          "class": "Policeman",
+          "team": [
+            {
+              "species": "hoothoot",
+              "level": 17
+            },
+            {
+              "species": "meditite",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Jason",
+          "class": "Rich Boy",
+          "team": [
+            {
+              "species": "luxio",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Melissa",
+          "class": "Lady",
+          "team": [
+            {
+              "species": "buneary",
+              "level": 19
+            }
+          ]
+        }
+      ],
+      "items": [
+        {
+          "name": "Elixir"
+        },
+        {
+          "name": "TM11 (Sunny Day)"
+        },
+        {
+          "name": "TM87 (Swagger)"
+        },
+        {
+          "name": "Burn Heal"
+        },
+        {
+          "name": "Soothe Bell"
+        },
+        {
+          "name": "Great Ball",
+          "quantity": 2
+        },
+        {
+          "name": "Rose Incense"
         }
       ]
     }
