@@ -34,12 +34,14 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
       case 'encounter_resolved': {
         state.encounterOutcomes[ev.payload.areaId] = ev.payload.outcome;
         if (ev.payload.outcome === 'caught' && ev.payload.pokemonId) {
+          // A full party (6) auto-boxes the new catch, like the games.
+          const inParty = Object.values(state.pokemon).filter((q) => q.status === 'party').length;
           state.pokemon[ev.payload.pokemonId] = {
             id: ev.payload.pokemonId,
             species: ev.payload.species,
             nickname: ev.payload.nickname ?? ev.payload.species,
             level: ev.payload.level ?? 1,
-            status: 'party',
+            status: inParty < 6 ? 'party' : 'box',
             origin: { areaId: ev.payload.areaId },
             ...(ev.payload.shiny ? { shiny: true } : {}),
           };
@@ -61,12 +63,13 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         // A gift/starter/fossil/static is claimed → creates a Pokémon tagged
         // with its specialId. A special counts as "claimed" iff a Pokémon with
         // that origin.specialId exists (derive from state, no separate field).
+        const inPartySp = Object.values(state.pokemon).filter((q) => q.status === 'party').length;
         state.pokemon[ev.payload.pokemonId] = {
           id: ev.payload.pokemonId,
           species: ev.payload.species,
           nickname: ev.payload.nickname ?? ev.payload.species,
           level: ev.payload.level ?? 5,
-          status: 'party',
+          status: inPartySp < 6 ? 'party' : 'box',
           origin: { specialId: ev.payload.specialId },
           ...(ev.payload.shiny ? { shiny: true } : {}),
         };
