@@ -1243,6 +1243,20 @@ button.item-chip.item-picked .item-access {
 .encounter-actions button { margin-top: 0; flex: 1; }
 
 .encounter-hint { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--muted); }
+/* Encounters are bucketed by method (Walking / Surfing / Fishing / Other) so a
+   species shows its real per-method rate instead of a merged max. Each section
+   gets a small header; empty sections are omitted upstream. */
+.encounter-group { margin-bottom: 0.7rem; }
+.encounter-group:last-of-type { margin-bottom: 0; }
+.encounter-group-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.35rem;
+  color: color-mix(in srgb, var(--muted) 70%, var(--text));
+}
 .encounter-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
