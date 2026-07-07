@@ -14,9 +14,39 @@ export function dupesScope(state: RunState): string | undefined {
   return dupes?.enabled ? String(dupes.params.scope ?? 'evolution-line') : undefined;
 }
 
-/** A unique species entry for the grid: its catch method(s), best rate, and —
- * when the dupes clause has made it uncatchable — an `unavailable` reason. */
-type SpeciesEntry = { species: string; methods: string; rate?: number; unavailable?: string };
+/** The four display buckets, rendered in this order; empty buckets are omitted.
+ * A single species can appear in more than one bucket at its own per-bucket
+ * rate (Psyduck: 2% walking + 30% surfing) — that's the whole point. */
+type GroupKey = 'walking' | 'surfing' | 'fishing' | 'other';
+const GROUP_ORDER: GroupKey[] = ['walking', 'surfing', 'fishing', 'other'];
+const GROUP_LABEL: Record<GroupKey, string> = {
+  walking: 'Walking',
+  surfing: 'Surfing',
+  fishing: 'Fishing',
+  other: 'Other',
+};
+
+/** Map a raw dataset method slug to its display bucket. Anything not explicitly
+ * walk/surf/rod (swarm, poke-radar, honey-tree, static, alpha, gift,
+ * rock-smash, headbutt, …) lands in "Other". */
+function groupForMethod(method: string): GroupKey {
+  if (method === 'walk') return 'walking';
+  if (method === 'surf') return 'surfing';
+  if (method === 'old-rod' || method === 'good-rod' || method === 'super-rod') return 'fishing';
+  return 'other';
+}
+
+/** One species within one group: keeps the per-sub-method rates so nothing is
+ * merged away (e.g. Fishing → good-rod 55% · super-rod 40%). `unavailable` is
+ * set (dupes reason) only when the species is excluded — dimmed but shown. */
+type GroupEntry = {
+  species: string;
+  /** sub-method → its own rate, in first-seen order, within this group only */
+  subMethods: { method: string; rate?: number }[];
+  unavailable?: string;
+};
+
+type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
 
 /** Human-readable reason a species can't be caught, for the dimmed card's
  * label/tooltip/aria. Species-scope and evolution-line-scope read differently. */
@@ -29,24 +59,56 @@ function reasonText(reason: ClassifiedEncounter['reason'], scope: string | undef
   return 'Unavailable';
 }
 
-/** Collapse the classified pool to unique species (in pool order), merging catch
- * methods and keeping the best rate. A species is `unavailable` only if EVERY
- * slot for it is excluded — if any slot is still catchable it stays selectable. */
-function uniqueEntries(pool: ClassifiedEncounter[], scope: string | undefined): SpeciesEntry[] {
-  const byId = new Map<string, { methods: string[]; rate?: number; available: boolean; reason?: string }>();
-  for (const { slot, available, reason } of pool) {
-    const cur = byId.get(slot.species) ?? { methods: [], rate: undefined, available: false, reason: undefined };
-    for (const m of slot.methods) if (!cur.methods.includes(m)) cur.methods.push(m);
-    if (slot.rate != null) cur.rate = Math.max(cur.rate ?? 0, slot.rate);
-    if (available) cur.available = true;
-    else if (cur.reason === undefined) cur.reason = reasonText(reason, scope);
-    byId.set(slot.species, cur);
+/** Render a group's sub-method breakdown as compact text.
+ *  - single walk/surf slot: just the rate ("30%")
+ *  - fishing / multi sub-method: label each ("good-rod 55% · super-rod 40%") */
+function subMethodLabel(key: GroupKey, subs: GroupEntry['subMethods']): string {
+  const withRate = (m: string, r?: number) => (r != null ? `${m} ${r}%` : m);
+  if (key === 'fishing' || key === 'other' || subs.length > 1) {
+    return subs.map((s) => withRate(s.method, s.rate)).join(' · ');
   }
-  return [...byId].map(([species, v]) => ({
-    species,
-    methods: v.methods.join('/'),
-    rate: v.rate,
-    unavailable: v.available ? undefined : v.reason,
+  // walking / surfing single slot — the group header already names the method,
+  // so just show the rate.
+  const only = subs[0];
+  return only?.rate != null ? `${only.rate}%` : only?.method ?? '';
+}
+
+/** Bucket the classified pool into display groups. A species can land in
+ * several groups; within a group its sub-methods keep their own rates. A
+ * species is `unavailable` in a group only if EVERY slot feeding that group is
+ * excluded — matching the per-species rule that any catchable slot keeps it
+ * selectable. */
+function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): Group[] {
+  const acc = new Map<GroupKey, Map<string, GroupEntry & { available: boolean }>>();
+  for (const { slot, available, reason } of pool) {
+    for (const method of slot.methods) {
+      const key = groupForMethod(method);
+      let bucket = acc.get(key);
+      if (!bucket) {
+        bucket = new Map();
+        acc.set(key, bucket);
+      }
+      const cur =
+        bucket.get(slot.species) ??
+        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined } as GroupEntry & {
+          available: boolean;
+        });
+      if (!cur.subMethods.some((s) => s.method === method)) {
+        cur.subMethods.push({ method, rate: slot.rate });
+      }
+      if (available) cur.available = true;
+      else if (cur.unavailable === undefined) cur.unavailable = reasonText(reason, scope);
+      bucket.set(slot.species, cur);
+    }
+  }
+  return GROUP_ORDER.filter((key) => acc.has(key)).map((key) => ({
+    key,
+    label: GROUP_LABEL[key],
+    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable }) => ({
+      species,
+      subMethods,
+      unavailable: available ? undefined : unavailable,
+    })),
   }));
 }
 
@@ -64,9 +126,11 @@ export function EncounterForm({
   /** Shown as a "Skip route" affordance when every species is dimmed. */
   onSkip?: () => void;
 }) {
-  const entries = uniqueEntries(pool, scope);
-  const firstAvailable = entries.find((e) => !e.unavailable)?.species ?? '';
-  const allDimmed = entries.length > 0 && !firstAvailable;
+  const groups = groupEntries(pool, scope);
+  // First selectable species across groups, in group order.
+  const firstAvailable =
+    groups.flatMap((g) => g.entries).find((e) => !e.unavailable)?.species ?? '';
+  const allDimmed = groups.length > 0 && !firstAvailable;
   const [species, setSpecies] = useState(firstAvailable);
   const [nickname, setNickname] = useState('');
   const [level, setLevel] = useState('5');
@@ -75,35 +139,40 @@ export function EncounterForm({
   return (
     <div className="encounter-form">
       <p className="encounter-hint">Tap what you encountered:</p>
-      <div className="encounter-grid">
-        {entries.map((slot) => {
-          const disabled = Boolean(slot.unavailable);
-          return (
-            <button
-              key={slot.species}
-              type="button"
-              disabled={disabled}
-              aria-disabled={disabled}
-              aria-label={disabled ? `${slot.species} — ${slot.unavailable}` : slot.species}
-              className={`encounter-slot${slot.species === species ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
-              onClick={disabled ? undefined : () => setSpecies(slot.species)}
-              title={disabled ? `${slot.species} — ${slot.unavailable}` : `${slot.species} (${slot.methods})`}
-            >
-              <SpriteImg species={slot.species} size={72} shiny={shiny} />
-              <span className="encounter-slot-name">{slot.species}</span>
-              <TypeBadges types={typesFor(slot.species)} />
-              {disabled ? (
-                <span className="encounter-slot-unavailable-tag muted">{slot.unavailable}</span>
-              ) : (
-                <span className="encounter-slot-method muted">
-                  {slot.methods}
-                  {slot.rate != null ? ` · ${slot.rate}%` : ''}
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
+      {groups.map((group) => (
+        <div className="encounter-group" key={group.key}>
+          <span className="encounter-group-label muted">{group.label}</span>
+          <div className="encounter-grid">
+            {group.entries.map((entry) => {
+              const disabled = Boolean(entry.unavailable);
+              const rateLabel = subMethodLabel(group.key, entry.subMethods);
+              const selected = entry.species === species;
+              return (
+                <button
+                  // key is group-scoped so a species in two groups gets two cards
+                  key={`${group.key}:${entry.species}`}
+                  type="button"
+                  disabled={disabled}
+                  aria-disabled={disabled}
+                  aria-label={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label})`}
+                  className={`encounter-slot${selected ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
+                  onClick={disabled ? undefined : () => setSpecies(entry.species)}
+                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''})`}
+                >
+                  <SpriteImg species={entry.species} size={72} shiny={shiny} />
+                  <span className="encounter-slot-name">{entry.species}</span>
+                  <TypeBadges types={typesFor(entry.species)} />
+                  {disabled ? (
+                    <span className="encounter-slot-unavailable-tag muted">{entry.unavailable}</span>
+                  ) : (
+                    rateLabel && <span className="encounter-slot-method muted">{rateLabel}</span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
       {allDimmed ? (
         <div className="encounter-all-dimmed">
           <p className="muted">
