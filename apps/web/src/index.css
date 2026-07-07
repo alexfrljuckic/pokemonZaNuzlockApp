@@ -1513,6 +1513,11 @@ input[aria-invalid='true'] {
   font-size: 0.8rem;
   text-transform: capitalize;
 }
+.mrd-matchups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
 .mrd-weak {
   display: flex;
   align-items: center;
@@ -1524,6 +1529,17 @@ input[aria-invalid='true'] {
   text-transform: uppercase;
   letter-spacing: 0.03em;
   margin-right: 0.1rem;
+  font-weight: 700;
+}
+/* Group-tinted labels: weaknesses danger, resistances positive, immunities muted. */
+.mrd-mu-weak .mrd-weak-label {
+  color: color-mix(in srgb, var(--danger) 85%, var(--text));
+}
+.mrd-mu-resist .mrd-weak-label {
+  color: color-mix(in srgb, var(--success) 85%, var(--text));
+}
+.mrd-mu-immune .mrd-weak-label {
+  color: var(--muted);
 }
 .mrd-weak-item {
   display: inline-flex;
@@ -1534,6 +1550,15 @@ input[aria-invalid='true'] {
   font-size: 0.62rem;
   font-weight: 800;
   color: var(--danger);
+}
+.mrd-resist-x {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--success);
+}
+/* Immune types read as neutral-muted — dim the chips to de-emphasise. */
+.mrd-mu-immune .type-badge {
+  opacity: 0.72;
 }
 
 /* horizontal stat bars — readable at a glance, uses the card width */
