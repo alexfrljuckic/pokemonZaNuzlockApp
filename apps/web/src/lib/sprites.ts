@@ -15,6 +15,7 @@ const TRAINERS = 'https://play.pokemonshowdown.com/sprites/trainers';
 // requires), sprites remap here. The onError hyphen-stripping fallback in
 // SpriteImg covers most other forms; these are the ones it can't reach.
 const SPECIES_SPRITE_ALIAS: Record<string, string> = {
+  'giratina-altered': 'giratina',
   'darmanitan-galar-standard': 'darmanitan-galar',
   'frillish-male': 'frillish',
   'jellicent-male': 'jellicent',

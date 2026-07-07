@@ -58,12 +58,26 @@ Never merge with either failing.
   when the paid/metered switch is off. See `docs/COSTS.md`.
 - Engine package stays pure TypeScript: no DOM, no network, no Supabase imports.
 
-## Current state (2026-07-06, reconciled after PR #205)
+## Current state (2026-07-07, reconciled after PR #219)
 
-Everything below is on `main`. PRs #3-#205 merged; the numbered backlog is
+Everything below is on `main`. PRs #3-#219 merged; the numbered backlog is
 EMPTY (shipped or deliberately shelved — see docs/BACKLOG.md, still the
 single work tracker). Work from `C:\dev\nuzlocke-app` (OneDrive checkout
 breaks worktrees).
+
+2026-07-07 session (#207–#219, see docs/BACKLOG.md for detail): Radical Red
+per-tier boss rosters finished (`rosterByDifficulty`); a big BDSP
+completeness pass (63→82 areas: 17 missing routes incl. 219/220/221 with
+N/S+W/E splits, 68 town/building trainers, non-route wild areas + statics/
+legendaries) with Sinnoh map nodes (geometry-derived — want a visual
+calibration pass); cross-device run-sync bug fixed (`pushAllRuns` on
+sign-in); UX — nature stat arrows, Continue save-file cards w/ team sprites,
+weakness display now shows resists+immunities (layout redesign pending),
+item HM-access tooltips, dupes-clause species shown dimmed not hidden
+(engine `classifyEncounterPool`), encounter pool grouped by method with real
+per-method rates. NOTE: the preview MCP tooling was broken this session
+(mangled Windows paths, served main not the worktree), so visual changes
+were verified via DOM/component tests — worth an eyeball on the live app.
 
 - **Engine** (`packages/engine`): event-sourced core — first-encounter,
   dupes-by-line, level caps + next-boss pick (`next_boss_set`), revive
