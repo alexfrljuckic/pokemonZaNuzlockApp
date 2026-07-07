@@ -8879,10 +8879,121 @@
   ],
   "milestones": [
     {
+      "id": "rival-terry-route22",
+      "name": "Terry (Route 22)",
+      "type": "rival",
+      "order": 5,
+      "aceLevel": 5,
+      "countsForLevelCap": false,
+      "trainerSprite": "blue",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "charmander",
+            "level": 5,
+            "moves": [
+              "scratch",
+              "growl",
+              "false-swipe"
+            ],
+            "ability": "blaze"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "charmander",
+            "level": 5,
+            "moves": [
+              "scratch",
+              "growl",
+              "false-swipe"
+            ],
+            "ability": "blaze"
+          }
+        ]
+      },
+      "rosterByDifficultyAndStarter": {
+        "normal": {
+          "bulbasaur": [
+            {
+              "species": "charmander",
+              "level": 5,
+              "moves": [
+                "scratch",
+                "growl",
+                "false-swipe"
+              ],
+              "ability": "blaze"
+            }
+          ],
+          "charmander": [
+            {
+              "species": "squirtle",
+              "level": 5,
+              "moves": [
+                "tackle",
+                "false-swipe",
+                "tail-whip"
+              ],
+              "ability": "torrent"
+            }
+          ],
+          "squirtle": [
+            {
+              "species": "bulbasaur",
+              "level": 5,
+              "moves": [
+                "tackle",
+                "growl"
+              ],
+              "ability": "overgrow"
+            }
+          ]
+        },
+        "hardcore": {
+          "bulbasaur": [
+            {
+              "species": "charmander",
+              "level": 5,
+              "moves": [
+                "scratch",
+                "growl",
+                "false-swipe"
+              ],
+              "ability": "blaze"
+            }
+          ],
+          "charmander": [
+            {
+              "species": "squirtle",
+              "level": 5,
+              "moves": [
+                "tackle",
+                "false-swipe",
+                "tail-whip"
+              ],
+              "ability": "torrent"
+            }
+          ],
+          "squirtle": [
+            {
+              "species": "bulbasaur",
+              "level": 5,
+              "moves": [
+                "tackle",
+                "growl"
+              ],
+              "ability": "overgrow"
+            }
+          ]
+        }
+      }
+    },
+    {
       "id": "gym-1-brock",
       "name": "Brock (Pewter Gym, Rock)",
       "type": "gym",
-      "order": 1,
+      "order": 10,
       "aceLevel": 14,
       "rosterByDifficulty": {
         "normal": [
@@ -9014,7 +9125,7 @@
       "id": "gym-2-misty",
       "name": "Misty (Cerulean Gym, Water)",
       "type": "gym",
-      "order": 2,
+      "order": 20,
       "aceLevel": 27,
       "rosterByDifficulty": {
         "normal": [
@@ -9144,10 +9255,530 @@
       }
     },
     {
+      "id": "rival-terry-cerulean",
+      "name": "Terry (Cerulean City)",
+      "type": "rival",
+      "order": 25,
+      "aceLevel": 28,
+      "countsForLevelCap": false,
+      "trainerSprite": "blue",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "staravia",
+            "level": 26,
+            "moves": [
+              "quick-attack",
+              "wing-attack",
+              "endeavor",
+              "whirlwind"
+            ],
+            "ability": "intimidate"
+          },
+          {
+            "species": "lycanroc-dusk",
+            "level": 26,
+            "moves": [
+              "rock-throw",
+              "odor-sleuth",
+              "rock-tomb",
+              "roar"
+            ],
+            "ability": "tough-claws"
+          },
+          {
+            "species": "kirlia",
+            "level": 28,
+            "moves": [
+              "lucky-chant",
+              "magical-leaf",
+              "heal-pulse",
+              "draining-kiss"
+            ],
+            "ability": "trace"
+          },
+          {
+            "species": "charmeleon",
+            "level": 28,
+            "moves": [
+              "fire-fang",
+              "scary-face",
+              "thunder-punch",
+              "flame-burst"
+            ],
+            "ability": "blaze"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "staravia",
+            "level": 26,
+            "moves": [
+              "quick-attack",
+              "wing-attack",
+              "endeavor",
+              "whirlwind"
+            ],
+            "ability": "intimidate"
+          },
+          {
+            "species": "lycanroc-dusk",
+            "level": 26,
+            "moves": [
+              "rock-throw",
+              "odor-sleuth",
+              "rock-tomb",
+              "roar"
+            ],
+            "ability": "tough-claws"
+          },
+          {
+            "species": "kirlia",
+            "level": 28,
+            "moves": [
+              "lucky-chant",
+              "magical-leaf",
+              "heal-pulse",
+              "draining-kiss"
+            ],
+            "ability": "trace"
+          },
+          {
+            "species": "charmeleon",
+            "level": 28,
+            "moves": [
+              "fire-fang",
+              "scary-face",
+              "thunder-punch",
+              "flame-burst"
+            ],
+            "ability": "blaze"
+          }
+        ]
+      },
+      "rosterByDifficultyAndStarter": {
+        "normal": {
+          "bulbasaur": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "charmeleon",
+              "level": 28,
+              "moves": [
+                "fire-fang",
+                "scary-face",
+                "thunder-punch",
+                "flame-burst"
+              ],
+              "ability": "blaze"
+            }
+          ],
+          "charmander": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "wartortle",
+              "level": 28,
+              "moves": [
+                "water-pulse",
+                "bite",
+                "fake-out",
+                "detect"
+              ],
+              "ability": "torrent"
+            }
+          ],
+          "squirtle": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "ivysaur",
+              "level": 28,
+              "moves": [
+                "sludge",
+                "mega-drain",
+                "take-down",
+                "growth"
+              ],
+              "ability": "overgrow"
+            }
+          ]
+        },
+        "hardcore": {
+          "bulbasaur": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "charmeleon",
+              "level": 28,
+              "moves": [
+                "fire-fang",
+                "scary-face",
+                "thunder-punch",
+                "flame-burst"
+              ],
+              "ability": "blaze"
+            }
+          ],
+          "charmander": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "wartortle",
+              "level": 28,
+              "moves": [
+                "water-pulse",
+                "bite",
+                "fake-out",
+                "detect"
+              ],
+              "ability": "torrent"
+            }
+          ],
+          "squirtle": [
+            {
+              "species": "staravia",
+              "level": 26,
+              "moves": [
+                "quick-attack",
+                "wing-attack",
+                "endeavor",
+                "whirlwind"
+              ],
+              "ability": "intimidate"
+            },
+            {
+              "species": "lycanroc-dusk",
+              "level": 26,
+              "moves": [
+                "rock-throw",
+                "odor-sleuth",
+                "rock-tomb",
+                "roar"
+              ],
+              "ability": "tough-claws"
+            },
+            {
+              "species": "kirlia",
+              "level": 28,
+              "moves": [
+                "lucky-chant",
+                "magical-leaf",
+                "heal-pulse",
+                "draining-kiss"
+              ],
+              "ability": "trace"
+            },
+            {
+              "species": "ivysaur",
+              "level": 28,
+              "moves": [
+                "sludge",
+                "mega-drain",
+                "take-down",
+                "growth"
+              ],
+              "ability": "overgrow"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rival-brendan-ss-anne",
+      "name": "Brendan (S.S. Anne)",
+      "type": "rival",
+      "order": 27,
+      "aceLevel": 29,
+      "countsForLevelCap": false,
+      "trainerSprite": "brendan",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "loudred",
+            "level": 28,
+            "moves": [
+              "hyper-voice",
+              "brick-break",
+              "ice-beam",
+              "shadow-ball"
+            ],
+            "ability": "punk-rock",
+            "heldItem": "chople-berry"
+          },
+          {
+            "species": "lunatone",
+            "level": 28,
+            "moves": [
+              "psyshock",
+              "power-gem",
+              "hypnosis",
+              "calm-mind"
+            ],
+            "ability": "levitate",
+            "heldItem": "colbur-berry"
+          },
+          {
+            "species": "crawdaunt",
+            "level": 29,
+            "moves": [
+              "aqua-jet",
+              "waterfall",
+              "knock-off",
+              "x-scissor"
+            ],
+            "ability": "adaptability",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "grovyle",
+            "level": 29,
+            "moves": [
+              "power-up-punch",
+              "aerial-ace",
+              "leaf-blade",
+              "rock-tomb"
+            ],
+            "ability": "overgrow",
+            "heldItem": "sitrus-berry"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "crawdaunt",
+            "level": 30,
+            "moves": [
+              "aqua-jet",
+              "liquidation",
+              "knock-off",
+              "x-scissor"
+            ],
+            "ability": "adaptability",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "slaking",
+            "level": 30,
+            "moves": [
+              "body-slam",
+              "knock-off",
+              "brick-break",
+              "slack-off"
+            ],
+            "ability": "truant",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "plusle",
+            "level": 30,
+            "moves": [
+              "volt-switch",
+              "grass-knot",
+              "surf",
+              "hidden-power"
+            ],
+            "ability": "transistor",
+            "heldItem": "magnet"
+          },
+          {
+            "species": "gardevoir",
+            "level": 30,
+            "moves": [
+              "psychic",
+              "calm-mind",
+              "moonblast",
+              "mystical-fire"
+            ],
+            "ability": "trace",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "sceptile",
+            "level": 30,
+            "moves": [
+              "swords-dance",
+              "leaf-blade",
+              "drain-punch",
+              "rock-slide"
+            ],
+            "ability": "overgrow",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "hariyama",
+            "level": 30,
+            "moves": [
+              "drain-punch",
+              "bullet-punch",
+              "knock-off",
+              "fake-out"
+            ],
+            "ability": "guts",
+            "heldItem": "flame-orb"
+          }
+        ]
+      }
+    },
+    {
       "id": "gym-3-surge",
       "name": "Lt. Surge (Vermilion Gym, Electric)",
       "type": "gym",
-      "order": 3,
+      "order": 30,
       "aceLevel": 34,
       "rosterByDifficulty": {
         "normal": [
@@ -9291,7 +9922,7 @@
       "id": "gym-4-erika",
       "name": "Erika (Celadon Gym, Grass)",
       "type": "gym",
-      "order": 4,
+      "order": 40,
       "aceLevel": 44,
       "rosterByDifficulty": {
         "normal": [
@@ -9431,10 +10062,750 @@
       }
     },
     {
+      "id": "rocket-giovanni-hideout",
+      "name": "Giovanni (Rocket Hideout)",
+      "type": "rocket",
+      "order": 45,
+      "aceLevel": 47,
+      "countsForLevelCap": false,
+      "trainerSprite": "giovanni",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "nidoking",
+            "level": 45,
+            "moves": [
+              "earth-power",
+              "ice-beam",
+              "sludge-bomb",
+              "thunderbolt"
+            ],
+            "ability": "sheer-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "honchkrow",
+            "level": 45,
+            "moves": [
+              "night-slash",
+              "sucker-punch",
+              "drill-peck",
+              "heat-wave"
+            ],
+            "ability": "super-luck",
+            "heldItem": "scope-lens"
+          },
+          {
+            "species": "infernape",
+            "level": 46,
+            "moves": [
+              "swords-dance",
+              "pyro-ball",
+              "close-combat",
+              "thunder-punch"
+            ],
+            "ability": "blaze",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "kangaskhan",
+            "level": 46,
+            "moves": [
+              "fake-out",
+              "body-slam",
+              "crunch",
+              "power-up-punch"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "kangaskhanite"
+          },
+          {
+            "species": "orthworm",
+            "level": 47,
+            "moves": [
+              "shed-tail",
+              "iron-head",
+              "earthquake",
+              "body-press"
+            ],
+            "ability": "earth-eater",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "veluza",
+            "level": 46,
+            "moves": [
+              "fillet-away",
+              "aqua-cutter",
+              "psycho-cut",
+              "aqua-jet"
+            ],
+            "ability": "mold-breaker",
+            "heldItem": "sitrus-berry"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "infernape",
+            "level": 47,
+            "moves": [
+              "pyro-ball",
+              "close-combat",
+              "thunder-punch",
+              "stealth-rock"
+            ],
+            "ability": "blaze",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "nidoking",
+            "level": 47,
+            "moves": [
+              "earth-power",
+              "sludge-wave",
+              "fire-blast",
+              "thunderbolt"
+            ],
+            "ability": "sheer-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "torterra",
+            "level": 47,
+            "moves": [
+              "shell-smash",
+              "earthquake",
+              "wood-hammer",
+              "head-smash"
+            ],
+            "ability": "rock-head",
+            "heldItem": "white-herb"
+          },
+          {
+            "species": "orthworm",
+            "level": 47,
+            "moves": [
+              "heavy-slam",
+              "body-press",
+              "shed-tail",
+              "earthquake"
+            ],
+            "ability": "earth-eater",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "gyarados",
+            "level": 47,
+            "moves": [
+              "dragon-dance",
+              "waterfall",
+              "earthquake",
+              "bounce"
+            ],
+            "ability": "intimidate",
+            "heldItem": "flyinium-z"
+          },
+          {
+            "species": "kangaskhan",
+            "level": 47,
+            "moves": [
+              "power-up-punch",
+              "body-slam",
+              "crunch",
+              "rock-tomb"
+            ],
+            "ability": "inner-focus",
+            "heldItem": "kangaskhanite"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rival-terry-silph",
+      "name": "Terry (Silph Co.)",
+      "type": "rival",
+      "order": 46,
+      "aceLevel": 54,
+      "countsForLevelCap": false,
+      "trainerSprite": "blue",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "staraptor",
+            "level": 52,
+            "moves": [
+              "u-turn",
+              "brave-bird",
+              "quick-attack",
+              "close-combat"
+            ],
+            "ability": "intimidate",
+            "heldItem": "sharp-beak"
+          },
+          {
+            "species": "kingambit",
+            "level": 53,
+            "moves": [
+              "swords-dance",
+              "iron-head",
+              "knock-off",
+              "sucker-punch"
+            ],
+            "ability": "supreme-overlord",
+            "heldItem": "chople-berry"
+          },
+          {
+            "species": "darmanitan-standard",
+            "level": 53,
+            "moves": [
+              "flare-blitz",
+              "rock-slide",
+              "u-turn",
+              "earthquake"
+            ],
+            "ability": "sheer-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "azumarill",
+            "level": 53,
+            "moves": [
+              "liquidation",
+              "play-rough",
+              "aqua-jet",
+              "ice-punch"
+            ],
+            "ability": "huge-power",
+            "heldItem": "mystic-water"
+          },
+          {
+            "species": "charizard",
+            "level": 54,
+            "moves": [
+              "flamethrower",
+              "air-slash",
+              "solar-beam",
+              "focus-blast"
+            ],
+            "ability": "blaze",
+            "heldItem": "charizardite-y"
+          }
+        ]
+      },
+      "rosterByDifficultyAndStarter": {
+        "normal": {
+          "bulbasaur": [
+            {
+              "species": "staraptor",
+              "level": 52,
+              "moves": [
+                "u-turn",
+                "brave-bird",
+                "quick-attack",
+                "close-combat"
+              ],
+              "ability": "intimidate",
+              "heldItem": "sharp-beak"
+            },
+            {
+              "species": "kingambit",
+              "level": 53,
+              "moves": [
+                "swords-dance",
+                "iron-head",
+                "knock-off",
+                "sucker-punch"
+              ],
+              "ability": "supreme-overlord",
+              "heldItem": "chople-berry"
+            },
+            {
+              "species": "darmanitan-standard",
+              "level": 53,
+              "moves": [
+                "flare-blitz",
+                "rock-slide",
+                "u-turn",
+                "earthquake"
+              ],
+              "ability": "sheer-force",
+              "heldItem": "life-orb"
+            },
+            {
+              "species": "azumarill",
+              "level": 53,
+              "moves": [
+                "liquidation",
+                "play-rough",
+                "aqua-jet",
+                "ice-punch"
+              ],
+              "ability": "huge-power",
+              "heldItem": "mystic-water"
+            },
+            {
+              "species": "charizard",
+              "level": 54,
+              "moves": [
+                "flamethrower",
+                "air-slash",
+                "solar-beam",
+                "focus-blast"
+              ],
+              "ability": "blaze",
+              "heldItem": "charizardite-y"
+            }
+          ],
+          "charmander": [
+            {
+              "species": "staraptor",
+              "level": 52,
+              "moves": [
+                "u-turn",
+                "brave-bird",
+                "quick-attack",
+                "close-combat"
+              ],
+              "ability": "intimidate",
+              "heldItem": "sharp-beak"
+            },
+            {
+              "species": "kingambit",
+              "level": 53,
+              "moves": [
+                "swords-dance",
+                "iron-head",
+                "knock-off",
+                "sucker-punch"
+              ],
+              "ability": "supreme-overlord",
+              "heldItem": "chople-berry"
+            },
+            {
+              "species": "darmanitan-standard",
+              "level": 53,
+              "moves": [
+                "flare-blitz",
+                "rock-slide",
+                "u-turn",
+                "earthquake"
+              ],
+              "ability": "sheer-force",
+              "heldItem": "life-orb"
+            },
+            {
+              "species": "jumpluff",
+              "level": 53,
+              "moves": [
+                "sleep-powder",
+                "double-edge",
+                "leaf-blade",
+                "swords-dance"
+              ],
+              "ability": "aerilate",
+              "heldItem": "sharp-beak"
+            },
+            {
+              "species": "blastoise",
+              "level": 54,
+              "moves": [
+                "shell-smash",
+                "water-pulse",
+                "dark-pulse",
+                "aura-sphere"
+              ],
+              "ability": "torrent",
+              "heldItem": "blastoisinite"
+            }
+          ],
+          "squirtle": [
+            {
+              "species": "staraptor",
+              "level": 52,
+              "moves": [
+                "u-turn",
+                "brave-bird",
+                "quick-attack",
+                "close-combat"
+              ],
+              "ability": "intimidate",
+              "heldItem": "sharp-beak"
+            },
+            {
+              "species": "kingambit",
+              "level": 53,
+              "moves": [
+                "swords-dance",
+                "iron-head",
+                "knock-off",
+                "sucker-punch"
+              ],
+              "ability": "supreme-overlord",
+              "heldItem": "chople-berry"
+            },
+            {
+              "species": "darmanitan-standard",
+              "level": 53,
+              "moves": [
+                "flare-blitz",
+                "rock-slide",
+                "u-turn",
+                "earthquake"
+              ],
+              "ability": "sheer-force",
+              "heldItem": "life-orb"
+            },
+            {
+              "species": "jumpluff",
+              "level": 53,
+              "moves": [
+                "sleep-powder",
+                "double-edge",
+                "leaf-blade",
+                "swords-dance"
+              ],
+              "ability": "aerilate",
+              "heldItem": "sharp-beak"
+            },
+            {
+              "species": "venusaur",
+              "level": 54,
+              "moves": [
+                "sleep-powder",
+                "giga-drain",
+                "sludge-bomb",
+                "earth-power"
+              ],
+              "ability": "overgrow",
+              "heldItem": "venusaurite"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "rocket-admins-silph",
+      "name": "Rocket Admins Archer & Ariana (Silph Co.)",
+      "type": "rocket",
+      "order": 47,
+      "aceLevel": 55,
+      "countsForLevelCap": false,
+      "trainerSprite": "archer",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "gothitelle",
+            "level": 54,
+            "moves": [
+              "psychic",
+              "shadow-ball",
+              "hidden-power",
+              "thunder-wave"
+            ],
+            "ability": "competitive",
+            "heldItem": "colbur-berry"
+          },
+          {
+            "species": "gholdengo",
+            "level": 55,
+            "moves": [
+              "shadow-ball",
+              "make-it-rain",
+              "focus-blast",
+              "recover"
+            ],
+            "ability": "good-as-gold",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "houndoom",
+            "level": 55,
+            "moves": [
+              "heat-wave",
+              "dark-pulse",
+              "sucker-punch",
+              "scorching-sands"
+            ],
+            "ability": "early-bird",
+            "heldItem": "houndoominite"
+          },
+          {
+            "species": "incineroar",
+            "level": 54,
+            "moves": [
+              "fake-out",
+              "parting-shot",
+              "darkest-lariat",
+              "fire-punch"
+            ],
+            "ability": "blaze",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "primarina",
+            "level": 55,
+            "moves": [
+              "hyper-voice",
+              "scald",
+              "psychic",
+              "dazzling-gleam"
+            ],
+            "ability": "torrent",
+            "heldItem": "throat-spray"
+          },
+          {
+            "species": "mawile",
+            "level": 55,
+            "moves": [
+              "play-rough",
+              "sucker-punch",
+              "iron-head",
+              "thunder-punch"
+            ],
+            "ability": "intimidate",
+            "heldItem": "mawilite"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "articuno-galar",
+            "level": 55,
+            "moves": [
+              "psychic",
+              "focus-blast",
+              "roost",
+              "air-slash"
+            ],
+            "ability": "competitive",
+            "heldItem": "colbur-berry"
+          },
+          {
+            "species": "gholdengo",
+            "level": 55,
+            "moves": [
+              "shadow-ball",
+              "make-it-rain",
+              "focus-blast",
+              "recover"
+            ],
+            "ability": "good-as-gold",
+            "heldItem": "ghostium-z"
+          },
+          {
+            "species": "houndoom",
+            "level": 56,
+            "moves": [
+              "pursuit",
+              "fiery-wrath",
+              "heat-wave",
+              "scorching-sands"
+            ],
+            "ability": "early-bird",
+            "heldItem": "houndoominite"
+          },
+          {
+            "species": "incineroar",
+            "level": 55,
+            "moves": [
+              "fake-out",
+              "knock-off",
+              "will-o-wisp",
+              "flare-blitz"
+            ],
+            "ability": "blaze",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "primarina",
+            "level": 55,
+            "moves": [
+              "hyper-voice",
+              "scald",
+              "psychic",
+              "energy-ball"
+            ],
+            "ability": "torrent",
+            "heldItem": "throat-spray"
+          },
+          {
+            "species": "mawile",
+            "level": 56,
+            "moves": [
+              "play-rough",
+              "sucker-punch",
+              "iron-head",
+              "thunder-punch"
+            ],
+            "ability": "intimidate",
+            "heldItem": "mawilite"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rocket-giovanni-silph",
+      "name": "Giovanni (Silph Co.)",
+      "type": "rocket",
+      "order": 48,
+      "aceLevel": 57,
+      "countsForLevelCap": false,
+      "trainerSprite": "giovanni",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "hippowdon",
+            "level": 56,
+            "moves": [
+              "stone-edge",
+              "earthquake",
+              "roar",
+              "stealth-rock"
+            ],
+            "ability": "sand-stream",
+            "heldItem": "smooth-rock"
+          },
+          {
+            "species": "excadrill",
+            "level": 57,
+            "moves": [
+              "earthquake",
+              "iron-head",
+              "rock-slide",
+              "swords-dance"
+            ],
+            "ability": "sand-rush",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "kangaskhan",
+            "level": 57,
+            "moves": [
+              "power-up-punch",
+              "fake-out",
+              "body-slam",
+              "crunch"
+            ],
+            "ability": "scrappy",
+            "heldItem": "kangaskhanite"
+          },
+          {
+            "species": "garganacl",
+            "level": 57,
+            "moves": [
+              "protect",
+              "body-press",
+              "salt-cure",
+              "recover"
+            ],
+            "ability": "purifying-salt",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "garchomp",
+            "level": 57,
+            "moves": [
+              "swords-dance",
+              "earthquake",
+              "rock-slide",
+              "scale-shot"
+            ],
+            "ability": "sand-veil",
+            "heldItem": "yache-berry"
+          },
+          {
+            "species": "torterra",
+            "level": 56,
+            "moves": [
+              "shell-smash",
+              "wood-hammer",
+              "earthquake",
+              "head-smash"
+            ],
+            "ability": "rock-head",
+            "heldItem": "white-herb"
+          }
+        ],
+        "hardcore": [
+          {
+            "species": "mamoswine",
+            "level": 57,
+            "moves": [
+              "stone-edge",
+              "ice-shard",
+              "headlong-rush",
+              "icicle-crash"
+            ],
+            "ability": "oblivious",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "dracovish",
+            "level": 57,
+            "moves": [
+              "fishious-rend",
+              "psychic-fangs",
+              "crunch",
+              "dragon-claw"
+            ],
+            "ability": "sand-rush",
+            "heldItem": "water-gem"
+          },
+          {
+            "species": "gyarados",
+            "level": 57,
+            "moves": [
+              "dragon-dance",
+              "waterfall",
+              "earthquake",
+              "bounce"
+            ],
+            "ability": "intimidate",
+            "heldItem": "flyinium-z"
+          },
+          {
+            "species": "garganacl",
+            "level": 57,
+            "moves": [
+              "iron-defense",
+              "body-press",
+              "salt-cure",
+              "recover"
+            ],
+            "ability": "purifying-salt",
+            "heldItem": "leftovers"
+          },
+          {
+            "species": "excadrill",
+            "level": 57,
+            "moves": [
+              "swords-dance",
+              "earthquake",
+              "iron-head",
+              "rock-slide"
+            ],
+            "ability": "sand-rush",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "garchomp",
+            "level": 57,
+            "moves": [
+              "swords-dance",
+              "earthquake",
+              "scale-shot",
+              "stone-edge"
+            ],
+            "ability": "sand-veil",
+            "heldItem": "garchompite"
+          }
+        ]
+      }
+    },
+    {
       "id": "gym-5-sabrina",
       "name": "Sabrina (Saffron Gym, Psychic)",
       "type": "gym",
-      "order": 5,
+      "order": 50,
       "aceLevel": 59,
       "rosterByDifficulty": {
         "normal": [
@@ -9591,7 +10962,7 @@
       "id": "gym-6-koga",
       "name": "Koga (Fuchsia Gym, Poison)",
       "type": "gym",
-      "order": 6,
+      "order": 60,
       "aceLevel": 68,
       "rosterByDifficulty": {
         "normal": [
@@ -9744,7 +11115,7 @@
       "id": "gym-7-blaine",
       "name": "Blaine (Cinnabar Gym, Fire)",
       "type": "gym",
-      "order": 7,
+      "order": 70,
       "aceLevel": 76,
       "rosterByDifficulty": {
         "normal": [
@@ -9897,10 +11268,119 @@
       }
     },
     {
+      "id": "rocket-admins-cerulean-cave",
+      "name": "Rocket Admins Archer & Ariana (Cerulean Cave)",
+      "type": "rocket",
+      "order": 75,
+      "aceLevel": 79,
+      "countsForLevelCap": false,
+      "trainerSprite": "archer",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "mamoswine",
+            "level": 77,
+            "moves": [
+              "earthquake",
+              "ice-shard",
+              "endeavor",
+              "icicle-crash"
+            ],
+            "ability": "oblivious",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "durant",
+            "level": 78,
+            "moves": [
+              "hone-claws",
+              "iron-head",
+              "x-scissor",
+              "superpower"
+            ],
+            "ability": "hustle",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "mimikyu-disguised",
+            "level": 79,
+            "moves": [
+              "play-rough",
+              "swords-dance",
+              "shadow-claw",
+              "shadow-sneak"
+            ],
+            "ability": "disguise",
+            "heldItem": "lum-berry"
+          },
+          {
+            "species": "houndoom",
+            "level": 79,
+            "moves": [
+              "fiery-wrath",
+              "flamethrower",
+              "sucker-punch",
+              "sludge-bomb"
+            ],
+            "ability": "unnerve",
+            "heldItem": "houndoominite"
+          },
+          {
+            "species": "hatterene",
+            "level": 77,
+            "moves": [
+              "trick-room",
+              "psychic",
+              "dazzling-gleam",
+              "mystical-fire"
+            ],
+            "ability": "magic-bounce",
+            "heldItem": "sitrus-berry"
+          },
+          {
+            "species": "rhyperior",
+            "level": 78,
+            "moves": [
+              "earthquake",
+              "rock-blast",
+              "ice-punch",
+              "heat-crash"
+            ],
+            "ability": "solid-rock",
+            "heldItem": "weakness-policy"
+          },
+          {
+            "species": "honchkrow",
+            "level": 78,
+            "moves": [
+              "sucker-punch",
+              "night-slash",
+              "drill-peck",
+              "superpower"
+            ],
+            "ability": "super-luck",
+            "heldItem": "scope-lens"
+          },
+          {
+            "species": "mawile",
+            "level": 79,
+            "moves": [
+              "sucker-punch",
+              "iron-head",
+              "play-rough",
+              "swords-dance"
+            ],
+            "ability": "intimidate",
+            "heldItem": "mawilite"
+          }
+        ]
+      }
+    },
+    {
       "id": "gym-8-clair",
       "name": "Clair (Viridian Gym, Dragon)",
       "type": "gym",
-      "order": 8,
+      "order": 80,
       "aceLevel": 81,
       "rosterByDifficulty": {
         "normal": [
@@ -10054,10 +11534,95 @@
       }
     },
     {
+      "id": "rival-brendan-route-23",
+      "name": "Brendan (Pre-Victory Road)",
+      "type": "rival",
+      "order": 85,
+      "aceLevel": 82,
+      "countsForLevelCap": false,
+      "trainerSprite": "brendan",
+      "rosterByDifficulty": {
+        "normal": [
+          {
+            "species": "deoxys-attack",
+            "level": 81,
+            "moves": [
+              "psychic",
+              "ice-beam",
+              "superpower",
+              "extreme-speed"
+            ],
+            "ability": "pressure",
+            "heldItem": "focus-sash"
+          },
+          {
+            "species": "jirachi",
+            "level": 81,
+            "moves": [
+              "iron-head",
+              "u-turn",
+              "thunder-punch",
+              "zen-headbutt"
+            ],
+            "ability": "serene-grace",
+            "heldItem": "choice-scarf"
+          },
+          {
+            "species": "landorus-incarnate",
+            "level": 82,
+            "moves": [
+              "earth-power",
+              "rock-slide",
+              "sludge-wave",
+              "aura-sphere"
+            ],
+            "ability": "sand-force",
+            "heldItem": "life-orb"
+          },
+          {
+            "species": "zapdos-galar",
+            "level": 81,
+            "moves": [
+              "brave-bird",
+              "close-combat",
+              "u-turn",
+              "blaze-kick"
+            ],
+            "ability": "defiant",
+            "heldItem": "choice-band"
+          },
+          {
+            "species": "huntail",
+            "level": 81,
+            "moves": [
+              "shell-smash",
+              "liquidation",
+              "crunch",
+              "ice-fang"
+            ],
+            "ability": "intimidate",
+            "heldItem": "white-herb"
+          },
+          {
+            "species": "sceptile",
+            "level": 82,
+            "moves": [
+              "swords-dance",
+              "scale-shot",
+              "bullet-seed",
+              "earthquake"
+            ],
+            "ability": "overgrow",
+            "heldItem": "sceptilite"
+          }
+        ]
+      }
+    },
+    {
       "id": "e4-lorelei",
       "name": "Elite Four Lorelei (Ice)",
       "type": "elite-four",
-      "order": 9,
+      "order": 90,
       "aceLevel": 85,
       "rosterByDifficulty": {
         "normal": [
@@ -10213,7 +11778,7 @@
       "id": "e4-bruno",
       "name": "Elite Four Bruno (Fighting)",
       "type": "elite-four",
-      "order": 10,
+      "order": 100,
       "aceLevel": 85,
       "rosterByDifficulty": {
         "normal": [
@@ -10370,7 +11935,7 @@
       "id": "e4-agatha",
       "name": "Elite Four Agatha (Ghost)",
       "type": "elite-four",
-      "order": 11,
+      "order": 110,
       "aceLevel": 85,
       "rosterByDifficulty": {
         "normal": [
@@ -10526,7 +12091,7 @@
       "id": "e4-lance",
       "name": "Elite Four Lance (Dragon)",
       "type": "elite-four",
-      "order": 12,
+      "order": 120,
       "aceLevel": 85,
       "rosterByDifficulty": {
         "normal": [
@@ -10682,7 +12247,7 @@
       "id": "champion-terry",
       "name": "Champion Terry",
       "type": "champion",
-      "order": 13,
+      "order": 130,
       "aceLevel": 85,
       "rosterByDifficulty": {
         "normal": [
