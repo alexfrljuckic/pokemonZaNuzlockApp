@@ -1568,44 +1568,63 @@ input[aria-invalid='true'] {
 .mrd-matchups {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
 }
-.mrd-weak {
+/* Each matchup group is a fixed label column + a wrapping chip area, so long
+   lists (a Steel type resists 10 types) stay aligned and readable, and the
+   three groups are separated by a hairline instead of running together. */
+.mrd-mu-row {
+  display: grid;
+  grid-template-columns: 66px minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: start;
+  padding: 0.35rem 0;
+}
+.mrd-mu-row + .mrd-mu-row {
+  border-top: 0.5px solid var(--border);
+}
+.mrd-mu-head {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.25rem;
+  flex-direction: column;
+  line-height: 1.2;
 }
-.mrd-weak-label {
+.mrd-mu-label {
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  margin-right: 0.1rem;
   font-weight: 700;
 }
-/* Group-tinted labels: weaknesses danger, resistances positive, immunities muted. */
-.mrd-mu-weak .mrd-weak-label {
-  color: color-mix(in srgb, var(--danger) 85%, var(--text));
-}
-.mrd-mu-resist .mrd-weak-label {
-  color: color-mix(in srgb, var(--success) 85%, var(--text));
-}
-.mrd-mu-immune .mrd-weak-label {
+.mrd-mu-count {
+  font-size: 0.66rem;
   color: var(--muted);
 }
-.mrd-weak-item {
+/* Group-tinted labels: weaknesses danger, resistances positive, immunities muted. */
+.mrd-mu-weak .mrd-mu-label {
+  color: color-mix(in srgb, var(--danger) 85%, var(--text));
+}
+.mrd-mu-resist .mrd-mu-label {
+  color: color-mix(in srgb, var(--success) 85%, var(--text));
+}
+.mrd-mu-immune .mrd-mu-label {
+  color: var(--muted);
+}
+.mrd-mu-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+.mrd-mu-chip {
   display: inline-flex;
   align-items: center;
   gap: 0.1rem;
 }
-.mrd-weak-x {
+.mrd-mu-x {
   font-size: 0.62rem;
   font-weight: 800;
+}
+.mrd-mu-weak .mrd-mu-x {
   color: var(--danger);
 }
-.mrd-resist-x {
-  font-size: 0.62rem;
-  font-weight: 800;
+.mrd-mu-resist .mrd-mu-x {
   color: var(--success);
 }
 /* Immune types read as neutral-muted — dim the chips to de-emphasise. */
