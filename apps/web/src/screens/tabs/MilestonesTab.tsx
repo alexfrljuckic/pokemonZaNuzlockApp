@@ -1,5 +1,6 @@
 import {
   chosenStarter,
+  difficultyForPreset,
   milestoneRoster,
   milestonesFor,
   nextBoss,
@@ -25,6 +26,9 @@ export function MilestonesTab({
   const boss = nextBoss(state, ctx);
   const violations = validateTeam(state, ctx);
   const starter = chosenStarter(state);
+  // Radical Red: pick the boss roster for the run's difficulty tier (Normal /
+  // Hardcore). null for every mainline game → milestoneRoster is unchanged.
+  const difficulty = difficultyForPreset(state.ruleset.presetId);
   // linear games (BDSP/LGPE/…) clear bosses in dataset order — no need to pick
   // a next target; the picker shows only for open-order games (SV).
   const openBoss = openBossOrderFor(ctx.dataset.gameId);
@@ -71,7 +75,7 @@ export function MilestonesTab({
           <MilestoneCard
             key={m.id}
             milestone={m}
-            roster={milestoneRoster(m, starter) ?? []}
+            roster={milestoneRoster(m, starter, difficulty) ?? []}
             cleared={state.milestonesCleared.includes(m.id)}
             isNext={boss?.id === m.id}
             isPinnedNext={state.nextBossId === m.id}

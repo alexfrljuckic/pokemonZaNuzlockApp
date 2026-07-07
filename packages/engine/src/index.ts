@@ -30,5 +30,6 @@ export {
   specialAppliesToVersion,
   chosenStarter,
   milestoneRoster,
+  difficultyForPreset,
   pendingWipeDecision,
 } from './rules/index.js';

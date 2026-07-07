@@ -3,6 +3,7 @@ import {
   boxed,
   chosenStarter,
   deriveState,
+  difficultyForPreset,
   fallen,
   milestoneRoster,
   milestonesFor,
@@ -91,6 +92,7 @@ function SpectatorRun({
   const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
   const boss = nextBoss(state, ctx);
   const starter = chosenStarter(state);
+  const difficulty = difficultyForPreset(state.ruleset.presetId);
   const showWipeScreen = pendingWipeDecision(state);
 
   return (
@@ -173,7 +175,7 @@ function SpectatorRun({
               <MilestoneCard
                 key={m.id}
                 milestone={m}
-                roster={milestoneRoster(m, starter) ?? []}
+                roster={milestoneRoster(m, starter, difficulty) ?? []}
                 cleared={state.milestonesCleared.includes(m.id)}
                 isNext={boss?.id === m.id}
                 isPinnedNext={state.nextBossId === m.id}

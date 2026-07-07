@@ -458,9 +458,32 @@ export function chosenStarter(state: RunState): string | null {
   return mon?.species ?? null;
 }
 
-/** A milestone's effective roster: the per-starter variant matching the chosen
- * starter when present, else the default `roster`. */
-export function milestoneRoster(m: Milestone, starter: string | null): Milestone['roster'] {
+/** Map a run's presetId to a `rosterByDifficulty` key. Radical Red's tiers
+ * (rr-normal / rr-hardcore) select the matching boss roster; every other preset
+ * (and any game without difficulty rosters) returns null so behavior is
+ * unchanged. Kept next to buildRuleset's RR branch so the two stay in sync. */
+export function difficultyForPreset(presetId: string | undefined): string | null {
+  switch (presetId) {
+    case 'rr-normal':
+      return 'normal';
+    case 'rr-hardcore':
+      return 'hardcore';
+    default:
+      return null;
+  }
+}
+
+/** A milestone's effective roster. Precedence: the per-difficulty variant
+ * matching the run's tier (RR Normal/Hardcore) > the per-starter variant
+ * matching the chosen starter > the default `roster`. `difficulty` is the key
+ * from difficultyForPreset(state.ruleset.presetId); null/absent leaves mainline
+ * games on exactly their prior behavior. */
+export function milestoneRoster(
+  m: Milestone,
+  starter: string | null,
+  difficulty: string | null = null,
+): Milestone['roster'] {
+  if (difficulty && m.rosterByDifficulty?.[difficulty]) return m.rosterByDifficulty[difficulty];
   if (starter && m.rosterByStarter?.[starter]) return m.rosterByStarter[starter];
   return m.roster;
 }

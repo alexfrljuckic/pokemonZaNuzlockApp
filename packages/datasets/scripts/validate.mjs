@@ -62,6 +62,29 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
         }
       }
     }
+    // per-difficulty variants: the `normal` tier defines the milestone's cap so
+    // it must equal aceLevel exactly (same no-drift guard as rosterByStarter).
+    // Harder tiers (RR Hardcore) legitimately raise early-gym caps, so they only
+    // have to stay in [aceLevel, aceLevel + 3] — never below Normal, and a wider
+    // gap flags a likely tier/cap mix-up.
+    if (m.aceLevel != null && m.rosterByDifficulty && typeof m.rosterByDifficulty === 'object') {
+      for (const [key, variant] of Object.entries(m.rosterByDifficulty)) {
+        if (Array.isArray(variant) && variant.length) {
+          const maxV = Math.max(...variant.map((p) => p.level));
+          if (key === 'normal') {
+            if (m.aceLevel !== maxV)
+              problems.push(
+                `milestone "${m.id}" rosterByDifficulty.normal max level (${maxV}) does not match aceLevel (${m.aceLevel})`
+              );
+          } else if (maxV < m.aceLevel || maxV > m.aceLevel + 3) {
+            problems.push(
+              `milestone "${m.id}" rosterByDifficulty.${key} max level (${maxV}) is outside the allowed ` +
+                `aceLevel..aceLevel+3 range (${m.aceLevel}..${m.aceLevel + 3})`
+            );
+          }
+        }
+      }
+    }
   }
 
   // Roster move sanity. A move PokeAPI doesn't know at all is a typo/wrong slug
@@ -72,6 +95,8 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
   for (const m of data.milestones) {
     for (const p of m.roster ?? []) rosterMembers.push([m.id, p]);
     for (const variant of Object.values(m.rosterByStarter ?? {}))
+      for (const p of variant) rosterMembers.push([m.id, p]);
+    for (const variant of Object.values(m.rosterByDifficulty ?? {}))
       for (const p of variant) rosterMembers.push([m.id, p]);
   }
   for (const [mid, p] of rosterMembers) {
@@ -97,7 +122,9 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
       const hasRoster =
         (Array.isArray(m.roster) && m.roster.length > 0) ||
         (m.rosterByStarter &&
-          Object.values(m.rosterByStarter).some((v) => Array.isArray(v) && v.length > 0));
+          Object.values(m.rosterByStarter).some((v) => Array.isArray(v) && v.length > 0)) ||
+        (m.rosterByDifficulty &&
+          Object.values(m.rosterByDifficulty).some((v) => Array.isArray(v) && v.length > 0));
       if (!hasRoster)
         problems.push(`milestone "${m.id}" has no roster but the game sets rostersRequired: true`);
     }
@@ -125,6 +152,7 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
   for (const m of data.milestones) {
     for (const p of m.roster ?? []) referencedSpecies.add(p.species);
     for (const variant of Object.values(m.rosterByStarter ?? {})) for (const p of variant) referencedSpecies.add(p.species);
+    for (const variant of Object.values(m.rosterByDifficulty ?? {})) for (const p of variant) referencedSpecies.add(p.species);
   }
   const missingSpecies = [...referencedSpecies].filter((s) => !knownSpecies.has(s)).sort();
   if (missingSpecies.length) {
