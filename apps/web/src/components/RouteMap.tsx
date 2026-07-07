@@ -133,7 +133,10 @@ export function RouteMap({
   // user's later manual pan/zoom as areas resolve.
   useEffect(() => {
     const fnodes = map.nodes.filter((n) => frontier.has(n.id));
-    const initial = fnodes.length ? fitToNodes(fnodes) : { x: 0, y: 0, scale: 1 };
+    // Only maps that opt in (Galar's awkward triptych) land pre-zoomed on the
+    // frontier; every other map opens fully zoomed-out at rest.
+    const initial =
+      map.autoZoomToFrontier && fnodes.length ? fitToNodes(fnodes) : { x: 0, y: 0, scale: 1 };
     viewRef.current = initial;
     setView(initial);
     pointers.current.clear();
@@ -475,7 +478,7 @@ export function RouteMap({
             )}
           </div>
           {hoveredState === 'available' && (
-            <div className="route-tip-cta">{tapPreview ? 'Tap again to resolve encounter' : 'Click to resolve encounter'}</div>
+            <div className="route-tip-cta">{tapPreview ? 'Double-tap to resolve encounter' : 'Click to resolve encounter'}</div>
           )}
         </div>
       )}
@@ -489,7 +492,7 @@ export function RouteMap({
             </span>
           </div>
           <div className="route-tip-cta">
-            {tapPreview ? "Tap again to browse this zone's areas" : "Click to browse this zone's areas"}
+            {tapPreview ? "Double-tap to browse this zone's areas" : "Click to browse this zone's areas"}
           </div>
         </div>
       )}

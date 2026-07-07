@@ -1,0 +1,8945 @@
+{
+  "schemaVersion": 1,
+  "gameId": "radical-red",
+  "name": "Pokémon Radical Red",
+  "versions": [
+    "radical-red"
+  ],
+  "pokeapiVersionGroups": [],
+  "rostersRequired": false,
+  "areas": [
+    {
+      "id": "route-1",
+      "name": "ROUTE 1",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "bidoof",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowth-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mienfoo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pansear",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pidgey",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rattata-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "smoliv",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "yungoos",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zigzagoon-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viridian-city",
+      "name": "VIRIDIAN CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "bruxish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corsola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "deerling",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "greavard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "marill",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "patrat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pawmi",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pikipek",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shuppet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wattrel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wooloo",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-22",
+      "name": "ROUTE 22",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "applin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "basculin-blue-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "clobbopus",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "flabebe",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lillipup",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "morelull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "panpour",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "rockruff",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandshrew-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandygast",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skwovet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wailord",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-21a",
+      "name": "ROUTE 21A",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "barraskewda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "capsakid",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "fidough",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lechonk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "maschiff",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wiglett",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wooper-paldea",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-2",
+      "name": "ROUTE 2",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "abra",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "houndour",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "litleo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pansage",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ponyta-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zigzagoon-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "viridian-forest",
+      "name": "VIRIDIAN FOREST",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "burmy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "joltik",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ledyba",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pikachu",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rellor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "scatterbug",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sewaddle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shroomish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spinarak",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "surskit",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "toedscool",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest-expansion",
+      "name": "FOREST EXPANSION",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "blipbug",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bramblin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "burmy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grubbin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nymble",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "phantump",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pumpkaboo-super",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rellor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slakoth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tarountula",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diglett-cave",
+      "name": "DIGLETT CAVE",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "bronzor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "diglett",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "diglett-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "geodude-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nacli",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "silicobra",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "trapinch",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "yamask",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "yamask-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pewter-city",
+      "name": "PEWTER CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "axew",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cutiefly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "espurr",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "exeggcute",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gastly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grimer-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poltchageist",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sinistea",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skiddo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spoink",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "starly",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-3",
+      "name": "ROUTE 3",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "buneary",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "fletchling",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jigglypuff",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "litleo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowth-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nickit",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shroodle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shroomish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skiddo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spearow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mt-moon-1f",
+      "name": "MT MOON 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "chewtle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "clefairy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dunsparce",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "elgyem",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "geodude-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "makuhita",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rockruff",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "timburr",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tympole",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "woobat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mt-moon-b1f",
+      "name": "MT MOON B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "baltoy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nacli",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "riolu",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "roggenrola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shuppet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slugma",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tinkatink",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mt-moon-b2f",
+      "name": "MT MOON B2F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cranidos",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mudbray",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "munna",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pawniard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rolycoly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shieldon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "smoochum",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "varoom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zubat",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-4",
+      "name": "ROUTE 4",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "bellsprout",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "flabebe",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "phantump",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pidove",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pumpkaboo-average",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pumpkaboo-large",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pumpkaboo-small",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rookidee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tandemaus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-24",
+      "name": "ROUTE 24",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "abra",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "charcadet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "clobbopus",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cottonee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "klawf",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "marill",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "petilil",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "yamper",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-25",
+      "name": "ROUTE 25",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "aipom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "karrablast",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "purrloin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "squawkabilly-green-plumage",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "squawkabilly-white-plumage",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tadbulb",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "taillow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "whismur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-5",
+      "name": "ROUTE 5",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "drifloon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gothita",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grimer-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "growlithe-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hatenna",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowth-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "morelull",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "solosis",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spritzee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swirlix",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vulpix-alola",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-6",
+      "name": "ROUTE 6",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "bounsweet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dedenne",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "flittle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "furfrou",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gossifleur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gulpin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "komala",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sizzlipede",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowbro-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowpoke-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sunkern",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "trubbish",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-11",
+      "name": "ROUTE 11",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alomomola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bombirdier",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "bunnelby",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crabrawler",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "drowzee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ducklett",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "flamigo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "maractus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pancham",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "scraggy",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sigilyph",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stufful",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diglett-cave-b1f",
+      "name": "DIGLETT CAVE B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "diglett",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "diglett-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "drilbur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dugtrio",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dugtrio-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golett",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandygast",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "silicobra",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunfisk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunfisk-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-9",
+      "name": "ROUTE 9",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "darumaka",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "espurr",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "exeggcute",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "indeedee-female",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "indeedee-male",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mime-jr",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "salandit",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shelmet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-10",
+      "name": "ROUTE 10",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "barboach",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "basculin-blue-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "blitzle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "electrike",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "emolga",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "helioptile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "minun",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pincurchin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "plusle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "skitty",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tadbulb",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tynamo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "voltorb-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rock-tunnel-1f",
+      "name": "ROCK TUNNEL 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "aron",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "carbink",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "carkol",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dwebble",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ferroseed",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "graveler-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "heatmor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "minior-red-meteor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stonjourner",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rock-tunnel-b1f",
+      "name": "ROCK TUNNEL B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "bergmite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "boldore",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bonsly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cetoddle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cryogonal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubchoo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "glimmet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "nosepass",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandslash",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-7",
+      "name": "ROUTE 7",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "applin",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cutiefly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "deerling",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "inkay",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mienfoo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "oranguru",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "passimian",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "porygon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rufflet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vullaby",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-8",
+      "name": "ROUTE 8",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "absol",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bouffalant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "comfey",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "drampa",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "fomantis",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "foongus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "girafarig",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "minccino",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "morgrem",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stantler",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vanillite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "venipede",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-3and5f",
+      "name": "PKMN TOWER 3&5F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cofagrigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lampent",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "polteageist",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "runerigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-4f",
+      "name": "PKMN TOWER 4F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cofagrigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "houndstone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lampent",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "runerigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-6f",
+      "name": "PKMN TOWER 6F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "annihilape",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cofagrigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lampent",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "polteageist",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "runerigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-7f",
+      "name": "PKMN TOWER 7F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cofagrigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "haunter",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "polteageist",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rotom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "runerigus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-16",
+      "name": "ROUTE 16",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cufant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "escavalier",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "falinks",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "forretress",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "orthworm",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "togedemaru",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "yanma",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-17",
+      "name": "ROUTE 17",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cyclizar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dracozolt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "drampa",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "grumpig",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "muk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "muk-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "turtonator",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zebstrika",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-18",
+      "name": "ROUTE 18",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "abomasnow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "altaria",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "arctovish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dracovish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "heliolisk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jynx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kabutops",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "omastar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "politoed",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poliwrath",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vikavolt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "xatu",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-12",
+      "name": "ROUTE 12",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arctovish",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "arctozolt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "avalugg",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "avalugg-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cetitan",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "fish",
+            "grass"
+          ]
+        },
+        {
+          "species": "dondozo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "drednaw",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mr-mime-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sawk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "throh",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "veluza",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-13",
+      "name": "ROUTE 13",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arcanine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "centiskorch",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dragalge",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "exeggutor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "exeggutor-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jumpluff",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lurantis",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "oricorio-baile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pyroar-male",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "qwilfish-hisui",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simisage",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simisear",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "talonflame",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tatsugiri-curly",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "toxapex",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "turtonator",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "veluza",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-14",
+      "name": "ROUTE 14",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "charjabug",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golisopod",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "palossand",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swadloon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "whirlipede",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-15",
+      "name": "ROUTE 15",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "ambipom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "amoonguss",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ferrothorn",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "galvantula",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "oricorio-baile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sigilyph",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simipour",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tsareena",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-23",
+      "name": "ROUTE 23",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "fearow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simipour",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simisage",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "simisear",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "staraptor",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-1f",
+      "name": "SEAFOAM 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "avalugg",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "beartic",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jynx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandslash-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-b1f",
+      "name": "SEAFOAM B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cryogonal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "darmanitan-galar-standard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandslash-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slowking",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vanilluxe",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-b2f",
+      "name": "SEAFOAM B2F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "abomasnow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish",
+            "grass"
+          ]
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "ninetales-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-b3f",
+      "name": "SEAFOAM B3F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "darmanitan-galar-standard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "frosmoth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jynx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandslash-alola",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-b4f",
+      "name": "SEAFOAM B4F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "abomasnow",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jynx",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "piloswine",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion-1f",
+      "name": "MANSION 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arcanine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "liepard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "muk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "muk-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "raticate-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion-2f",
+      "name": "MANSION 2F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "banette",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "garbodor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gumshoos",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "heatmor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "obstagoon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "salazzle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "swalot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "weezing-galar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion-3f",
+      "name": "MANSION 3F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "ariados",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "armarouge",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bewear",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ceruledge",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "komala",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "krookodile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rapidash",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "rapidash-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion-b1f",
+      "name": "MANSION B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arcanine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "garbodor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magmar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "raticate-alola",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "power-plant",
+      "name": "POWER PLANT",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "ampharos",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dedenne",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "eelektross",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "electabuzz",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "electrode",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magneton",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "manectric",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "togedemaru",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "vikavolt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zebstrika",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerulean-cave-1f",
+      "name": "CERULEAN CAVE 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "carvanha",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "conkeldurr",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "machamp",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magneton",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "parasect",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seismitoad",
+          "methods": [
+            "fish",
+            "grass"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "type-null",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerulean-cave-2f",
+      "name": "CERULEAN CAVE 2F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alakazam",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "brute-bonnet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "duraludon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "great-tusk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-treads",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pangoro",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "reuniclus",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "type-null",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerulean-cave-b1f",
+      "name": "CERULEAN CAVE B1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "corphish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "excadrill",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "iron-treads",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lopunny",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "medicham",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "milotic",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "noivern",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "poliwrath",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "toxapex",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "toxicroak",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "type-null",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mansion-4f",
+      "name": "MANSION 4F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "empoleon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "froslass",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meganium",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meowscarada",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mismagius",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "quaquaval",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "unown",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gougings-room",
+      "name": "GOUGING'S ROOM",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "blaziken",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "cinderace",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "infernape",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "morpeko-full-belly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "typhlosion",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "unown",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "victory-road-1f",
+      "name": "VICTORY ROAD 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "aegislash-shield",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "audino",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "flutter-mane",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goodra",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goodra-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-valiant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "marowak",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "marowak-alola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "metagross",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "salamence",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "steelix",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "volcarona",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "victory-road-2f",
+      "name": "VICTORY ROAD 2F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "baxcalibur",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "garchomp",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kommo-o",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lucario",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "machamp",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "medicham",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tyranitar",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "victory-road-3f",
+      "name": "VICTORY ROAD 3F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "aerodactyl",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dragapult",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dragonite",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-bundle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "roaring-moon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "scizor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "toxtricity-amped",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kindle-road",
+      "name": "KINDLE ROAD",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "absol",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "alcremie",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "centiskorch",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "eelektross",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gardevoir",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gorebyss",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "grimmsnarl",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "huntail",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "smeargle",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mt-ember-exterior",
+      "name": "MT. EMBER EXTERIOR",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arcanine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "coalossal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "darmanitan-standard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dodrio",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pyroar-male",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "volcarona",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mt-ember-1f",
+      "name": "MT. EMBER 1F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "darmanitan-standard",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "magcargo",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ninetales",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pyroar-male",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "treasure-beach",
+      "name": "TREASURE BEACH",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "araquanid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "basculegion-male",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "flygon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golisopod",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "klefki",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lilligant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lilligant-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "meltan",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sandaconda",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sirfetchd",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rock-tunnel-secret",
+      "name": "ROCK TUNNEL (SECRET)",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "aggron",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "arcanine-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "copperajah",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "great-tusk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-treads",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "meltan",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "noibat",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunfisk",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "stunfisk-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ursaluna",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cape-brink",
+      "name": "CAPE BRINK",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "araquanid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "barbaracle",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "barraskewda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "blitzle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "electrode-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "grapploct",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lilligant-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "morpeko-full-belly",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "shiftry",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "fish",
+            "grass"
+          ]
+        },
+        {
+          "species": "slowbro-galar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bond-bridge",
+      "name": "BOND BRIDGE",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alomomola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "braviary-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "crustle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "decidueye-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dhelmise",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gliscor",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hatterene",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "hawlucha",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "milotic",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "palafin-zero",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowking",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sneasel-hisui",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "berry-forest",
+      "name": "BERRY FOREST",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "araquanid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "decidueye-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "durant",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "golisopod",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "indeedee-female",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "indeedee-male",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "masquerain",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "nymble",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "roserade",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tsareena",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-8f",
+      "name": "PKMN TOWER 8F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "flutter-mane",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "gengar",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "mimikyu-disguised",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "polteageist",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sinistcha",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "ursaluna-bloodmoon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zoroark-hisui",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pkmn-tower-9f",
+      "name": "PKMN TOWER 9F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "cursola",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dragapult",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "flutter-mane",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "spiritomb",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "typhlosion-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-island",
+      "name": "THREE ISLAND",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "clauncher",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corviknight",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dunsparce",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "goodra-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "samurott-hisui",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sandaconda",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "smeargle",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pallet-town",
+      "name": "PALLET TOWN",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "barboach",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "binacle",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cerulean-city",
+      "name": "CERULEAN CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "chewtle",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dondozo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tatsugiri-curly",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wishiwashi-solo",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "vermilion-city",
+      "name": "VERMILLION CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alomomola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ss-anne",
+      "name": "S.S. ANNE",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alomomola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "barraskewda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "finneon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "luvdisc",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "veluza",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "celadon-city",
+      "name": "CELADON CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "arrokuda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "muk",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "muk-alola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowpoke-galar",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fuchsia-city",
+      "name": "FUCHSIA CITY",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "goldeen",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-19",
+      "name": "ROUTE 19",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "basculin-blue-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gorebyss",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "huntail",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-20",
+      "name": "ROUTE 20",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "basculin-blue-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clauncher",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "clawitzer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corsola-galar",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "wailord",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route-21b",
+      "name": "ROUTE 21B",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "corsola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seafoam-b3f-b4f",
+      "name": "SEAFOAM B3F-B4F",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "carvanha",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "grapploct",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gyarados",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slowbro",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cinnabar-island",
+      "name": "CINNABAR ISLAND",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "corsola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "cramorant",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dhelmise",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantine",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safari-zone-center-zone-1",
+      "name": "Safari Zone (CENTER (ZONE 1))",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "alomomola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "chansey",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "feebas",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "frillish-male",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "heracross",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-hands",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-moth",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "jellicent-male",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "mareanie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "meltan",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "porygon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "sharpedo",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "spinda",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safari-zone-east-zone-2",
+      "name": "Safari Zone (EAST (ZONE 2))",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "araquanid",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "arrokuda",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "castform",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "corsola",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "dhelmise",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "gorebyss",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "hawlucha",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "huntail",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "kangaskhan",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "remoraid",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seismitoad",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "starmie",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tauros-paldea-aqua-breed",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tauros-paldea-blaze-breed",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "tauros-paldea-combat-breed",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wimpod",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zorua",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "zorua-hisui",
+          "methods": [
+            "grass"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safari-zone-north-zone-3",
+      "name": "Safari Zone (NORTH (ZONE 3))",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "axew",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bisharp",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "brute-bonnet",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "bruxish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "corviknight",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "dewpider",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "gimmighoul",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golisopod",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "kingler",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "klefki",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "pyukumuku",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sandy-shocks",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "scream-tail",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skarmory",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "skrelp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "tatsugiri-curly",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "toxapex",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safari-zone-west-zone-4",
+      "name": "Safari Zone (WEST (ZONE 4))",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "crabominable",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "druddigon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "hippowdon",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "iron-jugulis",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "iron-thorns",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lumineon",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "milotic",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "fish",
+            "surf"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "slither-wing",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "smeargle",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safari-zone-far-west-zone-5",
+      "name": "Safari Zone (FAR-WEST (ZONE 5))",
+      "unlockAfter": null,
+      "tags": [],
+      "encounters": [
+        {
+          "species": "basculin-red-striped",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "carnivine",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "chatot",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "eevee",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "eiscue-ice",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "floatzel",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "floette-eternal",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "golduck",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "hydrapple",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "lapras",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "magikarp",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "milotic",
+          "methods": [
+            "surf"
+          ]
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "relicanth",
+          "methods": [
+            "fish",
+            "surf"
+          ]
+        },
+        {
+          "species": "seadra",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "seaking",
+          "methods": [
+            "fish"
+          ]
+        },
+        {
+          "species": "sirfetchd",
+          "methods": [
+            "grass"
+          ]
+        },
+        {
+          "species": "wailmer",
+          "methods": [
+            "fish"
+          ]
+        }
+      ]
+    }
+  ],
+  "specials": [
+    {
+      "id": "gift-aerodactyl",
+      "type": "gift",
+      "species": "aerodactyl",
+      "area": "MT. EMBER TOP"
+    },
+    {
+      "id": "gift-clefable",
+      "type": "gift",
+      "species": "clefable",
+      "area": "TWO ISLAND"
+    },
+    {
+      "id": "gift-cosmog",
+      "type": "gift",
+      "species": "cosmog",
+      "area": "SAFFRON CITY"
+    },
+    {
+      "id": "gift-cosmog-2",
+      "type": "gift",
+      "species": "cosmog",
+      "area": "ONE ISLAND POKEMON CENTER"
+    },
+    {
+      "id": "gift-dragapult",
+      "type": "gift",
+      "species": "dragapult",
+      "area": "VIRIDIAN CITY'S GYM"
+    },
+    {
+      "id": "gift-drednaw",
+      "type": "gift",
+      "species": "drednaw",
+      "area": "CERULEAN CITY'S GYM"
+    },
+    {
+      "id": "gift-eevee",
+      "type": "gift",
+      "species": "eevee",
+      "area": "ROUTE 5'S POKEMON DAYCARE"
+    },
+    {
+      "id": "gift-eevee-2",
+      "type": "gift",
+      "species": "eevee",
+      "area": "CELADON CITY'S MANSION"
+    },
+    {
+      "id": "gift-finizen",
+      "type": "gift",
+      "species": "finizen",
+      "area": "CERULEAN CITY'S GYM"
+    },
+    {
+      "id": "gift-kubfu",
+      "type": "gift",
+      "species": "kubfu",
+      "area": "CERULEAN CAVE 2F"
+    },
+    {
+      "id": "gift-lapras",
+      "type": "gift",
+      "species": "lapras",
+      "area": "SILPH CO. 7F"
+    },
+    {
+      "id": "gift-magikarp",
+      "type": "gift",
+      "species": "magikarp",
+      "area": "ROUTE 4'S POKEMON CENTER"
+    },
+    {
+      "id": "gift-mew",
+      "type": "gift",
+      "species": "mew",
+      "area": "BERRY FOREST"
+    },
+    {
+      "id": "gift-ogerpon",
+      "type": "gift",
+      "species": "ogerpon",
+      "area": "CELADON CITY'S GYM"
+    },
+    {
+      "id": "gift-pikachu-libre",
+      "type": "gift",
+      "species": "pikachu-libre",
+      "area": "TREASURE BEACH"
+    },
+    {
+      "id": "gift-pinsir",
+      "type": "gift",
+      "species": "pinsir",
+      "area": "KINDLE ROAD"
+    },
+    {
+      "id": "gift-tauros-paldea-aqua-breed",
+      "type": "gift",
+      "species": "tauros-paldea-aqua-breed",
+      "area": "SAFFRON CITY'S DOJO"
+    },
+    {
+      "id": "gift-tauros-paldea-blaze-breed",
+      "type": "gift",
+      "species": "tauros-paldea-blaze-breed",
+      "area": "SAFFRON CITY'S DOJO"
+    },
+    {
+      "id": "static-arceus",
+      "type": "static",
+      "species": "arceus",
+      "area": "Unavailable"
+    },
+    {
+      "id": "static-articuno",
+      "type": "static",
+      "species": "articuno",
+      "area": "Seafoam Islands B4F"
+    },
+    {
+      "id": "static-articuno-galar",
+      "type": "static",
+      "species": "articuno-galar",
+      "area": "Seafoam Islands B4F"
+    },
+    {
+      "id": "static-azelf",
+      "type": "static",
+      "species": "azelf",
+      "area": "Route 10"
+    },
+    {
+      "id": "static-blacephalon",
+      "type": "static",
+      "species": "blacephalon",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-brute-bonnet",
+      "type": "static",
+      "species": "brute-bonnet",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-buzzwole",
+      "type": "static",
+      "species": "buzzwole",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-calyrex",
+      "type": "static",
+      "species": "calyrex",
+      "area": "Route 25"
+    },
+    {
+      "id": "static-calyrex-ice",
+      "type": "static",
+      "species": "calyrex-ice",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-calyrex-shadow",
+      "type": "static",
+      "species": "calyrex-shadow",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-celebi",
+      "type": "static",
+      "species": "celebi",
+      "area": "Route 25"
+    },
+    {
+      "id": "static-celesteela",
+      "type": "static",
+      "species": "celesteela",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-chi-yu",
+      "type": "static",
+      "species": "chi-yu",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-chien-pao",
+      "type": "static",
+      "species": "chien-pao",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-cobalion",
+      "type": "static",
+      "species": "cobalion",
+      "area": "Mt"
+    },
+    {
+      "id": "static-cosmoem",
+      "type": "static",
+      "species": "cosmoem",
+      "area": "Evolve Cosmog (Lv"
+    },
+    {
+      "id": "static-cosmog",
+      "type": "static",
+      "species": "cosmog",
+      "area": "One Island Pokémon Center"
+    },
+    {
+      "id": "static-cresselia",
+      "type": "static",
+      "species": "cresselia",
+      "area": "Route 13"
+    },
+    {
+      "id": "static-darkrai",
+      "type": "static",
+      "species": "darkrai",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-deoxys-attack",
+      "type": "static",
+      "species": "deoxys-attack",
+      "area": "With Deoxys in your team"
+    },
+    {
+      "id": "static-deoxys-defense",
+      "type": "static",
+      "species": "deoxys-defense",
+      "area": "Static"
+    },
+    {
+      "id": "static-deoxys-normal",
+      "type": "static",
+      "species": "deoxys-normal",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-deoxys-speed",
+      "type": "static",
+      "species": "deoxys-speed",
+      "area": "Static"
+    },
+    {
+      "id": "static-dialga",
+      "type": "static",
+      "species": "dialga",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-dialga-origin",
+      "type": "static",
+      "species": "dialga-origin",
+      "area": "Unavailable"
+    },
+    {
+      "id": "static-diancie",
+      "type": "static",
+      "species": "diancie",
+      "area": "Route 16"
+    },
+    {
+      "id": "static-enamorus-incarnate",
+      "type": "static",
+      "species": "enamorus-incarnate",
+      "area": "Roams in Kanto"
+    },
+    {
+      "id": "static-enamorus-therian",
+      "type": "static",
+      "species": "enamorus-therian",
+      "area": "I"
+    },
+    {
+      "id": "static-entei",
+      "type": "static",
+      "species": "entei",
+      "area": "Route 2"
+    },
+    {
+      "id": "static-eternatus",
+      "type": "static",
+      "species": "eternatus",
+      "area": "Unavailable"
+    },
+    {
+      "id": "static-fezandipiti",
+      "type": "static",
+      "species": "fezandipiti",
+      "area": "Safari Zone Far-Western Area"
+    },
+    {
+      "id": "static-flutter-mane",
+      "type": "static",
+      "species": "flutter-mane",
+      "area": "Viridian Forest Expansion"
+    },
+    {
+      "id": "static-genesect",
+      "type": "static",
+      "species": "genesect",
+      "area": "Victory Road"
+    },
+    {
+      "id": "static-giratina-altered",
+      "type": "static",
+      "species": "giratina-altered",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-giratina-origin",
+      "type": "static",
+      "species": "giratina-origin",
+      "area": "Make Giratina hold a Griseous Orb"
+    },
+    {
+      "id": "static-glastrier",
+      "type": "static",
+      "species": "glastrier",
+      "area": "Seafoam Islands 1F"
+    },
+    {
+      "id": "static-gouging-fire",
+      "type": "static",
+      "species": "gouging-fire",
+      "area": "Cinnabar Mansion Secret Area"
+    },
+    {
+      "id": "static-great-tusk",
+      "type": "static",
+      "species": "great-tusk",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-greninja-ash",
+      "type": "static",
+      "species": "greninja-ash",
+      "area": "Change Greninja's Ability to Battle Bond with an Ability Pill"
+    },
+    {
+      "id": "static-groudon",
+      "type": "static",
+      "species": "groudon",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-guzzlord",
+      "type": "static",
+      "species": "guzzlord",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-heatran",
+      "type": "static",
+      "species": "heatran",
+      "area": "One Island Mt"
+    },
+    {
+      "id": "static-ho-oh",
+      "type": "static",
+      "species": "ho-oh",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-hoopa",
+      "type": "static",
+      "species": "hoopa",
+      "area": "Pokémon Mansion 1F"
+    },
+    {
+      "id": "static-hoopa-unbound",
+      "type": "static",
+      "species": "hoopa-unbound",
+      "area": "Use Prison Bottle Key Item on Hoopa"
+    },
+    {
+      "id": "static-iron-boulder",
+      "type": "static",
+      "species": "iron-boulder",
+      "area": "Rock Tunnel"
+    },
+    {
+      "id": "static-iron-bundle",
+      "type": "static",
+      "species": "iron-bundle",
+      "area": "Victory Road 3F"
+    },
+    {
+      "id": "static-iron-crown",
+      "type": "static",
+      "species": "iron-crown",
+      "area": "Rock Tunnel"
+    },
+    {
+      "id": "static-iron-hands",
+      "type": "static",
+      "species": "iron-hands",
+      "area": "Safari Zone Center"
+    },
+    {
+      "id": "static-iron-jugulis",
+      "type": "static",
+      "species": "iron-jugulis",
+      "area": "Safari Zone West"
+    },
+    {
+      "id": "static-iron-leaves",
+      "type": "static",
+      "species": "iron-leaves",
+      "area": "Rock Tunnel"
+    },
+    {
+      "id": "static-iron-moth",
+      "type": "static",
+      "species": "iron-moth",
+      "area": "Safari Zone Center"
+    },
+    {
+      "id": "static-iron-thorns",
+      "type": "static",
+      "species": "iron-thorns",
+      "area": "Safari Zone West"
+    },
+    {
+      "id": "static-iron-treads",
+      "type": "static",
+      "species": "iron-treads",
+      "area": "Cerulean Cave 2F at night or B1F"
+    },
+    {
+      "id": "static-iron-valiant",
+      "type": "static",
+      "species": "iron-valiant",
+      "area": "Victory Road 1F"
+    },
+    {
+      "id": "static-jirachi",
+      "type": "static",
+      "species": "jirachi",
+      "area": "Victory Road"
+    },
+    {
+      "id": "static-kartana",
+      "type": "static",
+      "species": "kartana",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-keldeo-ordinary",
+      "type": "static",
+      "species": "keldeo-ordinary",
+      "area": "Seafoam Islands B1F"
+    },
+    {
+      "id": "static-koraidon",
+      "type": "static",
+      "species": "koraidon",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-kubfu",
+      "type": "static",
+      "species": "kubfu",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-kyogre",
+      "type": "static",
+      "species": "kyogre",
+      "area": "Seafoam Islands Secret Room"
+    },
+    {
+      "id": "static-kyurem",
+      "type": "static",
+      "species": "kyurem",
+      "area": "Seafoam Islands 1F"
+    },
+    {
+      "id": "static-kyurem-black",
+      "type": "static",
+      "species": "kyurem-black",
+      "area": "Black"
+    },
+    {
+      "id": "static-kyurem-white",
+      "type": "static",
+      "species": "kyurem-white",
+      "area": "Static"
+    },
+    {
+      "id": "static-landorus-incarnate",
+      "type": "static",
+      "species": "landorus-incarnate",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-landorus-therian",
+      "type": "static",
+      "species": "landorus-therian",
+      "area": "I"
+    },
+    {
+      "id": "static-latias",
+      "type": "static",
+      "species": "latias",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-latios",
+      "type": "static",
+      "species": "latios",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-lugia",
+      "type": "static",
+      "species": "lugia",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-lunala",
+      "type": "static",
+      "species": "lunala",
+      "area": "Evolve Cosmoem during the night (Lv"
+    },
+    {
+      "id": "static-magearna",
+      "type": "static",
+      "species": "magearna",
+      "area": "Rock Tunnel Secret Room"
+    },
+    {
+      "id": "static-magearna-original",
+      "type": "static",
+      "species": "magearna-original",
+      "area": "Unavailable"
+    },
+    {
+      "id": "static-manaphy",
+      "type": "static",
+      "species": "manaphy",
+      "area": "Seafoam Islands 1F"
+    },
+    {
+      "id": "static-marshadow",
+      "type": "static",
+      "species": "marshadow",
+      "area": "Pokémon Tower Top"
+    },
+    {
+      "id": "static-melmetal",
+      "type": "static",
+      "species": "melmetal",
+      "area": "Evolve Meltan (Use Metal Coat)"
+    },
+    {
+      "id": "static-meloetta-aria",
+      "type": "static",
+      "species": "meloetta-aria",
+      "area": "Victory Road"
+    },
+    {
+      "id": "static-meltan",
+      "type": "static",
+      "species": "meltan",
+      "area": "Safari Zone Center"
+    },
+    {
+      "id": "static-mesprit",
+      "type": "static",
+      "species": "mesprit",
+      "area": "Route 10"
+    },
+    {
+      "id": "static-mew",
+      "type": "static",
+      "species": "mew",
+      "area": "Three Island Berry Forest"
+    },
+    {
+      "id": "static-mewtwo",
+      "type": "static",
+      "species": "mewtwo",
+      "area": "Cerulean Cave B1F"
+    },
+    {
+      "id": "static-miraidon",
+      "type": "static",
+      "species": "miraidon",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-moltres",
+      "type": "static",
+      "species": "moltres",
+      "area": "Safari Zone Far-Western Area"
+    },
+    {
+      "id": "static-moltres-galar",
+      "type": "static",
+      "species": "moltres-galar",
+      "area": "Safari Zone Far-Western Area"
+    },
+    {
+      "id": "static-munkidori",
+      "type": "static",
+      "species": "munkidori",
+      "area": "Safari Zone Far-Western Area"
+    },
+    {
+      "id": "static-naganadel",
+      "type": "static",
+      "species": "naganadel",
+      "area": "Up while knowing Dragon Pulse)"
+    },
+    {
+      "id": "static-necrozma",
+      "type": "static",
+      "species": "necrozma",
+      "area": "Route 25"
+    },
+    {
+      "id": "static-necrozma-dawn",
+      "type": "static",
+      "species": "necrozma-dawn",
+      "area": "Static"
+    },
+    {
+      "id": "static-necrozma-dusk",
+      "type": "static",
+      "species": "necrozma-dusk",
+      "area": "Use Necrozmizer Key Item on Necrozma and Solgaleo for Dusk Mane form"
+    },
+    {
+      "id": "static-nihilego",
+      "type": "static",
+      "species": "nihilego",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-ogerpon",
+      "type": "static",
+      "species": "ogerpon",
+      "area": "Gift by Erika after defeating her in a rematch battle"
+    },
+    {
+      "id": "static-ogerpon-cornerstone-mask",
+      "type": "static",
+      "species": "ogerpon-cornerstone-mask",
+      "area": "Make Ogerpon hold a Cornerstone Mask in battle"
+    },
+    {
+      "id": "static-ogerpon-hearthflame-mask",
+      "type": "static",
+      "species": "ogerpon-hearthflame-mask",
+      "area": "Make Ogerpon hold a Hearthflame Mask in battle"
+    },
+    {
+      "id": "static-ogerpon-wellspring-mask",
+      "type": "static",
+      "species": "ogerpon-wellspring-mask",
+      "area": "Make Ogerpon hold a Wellspring Mask in battle"
+    },
+    {
+      "id": "static-okidogi",
+      "type": "static",
+      "species": "okidogi",
+      "area": "Safari Zone Far-Western Area"
+    },
+    {
+      "id": "static-palkia",
+      "type": "static",
+      "species": "palkia",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-palkia-origin",
+      "type": "static",
+      "species": "palkia-origin",
+      "area": "Unavailable"
+    },
+    {
+      "id": "static-pecharunt",
+      "type": "static",
+      "species": "pecharunt",
+      "area": "Route 16"
+    },
+    {
+      "id": "static-pheromosa",
+      "type": "static",
+      "species": "pheromosa",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-phione",
+      "type": "static",
+      "species": "phione",
+      "area": "Hatch an Egg obtained from a Manaphy parent and a Ditto"
+    },
+    {
+      "id": "static-poipole",
+      "type": "static",
+      "species": "poipole",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-raging-bolt",
+      "type": "static",
+      "species": "raging-bolt",
+      "area": "Silph Co"
+    },
+    {
+      "id": "static-raikou",
+      "type": "static",
+      "species": "raikou",
+      "area": "Route 2"
+    },
+    {
+      "id": "static-rayquaza",
+      "type": "static",
+      "species": "rayquaza",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-regice",
+      "type": "static",
+      "species": "regice",
+      "area": "Mt"
+    },
+    {
+      "id": "static-regidrago",
+      "type": "static",
+      "species": "regidrago",
+      "area": "Pokémon Mansion 1F"
+    },
+    {
+      "id": "static-regieleki",
+      "type": "static",
+      "species": "regieleki",
+      "area": "Power Plant"
+    },
+    {
+      "id": "static-regigigas",
+      "type": "static",
+      "species": "regigigas",
+      "area": "Mt"
+    },
+    {
+      "id": "static-regirock",
+      "type": "static",
+      "species": "regirock",
+      "area": "Mt"
+    },
+    {
+      "id": "static-registeel",
+      "type": "static",
+      "species": "registeel",
+      "area": "Mt"
+    },
+    {
+      "id": "static-reshiram",
+      "type": "static",
+      "species": "reshiram",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-roaring-moon",
+      "type": "static",
+      "species": "roaring-moon",
+      "area": "Victory Road 3F"
+    },
+    {
+      "id": "static-rotom-fan",
+      "type": "static",
+      "species": "rotom-fan",
+      "area": "Static"
+    },
+    {
+      "id": "static-rotom-frost",
+      "type": "static",
+      "species": "rotom-frost",
+      "area": "Static"
+    },
+    {
+      "id": "static-rotom-heat",
+      "type": "static",
+      "species": "rotom-heat",
+      "area": "Static"
+    },
+    {
+      "id": "static-rotom-mow",
+      "type": "static",
+      "species": "rotom-mow",
+      "area": "Static"
+    },
+    {
+      "id": "static-rotom-wash",
+      "type": "static",
+      "species": "rotom-wash",
+      "area": "With Rotom as your Follower Pokémon"
+    },
+    {
+      "id": "static-sandy-shocks",
+      "type": "static",
+      "species": "sandy-shocks",
+      "area": "Safari Zone North"
+    },
+    {
+      "id": "static-scream-tail",
+      "type": "static",
+      "species": "scream-tail",
+      "area": "Safari Zone North"
+    },
+    {
+      "id": "static-shaymin-land",
+      "type": "static",
+      "species": "shaymin-land",
+      "area": "Viridian Forest Expansion"
+    },
+    {
+      "id": "static-shaymin-sky",
+      "type": "static",
+      "species": "shaymin-sky",
+      "area": "Ring Key Item"
+    },
+    {
+      "id": "static-silvally",
+      "type": "static",
+      "species": "silvally",
+      "area": "Up with 220+ Happiness)"
+    },
+    {
+      "id": "static-slither-wing",
+      "type": "static",
+      "species": "slither-wing",
+      "area": "Safari Zone West"
+    },
+    {
+      "id": "static-snorlax",
+      "type": "static",
+      "species": "snorlax",
+      "area": "Route 12 and Route 16"
+    },
+    {
+      "id": "static-solgaleo",
+      "type": "static",
+      "species": "solgaleo",
+      "area": "Evolve Cosmoem during the day (Lv"
+    },
+    {
+      "id": "static-spectrier",
+      "type": "static",
+      "species": "spectrier",
+      "area": "Pokémon Mansion 1F"
+    },
+    {
+      "id": "static-stakataka",
+      "type": "static",
+      "species": "stakataka",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-suicune",
+      "type": "static",
+      "species": "suicune",
+      "area": "Route 2"
+    },
+    {
+      "id": "static-tapu-bulu",
+      "type": "static",
+      "species": "tapu-bulu",
+      "area": "Viridian Forest Expansion"
+    },
+    {
+      "id": "static-tapu-fini",
+      "type": "static",
+      "species": "tapu-fini",
+      "area": "Seafoam Islands 1F"
+    },
+    {
+      "id": "static-tapu-koko",
+      "type": "static",
+      "species": "tapu-koko",
+      "area": "Power Plant"
+    },
+    {
+      "id": "static-tapu-lele",
+      "type": "static",
+      "species": "tapu-lele",
+      "area": "Pokémon Mansion 1F"
+    },
+    {
+      "id": "static-terapagos",
+      "type": "static",
+      "species": "terapagos",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-terrakion",
+      "type": "static",
+      "species": "terrakion",
+      "area": "Rock Tunnel B1F"
+    },
+    {
+      "id": "static-thundurus-incarnate",
+      "type": "static",
+      "species": "thundurus-incarnate",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-thundurus-therian",
+      "type": "static",
+      "species": "thundurus-therian",
+      "area": "I"
+    },
+    {
+      "id": "static-ting-lu",
+      "type": "static",
+      "species": "ting-lu",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-tornadus-incarnate",
+      "type": "static",
+      "species": "tornadus-incarnate",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-tornadus-therian",
+      "type": "static",
+      "species": "tornadus-therian",
+      "area": "I"
+    },
+    {
+      "id": "static-type-null",
+      "type": "static",
+      "species": "type-null",
+      "area": "Cerulean Cave all floors"
+    },
+    {
+      "id": "static-urshifu-rapid-strike",
+      "type": "static",
+      "species": "urshifu-rapid-strike",
+      "area": "Evolve Kubfu (Use Water Stone)"
+    },
+    {
+      "id": "static-urshifu-single-strike",
+      "type": "static",
+      "species": "urshifu-single-strike",
+      "area": "Evolve Kubfu (Use Dusk Stone)"
+    },
+    {
+      "id": "static-uxie",
+      "type": "static",
+      "species": "uxie",
+      "area": "Route 10"
+    },
+    {
+      "id": "static-victini",
+      "type": "static",
+      "species": "victini",
+      "area": "Route 13"
+    },
+    {
+      "id": "static-virizion",
+      "type": "static",
+      "species": "virizion",
+      "area": "Viridian Forest Expansion"
+    },
+    {
+      "id": "static-volcanion",
+      "type": "static",
+      "species": "volcanion",
+      "area": "Route 13"
+    },
+    {
+      "id": "static-walking-wake",
+      "type": "static",
+      "species": "walking-wake",
+      "area": "Victory Road 2F"
+    },
+    {
+      "id": "static-wo-chien",
+      "type": "static",
+      "species": "wo-chien",
+      "area": "Roams in Kanto (Roamers are unlocked after getting the 8th badge and heading over to Route 22)"
+    },
+    {
+      "id": "static-xerneas",
+      "type": "static",
+      "species": "xerneas",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-xurkitree",
+      "type": "static",
+      "species": "xurkitree",
+      "area": "Cerulean Cave 2F"
+    },
+    {
+      "id": "static-yveltal",
+      "type": "static",
+      "species": "yveltal",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-zacian",
+      "type": "static",
+      "species": "zacian",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-zamazenta",
+      "type": "static",
+      "species": "zamazenta",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-zapdos",
+      "type": "static",
+      "species": "zapdos",
+      "area": "Power Plant"
+    },
+    {
+      "id": "static-zapdos-galar",
+      "type": "static",
+      "species": "zapdos-galar",
+      "area": "Power Plant"
+    },
+    {
+      "id": "static-zarude",
+      "type": "static",
+      "species": "zarude",
+      "area": "Viridian Forest Expansion"
+    },
+    {
+      "id": "static-zekrom",
+      "type": "static",
+      "species": "zekrom",
+      "area": "See Mystery Gifts tab"
+    },
+    {
+      "id": "static-zeraora",
+      "type": "static",
+      "species": "zeraora",
+      "area": "Power Plant"
+    },
+    {
+      "id": "static-zygarde-10",
+      "type": "static",
+      "species": "zygarde-10",
+      "area": "Route 16"
+    },
+    {
+      "id": "static-zygarde-50",
+      "type": "static",
+      "species": "zygarde-50",
+      "area": "Victory Road"
+    },
+    {
+      "id": "trade-carnivine",
+      "type": "trade",
+      "species": "carnivine",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-chatot",
+      "type": "trade",
+      "species": "chatot",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-eiscue-ice",
+      "type": "trade",
+      "species": "eiscue-ice",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-farfetchd-galar",
+      "type": "trade",
+      "species": "farfetchd-galar",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-floette-eternal",
+      "type": "trade",
+      "species": "floette-eternal",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-mimikyu-disguised",
+      "type": "trade",
+      "species": "mimikyu-disguised",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-morpeko-full-belly",
+      "type": "trade",
+      "species": "morpeko-full-belly",
+      "area": "In-game Trade"
+    },
+    {
+      "id": "trade-ursaluna-bloodmoon",
+      "type": "trade",
+      "species": "ursaluna-bloodmoon",
+      "area": "In-game Trade"
+    }
+  ],
+  "milestones": [
+    {
+      "id": "gym-1-brock",
+      "name": "Brock (Pewter Gym, Rock)",
+      "type": "gym",
+      "order": 1,
+      "aceLevel": 14
+    },
+    {
+      "id": "gym-2-misty",
+      "name": "Misty (Cerulean Gym, Water)",
+      "type": "gym",
+      "order": 2,
+      "aceLevel": 27
+    },
+    {
+      "id": "gym-3-surge",
+      "name": "Lt. Surge (Vermilion Gym, Electric)",
+      "type": "gym",
+      "order": 3,
+      "aceLevel": 34
+    },
+    {
+      "id": "gym-4-erika",
+      "name": "Erika (Celadon Gym, Grass)",
+      "type": "gym",
+      "order": 4,
+      "aceLevel": 44
+    },
+    {
+      "id": "gym-5-sabrina",
+      "name": "Sabrina (Saffron Gym, Psychic)",
+      "type": "gym",
+      "order": 5,
+      "aceLevel": 59
+    },
+    {
+      "id": "gym-6-koga",
+      "name": "Koga (Fuchsia Gym, Poison)",
+      "type": "gym",
+      "order": 6,
+      "aceLevel": 68
+    },
+    {
+      "id": "gym-7-blaine",
+      "name": "Blaine (Cinnabar Gym, Fire)",
+      "type": "gym",
+      "order": 7,
+      "aceLevel": 76
+    },
+    {
+      "id": "gym-8-clair",
+      "name": "Clair (Viridian Gym, Dragon)",
+      "type": "gym",
+      "order": 8,
+      "aceLevel": 81
+    }
+  ],
+  "mechanics": {
+    "heldItems": true,
+    "wildBattles": true,
+    "setModeOption": true,
+    "raids": true,
+    "overworldAggro": false
+  }
+}

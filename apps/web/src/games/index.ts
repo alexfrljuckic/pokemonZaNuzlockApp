@@ -8,12 +8,13 @@ import { lgpeConfig } from './lgpe';
 import { swshConfig } from './swsh';
 import { plaConfig } from './pla';
 import { svConfig } from './sv';
+import { radicalRedConfig } from './radical-red';
 
 export type { GameAppConfig, VersionAppConfig } from './types';
 
 // The single game registry. Adding a game = one games/<id>.ts + one line here
 // (+ a CSS palette block for its theme). Order drives the game-picker cards.
-export const GAMES: GameAppConfig[] = [bdspConfig, plzaConfig, lgpeConfig, swshConfig, plaConfig, svConfig];
+export const GAMES: GameAppConfig[] = [bdspConfig, plzaConfig, lgpeConfig, swshConfig, plaConfig, svConfig, radicalRedConfig];
 
 export const DATASETS: Record<string, GameDataset> = Object.fromEntries(
   GAMES.map((g) => [g.dataset.gameId, g.dataset]),

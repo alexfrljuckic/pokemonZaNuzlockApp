@@ -10,12 +10,23 @@ import { ConfirmAction } from '../components/ConfirmAction';
 import { SpriteImg } from '../components/SpriteImg';
 import { StarterPicker, starterHeading } from '../components/SpecialsSection';
 
-const PRESETS = ['standard', 'hardcore', 'casual'] as const;
+// Radical Red replaces the generic presets with its own in-game difficulty
+// tiers (docs/RADICAL-RED-RESEARCH.md). Other games keep standard/hardcore/casual.
+const GENERIC_PRESETS = ['standard', 'hardcore', 'casual'] as const;
+const RR_PRESETS = ['rr-normal', 'rr-hardcore'] as const;
+const presetsForGame = (gameId: string): readonly string[] =>
+  gameId === 'radical-red' ? RR_PRESETS : GENERIC_PRESETS;
 
-const PRESET_DESC: Record<(typeof PRESETS)[number], string> = {
+const PRESET_LABEL: Record<string, string> = {
+  'rr-normal': 'Normal',
+  'rr-hardcore': 'Hardcore',
+};
+const PRESET_DESC: Record<string, string> = {
   standard: 'First encounter per route · no duplicate species',
   hardcore: 'Adds level caps + set mode (no free switch after a KO)',
   casual: 'Relaxed — nothing enforced',
+  'rr-normal': "Radical Red's Normal mode · soft level cap at the next boss's ace",
+  'rr-hardcore': "Hardcore mode · level caps + forced Set + no bag vs bosses + minimal grinding",
 };
 
 const prettyVersion = (v: string) => v.replace(/-/g, ' ');
@@ -130,7 +141,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
   const [gameId, setGameId] = useState<string | null>(null);
   const game = games.find((g) => g.gameId === gameId) ?? null;
   const [version, setVersion] = useState('');
-  const [preset, setPreset] = useState<(typeof PRESETS)[number]>('standard');
+  const [preset, setPreset] = useState<string>('standard');
   const [dlcOn, setDlcOn] = useState(false);
   const [houseRulesText, setHouseRulesText] = useState('');
   const [creating, setCreating] = useState(false);
@@ -144,6 +155,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
     }
     setGameId(id);
     setVersion(games.find((g) => g.gameId === id)?.versions[0] ?? '');
+    setPreset(presetsForGame(id)[0]); // RR defaults to Normal, others to standard
   }
 
   async function handleCreate() {
@@ -234,9 +246,11 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
                   ))}
                 </div>
 
-                <span className="picker-label">Ruleset preset</span>
+                <span className="picker-label">
+                  {game.gameId === 'radical-red' ? 'Difficulty mode' : 'Ruleset preset'}
+                </span>
                 <div className="picker-tiles">
-                  {PRESETS.map((pr) => (
+                  {presetsForGame(game.gameId).map((pr) => (
                     <button
                       key={pr}
                       type="button"
@@ -244,7 +258,7 @@ export function NewGameScreen({ onCreated }: { onCreated: (runId: string) => voi
                       onClick={() => setPreset(pr)}
                       aria-pressed={preset === pr}
                     >
-                      <span className="picker-tile-label">{pr}</span>
+                      <span className="picker-tile-label">{PRESET_LABEL[pr] ?? pr}</span>
                       <span className="picker-tile-desc muted">{PRESET_DESC[pr]}</span>
                     </button>
                   ))}

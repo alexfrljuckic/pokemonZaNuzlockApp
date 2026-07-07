@@ -20,6 +20,10 @@ export interface GameMap {
   ariaLabel: string;
   nodes: MapNode[];
   edges: Array<[string, string]>; // decorative wayfinding lines only, not gameplay adjacency
+  /** Land the initial view zoomed in on the "up next" frontier instead of the
+   * whole map. Only worth it for maps whose shape makes the full view unhelpful
+   * (Galar's landscape triptych). Other maps open fully zoomed-out. */
+  autoZoomToFrontier?: boolean;
 }
 
 export function mapHelpers(map: GameMap) {

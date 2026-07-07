@@ -134,6 +134,16 @@
   --highlight: #c79bff;
 }
 
+[data-theme='radical-red'] {
+  --bg: #1c0d0d;
+  --bg-panel: #2a1414;
+  --bg-inset: #150a0a;
+  --bg-chip: #3a1a1a;
+  --border: #6b2b2b;
+  --accent: #e03131;
+  --highlight: #ff9a6b;
+}
+
 /* ---------- Base + backdrop ---------- */
 
 * {

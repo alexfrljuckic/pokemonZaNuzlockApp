@@ -16,7 +16,8 @@ export type ThemeId =
   | 'swsh-shield'
   | 'pla'
   | 'sv-scarlet'
-  | 'sv-violet';
+  | 'sv-violet'
+  | 'radical-red';
 
 const KEY = 'nuzlocke-theme';
 // Set only when the user picks a theme from the header dropdown. Once set, the
