@@ -4,6 +4,7 @@ import { appendEvent } from '../lib/db';
 import { NATURES, itemSpriteUrl } from '../lib/sprites';
 import {
   HELD_ITEMS,
+  abilitiesFor,
   evolutionOptionsFor,
   evolutionSummary,
   learnLevel,
@@ -12,6 +13,7 @@ import {
   orderedMovesFor,
   typesFor,
 } from '../lib/speciesData';
+import { hasAbilitiesFor } from '../games';
 import { evoItemHint, tradeHint } from '../lib/evolutionHints';
 import { clampLevel } from './CatchFields';
 import { SpriteImg } from './SpriteImg';
@@ -56,6 +58,7 @@ function EditForm({
   const [level, setLevel] = useState(String(p.level));
   const [heldItem, setHeldItem] = useState(p.heldItem ?? '');
   const [nature, setNature] = useState(p.nature ?? '');
+  const [ability, setAbility] = useState(p.ability ?? '');
   const [moves, setMoves] = useState<string[]>([0, 1, 2, 3].map((i) => p.moves?.[i] ?? ''));
   const [saving, setSaving] = useState(false);
   const levelInvalid =
@@ -78,6 +81,7 @@ function EditForm({
       }
       if (heldItem.trim() !== (p.heldItem ?? '')) payload.heldItem = heldItem.trim() || null;
       if (nature !== (p.nature ?? '')) payload.nature = nature || null;
+      if (ability.trim() !== (p.ability ?? '')) payload.ability = ability.trim() || null;
       const cleanMoves = moves.map((m) => m.trim()).filter(Boolean);
       if (JSON.stringify(cleanMoves) !== JSON.stringify(p.moves ?? [])) payload.moves = cleanMoves;
       if (Object.keys(payload).length > 1) {
@@ -137,6 +141,17 @@ function EditForm({
             ))}
           </select>
         </label>
+        {hasAbilitiesFor(gameId) && (
+          <label>
+            Ability
+            <Combobox
+              value={ability}
+              onChange={setAbility}
+              options={abilitiesFor(p.species, gameId)}
+              placeholder="none"
+            />
+          </label>
+        )}
       </div>
       <label>Moves</label>
       <div className="poke-edit-moves">
@@ -365,6 +380,7 @@ export function MonCard({
           <span className="mon-card-meta muted">
             {p.heldItem ? <ItemSprite item={p.heldItem} /> : 'No item'}
             {p.nature ? ` · ${p.nature}` : ''}
+            {p.ability ? ` · ${p.ability.replace(/-/g, ' ')}` : ''}
           </span>
           <MonMoves moves={p.moves} />
           {nextEvo && (

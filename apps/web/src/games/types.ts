@@ -28,6 +28,9 @@ export interface GameAppConfig {
    * cap. Absent/false for linear games (BDSP, LGPE, SwSh, …) where the dataset
    * order IS the boss order, so the picker is just noise. */
   openBossOrder?: boolean;
+  /** Whether this game has Pokémon Abilities. Absent = true; set false for
+   * games without them (Let's Go Pikachu/Eevee) so the ability editor hides. */
+  hasAbilities?: boolean;
   /** One entry per slug in dataset.versions. */
   versions: Record<string, VersionAppConfig>;
 }

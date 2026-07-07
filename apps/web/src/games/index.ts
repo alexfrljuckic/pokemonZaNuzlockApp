@@ -63,6 +63,11 @@ export const cardColorFor = (gameId: string): string =>
 export const openBossOrderFor = (gameId: string): boolean =>
   GAMES.find((g) => g.dataset.gameId === gameId)?.openBossOrder ?? false;
 
+/** Whether the game has Abilities (default true; false for Let's Go). Gates the
+ * MonCard ability editor. */
+export const hasAbilitiesFor = (gameId: string): boolean =>
+  GAMES.find((g) => g.dataset.gameId === gameId)?.hasAbilities ?? true;
+
 /** Friendly game name for run lists ("Legends: Arceus", not "pla"). Falls
  * back to the raw id for runs from unknown/removed games — those rows still
  * need to render (for export/delete) even though they can't be opened. */

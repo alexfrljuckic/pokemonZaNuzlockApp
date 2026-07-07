@@ -98,6 +98,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
           if (ev.payload.heldItem !== undefined) p.heldItem = ev.payload.heldItem ?? undefined;
           if (ev.payload.moves !== undefined) p.moves = ev.payload.moves;
           if (ev.payload.nature !== undefined) p.nature = ev.payload.nature ?? undefined;
+          if (ev.payload.ability !== undefined) p.ability = ev.payload.ability ?? undefined;
         }
         break;
       }

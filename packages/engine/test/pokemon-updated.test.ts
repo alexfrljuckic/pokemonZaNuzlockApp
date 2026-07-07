@@ -35,7 +35,7 @@ describe('pokemon_updated event', () => {
   it('applies partial edits: only provided fields change', () => {
     const events = [
       ...base,
-      ev('pokemon_updated', { pokemonId: 'p1', heldItem: 'oran-berry', nature: 'jolly', moves: ['tackle', 'growl'] }),
+      ev('pokemon_updated', { pokemonId: 'p1', heldItem: 'oran-berry', nature: 'jolly', ability: 'intimidate', moves: ['tackle', 'growl'] }),
       ev('pokemon_updated', { pokemonId: 'p1', nickname: 'Ace', level: 10 }),
     ];
     const p = deriveState(events, ctx).pokemon['p1'];
@@ -43,18 +43,20 @@ describe('pokemon_updated event', () => {
     expect(p.level).toBe(10);
     expect(p.heldItem).toBe('oran-berry'); // untouched by the second edit
     expect(p.nature).toBe('jolly');
+    expect(p.ability).toBe('intimidate'); // untouched by the second edit
     expect(p.moves).toEqual(['tackle', 'growl']);
   });
 
   it('null clears an optional field; unknown pokemonId is a no-op', () => {
     const events = [
       ...base,
-      ev('pokemon_updated', { pokemonId: 'p1', heldItem: 'oran-berry' }),
-      ev('pokemon_updated', { pokemonId: 'p1', heldItem: null }),
+      ev('pokemon_updated', { pokemonId: 'p1', heldItem: 'oran-berry', ability: 'torrent' }),
+      ev('pokemon_updated', { pokemonId: 'p1', heldItem: null, ability: null }),
       ev('pokemon_updated', { pokemonId: 'ghost', nickname: 'nope' }),
     ];
     const state = deriveState(events, ctx);
     expect(state.pokemon['p1'].heldItem).toBeUndefined();
+    expect(state.pokemon['p1'].ability).toBeUndefined();
     expect(state.pokemon['ghost']).toBeUndefined();
   });
 

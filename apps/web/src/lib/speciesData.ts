@@ -35,6 +35,11 @@ interface SpeciesData {
   moveTypes: Record<string, string>;
   evolutions: Record<string, Evolution[]>;
   heldItems: string[];
+  /** Each species' possible abilities (PokeAPI slugs, slot order incl. hidden). */
+  abilities: Record<string, string[]>;
+  /** Per-game ability overrides (Radical Red retweaks some) — reserved; falls
+   * back to the global `abilities` dex when a game/species has no entry. */
+  abilitiesByGame?: Record<string, Record<string, string[]>>;
 }
 
 // generated JSON widens tuple/record types (e.g. levelUpMovesByGame entries
@@ -50,6 +55,10 @@ export const HELD_ITEMS: string[] = data.heldItems;
  * the PokeAPI-derived global `types` — exactly like `movesFor`. */
 export const typesFor = (species: string, gameId?: string): string[] =>
   (gameId ? data.typesByGame[gameId]?.[species] : undefined) ?? data.types[species] ?? [];
+/** A species' possible abilities (slot order incl. hidden), for the ability
+ * picker. Game-aware for a future RR override; falls back to the global dex. */
+export const abilitiesFor = (species: string, gameId?: string): string[] =>
+  (gameId ? data.abilitiesByGame?.[gameId]?.[species] : undefined) ?? data.abilities[species] ?? [];
 export const moveType = (move: string): string | null => data.moveTypes[move] ?? null;
 
 // Per-game machine tags: move slug -> "TM" | "HM" | "TR" for each game that has

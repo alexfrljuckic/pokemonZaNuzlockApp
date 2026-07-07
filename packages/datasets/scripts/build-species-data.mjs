@@ -268,6 +268,11 @@ if (existsSync(rrFile)) {
   );
 }
 
+// Per-species abilities (see build-species-abilities.mjs) — folded in so a full
+// regen keeps the `abilities` map that the ability picker reads.
+const abilitiesFile = join(outDir, 'species-abilities.json');
+const abilities = existsSync(abilitiesFile) ? JSON.parse(readFileSync(abilitiesFile, 'utf8')) : {};
+
 const sortObj = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
 const sortNested = (o) => sortObj(Object.fromEntries(Object.entries(o).map(([g, m]) => [g, sortObj(m)])));
 const out = {
@@ -281,6 +286,7 @@ const out = {
   moveTypes: sortObj(moveTypes),
   evolutions: sortObj(evolutions),
   heldItems,
+  abilities: sortObj(abilities),
 };
 const outFile = join(outDir, 'species-data.json');
 writeFileSync(outFile, JSON.stringify(out) + '\n');
