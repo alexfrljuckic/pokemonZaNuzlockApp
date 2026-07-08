@@ -85,7 +85,14 @@ export function RouteMap({
   const { mapNode } = useMemo(() => mapHelpers(map), [map]);
   const areaById = useMemo(() => new Map(areas.map((a) => [a.id, a])), [areas]);
   // "up next" window: progresses as areas resolve, not just on milestones
-  const frontier = useMemo(() => frontierAreas(areas, state, milestones), [areas, state, milestones]);
+  // Scope the "up next" window to areas that are ON THIS MAP — otherwise off-map
+  // areas (BDSP's Grand Underground, on a separate toggled map) flood the window
+  // and the overworld highlight goes dark even though routes are still available.
+  const nodeIds = useMemo(() => new Set(map.nodes.map((n) => n.id)), [map]);
+  const frontier = useMemo(
+    () => frontierAreas(areas.filter((a) => nodeIds.has(a.id)), state, milestones),
+    [areas, state, milestones, nodeIds],
+  );
   const { w, h } = map.viewBox;
 
   // Zoom + pan via the SVG viewBox, so the whole map always fits the screen
@@ -383,10 +390,14 @@ export function RouteMap({
           // picker, a resolved one opens its outcome + reset.
           const interactive = st !== 'locked';
           const badge = BADGE_GLYPH[st];
+          // "up next" glow: the sliding frontier window on normal maps, or every
+          // unresolved node on busy-backdrop maps (Grand Underground) so they're
+          // findable.
+          const upNext = map.highlightAllNodes ? st === 'available' : frontier.has(area.id);
           return (
             <g
               key={node.id}
-              className={`route-region-g route-region-${st}${frontier.has(area.id) ? ' route-region-frontier' : ''}`}
+              className={`route-region-g route-region-${st}${upNext ? ' route-region-frontier' : ''}`}
               tabIndex={interactive ? 0 : -1}
               role={interactive ? 'button' : undefined}
               aria-label={`${area.name}${interactive ? ' — resolve encounter' : ` (${st})`}`}

@@ -30,9 +30,10 @@ export function AreaList({
   onReset: (area: Area) => void;
   onChange: () => Promise<void>;
 }) {
-  // Window computed over the FULL dataset order (this list may render only
-  // the off-map subset), so map and list agree on what's "up next".
-  const frontier = frontierAreas(ctx.dataset.areas, state, ctx.dataset.milestones);
+  // "Up next" window scoped to the areas THIS list renders (the off-map subset),
+  // matching how the map scopes its frontier to its own nodes — so a big block
+  // of off-map areas (Grand Underground) can't steal the highlight from either.
+  const frontier = frontierAreas(areas, state, ctx.dataset.milestones);
   return (
     <>
       {areas.map((area) => {
