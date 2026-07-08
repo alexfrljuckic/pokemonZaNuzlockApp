@@ -13,6 +13,11 @@ REMOVED — rate limit). All Supabase migrations through
 **20260706000000** are APPLIED (verified live: profile-not-found fixed,
 search scrape blocked). Security headers verified live. No open PRs.
 
+**Queued for next session: GU1–GU3 (BDSP Grand Underground)** — scoped
+below, research already done (`docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md`).
+Start with GU1 (fossil fix, small + independent), then confirm the GU3
+progression-tier scope with Alex before building GU2.
+
 ## Shipped 2026-07-07 session (#207–#219, all merged to main on green CI)
 
 A parallel-agent batch (worktrees, merged only on green CI). Owner-reported
@@ -120,6 +125,74 @@ mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
   zone map doesn't label those caves — not a gap).
 - Standalone `tsc -p apps/web/tsconfig.json` lacks engine `paths` (CI/vite/
   vitest green — cosmetic).
+
+## GU1–GU3: BDSP Grand Underground — hideaways + fossil fix
+
+Full research: `docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md` (moved from scratchpad
+after a 2026-07-07 multi-agent research pass — cite it, don't re-derive).
+**The gap is real and bigger than the 4 hideaways we model.** BDSP's Grand
+Underground has **18 hideaways** (7 "Caverns" + 11 "Caves"), not ~16 as
+guessed going in — full names, unlock progression, and per-hideaway
+encounter tables are all in the research doc, HIGH confidence on the count
+and name list, medium-high on 13/18 tables (5 need direct sourcing: Fountainspring,
+Riverbank, Sandsear, Spacious, Whiteout Cave — NOT fetched yet, don't guess
+their tables). Good news: the 18 aren't 18 independent tables — they collapse
+into ~12 shared encounter-list families (e.g. Rocky Cave / Big Bluff Cavern /
+Typhlo Cavern all share one base table), so it's less new data than the
+headline count implies.
+
+**GU1 — fossil fix (small, independent, do this first).** `bdsp.json`'s
+top-level `specials` has only 2 of the real 7 fossils (`fossil-cranidos`,
+`fossil-shieldon`) and both are **mis-located** at `area: "oreburgh-mine"` —
+that's where fossils are *revived* (Oreburgh Mining Museum), not where
+they're found. All 7 are dug up in the **Grand Underground** itself. Fix:
+relocate the 2 existing entries + add the missing 5 (Helix/omanyte,
+Dome/kabuto, Old Amber/aerodactyl, Root/lileep, Claw/anorith — all
+both-version, unlock post-Dialga(BD)/Palkia(SP); Cranidos=BD-only,
+Shieldon=SP-only, both available from the start of Underground access). No
+schema change needed — reuses the existing `type: "fossil"` special shape.
+
+**GU2 — add the missing hideaways.** Source the 5 unfetched tables (Serebii
+`pokemonhideaways.shtml` + the individual Bulbapedia hideaway pages the
+research doc cites), confirm Volcanic Cave's family pairing, then add all 14
+missing `grand-underground-<name>-hideaway` areas (matching the existing id
+convention) with real species/BD-SP splits. Correct the 4 existing hideaways'
+species lists against the real tables (ours are genuine partial subsets, not
+fabricated, but missing progression-tier species and the BD/SP split —
+Stargleam alone has 9 BD-exclusive + 2 SP-exclusive species). None of these
+get Sinnoh map nodes — Grand Underground isn't tied to one overworld spot;
+they stay in the supplemental list the way the current 4 already do.
+
+**GU3 — progression-tier decision (needs Alex's call before building).**
+Real species availability per hideaway gates through 6 steps (Explorer Kit
+base → TM96 Strength → TM97 Defog → Icicle Badge → TM99 Waterfall →
+National Dex) — same 6 steps uniformly across every hideaway, not
+per-hideaway-unique gating. Full 6-tier fidelity is a real schema shape
+decision (some `conditions` field expressing tier, vs. today's flat list);
+a simplified 2–3 tier approximation (e.g. "early" / "postgame" bucketing,
+or just flagging National-Dex-only species) is the lower-effort alternative.
+**Do not default to full fidelity without asking** — this is exactly the
+kind of scope call that changes the data shape, so confirm before building
+either GU2 or GU3's granularity.
+
+**Ruled out / not modeling:** Statues (bias spawn RATE by type, don't add
+species to the pool — not encounter-table-relevant); no static/guaranteed
+encounters live inside the Underground itself (Regis are Ramanas Park /
+Snowpoint Temple, Spiritomb's real fixed encounter is Route 209's Hallowed
+Tower, already correctly placed there if modeled — Underground is only a
+32-NPC-talk gate for it, not the encounter site).
+
+**Nuzlocke community convention — no consensus found**, despite a real
+search effort (guide sites, GameFAQs threads, NuzlockeForums). Every source
+frames it as a house-rule call: some players treat each hideaway as its own
+route-equivalent first-encounter area, others treat the whole Underground as
+one catch. One community (a Communitylocke) used "one per unique area" —
+sample size of one, not a standard. Recommendation in the research doc:
+model hideaways like any other area under the existing dupes-clause/
+first-encounter rules and let the player's own house-rule choice do the
+rest (skip machinery already supports "treat it as one catch"); an honor-rule
+note in the Rules tab copy is optional polish, not required — no new engine
+rule needed.
 
 ## RR1–RR3: Radical Red (romhack) support — first out-of-scope game
 
