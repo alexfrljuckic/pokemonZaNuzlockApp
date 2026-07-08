@@ -18,6 +18,61 @@ below, research already done (`docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md`).
 Start with GU1 (fossil fix, small + independent), then confirm the GU3
 progression-tier scope with Alex before building GU2.
 
+## Shipped 2026-07-08 — BDSP data completeness + map/encounter UX (#244–#256)
+
+Owner-driven session. A missing rival fight wiped a run, which snowballed into a
+full BDSP trainer/encounter completeness pass plus a batch of map/encounter UX.
+All merged on green CI; app deploys via Vercel.
+
+Team Galactic + trainers/bosses:
+- **#244** Commander Jupiter added to Eterna City (the Galactic Eterna Building
+  boss was missing; grunts were there but not her).
+- **#245** completed all **9** mandatory Team Galactic commander/Cyrus battles
+  (Mars ×3, Jupiter ×2, Saturn ×2, Cyrus ×2 — added the 3 missing Veilstone-HQ /
+  Lake-Verity fights) with full datamined movesets, and gave the villains their
+  **character sprites** via a new name-based `trainerSpriteKeyFor` (Commander/
+  Galactic Boss classes have no sprite).
+- **#246** cross-game boss-sprite audit — PLA nobles / SV titans → mon sprites
+  (via `species`), Z-A rivals (naveen/urbain) + RR Kanto E4 (agatha-gen1 etc.)
+  → real trainer sprites. 20 silhouettes fixed; genuinely-spriteless ones left.
+- **#247 BDSP trainer completeness (+33 trainers) + exact datamined movesets.**
+  Audited all 72 non-underground areas (Serebii/Bulbapedia) → +33 missing
+  trainers (396→429). Then joined **Hematite's datamined trainer sheet**
+  (Kaphotics 1.1 dump — see memory `bdsp-trainer-datamine`) by exact team
+  composition → **844/857 area-trainer mons got exact moves + abilities + held
+  items** (98.5%; cards now show "documented" not "expected"). The join also
+  VERIFIED 414 rosters against game data.
+- **#248** the 2 missing **Barry** story fights (Hearthome L21 — the wipe — +
+  Canalave L37) from the datamine, per-starter variants. BDSP now tracks all 5
+  Barry story battles (Spear Pillar L45 = ally, postgame rematches excluded).
+
+Map + encounter UX:
+- **#249** frontier "up next" scoped to the current map's nodes (the 19 off-map
+  Grand Underground areas were flooding the window and blanking the Sinnoh
+  highlight) + `highlightAllNodes` so all underground nodes glow on the busy art.
+- **#250** desktop side-by-side Routes layout (encounter panel beside the map,
+  not below) + the open encounter section persists across tab switches
+  (`openAreaId` lifted to RunView).
+- **#251** map click boxes get a visible resting outline (see updated memory
+  `map-clickbox-sizing`).
+- **#252 → #253** time-of-day encounter display: per-species time chips, with
+  time-EXCLUSIVE spawns flagged; concise icon form (🌅/☀️/🌙, words in tooltip).
+- **#254** the Routes details column is height-capped to the map and scrolls
+  internally (ResizeObserver in RoutesTab) so the two match in length.
+- **#255** floor-restriction badges for multi-floor caves (`conditions.floor`,
+  55 slots across 7 areas: Gible→B1F, Feebas→B1F, summit-only mons, …). Sourced
+  per-floor; also removed a Victory Road data error (remoraid isn't in BDSP).
+- **#256** +6 missing Mt. Coronet species (cleffa/bronzor/chimecho/dratini/
+  dragonair/loudred, 19→25) + corrected 4 Gen-4-typo fishing rates. Confirmed
+  BDSP fishing = DP tables (no wider audit needed).
+
+**Remaining follow-ups (deferred, flagged in PRs):** extend the trainer
+completeness + datamined-moveset treatment to the **other games** (LGPE/SwSh/SV
+have community datamine sheets; PLA has no route trainers; RR uses its Showdown
+data; Z-A is too new) — Alex to provide sheets or I source per-route. Minor:
+Chimecho's per-floor rate stored as one value; a few hand-entered BDSP fishing
+rows worth a typo spot-check (not systemic).
+
 ## Shipped 2026-07-07 evening — spectator parity + Grand Underground (#239–#242)
 
 Owner-requested batch, all merged on green CI:
