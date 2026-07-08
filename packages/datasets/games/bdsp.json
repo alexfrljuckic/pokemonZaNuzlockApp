@@ -18356,13 +18356,53 @@
       "id": "fossil-cranidos",
       "type": "fossil",
       "species": "cranidos",
-      "area": "oreburgh-mine"
+      "area": "grand-underground",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
     },
     {
       "id": "fossil-shieldon",
       "type": "fossil",
       "species": "shieldon",
-      "area": "oreburgh-mine"
+      "area": "grand-underground",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "fossil-omanyte",
+      "type": "fossil",
+      "species": "omanyte",
+      "area": "grand-underground"
+    },
+    {
+      "id": "fossil-kabuto",
+      "type": "fossil",
+      "species": "kabuto",
+      "area": "grand-underground"
+    },
+    {
+      "id": "fossil-aerodactyl",
+      "type": "fossil",
+      "species": "aerodactyl",
+      "area": "grand-underground"
+    },
+    {
+      "id": "fossil-lileep",
+      "type": "fossil",
+      "species": "lileep",
+      "area": "grand-underground"
+    },
+    {
+      "id": "fossil-anorith",
+      "type": "fossil",
+      "species": "anorith",
+      "area": "grand-underground"
     },
     {
       "id": "static-drifloon",
