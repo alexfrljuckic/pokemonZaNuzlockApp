@@ -18,6 +18,40 @@ below, research already done (`docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md`).
 Start with GU1 (fossil fix, small + independent), then confirm the GU3
 progression-tier scope with Alex before building GU2.
 
+## Shipped 2026-07-07 evening — spectator parity + Grand Underground (#239–#242)
+
+Owner-requested batch, all merged on green CI:
+- **#239 spectator view parity.** The spectator (shared read-only) view now
+  reuses the owner's `TeamBoxTab` / `MilestonesTab` / `RulesTab` in read-only
+  mode (`runId`/`onChange` omitted — the same pattern MonCard/MilestoneCard
+  already used) instead of hand-rolled markup that had drifted. Fixes: route
+  trainers no longer land in the timeline "Bosses" filter (new `trainer` tone
+  + "Trainers" chip; "Bosses" = milestone_cleared only); boss-roster held
+  items render as `ItemSprite` (parity with team cards); the Rules tab shows
+  the full preset rules + definitions + active params read-only, not just
+  house rules.
+- **#240 GU1 fossils.** All 7 fossils relocated from `oreburgh-mine` (revival
+  spot) to `grand-underground` (dig site); Cranidos=BD-only, Shieldon=SP-only,
+  +5 both-version (omanyte/kabuto/aerodactyl/lileep/anorith).
+- **#241 GU2+GU3 — 18 hideaways + progression tiers.** Replaced the 4 generic
+  placeholder hideaways with the real 18 (bdsp 77→91 areas, 828 slots, +4
+  species). Version splits re-sourced from **raw Bulbapedia wikitext**
+  (`action=raw`, BD|SP markers read verbatim, anchored by Misdreavus=SP /
+  Gastly=both) — corrected several backwards first-pass flags (ice
+  Seel/Dewgong=BD vs Spheal/Sealeo=SP; volcanic Growlithe=BD vs Vulpix=SP).
+  New display-only `EncounterSlot.tier` (1 base…6 National Dex) + schema field
+  + `EncounterForm` badge ("Nat'l Dex"/"Icicle Badge"/…); the app can't gate
+  on it (no TM/Dex tracking) so it's an honor-style label.
+- **#242 Grand Underground map.** `bdspUnderground.jpg` wired as an alt-map
+  toggled on top of Sinnoh ("⛏ View Grand Underground" / "← Back to Sinnoh"),
+  18 hideaways as clickable nodes. Node positions APPROXIMATE (the source art
+  labels items, not hideaways). Verified live end-to-end.
+
+**GU follow-up (minor, deferred):** Fountainspring Cave's tier-6 National-Dex
+roster is shorter than the other water caves and single-sourced — its
+species/tiers are raw-verified, only postgame *completeness* wants a later
+eyeball. Everything else high-confidence.
+
 ## Shipped 2026-07-07 session (#207–#219, all merged to main on green CI)
 
 A parallel-agent batch (worktrees, merged only on green CI). Owner-reported
@@ -126,7 +160,13 @@ mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
 - Standalone `tsc -p apps/web/tsconfig.json` lacks engine `paths` (CI/vite/
   vitest green — cosmetic).
 
-## GU1–GU3: BDSP Grand Underground — hideaways + fossil fix
+## GU1–GU3: BDSP Grand Underground — SHIPPED (#240–#242, 2026-07-07 evening)
+
+**All three shipped** — fossil fix (#240), 18 hideaways + progression tiers
+(#241, full fidelity per Alex's call), interactive underground map with
+clickable hideaway nodes (#242). Owner chose full fidelity + clickable nodes.
+See the "Shipped 2026-07-07 evening" section at the top for detail. Section
+below kept as the original scoping notes / provenance.
 
 Full research: `docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md` (moved from scratchpad
 after a 2026-07-07 multi-agent research pass — cite it, don't re-derive).
