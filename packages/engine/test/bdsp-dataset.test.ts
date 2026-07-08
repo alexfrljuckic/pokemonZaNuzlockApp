@@ -95,6 +95,77 @@ describe('BDSP dataset', () => {
     }
   });
 
+  it('models all 18 Grand Underground hideaways with the shared tag + prefix', () => {
+    const hideaways = dataset.areas.filter((a) => a.tags.includes('hideaway'));
+    expect(hideaways).toHaveLength(18);
+    for (const h of hideaways) {
+      expect(h.id.startsWith('grand-underground-')).toBe(true);
+      expect(h.tags).toContain('grand-underground');
+      expect(h.unlockAfter).toBe('gym-1-roark');
+      expect(h.encounters.length).toBeGreaterThan(0);
+      // every hideaway slot is an underground-method wild spawn
+      for (const e of h.encounters) expect(e.methods).toContain('underground');
+    }
+    // the parent Grand Underground area is kept (fossil dig site / tunnels),
+    // and is NOT itself a hideaway
+    const parent = dataset.areas.find((a) => a.id === 'grand-underground')!;
+    expect(parent.tags).not.toContain('hideaway');
+  });
+
+  it('digs all 7 fossils in the Grand Underground, with the two starter fossils version-split', () => {
+    const fossils = (dataset.specials ?? []).filter((s) => s.type === 'fossil');
+    expect(fossils).toHaveLength(7);
+    for (const f of fossils) expect(f.area).toBe('grand-underground');
+    const byId = Object.fromEntries(fossils.map((f) => [f.id, f]));
+    expect(byId['fossil-cranidos'].conditions?.version).toEqual(['brilliant-diamond']);
+    expect(byId['fossil-shieldon'].conditions?.version).toEqual(['shining-pearl']);
+    // the other five are both-version (no version gate)
+    for (const id of ['fossil-omanyte', 'fossil-kabuto', 'fossil-aerodactyl', 'fossil-lileep', 'fossil-anorith']) {
+      expect(byId[id].conditions?.version).toBeUndefined();
+    }
+  });
+
+  it('carries progression tiers (1–6) on hideaway slots for the app to label', () => {
+    const stargleam = dataset.areas.find((a) => a.id === 'grand-underground-stargleam-cavern')!;
+    const tiers = stargleam.encounters.map((e) => (e as { tier?: number }).tier).filter((t): t is number => t != null);
+    expect(tiers.length).toBeGreaterThan(0);
+    for (const t of tiers) expect(t).toBeGreaterThanOrEqual(2); // tier 1 (base) is left unlabelled
+    for (const t of tiers) expect(t).toBeLessThanOrEqual(6);
+    // Gastly is a base spawn (no tier); the ghost/psychic roster is postgame
+    const gastly = stargleam.encounters.find((e) => e.species === 'gastly');
+    expect((gastly as { tier?: number } | undefined)?.tier).toBeUndefined();
+  });
+
+  it('respects raw-wikitext version splits inside hideaways (BD/SP exclusives)', () => {
+    const bd = deriveState(
+      [ev('run_started', { gameId: 'bdsp', version: 'brilliant-diamond', ruleset: buildRuleset('standard', 'bdsp') })],
+      ctx,
+    );
+    const sp = deriveState(
+      [ev('run_started', { gameId: 'bdsp', version: 'shining-pearl', ruleset: buildRuleset('standard', 'bdsp') })],
+      ctx,
+    );
+    const pool = (state: typeof bd, id: string) =>
+      filterEncounterPool(state, dataset.areas.find((a) => a.id === id)!, ctx).map((s) => s.species);
+
+    // Ice family: Seel/Dewgong = BD, Spheal/Sealeo = SP (corrected from the
+    // first research pass, which had them backwards).
+    expect(pool(bd, 'grand-underground-icy-cave')).toContain('seel');
+    expect(pool(sp, 'grand-underground-icy-cave')).not.toContain('seel');
+    expect(pool(sp, 'grand-underground-icy-cave')).toContain('spheal');
+    expect(pool(bd, 'grand-underground-icy-cave')).not.toContain('spheal');
+
+    // Volcanic family: Growlithe = BD, Vulpix = SP.
+    expect(pool(bd, 'grand-underground-volcanic-cave')).toContain('growlithe');
+    expect(pool(sp, 'grand-underground-volcanic-cave')).toContain('vulpix');
+
+    // Ghost/psychic: Misdreavus = SP-only (anchor fact), Gastly = both.
+    expect(pool(sp, 'grand-underground-stargleam-cavern')).toContain('misdreavus');
+    expect(pool(bd, 'grand-underground-stargleam-cavern')).not.toContain('misdreavus');
+    expect(pool(bd, 'grand-underground-stargleam-cavern')).toContain('gastly');
+    expect(pool(sp, 'grand-underground-stargleam-cavern')).toContain('gastly');
+  });
+
   it('does not let rival battles gate the enforced level cap (BACKLOG item 12)', () => {
     // All 3 Barry milestones are flagged countsForLevelCap: false, and still render
     // with full rosters (informational), but nextBoss() must skip past Barry (Lv 9)

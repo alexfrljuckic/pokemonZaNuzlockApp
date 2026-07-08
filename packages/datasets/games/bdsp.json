@@ -17884,8 +17884,1063 @@
       ]
     },
     {
-      "id": "grand-underground-cave-hideaway",
-      "name": "Grand Underground: Cave Hideaway",
+      "id": "grand-underground-rocky-cave",
+      "name": "Grand Underground: Rocky Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sandslash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pupitar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lairon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "trapinch",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vibrava",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "beldum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-big-bluff-cavern",
+      "name": "Grand Underground: Big Bluff Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sandslash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "phanpy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "larvitar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pupitar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lairon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "trapinch",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vibrava",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "beldum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-typhlo-cavern",
+      "name": "Grand Underground: Typhlo Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cyndaquil",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slugma",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magcargo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "torchic",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chimchar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-sandsear-cave",
+      "name": "Grand Underground: Sandsear Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "onix",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "hippopotas",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sandslash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhydon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cyndaquil",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slugma",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magcargo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "torchic",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "trapinch",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chimchar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-volcanic-cave",
+      "name": "Grand Underground: Volcanic Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "geodude",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "onix",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "ponyta",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "charmander",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cyndaquil",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slugma",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magcargo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "magby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "torchic",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "numel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "camerupt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "torkoal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chimchar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-grassland-cave",
+      "name": "Grand Underground: Grassland Cave",
       "unlockAfter": "gym-1-roark",
       "tags": [
         "special",
@@ -17896,56 +18951,3510 @@
         {
           "species": "zubat",
           "methods": [
-            "hideaway"
+            "underground"
           ]
         },
         {
-          "species": "geodude",
+          "species": "machop",
           "methods": [
-            "hideaway"
+            "underground"
           ]
         },
         {
-          "species": "onix",
+          "species": "murkrow",
           "methods": [
-            "hideaway"
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "underground"
           ]
         },
         {
-          "species": "makuhita",
+          "species": "silcoon",
           "methods": [
-            "hideaway"
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "underground"
           ]
         },
         {
-          "species": "nosepass",
+          "species": "bidoof",
           "methods": [
-            "hideaway"
+            "underground"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chikorita",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "flaaffy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "skiploom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sunkern",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "treecko",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vibrava",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "turtwig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-sunlit-cavern",
+      "name": "Grand Underground: Sunlit Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "combee",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "cherubi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chikorita",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "flaaffy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "hoppip",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "skiploom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sunkern",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "treecko",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "vibrava",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "turtwig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-dazzling-cave",
+      "name": "Grand Underground: Dazzling Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "gastly",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "girafarig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "drowzee",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "smoochum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "shelgon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-stargleam-cavern",
+      "name": "Grand Underground: Stargleam Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "gastly",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "misdreavus",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "meditite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "kadabra",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "girafarig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "drowzee",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ditto",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "wobbuffet",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "snubbull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "smoochum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "kirlia",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sableye",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "mawile",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "volbeat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "illumise",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "baltoy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "banette",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "duskull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "dusclops",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "shelgon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-swampy-cave",
+      "name": "Grand Underground: Swampy Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-bogsunk-cavern",
+      "name": "Grand Underground: Bogsunk Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "roselia",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "skorupi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "paras",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "grimer",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weezing",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tangela",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ariados",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "pineco",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacnea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cacturne",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zangoose",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "seviper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tropius",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tangrowth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gligar",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-icy-cave",
+      "name": "Grand Underground: Icy Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "smoochum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lairon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "beldum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-glacial-cavern",
+      "name": "Grand Underground: Glacial Cavern",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "smoochum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "aron",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lairon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "beldum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-whiteout-cave",
+      "name": "Grand Underground: Whiteout Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "machop",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
           ]
         },
         {
           "species": "meditite",
           "methods": [
-            "hideaway"
-          ]
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "mr-mime",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "sneasel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "snover",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mareep",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "flaaffy",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "swinub",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "delibird",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "elekid",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
         },
         {
           "species": "aron",
           "methods": [
-            "hideaway"
-          ]
+            "underground"
+          ],
+          "tier": 6
         },
         {
-          "species": "cubone",
+          "species": "lairon",
           "methods": [
-            "hideaway"
-          ]
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "snorunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "glalie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "spheal",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sealeo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "walrein",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "beldum",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
         }
       ]
     },
     {
-      "id": "grand-underground-swamp-hideaway",
-      "name": "Grand Underground: Swamp Hideaway",
+      "id": "grand-underground-still-water-cavern",
+      "name": "Grand Underground: Still-Water Cavern",
       "unlockAfter": "gym-1-roark",
       "tags": [
         "special",
@@ -17956,139 +22465,13 @@
         {
           "species": "psyduck",
           "methods": [
-            "hideaway"
+            "underground"
           ]
         },
         {
-          "species": "poliwag",
+          "species": "murkrow",
           "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "wooper",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "swinub",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "shellos",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "hippopotas",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "skorupi",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "croagunk",
-          "methods": [
-            "hideaway"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "grand-underground-volcanic-hideaway",
-      "name": "Grand Underground: Volcanic Hideaway",
-      "unlockAfter": "gym-1-roark",
-      "tags": [
-        "special",
-        "grand-underground",
-        "hideaway"
-      ],
-      "encounters": [
-        {
-          "species": "slugma",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "numel",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "houndour",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "torkoal",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "ponyta",
-          "methods": [
-            "hideaway"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "grand-underground-dazzling-hideaway",
-      "name": "Grand Underground: Dazzling Hideaway",
-      "unlockAfter": "gym-1-roark",
-      "tags": [
-        "special",
-        "grand-underground",
-        "hideaway"
-      ],
-      "encounters": [
-        {
-          "species": "clefairy",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "chansey",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "togepi",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "sunkern",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "drowzee",
-          "methods": [
-            "hideaway"
-          ]
-        },
-        {
-          "species": "lunatone",
-          "methods": [
-            "hideaway"
+            "underground"
           ],
           "conditions": {
             "version": [
@@ -18097,15 +22480,2206 @@
           }
         },
         {
-          "species": "solrock",
+          "species": "wurmple",
           "methods": [
-            "hideaway"
+            "underground"
+          ]
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "underground"
           ],
           "conditions": {
             "version": [
               "shining-pearl"
             ]
           }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chikorita",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "totodile",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "corsola",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "treecko",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mudkip",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "surskit",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "turtwig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "piplup",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-fountainspring-cave",
+      "name": "Grand Underground: Fountainspring Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "shellos",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "gastrodon",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "togepi",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "ralts",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "wooper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "quagsire",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "seel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "dewgong",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "dratini",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "totodile",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chinchou",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lanturn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "corsola",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mudkip",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "surskit",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "piplup",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-riverbank-cave",
+      "name": "Grand Underground: Riverbank Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "psyduck",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "wurmple",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "silcoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "cascoon",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buizel",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "croagunk",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "barboach",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "tentacool",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "tentacruel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "gible",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "octillery",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "whiscash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "gabite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "bulbasaur",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "squirtle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ekans",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nidoran-f",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorina",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidoran-m",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nidorino",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwag",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poliwhirl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bellsprout",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "weepinbell",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "shellder",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "cubone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "horsea",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "staryu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "scyther",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "pinsir",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "chikorita",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "totodile",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "ledian",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "qwilfish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "shuckle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "corsola",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "treecko",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mudkip",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lotad",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "lombre",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "seedot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "nuzleaf",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "surskit",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "nincada",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "carvanha",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lunatone",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "solrock",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "kecleon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "clamperl",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "turtwig",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "piplup",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        }
+      ]
+    },
+    {
+      "id": "grand-underground-spacious-cave",
+      "name": "Grand Underground: Spacious Cave",
+      "unlockAfter": "gym-1-roark",
+      "tags": [
+        "special",
+        "grand-underground",
+        "hideaway"
+      ],
+      "encounters": [
+        {
+          "species": "zubat",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "psyduck",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "machop",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "geodude",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "murkrow",
+          "methods": [
+            "underground"
+          ],
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "bidoof",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "kricketot",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "shinx",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "budew",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "pachirisu",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "buneary",
+          "methods": [
+            "underground"
+          ]
+        },
+        {
+          "species": "golbat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "hoothoot",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "bibarel",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "chingling",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2
+        },
+        {
+          "species": "stunky",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "skuntank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 2,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "machoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "graveler",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "aipom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "wingull",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "purugly",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "munchlax",
+          "methods": [
+            "underground"
+          ],
+          "tier": 3
+        },
+        {
+          "species": "pelipper",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "luxio",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4
+        },
+        {
+          "species": "glameow",
+          "methods": [
+            "underground"
+          ],
+          "tier": 4,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "mantyke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 5
+        },
+        {
+          "species": "caterpie",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "weedle",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "rattata",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "raticate",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sandshrew",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "sandslash",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "vulpix",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "oddish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "gloom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venonat",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "venomoth",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mankey",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "primeape",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "growlithe",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "brilliant-diamond"
+            ]
+          }
+        },
+        {
+          "species": "slowpoke",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "farfetchd",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "doduo",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "krabby",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "voltorb",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "lickitung",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "rhyhorn",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tauros",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "sentret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "furret",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "natu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "teddiursa",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "houndoom",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "tyrogue",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "miltank",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "poochyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "mightyena",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "zigzagoon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "skitty",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "corphish",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "crawdaunt",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "absol",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "bagon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "shelgon",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6,
+          "conditions": {
+            "version": [
+              "shining-pearl"
+            ]
+          }
+        },
+        {
+          "species": "magnemite",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
+        },
+        {
+          "species": "swablu",
+          "methods": [
+            "underground"
+          ],
+          "tier": 6
         }
       ]
     },
