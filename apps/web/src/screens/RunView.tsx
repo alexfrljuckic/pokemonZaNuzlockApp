@@ -96,6 +96,10 @@ export function RunView({
   onSwitchRun: (runId: string) => Promise<void> | void;
 }) {
   const [events, setEvents] = useState<RunEvent[]>([]);
+  // The open encounter section lives here (not in RoutesTab) so it survives a
+  // tab switch — RoutesTab unmounts when you tab away, and you want your place
+  // kept when you tab back to Routes.
+  const [openAreaId, setOpenAreaId] = useState<string | null>(null);
   // The open tab is derived from the route (via the tab slug prop); switching a
   // tab writes the hash and the new slug comes back down. setTab is a thin
   // adapter so the existing label-based switcher/keyboard code is untouched.
@@ -242,7 +246,16 @@ export function RunView({
           </nav>
 
           <div id="run-tabpanel" role="tabpanel" aria-labelledby={tabDomId(tab)}>
-            {tab === 'Routes' && <RoutesTab runId={run.id} state={state} ctx={ctx} onChange={refresh} />}
+            {tab === 'Routes' && (
+              <RoutesTab
+                runId={run.id}
+                state={state}
+                ctx={ctx}
+                onChange={refresh}
+                openAreaId={openAreaId}
+                setOpenAreaId={setOpenAreaId}
+              />
+            )}
             {tab === 'Team & Box' && (
               <TeamBoxTab runId={run.id} state={state} ctx={ctx} onChange={refresh} onGoToRoutes={() => setTab('Routes')} />
             )}

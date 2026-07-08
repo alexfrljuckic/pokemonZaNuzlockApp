@@ -23,13 +23,17 @@ export function RoutesTab({
   state,
   ctx,
   onChange,
+  openAreaId,
+  setOpenAreaId,
 }: {
   runId: string;
   state: RunState;
   ctx: EngineContext;
   onChange: () => Promise<void>;
+  /** Lifted to RunView so the open encounter section persists across tab switches. */
+  openAreaId: string | null;
+  setOpenAreaId: (id: string | null) => void;
 }) {
-  const [openAreaId, setOpenAreaId] = useState<string | null>(null);
   const [activeZone, setActiveZone] = useState<string | null>(null);
 
   async function resolve(area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) {
