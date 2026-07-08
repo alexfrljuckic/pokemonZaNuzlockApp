@@ -59,7 +59,22 @@ type GroupEntry = {
   byPeriod: Partial<Record<Period, number | undefined>>;
   /** true when any slot carried a time-of-day condition (else appears anytime). */
   hasTime: boolean;
+  /** floor labels a FLOOR-RESTRICTED species is limited to (multi-floor caves).
+   * Only set when the dataset tags the slot — species on every floor aren't
+   * tagged, so a non-empty list always means "only on these floors". */
+  floors: string[];
 };
+
+/** Concise floor-restriction label for a species card, or null when unrestricted.
+ * e.g. ["b1f"] → "B1F", ["4f","5f"] → "4F/5F". */
+export function floorChip(floors: string[]): string | null {
+  if (!floors.length) return null;
+  const seen = new Set<string>();
+  const norm = floors
+    .map((f) => f.trim().toUpperCase())
+    .filter((f) => (seen.has(f) ? false : (seen.add(f), true)));
+  return norm.join('/');
+}
 
 type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
 
@@ -137,7 +152,7 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       }
       const cur =
         bucket.get(slot.species) ??
-        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier, byPeriod: {}, hasTime: false } as GroupEntry & {
+        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier, byPeriod: {}, hasTime: false, floors: [] } as GroupEntry & {
           available: boolean;
         });
       if (!cur.subMethods.some((s) => s.method === method)) {
@@ -148,6 +163,8 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       const times = (slot.conditions?.time as Period[] | undefined) ?? PERIODS;
       if (slot.conditions?.time?.length) cur.hasTime = true;
       for (const p of times) if (cur.byPeriod[p] == null) cur.byPeriod[p] = slot.rate;
+      // floor restriction (multi-floor caves): only tagged for restricted species.
+      for (const f of (slot.conditions?.floor as string[] | undefined) ?? []) if (!cur.floors.includes(f)) cur.floors.push(f);
       if (available) cur.available = true;
       else if (cur.unavailable === undefined) cur.unavailable = reasonText(reason, scope);
       bucket.set(slot.species, cur);
@@ -156,13 +173,14 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
   return GROUP_ORDER.filter((key) => acc.has(key)).map((key) => ({
     key,
     label: GROUP_LABEL[key],
-    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier, byPeriod, hasTime }) => ({
+    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier, byPeriod, hasTime, floors }) => ({
       species,
       subMethods,
       unavailable: available ? undefined : unavailable,
       tier,
       byPeriod,
       hasTime,
+      floors,
     })),
   }));
 }
@@ -208,6 +226,7 @@ export function EncounterForm({
               const time = timeChip(entry.byPeriod, entry.hasTime);
               const selected = entry.species === species;
               const tierLabel = tierBadge(entry.tier);
+              const floorLabel = floorChip(entry.floors);
               return (
                 <button
                   // key is group-scoped so a species in two groups gets two cards
@@ -218,7 +237,7 @@ export function EncounterForm({
                   aria-label={
                     disabled
                       ? `${entry.species} — ${entry.unavailable}`
-                      : `${entry.species} (${group.label})${time ? ` — ${time.title}` : ''}`
+                      : `${entry.species} (${group.label})${floorLabel ? ` — only on ${floorLabel}` : ''}${time ? ` — ${time.title}` : ''}`
                   }
                   className={`encounter-slot${selected ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
                   onClick={disabled ? undefined : () => setSpecies(entry.species)}
@@ -230,6 +249,11 @@ export function EncounterForm({
                   {tierLabel && (
                     <span className="encounter-slot-tier" title={tierHint(entry.tier) ?? undefined}>
                       {tierLabel}
+                    </span>
+                  )}
+                  {floorLabel && (
+                    <span className="encounter-slot-floor" title={`Only found on ${floorLabel}`}>
+                      {floorLabel}
                     </span>
                   )}
                   {disabled ? (

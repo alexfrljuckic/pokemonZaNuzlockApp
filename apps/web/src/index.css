@@ -1357,6 +1357,18 @@ button.item-chip.item-picked .item-access {
   color: color-mix(in srgb, var(--warning-strong) 70%, var(--text));
   white-space: nowrap;
 }
+/* Floor-restriction badge (multi-floor caves): "B1F", "4F/5F" — set only for
+   species that don't appear on every floor, so it always means "only here". */
+.encounter-slot-floor {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 0.05rem 0.34rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+  color: color-mix(in srgb, var(--accent) 66%, var(--text));
+  white-space: nowrap;
+}
 /* Dupes-clause species: still shown so the player sees what lives here, but
    dimmed and non-catchable (the clause stands). Reason surfaces in the tag +
    title/aria-label. Uses theme vars only — no hardcoded colors. */

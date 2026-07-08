@@ -1125,7 +1125,12 @@
           "methods": [
             "walk"
           ],
-          "rate": 30
+          "rate": 30,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "geodude",
@@ -1139,63 +1144,108 @@
           "methods": [
             "surf"
           ],
-          "rate": 60
+          "rate": 60,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "psyduck",
           "methods": [
             "surf"
           ],
-          "rate": 30
+          "rate": 30,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "golbat",
           "methods": [
             "surf"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "golduck",
           "methods": [
             "surf"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "old-rod"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "good-rod"
           ],
-          "rate": 65
+          "rate": 65,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "barboach",
           "methods": [
             "good-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "gyarados",
           "methods": [
             "super-rod"
           ],
-          "rate": 65
+          "rate": 65,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "whiscash",
           "methods": [
             "super-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -4747,7 +4797,12 @@
           "methods": [
             "walk"
           ],
-          "rate": 15
+          "rate": 15,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -9422,7 +9477,12 @@
           "methods": [
             "walk"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "1F"
+            ]
+          }
         },
         {
           "species": "golbat",
@@ -9443,77 +9503,133 @@
           "methods": [
             "walk"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "B2F",
+              "B3F"
+            ]
+          }
         },
         {
           "species": "tentacool",
           "methods": [
             "surf"
           ],
-          "rate": 60
+          "rate": 60,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "wingull",
           "methods": [
             "surf"
           ],
-          "rate": 30
+          "rate": 30,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "tentacruel",
           "methods": [
             "surf"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "pelipper",
           "methods": [
             "surf"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "old-rod"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "good-rod"
           ],
-          "rate": 65
+          "rate": 65,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "finneon",
           "methods": [
             "good-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "gyarados",
           "methods": [
             "super-rod"
           ],
-          "rate": 60
+          "rate": 60,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "lumineon",
           "methods": [
             "super-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         },
         {
           "species": "qwilfish",
           "methods": [
             "super-rod"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "Exterior"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -10000,7 +10116,13 @@
           "methods": [
             "walk"
           ],
-          "rate": 25
+          "rate": 25,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F"
+            ]
+          }
         },
         {
           "species": "golbat",
@@ -10047,6 +10169,9 @@
             "time": [
               "morning",
               "day"
+            ],
+            "floor": [
+              "1F"
             ]
           }
         },
@@ -10055,28 +10180,48 @@
           "methods": [
             "walk"
           ],
-          "rate": 20
+          "rate": 20,
+          "conditions": {
+            "floor": [
+              "1F"
+            ]
+          }
         },
         {
           "species": "zubat",
           "methods": [
             "walk"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "1F"
+            ]
+          }
         },
         {
           "species": "abomasnow",
           "methods": [
             "walk"
           ],
-          "rate": 20
+          "rate": 20,
+          "conditions": {
+            "floor": [
+              "summit"
+            ]
+          }
         },
         {
           "species": "snover",
           "methods": [
             "walk"
           ],
-          "rate": 20
+          "rate": 20,
+          "conditions": {
+            "floor": [
+              "summit"
+            ]
+          }
         },
         {
           "species": "medicham",
@@ -10101,6 +10246,9 @@
           "conditions": {
             "time": [
               "night"
+            ],
+            "floor": [
+              "summit"
             ]
           }
         },
@@ -10109,49 +10257,97 @@
           "methods": [
             "surf"
           ],
-          "rate": 90
+          "rate": 90,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "golbat",
           "methods": [
             "surf"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "old-rod"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "good-rod"
           ],
-          "rate": 65
+          "rate": 65,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "barboach",
           "methods": [
             "good-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "gyarados",
           "methods": [
             "super-rod"
           ],
-          "rate": 65
+          "rate": 65,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F",
+              "4F"
+            ]
+          }
         },
         {
           "species": "whiscash",
           "methods": [
             "super-rod"
           ],
-          "rate": 35
+          "rate": 35,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F"
+            ]
+          }
         },
         {
           "species": "feebas",
@@ -10159,7 +10355,12 @@
             "old-rod",
             "good-rod",
             "super-rod"
-          ]
+          ],
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -18492,7 +18693,13 @@
           "methods": [
             "walk"
           ],
-          "rate": 25
+          "rate": 25,
+          "conditions": {
+            "floor": [
+              "1F",
+              "B1F"
+            ]
+          }
         },
         {
           "species": "golbat",
@@ -18506,7 +18713,13 @@
           "methods": [
             "walk"
           ],
-          "rate": 20
+          "rate": 20,
+          "conditions": {
+            "floor": [
+              "1F",
+              "2F"
+            ]
+          }
         },
         {
           "species": "medicham",
@@ -18520,7 +18733,13 @@
           "methods": [
             "walk"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "1F",
+              "2F"
+            ]
+          }
         },
         {
           "species": "steelix",
@@ -18534,35 +18753,48 @@
           "methods": [
             "surf"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "old-rod"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "magikarp",
           "methods": [
             "good-rod"
           ],
-          "rate": 65
-        },
-        {
-          "species": "remoraid",
-          "methods": [
-            "good-rod"
-          ],
-          "rate": 35
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         },
         {
           "species": "gyarados",
           "methods": [
             "super-rod"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "B1F"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -21933,6 +22165,9 @@
             "time": [
               "morning",
               "day"
+            ],
+            "floor": [
+              "exterior"
             ]
           }
         },
@@ -21945,6 +22180,9 @@
           "conditions": {
             "time": [
               "night"
+            ],
+            "floor": [
+              "exterior"
             ]
           }
         },
@@ -21953,7 +22191,12 @@
           "methods": [
             "walk"
           ],
-          "rate": 20
+          "rate": 20,
+          "conditions": {
+            "floor": [
+              "exterior"
+            ]
+          }
         },
         {
           "species": "camerupt",
@@ -22015,6 +22258,9 @@
           "conditions": {
             "time": [
               "night"
+            ],
+            "floor": [
+              "exterior"
             ]
           }
         },
@@ -22023,35 +22269,60 @@
           "methods": [
             "walk"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "exterior"
+            ]
+          }
         },
         {
           "species": "skarmory",
           "methods": [
             "walk"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "exterior"
+            ]
+          }
         },
         {
           "species": "numel",
           "methods": [
             "walk"
           ],
-          "rate": 5
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "exterior"
+            ]
+          }
         },
         {
           "species": "torkoal",
           "methods": [
             "pokeradar"
           ],
-          "rate": 12
+          "rate": 12,
+          "conditions": {
+            "floor": [
+              "exterior"
+            ]
+          }
         },
         {
           "species": "heatran",
           "methods": [
             "static"
           ],
-          "rate": 100
+          "rate": 100,
+          "conditions": {
+            "floor": [
+              "interior"
+            ]
+          }
         }
       ],
       "trainers": [
@@ -23368,7 +23639,14 @@
           "methods": [
             "walk"
           ],
-          "rate": 10
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "3F",
+              "4F",
+              "5F"
+            ]
+          }
         },
         {
           "species": "murkrow",

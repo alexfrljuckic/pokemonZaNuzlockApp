@@ -3,7 +3,16 @@ import { describe, expect, it } from 'vitest';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import type { ClassifiedEncounter } from '@nuzlocke/engine';
-import { EncounterForm, timeChip } from './EncounterForm';
+import { EncounterForm, timeChip, floorChip } from './EncounterForm';
+
+describe('floorChip (floor restriction)', () => {
+  it('normalises + joins floor labels, null when unrestricted', () => {
+    expect(floorChip([])).toBeNull();
+    expect(floorChip(['b1f'])).toBe('B1F');
+    expect(floorChip(['4f', '5f'])).toBe('4F/5F');
+    expect(floorChip(['1F', '1f'])).toBe('1F'); // dedupe
+  });
+});
 
 describe('timeChip (time-of-day summary)', () => {
   it('flags a time-exclusive spawn (restricted) with a full-word title', () => {
