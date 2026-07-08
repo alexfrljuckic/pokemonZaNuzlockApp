@@ -31520,6 +31520,154 @@
       ]
     },
     {
+      "id": "rival-hearthome-barry",
+      "name": "Barry (Hearthome City)",
+      "type": "rival",
+      "order": 25,
+      "aceLevel": 21,
+      "countsForLevelCap": false,
+      "roster": [
+        {
+          "species": "starly",
+          "level": 19,
+          "moves": [
+            "quick-attack",
+            "double-team",
+            "endeavor",
+            "pluck"
+          ],
+          "ability": "keen-eye"
+        },
+        {
+          "species": "roselia",
+          "level": 20,
+          "moves": [
+            "growth",
+            "stun-spore",
+            "leech-seed",
+            "magical-leaf"
+          ],
+          "ability": "natural-cure"
+        },
+        {
+          "species": "ponyta",
+          "level": 20,
+          "moves": [
+            "tackle",
+            "growl",
+            "flame-charge",
+            "agility"
+          ],
+          "ability": "flash-fire"
+        },
+        {
+          "species": "prinplup",
+          "level": 21,
+          "moves": [
+            "metal-claw",
+            "bubble-beam",
+            "stealth-rock",
+            "grass-knot"
+          ],
+          "ability": "torrent"
+        }
+      ],
+      "rosterByStarter": {
+        "turtwig": [
+          {
+            "species": "starly",
+            "level": 19,
+            "moves": [
+              "quick-attack",
+              "double-team",
+              "endeavor",
+              "pluck"
+            ],
+            "ability": "keen-eye"
+          },
+          {
+            "species": "buizel",
+            "level": 20,
+            "moves": [
+              "tail-whip",
+              "quick-attack",
+              "water-gun",
+              "bite"
+            ],
+            "ability": "swift-swim"
+          },
+          {
+            "species": "roselia",
+            "level": 20,
+            "moves": [
+              "poison-sting",
+              "mega-drain",
+              "leech-seed",
+              "grass-knot"
+            ],
+            "ability": "poison-point"
+          },
+          {
+            "species": "monferno",
+            "level": 21,
+            "moves": [
+              "mach-punch",
+              "leer",
+              "flame-wheel",
+              "stealth-rock"
+            ],
+            "ability": "blaze"
+          }
+        ],
+        "piplup": [
+          {
+            "species": "starly",
+            "level": 19,
+            "moves": [
+              "quick-attack",
+              "double-team",
+              "endeavor",
+              "pluck"
+            ],
+            "ability": "keen-eye"
+          },
+          {
+            "species": "buizel",
+            "level": 20,
+            "moves": [
+              "tail-whip",
+              "quick-attack",
+              "water-gun",
+              "bite"
+            ],
+            "ability": "swift-swim"
+          },
+          {
+            "species": "ponyta",
+            "level": 20,
+            "moves": [
+              "tackle",
+              "tail-whip",
+              "flame-charge",
+              "agility"
+            ],
+            "ability": "flash-fire"
+          },
+          {
+            "species": "grotle",
+            "level": 21,
+            "moves": [
+              "absorb",
+              "razor-leaf",
+              "curse",
+              "stealth-rock"
+            ],
+            "ability": "overgrow"
+          }
+        ]
+      }
+    },
+    {
       "id": "gym-3-maylene",
       "name": "Maylene (Veilstone Gym)",
       "type": "gym",
@@ -31810,6 +31958,187 @@
           "heldItem": "expert-belt"
         }
       ]
+    },
+    {
+      "id": "rival-canalave-barry",
+      "name": "Barry (Canalave City)",
+      "type": "rival",
+      "order": 55,
+      "aceLevel": 37,
+      "countsForLevelCap": false,
+      "roster": [
+        {
+          "species": "staravia",
+          "level": 32,
+          "moves": [
+            "quick-attack",
+            "double-team",
+            "endeavor",
+            "pluck"
+          ],
+          "ability": "intimidate"
+        },
+        {
+          "species": "roselia",
+          "level": 33,
+          "moves": [
+            "growth",
+            "stun-spore",
+            "leech-seed",
+            "giga-drain"
+          ],
+          "ability": "natural-cure"
+        },
+        {
+          "species": "heracross",
+          "level": 32,
+          "moves": [
+            "leer",
+            "aerial-ace",
+            "brick-break",
+            "thief"
+          ],
+          "ability": "swarm"
+        },
+        {
+          "species": "ponyta",
+          "level": 34,
+          "moves": [
+            "growl",
+            "agility",
+            "flame-wheel",
+            "stomp"
+          ],
+          "ability": "flash-fire"
+        },
+        {
+          "species": "prinplup",
+          "level": 37,
+          "moves": [
+            "metal-claw",
+            "charm",
+            "grass-knot",
+            "brine"
+          ],
+          "ability": "torrent"
+        }
+      ],
+      "rosterByStarter": {
+        "turtwig": [
+          {
+            "species": "staravia",
+            "level": 32,
+            "moves": [
+              "quick-attack",
+              "double-team",
+              "endeavor",
+              "pluck"
+            ],
+            "ability": "intimidate"
+          },
+          {
+            "species": "buizel",
+            "level": 33,
+            "moves": [
+              "tail-whip",
+              "bite",
+              "swift",
+              "brine"
+            ],
+            "ability": "swift-swim"
+          },
+          {
+            "species": "heracross",
+            "level": 32,
+            "moves": [
+              "leer",
+              "aerial-ace",
+              "brick-break",
+              "thief"
+            ],
+            "ability": "swarm"
+          },
+          {
+            "species": "roselia",
+            "level": 34,
+            "moves": [
+              "poison-sting",
+              "sweet-scent",
+              "giga-drain",
+              "grass-knot"
+            ],
+            "ability": "poison-point"
+          },
+          {
+            "species": "monferno",
+            "level": 37,
+            "moves": [
+              "mach-punch",
+              "power-up-punch",
+              "flame-wheel",
+              "shadow-claw"
+            ],
+            "ability": "blaze"
+          }
+        ],
+        "piplup": [
+          {
+            "species": "staravia",
+            "level": 32,
+            "moves": [
+              "quick-attack",
+              "double-team",
+              "endeavor",
+              "pluck"
+            ],
+            "ability": "intimidate"
+          },
+          {
+            "species": "buizel",
+            "level": 33,
+            "moves": [
+              "tail-whip",
+              "bite",
+              "swift",
+              "brine"
+            ],
+            "ability": "swift-swim"
+          },
+          {
+            "species": "heracross",
+            "level": 32,
+            "moves": [
+              "leer",
+              "aerial-ace",
+              "brick-break",
+              "thief"
+            ],
+            "ability": "swarm"
+          },
+          {
+            "species": "ponyta",
+            "level": 34,
+            "moves": [
+              "tail-whip",
+              "agility",
+              "flame-wheel",
+              "stomp"
+            ],
+            "ability": "flash-fire"
+          },
+          {
+            "species": "grotle",
+            "level": 37,
+            "moves": [
+              "razor-leaf",
+              "bite",
+              "leech-seed",
+              "stealth-rock"
+            ],
+            "ability": "overgrow"
+          }
+        ]
+      }
     },
     {
       "id": "gym-6-byron",
