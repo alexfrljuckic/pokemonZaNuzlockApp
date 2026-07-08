@@ -130,6 +130,11 @@ mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
 
 Full research: `docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md` (moved from scratchpad
 after a 2026-07-07 multi-agent research pass — cite it, don't re-derive).
+**Alex uploaded `apps/web/public/maps/bdspUnderground.jpg` directly to main
+the same day** (commit `12b524f`, "Add files via upload") — likely backdrop
+art for this work. Not yet wired into any `GameMap`/`ZONE_MAPS` entry; check
+its dimensions/labels before assuming it matches the 18-hideaway layout
+above, and confirm with Alex what it's for before building a map around it.
 **The gap is real and bigger than the 4 hideaways we model.** BDSP's Grand
 Underground has **18 hideaways** (7 "Caverns" + 11 "Caves"), not ~16 as
 guessed going in — full names, unlock progression, and per-hideaway
