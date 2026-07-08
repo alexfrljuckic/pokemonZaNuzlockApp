@@ -230,6 +230,40 @@ body {
     margin-left: 0;
     margin-right: 0;
   }
+
+  /* Landscape maps (Sinnoh/Kanto/Paldea/…): on wide desktop, put the encounter
+     panel + area list BESIDE the map instead of below it, so route/area data is
+     visible without scrolling. The map stays sticky while the side column
+     scrolls. Mobile/tablet (< 1100px) keep the stacked layout. */
+  section.route-map-stage:not(.route-stage-portrait) .route-stage-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(320px, 1fr);
+    column-gap: 1.5rem;
+    align-items: start;
+  }
+  section.route-map-stage:not(.route-stage-portrait) .route-stage-map {
+    position: sticky;
+    top: 0.75rem;
+  }
+  section.route-map-stage:not(.route-stage-portrait) .route-map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 72vh;
+    margin: 0;
+  }
+  section.route-map-stage:not(.route-stage-portrait) .route-resolve-panel,
+  section.route-map-stage:not(.route-stage-portrait) .route-offmap {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* Give the side-by-side stage more room on larger desktops. */
+@media (min-width: 1300px) {
+  #root {
+    max-width: 1240px;
+  }
 }
 
 /* Mobile: the whole map always fits the viewport width (no sideways pan —
