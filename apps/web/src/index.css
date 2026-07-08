@@ -1342,22 +1342,23 @@ button.item-chip.item-picked .item-access {
   color: color-mix(in srgb, var(--accent) 60%, var(--text));
   white-space: nowrap;
 }
-/* Time-of-day chip: per-period spawn rates for time-varying species. The
-   "-only" variant flags a time-EXCLUSIVE spawn (can't be caught otherwise) in
-   a warning colour so it's unmistakable. */
+/* Time-of-day chip: concise icon + per-period rate. Rate-varying species get
+   light plain text (low visual weight); the "-only" variant flags a
+   time-EXCLUSIVE spawn (can't be caught otherwise) in a warning-coloured pill
+   so the one you must not miss stands out. */
 .encounter-slot-time {
-  font-size: 0.64rem;
-  font-weight: 600;
-  line-height: 1.15;
+  font-size: 0.66rem;
+  line-height: 1.2;
   text-align: center;
-  padding: 0.06rem 0.34rem;
-  border-radius: 8px;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
-  color: color-mix(in srgb, var(--accent) 62%, var(--text));
+  color: color-mix(in srgb, var(--muted) 70%, var(--text));
 }
 .encounter-slot-time-only {
-  background: color-mix(in srgb, var(--warning-strong) 24%, transparent);
-  color: color-mix(in srgb, var(--warning-strong) 66%, var(--text));
+  font-weight: 600;
+  padding: 0.05rem 0.36rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--warning-strong) 22%, transparent);
+  color: color-mix(in srgb, var(--warning-strong) 70%, var(--text));
+  white-space: nowrap;
 }
 /* Dupes-clause species: still shown so the player sees what lives here, but
    dimmed and non-catchable (the clause stands). Reason surfaces in the tag +

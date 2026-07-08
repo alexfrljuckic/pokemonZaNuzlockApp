@@ -43,6 +43,9 @@ function groupForMethod(method: string): GroupKey {
 type Period = 'morning' | 'day' | 'night';
 const PERIODS: Period[] = ['morning', 'day', 'night'];
 const PERIOD_LABEL: Record<Period, string> = { morning: 'Morning', day: 'Day', night: 'Night' };
+// compact glyphs keep the chip to one line in the ~84px slot; full words go in
+// the tooltip/aria label.
+const PERIOD_ICON: Record<Period, string> = { morning: '🌅', day: '☀️', night: '🌙' };
 
 type GroupEntry = {
   species: string;
@@ -61,12 +64,13 @@ type GroupEntry = {
 type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
 
 /** Time-of-day summary for a species card. null when it spawns anytime at one
- * rate (no time relevance). Otherwise a clear label — emphasising "only" when
- * the species is time-exclusive (can't be caught at other times). */
+ * rate (no time relevance). Otherwise a concise, icon-based label (full words in
+ * `title`) — flagged `restricted` when the species is time-exclusive (can't be
+ * caught at other times). */
 export function timeChip(
   byPeriod: Partial<Record<Period, number | undefined>>,
   hasTime: boolean,
-): { text: string; restricted: boolean } | null {
+): { text: string; title: string; restricted: boolean } | null {
   if (!hasTime) return null;
   const present = PERIODS.filter((p) => byPeriod[p] != null);
   if (present.length === 0) return null;
@@ -81,10 +85,14 @@ export function timeChip(
     if (!byRate.has(r)) byRate.set(r, []);
     byRate.get(r)!.push(p);
   }
-  const seg = ([rate, ps]: [number | undefined, Period[]]) =>
+  const groups = [...byRate.entries()];
+  const iconSeg = ([rate, ps]: [number | undefined, Period[]]) =>
+    `${ps.map((p) => PERIOD_ICON[p]).join('')}${rate != null ? ` ${rate}%` : ''}`;
+  const wordSeg = ([rate, ps]: [number | undefined, Period[]]) =>
     `${ps.map((p) => PERIOD_LABEL[p]).join('/')}${rate != null ? ` ${rate}%` : ''}`;
-  const segs = [...byRate.entries()].map(seg).join(' · ');
-  return { text: restricted ? `Only ${segs}` : segs, restricted };
+  const text = groups.map(iconSeg).join(' · ');
+  const words = groups.map(wordSeg).join(' · ');
+  return { text: restricted ? `only ${text}` : text, title: restricted ? `Only ${words}` : words, restricted };
 }
 
 /** Human-readable reason a species can't be caught, for the dimmed card's
@@ -210,11 +218,11 @@ export function EncounterForm({
                   aria-label={
                     disabled
                       ? `${entry.species} — ${entry.unavailable}`
-                      : `${entry.species} (${group.label})${time ? ` — ${time.restricted ? 'only ' : ''}${time.text.replace(/^Only /, '')}` : ''}`
+                      : `${entry.species} (${group.label})${time ? ` — ${time.title}` : ''}`
                   }
                   className={`encounter-slot${selected ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
                   onClick={disabled ? undefined : () => setSpecies(entry.species)}
-                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''}${time ? ` · ${time.text}` : ''})`}
+                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''}${time ? ` · ${time.title}` : ''})`}
                 >
                   <SpriteImg species={entry.species} size={72} shiny={shiny} />
                   <span className="encounter-slot-name">{entry.species}</span>
@@ -229,7 +237,10 @@ export function EncounterForm({
                   ) : time ? (
                     // time-varying / time-exclusive: the chip carries the per-period
                     // rates, so it replaces the plain rate line
-                    <span className={`encounter-slot-time${time.restricted ? ' encounter-slot-time-only' : ''}`}>
+                    <span
+                      className={`encounter-slot-time${time.restricted ? ' encounter-slot-time-only' : ''}`}
+                      title={time.title}
+                    >
                       {time.text}
                     </span>
                   ) : (
