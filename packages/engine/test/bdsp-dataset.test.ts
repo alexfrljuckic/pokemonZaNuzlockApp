@@ -32,7 +32,7 @@ describe('BDSP dataset', () => {
     expect(dataset.gameId).toBe('bdsp');
     expect(dataset.versions).toEqual(['brilliant-diamond', 'shining-pearl']);
     expect(dataset.areas.length).toBeGreaterThan(40);
-    expect(dataset.milestones).toHaveLength(16);
+    expect(dataset.milestones).toHaveLength(18);
   });
 
   it('respects version-exclusive encounters: Lost Tower Murkrow is BD-only, Misdreavus is SP-only', () => {
@@ -197,15 +197,18 @@ describe('BDSP dataset', () => {
   });
 
   it('does not let rival battles gate the enforced level cap (BACKLOG item 12)', () => {
-    // All 3 Barry milestones are flagged countsForLevelCap: false, and still render
-    // with full rosters (informational), but nextBoss() must skip past Barry (Lv 9)
-    // to the first real cap-gating battle: Roark (Lv 14).
+    // All 5 Barry milestones (Route 203, Hearthome, Pastoria, Canalave, Pokémon
+    // League) are flagged countsForLevelCap: false, and still render with full
+    // rosters + per-starter variants (informational), but nextBoss() must skip
+    // past Barry (Lv 9) to the first real cap-gating battle: Roark (Lv 14).
     const barryMilestones = dataset.milestones.filter((m) => m.id.startsWith('rival-') && m.id.endsWith('-barry'));
-    expect(barryMilestones).toHaveLength(3);
+    expect(barryMilestones).toHaveLength(5);
     for (const barry of barryMilestones) {
       expect(barry.countsForLevelCap).toBe(false);
       expect(barry.roster).toBeDefined();
       expect(barry.roster!.length).toBeGreaterThan(0);
+      // rival rosters are starter-dependent — every Barry fight carries variants
+      expect((barry as { rosterByStarter?: unknown }).rosterByStarter).toBeDefined();
     }
 
     const events: RunEvent[] = [
