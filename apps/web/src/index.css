@@ -3332,18 +3332,22 @@ button.back-icon:hover:not(:disabled) {
   stroke-width: 3;
   transition: fill 0.15s ease, fill-opacity 0.15s ease, stroke 0.15s ease;
 }
-/* available: faint tint so open areas are spottable, stronger on hover */
+/* available: a tint PLUS a visible outline so every open area is spottable at
+   rest against busy backdrops (not just the frontier ones), stronger on hover */
 .route-region-available {
   cursor: pointer;
 }
 .route-region-available .route-region {
   fill: var(--highlight);
-  fill-opacity: 0.16;
+  fill-opacity: 0.18;
+  stroke: var(--highlight);
+  stroke-opacity: 0.65;
 }
 .route-region-available:hover .route-region,
 .route-region-available:focus .route-region {
   fill-opacity: 0.34;
   stroke: #fff;
+  stroke-opacity: 1;
 }
 /* locked: invisible at rest, dims gently on hover */
 .route-region-locked .route-region {
@@ -3361,15 +3365,21 @@ button.back-icon:hover:not(:disabled) {
 }
 .route-region-caught .route-region {
   fill: var(--success);
-  fill-opacity: 0.12;
+  fill-opacity: 0.14;
+  stroke: var(--success);
+  stroke-opacity: 0.5;
 }
 .route-region-failed .route-region {
   fill: var(--danger);
-  fill-opacity: 0.12;
+  fill-opacity: 0.14;
+  stroke: var(--danger);
+  stroke-opacity: 0.5;
 }
 .route-region-skipped .route-region {
   fill: #000;
   fill-opacity: 0.1;
+  stroke: var(--muted);
+  stroke-opacity: 0.5;
 }
 .route-region-caught:hover .route-region,
 .route-region-failed:hover .route-region,
