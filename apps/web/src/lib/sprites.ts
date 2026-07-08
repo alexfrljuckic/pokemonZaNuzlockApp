@@ -65,6 +65,11 @@ export function itemSpriteUrl(item: string): string {
 // Showdown trainer-sprite keys that don't match the milestone id's trailer.
 const TRAINER_ALIAS: Record<string, string> = {
   wake: 'crasherwake',
+  // Radical Red (Kanto/FireRed) uses bare Kanto E4 + Lt. Surge ids; Showdown
+  // files them under different keys (gen-1 variants / the "lt" prefix).
+  surge: 'ltsurge',
+  lorelei: 'lorelei-gen1',
+  agatha: 'agatha-gen1',
 };
 
 /** Best-effort Showdown trainer key from a milestone id (e.g. `gym-1-roark`

@@ -8452,7 +8452,8 @@
           ],
           "ability": "anger-shell"
         }
-      ]
+      ],
+      "species": "klawf"
     },
     {
       "id": "gym-2-brassius",
@@ -8508,7 +8509,8 @@
           ],
           "ability": "rocky-payload"
         }
-      ]
+      ],
+      "species": "bombirdier"
     },
     {
       "id": "star-boss-giacomo",
@@ -8636,7 +8638,8 @@
           ],
           "ability": "earth-eater"
         }
-      ]
+      ],
+      "species": "orthworm"
     },
     {
       "id": "gym-4-kofu",
@@ -8890,7 +8893,8 @@
           ],
           "ability": "protosynthesis"
         }
-      ]
+      ],
+      "species": "great-tusk"
     },
     {
       "id": "quaking-earth-titan-violet",
@@ -8914,7 +8918,8 @@
           ],
           "ability": "quark-drive"
         }
-      ]
+      ],
+      "species": "iron-treads"
     },
     {
       "id": "gym-8-grusha",
@@ -9110,7 +9115,8 @@
           ],
           "ability": "commander"
         }
-      ]
+      ],
+      "species": "dondozo"
     },
     {
       "id": "e4-rika",

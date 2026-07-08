@@ -2358,7 +2358,8 @@
           "species": "scraggy",
           "level": 17
         }
-      ]
+      ],
+      "trainerSprite": "naveen"
     },
     {
       "id": "xavi",
@@ -2506,7 +2507,8 @@
             "level": 26
           }
         ]
-      }
+      },
+      "trainerSprite": "urbain"
     },
     {
       "id": "rogue-slowbro",
@@ -2596,7 +2598,8 @@
           "species": "scraggy",
           "level": 33
         }
-      ]
+      ],
+      "trainerSprite": "naveen"
     },
     {
       "id": "rogue-beedrill",
@@ -2725,7 +2728,8 @@
       "name": "Naveen (Mega Scrafty)",
       "type": "rival",
       "order": 23,
-      "aceLevel": 28
+      "aceLevel": 28,
+      "trainerSprite": "naveen"
     },
     {
       "id": "rogue-froslass",
@@ -2874,7 +2878,8 @@
       "name": "Urbain/Taunie (final)",
       "type": "rival",
       "order": 33,
-      "aceLevel": 63
+      "aceLevel": 63,
+      "trainerSprite": "urbain"
     },
     {
       "id": "gauntlet",
