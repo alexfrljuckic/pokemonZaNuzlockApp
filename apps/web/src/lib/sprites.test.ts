@@ -103,4 +103,11 @@ describe('trainerKeyFromMilestone', () => {
     expect(trainerKeyFromMilestone('gym-1-roark')).toBe('roark');
     expect(trainerKeyFromMilestone('gym-4-wake')).toBe('crasherwake');
   });
+
+  it('remaps Radical Red Kanto E4 / Lt. Surge ids to their Showdown keys', () => {
+    // bare "surge"/"lorelei"/"agatha" 404 on the CDN; these variants return 200.
+    expect(trainerKeyFromMilestone('gym-3-surge')).toBe('ltsurge');
+    expect(trainerKeyFromMilestone('e4-lorelei')).toBe('lorelei-gen1');
+    expect(trainerKeyFromMilestone('e4-agatha')).toBe('agatha-gen1');
+  });
 });
