@@ -3,7 +3,26 @@ import { describe, expect, it } from 'vitest';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import type { ClassifiedEncounter } from '@nuzlocke/engine';
-import { EncounterForm } from './EncounterForm';
+import { EncounterForm, timeChip } from './EncounterForm';
+
+describe('timeChip (time-of-day summary)', () => {
+  it('flags a time-exclusive spawn with "Only …"', () => {
+    expect(timeChip({ night: 10 }, true)).toEqual({ text: 'Only Night 10%', restricted: true });
+    expect(timeChip({ morning: 30, night: 30 }, true)).toEqual({ text: 'Only Morning/Night 30%', restricted: true });
+  });
+
+  it('shows per-period rates when a species spawns all day but rates vary', () => {
+    expect(timeChip({ morning: 30, day: 40, night: 30 }, true)).toEqual({
+      text: 'Morning/Night 30% · Day 40%',
+      restricted: false,
+    });
+  });
+
+  it('returns null when there is no time relevance', () => {
+    expect(timeChip({}, false)).toBeNull(); // no time condition at all
+    expect(timeChip({ morning: 40, day: 40, night: 40 }, true)).toBeNull(); // all day, one rate
+  });
+});
 
 (globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true;
 

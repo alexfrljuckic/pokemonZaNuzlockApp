@@ -1342,6 +1342,23 @@ button.item-chip.item-picked .item-access {
   color: color-mix(in srgb, var(--accent) 60%, var(--text));
   white-space: nowrap;
 }
+/* Time-of-day chip: per-period spawn rates for time-varying species. The
+   "-only" variant flags a time-EXCLUSIVE spawn (can't be caught otherwise) in
+   a warning colour so it's unmistakable. */
+.encounter-slot-time {
+  font-size: 0.64rem;
+  font-weight: 600;
+  line-height: 1.15;
+  text-align: center;
+  padding: 0.06rem 0.34rem;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  color: color-mix(in srgb, var(--accent) 62%, var(--text));
+}
+.encounter-slot-time-only {
+  background: color-mix(in srgb, var(--warning-strong) 24%, transparent);
+  color: color-mix(in srgb, var(--warning-strong) 66%, var(--text));
+}
 /* Dupes-clause species: still shown so the player sees what lives here, but
    dimmed and non-catchable (the clause stands). Reason surfaces in the tag +
    title/aria-label. Uses theme vars only — no hardcoded colors. */
