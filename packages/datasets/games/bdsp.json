@@ -3333,6 +3333,20 @@
               "level": 15
             }
           ]
+        },
+        {
+          "name": "Jupiter",
+          "class": "Commander",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 18
+            },
+            {
+              "species": "skuntank",
+              "level": 20
+            }
+          ]
         }
       ],
       "items": [
