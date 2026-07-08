@@ -40,6 +40,10 @@ function groupForMethod(method: string): GroupKey {
 /** One species within one group: keeps the per-sub-method rates so nothing is
  * merged away (e.g. Fishing → good-rod 55% · super-rod 40%). `unavailable` is
  * set (dupes reason) only when the species is excluded — dimmed but shown. */
+type Period = 'morning' | 'day' | 'night';
+const PERIODS: Period[] = ['morning', 'day', 'night'];
+const PERIOD_LABEL: Record<Period, string> = { morning: 'Morning', day: 'Day', night: 'Night' };
+
 type GroupEntry = {
   species: string;
   /** sub-method → its own rate, in first-seen order, within this group only */
@@ -47,9 +51,41 @@ type GroupEntry = {
   unavailable?: string;
   /** Grand Underground progression tier (BDSP hideaways), display-only. */
   tier?: number;
+  /** time-of-day → spawn rate, for species that only appear (or appear at a
+   * different rate) at certain times. A period absent here = doesn't spawn then. */
+  byPeriod: Partial<Record<Period, number | undefined>>;
+  /** true when any slot carried a time-of-day condition (else appears anytime). */
+  hasTime: boolean;
 };
 
 type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
+
+/** Time-of-day summary for a species card. null when it spawns anytime at one
+ * rate (no time relevance). Otherwise a clear label — emphasising "only" when
+ * the species is time-exclusive (can't be caught at other times). */
+export function timeChip(
+  byPeriod: Partial<Record<Period, number | undefined>>,
+  hasTime: boolean,
+): { text: string; restricted: boolean } | null {
+  if (!hasTime) return null;
+  const present = PERIODS.filter((p) => byPeriod[p] != null);
+  if (present.length === 0) return null;
+  const rates = new Set(present.map((p) => byPeriod[p]));
+  // appears every period at one rate → not actually time-relevant
+  if (present.length === 3 && rates.size === 1) return null;
+  const restricted = present.length < 3;
+  // group periods that share a rate, e.g. Morning+Night both 30%
+  const byRate = new Map<number | undefined, Period[]>();
+  for (const p of present) {
+    const r = byPeriod[p];
+    if (!byRate.has(r)) byRate.set(r, []);
+    byRate.get(r)!.push(p);
+  }
+  const seg = ([rate, ps]: [number | undefined, Period[]]) =>
+    `${ps.map((p) => PERIOD_LABEL[p]).join('/')}${rate != null ? ` ${rate}%` : ''}`;
+  const segs = [...byRate.entries()].map(seg).join(' · ');
+  return { text: restricted ? `Only ${segs}` : segs, restricted };
+}
 
 /** Human-readable reason a species can't be caught, for the dimmed card's
  * label/tooltip/aria. Species-scope and evolution-line-scope read differently. */
@@ -93,12 +129,17 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       }
       const cur =
         bucket.get(slot.species) ??
-        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier } as GroupEntry & {
+        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier, byPeriod: {}, hasTime: false } as GroupEntry & {
           available: boolean;
         });
       if (!cur.subMethods.some((s) => s.method === method)) {
         cur.subMethods.push({ method, rate: slot.rate });
       }
+      // time-of-day: a slot with conditions.time spawns only in those periods;
+      // no condition = spawns any time (fills all periods at this rate).
+      const times = (slot.conditions?.time as Period[] | undefined) ?? PERIODS;
+      if (slot.conditions?.time?.length) cur.hasTime = true;
+      for (const p of times) if (cur.byPeriod[p] == null) cur.byPeriod[p] = slot.rate;
       if (available) cur.available = true;
       else if (cur.unavailable === undefined) cur.unavailable = reasonText(reason, scope);
       bucket.set(slot.species, cur);
@@ -107,11 +148,13 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
   return GROUP_ORDER.filter((key) => acc.has(key)).map((key) => ({
     key,
     label: GROUP_LABEL[key],
-    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier }) => ({
+    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier, byPeriod, hasTime }) => ({
       species,
       subMethods,
       unavailable: available ? undefined : unavailable,
       tier,
+      byPeriod,
+      hasTime,
     })),
   }));
 }
@@ -154,6 +197,7 @@ export function EncounterForm({
             {group.entries.map((entry) => {
               const disabled = Boolean(entry.unavailable);
               const rateLabel = subMethodLabel(group.key, entry.subMethods);
+              const time = timeChip(entry.byPeriod, entry.hasTime);
               const selected = entry.species === species;
               const tierLabel = tierBadge(entry.tier);
               return (
@@ -163,10 +207,14 @@ export function EncounterForm({
                   type="button"
                   disabled={disabled}
                   aria-disabled={disabled}
-                  aria-label={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label})`}
+                  aria-label={
+                    disabled
+                      ? `${entry.species} — ${entry.unavailable}`
+                      : `${entry.species} (${group.label})${time ? ` — ${time.restricted ? 'only ' : ''}${time.text.replace(/^Only /, '')}` : ''}`
+                  }
                   className={`encounter-slot${selected ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
                   onClick={disabled ? undefined : () => setSpecies(entry.species)}
-                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''})`}
+                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''}${time ? ` · ${time.text}` : ''})`}
                 >
                   <SpriteImg species={entry.species} size={72} shiny={shiny} />
                   <span className="encounter-slot-name">{entry.species}</span>
@@ -178,6 +226,12 @@ export function EncounterForm({
                   )}
                   {disabled ? (
                     <span className="encounter-slot-unavailable-tag muted">{entry.unavailable}</span>
+                  ) : time ? (
+                    // time-varying / time-exclusive: the chip carries the per-period
+                    // rates, so it replaces the plain rate line
+                    <span className={`encounter-slot-time${time.restricted ? ' encounter-slot-time-only' : ''}`}>
+                      {time.text}
+                    </span>
                   ) : (
                     rateLabel && <span className="encounter-slot-method muted">{rateLabel}</span>
                   )}
