@@ -3504,6 +3504,17 @@ button.back-icon:hover:not(:disabled) {
   white-space: nowrap;
 }
 
+/* BDSP Grand Underground alt-map toggle — a single centered button above the
+   Sinnoh map (distinct from PLA's multi-zone chip row). */
+.underground-toggle {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 0.5rem;
+}
+.underground-toggle button {
+  white-space: nowrap;
+}
+
 .route-tip {
   position: absolute;
   transform: translate(-50%, calc(-100% - 10px));

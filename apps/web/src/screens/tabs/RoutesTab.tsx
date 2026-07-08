@@ -120,6 +120,14 @@ export function RoutesTab({
   const zoneMap = activeZone ? ZONE_MAPS[ctx.dataset.gameId]?.[activeZone] : undefined;
   const activeMap = zoneMap ?? map;
   const { hasMapNode } = mapHelpers(activeMap);
+
+  // BDSP's Grand Underground is an alternate map toggled ON TOP of the Sinnoh
+  // overworld — not a full zone game like PLA (no zone: tags), so it gets a
+  // dedicated toggle instead of zone-selector nodes. Available when the game
+  // registers a 'grand-underground' alt-map and isn't already zone-moded.
+  const undergroundAvailable = !zoneMode && Boolean(ZONE_MAPS[ctx.dataset.gameId]?.['grand-underground']);
+  const undergroundActive = undergroundAvailable && activeZone === 'grand-underground';
+  const isUnderground = (a: Area) => a.tags.includes('grand-underground');
   // Portrait maps (Galar is 1:1.95) are height-capped on desktop and would
   // leave the stage's width empty — the side content moves next to them.
   const portrait = activeMap.viewBox.h / activeMap.viewBox.w > 1.15;
@@ -128,12 +136,20 @@ export function RoutesTab({
     ? activeZone
       ? areas.filter((a) => zoneIdOf(a) === activeZone && !hasMapNode(a.id))
       : areas.filter((a) => !zoneIdOf(a) && !hasMapNode(a.id))
-    : areas.filter((a) => !hasMapNode(a.id));
+    : undergroundActive
+      // underground map is showing: list only its non-node extras (the parent
+      // Grand Underground / fossil dig site — the 18 hideaways ARE nodes)
+      ? areas.filter((a) => isUnderground(a) && !hasMapNode(a.id))
+      // Sinnoh overworld: keep underground areas OFF this list — they live on
+      // the toggled underground map, not the "Other areas" spillover
+      : areas.filter((a) => !hasMapNode(a.id) && !(undergroundAvailable && isUnderground(a)));
   const offMapTitle = zoneMode && activeZone
     ? zoneMap
       ? `More in ${zoneNameOf(activeZone)}`
       : zoneNameOf(activeZone)
-    : 'Other areas';
+    : undergroundActive
+      ? 'More in the Grand Underground'
+      : 'Other areas';
 
   function selectZone(zoneId: string) {
     setActiveZone((cur) => (cur === zoneId ? null : zoneId));
@@ -158,9 +174,19 @@ export function RoutesTab({
           {zoneMap && activeZone && (
             <div className="zone-map-head">
               <button type="button" className="secondary zone-back" onClick={() => setActiveZone(null)}>
-                ← All zones
+                {zoneMode ? '← All zones' : '← Back to Sinnoh'}
               </button>
               <h3 className="route-offmap-title">{zoneNameOf(activeZone)}</h3>
+            </div>
+          )}
+
+          {/* BDSP: toggle into the Grand Underground alt-map (its hideaways are
+              the clickable nodes there). Hidden while it's already showing. */}
+          {undergroundAvailable && !undergroundActive && (
+            <div className="underground-toggle">
+              <button type="button" className="secondary" onClick={() => selectZone('grand-underground')}>
+                ⛏ View Grand Underground
+              </button>
             </div>
           )}
 
