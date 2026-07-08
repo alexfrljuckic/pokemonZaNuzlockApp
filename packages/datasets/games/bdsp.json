@@ -558,6 +558,26 @@
               "level": 17
             }
           ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 9
+            }
+          ]
+        },
+        {
+          "name": "Grunt",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "zubat",
+              "level": 9
+            }
+          ]
         }
       ],
       "items": [
@@ -2808,6 +2828,42 @@
           ],
           "rate": 5
         }
+      ],
+      "trainers": [
+        {
+          "name": "Dillan",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "machop",
+              "level": 31
+            },
+            {
+              "species": "machoke",
+              "level": 31
+            }
+          ]
+        },
+        {
+          "name": "Holden",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "steelix",
+              "level": 33
+            }
+          ]
+        },
+        {
+          "name": "Conrad",
+          "class": "Worker",
+          "team": [
+            {
+              "species": "rapidash",
+              "level": 33
+            }
+          ]
+        }
       ]
     },
     {
@@ -4546,6 +4602,26 @@
         {
           "name": "Rare Candy"
         }
+      ],
+      "trainers": [
+        {
+          "name": "Karl",
+          "class": "Ruin Maniac",
+          "team": [
+            {
+              "species": "geodude",
+              "level": 16
+            },
+            {
+              "species": "geodude",
+              "level": 17
+            },
+            {
+              "species": "bronzor",
+              "level": 18
+            }
+          ]
+        }
       ]
     },
     {
@@ -5133,6 +5209,36 @@
             {
               "species": "pelipper",
               "level": 30
+            }
+          ]
+        },
+        {
+          "name": "Morimoto",
+          "class": "GAME FREAK",
+          "team": [
+            {
+              "species": "spiritomb",
+              "level": 63
+            },
+            {
+              "species": "ambipom",
+              "level": 64
+            },
+            {
+              "species": "hippowdon",
+              "level": 64
+            },
+            {
+              "species": "vaporeon",
+              "level": 65
+            },
+            {
+              "species": "jolteon",
+              "level": 65
+            },
+            {
+              "species": "flareon",
+              "level": 65
             }
           ]
         }
@@ -6821,6 +6927,72 @@
               "ability": "dry-skin"
             }
           ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "glameow",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 32
+            },
+            {
+              "species": "cascoon",
+              "level": 34
+            },
+            {
+              "species": "dustox",
+              "level": 36
+            }
+          ]
+        },
+        {
+          "name": "Fredrick",
+          "class": "Scientist",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 35
+            },
+            {
+              "species": "kadabra",
+              "level": 35
+            }
+          ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "stunky",
+              "level": 37
+            }
+          ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "bronzor",
+              "level": 36
+            },
+            {
+              "species": "stunky",
+              "level": 36
+            }
+          ]
         }
       ],
       "items": [
@@ -7888,10 +8060,6 @@
             {
               "species": "beautifly",
               "level": 40
-            },
-            {
-              "species": "bronzor",
-              "level": 39
             }
           ]
         },
@@ -8132,6 +8300,62 @@
               ],
               "ability": "pickpocket",
               "heldItem": "chople-berry"
+            }
+          ]
+        },
+        {
+          "name": "Grunt (3F, single Bronzor)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "bronzor",
+              "level": 39
+            }
+          ]
+        },
+        {
+          "name": "Grunt (Tunnel room)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 40
+            }
+          ]
+        },
+        {
+          "name": "Grunt (Tunnel room)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "wurmple",
+              "level": 34
+            },
+            {
+              "species": "silcoon",
+              "level": 36
+            },
+            {
+              "species": "beautifly",
+              "level": 38
+            }
+          ]
+        },
+        {
+          "name": "Grunt (Tunnel room)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "croagunk",
+              "level": 35
+            },
+            {
+              "species": "stunky",
+              "level": 38
+            },
+            {
+              "species": "croagunk",
+              "level": 38
             }
           ]
         }
@@ -9212,6 +9436,46 @@
           "team": [
             {
               "species": "luxio",
+              "level": 19
+            }
+          ]
+        },
+        {
+          "name": "Shelley",
+          "class": "Cowgirl",
+          "team": [
+            {
+              "species": "bidoof",
+              "level": 14
+            },
+            {
+              "species": "bidoof",
+              "level": 15
+            },
+            {
+              "species": "bidoof",
+              "level": 16
+            },
+            {
+              "species": "bidoof",
+              "level": 15
+            },
+            {
+              "species": "bidoof",
+              "level": 15
+            }
+          ]
+        },
+        {
+          "name": "Ty & Sue",
+          "class": "Young Couple",
+          "team": [
+            {
+              "species": "machop",
+              "level": 19
+            },
+            {
+              "species": "meditite",
               "level": 19
             }
           ]
@@ -14303,6 +14567,214 @@
               "level": 49
             }
           ]
+        },
+        {
+          "name": "Micah",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "bibarel",
+              "level": 54
+            },
+            {
+              "species": "rapidash",
+              "level": 54
+            },
+            {
+              "species": "beautifly",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Brandi",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "pachirisu",
+              "level": 54
+            },
+            {
+              "species": "azumarill",
+              "level": 54
+            },
+            {
+              "species": "blissey",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Desiree",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 54
+            },
+            {
+              "species": "kadabra",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Landon",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "mr-mime",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Eddie",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 52
+            },
+            {
+              "species": "machamp",
+              "level": 58
+            }
+          ]
+        },
+        {
+          "name": "Terrell",
+          "class": "Veteran",
+          "team": [
+            {
+              "species": "kricketune",
+              "level": 54
+            },
+            {
+              "species": "quagsire",
+              "level": 54
+            },
+            {
+              "species": "gengar",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Joe",
+          "class": "Dragon Tamer",
+          "team": [
+            {
+              "species": "gabite",
+              "level": 56
+            },
+            {
+              "species": "gyarados",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Autumn",
+          "class": "Bird Keeper",
+          "team": [
+            {
+              "species": "murkrow",
+              "level": 53
+            },
+            {
+              "species": "honchkrow",
+              "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Deandre",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "girafarig",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Kendra",
+          "class": "Psychic",
+          "team": [
+            {
+              "species": "chingling",
+              "level": 53
+            },
+            {
+              "species": "chimecho",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "name": "Willie",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "onix",
+              "level": 54
+            },
+            {
+              "species": "machamp",
+              "level": 56
+            }
+          ]
+        },
+        {
+          "name": "Brenden",
+          "class": "Veteran",
+          "team": [
+            {
+              "species": "purugly",
+              "level": 54
+            },
+            {
+              "species": "graveler",
+              "level": 54
+            },
+            {
+              "species": "golbat",
+              "level": 54
+            }
+          ]
+        },
+        {
+          "name": "Arthur",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "raichu",
+              "level": 55
+            },
+            {
+              "species": "gastrodon",
+              "level": 55
+            }
+          ]
+        },
+        {
+          "name": "Clarice",
+          "class": "Ace Trainer",
+          "team": [
+            {
+              "species": "lopunny",
+              "level": 54
+            },
+            {
+              "species": "pelipper",
+              "level": 54
+            },
+            {
+              "species": "quagsire",
+              "level": 54
+            }
+          ]
         }
       ],
       "items": [
@@ -16795,6 +17267,22 @@
             {
               "species": "dragonair",
               "level": 57
+            }
+          ]
+        },
+        {
+          "name": "Jarrett",
+          "class": "Black Belt",
+          "team": [
+            {
+              "species": "machamp",
+              "level": 59,
+              "moves": [
+                "cross-chop",
+                "fire-punch",
+                "ice-punch",
+                "thunder-punch"
+              ]
             }
           ]
         }
