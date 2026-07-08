@@ -84,6 +84,13 @@ export interface EncounterSlot {
   species: string;            // PokeAPI species slug, e.g. "mr-mime"
   methods: string[];          // "walk" | "surf" | "fish" | game-specific
   rate?: number;              // percent or weight, per dataset convention
+  /** Progression tier at which this slot first becomes available, for areas
+   * (BDSP Grand Underground hideaways) whose pool grows in fixed steps.
+   * 1 = base, 2 = +Strength(TM96), 3 = +Defog(TM97), 4 = +Icicle Badge,
+   * 5 = +Waterfall(TM99), 6 = +National Dex. DISPLAY-ONLY — the engine never
+   * gates on it (the app can't know the player's TM/Dex progress), it's
+   * labelled like an honor rule. Absent = base (always available). */
+  tier?: number;
   conditions?: {
     version?: string[];
     time?: string[];

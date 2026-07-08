@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { ClassifiedEncounter, EncounterSlot, RunState } from '@nuzlocke/engine';
 import { typesFor } from '../../lib/speciesData';
+import { tierBadge, tierHint } from '../../lib/undergroundTiers';
 import { CatchFields, clampLevel } from '../CatchFields';
 import { SpriteImg } from '../SpriteImg';
 import { TypeBadges } from '../TypeBadge';
@@ -44,6 +45,8 @@ type GroupEntry = {
   /** sub-method → its own rate, in first-seen order, within this group only */
   subMethods: { method: string; rate?: number }[];
   unavailable?: string;
+  /** Grand Underground progression tier (BDSP hideaways), display-only. */
+  tier?: number;
 };
 
 type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
@@ -90,7 +93,7 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       }
       const cur =
         bucket.get(slot.species) ??
-        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined } as GroupEntry & {
+        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier } as GroupEntry & {
           available: boolean;
         });
       if (!cur.subMethods.some((s) => s.method === method)) {
@@ -104,10 +107,11 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
   return GROUP_ORDER.filter((key) => acc.has(key)).map((key) => ({
     key,
     label: GROUP_LABEL[key],
-    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable }) => ({
+    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier }) => ({
       species,
       subMethods,
       unavailable: available ? undefined : unavailable,
+      tier,
     })),
   }));
 }
@@ -151,6 +155,7 @@ export function EncounterForm({
               const disabled = Boolean(entry.unavailable);
               const rateLabel = subMethodLabel(group.key, entry.subMethods);
               const selected = entry.species === species;
+              const tierLabel = tierBadge(entry.tier);
               return (
                 <button
                   // key is group-scoped so a species in two groups gets two cards
@@ -166,6 +171,11 @@ export function EncounterForm({
                   <SpriteImg species={entry.species} size={72} shiny={shiny} />
                   <span className="encounter-slot-name">{entry.species}</span>
                   <TypeBadges types={typesFor(entry.species, gameId)} />
+                  {tierLabel && (
+                    <span className="encounter-slot-tier" title={tierHint(entry.tier) ?? undefined}>
+                      {tierLabel}
+                    </span>
+                  )}
                   {disabled ? (
                     <span className="encounter-slot-unavailable-tag muted">{entry.unavailable}</span>
                   ) : (

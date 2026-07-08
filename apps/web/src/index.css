@@ -1295,6 +1295,19 @@ button.item-chip.item-picked .item-access {
   font-size: 0.72rem;
   color: color-mix(in srgb, var(--muted) 70%, var(--text));
 }
+/* Grand Underground progression-tier badge — an honor-style label ("Nat'l
+   Dex", "Icicle Badge", …) marking a slot the player can't reach yet. */
+.encounter-slot-tier {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 0.05rem 0.32rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  color: color-mix(in srgb, var(--accent) 60%, var(--text));
+  white-space: nowrap;
+}
 /* Dupes-clause species: still shown so the player sees what lives here, but
    dimmed and non-catchable (the clause stands). Reason surfaces in the tag +
    title/aria-label. Uses theme vars only — no hardcoded colors. */
