@@ -40,6 +40,12 @@
                 "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
                 "methods": { "type": "array", "minItems": 1, "items": { "type": "string" } },
                 "rate": { "type": "number", "minimum": 0 },
+                "tier": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 6,
+                  "description": "Progression tier at which this slot first becomes available (BDSP Grand Underground hideaways only): 1 base, 2 +Strength(TM96), 3 +Defog(TM97), 4 +Icicle Badge, 5 +Waterfall(TM99), 6 +National Dex. Display-only label — the engine never gates on it. Omit for tier-1/base slots."
+                },
                 "conditions": {
                   "type": "object",
                   "additionalProperties": { "type": "array", "items": { "type": "string" } }
