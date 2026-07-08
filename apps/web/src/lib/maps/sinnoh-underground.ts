@@ -15,6 +15,9 @@ export const SINNOH_UNDERGROUND_MAP: GameMap = {
   viewBox: { w: 1267, h: 900 },
   backdropSrc: '/maps/bdspUnderground.jpg',
   ariaLabel: 'BDSP Grand Underground map',
+  // the community item-guide backdrop is busy — highlight every unresolved
+  // hideaway so the small nodes are easy to spot.
+  highlightAllNodes: true,
   nodes: [
     { id: 'grand-underground-rocky-cave', x: 280, y: 106, w: 52, h: 46, kind: 'cave' },
     { id: 'grand-underground-big-bluff-cavern', x: 545, y: 123, w: 52, h: 46, kind: 'cave' },

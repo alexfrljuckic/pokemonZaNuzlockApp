@@ -24,6 +24,10 @@ export interface GameMap {
    * whole map. Only worth it for maps whose shape makes the full view unhelpful
    * (Galar's landscape triptych). Other maps open fully zoomed-out. */
   autoZoomToFrontier?: boolean;
+  /** Highlight EVERY unresolved node, not just the sliding "up next" window.
+   * For maps with a busy backdrop where small nodes are hard to spot (BDSP's
+   * Grand Underground item-guide art). */
+  highlightAllNodes?: boolean;
 }
 
 export function mapHelpers(map: GameMap) {
