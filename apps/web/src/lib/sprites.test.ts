@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { spriteFallbackUrl, spriteUrl, trainerKeyFromClass, trainerKeyFromMilestone } from './sprites';
+import {
+  spriteFallbackUrl,
+  spriteUrl,
+  trainerKeyFromClass,
+  trainerKeyFromMilestone,
+  trainerSpriteKeyFor,
+} from './sprites';
 
 // Locks the Showdown sprite-key derivations: class names squash to a bare
 // lowercase key (diacritics stripped), milestone ids keep their alias table,
@@ -66,6 +72,29 @@ describe('trainerKeyFromClass', () => {
     expect(trainerKeyFromClass('Commander')).toBe('commander');
     expect(trainerKeyFromClass('Engineer')).toBe('engineer');
     expect(trainerKeyFromClass('Gamer')).toBe('gamer');
+  });
+});
+
+describe('trainerSpriteKeyFor', () => {
+  it('gives named Team Galactic bosses their character sprite (not the generic class)', () => {
+    // mars/jupiter/saturn/cyrus.png all return 200 on the Showdown CDN; their
+    // classes (Commander / Galactic Boss) do not.
+    expect(trainerSpriteKeyFor({ name: 'Mars', class: 'Commander' })).toBe('mars');
+    expect(trainerSpriteKeyFor({ name: 'Jupiter', class: 'Commander' })).toBe('jupiter');
+    expect(trainerSpriteKeyFor({ name: 'Saturn', class: 'Commander' })).toBe('saturn');
+    expect(trainerSpriteKeyFor({ name: 'Cyrus', class: 'Galactic Boss' })).toBe('cyrus');
+  });
+
+  it('drops the "(w/ Barry)" parenthetical when matching a character name', () => {
+    expect(trainerSpriteKeyFor({ name: 'Mars (w/ Barry)', class: 'Commander' })).toBe('mars');
+    expect(trainerSpriteKeyFor({ name: 'Jupiter (w/ Barry)', class: 'Commander' })).toBe('jupiter');
+  });
+
+  it('falls back to the class sprite for ordinary trainers', () => {
+    expect(trainerSpriteKeyFor({ name: 'Tristan', class: 'Youngster' })).toBe('youngster');
+    expect(trainerSpriteKeyFor({ name: 'Grunt', class: 'Team Galactic Grunt' })).toBe('galacticgrunt');
+    expect(trainerSpriteKeyFor({ class: 'Ace Trainer' })).toBe('acetrainer');
+    expect(trainerSpriteKeyFor({ name: 'Nobody' })).toBeUndefined();
   });
 });
 

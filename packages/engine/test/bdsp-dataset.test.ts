@@ -166,6 +166,36 @@ describe('BDSP dataset', () => {
     expect(pool(sp, 'grand-underground-stargleam-cavern')).toContain('gastly');
   });
 
+  it('tracks all 9 mandatory Team Galactic commander/boss battles with movesets', () => {
+    const galactic = dataset.areas.flatMap((a) =>
+      (a.trainers ?? [])
+        .filter((t) => /Commander|Galactic Boss/.test(t.class ?? ''))
+        .map((t) => ({ area: a.id, name: t.name, cls: t.class, team: t.team })),
+    );
+    // Mars ×3, Jupiter ×2, Saturn ×2, Cyrus ×2 = 9
+    expect(galactic).toHaveLength(9);
+    const count = (re: RegExp) => galactic.filter((g) => re.test(g.name)).length;
+    expect(count(/^Mars/)).toBe(3);
+    expect(count(/^Jupiter/)).toBe(2);
+    expect(count(/^Saturn/)).toBe(2);
+    expect(count(/^Cyrus/)).toBe(2);
+
+    // the three that were missing (first Cyrus + second Saturn at the Veilstone
+    // HQ, third Mars at Lake Verity) are present
+    const at = (area: string, name: RegExp) => galactic.find((g) => g.area === area && name.test(g.name));
+    expect(at('veilstone-city', /^Cyrus/)).toBeTruthy();
+    expect(at('veilstone-city', /^Saturn/)).toBeTruthy();
+    expect(at('lake-verity', /^Mars/)).toBeTruthy();
+
+    // every commander mon carries a documented 4-move set (not the expected-move fallback)
+    for (const g of galactic) {
+      for (const p of g.team) {
+        expect(p.moves, `${g.name} @ ${g.area}: ${p.species} should have documented moves`).toBeTruthy();
+        expect(p.moves!.length).toBe(4);
+      }
+    }
+  });
+
   it('does not let rival battles gate the enforced level cap (BACKLOG item 12)', () => {
     // All 3 Barry milestones are flagged countsForLevelCap: false, and still render
     // with full rosters (informational), but nextBoss() must skip past Barry (Lv 9)

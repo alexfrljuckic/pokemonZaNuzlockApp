@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Area, AreaTrainer, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { resolveTrainerMoves, typesFor } from '../../lib/speciesData';
-import { trainerKeyFromClass } from '../../lib/sprites';
+import { trainerSpriteKeyFor } from '../../lib/sprites';
 import { MoveChips } from '../MoveChips';
 import { SpriteImg } from '../SpriteImg';
 import { StatBars } from '../StatBars';
@@ -70,9 +70,12 @@ function TrainerCard({
           badges live in the expanded detail, like the Boss Fights cards). */}
       <div className="trainer-row-main">
         <div className="trainer-row-head">
-          {t.class && (
-            <TrainerSprite trainerKey={trainerKeyFromClass(t.class)} size={44} className="trainer-row-sprite" />
-          )}
+          {(() => {
+            const spriteKey = trainerSpriteKeyFor(t);
+            return spriteKey ? (
+              <TrainerSprite trainerKey={spriteKey} size={44} className="trainer-row-sprite" />
+            ) : null;
+          })()}
           <div className="trainer-row-title">
             <strong>{t.name}</strong>
             {t.class && <span className="muted">{t.class}</span>}
