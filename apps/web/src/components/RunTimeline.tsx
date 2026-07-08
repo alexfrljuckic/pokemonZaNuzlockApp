@@ -17,13 +17,15 @@ export function buildTimeline(
     .filter((x): x is { ev: RunEvent; item: DescribedEvent } => x.item != null);
 }
 
-// Filter chips over DescribedEvent.tone. "Misc" = wipes, run endings,
-// evolutions, next-boss picks — everything that isn't a catch/death/boss.
+// Filter chips over DescribedEvent.tone. "Bosses" = milestone_cleared only;
+// route trainers get their own "Trainers" chip. "Misc" = wipes, run endings,
+// evolutions, next-boss picks — everything that isn't a catch/death/boss/trainer.
 const FILTERS: { id: string; label: string; tones: DescribedEvent['tone'][] }[] = [
   { id: 'all', label: 'All', tones: [] },
   { id: 'catch', label: 'Catches', tones: ['catch'] },
   { id: 'faint', label: 'Deaths', tones: ['faint'] },
   { id: 'milestone', label: 'Bosses', tones: ['milestone'] },
+  { id: 'trainer', label: 'Trainers', tones: ['trainer'] },
   { id: 'misc', label: 'Misc', tones: ['wipe', 'neutral'] },
 ];
 

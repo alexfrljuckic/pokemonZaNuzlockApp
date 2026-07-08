@@ -1,25 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
-import {
-  boxed,
-  chosenStarter,
-  deriveState,
-  difficultyForPreset,
-  fallen,
-  milestoneRoster,
-  milestonesFor,
-  nextBoss,
-  party,
-  pendingWipeDecision,
-  type RunEvent,
-} from '@nuzlocke/engine';
+import { deriveState, pendingWipeDecision, type RunEvent } from '@nuzlocke/engine';
 import { DATASETS, speciesToLine } from '../lib/datasets';
 import { TAB_SLUGS, tabLabelForSlug, type TabSlug } from '../lib/route';
 import { fetchSharedRun, subscribeToRunChanges, type SharedRun } from '../lib/shareLinks';
-import { MilestoneCard } from '../components/MilestoneCard';
-import { MonCard } from '../components/MonCard';
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { RunTimeline } from '../components/RunTimeline';
+import { MilestonesTab } from './tabs/MilestonesTab';
+import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
+import { TeamBoxTab } from './tabs/TeamBoxTab';
 
 export function SpectatorView({
   token,
@@ -83,16 +72,7 @@ function SpectatorRun({
     return <p className="muted">Unsupported or empty run.</p>;
   }
 
-  const gameId = ctx.dataset.gameId;
   const events = shared.events as RunEvent[];
-  const team = party(state);
-  const box = boxed(state);
-  const graveyard = fallen(state);
-  const milestones = milestonesFor(ctx.dataset, state.version, state.ruleset).sort((a, b) => a.order - b.order);
-  const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
-  const boss = nextBoss(state, ctx);
-  const starter = chosenStarter(state);
-  const difficulty = difficultyForPreset(state.ruleset.presetId);
   const showWipeScreen = pendingWipeDecision(state);
 
   return (
@@ -131,75 +111,13 @@ function SpectatorRun({
         ))}
       </nav>
 
-      {tab === 'team' && (
-        <>
-          <section>
-            <h2>Team ({team.length}/6)</h2>
-            {team.length === 0 && <p className="muted">No party members.</p>}
-            <div className="mon-grid">
-              {team.map((p) => (
-                <MonCard key={p.id} p={p} gameId={gameId} />
-              ))}
-            </div>
-          </section>
+      {/* Spectator reuses the owner's tab components in read-only mode (no
+          runId/onChange) so any change to them lands in both views at once. */}
+      {tab === 'team' && <TeamBoxTab state={state} ctx={ctx} />}
 
-          <section>
-            <h2>Box ({box.length})</h2>
-            {box.length === 0 && <p className="muted">Empty.</p>}
-            <div className="mon-grid">
-              {box.map((p) => (
-                <MonCard key={p.id} p={p} gameId={gameId} />
-              ))}
-            </div>
-          </section>
+      {tab === 'bosses' && <MilestonesTab state={state} ctx={ctx} />}
 
-          <section>
-            <h2>Graveyard ({graveyard.length})</h2>
-            {graveyard.length === 0 && <p className="muted">No losses yet.</p>}
-            <div className="mon-grid">
-              {graveyard.map((p) => (
-                <MonCard key={p.id} p={p} gameId={gameId} />
-              ))}
-            </div>
-          </section>
-        </>
-      )}
-
-      {tab === 'bosses' && (
-        <section>
-          <h2>
-            Boss fights ({clearedCount}/{milestones.length} defeated)
-          </h2>
-          <div className="milestone-card-grid">
-            {milestones.map((m) => (
-              <MilestoneCard
-                key={m.id}
-                milestone={m}
-                roster={milestoneRoster(m, starter, difficulty) ?? []}
-                gameId={gameId}
-                cleared={state.milestonesCleared.includes(m.id)}
-                isNext={boss?.id === m.id}
-                isPinnedNext={state.nextBossId === m.id}
-              />
-            ))}
-          </div>
-        </section>
-      )}
-
-      {tab === 'rules' && (
-        <section>
-          <h2>House rules</h2>
-          {state.ruleset.houseRules.length > 0 ? (
-            <ul>
-              {state.ruleset.houseRules.map((hr, i) => (
-                <li key={i}>{hr}</li>
-              ))}
-            </ul>
-          ) : (
-            <p className="muted">No house rules on this run.</p>
-          )}
-        </section>
-      )}
+      {tab === 'rules' && <RulesTab state={state} ctx={ctx} />}
 
       {tab === 'stats' && <StatsTab events={events} state={state} ctx={ctx} />}
 

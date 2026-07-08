@@ -1817,12 +1817,19 @@ input[aria-invalid='true'] {
 .summary-catch { color: var(--success); }
 .summary-faint { color: var(--danger); }
 .summary-milestone { color: var(--highlight); }
+.summary-trainer { color: var(--accent); }
 .summary-wipe { color: var(--warning-strong); }
 
 /* ---------- Rules ---------- */
 
 .rule-row { border-bottom: 1px solid var(--border); padding: 0.6rem 0; }
 .rule-row:last-child { border-bottom: none; }
+
+/* read-only (spectator) rule rows: a status pill stands in for the checkbox */
+.rule-readonly { display: flex; align-items: center; gap: 0.4rem; }
+.rule-status { font-size: 0.82em; color: var(--muted); white-space: nowrap; }
+.rule-status.on { color: var(--success); }
+.rule-row.rule-off { opacity: 0.6; }
 
 /* desktop: rule rows are short — two columns instead of a thin stack */
 @media (min-width: 1024px) {

@@ -7,7 +7,7 @@ export interface DescribedEvent {
   species?: string;
   /** Showdown trainer-sprite key, for trainer/boss events. */
   trainerKey?: string;
-  tone: 'catch' | 'faint' | 'milestone' | 'wipe' | 'neutral';
+  tone: 'catch' | 'faint' | 'milestone' | 'trainer' | 'wipe' | 'neutral';
 }
 
 /** "Nickname the Species", or just the species when it's unnamed or the
@@ -120,7 +120,9 @@ export function describeEvent(
         key: `${event.seq}`,
         text: `Defeated ${label}${area ? ` on ${area.name}` : ''}`,
         trainerKey: t?.class ? trainerKeyFromClass(t.class) : undefined,
-        tone: 'milestone',
+        // route trainers are NOT bosses — their own tone keeps them out of the
+        // "Bosses" filter (which means milestone_cleared) and into "Trainers".
+        tone: 'trainer',
       };
     }
     case 'house_rules_changed': {
