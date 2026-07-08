@@ -18,6 +18,52 @@ below, research already done (`docs/BDSP-GRAND-UNDERGROUND-RESEARCH.md`).
 Start with GU1 (fossil fix, small + independent), then confirm the GU3
 progression-tier scope with Alex before building GU2.
 
+## 2026-07-08 session B — verification pass + reconcile (no code shipped)
+
+Autonomous pass while Alex was AFK. Went hunting for the next buildable
+backlog item and instead found the numbered backlog is genuinely EMPTY and
+most "deferred / follow-up" notes below are **stale — the work is already on
+`main`**. Verified each against the code/data (not memory), evidence in hand:
+
+- **sneasel→weavile / gligar→gliscor "at night" label — DONE.** species-data
+  carries `timeOfDay:"night"` for both razor-claw/razor-fang evos and
+  `requirementLabel()` in `apps/web/src/lib/speciesData.ts` appends
+  `timePhrase()` in the held-item branch. The "held-item branch drops the
+  night qualifier" note (repeated in several sections below) is obsolete.
+- **Old Chateau Rotom static — DONE.** `old-chateau` carries `rotom` as a
+  `static` slot gated `conditions.time:["night"]` (+ gastly walk 100%). The
+  "ghost-event statics (unsourced)" note is obsolete.
+- **Great Marsh + Trophy Garden rates — DONE.** `great-marsh` has 22 species
+  on `safari` slots with rates; `trophy-garden` has 21 with rates. The
+  "deferred — need two-source-agreed %s" note is obsolete.
+- **Standalone `tsc -p apps/web/tsconfig.json` — PASSES clean** (exit 0). The
+  "lacks engine paths (cosmetic)" note is obsolete.
+- **Boss rosters are 100% move-documented in ALL six games** (bdsp 115/115,
+  lgpe 64/64, swsh 77/77, sv 128/128, pla 18/18, rr 270/270 across
+  roster/rosterByStarter/rosterByDifficulty/rosterByDifficultyAndStarter).
+  The run-wipers are fully covered.
+- **No empty/stub encounter areas** anywhere (the 5 PLA arenas are empty by
+  design — noble battle stages, no wild spawns).
+
+**The ONE real remaining substantive gap: LGPE/SwSh/SV *area-trainer*
+movesets (0 of 350/177/301 documented).** These currently render via the
+honest `resolveTrainerMoves` "expected moves" fallback (last-4 level-up ≤
+level, level-up data present per game — verified working). Filling them with
+*documented* moves is **BLOCKED on a source, not on effort**: both Serebii
+and Bulbapedia list LGPE/SwSh/SV route trainers with **species + level only,
+no per-Pokémon movesets** (verified live on Bulbapedia's Kanto Route 3 LGPE
+table + Serebii). This is exactly why BDSP needed Hematite's datamine sheet
+(memory `bdsp-trainer-datamine`). So the deferred "or I source per-route"
+option is NOT viable for movesets — it needs a datamine sheet from Alex per
+game (LGPE/SwSh/SV each). Trainer *presence/teams* are complete; only the
+per-mon move detail is missing, and a wrong route-trainer move can't wipe a
+run the way a missing trainer can, so the fallback is an acceptable interim.
+
+Left genuinely open (need Alex's input, unchanged): trainer-moveset datamine
+sheets (above); RR non-gym bosses deferred for ambiguity (Brendan @ Fuchsia,
+a possible May fight, Cerulean Giovanni double — don't fabricate); ~10 Z-A
+movepool SEREBII_SLUG 404 forms (network-fragile, tiny payoff).
+
 ## Shipped 2026-07-08 — BDSP data completeness + map/encounter UX (#244–#256)
 
 Owner-driven session. A missing rival fight wiped a run, which snowballed into a
@@ -69,7 +115,10 @@ Map + encounter UX:
 **Remaining follow-ups (deferred, flagged in PRs):** extend the trainer
 completeness + datamined-moveset treatment to the **other games** (LGPE/SwSh/SV
 have community datamine sheets; PLA has no route trainers; RR uses its Showdown
-data; Z-A is too new) — Alex to provide sheets or I source per-route. Minor:
+data; Z-A is too new) — **UPDATE 2026-07-08 B: "or I source per-route" is NOT
+viable for movesets — Serebii + Bulbapedia list these route trainers with
+species+level only, no per-mon moves (verified). Needs a datamine sheet from
+Alex. See the "session B" section at the top.** Minor:
 Chimecho's per-floor rate stored as one value; a few hand-entered BDSP fishing
 rows worth a typo spot-check (not systemic).
 
@@ -202,9 +251,10 @@ gyms/E4/Champion/rivals/Rocket boss tracking. Preview MCP tooling recovered
 mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
 
 **Remaining follow-ups (all minor / deferred-by-design):**
-- **Great Marsh + Trophy Garden** precise Safari/daily-rotation rates
-  (deferred #216 — need two-source-agreed %s); **Old Chateau** ghost-event
-  statics (unsourced).
+- ~~**Great Marsh + Trophy Garden** precise Safari/daily-rotation rates~~ +
+  ~~**Old Chateau** ghost-event statics~~ — **DONE (verified 2026-07-08 B):**
+  both Marsh (22 spp) + Trophy Garden (21 spp) carry full rate tables and
+  Old Chateau carries the night-gated Rotom static. See "session B" at top.
 - **RR non-gym bosses deferred** (from #229): Brendan @ Fuchsia (low-
   confidence mandatory), a possible "May" fight (unsourced in base Kanto),
   the Cerulean Cave Giovanni double. RR3 tier-conditioned honor-rule display
@@ -212,8 +262,8 @@ mid-session — the visual PRs (#211/#213/#218/#220/#223) were re-verified live.
 - ~10 Z-A movepool `SEREBII_SLUG` overrides (form 404s fall back to the union).
 - PLA `icepeak-cavern` + `wayward-cave` are correctly list-only (the in-game
   zone map doesn't label those caves — not a gap).
-- Standalone `tsc -p apps/web/tsconfig.json` lacks engine `paths` (CI/vite/
-  vitest green — cosmetic).
+- ~~Standalone `tsc -p apps/web/tsconfig.json` lacks engine `paths`~~ — **DONE
+  (verified 2026-07-08 B): runs clean, exit 0.**
 
 ## GU1–GU3: BDSP Grand Underground — SHIPPED (#240–#242, 2026-07-07 evening)
 
@@ -631,10 +681,14 @@ back to the union; the first agent hung on a timeout-less fetch and was
 recovered): sync seq-collision (out of MVP), and giants-mirror's
 Underground + strong-symbol "special encounters" (omitted from #185 for
 lack of two-source-agreed per-weather rates — candidate follow-up).
-Fourth-wave follow-ups worth a look: dynamic-import species-data.json to
-clear the chunk warning; `#stats`/`#new` URL routes (cross-run Stats + New
-Game picker are still non-URL local state); sneasel→weavile / gligar→gliscor
-evolution label should append the night qualifier in the held-item branch.
+Fourth-wave follow-ups: dynamic-import species-data.json to clear the chunk
+warning is the ONLY one still open (a real refactor — speciesData.ts is
+imported synchronously in 9 files, so it needs async threading + a load
+state; deferred, not cosmetic). The other two are DONE (verified
+2026-07-08 B): `#stats`/`#new` URL routes shipped in #179; the
+sneasel→weavile / gligar→gliscor night qualifier IS appended in the
+held-item branch (`requirementLabel` in speciesData.ts) and the data
+carries `timeOfDay:"night"`.
 
 ## Shipped 2026-07-05 session, wave 2 (#121–#137)
 
