@@ -1,5 +1,5 @@
 import type { EngineContext, PokemonInstance, RunEvent } from '@nuzlocke/engine';
-import { trainerKeyFromClass, trainerKeyFromMilestone } from './sprites';
+import { trainerKeyFromMilestone, trainerSpriteKeyFor } from './sprites';
 
 export interface DescribedEvent {
   key: string;
@@ -119,7 +119,7 @@ export function describeEvent(
       return {
         key: `${event.seq}`,
         text: `Defeated ${label}${area ? ` on ${area.name}` : ''}`,
-        trainerKey: t?.class ? trainerKeyFromClass(t.class) : undefined,
+        trainerKey: t ? trainerSpriteKeyFor(t) : undefined,
         // route trainers are NOT bosses — their own tone keeps them out of the
         // "Bosses" filter (which means milestone_cleared) and into "Trainers".
         tone: 'trainer',

@@ -117,6 +117,48 @@
         {
           "name": "TM38 (Fire Blast)"
         }
+      ],
+      "trainers": [
+        {
+          "name": "Mars",
+          "class": "Commander",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 37,
+              "moves": [
+                "astonish",
+                "poison-fang",
+                "bite",
+                "u-turn"
+              ],
+              "ability": "inner-focus"
+            },
+            {
+              "species": "bronzor",
+              "level": 37,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "gyro-ball",
+                "iron-defense"
+              ],
+              "ability": "levitate"
+            },
+            {
+              "species": "purugly",
+              "level": 39,
+              "moves": [
+                "growl",
+                "aerial-ace",
+                "slash",
+                "u-turn"
+              ],
+              "ability": "thick-fat",
+              "heldItem": "sitrus-berry"
+            }
+          ]
+        }
       ]
     },
     {
@@ -2487,11 +2529,26 @@
           "team": [
             {
               "species": "zubat",
-              "level": 14
+              "level": 14,
+              "moves": [
+                "absorb",
+                "supersonic",
+                "astonish",
+                "u-turn"
+              ],
+              "ability": "inner-focus"
             },
             {
               "species": "purugly",
-              "level": 16
+              "level": 16,
+              "moves": [
+                "fake-out",
+                "scratch",
+                "growl",
+                "thief"
+              ],
+              "ability": "thick-fat",
+              "heldItem": "oran-berry"
             }
           ]
         }
@@ -3340,11 +3397,26 @@
           "team": [
             {
               "species": "zubat",
-              "level": 18
+              "level": 18,
+              "moves": [
+                "absorb",
+                "supersonic",
+                "mean-look",
+                "poison-fang"
+              ],
+              "ability": "inner-focus"
             },
             {
               "species": "skuntank",
-              "level": 20
+              "level": 20,
+              "moves": [
+                "flamethrower",
+                "poison-gas",
+                "acid-spray",
+                "snarl"
+              ],
+              "ability": "aftermath",
+              "heldItem": "sitrus-berry"
             }
           ]
         }
@@ -4659,15 +4731,37 @@
           "team": [
             {
               "species": "kadabra",
-              "level": 35
+              "level": 35,
+              "moves": [
+                "kinesis",
+                "reflect",
+                "psychic",
+                "rain-dance"
+              ],
+              "ability": "inner-focus",
+              "heldItem": "damp-rock"
             },
             {
               "species": "bronzor",
-              "level": 35
+              "level": 35,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "gyro-ball",
+                "extrasensory"
+              ],
+              "ability": "levitate"
             },
             {
               "species": "toxicroak",
-              "level": 37
+              "level": 37,
+              "moves": [
+                "mud-slap",
+                "revenge",
+                "toxic",
+                "thief"
+              ],
+              "ability": "dry-skin"
             }
           ]
         }
@@ -6647,6 +6741,86 @@
               "level": 36
             }
           ]
+        },
+        {
+          "name": "Cyrus",
+          "class": "Galactic Boss",
+          "team": [
+            {
+              "species": "murkrow",
+              "level": 40,
+              "moves": [
+                "wing-attack",
+                "night-shade",
+                "assurance",
+                "taunt"
+              ],
+              "ability": "insomnia"
+            },
+            {
+              "species": "golbat",
+              "level": 40,
+              "moves": [
+                "screech",
+                "poison-fang",
+                "air-cutter",
+                "bite"
+              ],
+              "ability": "inner-focus"
+            },
+            {
+              "species": "sneasel",
+              "level": 43,
+              "moves": [
+                "metal-claw",
+                "icy-wind",
+                "hone-claws",
+                "beat-up"
+              ],
+              "ability": "keen-eye",
+              "heldItem": "sitrus-berry"
+            }
+          ]
+        },
+        {
+          "name": "Saturn",
+          "class": "Commander",
+          "team": [
+            {
+              "species": "kadabra",
+              "level": 38,
+              "moves": [
+                "kinesis",
+                "reflect",
+                "psychic",
+                "rain-dance"
+              ],
+              "ability": "inner-focus",
+              "heldItem": "damp-rock"
+            },
+            {
+              "species": "bronzor",
+              "level": 38,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "gyro-ball",
+                "extrasensory"
+              ],
+              "ability": "levitate"
+            },
+            {
+              "species": "toxicroak",
+              "level": 40,
+              "moves": [
+                "mud-slap",
+                "toxic",
+                "thief",
+                "brick-break"
+              ],
+              "ability": "dry-skin"
+            }
+          ]
         }
       ],
       "items": [
@@ -7833,15 +8007,37 @@
           "team": [
             {
               "species": "bronzor",
-              "level": 41
+              "level": 41,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "gyro-ball",
+                "reflect"
+              ],
+              "ability": "levitate"
             },
             {
               "species": "golbat",
-              "level": 42
+              "level": 42,
+              "moves": [
+                "poison-fang",
+                "bite",
+                "haze",
+                "u-turn"
+              ],
+              "ability": "inner-focus"
             },
             {
               "species": "purugly",
-              "level": 45
+              "level": 45,
+              "moves": [
+                "aerial-ace",
+                "body-slam",
+                "dig",
+                "u-turn"
+              ],
+              "ability": "thick-fat",
+              "heldItem": "sitrus-berry"
             }
           ]
         },
@@ -7851,15 +8047,37 @@
           "team": [
             {
               "species": "bronzor",
-              "level": 41
+              "level": 41,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "extrasensory",
+                "light-screen"
+              ],
+              "ability": "levitate"
             },
             {
               "species": "golbat",
-              "level": 41
+              "level": 41,
+              "moves": [
+                "air-cutter",
+                "haze",
+                "giga-drain",
+                "sludge-bomb"
+              ],
+              "ability": "inner-focus"
             },
             {
               "species": "skuntank",
-              "level": 46
+              "level": 46,
+              "moves": [
+                "flamethrower",
+                "poison-gas",
+                "belch",
+                "snarl"
+              ],
+              "ability": "aftermath",
+              "heldItem": "sitrus-berry"
             }
           ]
         },
@@ -7869,19 +8087,51 @@
           "team": [
             {
               "species": "honchkrow",
-              "level": 45
+              "level": 45,
+              "moves": [
+                "air-cutter",
+                "night-slash",
+                "steel-wing",
+                "defog"
+              ],
+              "ability": "super-luck",
+              "heldItem": "scope-lens"
             },
             {
               "species": "crobat",
-              "level": 46
+              "level": 46,
+              "moves": [
+                "cross-poison",
+                "tailwind",
+                "air-cutter",
+                "u-turn"
+              ],
+              "ability": "infiltrator",
+              "heldItem": "quick-claw"
             },
             {
               "species": "gyarados",
-              "level": 45
+              "level": 45,
+              "moves": [
+                "ice-fang",
+                "waterfall",
+                "crunch",
+                "earthquake"
+              ],
+              "ability": "intimidate",
+              "heldItem": "wacan-berry"
             },
             {
               "species": "weavile",
-              "level": 48
+              "level": 48,
+              "moves": [
+                "metal-claw",
+                "fling",
+                "dig",
+                "aerial-ace"
+              ],
+              "ability": "pickpocket",
+              "heldItem": "chople-berry"
             }
           ]
         }

@@ -112,6 +112,38 @@ export function trainerKeyFromClass(cls: string): string {
   return TRAINER_CLASS_ALIAS[squashed] ?? squashed;
 }
 
+// Named story bosses whose Showdown sprite is keyed by CHARACTER name, not
+// their generic trainer class — Commander / Galactic Boss have no class sprite,
+// but mars/jupiter/saturn/cyrus.png all exist. Verified 200 on the CDN.
+const TRAINER_NAME_SPRITE: Record<string, string> = {
+  mars: 'mars',
+  jupiter: 'jupiter',
+  saturn: 'saturn',
+  cyrus: 'cyrus',
+};
+
+/** Character-name key: drop any "(w/ Barry)" parenthetical, then squash like a
+ * class name. "Mars (w/ Barry)" → "mars". */
+function trainerNameKey(name: string): string {
+  return name
+    .split('(')[0]
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+}
+
+/** Best Showdown trainer-sprite key for a dataset trainer: a named story boss
+ * (Mars/Jupiter/Saturn/Cyrus) gets their own character sprite; everyone else
+ * falls back to their class sprite. undefined only when neither resolves. */
+export function trainerSpriteKeyFor(t: { name?: string; class?: string }): string | undefined {
+  if (t.name) {
+    const named = TRAINER_NAME_SPRITE[trainerNameKey(t.name)];
+    if (named) return named;
+  }
+  return t.class ? trainerKeyFromClass(t.class) : undefined;
+}
+
 export const NATURES = [
   'adamant', 'bashful', 'bold', 'brave', 'calm', 'careful', 'docile', 'gentle',
   'hardy', 'hasty', 'impish', 'jolly', 'lax', 'lonely', 'mild', 'modest',
