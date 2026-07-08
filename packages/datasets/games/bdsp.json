@@ -10299,7 +10299,7 @@
           "methods": [
             "good-rod"
           ],
-          "rate": 65,
+          "rate": 55,
           "conditions": {
             "floor": [
               "1F",
@@ -10313,7 +10313,7 @@
           "methods": [
             "good-rod"
           ],
-          "rate": 35,
+          "rate": 45,
           "conditions": {
             "floor": [
               "1F",
@@ -10327,7 +10327,7 @@
           "methods": [
             "super-rod"
           ],
-          "rate": 65,
+          "rate": 55,
           "conditions": {
             "floor": [
               "1F",
@@ -10341,7 +10341,7 @@
           "methods": [
             "super-rod"
           ],
-          "rate": 35,
+          "rate": 45,
           "conditions": {
             "floor": [
               "1F",
@@ -10359,6 +10359,100 @@
           "conditions": {
             "floor": [
               "B1F"
+            ]
+          }
+        },
+        {
+          "species": "cleffa",
+          "methods": [
+            "walk"
+          ],
+          "rate": 25,
+          "conditions": {
+            "time": [
+              "morning"
+            ],
+            "floor": [
+              "1F"
+            ]
+          }
+        },
+        {
+          "species": "cleffa",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "time": [
+              "day",
+              "night"
+            ],
+            "floor": [
+              "1F"
+            ]
+          }
+        },
+        {
+          "species": "bronzor",
+          "methods": [
+            "walk"
+          ],
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "2F",
+              "3F"
+            ]
+          }
+        },
+        {
+          "species": "chimecho",
+          "methods": [
+            "walk"
+          ],
+          "rate": 10,
+          "conditions": {
+            "floor": [
+              "4F",
+              "5F",
+              "6F"
+            ]
+          }
+        },
+        {
+          "species": "dratini",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 40,
+          "conditions": {
+            "floor": [
+              "4F"
+            ]
+          }
+        },
+        {
+          "species": "dragonair",
+          "methods": [
+            "super-rod"
+          ],
+          "rate": 5,
+          "conditions": {
+            "floor": [
+              "4F"
+            ]
+          }
+        },
+        {
+          "species": "loudred",
+          "methods": [
+            "pokeradar"
+          ],
+          "rate": 22,
+          "conditions": {
+            "floor": [
+              "summit"
             ]
           }
         }
