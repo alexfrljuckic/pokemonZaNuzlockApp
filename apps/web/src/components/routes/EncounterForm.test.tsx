@@ -6,16 +6,21 @@ import type { ClassifiedEncounter } from '@nuzlocke/engine';
 import { EncounterForm, timeChip } from './EncounterForm';
 
 describe('timeChip (time-of-day summary)', () => {
-  it('flags a time-exclusive spawn with "Only …"', () => {
-    expect(timeChip({ night: 10 }, true)).toEqual({ text: 'Only Night 10%', restricted: true });
-    expect(timeChip({ morning: 30, night: 30 }, true)).toEqual({ text: 'Only Morning/Night 30%', restricted: true });
+  it('flags a time-exclusive spawn (restricted) with a full-word title', () => {
+    const night = timeChip({ night: 10 }, true);
+    expect(night?.restricted).toBe(true);
+    expect(night?.title).toBe('Only Night 10%');
+    expect(night?.text).toMatch(/^only .*10%$/); // icon-based visible text
+
+    const mn = timeChip({ morning: 30, night: 30 }, true);
+    expect(mn?.restricted).toBe(true);
+    expect(mn?.title).toBe('Only Morning/Night 30%');
   });
 
-  it('shows per-period rates when a species spawns all day but rates vary', () => {
-    expect(timeChip({ morning: 30, day: 40, night: 30 }, true)).toEqual({
-      text: 'Morning/Night 30% · Day 40%',
-      restricted: false,
-    });
+  it('shows per-period rates (not restricted) when a species spawns all day but rates vary', () => {
+    const t = timeChip({ morning: 30, day: 40, night: 30 }, true);
+    expect(t?.restricted).toBe(false);
+    expect(t?.title).toBe('Morning/Night 30% · Day 40%');
   });
 
   it('returns null when there is no time relevance', () => {
