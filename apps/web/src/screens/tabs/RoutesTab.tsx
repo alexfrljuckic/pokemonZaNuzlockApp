@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { areasForVersion, classifyEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
@@ -35,6 +35,40 @@ export function RoutesTab({
   setOpenAreaId: (id: string | null) => void;
 }) {
   const [activeZone, setActiveZone] = useState<string | null>(null);
+
+  // Desktop side-by-side: cap the details column to the map's height and let it
+  // scroll internally, so an open encounter panel + area list matches the map
+  // beside it instead of stretching the page down. No-op below 1100px (stacked).
+  const mapColRef = useRef<HTMLDivElement>(null);
+  const sideColRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const mapEl = mapColRef.current;
+    const sideEl = sideColRef.current;
+    if (!mapEl || !sideEl) return;
+    const sync = () => {
+      // portrait maps (Galar) keep their own sticky-map + page-scroll layout
+      const isPortrait = !!mapEl.closest('.route-stage-portrait');
+      if (!isPortrait && window.matchMedia('(min-width: 1100px)').matches) {
+        sideEl.style.maxHeight = `${mapEl.offsetHeight}px`;
+        sideEl.style.overflowY = 'auto';
+      } else {
+        sideEl.style.maxHeight = '';
+        sideEl.style.overflowY = '';
+      }
+    };
+    sync();
+    const ro = new ResizeObserver(sync);
+    ro.observe(mapEl);
+    window.addEventListener('resize', sync);
+    // fires exactly when crossing the side-by-side breakpoint
+    const mql = window.matchMedia('(min-width: 1100px)');
+    mql.addEventListener('change', sync);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', sync);
+      mql.removeEventListener('change', sync);
+    };
+  }, []);
 
   async function resolve(area: Area, species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) {
     await appendEvent(runId, {
@@ -174,7 +208,7 @@ export function RoutesTab({
       {/* plain block wrappers everywhere except desktop portrait mode, where
           .route-stage-body becomes a map | side-content grid */}
       <div className="route-stage-body">
-        <div className="route-stage-map">
+        <div className="route-stage-map" ref={mapColRef}>
           {zoneMap && activeZone && (
             <div className="zone-map-head">
               <button type="button" className="secondary zone-back" onClick={() => setActiveZone(null)}>
@@ -224,7 +258,7 @@ export function RoutesTab({
           )}
         </div>
 
-        <div className="route-stage-side">
+        <div className="route-stage-side" ref={sideColRef}>
       {selected && (
         <div className="route-resolve-panel">
           <div className="route-resolve-head">
