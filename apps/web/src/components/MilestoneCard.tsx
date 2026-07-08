@@ -2,6 +2,7 @@ import { useState } from 'react';
 import type { Milestone, MilestoneRosterMember } from '@nuzlocke/engine';
 import { typesFor } from '../lib/speciesData';
 import { trainerKeyFromMilestone } from '../lib/sprites';
+import { ItemSprite } from './ItemSprite';
 import { MoveChips } from './MoveChips';
 import { SpriteImg } from './SpriteImg';
 import { StatBars } from './StatBars';
@@ -128,8 +129,14 @@ export function MilestoneCard({
                     {(p.ability || p.heldItem || p.teraType) && (
                       <span className="muted mrd-meta">
                         {p.ability ?? ''}
-                        {p.ability && p.heldItem ? ' · ' : ''}
-                        {p.heldItem ? `@ ${p.heldItem}` : ''}
+                        {/* held item shown as a sprite (parity with team cards),
+                            not `@ item` text */}
+                        {p.heldItem && (
+                          <>
+                            {p.ability ? ' · ' : ''}
+                            <ItemSprite item={p.heldItem} size={18} />
+                          </>
+                        )}
                         {p.teraType ? `${p.ability || p.heldItem ? ' · ' : ''}tera ${p.teraType}` : ''}
                       </span>
                     )}

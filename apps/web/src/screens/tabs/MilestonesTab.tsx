@@ -19,11 +19,14 @@ export function MilestonesTab({
   ctx,
   onChange,
 }: {
-  runId: string;
+  /** owner run id; omit (with onChange) for the read-only spectator view */
+  runId?: string;
   state: RunState;
   ctx: EngineContext;
-  onChange: () => Promise<void>;
+  onChange?: () => Promise<void>;
 }) {
+  // read-only (spectator): no clear/next-pick buttons, no Declare Victory.
+  const editable = runId != null && onChange != null;
   const boss = nextBoss(state, ctx);
   // On open, scroll the "up next" boss to the top of the height-capped list.
   const gridRef = useRef<HTMLDivElement>(null);
@@ -41,9 +44,11 @@ export function MilestonesTab({
   // a next target; the picker shows only for open-order games (SV).
   const openBoss = openBossOrderFor(ctx.dataset.gameId);
   const milestones = milestonesFor(ctx.dataset, state.version, state.ruleset).sort((a, b) => a.order - b.order);
-  const allCleared = milestones.every((m) => state.milestonesCleared.includes(m.id));
+  const clearedCount = milestones.filter((m) => state.milestonesCleared.includes(m.id)).length;
+  const allCleared = milestones.length > 0 && clearedCount === milestones.length;
 
   async function clear(id: string) {
+    if (!runId || !onChange) return;
     await appendEvent(runId, { type: 'milestone_cleared', payload: { milestoneId: id } });
     await onChange();
   }
@@ -51,6 +56,7 @@ export function MilestonesTab({
   // Open-order games (SV): pick which boss you're doing next — the level cap
   // keys off it. Picking the boss that's already next reverts to dataset order.
   async function setNext(id: string) {
+    if (!runId || !onChange) return;
     await appendEvent(runId, {
       type: 'next_boss_set',
       payload: { milestoneId: state.nextBossId === id ? null : id },
@@ -59,13 +65,16 @@ export function MilestonesTab({
   }
 
   async function declareVictory() {
+    if (!runId || !onChange) return;
     await appendEvent(runId, { type: 'run_ended', payload: { result: 'victory' } });
     await onChange();
   }
 
   return (
     <section>
-      <h2>Boss Fights</h2>
+      <h2>
+        Boss Fights ({clearedCount}/{milestones.length} defeated)
+      </h2>
       {state.reviveTokens > 0 && <p className="muted">Revive tokens: {state.reviveTokens}</p>}
 
       {violations.length > 0 && (
@@ -88,9 +97,9 @@ export function MilestonesTab({
             cleared={state.milestonesCleared.includes(m.id)}
             isNext={boss?.id === m.id}
             isPinnedNext={state.nextBossId === m.id}
-            onClear={() => clear(m.id)}
+            onClear={editable ? () => clear(m.id) : undefined}
             onSetNext={
-              openBoss && m.aceLevel !== null && m.countsForLevelCap !== false
+              editable && openBoss && m.aceLevel !== null && m.countsForLevelCap !== false
                 ? () => setNext(m.id)
                 : undefined
             }
@@ -98,7 +107,7 @@ export function MilestonesTab({
         ))}
       </div>
 
-      {allCleared && state.status === 'active' && (
+      {editable && allCleared && state.status === 'active' && (
         <button onClick={declareVictory}>Declare Victory</button>
       )}
     </section>

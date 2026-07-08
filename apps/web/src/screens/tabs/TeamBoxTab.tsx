@@ -9,24 +9,30 @@ export function TeamBoxTab({
   onChange,
   onGoToRoutes,
 }: {
-  runId: string;
+  /** owner run id; omit (with onChange) for the read-only spectator view */
+  runId?: string;
   state: RunState;
   ctx: EngineContext;
-  onChange: () => Promise<void>;
+  onChange?: () => Promise<void>;
   /** switch to the Routes tab — the empty-team CTA's destination */
   onGoToRoutes?: () => void;
 }) {
   const gameId = ctx.dataset.gameId;
+  // read-only (spectator): no runId/onChange → MonCards render without edit
+  // forms or action buttons, everything else identical.
+  const editable = runId != null && onChange != null;
   const team = party(state);
   const box = boxed(state);
   const graveyard = fallen(state);
 
   async function move(id: string, to: 'party' | 'box') {
+    if (!runId || !onChange) return;
     await appendEvent(runId, { type: 'moved', payload: { pokemonId: id, to } });
     await onChange();
   }
 
   async function markFaint(id: string) {
+    if (!runId || !onChange) return;
     // Payload still supports cause/killer later.
     await appendEvent(runId, { type: 'faint', payload: { pokemonId: id } });
     await onChange();
@@ -45,6 +51,7 @@ export function TeamBoxTab({
   });
 
   async function revive(id: string) {
+    if (!runId || !onChange) return;
     await appendEvent(runId, { type: 'revive', payload: { pokemonId: id } });
     await onChange();
   }
@@ -72,10 +79,10 @@ export function TeamBoxTab({
               runId={runId}
               gameId={gameId}
               onChange={onChange}
-              actions={[
+              actions={editable ? [
                 { label: 'Box', onClick: () => move(p.id, 'box'), secondary: true },
                 faintAction(p),
-              ]}
+              ] : []}
             />
           ))}
         </div>
@@ -92,10 +99,10 @@ export function TeamBoxTab({
               runId={runId}
               gameId={gameId}
               onChange={onChange}
-              actions={[
+              actions={editable ? [
                 { label: 'Party', onClick: () => move(p.id, 'party') },
                 faintAction(p),
-              ]}
+              ] : []}
             />
           ))}
         </div>
@@ -103,7 +110,7 @@ export function TeamBoxTab({
 
       <section>
         <h2>Graveyard ({graveyard.length})</h2>
-        <p className="muted">Revive tokens available: {state.reviveTokens}</p>
+        {editable && <p className="muted">Revive tokens available: {state.reviveTokens}</p>}
         {graveyard.length === 0 && <p className="muted">No losses yet.</p>}
         <div className="mon-grid">
           {graveyard.map((p) => (
@@ -113,7 +120,7 @@ export function TeamBoxTab({
               runId={runId}
               gameId={gameId}
               onChange={onChange}
-              actions={state.reviveTokens > 0 ? [{ label: 'Revive', onClick: () => revive(p.id) }] : []}
+              actions={editable && state.reviveTokens > 0 ? [{ label: 'Revive', onClick: () => revive(p.id) }] : []}
             />
           ))}
         </div>

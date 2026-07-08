@@ -75,11 +75,13 @@ describe('describeEvent', () => {
     expect(describeEvent(ev('faint', { pokemonId: 'p1' }), ctx)?.text).toBe('A Pokémon fainted');
   });
 
-  it('describes trainer defeats with the class sprite key', () => {
+  it('describes trainer defeats with the class sprite key, distinct from bosses', () => {
     const item = describeEvent(ev('trainer_battled', { areaId: 'route-1', trainerIndex: 0 }), ctx);
     expect(item?.text).toBe('Defeated Youngster Tristan on Route 1');
     expect(item?.trainerKey).toBe('youngster');
-    expect(item?.tone).toBe('milestone');
+    // route trainers are their own tone — NOT 'milestone' (that means a boss),
+    // so the "Bosses" timeline filter doesn't sweep them up.
+    expect(item?.tone).toBe('trainer');
   });
 
   it('gives milestone clears the boss trainer sprite key', () => {
