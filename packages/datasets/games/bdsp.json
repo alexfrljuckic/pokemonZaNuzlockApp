@@ -8864,6 +8864,51 @@
               "ability": "aftermath"
             }
           ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "golbat",
+              "level": 37,
+              "moves": [
+                "screech",
+                "poison-fang",
+                "air-cutter",
+                "bite"
+              ],
+              "ability": "inner-focus"
+            }
+          ]
+        },
+        {
+          "name": "Grunt (HQ)",
+          "class": "Team Galactic Grunt",
+          "team": [
+            {
+              "species": "dustox",
+              "level": 35,
+              "moves": [
+                "venoshock",
+                "leech-life",
+                "toxic",
+                "bug-buzz"
+              ],
+              "ability": "shield-dust"
+            },
+            {
+              "species": "bronzor",
+              "level": 35,
+              "moves": [
+                "confuse-ray",
+                "payback",
+                "extrasensory",
+                "heavy-slam"
+              ],
+              "ability": "heatproof"
+            }
+          ]
         }
       ],
       "items": [
