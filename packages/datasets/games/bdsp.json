@@ -2559,17 +2559,6 @@
             "walk"
           ],
           "rate": 100
-        },
-        {
-          "species": "rotom",
-          "methods": [
-            "static"
-          ],
-          "conditions": {
-            "time": [
-              "night"
-            ]
-          }
         }
       ],
       "items": [
@@ -7846,13 +7835,6 @@
             "super-rod"
           ],
           "rate": 35
-        },
-        {
-          "species": "giratina-altered",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
         }
       ]
     },
@@ -22450,18 +22432,6 @@
               "exterior"
             ]
           }
-        },
-        {
-          "species": "heatran",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "floor": [
-              "interior"
-            ]
-          }
         }
       ],
       "trainers": [
@@ -31474,167 +31444,7 @@
         "post-game",
         "special"
       ],
-      "encounters": [
-        {
-          "species": "regirock",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "regice",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "registeel",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "kyogre",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "groudon",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "rayquaza",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "latias",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "latios",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "mewtwo",
-          "methods": [
-            "static"
-          ],
-          "rate": 100
-        },
-        {
-          "species": "raikou",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "brilliant-diamond"
-            ]
-          }
-        },
-        {
-          "species": "entei",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "brilliant-diamond"
-            ]
-          }
-        },
-        {
-          "species": "suicune",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "brilliant-diamond"
-            ]
-          }
-        },
-        {
-          "species": "ho-oh",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "brilliant-diamond"
-            ]
-          }
-        },
-        {
-          "species": "articuno",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "shining-pearl"
-            ]
-          }
-        },
-        {
-          "species": "zapdos",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "shining-pearl"
-            ]
-          }
-        },
-        {
-          "species": "moltres",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "shining-pearl"
-            ]
-          }
-        },
-        {
-          "species": "lugia",
-          "methods": [
-            "static"
-          ],
-          "rate": 100,
-          "conditions": {
-            "version": [
-              "shining-pearl"
-            ]
-          }
-        }
-      ],
+      "encounters": [],
       "items": [
         {
           "name": "Poké Ball",
@@ -31777,6 +31587,212 @@
       "type": "static",
       "species": "regigigas",
       "area": "snowpoint-temple"
+    },
+    {
+      "id": "static-rotom",
+      "type": "static",
+      "species": "rotom",
+      "area": "old-chateau"
+    },
+    {
+      "id": "static-giratina-altered",
+      "type": "static",
+      "species": "giratina-altered",
+      "area": "sendoff-spring"
+    },
+    {
+      "id": "static-heatran",
+      "type": "static",
+      "species": "heatran",
+      "area": "stark-mountain"
+    },
+    {
+      "id": "static-regirock",
+      "type": "static",
+      "species": "regirock",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-regice",
+      "type": "static",
+      "species": "regice",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-registeel",
+      "type": "static",
+      "species": "registeel",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-kyogre",
+      "type": "static",
+      "species": "kyogre",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-groudon",
+      "type": "static",
+      "species": "groudon",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-rayquaza",
+      "type": "static",
+      "species": "rayquaza",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-latias",
+      "type": "static",
+      "species": "latias",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-latios",
+      "type": "static",
+      "species": "latios",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-mewtwo",
+      "type": "static",
+      "species": "mewtwo",
+      "area": "ramanas-park"
+    },
+    {
+      "id": "static-raikou",
+      "type": "static",
+      "species": "raikou",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
+    },
+    {
+      "id": "static-entei",
+      "type": "static",
+      "species": "entei",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
+    },
+    {
+      "id": "static-suicune",
+      "type": "static",
+      "species": "suicune",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
+    },
+    {
+      "id": "static-ho-oh",
+      "type": "static",
+      "species": "ho-oh",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
+    },
+    {
+      "id": "static-articuno",
+      "type": "static",
+      "species": "articuno",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "static-zapdos",
+      "type": "static",
+      "species": "zapdos",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "static-moltres",
+      "type": "static",
+      "species": "moltres",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "static-lugia",
+      "type": "static",
+      "species": "lugia",
+      "area": "ramanas-park",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "static-dialga",
+      "type": "static",
+      "species": "dialga",
+      "area": "mt-coronet",
+      "conditions": {
+        "version": [
+          "brilliant-diamond"
+        ]
+      }
+    },
+    {
+      "id": "static-palkia",
+      "type": "static",
+      "species": "palkia",
+      "area": "mt-coronet",
+      "conditions": {
+        "version": [
+          "shining-pearl"
+        ]
+      }
+    },
+    {
+      "id": "static-uxie",
+      "type": "static",
+      "species": "uxie",
+      "area": "lake-acuity"
+    },
+    {
+      "id": "static-azelf",
+      "type": "static",
+      "species": "azelf",
+      "area": "lake-valor"
+    },
+    {
+      "id": "static-mesprit",
+      "type": "static",
+      "species": "mesprit",
+      "area": "lake-verity"
+    },
+    {
+      "id": "static-cresselia",
+      "type": "static",
+      "species": "cresselia",
+      "area": "canalave-city"
     }
   ],
   "milestones": [

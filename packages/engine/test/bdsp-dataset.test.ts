@@ -66,14 +66,31 @@ describe('BDSP dataset', () => {
     expect(spPool.map((s) => s.species)).toContain('gastly');
   });
 
-  it('carries time-of-day conditions on encounter slots: Old Chateau Rotom is night-only', () => {
+  it('models static legendaries as specials, not wild encounters (Old Chateau Rotom)', () => {
+    // Statics (legendaries, the Rotom TV, Ramanas Park slate) live in dataset.specials
+    // as type 'static' — NOT in an area's encounters. Otherwise classifyEncounterPool
+    // would surface them as that area's catchable first-encounter and consume it.
     const oldChateau = dataset.areas.find((a) => a.id === 'old-chateau')!;
-    const rotom = oldChateau.encounters.find((e) => e.species === 'rotom');
-    expect(rotom).toBeDefined();
-    expect(rotom?.conditions?.time).toEqual(['night']);
+    expect(oldChateau.encounters.some((e) => e.species === 'rotom')).toBe(false);
 
-    // time is authored data for the app/UI layer to use; filterEncounterPool does not
-    // strip on time (only on version), so the slot is still present in the raw pool.
+    // No area anywhere still carries a method:'static' slot.
+    for (const area of dataset.areas) {
+      expect(area.encounters.some((e) => e.methods.includes('static'))).toBe(false);
+    }
+
+    const rotom = dataset.specials.find((s) => s.species === 'rotom');
+    expect(rotom).toBeDefined();
+    expect(rotom?.type).toBe('static');
+    expect(rotom?.area).toBe('old-chateau');
+  });
+
+  it('carries time-of-day conditions on wild encounter slots (night-only spawns)', () => {
+    // time is authored data for the app/UI layer; filterEncounterPool does not strip
+    // on time (only on version), so a night-only slot is still present in the raw pool.
+    const eternaForest = dataset.areas.find((a) => a.id === 'eterna-forest')!;
+    const murkrow = eternaForest.encounters.find((e) => e.species === 'murkrow');
+    expect(murkrow?.conditions?.time).toEqual(['night']);
+
     const events: RunEvent[] = [
       ev('run_started', {
         gameId: 'bdsp',
@@ -82,8 +99,19 @@ describe('BDSP dataset', () => {
       }),
     ];
     const state = deriveState(events, ctx);
-    const pool = filterEncounterPool(state, oldChateau, ctx);
-    expect(pool.map((s) => s.species)).toContain('rotom');
+    const pool = filterEncounterPool(state, eternaForest, ctx);
+    expect(pool.map((s) => s.species)).toContain('murkrow');
+  });
+
+  it('registers the version-locked box legendaries as specials (Dialga=BD, Palkia=SP)', () => {
+    const dialga = dataset.specials.find((s) => s.species === 'dialga');
+    const palkia = dataset.specials.find((s) => s.species === 'palkia');
+    expect(dialga?.conditions?.version).toEqual(['brilliant-diamond']);
+    expect(palkia?.conditions?.version).toEqual(['shining-pearl']);
+    // the lake trio + Regigigas are present too (version-neutral)
+    for (const sp of ['uxie', 'mesprit', 'azelf', 'regigigas', 'cresselia']) {
+      expect(dataset.specials.some((s) => s.species === sp && s.type === 'static')).toBe(true);
+    }
   });
 
   it('gates areas behind gym milestones via unlockAfter', () => {
