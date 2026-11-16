@@ -214,6 +214,10 @@ export type RunEvent =
   | { seq: number; at: string; type: 'run_started'; payload: { gameId: string; version: string; ruleset: Ruleset } }
   | { seq: number; at: string; type: 'encounter_resolved'; payload: { areaId: string; species: string; outcome: 'caught' | 'failed' | 'skipped'; pokemonId?: string; nickname?: string; level?: number; shiny?: boolean } }
   | { seq: number; at: string; type: 'encounter_reset'; payload: { areaId: string } }
+  /** Open-world roll: the app picked which species is this area's one legal
+   * catch. The species is chosen when the event is created (never re-rolled on
+   * replay), so state stays deterministic. reroll: true spends a reroll. */
+  | { seq: number; at: string; type: 'encounter_rolled'; payload: { areaId: string; species: string; reroll?: boolean } }
   | { seq: number; at: string; type: 'special_claimed'; payload: { specialId: string; species: string; pokemonId: string; nickname?: string; level?: number; shiny?: boolean } }
   | { seq: number; at: string; type: 'special_reset'; payload: { specialId: string } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
@@ -274,6 +278,9 @@ export interface RunState {
   pokemon: Record<string, PokemonInstance>;
   /** areaId -> outcome of that area's one legal encounter */
   encounterOutcomes: Record<string, 'caught' | 'failed' | 'skipped'>;
+  /** areaId -> the rolled target species ('random-encounter-roll' rule) and
+   * how many rerolls have been spent on it. Cleared by encounter_reset. */
+  encounterRolls: Record<string, { species: string; rerollsUsed: number }>;
   milestonesCleared: string[];
   /** User-designated next boss (open-order games like SV) — the level cap keys
    * off this milestone while it stays uncleared; null = follow dataset order. */

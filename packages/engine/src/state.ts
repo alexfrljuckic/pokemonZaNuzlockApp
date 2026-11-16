@@ -13,6 +13,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
     status: 'active',
     pokemon: {},
     encounterOutcomes: {},
+    encounterRolls: {},
     milestonesCleared: [],
     nextBossId: null,
     trainersBattled: [],
@@ -48,12 +49,21 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
         }
         break;
       }
+      case 'encounter_rolled': {
+        const prev = state.encounterRolls[ev.payload.areaId];
+        state.encounterRolls[ev.payload.areaId] = {
+          species: ev.payload.species,
+          rerollsUsed: ev.payload.reroll ? (prev?.rerollsUsed ?? 0) + 1 : 0,
+        };
+        break;
+      }
       case 'encounter_reset': {
         // Undo a route's encounter: clear its outcome (making it selectable
         // again) and cascade-remove any Pokémon it produced — from party, box
         // or graveyard. Downstream events referencing a removed id no-op, since
         // every handler guards on the Pokémon still existing.
         delete state.encounterOutcomes[ev.payload.areaId];
+        delete state.encounterRolls[ev.payload.areaId];
         for (const [id, p] of Object.entries(state.pokemon)) {
           if (p.origin?.areaId === ev.payload.areaId) delete state.pokemon[id];
         }

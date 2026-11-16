@@ -1,14 +1,14 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { areasForVersion, classifyEncounterPool, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
+import { areasForVersion, specialAppliesToVersion, type Area, type EngineContext, type RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { GAME_MAPS, ZONE_MAPS, mapHelpers } from '../../lib/maps';
 import { ConfirmAction } from '../../components/ConfirmAction';
 import { RouteMap, type ZoneSummary } from '../../components/RouteMap';
 import { StarterPicker, claimedSpecial, starterHeading } from '../../components/SpecialsSection';
-import { AllFilteredOut, hasDocumentedEncounters } from '../../components/routes/AllFilteredOut';
+import { AreaEncounter } from '../../components/routes/AreaEncounter';
 import { AreaList } from '../../components/routes/AreaList';
 import { CaughtHere } from '../../components/routes/CaughtHere';
-import { EncounterForm, dupesScope, type Outcome } from '../../components/routes/EncounterForm';
+import { type Outcome } from '../../components/routes/EncounterForm';
 import { ItemsHere } from '../../components/routes/ItemsHere';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
 import { TrainersHere } from '../../components/routes/TrainersHere';
@@ -134,9 +134,6 @@ export function RoutesTab({
 
   const selected = openAreaId ? areas.find((a) => a.id === openAreaId) ?? null : null;
   const selectedOutcome = selected ? state.encounterOutcomes[selected.id] : undefined;
-  // Classified base pool: available species + dupes-dimmed ones (still shown so
-  // the player sees the full picture of what lives here).
-  const selectedPool = selected ? classifyEncounterPool(state, selected, ctx) : [];
 
   // Zone mode (PLA): areas carry zone:* tags and the map's zone nodes act as
   // group selectors — the list below shows one zone at a time. When the game
@@ -285,22 +282,16 @@ export function RoutesTab({
                 onConfirm={() => resetRoute(selected)}
               />
             </div>
-          ) : selectedPool.length > 0 ? (
-            // Base pool has species (available or dupes-dimmed) — the form shows
-            // them all; dimmed-only areas keep a skip affordance inside the form.
-            <EncounterForm
-              pool={selectedPool}
-              scope={dupesScope(state)}
-              gameId={ctx.dataset.gameId}
+          ) : (
+            <AreaEncounter
+              area={selected}
+              state={state}
+              ctx={ctx}
+              runId={runId}
+              onChange={onChange}
               onResolve={(sp, out, nick, lvl, sh) => resolve(selected, sp, out, nick, lvl, sh)}
               onSkip={() => resolve(selected, '', 'skipped')}
             />
-          ) : hasDocumentedEncounters(selected, state.version) ? (
-            // Base pool empty but the area documents encounters (all locked to
-            // the other version / alpha-only) — nothing to show; skip.
-            <AllFilteredOut onSkip={() => resolve(selected, '', 'skipped')} />
-          ) : (
-            <p className="muted">No wild encounters documented here.</p>
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
           <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />

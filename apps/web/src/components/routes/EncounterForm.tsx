@@ -118,6 +118,7 @@ function reasonText(reason: ClassifiedEncounter['reason'], scope: string | undef
       ? 'Already caught this species — dupes clause'
       : 'Already have this evolution line — dupes clause';
   }
+  if (reason === 'not-rolled') return 'Not your roll';
   return 'Unavailable';
 }
 
