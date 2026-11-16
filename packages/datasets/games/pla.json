@@ -272,6 +272,104 @@
           "name": "King's Leaf",
           "shop": true
         }
+      ],
+      "trainers": [
+        {
+          "name": "Rei / Akari (Training Grounds, Mission 5)",
+          "class": "Rival",
+          "team": [
+            {
+              "species": "pikachu",
+              "level": 9,
+              "moves": [
+                "quick-attack",
+                "thunder-wave",
+                "thunder-shock"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rei / Akari (Front Gate, Mission 8)",
+          "class": "Rival",
+          "team": [
+            {
+              "species": "mime-jr",
+              "level": 19,
+              "moves": [
+                "zen-headbutt",
+                "iron-defense",
+                "hypnosis"
+              ]
+            },
+            {
+              "species": "pikachu",
+              "level": 20,
+              "moves": [
+                "quick-attack",
+                "thunder-wave",
+                "thunder-shock"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Adaman (Training Grounds, Mission 11)",
+          "class": "Clan Leader",
+          "team": [
+            {
+              "species": "leafeon",
+              "level": 36,
+              "moves": [
+                "leaf-blade",
+                "quick-attack",
+                "calm-mind"
+              ]
+            },
+            {
+              "species": "eevee",
+              "level": 18,
+              "moves": [
+                "quick-attack",
+                "baby-doll-eyes"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Rei / Akari (Front Gate, Mission 12)",
+          "class": "Rival",
+          "team": [
+            {
+              "species": "mr-mime",
+              "level": 46,
+              "moves": [
+                "psychic",
+                "calm-mind",
+                "iron-defense",
+                "hypnosis"
+              ]
+            },
+            {
+              "species": "staravia",
+              "level": 46,
+              "moves": [
+                "quick-attack",
+                "brave-bird",
+                "roost"
+              ]
+            },
+            {
+              "species": "pikachu",
+              "level": 47,
+              "moves": [
+                "quick-attack",
+                "iron-tail",
+                "thunderbolt"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -343,6 +441,22 @@
               "night"
             ]
           }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Mai (near Fieldlands Camp, Mission 5)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "munchlax",
+              "level": 10,
+              "moves": [
+                "tackle",
+                "rollout"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1911,6 +2025,38 @@
             ]
           }
         }
+      ],
+      "trainers": [
+        {
+          "name": "Lian (Mission 7)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "goomy",
+              "level": 15,
+              "moves": [
+                "bubble",
+                "acid-armor",
+                "acid-spray"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Irida (Mission 7)",
+          "class": "Clan Leader",
+          "team": [
+            {
+              "species": "glaceon",
+              "level": 17,
+              "moves": [
+                "quick-attack",
+                "powder-snow",
+                "swift"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -2468,6 +2614,31 @@
             "walk"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Volo (Mission 8)",
+          "class": "Rival",
+          "team": [
+            {
+              "species": "togepi",
+              "level": 22,
+              "moves": [
+                "calm-mind",
+                "draining-kiss",
+                "tackle"
+              ]
+            },
+            {
+              "species": "gible",
+              "level": 22,
+              "moves": [
+                "twister",
+                "bulldoze"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -2589,6 +2760,22 @@
           "species": "raichu",
           "methods": [
             "alpha"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Coin (Mission 8)",
+          "class": "Bandit",
+          "team": [
+            {
+              "species": "toxicroak",
+              "level": 23,
+              "moves": [
+                "venoshock",
+                "rock-smash"
+              ]
+            }
           ]
         }
       ]
@@ -3801,6 +3988,63 @@
             "alpha"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Clover (Mission 10)",
+          "class": "Bandit",
+          "team": [
+            {
+              "species": "abomasnow",
+              "level": 35,
+              "moves": [
+                "icicle-crash",
+                "energy-ball",
+                "ice-shard"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Coin (Mission 10)",
+          "class": "Bandit",
+          "team": [
+            {
+              "species": "toxicroak",
+              "level": 34,
+              "moves": [
+                "poison-jab",
+                "mud-bomb",
+                "rock-smash"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Charm (Mission 10)",
+          "class": "Bandit",
+          "team": [
+            {
+              "species": "rhydon",
+              "level": 34,
+              "moves": [
+                "stealth-rock",
+                "bulldoze",
+                "rock-slide"
+              ]
+            },
+            {
+              "species": "gengar",
+              "level": 35,
+              "moves": [
+                "dark-pulse",
+                "hypnosis",
+                "hex",
+                "venoshock"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -4733,6 +4977,31 @@
             "in-ore"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Irida (Cobalt Coastlands, Mission 10)",
+          "class": "Clan Leader",
+          "team": [
+            {
+              "species": "glaceon",
+              "level": 30,
+              "moves": [
+                "quick-attack",
+                "baby-doll-eyes",
+                "ice-beam"
+              ]
+            },
+            {
+              "species": "eevee",
+              "level": 15,
+              "moves": [
+                "quick-attack",
+                "baby-doll-eyes"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -5470,7 +5739,52 @@
         "named-location",
         "zone:coronet-highlands"
       ],
-      "encounters": []
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Beni (Stone Portal, Mission 17)",
+          "class": "Ninja",
+          "team": [
+            {
+              "species": "mismagius",
+              "level": 59,
+              "moves": [
+                "shadow-ball",
+                "power-gem",
+                "extrasensory",
+                "hypnosis"
+              ]
+            },
+            {
+              "species": "sneasler",
+              "level": 59,
+              "moves": [
+                "dire-claw",
+                "close-combat",
+                "quick-attack"
+              ]
+            },
+            {
+              "species": "gardevoir",
+              "level": 60,
+              "moves": [
+                "calm-mind",
+                "dazzling-gleam",
+                "psychic"
+              ]
+            },
+            {
+              "species": "gallade",
+              "level": 60,
+              "moves": [
+                "swords-dance",
+                "drain-punch",
+                "psycho-cut"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "cloudcap-pass",
@@ -5563,7 +5877,40 @@
         "named-location",
         "zone:coronet-highlands"
       ],
-      "encounters": []
+      "encounters": [],
+      "trainers": [
+        {
+          "name": "Melli (Mission 11)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "skuntank",
+              "level": 44,
+              "moves": [
+                "poison-jab",
+                "night-slash",
+                "flamethrower"
+              ]
+            },
+            {
+              "species": "zubat",
+              "level": 22,
+              "moves": [
+                "hypnosis",
+                "gust"
+              ]
+            },
+            {
+              "species": "skorupi",
+              "level": 22,
+              "moves": [
+                "venoshock",
+                "bite"
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "celestica-ruins",
@@ -6094,6 +6441,32 @@
             "alpha"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Charm (Mission 18)",
+          "class": "Bandit",
+          "team": [
+            {
+              "species": "rhydon",
+              "level": 61,
+              "moves": [
+                "stealth-rock",
+                "bulldoze",
+                "high-horsepower"
+              ]
+            },
+            {
+              "species": "gengar",
+              "level": 62,
+              "moves": [
+                "dark-pulse",
+                "hypnosis",
+                "shadow-ball"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -6478,6 +6851,18 @@
           "species": "goodra-hisui",
           "methods": [
             "alpha"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Melli (outside the quarry, Mission 11; level disputed by sources)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "skuntank",
+              "level": 40
+            }
           ]
         }
       ]
@@ -7925,6 +8310,31 @@
             "shaking-tree"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Gaeric (near Snowfields Camp, Mission 12)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "glalie",
+              "level": 48,
+              "moves": [
+                "ice-shard",
+                "crunch",
+                "icicle-crash"
+              ]
+            },
+            {
+              "species": "froslass",
+              "level": 24,
+              "moves": [
+                "powder-snow",
+                "hex"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -8093,47 +8503,10 @@
   ],
   "milestones": [
     {
-      "id": "rei-akari-training-grounds",
-      "name": "Rei / Akari (Training Grounds)",
-      "type": "rival",
-      "order": 1,
-      "aceLevel": 9,
-      "trainerSprite": "akari",
-      "roster": [
-        {
-          "species": "pikachu",
-          "level": 9,
-          "moves": [
-            "quick-attack",
-            "thunder-wave",
-            "thunder-shock"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "warden-mai",
-      "name": "Warden Mai (Obsidian Fieldlands)",
-      "type": "warden",
-      "order": 2,
-      "aceLevel": 10,
-      "trainerSprite": "mai",
-      "roster": [
-        {
-          "species": "munchlax",
-          "level": 10,
-          "moves": [
-            "tackle",
-            "rollout"
-          ]
-        }
-      ]
-    },
-    {
       "id": "alpha-kricketune",
       "name": "Alpha Kricketune (Deertrack Heights)",
       "type": "story-pokemon",
-      "order": 3,
+      "order": 1,
       "aceLevel": 12,
       "species": "kricketune",
       "roster": [
@@ -8144,48 +8517,10 @@
       ]
     },
     {
-      "id": "warden-lian",
-      "name": "Warden Lian (Grandtree Arena)",
-      "type": "warden",
-      "order": 4,
-      "aceLevel": 15,
-      "trainerSprite": "lian",
-      "roster": [
-        {
-          "species": "goomy",
-          "level": 15,
-          "moves": [
-            "bubble",
-            "acid-armor",
-            "acid-spray"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "irida-grandtree",
-      "name": "Irida (Grandtree Arena)",
-      "type": "clan-leader",
-      "order": 5,
-      "aceLevel": 17,
-      "trainerSprite": "irida",
-      "roster": [
-        {
-          "species": "glaceon",
-          "level": 17,
-          "moves": [
-            "quick-attack",
-            "powder-snow",
-            "swift"
-          ]
-        }
-      ]
-    },
-    {
       "id": "noble-kleavor",
       "name": "Kleavor, Lord of the Woods",
       "type": "noble",
-      "order": 6,
+      "order": 2,
       "aceLevel": 18,
       "species": "kleavor",
       "roster": [
@@ -8202,83 +8537,10 @@
       ]
     },
     {
-      "id": "rei-akari-front-gate-1",
-      "name": "Rei / Akari (Front Gate)",
-      "type": "rival",
-      "order": 7,
-      "aceLevel": 20,
-      "trainerSprite": "akari",
-      "roster": [
-        {
-          "species": "mime-jr",
-          "level": 19,
-          "moves": [
-            "zen-headbutt",
-            "iron-defense",
-            "hypnosis"
-          ]
-        },
-        {
-          "species": "pikachu",
-          "level": 20,
-          "moves": [
-            "quick-attack",
-            "thunder-wave",
-            "thunder-shock"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "volo-solaceon-ruins",
-      "name": "Volo (Solaceon Ruins)",
-      "type": "rival",
-      "order": 8,
-      "aceLevel": 22,
-      "trainerSprite": "volo",
-      "roster": [
-        {
-          "species": "togepi",
-          "level": 22,
-          "moves": [
-            "calm-mind",
-            "draining-kiss",
-            "tackle"
-          ]
-        },
-        {
-          "species": "gible",
-          "level": 22,
-          "moves": [
-            "twister",
-            "bulldoze"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bandit-coin-mirelands",
-      "name": "The Bandit Coin (Crimson Mirelands)",
-      "type": "bandit",
-      "order": 9,
-      "aceLevel": 23,
-      "trainerSprite": "coin",
-      "roster": [
-        {
-          "species": "toxicroak",
-          "level": 23,
-          "moves": [
-            "venoshock",
-            "rock-smash"
-          ]
-        }
-      ]
-    },
-    {
       "id": "ursaluna-sludge-mound",
       "name": "Rampaging Ursaluna (Sludge Mound)",
       "type": "story-pokemon",
-      "order": 10,
+      "order": 3,
       "aceLevel": 26,
       "species": "ursaluna",
       "roster": [
@@ -8292,7 +8554,7 @@
       "id": "noble-lilligant",
       "name": "Lilligant, Lady of the Bridge",
       "type": "noble",
-      "order": 11,
+      "order": 4,
       "aceLevel": 30,
       "species": "lilligant-hisui",
       "roster": [
@@ -8309,104 +8571,10 @@
       ]
     },
     {
-      "id": "irida-cobalt-coastlands",
-      "name": "Irida (Cobalt Coastlands)",
-      "type": "clan-leader",
-      "order": 12,
-      "aceLevel": 30,
-      "trainerSprite": "irida",
-      "roster": [
-        {
-          "species": "glaceon",
-          "level": 30,
-          "moves": [
-            "quick-attack",
-            "baby-doll-eyes",
-            "ice-beam"
-          ]
-        },
-        {
-          "species": "eevee",
-          "level": 15,
-          "moves": [
-            "quick-attack",
-            "baby-doll-eyes"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bandit-clover-firespit",
-      "name": "The Bandit Clover (Firespit Island)",
-      "type": "bandit",
-      "order": 13,
-      "aceLevel": 35,
-      "trainerSprite": "clover",
-      "roster": [
-        {
-          "species": "abomasnow",
-          "level": 35,
-          "moves": [
-            "icicle-crash",
-            "energy-ball",
-            "ice-shard"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bandit-coin-firespit",
-      "name": "The Bandit Coin (Firespit Island)",
-      "type": "bandit",
-      "order": 14,
-      "aceLevel": 34,
-      "trainerSprite": "coin",
-      "roster": [
-        {
-          "species": "toxicroak",
-          "level": 34,
-          "moves": [
-            "poison-jab",
-            "mud-bomb",
-            "rock-smash"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "bandit-charm-firespit",
-      "name": "The Bandit Charm (Firespit Island)",
-      "type": "bandit",
-      "order": 15,
-      "aceLevel": 35,
-      "trainerSprite": "charm",
-      "roster": [
-        {
-          "species": "rhydon",
-          "level": 34,
-          "moves": [
-            "stealth-rock",
-            "bulldoze",
-            "rock-slide"
-          ]
-        },
-        {
-          "species": "gengar",
-          "level": 35,
-          "moves": [
-            "dark-pulse",
-            "hypnosis",
-            "hex",
-            "venoshock"
-          ]
-        }
-      ]
-    },
-    {
       "id": "noble-arcanine",
       "name": "Arcanine, Lord of the Isles",
       "type": "noble",
-      "order": 16,
+      "order": 5,
       "aceLevel": 36,
       "species": "arcanine-hisui",
       "roster": [
@@ -8423,52 +8591,10 @@
       ]
     },
     {
-      "id": "adaman-training-grounds",
-      "name": "Adaman (Training Grounds)",
-      "type": "clan-leader",
-      "order": 17,
-      "aceLevel": 36,
-      "trainerSprite": "adaman",
-      "roster": [
-        {
-          "species": "leafeon",
-          "level": 36,
-          "moves": [
-            "leaf-blade",
-            "quick-attack",
-            "calm-mind"
-          ]
-        },
-        {
-          "species": "eevee",
-          "level": 18,
-          "moves": [
-            "quick-attack",
-            "baby-doll-eyes"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "warden-melli-ancient-quarry",
-      "name": "Warden Melli (outside the Ancient Quarry)",
-      "type": "warden",
-      "order": 18,
-      "aceLevel": 40,
-      "countsForLevelCap": false,
-      "trainerSprite": "melli",
-      "roster": [
-        {
-          "species": "skuntank",
-          "level": 40
-        }
-      ]
-    },
-    {
       "id": "warden-ingo-wayward-cave",
       "name": "Warden Ingo (Wayward Cave)",
       "type": "warden",
-      "order": 19,
+      "order": 6,
       "aceLevel": 42,
       "trainerSprite": "ingo-hisui",
       "roster": [
@@ -8504,45 +8630,10 @@
       ]
     },
     {
-      "id": "warden-melli-moonview",
-      "name": "Warden Melli (Moonview Arena)",
-      "type": "warden",
-      "order": 20,
-      "aceLevel": 44,
-      "trainerSprite": "melli",
-      "roster": [
-        {
-          "species": "skuntank",
-          "level": 44,
-          "moves": [
-            "poison-jab",
-            "night-slash",
-            "flamethrower"
-          ]
-        },
-        {
-          "species": "zubat",
-          "level": 22,
-          "moves": [
-            "hypnosis",
-            "gust"
-          ]
-        },
-        {
-          "species": "skorupi",
-          "level": 22,
-          "moves": [
-            "venoshock",
-            "bite"
-          ]
-        }
-      ]
-    },
-    {
       "id": "noble-electrode",
       "name": "Electrode, Lord of the Hollow",
       "type": "noble",
-      "order": 21,
+      "order": 7,
       "aceLevel": 46,
       "species": "electrode-hisui",
       "roster": [
@@ -8559,75 +8650,10 @@
       ]
     },
     {
-      "id": "rei-akari-front-gate-2",
-      "name": "Rei / Akari (Front Gate, before the Icelands)",
-      "type": "rival",
-      "order": 22,
-      "aceLevel": 47,
-      "trainerSprite": "akari",
-      "roster": [
-        {
-          "species": "mr-mime",
-          "level": 46,
-          "moves": [
-            "psychic",
-            "calm-mind",
-            "iron-defense",
-            "hypnosis"
-          ]
-        },
-        {
-          "species": "staravia",
-          "level": 46,
-          "moves": [
-            "quick-attack",
-            "brave-bird",
-            "roost"
-          ]
-        },
-        {
-          "species": "pikachu",
-          "level": 47,
-          "moves": [
-            "quick-attack",
-            "iron-tail",
-            "thunderbolt"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "warden-gaeric",
-      "name": "Warden Gaeric (Alabaster Icelands)",
-      "type": "warden",
-      "order": 23,
-      "aceLevel": 48,
-      "trainerSprite": "gaeric",
-      "roster": [
-        {
-          "species": "glalie",
-          "level": 48,
-          "moves": [
-            "ice-shard",
-            "crunch",
-            "icicle-crash"
-          ]
-        },
-        {
-          "species": "froslass",
-          "level": 24,
-          "moves": [
-            "powder-snow",
-            "hex"
-          ]
-        }
-      ]
-    },
-    {
       "id": "warden-sabi",
       "name": "Warden Sabi (Snowpoint Temple)",
       "type": "warden",
-      "order": 24,
+      "order": 8,
       "aceLevel": 50,
       "trainerSprite": "sabi",
       "roster": [
@@ -8662,7 +8688,7 @@
       "id": "braviary-snowpoint-temple",
       "name": "Sabi's Braviary (Snowpoint Temple roof)",
       "type": "story-pokemon",
-      "order": 25,
+      "order": 9,
       "aceLevel": 54,
       "species": "braviary-hisui",
       "roster": [
@@ -8676,7 +8702,7 @@
       "id": "noble-avalugg",
       "name": "Avalugg, Lord of the Tundra",
       "type": "noble",
-      "order": 26,
+      "order": 10,
       "aceLevel": 56,
       "species": "avalugg-hisui",
       "roster": [
@@ -8693,57 +8719,10 @@
       ]
     },
     {
-      "id": "beni-stone-portal",
-      "name": "Beni (Stone Portal)",
-      "type": "story",
-      "order": 27,
-      "aceLevel": 60,
-      "trainerSprite": "beni",
-      "roster": [
-        {
-          "species": "mismagius",
-          "level": 59,
-          "moves": [
-            "shadow-ball",
-            "power-gem",
-            "extrasensory",
-            "hypnosis"
-          ]
-        },
-        {
-          "species": "sneasler",
-          "level": 59,
-          "moves": [
-            "dire-claw",
-            "close-combat",
-            "quick-attack"
-          ]
-        },
-        {
-          "species": "gardevoir",
-          "level": 60,
-          "moves": [
-            "calm-mind",
-            "dazzling-gleam",
-            "psychic"
-          ]
-        },
-        {
-          "species": "gallade",
-          "level": 60,
-          "moves": [
-            "swords-dance",
-            "drain-punch",
-            "psycho-cut"
-          ]
-        }
-      ]
-    },
-    {
       "id": "kamado",
       "name": "Commander Kamado (Temple of Sinnoh)",
       "type": "story",
-      "order": 28,
+      "order": 11,
       "aceLevel": 62,
       "countsForLevelCap": true,
       "roster": [
@@ -8790,7 +8769,7 @@
       "id": "origin-dialga-palkia",
       "name": "Origin Dialga or Palkia (whichever your clan chose)",
       "type": "legendary",
-      "order": 29,
+      "order": 12,
       "aceLevel": 65,
       "species": "dialga-origin",
       "roster": [
@@ -8811,38 +8790,10 @@
       ]
     },
     {
-      "id": "bandit-charm-primeval-grotto",
-      "name": "The Bandit Charm (Primeval Grotto)",
-      "type": "bandit",
-      "order": 30,
-      "aceLevel": 62,
-      "trainerSprite": "charm",
-      "roster": [
-        {
-          "species": "rhydon",
-          "level": 61,
-          "moves": [
-            "stealth-rock",
-            "bulldoze",
-            "high-horsepower"
-          ]
-        },
-        {
-          "species": "gengar",
-          "level": 62,
-          "moves": [
-            "dark-pulse",
-            "hypnosis",
-            "shadow-ball"
-          ]
-        }
-      ]
-    },
-    {
       "id": "kamado-prelude-beach",
       "name": "Commander Kamado (Prelude Beach)",
       "type": "story",
-      "order": 31,
+      "order": 13,
       "aceLevel": 66,
       "trainerSprite": "kamado",
       "roster": [
@@ -8901,7 +8852,7 @@
       "id": "volo-temple-of-sinnoh",
       "name": "Volo (Temple of Sinnoh)",
       "type": "story",
-      "order": 32,
+      "order": 14,
       "aceLevel": 68,
       "trainerSprite": "volo",
       "roster": [
@@ -8969,7 +8920,7 @@
       "id": "giratina",
       "name": "Giratina (Origin Forme)",
       "type": "legendary",
-      "order": 33,
+      "order": 15,
       "aceLevel": 70,
       "species": "giratina-altered",
       "roster": [
@@ -8989,7 +8940,7 @@
       "id": "arceus",
       "name": "Arceus (Temple of Sinnoh)",
       "type": "legendary",
-      "order": 34,
+      "order": 16,
       "aceLevel": 75,
       "species": "arceus",
       "roster": [

@@ -34,28 +34,50 @@ honor rules):
 
 ## What the dataset now does
 
-- **34 milestones in mission order** (M5 → M27), each with team, levels and
-  documented moves. Sources: Serebii mission pages, dittobase PLA trainer
-  pages, thonky mission walkthroughs, game8's trainer list, and gamerguides
-  M17 for Origin Dialga/Palkia.
-- **Milestone types**: `noble`, `legendary` (Origin Dialga/Palkia, Giratina,
-  Arceus), `warden`, `clan-leader`, `rival` (Rei/Akari, early Volo), `bandit`
-  (Miss Fortune sisters), `story-pokemon` (alpha Kricketune, Ursaluna,
-  Sabi's Braviary), and `story` (Beni, Kamado, final Volo).
-- **New rule `pla-story-caps`** (enforced, default on). This is the same
-  pattern as Z-A's `za-rogue-caps`. When it's on, every story battle gates
-  the cap, matching the community lists. When it's off, only `noble` and
-  `legendary` milestones gate the cap. That's the gym-like spine, the PLA
-  equivalent of "promotion matches only".
-- Existing milestone ids are unchanged, so in-progress runs keep their
-  cleared state.
+Every mandatory story battle is tracked, split by how much it matters.
+
+**16 bosses** (the Bosses tab, these set the level cap), in mission order:
+alpha Kricketune 12, Kleavor 18, Ursaluna 26, Lilligant 30, Arcanine 36,
+Ingo 42, Electrode 46, Sabi 50, Sabi's Braviary 54, Avalugg 56, Kamado 62,
+Origin Dialga/Palkia 65, Kamado 66, Volo 68, Giratina 70, Arceus 75.
+Selection rule: everything both community cap lists agree on, plus the
+fights that are the strongest thing in their stretch of the story (Braviary
+right after Sabi, Kamado's Prelude Beach rematch) and the post-game finale.
+
+**18 smaller trainer battles** live on the map in the area where they happen
+(display-only area trainers, the same as BDSP route trainers). They never gate
+the cap.
+- Jubilife Village: Rei/Akari ×3, Adaman
+- Aspiration Hill (Fieldlands Camp): Mai
+- Grandtree Arena: Lian, Irida
+- Solaceon Ruins: Volo
+- Golden Lowlands: Coin
+- Crossing Slope (Beachside Camp): Irida
+- Firespit Island: Clover, Coin, Charm
+- Ancient Quarry: Melli (level disputed)
+- Moonview Arena: Melli
+- Whiteout Valley (Snowfields Camp): Gaeric
+- Temple of Sinnoh: Beni (Stone Portal)
+- Primeval Grotto: Charm
+
+There's no Stone Portal or Training Grounds area in the dataset, so those
+fights sit in the nearest area, and their names say where they actually happen.
+
+**Rule `pla-story-caps`** (enforced, default on): the non-Noble bosses (Kricketune,
+Ursaluna, Ingo, Sabi, Braviary, Kamado, Volo) gate the cap. Turn it off and only
+`noble` and `legendary` gate it. Same pattern as Z-A's `za-rogue-caps`.
+
+**Rule `pla-player-ko`** (honor, default on): an overworld knockout costs a
+party Pokémon.
+
+`volo-solaceon-ruins` used to be a boss. Old runs that marked it cleared keep
+that event, and the engine ignores ids it no longer finds.
 
 ## Known gaps (flagged, not invented)
 
 - **Melli outside the Ancient Quarry**: sources disagree. Thonky and the
   community list say Skuntank Lv 40, game8 says Lv 44, and Bulbapedia says
-  Zubat + Skorupi Lv 22. It's tracked with `countsForLevelCap: false`, so
-  Ingo (42) sets the cap.
+  Zubat + Skorupi Lv 22. It's an area trainer, so it never sets the cap.
 - **No documented movesets** for the alpha Kricketune, Ursaluna, Sabi's
   Braviary, Origin Palkia, or the disputed Melli fight. Milestone cards now use
   the same "expected moves" fallback as route trainers. These are listed in
