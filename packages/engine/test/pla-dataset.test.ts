@@ -17,13 +17,18 @@ describe('PLA dataset', () => {
     expect(new Set(orders).size).toBe(orders.length);
   });
 
+  // Fights whose movesets no source documents. They keep species + level, and
+  // the app shows its "expected moves" fallback. Shrink as sources turn up.
+  const UNDOCUMENTED = ['palkia-origin', 'Melli (outside', 'Alpha Kricketune', 'Rampaging Ursaluna', "Sabi's Braviary"];
+
   it('gives every milestone roster movesets, no abilities, and ace == max level', () => {
     for (const m of dataset.milestones) {
       expect(m.roster, `milestone "${m.id}" should have a roster`).toBeTruthy();
       const maxLevel = Math.max(...m.roster!.map((p) => p.level));
       expect(maxLevel, `milestone "${m.id}" ace mismatch`).toBe(m.aceLevel);
       for (const p of m.roster!) {
-        expect(p.moves?.length, `${m.id}/${p.species} should have moves`).toBeGreaterThan(0);
+        if (!UNDOCUMENTED.includes(p.species))
+          expect(p.moves?.length, `${m.id}/${p.species} should have moves`).toBeGreaterThan(0);
         // PLA has no ability mechanic — roster entries must not carry one
         expect((p as { ability?: string }).ability).toBeUndefined();
       }
@@ -67,17 +72,47 @@ describe('PLA dataset', () => {
     expect(horseshoe.encounters.some((e) => e.species === 'rapidash' && e.methods.includes('alpha'))).toBe(true);
   });
 
-  it('includes the Kamado story battle before the Volo finale (regular Golem, not Hisuian)', () => {
-    const kamado = dataset.milestones.find((m) => m.id === 'kamado');
-    expect(kamado, 'kamado milestone should exist').toBeTruthy();
-    expect(kamado!.countsForLevelCap).toBe(true);
-    expect(kamado!.aceLevel).toBe(62);
-    const species = kamado!.roster!.map((p) => p.species);
+  it('keeps the five Nobles plus the legendary fights as bosses, in story order', () => {
+    const sorted = [...dataset.milestones].sort((a, b) => a.order - b.order).map((m) => m.id);
+    expect(sorted).toEqual([
+      'noble-kleavor',
+      'noble-lilligant',
+      'noble-arcanine',
+      'noble-electrode',
+      'noble-avalugg',
+      'origin-dialga-palkia',
+      'giratina',
+      'arceus',
+    ]);
+  });
+
+  it('puts every other story battle on the map where it happens', () => {
+    const where = (name: string) =>
+      dataset.areas
+        .filter((a) => a.trainers?.some((t) => t.name.startsWith(name)))
+        .map((a) => a.id)
+        .sort();
+    expect(where('Mai')).toEqual(['aspiration-hill']);
+    expect(where('Melli')).toEqual(['ancient-quarry', 'moonview-arena']);
+    expect(where('Volo')).toEqual(['solaceon-ruins', 'temple-of-sinnoh']);
+    expect(where('Kamado')).toEqual(['jubilife-village', 'temple-of-sinnoh']);
+    expect(where('Ingo')).toEqual(['wayward-cave']);
+    expect(where('Alpha Kricketune')).toEqual(['deertrack-heights']);
+    const trainers = dataset.areas.flatMap((a) => a.trainers ?? []);
+    expect(trainers).toHaveLength(26);
+    for (const t of trainers)
+      if (!UNDOCUMENTED.some((u) => t.name.startsWith(u)))
+        for (const p of t.team) expect(p.moves?.length, `${t.name}/${p.species} should have moves`).toBeGreaterThan(0);
+  });
+
+  it('keeps Kamado on the map with a regular Golem, not a Hisuian one', () => {
+    const kamado = dataset.areas
+      .find((a) => a.id === 'temple-of-sinnoh')!
+      .trainers!.find((t) => t.name.startsWith('Kamado'))!;
+    const species = kamado.team.map((p) => p.species);
+    expect(Math.max(...kamado.team.map((p) => p.level))).toBe(62);
     expect(species).toContain('golem'); // the backlog's "Hisuian Golem" was wrong — no such form
     expect(species).not.toContain('golem-hisui');
     expect(species).toContain('braviary-hisui');
-    // Kamado (order 7) slots in before Volo's Temple of Sinnoh finale (order 8)
-    const volo = dataset.milestones.find((m) => m.id === 'volo-temple-of-sinnoh')!;
-    expect(kamado!.order).toBeLessThan(volo.order);
   });
 });

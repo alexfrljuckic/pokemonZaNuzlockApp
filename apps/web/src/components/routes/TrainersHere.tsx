@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Area, AreaTrainer, RunState } from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
+import { trainerKey, useOpenTrainer } from '../../lib/openTrainer';
 import { resolveTrainerMoves, typesFor } from '../../lib/speciesData';
 import { trainerSpriteKeyFor } from '../../lib/sprites';
 import { MoveChips } from '../MoveChips';
@@ -41,6 +42,10 @@ function TrainerCard({
 }) {
   const [expanded, setExpanded] = useState(false);
   const canMark = runId != null && onChange != null;
+  // In the owner view a row opens that trainer in the Trainers tab; elsewhere
+  // (spectator) it expands in place as before.
+  const openTrainer = useOpenTrainer();
+  const activate = () => (openTrainer ? openTrainer(trainerKey(areaId, index)) : setExpanded((e) => !e));
 
   async function toggleBattled() {
     if (!canMark) return;
@@ -57,12 +62,13 @@ function TrainerCard({
       className={`trainer-row${expanded ? ' expanded' : ''}${battled ? ' battled' : ''}`}
       role="button"
       tabIndex={0}
-      aria-expanded={expanded}
-      onClick={() => setExpanded((e) => !e)}
+      aria-expanded={openTrainer ? undefined : expanded}
+      title={openTrainer ? `Open ${t.name} in Trainers` : undefined}
+      onClick={activate}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          setExpanded((v) => !v);
+          activate();
         }
       }}
     >

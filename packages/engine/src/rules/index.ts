@@ -258,6 +258,18 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: {},
     hooks: [],
   },
+  'pla-player-ko': {
+    id: 'pla-player-ko',
+    name: 'Player Knockout Costs a Pokémon',
+    category: 'honor',
+    description:
+      'If you (the player) are knocked out by wild Pokémon in the overworld, one party Pokémon of your choice dies. Log it as a faint with cause "player knocked out". Honor rule: the app cannot see overworld knockouts.',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
   'za-rogue-caps': {
     id: 'za-rogue-caps',
     name: 'Rogue Battles Gate the Level Cap',

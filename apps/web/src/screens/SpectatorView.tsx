@@ -6,6 +6,7 @@ import { fetchSharedRun, subscribeToRunChanges, type SharedRun } from '../lib/sh
 import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { RunTimeline } from '../components/RunTimeline';
 import { MilestonesTab } from './tabs/MilestonesTab';
+import { TrainersTab, trainerGroups } from './tabs/TrainersTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
@@ -94,11 +95,11 @@ function SpectatorRun({
 
       <RunSummaryStrip events={events} state={state} ctx={ctx} />
 
-      {/* Spectator mirrors the owner's five read-only tabs so #share/<token>/<tab>
+      {/* Spectator mirrors the owner's read-only tabs so #share/<token>/<tab>
           deep-links to the same section. When no onTabChange is supplied (e.g.
           embedded/preview contexts) the bar is inert but still selects a tab. */}
       <nav className="tabs" role="tablist" aria-label="Run sections">
-        {TAB_SLUGS.map((slug) => (
+        {TAB_SLUGS.filter((slug) => slug !== 'trainers' || trainerGroups(ctx, state.version).length > 0).map((slug) => (
           <button
             key={slug}
             role="tab"
@@ -114,6 +115,8 @@ function SpectatorRun({
       {/* Spectator reuses the owner's tab components in read-only mode (no
           runId/onChange) so any change to them lands in both views at once. */}
       {tab === 'team' && <TeamBoxTab state={state} ctx={ctx} />}
+
+      {tab === 'trainers' && <TrainersTab state={state} ctx={ctx} />}
 
       {tab === 'bosses' && <MilestonesTab state={state} ctx={ctx} />}
 

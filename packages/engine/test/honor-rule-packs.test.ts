@@ -21,6 +21,7 @@ const PACKS: Record<string, string[]> = {
     'pla-no-distortions',
     'pla-outbreak-shiny-clause',
     'pla-noble-two-attempts',
+    'pla-player-ko',
   ],
   sv: ['sv-no-raid-encounters', 'sv-no-picnic-eggs', 'sv-symmetric-tera'],
   plza: ['za-symmetric-mega', 'za-rogue-caps'],
