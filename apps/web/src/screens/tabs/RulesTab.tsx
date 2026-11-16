@@ -106,6 +106,26 @@ export function RulesTab({
               )
             )}
 
+            {def.id === 'random-encounter-roll' && enabled && (
+              editable ? (
+                <label>
+                  Rerolls per area
+                  <select
+                    value={Number(cfg?.params.rerolls ?? 1)}
+                    onChange={(e) => setParam('random-encounter-roll', 'rerolls', Number(e.target.value))}
+                  >
+                    {[0, 1, 2, 3].map((n) => (
+                      <option key={n} value={n}>
+                        {n}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : (
+                <p className="muted">Rerolls per area: {Number(cfg?.params.rerolls ?? 1)}</p>
+              )
+            )}
+
             {def.id === 'dupes-clause' && enabled && (
               editable ? (
                 <label>

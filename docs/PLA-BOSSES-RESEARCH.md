@@ -70,6 +70,16 @@ The Trainers tab only appears for games that have documented trainer battles:
 BDSP (431), Let's Go (204), SV (208), SwSh (103) and PLA (26). Z-A and Radical
 Red have none, so they don't get the tab.
 
+**Rule `random-encounter-roll`** (enforced, default on for PLA and Z-A,
+1 reroll per area, adjustable 0-3 in Rules): in open-world games you see
+many Pokémon at once, so there's no natural "first encounter". This brings
+back the original Z-A app's roll. In each area the app picks one species
+uniformly from what you can still legally catch there (dupes excluded),
+and only that species stays selectable. The roll is stored as an
+`encounter_rolled` event, so replay stays deterministic. Resetting the area
+clears the roll. If the rolled species becomes a dupe before you resolve the
+area, the roll is void and you roll again.
+
 **Rule `pla-player-ko`** (honor, default on): an overworld knockout costs a
 party Pokémon.
 

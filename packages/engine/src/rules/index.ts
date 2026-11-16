@@ -25,6 +25,18 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: {},
     hooks: ['filterEncounterPool'],
   },
+  'random-encounter-roll': {
+    id: 'random-encounter-roll',
+    name: 'Random Encounter Roll',
+    description:
+      "Open-world games show you many Pokémon at once, so there's no natural \"first encounter\". Instead the app rolls which species is your one legal catch in each area, from what you're still allowed to catch there (dupes excluded). You get a set number of rerolls per area.",
+    category: 'encounter',
+    appliesTo: ['pla', 'plza'],
+    enforcement: 'enforced',
+    defaultEnabled: true,
+    defaultParams: { rerolls: 1 },
+    hooks: ['filterEncounterPool'],
+  },
   'dupes-clause': {
     id: 'dupes-clause',
     name: 'Dupes Clause',
@@ -338,7 +350,9 @@ function ownedSpecies(state: RunState): Set<string> {
  * mid-run) — version/alpha/first-encounter exclusions are "never in this run"
  * and are never surfaced as classified entries (they don't enter the base pool
  * / short-circuit to []). */
-export type EncounterExclusionReason = 'dupes-clause';
+/** 'not-rolled': the random-encounter-roll rule picked a different species
+ * as this area's legal catch. */
+export type EncounterExclusionReason = 'dupes-clause' | 'not-rolled';
 
 /** A base-pool slot tagged with whether it's currently catchable. `available:
  * false` always carries a `reason`. */
@@ -391,7 +405,7 @@ export function classifyEncounterPool(
   const lines = byLine ? ownedLines(state, ctx) : null;
   const species = bySpecies ? ownedSpecies(state) : null;
 
-  return base.map((slot) => {
+  const classified: ClassifiedEncounter[] = base.map((slot) => {
     const owned = byLine
       ? lines!.has(ctx.speciesToLine[slot.species] ?? slot.species)
       : bySpecies
@@ -401,6 +415,69 @@ export function classifyEncounterPool(
       ? { slot, available: false, reason: 'dupes-clause' as const }
       : { slot, available: true };
   });
+
+  // Open-world roll: only the rolled species stays catchable. A roll that has
+  // since become illegal (e.g. now a dupe) is void, so the full pool shows and
+  // the player rolls again (activeRoll returns null for it).
+  const roll = activeRoll(state, area, classified);
+  if (!roll) return classified;
+  return classified.map((e) =>
+    e.available && e.slot.species !== roll.species
+      ? { slot: e.slot, available: false, reason: 'not-rolled' as const }
+      : e,
+  );
+}
+
+/** The area's current roll when the random-encounter-roll rule is on and the
+ * rolled species is still legal here; null otherwise. */
+function activeRoll(
+  state: RunState,
+  area: Area,
+  classified: ClassifiedEncounter[],
+): { species: string; rerollsUsed: number } | null {
+  if (!state.ruleset.rules['random-encounter-roll']?.enabled) return null;
+  const roll = state.encounterRolls[area.id];
+  if (!roll) return null;
+  return classified.some((e) => e.available && e.slot.species === roll.species) ? roll : null;
+}
+
+/** What the roll UI needs for one area: whether rolling applies, the live
+ * target (if any), rerolls left, and the distinct species a roll can land on. */
+export function encounterRollInfo(
+  state: RunState,
+  area: Area,
+  ctx: EngineContext,
+): { enabled: boolean; target: string | null; rerollsLeft: number; candidates: string[] } {
+  const rule = state.ruleset.rules['random-encounter-roll'];
+  const enabled = Boolean(rule?.enabled) && !state.encounterOutcomes[area.id];
+  if (!enabled) return { enabled: false, target: null, rerollsLeft: 0, candidates: [] };
+  // Candidates come from the pool WITHOUT the roll applied.
+  const withoutRoll = { ...state, encounterRolls: {} };
+  const candidates = [
+    ...new Set(classifyEncounterPool(withoutRoll, area, ctx).filter((e) => e.available).map((e) => e.slot.species)),
+  ];
+  const roll = state.encounterRolls[area.id];
+  const live = roll && candidates.includes(roll.species) ? roll : null;
+  const allowed = Number(rule!.params.rerolls ?? 1);
+  return {
+    enabled: true,
+    target: live?.species ?? null,
+    rerollsLeft: live ? Math.max(0, allowed - live.rerollsUsed) : allowed,
+    candidates,
+  };
+}
+
+/** Pick a species for an area roll, uniformly across distinct legal species.
+ * On a reroll the current target is excluded when anything else is left.
+ * `random` is injectable for tests. Returns null when nothing is catchable. */
+export function rollEncounterSpecies(
+  candidates: string[],
+  current: string | null = null,
+  random: () => number = Math.random,
+): string | null {
+  const pool = current && candidates.length > 1 ? candidates.filter((s) => s !== current) : candidates;
+  if (pool.length === 0) return null;
+  return pool[Math.floor(random() * pool.length)];
 }
 
 /**

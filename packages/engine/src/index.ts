@@ -21,6 +21,8 @@ export {
   buildRuleset,
   filterEncounterPool,
   classifyEncounterPool,
+  encounterRollInfo,
+  rollEncounterSpecies,
   type ClassifiedEncounter,
   type EncounterExclusionReason,
   validateTeam,

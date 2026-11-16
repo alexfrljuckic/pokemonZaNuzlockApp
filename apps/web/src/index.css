@@ -4014,3 +4014,51 @@ button.link-danger:hover:not(:disabled) {
 .trainers-tab-area .milestone-card {
   scroll-margin-top: 1rem;
 }
+
+/* Open-world encounter roll (Random Encounter Roll rule: PLA, Z-A) */
+.encounter-roll {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.65rem 0.8rem;
+  margin-bottom: 0.7rem;
+  background: var(--bg-inset);
+  border: 1px dashed color-mix(in srgb, var(--accent) 45%, var(--border));
+  border-radius: 10px;
+}
+.encounter-roll.rolled {
+  border-style: solid;
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--border));
+}
+.encounter-roll-intro {
+  margin: 0;
+  flex: 1 1 100%;
+}
+.encounter-roll-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.encounter-roll-target {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.encounter-roll-target > div {
+  display: flex;
+  flex-direction: column;
+}
+.encounter-roll-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.encounter-roll-species {
+  font-size: 1.15rem;
+  text-transform: capitalize;
+}
+.encounter-roll-note {
+  font-size: 0.85rem;
+}
