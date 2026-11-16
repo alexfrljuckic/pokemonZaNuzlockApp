@@ -12,6 +12,7 @@ vi.mock('@nuzlocke/engine', () => ({
     ruleset: { presetId: 'standard', houseRules: [] },
     version: 'scarlet',
     milestonesCleared: [],
+    trainersBattled: [],
     pokemon: {},
   }),
   milestonesFor: () => [],
@@ -37,6 +38,11 @@ vi.mock('../lib/theme', () => ({ applyVersionTheme: vi.fn() }));
 vi.mock('../components/RunSummaryStrip', () => ({ RunSummaryStrip: () => <div data-testid="summary" /> }));
 vi.mock('../components/SharePopover', () => ({ SharePopover: () => null }));
 vi.mock('./tabs/RoutesTab', () => ({ RoutesTab: () => <div data-testid="panel-routes" /> }));
+// one documented trainer so the Trainers tab shows
+vi.mock('./tabs/TrainersTab', () => ({
+  TrainersTab: () => <div data-testid="panel-trainers" />,
+  trainerGroups: () => [{ area: { id: 'a1' }, trainers: [{ t: {}, index: 0 }] }],
+}));
 vi.mock('./tabs/TeamBoxTab', () => ({ TeamBoxTab: () => <div data-testid="panel-team" /> }));
 vi.mock('./tabs/MilestonesTab', () => ({ MilestonesTab: () => <div data-testid="panel-bosses" /> }));
 vi.mock('./tabs/RulesTab', () => ({ RulesTab: () => <div data-testid="panel-rules" /> }));
@@ -90,5 +96,13 @@ describe('RunView tab <-> route wiring', () => {
       statsBtn.click();
     });
     expect(onTabChange).toHaveBeenCalledWith('stats');
+  });
+
+  it('shows the Trainers tab right after Routes and renders it from the slug', async () => {
+    const r = await renderRunView('trainers');
+    container = r.container;
+    const labels = [...container.querySelectorAll('button[role="tab"] .tab-label-full')].map((b) => b.textContent);
+    expect(labels.slice(0, 2)).toEqual(['Routes', 'Trainers']);
+    expect(container.querySelector('[data-testid="panel-trainers"]')).toBeTruthy();
   });
 });

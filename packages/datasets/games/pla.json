@@ -369,6 +369,61 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Kamado (Prelude Beach, Mission 25)",
+          "class": "Commander",
+          "team": [
+            {
+              "species": "golem",
+              "level": 65,
+              "moves": [
+                "iron-head",
+                "stone-edge",
+                "thunder-punch",
+                "bulldoze"
+              ]
+            },
+            {
+              "species": "clefable",
+              "level": 65,
+              "moves": [
+                "draining-kiss",
+                "psychic",
+                "calm-mind",
+                "water-pulse"
+              ]
+            },
+            {
+              "species": "braviary-hisui",
+              "level": 65,
+              "moves": [
+                "esper-wing",
+                "air-slash",
+                "quick-attack"
+              ]
+            },
+            {
+              "species": "heracross",
+              "level": 65,
+              "moves": [
+                "close-combat",
+                "swords-dance",
+                "pin-missile",
+                "aerial-ace"
+              ]
+            },
+            {
+              "species": "snorlax",
+              "level": 66,
+              "moves": [
+                "zen-headbutt",
+                "high-horsepower",
+                "giga-impact",
+                "fire-punch"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -982,6 +1037,18 @@
               "day"
             ]
           }
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Alpha Kricketune (Mission 5)",
+          "class": "Alpha Pokémon",
+          "team": [
+            {
+              "species": "kricketune",
+              "level": 12
+            }
+          ]
         }
       ]
     },
@@ -3543,6 +3610,18 @@
             "walk"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Rampaging Ursaluna (Mission 8)",
+          "class": "Story Pokémon",
+          "team": [
+            {
+              "species": "ursaluna",
+              "level": 26
+            }
+          ]
+        }
       ]
     },
     {
@@ -5783,6 +5862,113 @@
               ]
             }
           ]
+        },
+        {
+          "name": "Kamado (Mission 17)",
+          "class": "Commander",
+          "team": [
+            {
+              "species": "braviary-hisui",
+              "level": 61,
+              "moves": [
+                "esper-wing",
+                "air-slash",
+                "quick-attack"
+              ]
+            },
+            {
+              "species": "golem",
+              "level": 61,
+              "moves": [
+                "stealth-rock",
+                "rock-slide",
+                "double-edge"
+              ]
+            },
+            {
+              "species": "clefable",
+              "level": 61,
+              "moves": [
+                "draining-kiss",
+                "psychic",
+                "calm-mind",
+                "baby-doll-eyes"
+              ]
+            },
+            {
+              "species": "snorlax",
+              "level": 62,
+              "moves": [
+                "zen-headbutt",
+                "high-horsepower",
+                "giga-impact"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Volo (Mission 27, right before Giratina)",
+          "class": "Rival",
+          "team": [
+            {
+              "species": "spiritomb",
+              "level": 68,
+              "moves": [
+                "hypnosis",
+                "dark-pulse",
+                "extrasensory",
+                "shadow-ball"
+              ]
+            },
+            {
+              "species": "roserade",
+              "level": 68,
+              "moves": [
+                "poison-jab",
+                "petal-dance",
+                "spikes"
+              ]
+            },
+            {
+              "species": "togekiss",
+              "level": 68,
+              "moves": [
+                "calm-mind",
+                "moonblast",
+                "extrasensory",
+                "air-slash"
+              ]
+            },
+            {
+              "species": "arcanine-hisui",
+              "level": 68,
+              "moves": [
+                "raging-fury",
+                "crunch",
+                "rock-slide"
+              ]
+            },
+            {
+              "species": "lucario",
+              "level": 68,
+              "moves": [
+                "close-combat",
+                "crunch",
+                "bulk-up",
+                "bullet-punch"
+              ]
+            },
+            {
+              "species": "garchomp",
+              "level": 68,
+              "moves": [
+                "dragon-claw",
+                "earth-power",
+                "slash",
+                "iron-head"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -7168,6 +7354,43 @@
             "alpha"
           ]
         }
+      ],
+      "trainers": [
+        {
+          "name": "Ingo (Mission 11)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "machoke",
+              "level": 41,
+              "moves": [
+                "bullet-punch",
+                "bulk-up",
+                "double-edge",
+                "rock-smash"
+              ]
+            },
+            {
+              "species": "tangela",
+              "level": 41,
+              "moves": [
+                "stun-spore",
+                "energy-ball",
+                "ancient-power"
+              ]
+            },
+            {
+              "species": "gliscor",
+              "level": 42,
+              "moves": [
+                "quick-attack",
+                "aerial-ace",
+                "mud-bomb",
+                "poison-jab"
+              ]
+            }
+          ]
+        }
       ]
     },
     {
@@ -7535,6 +7758,49 @@
           "species": "basculin-white-striped",
           "methods": [
             "surf"
+          ]
+        }
+      ],
+      "trainers": [
+        {
+          "name": "Sabi (Snowpoint Temple, Mission 12)",
+          "class": "Warden",
+          "team": [
+            {
+              "species": "rhyperior",
+              "level": 50,
+              "moves": [
+                "rock-slide",
+                "high-horsepower",
+                "rock-smash"
+              ]
+            },
+            {
+              "species": "magmortar",
+              "level": 30,
+              "moves": [
+                "poison-gas",
+                "flamethrower"
+              ]
+            },
+            {
+              "species": "electivire",
+              "level": 30,
+              "moves": [
+                "thunder-wave",
+                "thunder-punch"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Sabi's Braviary (Snowpoint Temple roof, Mission 12)",
+          "class": "Story Pokémon",
+          "team": [
+            {
+              "species": "braviary-hisui",
+              "level": 54
+            }
           ]
         }
       ]
@@ -8503,24 +8769,10 @@
   ],
   "milestones": [
     {
-      "id": "alpha-kricketune",
-      "name": "Alpha Kricketune (Deertrack Heights)",
-      "type": "story-pokemon",
-      "order": 1,
-      "aceLevel": 12,
-      "species": "kricketune",
-      "roster": [
-        {
-          "species": "kricketune",
-          "level": 12
-        }
-      ]
-    },
-    {
       "id": "noble-kleavor",
       "name": "Kleavor, Lord of the Woods",
       "type": "noble",
-      "order": 2,
+      "order": 1,
       "aceLevel": 18,
       "species": "kleavor",
       "roster": [
@@ -8537,24 +8789,10 @@
       ]
     },
     {
-      "id": "ursaluna-sludge-mound",
-      "name": "Rampaging Ursaluna (Sludge Mound)",
-      "type": "story-pokemon",
-      "order": 3,
-      "aceLevel": 26,
-      "species": "ursaluna",
-      "roster": [
-        {
-          "species": "ursaluna",
-          "level": 26
-        }
-      ]
-    },
-    {
       "id": "noble-lilligant",
       "name": "Lilligant, Lady of the Bridge",
       "type": "noble",
-      "order": 4,
+      "order": 2,
       "aceLevel": 30,
       "species": "lilligant-hisui",
       "roster": [
@@ -8574,7 +8812,7 @@
       "id": "noble-arcanine",
       "name": "Arcanine, Lord of the Isles",
       "type": "noble",
-      "order": 5,
+      "order": 3,
       "aceLevel": 36,
       "species": "arcanine-hisui",
       "roster": [
@@ -8591,49 +8829,10 @@
       ]
     },
     {
-      "id": "warden-ingo-wayward-cave",
-      "name": "Warden Ingo (Wayward Cave)",
-      "type": "warden",
-      "order": 6,
-      "aceLevel": 42,
-      "trainerSprite": "ingo-hisui",
-      "roster": [
-        {
-          "species": "machoke",
-          "level": 41,
-          "moves": [
-            "bullet-punch",
-            "bulk-up",
-            "double-edge",
-            "rock-smash"
-          ]
-        },
-        {
-          "species": "tangela",
-          "level": 41,
-          "moves": [
-            "stun-spore",
-            "energy-ball",
-            "ancient-power"
-          ]
-        },
-        {
-          "species": "gliscor",
-          "level": 42,
-          "moves": [
-            "quick-attack",
-            "aerial-ace",
-            "mud-bomb",
-            "poison-jab"
-          ]
-        }
-      ]
-    },
-    {
       "id": "noble-electrode",
       "name": "Electrode, Lord of the Hollow",
       "type": "noble",
-      "order": 7,
+      "order": 4,
       "aceLevel": 46,
       "species": "electrode-hisui",
       "roster": [
@@ -8650,59 +8849,10 @@
       ]
     },
     {
-      "id": "warden-sabi",
-      "name": "Warden Sabi (Snowpoint Temple)",
-      "type": "warden",
-      "order": 8,
-      "aceLevel": 50,
-      "trainerSprite": "sabi",
-      "roster": [
-        {
-          "species": "rhyperior",
-          "level": 50,
-          "moves": [
-            "rock-slide",
-            "high-horsepower",
-            "rock-smash"
-          ]
-        },
-        {
-          "species": "magmortar",
-          "level": 30,
-          "moves": [
-            "poison-gas",
-            "flamethrower"
-          ]
-        },
-        {
-          "species": "electivire",
-          "level": 30,
-          "moves": [
-            "thunder-wave",
-            "thunder-punch"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "braviary-snowpoint-temple",
-      "name": "Sabi's Braviary (Snowpoint Temple roof)",
-      "type": "story-pokemon",
-      "order": 9,
-      "aceLevel": 54,
-      "species": "braviary-hisui",
-      "roster": [
-        {
-          "species": "braviary-hisui",
-          "level": 54
-        }
-      ]
-    },
-    {
       "id": "noble-avalugg",
       "name": "Avalugg, Lord of the Tundra",
       "type": "noble",
-      "order": 10,
+      "order": 5,
       "aceLevel": 56,
       "species": "avalugg-hisui",
       "roster": [
@@ -8719,57 +8869,10 @@
       ]
     },
     {
-      "id": "kamado",
-      "name": "Commander Kamado (Temple of Sinnoh)",
-      "type": "story",
-      "order": 11,
-      "aceLevel": 62,
-      "countsForLevelCap": true,
-      "roster": [
-        {
-          "species": "braviary-hisui",
-          "level": 61,
-          "moves": [
-            "esper-wing",
-            "air-slash",
-            "quick-attack"
-          ]
-        },
-        {
-          "species": "golem",
-          "level": 61,
-          "moves": [
-            "stealth-rock",
-            "rock-slide",
-            "double-edge"
-          ]
-        },
-        {
-          "species": "clefable",
-          "level": 61,
-          "moves": [
-            "draining-kiss",
-            "psychic",
-            "calm-mind",
-            "baby-doll-eyes"
-          ]
-        },
-        {
-          "species": "snorlax",
-          "level": 62,
-          "moves": [
-            "zen-headbutt",
-            "high-horsepower",
-            "giga-impact"
-          ]
-        }
-      ]
-    },
-    {
       "id": "origin-dialga-palkia",
       "name": "Origin Dialga or Palkia (whichever your clan chose)",
       "type": "legendary",
-      "order": 12,
+      "order": 6,
       "aceLevel": 65,
       "species": "dialga-origin",
       "roster": [
@@ -8790,137 +8893,10 @@
       ]
     },
     {
-      "id": "kamado-prelude-beach",
-      "name": "Commander Kamado (Prelude Beach)",
-      "type": "story",
-      "order": 13,
-      "aceLevel": 66,
-      "trainerSprite": "kamado",
-      "roster": [
-        {
-          "species": "golem",
-          "level": 65,
-          "moves": [
-            "iron-head",
-            "stone-edge",
-            "thunder-punch",
-            "bulldoze"
-          ]
-        },
-        {
-          "species": "clefable",
-          "level": 65,
-          "moves": [
-            "draining-kiss",
-            "psychic",
-            "calm-mind",
-            "water-pulse"
-          ]
-        },
-        {
-          "species": "braviary-hisui",
-          "level": 65,
-          "moves": [
-            "esper-wing",
-            "air-slash",
-            "quick-attack"
-          ]
-        },
-        {
-          "species": "heracross",
-          "level": 65,
-          "moves": [
-            "close-combat",
-            "swords-dance",
-            "pin-missile",
-            "aerial-ace"
-          ]
-        },
-        {
-          "species": "snorlax",
-          "level": 66,
-          "moves": [
-            "zen-headbutt",
-            "high-horsepower",
-            "giga-impact",
-            "fire-punch"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "volo-temple-of-sinnoh",
-      "name": "Volo (Temple of Sinnoh)",
-      "type": "story",
-      "order": 14,
-      "aceLevel": 68,
-      "trainerSprite": "volo",
-      "roster": [
-        {
-          "species": "spiritomb",
-          "level": 68,
-          "moves": [
-            "hypnosis",
-            "dark-pulse",
-            "extrasensory",
-            "shadow-ball"
-          ]
-        },
-        {
-          "species": "roserade",
-          "level": 68,
-          "moves": [
-            "poison-jab",
-            "petal-dance",
-            "spikes"
-          ]
-        },
-        {
-          "species": "togekiss",
-          "level": 68,
-          "moves": [
-            "calm-mind",
-            "moonblast",
-            "extrasensory",
-            "air-slash"
-          ]
-        },
-        {
-          "species": "arcanine-hisui",
-          "level": 68,
-          "moves": [
-            "raging-fury",
-            "crunch",
-            "rock-slide"
-          ]
-        },
-        {
-          "species": "lucario",
-          "level": 68,
-          "moves": [
-            "close-combat",
-            "crunch",
-            "bulk-up",
-            "bullet-punch"
-          ]
-        },
-        {
-          "species": "garchomp",
-          "level": 68,
-          "moves": [
-            "dragon-claw",
-            "earth-power",
-            "slash",
-            "iron-head"
-          ]
-        }
-      ]
-    },
-    {
       "id": "giratina",
       "name": "Giratina (Origin Forme)",
       "type": "legendary",
-      "order": 15,
+      "order": 7,
       "aceLevel": 70,
       "species": "giratina-altered",
       "roster": [
@@ -8940,7 +8916,7 @@
       "id": "arceus",
       "name": "Arceus (Temple of Sinnoh)",
       "type": "legendary",
-      "order": 16,
+      "order": 8,
       "aceLevel": 75,
       "species": "arceus",
       "roster": [

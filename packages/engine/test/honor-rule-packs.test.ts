@@ -21,7 +21,6 @@ const PACKS: Record<string, string[]> = {
     'pla-no-distortions',
     'pla-outbreak-shiny-clause',
     'pla-noble-two-attempts',
-    'pla-story-caps',
     'pla-player-ko',
   ],
   sv: ['sv-no-raid-encounters', 'sv-no-picnic-eggs', 'sv-symmetric-tera'],
@@ -174,44 +173,6 @@ describe('za-rogue-caps toggle', () => {
       ctx,
     );
     expect(nextBoss(state, ctx)?.id).toBe('rogue-absol');
-  });
-});
-
-describe('pla-story-caps toggle', () => {
-  const plaCaps: GameDataset = {
-    schemaVersion: 1,
-    gameId: 'pla',
-    name: 'Legends: Arceus (synthetic)',
-    versions: ['legends-arceus'],
-    areas: [],
-    specials: [],
-    milestones: [
-      { id: 'noble-kleavor', name: 'Kleavor', type: 'noble', order: 1, aceLevel: 18 },
-      { id: 'coin', name: 'Coin', type: 'bandit', order: 2, aceLevel: 23 },
-      { id: 'ursaluna', name: 'Ursaluna', type: 'story-pokemon', order: 3, aceLevel: 26 },
-      { id: 'noble-lilligant', name: 'Lilligant', type: 'noble', order: 4, aceLevel: 30 },
-      { id: 'dialga', name: 'Origin Dialga', type: 'legendary', order: 5, aceLevel: 65 },
-    ],
-    mechanics: { heldItems: false, wildBattles: true, setModeOption: false, raids: false, overworldAggro: true },
-  };
-  const plaCtx: EngineContext = { dataset: plaCaps, speciesToLine: {} };
-  const start = () => ev('run_started', { gameId: 'pla', version: 'legends-arceus', ruleset: buildRuleset('standard', 'pla') });
-  const toggleOff = () =>
-    ev('rule_changed', { ruleId: 'pla-story-caps', before: { enabled: true, params: {} }, after: { enabled: false, params: {} } });
-
-  it('gates the cap on every story battle by default', () => {
-    const state = deriveState([start(), ev('milestone_cleared', { milestoneId: 'noble-kleavor' })], plaCtx);
-    expect(nextBoss(state, plaCtx)?.id).toBe('coin');
-  });
-
-  it('switched off, only nobles and legendaries gate the cap', () => {
-    const state = deriveState([start(), ev('milestone_cleared', { milestoneId: 'noble-kleavor' }), toggleOff()], plaCtx);
-    expect(nextBoss(state, plaCtx)?.id).toBe('noble-lilligant');
-    const later = deriveState(
-      [start(), toggleOff(), ev('milestone_cleared', { milestoneId: 'noble-kleavor' }), ev('milestone_cleared', { milestoneId: 'noble-lilligant' })],
-      plaCtx,
-    );
-    expect(nextBoss(later, plaCtx)?.id).toBe('dialga');
   });
 });
 

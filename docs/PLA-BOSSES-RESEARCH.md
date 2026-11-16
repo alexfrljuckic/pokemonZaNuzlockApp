@@ -32,46 +32,50 @@ honor rules):
   Distortions are excluded (`pla-no-distortions`), and so are fixed alphas
   (`alphas-count`, off by default).
 
-## What the dataset now does
+## What the app now does
 
-Every mandatory story battle is tracked, split by how much it matters.
+Every mandatory story battle is tracked. Alex chose to split them like this
+(2026-11-16):
 
-**16 bosses** (the Bosses tab, these set the level cap), in mission order:
-alpha Kricketune 12, Kleavor 18, Ursaluna 26, Lilligant 30, Arcanine 36,
-Ingo 42, Electrode 46, Sabi 50, Sabi's Braviary 54, Avalugg 56, Kamado 62,
-Origin Dialga/Palkia 65, Kamado 66, Volo 68, Giratina 70, Arceus 75.
-Selection rule: everything both community cap lists agree on, plus the
-fights that are the strongest thing in their stretch of the story (Braviary
-right after Sabi, Kamado's Prelude Beach rematch) and the post-game finale.
+**8 bosses** (Boss Fights tab, these set the level cap): the five Nobles
+(Kleavor 18, Lilligant 30, Arcanine 36, Electrode 46, Avalugg 56), Origin
+Dialga/Palkia 65, Giratina 70, Arceus 75.
 
-**18 smaller trainer battles** live on the map in the area where they happen
-(display-only area trainers, the same as BDSP route trainers). They never gate
-the cap.
-- Jubilife Village: Rei/Akari ×3, Adaman
+**26 trainer battles** in a new **Trainers tab** (right after Routes), grouped
+by area. They use the same card format as Boss Fights and never set the cap.
+Clicking a trainer in a Routes area opens it in the Trainers tab.
+- Jubilife Village: Rei/Akari ×3, Adaman, Kamado (Prelude Beach)
 - Aspiration Hill (Fieldlands Camp): Mai
+- Deertrack Heights: Alpha Kricketune
 - Grandtree Arena: Lian, Irida
 - Solaceon Ruins: Volo
 - Golden Lowlands: Coin
+- Sludge Mound: Ursaluna
 - Crossing Slope (Beachside Camp): Irida
 - Firespit Island: Clover, Coin, Charm
 - Ancient Quarry: Melli (level disputed)
+- Wayward Cave: Ingo
 - Moonview Arena: Melli
 - Whiteout Valley (Snowfields Camp): Gaeric
-- Temple of Sinnoh: Beni (Stone Portal)
+- Pearl Settlement: Sabi, plus her Braviary (Snowpoint Temple is above the
+  settlement)
+- Temple of Sinnoh: Beni (Stone Portal), Kamado, Volo
 - Primeval Grotto: Charm
 
-There's no Stone Portal or Training Grounds area in the dataset, so those
-fights sit in the nearest area, and their names say where they actually happen.
+The dataset has no Stone Portal, Training Grounds, Snowpoint Temple or Prelude
+Beach area, so those fights sit in the nearest area, and their names say where
+they actually happen.
 
-**Rule `pla-story-caps`** (enforced, default on): the non-Noble bosses (Kricketune,
-Ursaluna, Ingo, Sabi, Braviary, Kamado, Volo) gate the cap. Turn it off and only
-`noble` and `legendary` gate it. Same pattern as Z-A's `za-rogue-caps`.
+The Trainers tab only appears for games that have documented trainer battles:
+BDSP (431), Let's Go (204), SV (208), SwSh (103) and PLA (26). Z-A and Radical
+Red have none, so they don't get the tab.
 
 **Rule `pla-player-ko`** (honor, default on): an overworld knockout costs a
 party Pokémon.
 
-`volo-solaceon-ruins` used to be a boss. Old runs that marked it cleared keep
-that event, and the engine ignores ids it no longer finds.
+`kamado`, `volo-solaceon-ruins` and `volo-temple-of-sinnoh` used to be boss
+ids. Old runs that marked them cleared keep that event, and the engine ignores
+ids it no longer finds.
 
 ## Known gaps (flagged, not invented)
 

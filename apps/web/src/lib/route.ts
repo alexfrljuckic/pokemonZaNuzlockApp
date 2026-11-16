@@ -16,10 +16,10 @@
 //   #share/<token>                → spectator, first tab
 //   #u/<handle>                   → public profile (no tab concept)
 
-// The five in-run tabs, keyed by a stable url-friendly slug. The slug is the
+// The in-run tabs, keyed by a stable url-friendly slug. The slug is the
 // public contract (it appears in shareable links) — internal display labels
 // can change freely, these must not.
-export const TAB_SLUGS = ['routes', 'team', 'bosses', 'rules', 'stats'] as const;
+export const TAB_SLUGS = ['routes', 'trainers', 'team', 'bosses', 'rules', 'stats'] as const;
 export type TabSlug = (typeof TAB_SLUGS)[number];
 
 export const DEFAULT_TAB: TabSlug = 'routes';
@@ -33,6 +33,7 @@ export function isTabSlug(s: string): s is TabSlug {
 // tested together; RunView imports both directions rather than re-deriving.
 export const TAB_LABEL_BY_SLUG = {
   routes: 'Routes',
+  trainers: 'Trainers',
   team: 'Team & Box',
   bosses: 'Boss Fights',
   rules: 'Rules',

@@ -125,6 +125,22 @@ const TRAINER_NAME_SPRITE: Record<string, string> = {
   jupiter: 'jupiter',
   saturn: 'saturn',
   cyrus: 'cyrus',
+  // Legends: Arceus story trainers (area trainers, keyed by character name)
+  reiakari: 'akari',
+  mai: 'mai',
+  lian: 'lian',
+  irida: 'irida',
+  adaman: 'adaman',
+  coin: 'coin',
+  clover: 'clover',
+  charm: 'charm',
+  melli: 'melli',
+  ingo: 'ingo-hisui',
+  gaeric: 'gaeric',
+  sabi: 'sabi',
+  beni: 'beni',
+  kamado: 'kamado',
+  volo: 'volo',
 };
 
 /** Character-name key: drop any "(w/ Barry)" parenthetical, then squash like a

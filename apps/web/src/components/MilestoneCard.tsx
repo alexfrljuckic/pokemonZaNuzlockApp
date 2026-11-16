@@ -26,7 +26,10 @@ export function MilestoneCard({
   isNext,
   isPinnedNext = false,
   onClear,
+  onUndo,
   onSetNext,
+  initiallyExpanded = false,
+  domId,
 }: {
   milestone: Milestone;
   roster: MilestoneRosterMember[];
@@ -39,14 +42,20 @@ export function MilestoneCard({
   /** true when the player explicitly picked this boss as next (vs. dataset order) */
   isPinnedNext?: boolean;
   onClear?: () => void;
+  /** present where a defeat can be taken back (area trainers) — shows Undo on a cleared card */
+  onUndo?: () => void;
+  /** open the per-mon detail on first render (Trainers tab deep links) */
+  initiallyExpanded?: boolean;
+  domId?: string;
   /** present only on cap-gating milestones in owner views — toggles the next-boss pick */
   onSetNext?: () => void;
 }) {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(initiallyExpanded);
   const hasRoster = roster.length > 0;
 
   return (
     <div
+      id={domId}
       className={`milestone-card${cleared ? ' cleared' : ''}${isNext ? ' next' : ''}${expanded ? ' expanded' : ''}`}
       role="button"
       tabIndex={0}
@@ -96,6 +105,18 @@ export function MilestoneCard({
 
         <div className="milestone-card-side">
           {cleared && <span className="milestone-cleared-badge">✓ defeated</span>}
+          {cleared && onUndo && (
+            <button
+              className="secondary"
+              aria-label={`Undo ${milestone.name} defeated`}
+              onClick={(e) => {
+                e.stopPropagation();
+                onUndo();
+              }}
+            >
+              Undo
+            </button>
+          )}
           {!cleared && isNext && (
             <span className="milestone-next-badge">{isPinnedNext ? '◎ next (your pick)' : '◎ next'}</span>
           )}
