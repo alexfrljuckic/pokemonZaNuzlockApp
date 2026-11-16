@@ -17,13 +17,25 @@ describe('PLA dataset', () => {
     expect(new Set(orders).size).toBe(orders.length);
   });
 
+  // Story Pokémon fights (and the one disputed Melli battle) whose movesets no
+  // source documents. They keep species + level so the cap is right, and the
+  // app shows its "expected moves" fallback. Shrink this list as sources turn up.
+  const UNDOCUMENTED_MOVES = new Set([
+    'alpha-kricketune/kricketune',
+    'ursaluna-sludge-mound/ursaluna',
+    'warden-melli-ancient-quarry/skuntank',
+    'braviary-snowpoint-temple/braviary-hisui',
+    'origin-dialga-palkia/palkia-origin',
+  ]);
+
   it('gives every milestone roster movesets, no abilities, and ace == max level', () => {
     for (const m of dataset.milestones) {
       expect(m.roster, `milestone "${m.id}" should have a roster`).toBeTruthy();
       const maxLevel = Math.max(...m.roster!.map((p) => p.level));
       expect(maxLevel, `milestone "${m.id}" ace mismatch`).toBe(m.aceLevel);
       for (const p of m.roster!) {
-        expect(p.moves?.length, `${m.id}/${p.species} should have moves`).toBeGreaterThan(0);
+        if (!UNDOCUMENTED_MOVES.has(`${m.id}/${p.species}`))
+          expect(p.moves?.length, `${m.id}/${p.species} should have moves`).toBeGreaterThan(0);
         // PLA has no ability mechanic — roster entries must not carry one
         expect((p as { ability?: string }).ability).toBeUndefined();
       }
@@ -67,6 +79,21 @@ describe('PLA dataset', () => {
     expect(horseshoe.encounters.some((e) => e.species === 'rapidash' && e.methods.includes('alpha'))).toBe(true);
   });
 
+  it('tracks every mandatory story battle in mission order, ending at Arceus', () => {
+    const ids = dataset.milestones.map((m) => m.id);
+    for (const id of [
+      'warden-mai', 'alpha-kricketune', 'warden-lian', 'irida-grandtree', 'bandit-coin-mirelands',
+      'ursaluna-sludge-mound', 'adaman-training-grounds', 'warden-ingo-wayward-cave', 'warden-melli-moonview',
+      'warden-gaeric', 'warden-sabi', 'beni-stone-portal', 'origin-dialga-palkia', 'kamado-prelude-beach', 'arceus',
+    ])
+      expect(ids, `${id} missing`).toContain(id);
+    const sorted = [...dataset.milestones].sort((a, b) => a.order - b.order);
+    expect(sorted[0].id).toBe('rei-akari-training-grounds');
+    expect(sorted.at(-1)!.id).toBe('arceus');
+    expect(ids.indexOf('noble-kleavor')).toBeLessThan(ids.indexOf('ursaluna-sludge-mound'));
+    expect(ids.indexOf('kamado')).toBeLessThan(ids.indexOf('origin-dialga-palkia'));
+  });
+
   it('includes the Kamado story battle before the Volo finale (regular Golem, not Hisuian)', () => {
     const kamado = dataset.milestones.find((m) => m.id === 'kamado');
     expect(kamado, 'kamado milestone should exist').toBeTruthy();
@@ -76,7 +103,7 @@ describe('PLA dataset', () => {
     expect(species).toContain('golem'); // the backlog's "Hisuian Golem" was wrong — no such form
     expect(species).not.toContain('golem-hisui');
     expect(species).toContain('braviary-hisui');
-    // Kamado (order 7) slots in before Volo's Temple of Sinnoh finale (order 8)
+    // Kamado's Mount Coronet battle slots in before Volo's Temple of Sinnoh finale
     const volo = dataset.milestones.find((m) => m.id === 'volo-temple-of-sinnoh')!;
     expect(kamado!.order).toBeLessThan(volo.order);
   });

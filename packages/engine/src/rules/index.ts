@@ -258,6 +258,30 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: {},
     hooks: [],
   },
+  'pla-story-caps': {
+    id: 'pla-story-caps',
+    name: 'Story Battles Gate the Level Cap',
+    description:
+      "On: every mandatory story battle (Wardens, clan leaders, Volo, Kamado, bandits, Rei/Akari, plus the alpha Kricketune, Ursaluna and Braviary fights) sets the level cap, like the community's PLA cap lists. Off: only the Frenzied Nobles and the legendary battles gate the cap, the gym-like spine. The other battles stay listed either way.",
+    category: 'difficulty',
+    appliesTo: ['pla'],
+    enforcement: 'enforced',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: ['validateTeam'],
+  },
+  'pla-player-ko': {
+    id: 'pla-player-ko',
+    name: 'Player Knockout Costs a Pokémon',
+    category: 'honor',
+    description:
+      'If you (the player) are knocked out by wild Pokémon in the overworld, one party Pokémon of your choice dies. Log it as a faint with cause "player knocked out". Honor rule: the app cannot see overworld knockouts.',
+    appliesTo: ['pla'],
+    enforcement: 'honor',
+    defaultEnabled: true,
+    defaultParams: {},
+    hooks: [],
+  },
   'za-rogue-caps': {
     id: 'za-rogue-caps',
     name: 'Rogue Battles Gate the Level Cap',
@@ -404,6 +428,9 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
     .map((e) => e.slot);
 }
 
+/** PLA milestone types that still gate the cap when 'pla-story-caps' is off. */
+const PLA_SPINE_TYPES = new Set(['noble', 'legendary']);
+
 /**
  * Next uncleared battle milestone that gates the level cap.
  * Milestones with countsForLevelCap === false (e.g. rival battles) are tracked and
@@ -417,15 +444,21 @@ export function filterEncounterPool(state: RunState, area: Area, ctx: EngineCont
  * Z-A: the 'za-rogue-caps' rule, when present and switched OFF, drops
  * rogue-mega milestones from cap gating — the cap then tracks promotion
  * matches only. Absent (other games, older runs) or enabled = no change.
+ *
+ * PLA: same pattern via 'pla-story-caps'. Switched OFF, only the Noble and
+ * legendary milestones gate the cap; the other story battles stay listed.
  */
 export function nextBoss(state: RunState, ctx: EngineContext): Milestone | null {
   const rogueCaps = state.ruleset.rules['za-rogue-caps'];
   const roguesExcluded = rogueCaps != null && !rogueCaps.enabled;
+  const plaStoryCaps = state.ruleset.rules['pla-story-caps'];
+  const plaSpineOnly = plaStoryCaps != null && !plaStoryCaps.enabled;
   const gating = milestonesFor(ctx.dataset, state.version, state.ruleset).filter(
     (m) =>
       m.aceLevel !== null &&
       m.countsForLevelCap !== false &&
       !(roguesExcluded && m.type === 'rogue-mega') &&
+      !(plaSpineOnly && !PLA_SPINE_TYPES.has(m.type)) &&
       !state.milestonesCleared.includes(m.id),
   );
   if (state.nextBossId) {

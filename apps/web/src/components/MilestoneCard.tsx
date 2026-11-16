@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import type { Milestone, MilestoneRosterMember } from '@nuzlocke/engine';
-import { typesFor } from '../lib/speciesData';
+import { resolveTrainerMoves, typesFor } from '../lib/speciesData';
 import { trainerKeyFromMilestone } from '../lib/sprites';
 import { ItemSprite } from './ItemSprite';
 import { MoveChips } from './MoveChips';
@@ -143,7 +143,7 @@ export function MilestoneCard({
                   </div>
                 </div>
                 <WeaknessRow types={typesFor(p.species, gameId)} />
-                <MoveChips moves={p.moves} gameId={gameId} />
+                <RosterMoves mon={p} gameId={gameId} />
                 <StatBars species={p.species} gameId={gameId} />
               </div>
             ))
@@ -170,5 +170,20 @@ export function MilestoneCard({
         </div>
       )}
     </div>
+  );
+}
+
+/** Documented moves when the dataset has them; otherwise the same honest
+ * "expected moves" fallback the route-trainer rows use (TrainersHere). */
+function RosterMoves({ mon, gameId }: { mon: MilestoneRosterMember; gameId?: string }) {
+  const resolved = resolveTrainerMoves(mon, gameId);
+  return (
+    <>
+      <MoveChips moves={resolved.moves ?? undefined} gameId={gameId} />
+      {resolved.source === 'expected' && (
+        <span className="muted trainer-moves-note">expected moves — last four learned by Lv {mon.level}</span>
+      )}
+      {resolved.source === 'unknown' && <span className="muted trainer-moves-note">moves not documented</span>}
+    </>
   );
 }
