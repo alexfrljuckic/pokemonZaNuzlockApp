@@ -102,7 +102,7 @@ describe('RunView tab <-> route wiring', () => {
     const r = await renderRunView('trainers');
     container = r.container;
     const labels = [...container.querySelectorAll('button[role="tab"] .tab-label-full')].map((b) => b.textContent);
-    expect(labels.slice(0, 2)).toEqual(['Routes', 'Trainers']);
+    expect(labels.slice(0, 4)).toEqual(['Routes', 'Trainers', 'Boss Fights', 'Team & Box']);
     expect(container.querySelector('[data-testid="panel-trainers"]')).toBeTruthy();
   });
 });

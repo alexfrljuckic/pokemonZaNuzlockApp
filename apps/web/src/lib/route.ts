@@ -19,7 +19,7 @@
 // The in-run tabs, keyed by a stable url-friendly slug. The slug is the
 // public contract (it appears in shareable links) — internal display labels
 // can change freely, these must not.
-export const TAB_SLUGS = ['routes', 'trainers', 'team', 'bosses', 'rules', 'stats'] as const;
+export const TAB_SLUGS = ['routes', 'trainers', 'bosses', 'team', 'rules', 'stats'] as const;
 export type TabSlug = (typeof TAB_SLUGS)[number];
 
 export const DEFAULT_TAB: TabSlug = 'routes';

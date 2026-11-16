@@ -41,7 +41,7 @@ Every mandatory story battle is tracked. Alex chose to split them like this
 (Kleavor 18, Lilligant 30, Arcanine 36, Electrode 46, Avalugg 56), Origin
 Dialga/Palkia 65, Giratina 70, Arceus 75.
 
-**26 trainer battles** in a new **Trainers tab** (right after Routes), grouped
+**26 trainer battles** in a new **Trainers tab** (right after Routes, then Boss Fights, then Team & Box), grouped
 by area. They use the same card format as Boss Fights and never set the cap.
 Clicking a trainer in a Routes area opens it in the Trainers tab.
 - Jubilife Village: Rei/Akari ×3, Adaman, Kamado (Prelude Beach)

@@ -18,7 +18,7 @@ import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { WipeScreen } from './WipeScreen';
 
-const TABS = ['Routes', 'Trainers', 'Team & Box', 'Boss Fights', 'Rules', 'Stats'] as const;
+const TABS = ['Routes', 'Trainers', 'Boss Fights', 'Team & Box', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
 // Compact labels for the fixed bottom bar on phones (CSS swaps them in).
