@@ -13,7 +13,26 @@ export interface GameDataset {
   areas: Area[];
   specials: SpecialEncounter[];
   milestones: Milestone[];
+  /** Optional side quests (PLA requests): tracked separately from encounters. */
+  quests?: Quest[];
   mechanics: GameMechanics;
+}
+
+export interface Quest {
+  id: string;
+  number: number;
+  name: string;
+  giver?: string;
+  /** area id where the quest is picked up */
+  area: string;
+  /** in-game place text */
+  location: string;
+  unlock: string;
+  /** display strings, e.g. "Rare Candy ×1" */
+  rewards: string[];
+  /** one entry per Pokémon received; claimable under 'quest-reward-pokemon' */
+  rewardPokemon?: string[];
+  group?: string;
 }
 
 export interface Area {
@@ -218,8 +237,11 @@ export type RunEvent =
    * catch. The species is chosen when the event is created (never re-rolled on
    * replay), so state stays deterministic. reroll: true spends a reroll. */
   | { seq: number; at: string; type: 'encounter_rolled'; payload: { areaId: string; species: string; reroll?: boolean } }
-  | { seq: number; at: string; type: 'special_claimed'; payload: { specialId: string; species: string; pokemonId: string; nickname?: string; level?: number; shiny?: boolean } }
+  | { seq: number; at: string; type: 'special_claimed'; payload: { specialId: string; species: string; pokemonId: string; nickname?: string; level?: number; shiny?: boolean; /** set when this claim uses up that area's encounter (quest-reward rule 'area-encounter') */ areaId?: string } }
   | { seq: number; at: string; type: 'special_reset'; payload: { specialId: string } }
+  /** Side quest marked done / undone (display only; never affects caps). */
+  | { seq: number; at: string; type: 'quest_completed'; payload: { questId: string } }
+  | { seq: number; at: string; type: 'quest_reset'; payload: { questId: string } }
   | { seq: number; at: string; type: 'level_up'; payload: { pokemonId: string; level: number } }
   | { seq: number; at: string; type: 'moved'; payload: { pokemonId: string; to: 'party' | 'box' } }
   | { seq: number; at: string; type: 'pokemon_updated'; payload: { pokemonId: string; nickname?: string; level?: number; heldItem?: string | null; moves?: string[]; nature?: string | null; ability?: string | null } }
@@ -282,6 +304,7 @@ export interface RunState {
    * how many rerolls have been spent on it. Cleared by encounter_reset. */
   encounterRolls: Record<string, { species: string; rerollsUsed: number }>;
   milestonesCleared: string[];
+  questsCompleted: string[];
   /** User-designated next boss (open-order games like SV) — the level cap keys
    * off this milestone while it stays uncleared; null = follow dataset order. */
   nextBossId: string | null;

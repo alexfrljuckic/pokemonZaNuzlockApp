@@ -7,6 +7,7 @@ import { RunSummaryStrip } from '../components/RunSummaryStrip';
 import { RunTimeline } from '../components/RunTimeline';
 import { MilestonesTab } from './tabs/MilestonesTab';
 import { TrainersTab, trainerGroups } from './tabs/TrainersTab';
+import { QuestsTab } from './tabs/QuestsTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
@@ -99,7 +100,11 @@ function SpectatorRun({
           deep-links to the same section. When no onTabChange is supplied (e.g.
           embedded/preview contexts) the bar is inert but still selects a tab. */}
       <nav className="tabs" role="tablist" aria-label="Run sections">
-        {TAB_SLUGS.filter((slug) => slug !== 'trainers' || trainerGroups(ctx, state.version).length > 0).map((slug) => (
+        {TAB_SLUGS.filter(
+          (slug) =>
+            (slug !== 'trainers' || trainerGroups(ctx, state.version).length > 0) &&
+            (slug !== 'quests' || (ctx.dataset.quests?.length ?? 0) > 0),
+        ).map((slug) => (
           <button
             key={slug}
             role="tab"
@@ -117,6 +122,8 @@ function SpectatorRun({
       {tab === 'team' && <TeamBoxTab state={state} ctx={ctx} />}
 
       {tab === 'trainers' && <TrainersTab state={state} ctx={ctx} />}
+
+      {tab === 'quests' && <QuestsTab state={state} ctx={ctx} />}
 
       {tab === 'bosses' && <MilestonesTab state={state} ctx={ctx} />}
 

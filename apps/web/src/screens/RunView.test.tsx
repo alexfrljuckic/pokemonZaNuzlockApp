@@ -13,6 +13,7 @@ vi.mock('@nuzlocke/engine', () => ({
     version: 'scarlet',
     milestonesCleared: [],
     trainersBattled: [],
+    questsCompleted: [],
     pokemon: {},
   }),
   milestonesFor: () => [],
@@ -43,6 +44,7 @@ vi.mock('./tabs/TrainersTab', () => ({
   TrainersTab: () => <div data-testid="panel-trainers" />,
   trainerGroups: () => [{ area: { id: 'a1' }, trainers: [{ t: {}, index: 0 }] }],
 }));
+vi.mock('./tabs/QuestsTab', () => ({ QuestsTab: () => <div data-testid="panel-quests" /> }));
 vi.mock('./tabs/TeamBoxTab', () => ({ TeamBoxTab: () => <div data-testid="panel-team" /> }));
 vi.mock('./tabs/MilestonesTab', () => ({ MilestonesTab: () => <div data-testid="panel-bosses" /> }));
 vi.mock('./tabs/RulesTab', () => ({ RulesTab: () => <div data-testid="panel-rules" /> }));

@@ -8939,5 +8939,1592 @@
     "setModeOption": false,
     "raids": false,
     "overworldAggro": true
-  }
+  },
+  "quests": [
+    {
+      "id": "request-1",
+      "number": 1,
+      "name": "Wurmple Can Evolve",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Mission 3",
+      "rewards": [
+        "Dazzling Honey ×3"
+      ],
+      "giver": "Beauregard"
+    },
+    {
+      "id": "request-2",
+      "number": 2,
+      "name": "Adorable Starly",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Mission 3",
+      "rewards": [
+        "Poké Ball ×10"
+      ],
+      "giver": "Marli"
+    },
+    {
+      "id": "request-3",
+      "number": 3,
+      "name": "What Did Shinx's Ears Look Like?",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Mission 3",
+      "rewards": [
+        "Potion ×3"
+      ],
+      "giver": "Toshi"
+    },
+    {
+      "id": "request-4",
+      "number": 4,
+      "name": "Big Buizel, Little Buizel",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Seaside Gate",
+      "unlock": "Complete Mission 3",
+      "rewards": [
+        "Oran Berry ×5",
+        "Exp. Candy S ×1"
+      ],
+      "giver": "Dorian"
+    },
+    {
+      "id": "request-5",
+      "number": 5,
+      "name": "What It Takes to Be Awesome",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Pastures",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Grit Dust ×3"
+      ],
+      "giver": "Sho"
+    },
+    {
+      "id": "request-6",
+      "number": 6,
+      "name": "Mushroom Cake Marketing",
+      "area": "aspiration-hill",
+      "location": "Obsidian Fieldlands: Fieldlands Camp",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Recipe: Mushroom Cake"
+      ],
+      "giver": "Morel"
+    },
+    {
+      "id": "request-7",
+      "number": 7,
+      "name": "Playing with Drifloon",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Drifloon; Receive Mission 5",
+      "rewards": [
+        "Stardust ×1"
+      ],
+      "giver": "Miki"
+    },
+    {
+      "id": "request-8",
+      "number": 8,
+      "name": "Bothersome Bidoof",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Rare Candy ×1"
+      ],
+      "giver": "Tsumugi"
+    },
+    {
+      "id": "request-9",
+      "number": 9,
+      "name": "Zubat's Eyes",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Zubat; Receive Mission 5",
+      "rewards": [
+        "Aux Power ×2"
+      ],
+      "giver": "Clarissa"
+    },
+    {
+      "id": "request-10",
+      "number": 10,
+      "name": "Wurmple's Evolved!",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Request 1; complete Cascoon's Pokédex entry",
+      "rewards": [
+        "Exp. Candy S ×1"
+      ],
+      "giver": "Beauregard"
+    },
+    {
+      "id": "request-11",
+      "number": 11,
+      "name": "The Timbre of the Fields",
+      "area": "aspiration-hill",
+      "location": "Obsidian Fieldlands: Fieldlands Camp",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Vivichoke ×3"
+      ],
+      "giver": "Yeo"
+    },
+    {
+      "id": "request-12",
+      "number": 12,
+      "name": "A Perfect Pickling Stone",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (second floor)",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Honey Cake ×3",
+        "Exp. Candy S ×1"
+      ],
+      "giver": "Radisa"
+    },
+    {
+      "id": "request-13",
+      "number": 13,
+      "name": "Trees That Bear Berries",
+      "area": "deertrack-path",
+      "location": "Obsidian Fieldlands: Deertrack Path",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Poké Ball ×15"
+      ],
+      "giver": "Bjorn"
+    },
+    {
+      "id": "request-14",
+      "number": 14,
+      "name": "Berry Helpful",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Receive Mission 5",
+      "rewards": [
+        "Revive ×3"
+      ],
+      "giver": "Andra"
+    },
+    {
+      "id": "request-15",
+      "number": 15,
+      "name": "Balloon Race in the Fieldlands",
+      "area": "deertrack-heights",
+      "location": "Obsidian Fieldlands: Heights Camp",
+      "unlock": "Receive the Celestica Flute",
+      "rewards": [
+        "Rare Candy ×1",
+        "Feather Ball ×15"
+      ],
+      "giver": "Balloon Race"
+    },
+    {
+      "id": "request-16",
+      "number": 16,
+      "name": "Strange Happenings at Midnight",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Canala Avenue",
+      "unlock": "Complete Mission 5; catch a Pichu; wait for nightfall",
+      "rewards": [
+        "Nanab Berry ×7"
+      ],
+      "giver": "Sanqua"
+    },
+    {
+      "id": "request-17",
+      "number": 17,
+      "name": "To Bloom or Not to Bloom",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm",
+      "unlock": "Complete Mission 5",
+      "rewards": [
+        "Vivichoke ×5"
+      ],
+      "giver": "Kichi"
+    },
+    {
+      "id": "request-18",
+      "number": 18,
+      "name": "Please! Make Me a Pokéshi Doll!",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Receive Mission 7",
+      "rewards": [
+        "Pokéshi Doll ×1"
+      ],
+      "giver": "Anvin"
+    },
+    {
+      "id": "request-19",
+      "number": 19,
+      "name": "A Peculiar Ponyta",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Ponyta; defeat Irida",
+      "rewards": [
+        "Razz Berry ×5"
+      ],
+      "giver": "Yota"
+    },
+    {
+      "id": "request-20",
+      "number": 20,
+      "name": "The Mysterious Will-o'-the-Wisp",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Canala Avenue outskirts",
+      "unlock": "Defeat Irida",
+      "rewards": [
+        "Chimchar",
+        "Exp. Candy S ×2"
+      ],
+      "giver": "Paira",
+      "rewardPokemon": [
+        "chimchar"
+      ]
+    },
+    {
+      "id": "request-21",
+      "number": 21,
+      "name": "Back-Alley Mr. Mime",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Request 14; catch a Mr. Mime; defeat Irida",
+      "rewards": [
+        "Aux Guard ×2"
+      ],
+      "giver": "Andra"
+    },
+    {
+      "id": "request-22",
+      "number": 22,
+      "name": "Eerie Apparitions in the Night",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: near the pastures",
+      "unlock": "Complete Mission 7",
+      "rewards": [
+        "Item rewards as you find more wisps",
+        "Spiritomb once you find them all"
+      ],
+      "giver": "Vessa",
+      "rewardPokemon": [
+        "spiritomb"
+      ]
+    },
+    {
+      "id": "request-23",
+      "number": 23,
+      "name": "Getting Ahold of New Wares",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: general store",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "New general store items"
+      ],
+      "giver": "Choy"
+    },
+    {
+      "id": "request-24",
+      "number": 24,
+      "name": "Inspiration from Hippopotas",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: clothing store",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "New clothier items"
+      ],
+      "giver": "Anthe"
+    },
+    {
+      "id": "request-25",
+      "number": 25,
+      "name": "The Pokémon in the Woodland Photo",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: photography studio",
+      "unlock": "Quell Lord Kleavor",
+      "rewards": [
+        "New photography studio option"
+      ],
+      "giver": "Dagero"
+    },
+    {
+      "id": "request-26",
+      "number": 26,
+      "name": "Aim for the Big Leagues!",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Practice Field",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "Great Ball ×15",
+        "Nugget ×1"
+      ],
+      "giver": "Taggart"
+    },
+    {
+      "id": "request-27",
+      "number": 27,
+      "name": "Help Wanted: Plowing the Fields",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "More farm fields"
+      ],
+      "giver": "Miller"
+    },
+    {
+      "id": "request-28",
+      "number": 28,
+      "name": "Measuring Your Compatibility",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: near the pastures",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "Rare Candy ×1"
+      ],
+      "giver": "Belamy"
+    },
+    {
+      "id": "request-29",
+      "number": 29,
+      "name": "The Search for Bitter Leaves",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Canala Avenue",
+      "unlock": "Receive Mission 8",
+      "rewards": [
+        "Fine Remedy ×3",
+        "Hopo Berry ×5"
+      ],
+      "giver": "Shinon"
+    },
+    {
+      "id": "request-30",
+      "number": 30,
+      "name": "A Beautiful Rose...",
+      "area": "golden-lowlands",
+      "location": "Crimson Mirelands: Mirelands Camp",
+      "unlock": "Quell Lord Kleavor",
+      "rewards": [
+        "Grain Cake ×5",
+        "Exp. Candy S ×2"
+      ],
+      "giver": "Berra"
+    },
+    {
+      "id": "request-31",
+      "number": 31,
+      "name": "Setting Up the Bogbound Camp",
+      "area": "sludge-mound",
+      "location": "Crimson Mirelands: Sludge Mound",
+      "unlock": "Visit the Crimson Mirelands",
+      "rewards": [
+        "New base camp"
+      ],
+      "giver": "Odo"
+    },
+    {
+      "id": "request-32",
+      "number": 32,
+      "name": "The Headache-Stricken Psyduck",
+      "area": "diamond-settlement",
+      "location": "Crimson Mirelands: Diamond Settlement",
+      "unlock": "Visit the Crimson Mirelands",
+      "rewards": [
+        "Max Revive ×1"
+      ],
+      "giver": "Martia"
+    },
+    {
+      "id": "request-33",
+      "number": 33,
+      "name": "What a Massive Mushroom!",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Parasect; complete Request 6; receive Mission 8",
+      "rewards": [
+        "Candy Truffle ×5"
+      ],
+      "giver": "Morel"
+    },
+    {
+      "id": "request-34",
+      "number": 34,
+      "name": "Croagunk's Curative Poison",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Mission 8; catch a Croagunk",
+      "rewards": [
+        "Full Heal ×3",
+        "Exp. Candy S ×3"
+      ],
+      "giver": "Pesselle"
+    },
+    {
+      "id": "request-35",
+      "number": 35,
+      "name": "Battling with Pachirisu",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Ride Ursaluna; catch a Pachirisu",
+      "rewards": [
+        "Sitrus Berry ×3",
+        "Grit Gravel ×1"
+      ],
+      "giver": "Ren"
+    },
+    {
+      "id": "request-36",
+      "number": 36,
+      "name": "Watering with Care",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Request 31; catch a Sudowoodo",
+      "rewards": [
+        "Heavy Ball ×15",
+        "Exp. Candy S ×3"
+      ],
+      "giver": "Odo"
+    },
+    {
+      "id": "request-37",
+      "number": 37,
+      "name": "The Fragrance of Nostalgic Herbs",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (basement)",
+      "unlock": "Ride Ursaluna",
+      "rewards": [
+        "Smoke Bomb ×5",
+        "Exp. Candy S ×2"
+      ],
+      "giver": "Risa"
+    },
+    {
+      "id": "request-38",
+      "number": 38,
+      "name": "Gone Astray...in the Mirelands",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Ride Ursaluna",
+      "rewards": [
+        "Smoke Bomb ×5",
+        "Exp. Candy S ×2"
+      ],
+      "giver": "Zeke"
+    },
+    {
+      "id": "request-39",
+      "number": 39,
+      "name": "All about Magikarp",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: general store",
+      "unlock": "Complete Mission 8; catch a Magikarp; daytime",
+      "rewards": [
+        "Stardust ×3"
+      ],
+      "giver": "Ceci"
+    },
+    {
+      "id": "request-40",
+      "number": 40,
+      "name": "The Charm Lost in the Swamp",
+      "area": "sludge-mound",
+      "location": "Crimson Mirelands: Bogbound Camp",
+      "unlock": "Complete Request 31; complete Mission 8",
+      "rewards": [
+        "Iron Chunk ×5",
+        "Grit Gravel ×1"
+      ],
+      "giver": "Yojiro"
+    },
+    {
+      "id": "request-41",
+      "number": 41,
+      "name": "An Elegant Tail",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm outskirts",
+      "unlock": "Complete Mission 8",
+      "rewards": [
+        "Aux Evasion ×2",
+        "Grit Gravel ×2"
+      ],
+      "giver": "Asabei"
+    },
+    {
+      "id": "request-42",
+      "number": 42,
+      "name": "Help Wanted: Watering the Fields",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm",
+      "unlock": "Complete Request 27; complete Mission 8",
+      "rewards": [
+        "More farm fields"
+      ],
+      "giver": "Miller"
+    },
+    {
+      "id": "request-43",
+      "number": 43,
+      "name": "More New Wares",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: general store",
+      "unlock": "Complete Request 23; complete Mission 8",
+      "rewards": [
+        "New general store items"
+      ],
+      "giver": "Choy"
+    },
+    {
+      "id": "request-44",
+      "number": 44,
+      "name": "The Pokémon in the Nighttime Photo",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: photography studio",
+      "unlock": "Complete Request 25; complete Mission 8",
+      "rewards": [
+        "New photography studio option"
+      ],
+      "giver": "Dagero"
+    },
+    {
+      "id": "request-45",
+      "number": 45,
+      "name": "Shellos of the East and West",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: clothing store",
+      "unlock": "Complete Request 24; complete Mission 8",
+      "rewards": [
+        "New clothier items"
+      ],
+      "giver": "Anthe"
+    },
+    {
+      "id": "request-46",
+      "number": 46,
+      "name": "Setting Up the Coastlands Camp",
+      "area": "sands-reach",
+      "location": "Cobalt Coastlands: Sand's Reach",
+      "unlock": "Visit the Cobalt Coastlands",
+      "rewards": [
+        "New base camp"
+      ],
+      "giver": "Gully"
+    },
+    {
+      "id": "request-47",
+      "number": 47,
+      "name": "Balloon Race in the Coastlands",
+      "area": "sands-reach",
+      "location": "Cobalt Coastlands: Coastlands Camp",
+      "unlock": "Complete Request 46; defeat the Miss Fortunes on Firespit Island",
+      "rewards": [
+        "Nugget ×1",
+        "Ultra Ball ×1"
+      ],
+      "giver": "Balloon Race"
+    },
+    {
+      "id": "request-48",
+      "number": 48,
+      "name": "The Taste of Home",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Canala Avenue",
+      "unlock": "Complete Mission 8",
+      "rewards": [
+        "Exp. Candy S ×5"
+      ],
+      "giver": "Floaro"
+    },
+    {
+      "id": "request-49",
+      "number": 49,
+      "name": "Keep an Eye Out for Aipom!",
+      "area": "veilstone-cape",
+      "location": "Cobalt Coastlands: Veilstone Cape",
+      "unlock": "Visit the Cobalt Coastlands",
+      "rewards": [
+        "Scatter Bang ×5",
+        "Exp. Candy M ×1"
+      ],
+      "giver": "Hiko"
+    },
+    {
+      "id": "request-50",
+      "number": 50,
+      "name": "Double the Tails, Double the Fun",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: near the pastures",
+      "unlock": "Ride Basculegion",
+      "rewards": [
+        "Star Piece ×1"
+      ],
+      "giver": "Netta"
+    },
+    {
+      "id": "request-51",
+      "number": 51,
+      "name": "Coming Up Roses",
+      "area": "ramanas-island",
+      "location": "Obsidian Fieldlands: Ramanas Island",
+      "unlock": "Ride Basculegion",
+      "rewards": [
+        "Seed of Mastery ×1"
+      ],
+      "giver": "Hiemo"
+    },
+    {
+      "id": "request-52",
+      "number": 52,
+      "name": "Eevee's Evolutions",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Request 48; ride Basculegion; catch an Eevee",
+      "rewards": [
+        "Rare Candy ×1"
+      ],
+      "giver": "Floaro"
+    },
+    {
+      "id": "request-53",
+      "number": 53,
+      "name": "Octillery's Ink",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Request 12; ride Basculegion",
+      "rewards": [
+        "Bean Cake ×5",
+        "Exp. Candy M ×1"
+      ],
+      "giver": "Radisa"
+    },
+    {
+      "id": "request-54",
+      "number": 54,
+      "name": "Serving Up Swap Snacks",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Talk to Bonn; ride Basculegion",
+      "rewards": [
+        "Recipe: Swap Snack"
+      ],
+      "giver": "Bonn"
+    },
+    {
+      "id": "request-55",
+      "number": 55,
+      "name": "Poor, Peckish Piplup",
+      "area": "tombolo-walk",
+      "location": "Cobalt Coastlands: Tombolo Walk",
+      "unlock": "Complete Request 46; ride Basculegion",
+      "rewards": [
+        "Razz Berry ×5",
+        "Hyper Potion ×3"
+      ],
+      "giver": "Maris"
+    },
+    {
+      "id": "request-56",
+      "number": 56,
+      "name": "Getting Help from Machoke",
+      "area": "ginkgo-landing",
+      "location": "Cobalt Coastlands: Ginkgo Landing",
+      "unlock": "Ride Basculegion",
+      "rewards": [
+        "Grit Gravel ×3",
+        "Aux Powerguard ×1"
+      ],
+      "giver": "Bosley"
+    },
+    {
+      "id": "request-57",
+      "number": 57,
+      "name": "The Taste of Honey",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Ride Basculegion; catch a Combee",
+      "rewards": [
+        "King's Leaf ×3",
+        "Dazzling Honey ×3"
+      ],
+      "giver": "Almous"
+    },
+    {
+      "id": "request-58",
+      "number": 58,
+      "name": "Gone Astray...in the Coastlands",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Request 38; ride Basculegion",
+      "rewards": [
+        "Star Piece ×1"
+      ],
+      "giver": "Zeke"
+    },
+    {
+      "id": "request-59",
+      "number": 59,
+      "name": "Misdreavus the Hairstyle Muse",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: hairdresser",
+      "unlock": "Complete Mission 10",
+      "rewards": [
+        "New hairstyles"
+      ],
+      "giver": "Arezu"
+    },
+    {
+      "id": "request-60",
+      "number": 60,
+      "name": "Help Wanted: Rock Smashing in the Fields",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm",
+      "unlock": "Complete Request 42; complete Mission 10",
+      "rewards": [
+        "More farm fields"
+      ],
+      "giver": "Miller"
+    },
+    {
+      "id": "request-61",
+      "number": 61,
+      "name": "Even More New Wares",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: general store",
+      "unlock": "Complete Request 43; complete Mission 10",
+      "rewards": [
+        "New general store items"
+      ],
+      "giver": "Choy"
+    },
+    {
+      "id": "request-62",
+      "number": 62,
+      "name": "The Pokémon in the River Photo",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: photography studio",
+      "unlock": "Complete Request 44; complete Mission 10",
+      "rewards": [
+        "New photography studio option"
+      ],
+      "giver": "Dagero"
+    },
+    {
+      "id": "request-63",
+      "number": 63,
+      "name": "Fancy, Fashionable Wormadam",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: clothing store",
+      "unlock": "Complete Request 45; complete Mission 10",
+      "rewards": [
+        "New clothier items"
+      ],
+      "giver": "Anthe"
+    },
+    {
+      "id": "request-64",
+      "number": 64,
+      "name": "Getting to Know Ghosts",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Canala Avenue",
+      "unlock": "Complete Mission 10; catch a Gastly",
+      "rewards": [
+        "Linking Cord ×1"
+      ],
+      "giver": "Ward"
+    },
+    {
+      "id": "request-65",
+      "number": 65,
+      "name": "Setting Up the Mountain Camp",
+      "area": "sonorous-path",
+      "location": "Coronet Highlands: Sonorous Path",
+      "unlock": "Visit the Coronet Highlands",
+      "rewards": [
+        "New base camp"
+      ],
+      "giver": "Eshim"
+    },
+    {
+      "id": "request-66",
+      "number": 66,
+      "name": "The Sea's Legend",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Mission 10; catch Buizel, Hisuian Qwilfish and Mantyke; Star Rank 5",
+      "rewards": [
+        "Manaphy",
+        "Phione ×3",
+        "Comet Shard ×3"
+      ],
+      "giver": "Laventon",
+      "rewardPokemon": [
+        "manaphy",
+        "phione",
+        "phione",
+        "phione"
+      ]
+    },
+    {
+      "id": "request-67",
+      "number": 67,
+      "name": "The Clefairy's Moonlit Dance",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Clefairy; visit the Coronet Highlands",
+      "rewards": [
+        "Salt Cake ×5",
+        "Exp. Candy M ×2"
+      ],
+      "giver": "Astair"
+    },
+    {
+      "id": "request-68",
+      "number": 68,
+      "name": "A Nosepass to Guide the Way",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Nosepass; visit the Coronet Highlands; complete Request 46",
+      "rewards": [
+        "Black Augurite ×1",
+        "Exp. Candy M ×2"
+      ],
+      "giver": "Gully"
+    },
+    {
+      "id": "request-69",
+      "number": 69,
+      "name": "Gone Astray...in the Highlands",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Request 58; ride Sneasler",
+      "rewards": [
+        "Star Piece ×2"
+      ],
+      "giver": "Zeke"
+    },
+    {
+      "id": "request-70",
+      "number": 70,
+      "name": "Colorful New Looks",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: clothing store",
+      "unlock": "Complete Request 63; complete Mission 11",
+      "rewards": [
+        "New clothier items"
+      ],
+      "giver": "Anthe"
+    },
+    {
+      "id": "request-71",
+      "number": 71,
+      "name": "New Wares Yet Again",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: general store",
+      "unlock": "Complete Request 61; complete Mission 11",
+      "rewards": [
+        "New general store items"
+      ],
+      "giver": "Choy"
+    },
+    {
+      "id": "request-72",
+      "number": 72,
+      "name": "Pesselle's Easy Errand",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Request 34; daytime; complete Mission 11",
+      "rewards": [
+        "Adamant Mint ×1",
+        "Modest Mint ×1"
+      ],
+      "giver": "Pesselle"
+    },
+    {
+      "id": "request-73",
+      "number": 73,
+      "name": "Which Is the Real Burmy?",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Farm outskirts",
+      "unlock": "Complete Mission 11",
+      "rewards": [
+        "Leaf Stone ×1",
+        "Exp. Candy M ×3"
+      ],
+      "giver": "Leif"
+    },
+    {
+      "id": "request-74",
+      "number": 74,
+      "name": "A Bit of Help from Blissey",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Mission 11; catch a Blissey",
+      "rewards": [
+        "Shiny Stone ×1",
+        "Max Revive ×2"
+      ],
+      "giver": "Pippa"
+    },
+    {
+      "id": "request-75",
+      "number": 75,
+      "name": "Kirlia the Hairstyle Muse",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: hairdresser",
+      "unlock": "Complete Request 59; complete Mission 11",
+      "rewards": [
+        "New hairstyles"
+      ],
+      "giver": "Arezu"
+    },
+    {
+      "id": "request-76",
+      "number": 76,
+      "name": "Mushroom Hunting with Swinub",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Request 33; visit the Alabaster Icelands; catch a Swinub",
+      "rewards": [
+        "Sand Radish ×5",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Morel"
+    },
+    {
+      "id": "request-77",
+      "number": 77,
+      "name": "Gone Astray...in the Fieldlands",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Request 69; complete Mission 11",
+      "rewards": [
+        "Star Piece ×3"
+      ],
+      "giver": "Zeke"
+    },
+    {
+      "id": "request-78",
+      "number": 78,
+      "name": "Setting Up the Icepeak Camp",
+      "area": "glacier-terrace",
+      "location": "Alabaster Icelands: Glacier Terrace",
+      "unlock": "Visit the Alabaster Icelands",
+      "rewards": [
+        "New base camp"
+      ],
+      "giver": "Brice"
+    },
+    {
+      "id": "request-79",
+      "number": 79,
+      "name": "Balloon Race in the Icelands",
+      "area": "glacier-terrace",
+      "location": "Alabaster Icelands: Icepeak Camp",
+      "unlock": "Complete Request 78; talk to Volo and Gaeric at Arena's Approach",
+      "rewards": [
+        "Nugget ×3"
+      ],
+      "giver": "Balloon Race"
+    },
+    {
+      "id": "request-80",
+      "number": 80,
+      "name": "The Perfect Pickle Recipe",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Request 53; complete Mission 11",
+      "rewards": [
+        "Recipe: Twice-Spiced Radish"
+      ],
+      "giver": "Radisa"
+    },
+    {
+      "id": "request-81",
+      "number": 81,
+      "name": "In Search of a Fiery Pokémon",
+      "area": "glacier-terrace",
+      "location": "Alabaster Icelands: Icepeak Camp",
+      "unlock": "Complete Request 78",
+      "rewards": [
+        "Full Restore ×3",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Brice"
+    },
+    {
+      "id": "request-82",
+      "number": 82,
+      "name": "Traces of a Lost Village",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (basement)",
+      "unlock": "Ride Braviary",
+      "rewards": [
+        "Dawn Stone ×1"
+      ],
+      "giver": "Mani"
+    },
+    {
+      "id": "request-83",
+      "number": 83,
+      "name": "Snow-White Vulpix in the Snow",
+      "area": "whiteout-valley",
+      "location": "Alabaster Icelands: Snowfields Camp",
+      "unlock": "Catch a Vulpix; ride Braviary",
+      "rewards": [
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Keaka"
+    },
+    {
+      "id": "request-84",
+      "number": 84,
+      "name": "The Bergmite Enthusiast",
+      "area": "pearl-settlement",
+      "location": "Alabaster Icelands: Pearl Settlement",
+      "unlock": "Ride Braviary",
+      "rewards": [
+        "Grit Pebble ×3"
+      ],
+      "giver": "Dominia"
+    },
+    {
+      "id": "request-85",
+      "number": 85,
+      "name": "At Home under the Eaves",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Catch a Chimecho; ride Braviary",
+      "rewards": [
+        "Rare Candy ×1",
+        "Sun Stone ×1"
+      ],
+      "giver": "Ida"
+    },
+    {
+      "id": "request-86",
+      "number": 86,
+      "name": "Gone Astray...in the Icelands",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Request 77; talk to Volo and Gaeric at Arena's Approach",
+      "rewards": [
+        "Star Piece ×5",
+        "Peat Block ×1"
+      ],
+      "giver": "Wanda"
+    },
+    {
+      "id": "request-87",
+      "number": 87,
+      "name": "Rolling with Spheal",
+      "area": "sacred-plaza",
+      "location": "Coronet Highlands: Sacred Plaza",
+      "unlock": "Forge the Red Chain",
+      "rewards": [
+        "Sticky Glob ×5",
+        "Rare Candy ×1"
+      ],
+      "giver": "Senki"
+    },
+    {
+      "id": "request-88",
+      "number": 88,
+      "name": "Steely Lucario",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Forge the Red Chain",
+      "rewards": [
+        "Grit Rock ×1"
+      ],
+      "giver": "Rye"
+    },
+    {
+      "id": "request-89",
+      "number": 89,
+      "name": "The Diamond Clan's Treasure",
+      "area": "lake-valor",
+      "location": "Crimson Mirelands: Lake Valor",
+      "unlock": "Complete Mission 18",
+      "rewards": [
+        "Adamant Crystal ×1",
+        "Comet Shard ×3"
+      ],
+      "giver": "Adaman"
+    },
+    {
+      "id": "request-90",
+      "number": 90,
+      "name": "The Pearl Clan's Treasure",
+      "area": "pearl-settlement",
+      "location": "Alabaster Icelands: Pearl Settlement",
+      "unlock": "Complete Mission 18",
+      "rewards": [
+        "Lustrous Globe ×1",
+        "Comet Shard ×3"
+      ],
+      "giver": "Irida"
+    },
+    {
+      "id": "request-91",
+      "number": 91,
+      "name": "On the Trail of Giratina",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Front Gate",
+      "unlock": "Complete Mission 26",
+      "rewards": [
+        "Giratina",
+        "Griseous Core ×1",
+        "Grit Rock ×1"
+      ],
+      "giver": "Laventon",
+      "rewardPokemon": [
+        "giratina-altered"
+      ]
+    },
+    {
+      "id": "request-92",
+      "number": 92,
+      "name": "A Token of Gratitude",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Mission 18; Sword or Shield save data",
+      "rewards": [
+        "Shaymin",
+        "Grit Rock ×1"
+      ],
+      "giver": "Medi",
+      "rewardPokemon": [
+        "shaymin-land"
+      ]
+    },
+    {
+      "id": "request-93",
+      "number": 93,
+      "name": "The Darksome Nightmare",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (Laventon's blackboard)",
+      "unlock": "Complete Mission 18; Brilliant Diamond or Shining Pearl save data",
+      "rewards": [
+        "Darkrai",
+        "Exp. Candy XL ×1"
+      ],
+      "giver": "Cael",
+      "rewardPokemon": [
+        "darkrai"
+      ]
+    },
+    {
+      "id": "request-94",
+      "number": 94,
+      "name": "Incarnate Forces of Hisui",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Mission 26",
+      "rewards": [
+        "Reveal Glass ×1",
+        "Exp. Candy L ×4"
+      ],
+      "giver": "Cogita"
+    },
+    {
+      "id": "request-95",
+      "number": 95,
+      "name": "A New Anomaly",
+      "area": "deertrack-heights",
+      "location": "Obsidian Fieldlands: Heights Camp",
+      "unlock": "Receive Mission 20",
+      "rewards": [
+        "Ultra Ball ×30",
+        "Apricorn ×60",
+        "Tumblestone ×60"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-96",
+      "number": 96,
+      "name": "Massive Mass Outbreak in the Fieldlands",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Front Gate",
+      "unlock": "Complete Request 95",
+      "rewards": [
+        "Tumblestone ×30",
+        "Iron Chunk ×40",
+        "Smoke Bomb ×20"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-97",
+      "number": 97,
+      "name": "Massive Mass Outbreak in the Mirelands",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: hairdresser",
+      "unlock": "Complete Request 96",
+      "rewards": [
+        "Apricorn ×20",
+        "Black Tumblestone ×30",
+        "Iron Chunk ×30"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-98",
+      "number": 98,
+      "name": "Massive Mass Outbreak in the Coastlands",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Front Gate",
+      "unlock": "Complete Request 97",
+      "rewards": [
+        "Tumblestone ×30",
+        "Sky Tumblestone ×30",
+        "Iron Chunk ×30"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-99",
+      "number": 99,
+      "name": "Tricky Treat Strategy",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Floaro Main Street",
+      "unlock": "Complete Request 98",
+      "rewards": [
+        "Star Piece ×3",
+        "Iron Chunk ×30"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-100",
+      "number": 100,
+      "name": "Massive Mass Outbreak in the Highlands",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Front Gate",
+      "unlock": "Complete Request 99",
+      "rewards": [
+        "Apricorn ×30",
+        "Tumblestone ×30",
+        "Ball of Mud ×20"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-101",
+      "number": 101,
+      "name": "Massive Mass Outbreak in the Icelands",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Front Gate",
+      "unlock": "Complete Request 100",
+      "rewards": [
+        "Iron Chunk ×30",
+        "Caster Fern ×20",
+        "Ball of Mud ×20"
+      ],
+      "giver": "Mai",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-102",
+      "number": 102,
+      "name": "Daybreak",
+      "area": "jubilife-village",
+      "location": "Obsidian Fieldlands",
+      "unlock": "Complete Request 101",
+      "rewards": [
+        "Dawn Stone ×1",
+        "Seed of Mastery ×1",
+        "Exp. Candy XL ×3"
+      ],
+      "group": "daybreak"
+    },
+    {
+      "id": "request-103",
+      "number": 103,
+      "name": "Digging for Tomorrow",
+      "area": "jubilife-village",
+      "location": "Galaxy Hall (first floor)",
+      "unlock": "Complete Mission 18",
+      "rewards": [
+        "Iron Chunk ×20",
+        "Grit Rock ×1"
+      ],
+      "giver": "Kochika",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-104",
+      "number": 104,
+      "name": "Battling the Security Corps' Secret Weapon",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Mission 18",
+      "rewards": [
+        "Grit Rock ×3"
+      ],
+      "giver": "Zisu",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-105",
+      "number": 105,
+      "name": "The Ultimate Balloon Race",
+      "area": "sacred-plaza",
+      "location": "Coronet Highlands: Summit Camp",
+      "unlock": "Complete Requests 15, 47 and 79; complete Mission 18",
+      "rewards": [
+        "Nugget ×5"
+      ],
+      "giver": "Balloon Race",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-106",
+      "number": 106,
+      "name": "Adaman's Hope",
+      "area": "ginkgo-landing",
+      "location": "Cobalt Coastlands: Ginkgo Landing",
+      "unlock": "Complete Requests 89 and 102",
+      "rewards": [
+        "Exp. Candy XL ×1",
+        "Leaf Stone ×1"
+      ],
+      "giver": "Adaman",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-107",
+      "number": 107,
+      "name": "Irida's Wish",
+      "area": "diamond-settlement",
+      "location": "Crimson Mirelands: Diamond Settlement",
+      "unlock": "Complete Requests 90 and 102",
+      "rewards": [
+        "Exp. Candy XL ×1",
+        "Ice Stone ×1"
+      ],
+      "giver": "Irida",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-108",
+      "number": 108,
+      "name": "Bidoof's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy S ×10"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-109",
+      "number": 109,
+      "name": "Eevee's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy S ×10"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-110",
+      "number": 110,
+      "name": "Wormadam's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy M ×3"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-111",
+      "number": 111,
+      "name": "Abra's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy M ×3"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-112",
+      "number": 112,
+      "name": "Blissey's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy M ×3"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-113",
+      "number": 113,
+      "name": "Sneasel's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-114",
+      "number": 114,
+      "name": "Rotom's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-115",
+      "number": 115,
+      "name": "Bastiodon's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-116",
+      "number": 116,
+      "name": "Roselia's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-117",
+      "number": 117,
+      "name": "Magikarp's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Request 102",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-118",
+      "number": 118,
+      "name": "Roserade's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Requests 108–117",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-119",
+      "number": 119,
+      "name": "Kleavor's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Requests 108–117",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-120",
+      "number": 120,
+      "name": "Lilligant's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Requests 108–117",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-121",
+      "number": 121,
+      "name": "Wurmple's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Requests 108–117",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    },
+    {
+      "id": "request-122",
+      "number": 122,
+      "name": "Kricketot's Path of Solitude",
+      "area": "jubilife-village",
+      "location": "Jubilife Village: Training Grounds",
+      "unlock": "Complete Requests 108–117",
+      "rewards": [
+        "Seed of Mastery ×1",
+        "Exp. Candy L ×1"
+      ],
+      "giver": "Gared",
+      "group": "daybreak"
+    }
+  ]
 }

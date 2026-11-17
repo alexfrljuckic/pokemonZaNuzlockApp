@@ -6,6 +6,7 @@ import { type Outcome } from './EncounterForm';
 import { ItemsHere } from './ItemsHere';
 import { SpecialsHere } from './SpecialsHere';
 import { TrainersHere } from './TrainersHere';
+import { QuestsHere } from './QuestsHere';
 
 /** Flat expandable list of areas — the fallback for games without a map, and
  * the supplemental view for map-less areas (e.g. Grand Underground). */
@@ -90,6 +91,7 @@ export function AreaList({
               <>
                 <SpecialsHere areaId={area.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
                 <TrainersHere area={area} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
+                <QuestsHere area={area} state={state} ctx={ctx} />
                 <ItemsHere area={area} version={state.version} state={state} runId={runId} onChange={onChange} />
               </>
             )}

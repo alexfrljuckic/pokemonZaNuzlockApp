@@ -37,6 +37,18 @@ export const RULES: Record<string, RuleDef> = {
     defaultParams: { rerolls: 1 },
     hooks: ['filterEncounterPool'],
   },
+  'quest-reward-pokemon': {
+    id: 'quest-reward-pokemon',
+    name: 'Quest Reward Pokémon',
+    description:
+      "How Pokémon received as side-quest rewards count. Area encounter: claiming one uses up the encounter of the area where you get the quest, so it's only allowed if that area is still open. Free: always keepable, no encounter used. Banned: rewards are tracked but can't join your team.",
+    category: 'encounter',
+    appliesTo: ['pla'],
+    enforcement: 'enforced',
+    defaultEnabled: true,
+    defaultParams: { mode: 'area-encounter' },
+    hooks: [],
+  },
   'dupes-clause': {
     id: 'dupes-clause',
     name: 'Dupes Clause',
@@ -650,4 +662,23 @@ export function validateTeam(state: RunState, ctx: EngineContext): Violation[] {
 /** True when the derived state shows a full wipe with no decision recorded yet. */
 export function pendingWipeDecision(state: RunState): boolean {
   return state.wipes.length > 0 && state.status === 'active';
+}
+
+export type QuestRewardMode = 'area-encounter' | 'free' | 'banned';
+
+/** Whether a quest's reward Pokémon may be claimed right now, under the
+ * 'quest-reward-pokemon' rule. `areaId` is set when the claim must use up
+ * the quest's area encounter (pass it into special_claimed). Rule absent
+ * or switched off = free. */
+export function questRewardStatus(
+  state: RunState,
+  quest: { area: string },
+): { mode: QuestRewardMode; allowed: boolean; reason?: string; areaId?: string } {
+  const rule = state.ruleset.rules['quest-reward-pokemon'];
+  const mode: QuestRewardMode = rule?.enabled ? ((rule.params.mode as QuestRewardMode) ?? 'area-encounter') : 'free';
+  if (mode === 'banned') return { mode, allowed: false, reason: 'Quest reward Pokémon are banned by your rules' };
+  if (mode === 'free') return { mode, allowed: true };
+  if (state.encounterOutcomes[quest.area])
+    return { mode, allowed: false, reason: "This area's encounter is already used" };
+  return { mode, allowed: true, areaId: quest.area };
 }

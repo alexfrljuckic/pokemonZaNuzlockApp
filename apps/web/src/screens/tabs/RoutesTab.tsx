@@ -12,6 +12,7 @@ import { type Outcome } from '../../components/routes/EncounterForm';
 import { ItemsHere } from '../../components/routes/ItemsHere';
 import { SpecialsHere } from '../../components/routes/SpecialsHere';
 import { TrainersHere } from '../../components/routes/TrainersHere';
+import { QuestsHere } from '../../components/routes/QuestsHere';
 
 const zoneIdOf = (area: Area): string | null =>
   area.tags.find((t) => t.startsWith('zone:'))?.slice('zone:'.length) ?? null;
@@ -34,7 +35,11 @@ export function RoutesTab({
   openAreaId: string | null;
   setOpenAreaId: (id: string | null) => void;
 }) {
-  const [activeZone, setActiveZone] = useState<string | null>(null);
+  // Opened with an area already chosen (e.g. from the Quests tab): start in its zone.
+  const [activeZone, setActiveZone] = useState<string | null>(() => {
+    const a = openAreaId ? ctx.dataset.areas.find((x) => x.id === openAreaId) : undefined;
+    return a ? zoneIdOf(a) : null;
+  });
 
   // Desktop side-by-side: cap the details column to the map's height and let it
   // scroll internally, so an open encounter panel + area list matches the map
@@ -295,6 +300,7 @@ export function RoutesTab({
           )}
           <SpecialsHere areaId={selected.id} runId={runId} state={state} ctx={ctx} onChange={onChange} />
           <TrainersHere area={selected} version={state.version} gameId={ctx.dataset.gameId} state={state} runId={runId} onChange={onChange} />
+          <QuestsHere area={selected} state={state} ctx={ctx} />
           <ItemsHere area={selected} version={state.version} state={state} runId={runId} onChange={onChange} />
         </div>
       )}
