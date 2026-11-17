@@ -106,6 +106,24 @@ export function RulesTab({
               )
             )}
 
+            {def.id === 'quest-reward-pokemon' && enabled && (
+              editable ? (
+                <label>
+                  Reward Pokémon
+                  <select
+                    value={String(cfg?.params.mode ?? 'area-encounter')}
+                    onChange={(e) => setParam('quest-reward-pokemon', 'mode', e.target.value)}
+                  >
+                    <option value="area-encounter">Use the area's encounter</option>
+                    <option value="free">Free (no encounter used)</option>
+                    <option value="banned">Banned</option>
+                  </select>
+                </label>
+              ) : (
+                <p className="muted">Reward Pokémon: {String(cfg?.params.mode ?? 'area-encounter')}</p>
+              )
+            )}
+
             {def.id === 'random-encounter-roll' && enabled && (
               editable ? (
                 <label>

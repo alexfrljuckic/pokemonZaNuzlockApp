@@ -12,19 +12,22 @@ import { SharePopover } from '../components/SharePopover';
 import { RoutesTab } from './tabs/RoutesTab';
 import { TrainersTab, trainerGroups } from './tabs/TrainersTab';
 import { OpenTrainerContext } from '../lib/openTrainer';
+import { OpenQuestContext } from '../lib/openQuest';
+import { QuestsTab } from './tabs/QuestsTab';
 import { TeamBoxTab } from './tabs/TeamBoxTab';
 import { MilestonesTab } from './tabs/MilestonesTab';
 import { RulesTab } from './tabs/RulesTab';
 import { StatsTab } from './tabs/StatsTab';
 import { WipeScreen } from './WipeScreen';
 
-const TABS = ['Routes', 'Trainers', 'Boss Fights', 'Team & Box', 'Rules', 'Stats'] as const;
+const TABS = ['Routes', 'Trainers', 'Quests', 'Boss Fights', 'Team & Box', 'Rules', 'Stats'] as const;
 type Tab = (typeof TABS)[number];
 
 // Compact labels for the fixed bottom bar on phones (CSS swaps them in).
 const TAB_SHORT: Record<Tab, string> = {
   Routes: 'Routes',
   Trainers: 'Trainers',
+  Quests: 'Quests',
   'Team & Box': 'Team',
   'Boss Fights': 'Bosses',
   Rules: 'Rules',
@@ -105,6 +108,8 @@ export function RunView({
   const [openAreaId, setOpenAreaId] = useState<string | null>(null);
   // Trainer picked from a Routes row — the Trainers tab scrolls to and opens it.
   const [focusTrainer, setFocusTrainer] = useState<string | null>(null);
+  // Quest picked from a Routes area — the Quests tab scrolls to it.
+  const [focusQuest, setFocusQuest] = useState<string | null>(null);
   // The open tab is derived from the route (via the tab slug prop); switching a
   // tab writes the hash and the new slug comes back down. setTab is a thin
   // adapter so the existing label-based switcher/keyboard code is untouched.
@@ -179,7 +184,16 @@ export function RunView({
   const showWipeScreen = pendingWipeDecision(state);
   // Games with no documented trainer battles don't get a Trainers tab.
   const trainerCount = trainerGroups(ctx, state.version).reduce((n, g) => n + g.trainers.length, 0);
-  const tabs = TABS.filter((t) => t !== 'Trainers' || trainerCount > 0);
+  const questCount = ctx.dataset.quests?.length ?? 0;
+  const tabs = TABS.filter((t) => (t !== 'Trainers' || trainerCount > 0) && (t !== 'Quests' || questCount > 0));
+  const openQuest = (id: string) => {
+    setFocusQuest(id);
+    setTab('Quests');
+  };
+  const openArea = (areaId: string) => {
+    setOpenAreaId(areaId);
+    setTab('Routes');
+  };
   const openTrainer = (key: string) => {
     setFocusTrainer(key);
     setTab('Trainers');
@@ -237,6 +251,8 @@ export function RunView({
                   ? String(party(state).length)
                   : t === 'Trainers'
                     ? `${state.trainersBattled.length}/${trainerCount}`
+                    : t === 'Quests'
+                      ? `${state.questsCompleted.length}/${questCount}`
                     : t === 'Boss Fights' && ctx.dataset
                     ? `${state.milestonesCleared.length}/${milestonesFor(ctx.dataset, state.version, state.ruleset).length}`
                     : null;
@@ -261,6 +277,7 @@ export function RunView({
 
           <div id="run-tabpanel" role="tabpanel" aria-labelledby={tabDomId(tab)}>
             {tab === 'Routes' && (
+              <OpenQuestContext.Provider value={questCount > 0 ? openQuest : null}>
               <OpenTrainerContext.Provider value={trainerCount > 0 ? openTrainer : null}>
                 <RoutesTab
                   runId={run.id}
@@ -271,6 +288,10 @@ export function RunView({
                   setOpenAreaId={setOpenAreaId}
                 />
               </OpenTrainerContext.Provider>
+              </OpenQuestContext.Provider>
+            )}
+            {tab === 'Quests' && (
+              <QuestsTab runId={run.id} state={state} ctx={ctx} onChange={refresh} focusQuestId={focusQuest} onOpenArea={openArea} />
             )}
             {tab === 'Trainers' && (
               <TrainersTab runId={run.id} state={state} ctx={ctx} onChange={refresh} focusKey={focusTrainer} />

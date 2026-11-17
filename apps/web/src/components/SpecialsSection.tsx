@@ -73,6 +73,8 @@ export function SpecialCard({
   onChange,
   badge,
   hideBadge,
+  claimAreaId,
+  blockedReason,
 }: {
   s: SpecialEncounter;
   runId: string;
@@ -83,6 +85,10 @@ export function SpecialCard({
   onChange: () => Promise<void>;
   badge?: string;
   hideBadge?: boolean;
+  /** quest rewards under the 'area-encounter' rule: the claim uses this area's encounter */
+  claimAreaId?: string;
+  /** when set, the card can't be claimed and shows why */
+  blockedReason?: string;
 }) {
   const [open, setOpen] = useState(false);
   const [shiny, setShiny] = useState(false);
@@ -91,7 +97,15 @@ export function SpecialCard({
   async function claim(nickname: string, level: number, shiny: boolean) {
     await appendEvent(runId, {
       type: 'special_claimed',
-      payload: { specialId: s.id, species: s.species, pokemonId: crypto.randomUUID(), nickname, level, ...(shiny ? { shiny: true } : {}) },
+      payload: {
+        specialId: s.id,
+        species: s.species,
+        pokemonId: crypto.randomUUID(),
+        nickname,
+        level,
+        ...(shiny ? { shiny: true } : {}),
+        ...(claimAreaId ? { areaId: claimAreaId } : {}),
+      },
     });
     setOpen(false);
     setShiny(false);
@@ -124,6 +138,20 @@ export function SpecialCard({
           ariaLabel={`Reset ${s.species} claim`}
           onConfirm={reset}
         />
+      </div>
+    );
+  }
+
+  if (blockedReason) {
+    return (
+      <div className="special-card blocked">
+        <div className="special-card-head">
+          <SpriteImg species={s.species} size={88} />
+          <div className="special-card-title">
+            <strong>{s.species}</strong>
+            <span className="muted">{blockedReason}</span>
+          </div>
+        </div>
       </div>
     );
   }

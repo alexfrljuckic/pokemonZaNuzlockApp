@@ -107,3 +107,26 @@ ids it no longer finds.
   were merged surgically from the PokeAPI api-data mirror because pokeapi.co
   wasn't reachable. A normal `build-species-data.mjs` run should produce the
   same entries.
+
+## Side requests (Quests tab), 2026-11-16
+
+`pla.json` now has `quests`: all 122 requests (94 base game + 28 from the
+Daybreak update, marked `group: "daybreak"`). Each has giver, place, unlock
+condition and rewards, from Bulbapedia's "Task (Legends: Arceus)" table.
+Each quest sits in the area where you pick it up. 95 of them start in
+Jubilife Village (Galaxy Hall and the village); camps map to the area
+Bulbapedia places them in.
+
+Requests that give Pokémon: #20 Chimchar, #22 Spiritomb, #66 Manaphy (plus
+Phione ×3, as Bulbapedia lists it), #91 Giratina, #92 Shaymin (needs
+Sword/Shield save data), #93 Darkrai (needs BDSP save data). All six start in
+Jubilife Village.
+
+**Rule `quest-reward-pokemon`** (enforced, PLA, default "area encounter"):
+- area encounter: claiming a reward uses up the encounter of the quest's
+  area (`special_claimed` with `areaId`). Resetting the claim gives it back.
+- free: always claimable, no encounter used.
+- banned: listed but can't be claimed.
+
+Note: because every reward is in Jubilife, "area encounter" means at most one
+reward Pokémon per run, and only if Jubilife's own encounter is unused.

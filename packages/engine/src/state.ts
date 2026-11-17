@@ -15,6 +15,7 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
     encounterOutcomes: {},
     encounterRolls: {},
     milestonesCleared: [],
+    questsCompleted: [],
     nextBossId: null,
     trainersBattled: [],
     itemsPicked: [],
@@ -80,16 +81,32 @@ export function deriveState(events: RunEvent[], ctx: EngineContext): RunState {
           nickname: ev.payload.nickname ?? ev.payload.species,
           level: ev.payload.level ?? 5,
           status: inPartySp < 6 ? 'party' : 'box',
-          origin: { specialId: ev.payload.specialId },
+          origin: { specialId: ev.payload.specialId, ...(ev.payload.areaId ? { areaId: ev.payload.areaId } : {}) },
           ...(ev.payload.shiny ? { shiny: true } : {}),
         };
+        // A quest reward claimed as the area's encounter uses that area up.
+        if (ev.payload.areaId && !state.encounterOutcomes[ev.payload.areaId])
+          state.encounterOutcomes[ev.payload.areaId] = 'caught';
         break;
       }
       case 'special_reset': {
-        // Undo a claimed special — remove the Pokémon it produced.
+        // Undo a claimed special — remove the Pokémon it produced, and give
+        // back the area encounter if that claim was what used it.
         for (const [id, p] of Object.entries(state.pokemon)) {
-          if (p.origin?.specialId === ev.payload.specialId) delete state.pokemon[id];
+          if (p.origin?.specialId !== ev.payload.specialId) continue;
+          delete state.pokemon[id];
+          const areaId = p.origin.areaId;
+          if (areaId && !Object.values(state.pokemon).some((q) => q.origin?.areaId === areaId))
+            delete state.encounterOutcomes[areaId];
         }
+        break;
+      }
+      case 'quest_completed': {
+        if (!state.questsCompleted.includes(ev.payload.questId)) state.questsCompleted.push(ev.payload.questId);
+        break;
+      }
+      case 'quest_reset': {
+        state.questsCompleted = state.questsCompleted.filter((q) => q !== ev.payload.questId);
         break;
       }
       case 'level_up': {

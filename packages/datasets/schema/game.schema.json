@@ -3,86 +3,190 @@
   "$id": "https://nuzlocke.example/schemas/game.schema.json",
   "title": "Nuzlocke Game Dataset",
   "type": "object",
-  "required": ["schemaVersion", "gameId", "name", "versions", "areas", "specials", "milestones", "mechanics"],
+  "required": [
+    "schemaVersion",
+    "gameId",
+    "name",
+    "versions",
+    "areas",
+    "specials",
+    "milestones",
+    "mechanics"
+  ],
   "additionalProperties": false,
   "properties": {
-    "schemaVersion": { "type": "integer", "const": 1 },
-    "gameId": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-    "name": { "type": "string", "minLength": 1 },
-    "versions": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[a-z0-9-]+$" } },
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "versions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      }
+    },
     "pokeapiVersionGroups": {
       "type": "array",
-      "items": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-      "description": "PokeAPI version-group slugs whose move-learn data applies to this game (include DLC groups). Omit/empty when PokeAPI has no move data for the game (e.g. Legends Z-A) — the app then falls back to the all-games union movepool."
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9-]+$"
+      },
+      "description": "PokeAPI version-group slugs whose move-learn data applies to this game (include DLC groups). Omit/empty when PokeAPI has no move data for the game (e.g. Legends Z-A) \u2014 the app then falls back to the all-games union movepool."
     },
     "rostersRequired": {
       "type": "boolean",
-      "description": "When true, the validator fails if any milestone lacks a roster (or rosterByStarter). Set once a game's rosters are complete so a future edit or dataset can't silently ship 0/N rosters (as Legends Z-A partially does — it omits this flag)."
+      "description": "When true, the validator fails if any milestone lacks a roster (or rosterByStarter). Set once a game's rosters are complete so a future edit or dataset can't silently ship 0/N rosters (as Legends Z-A partially does \u2014 it omits this flag)."
     },
     "areas": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "name", "unlockAfter", "tags", "encounters"],
+        "required": [
+          "id",
+          "name",
+          "unlockAfter",
+          "tags",
+          "encounters"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "name": { "type": "string", "minLength": 1 },
-          "unlockAfter": { "type": ["string", "null"] },
-          "tags": { "type": "array", "items": { "type": "string" } },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unlockAfter": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
           "encounters": {
             "type": "array",
             "items": {
               "type": "object",
-              "required": ["species", "methods"],
+              "required": [
+                "species",
+                "methods"
+              ],
               "additionalProperties": false,
               "properties": {
-                "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                "methods": { "type": "array", "minItems": 1, "items": { "type": "string" } },
-                "rate": { "type": "number", "minimum": 0 },
+                "species": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$"
+                },
+                "methods": {
+                  "type": "array",
+                  "minItems": 1,
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "rate": {
+                  "type": "number",
+                  "minimum": 0
+                },
                 "tier": {
                   "type": "integer",
                   "minimum": 1,
                   "maximum": 6,
-                  "description": "Progression tier at which this slot first becomes available (BDSP Grand Underground hideaways only): 1 base, 2 +Strength(TM96), 3 +Defog(TM97), 4 +Icicle Badge, 5 +Waterfall(TM99), 6 +National Dex. Display-only label — the engine never gates on it. Omit for tier-1/base slots."
+                  "description": "Progression tier at which this slot first becomes available (BDSP Grand Underground hideaways only): 1 base, 2 +Strength(TM96), 3 +Defog(TM97), 4 +Icicle Badge, 5 +Waterfall(TM99), 6 +National Dex. Display-only label \u2014 the engine never gates on it. Omit for tier-1/base slots."
                 },
                 "conditions": {
                   "type": "object",
-                  "additionalProperties": { "type": "array", "items": { "type": "string" } }
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
           },
           "trainers": {
             "type": "array",
-            "description": "Optional documented trainer battles in this area (Serebii/Bulbapedia-sourced, never invented). Display-only route intel — the engine doesn't gate anything on them.",
+            "description": "Optional documented trainer battles in this area (Serebii/Bulbapedia-sourced, never invented). Display-only route intel \u2014 the engine doesn't gate anything on them.",
             "items": {
               "type": "object",
-              "required": ["name", "team"],
+              "required": [
+                "name",
+                "team"
+              ],
               "additionalProperties": false,
               "properties": {
-                "name": { "type": "string", "minLength": 1 },
-                "class": { "type": "string", "description": "Trainer class, e.g. \"Youngster\", \"Ace Trainer\"." },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "class": {
+                  "type": "string",
+                  "description": "Trainer class, e.g. \"Youngster\", \"Ace Trainer\"."
+                },
                 "team": {
                   "type": "array",
                   "minItems": 1,
                   "items": {
                     "type": "object",
-                    "required": ["species", "level"],
+                    "required": [
+                      "species",
+                      "level"
+                    ],
                     "additionalProperties": false,
                     "properties": {
-                      "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                      "level": { "type": "integer", "minimum": 1 },
-                      "moves": { "type": "array", "items": { "type": "string" } },
-                      "ability": { "type": "string" },
-                      "heldItem": { "type": "string" }
+                      "species": {
+                        "type": "string",
+                        "pattern": "^[a-z0-9-]+$"
+                      },
+                      "level": {
+                        "type": "integer",
+                        "minimum": 1
+                      },
+                      "moves": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "ability": {
+                        "type": "string"
+                      },
+                      "heldItem": {
+                        "type": "string"
+                      }
                     }
                   }
                 },
                 "conditions": {
                   "type": "object",
                   "additionalProperties": false,
-                  "properties": { "version": { "type": "array", "items": { "type": "string" } } }
+                  "properties": {
+                    "version": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -92,27 +196,65 @@
             "description": "Optional fixed overworld item pickups in this area (Serebii/Bulbapedia-sourced; shop stock, renewables and quest rewards excluded). Display-only route intel.",
             "items": {
               "type": "object",
-              "required": ["name"],
+              "required": [
+                "name"
+              ],
               "additionalProperties": false,
               "properties": {
-                "name": { "type": "string", "minLength": 1 },
-                "hidden": { "type": "boolean", "description": "Hidden pickup (Dowsing Machine / Itemfinder spot)." },
-                "shop": { "type": "boolean", "description": "Purchasable in this area's shops rather than a ground pickup." },
-                "quantity": { "type": "integer", "minimum": 2, "description": "Only when a single pickup yields more than one." },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "hidden": {
+                  "type": "boolean",
+                  "description": "Hidden pickup (Dowsing Machine / Itemfinder spot)."
+                },
+                "shop": {
+                  "type": "boolean",
+                  "description": "Purchasable in this area's shops rather than a ground pickup."
+                },
+                "quantity": {
+                  "type": "integer",
+                  "minimum": 2,
+                  "description": "Only when a single pickup yields more than one."
+                },
                 "access": {
                   "type": "array",
                   "minItems": 1,
                   "uniqueItems": true,
                   "items": {
-                    "enum": ["surf", "cut", "strength", "rock-smash", "waterfall", "rock-climb", "defog", "fly", "flash", "whirlpool", "dive"]
+                    "enum": [
+                      "surf",
+                      "cut",
+                      "strength",
+                      "rock-smash",
+                      "waterfall",
+                      "rock-climb",
+                      "defog",
+                      "fly",
+                      "flash",
+                      "whirlpool",
+                      "dive"
+                    ]
                   },
                   "description": "Field-move requirements (HMs) needed to reach this pickup, as lowercase-hyphenated slugs. Sourced from Serebii/Bulbapedia, never invented; omit when the item is freely reachable. Convention: surf | cut | strength | rock-smash | waterfall | rock-climb | defog | fly | flash | whirlpool | dive."
                 },
-                "locationHint": { "type": "string", "minLength": 1, "description": "Optional short free-text spot within the area (e.g. \"on the island south of the tubers\"). Populate only where research gives a clean spot; the area name already provides rough location so this is optional." },
+                "locationHint": {
+                  "type": "string",
+                  "minLength": 1,
+                  "description": "Optional short free-text spot within the area (e.g. \"on the island south of the tubers\"). Populate only where research gives a clean spot; the area name already provides rough location so this is optional."
+                },
                 "conditions": {
                   "type": "object",
                   "additionalProperties": false,
-                  "properties": { "version": { "type": "array", "items": { "type": "string" } } }
+                  "properties": {
+                    "version": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -124,18 +266,44 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "type", "species", "area"],
+        "required": [
+          "id",
+          "type",
+          "species",
+          "area"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "type": { "enum": ["gift", "static", "trade", "fossil", "egg"] },
-          "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "area": { "type": "string" },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "type": {
+            "enum": [
+              "gift",
+              "static",
+              "trade",
+              "fossil",
+              "egg"
+            ]
+          },
+          "species": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "area": {
+            "type": "string"
+          },
           "conditions": {
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "version": { "type": "array", "items": { "type": "string" } },
+              "version": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "dlc": {
                 "type": "boolean",
                 "description": "true = only shown when the run's 'dlc-content' rule is enabled (e.g. SwSh Isle of Armor / Crown Tundra legendaries and gifts)."
@@ -150,14 +318,37 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["id", "name", "type", "order", "aceLevel"],
+        "required": [
+          "id",
+          "name",
+          "type",
+          "order",
+          "aceLevel"
+        ],
         "additionalProperties": false,
         "properties": {
-          "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-          "name": { "type": "string", "minLength": 1 },
-          "type": { "type": "string" },
-          "order": { "type": "integer", "minimum": 0 },
-          "aceLevel": { "type": ["integer", "null"], "minimum": 1 },
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "aceLevel": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 1
+          },
           "countsForLevelCap": {
             "type": "boolean",
             "description": "Whether this milestone gates the enforced level cap. Defaults to true when absent; set false for milestones (e.g. rival battles) that should be tracked/displayed but not cap-gating."
@@ -166,7 +357,12 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "version": { "type": "array", "items": { "type": "string" } },
+              "version": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "dlc": {
                 "type": "boolean",
                 "description": "true = only shown when the run's 'dlc-content' rule is enabled (e.g. SwSh Isle of Armor / Crown Tundra boss fights)."
@@ -177,32 +373,58 @@
           "trainerSprite": {
             "type": "string",
             "pattern": "^[a-z0-9-]+$",
-            "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong — e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
+            "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong \u2014 e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
           },
           "species": {
             "type": "string",
             "pattern": "^[a-z0-9-]+$",
-            "description": "When the boss IS a Pokémon rather than a trainer (Z-A rogue-mega bosses, legendary encounters), the species slug to render as a Pokémon sprite instead of a trainer sprite — e.g. \"absol-mega\"."
+            "description": "When the boss IS a Pok\u00e9mon rather than a trainer (Z-A rogue-mega bosses, legendary encounters), the species slug to render as a Pok\u00e9mon sprite instead of a trainer sprite \u2014 e.g. \"absol-mega\"."
           },
           "grants": {
             "type": "object",
             "additionalProperties": false,
-            "properties": { "reviveTokens": { "type": "integer", "minimum": 0 } }
+            "properties": {
+              "reviveTokens": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
           },
           "roster": {
             "type": "array",
-            "description": "Optional full team, informational only — the level-cap rule reads aceLevel, never this. Default shown when no starter is chosen.",
+            "description": "Optional full team, informational only \u2014 the level-cap rule reads aceLevel, never this. Default shown when no starter is chosen.",
             "items": {
               "type": "object",
-              "required": ["species", "level"],
+              "required": [
+                "species",
+                "level"
+              ],
               "additionalProperties": false,
               "properties": {
-                "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                "level": { "type": "integer", "minimum": 1 },
-                "moves": { "type": "array", "items": { "type": "string" } },
-                "ability": { "type": "string" },
-                "heldItem": { "type": "string" },
-                "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                "species": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$"
+                },
+                "level": {
+                  "type": "integer",
+                  "minimum": 1
+                },
+                "moves": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ability": {
+                  "type": "string"
+                },
+                "heldItem": {
+                  "type": "string"
+                },
+                "teraType": {
+                  "type": "string",
+                  "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only."
+                }
               }
             }
           },
@@ -213,57 +435,120 @@
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["species", "level"],
+                "required": [
+                  "species",
+                  "level"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                  "level": { "type": "integer", "minimum": 1 },
-                  "moves": { "type": "array", "items": { "type": "string" } },
-                  "ability": { "type": "string" },
-                  "heldItem": { "type": "string" },
-                  "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                  "species": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+$"
+                  },
+                  "level": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "moves": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ability": {
+                    "type": "string"
+                  },
+                  "heldItem": {
+                    "type": "string"
+                  },
+                  "teraType": {
+                    "type": "string",
+                    "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only."
+                  }
                 }
               }
             }
           },
           "rosterByDifficulty": {
             "type": "object",
-            "description": "Optional per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed by a difficulty slug (e.g. normal/hardcore). The app picks the variant matching the run's difficulty tier (mapped from the run's presetId: rr-normal→normal, rr-hardcore→hardcore), else falls back to `rosterByStarter`/`roster`. Mainline games omit this and are unaffected. Non-normal tiers may exceed aceLevel (RR Hardcore raises early-gym caps): the validator pins the `normal` variant to aceLevel and allows other tiers aceLevel..aceLevel+3.",
+            "description": "Optional per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed by a difficulty slug (e.g. normal/hardcore). The app picks the variant matching the run's difficulty tier (mapped from the run's presetId: rr-normal\u2192normal, rr-hardcore\u2192hardcore), else falls back to `rosterByStarter`/`roster`. Mainline games omit this and are unaffected. Non-normal tiers may exceed aceLevel (RR Hardcore raises early-gym caps): the validator pins the `normal` variant to aceLevel and allows other tiers aceLevel..aceLevel+3.",
             "additionalProperties": {
               "type": "array",
               "items": {
                 "type": "object",
-                "required": ["species", "level"],
+                "required": [
+                  "species",
+                  "level"
+                ],
                 "additionalProperties": false,
                 "properties": {
-                  "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                  "level": { "type": "integer", "minimum": 1 },
-                  "moves": { "type": "array", "items": { "type": "string" } },
-                  "ability": { "type": "string" },
-                  "heldItem": { "type": "string" },
-                  "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                  "species": {
+                    "type": "string",
+                    "pattern": "^[a-z0-9-]+$"
+                  },
+                  "level": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "moves": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "ability": {
+                    "type": "string"
+                  },
+                  "heldItem": {
+                    "type": "string"
+                  },
+                  "teraType": {
+                    "type": "string",
+                    "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only."
+                  }
                 }
               }
             }
           },
           "rosterByDifficultyAndStarter": {
             "type": "object",
-            "description": "Optional two-axis roster variants keyed difficulty -> starter (Radical Red rival battles, whose team depends on BOTH the run's difficulty tier AND the player's chosen starter — the rival takes the type-advantaged starter). The app uses the matching difficulty+starter variant when both are known, else falls back to rosterByDifficulty/rosterByStarter/roster. Same cap-drift guard as rosterByDifficulty applies per tier: the `normal` starter variants must hit aceLevel exactly; harder tiers stay in aceLevel..aceLevel+3.",
+            "description": "Optional two-axis roster variants keyed difficulty -> starter (Radical Red rival battles, whose team depends on BOTH the run's difficulty tier AND the player's chosen starter \u2014 the rival takes the type-advantaged starter). The app uses the matching difficulty+starter variant when both are known, else falls back to rosterByDifficulty/rosterByStarter/roster. Same cap-drift guard as rosterByDifficulty applies per tier: the `normal` starter variants must hit aceLevel exactly; harder tiers stay in aceLevel..aceLevel+3.",
             "additionalProperties": {
               "type": "object",
               "additionalProperties": {
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "required": ["species", "level"],
+                  "required": [
+                    "species",
+                    "level"
+                  ],
                   "additionalProperties": false,
                   "properties": {
-                    "species": { "type": "string", "pattern": "^[a-z0-9-]+$" },
-                    "level": { "type": "integer", "minimum": 1 },
-                    "moves": { "type": "array", "items": { "type": "string" } },
-                    "ability": { "type": "string" },
-                    "heldItem": { "type": "string" },
-                    "teraType": { "type": "string", "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only." }
+                    "species": {
+                      "type": "string",
+                      "pattern": "^[a-z0-9-]+$"
+                    },
+                    "level": {
+                      "type": "integer",
+                      "minimum": 1
+                    },
+                    "moves": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "ability": {
+                      "type": "string"
+                    },
+                    "heldItem": {
+                      "type": "string"
+                    },
+                    "teraType": {
+                      "type": "string",
+                      "description": "Terastal type the ace Terastallizes into (Scarlet/Violet). Data-only."
+                    }
                   }
                 }
               }
@@ -272,16 +557,94 @@
         }
       }
     },
+    "quests": {
+      "description": "Optional side quests (PLA requests). Display + completion tracking; rewardPokemon can be claimed into the run under the game's quest-reward rule.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "number",
+          "name",
+          "area",
+          "location",
+          "unlock",
+          "rewards"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string"
+          },
+          "giver": {
+            "type": "string"
+          },
+          "area": {
+            "type": "string",
+            "description": "area id where the quest is picked up"
+          },
+          "location": {
+            "type": "string",
+            "description": "in-game place text, e.g. 'Galaxy Hall (Laventon's blackboard)'"
+          },
+          "unlock": {
+            "type": "string"
+          },
+          "rewards": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rewardPokemon": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9-]+$"
+            },
+            "description": "one entry per Pok\u00e9mon received (repeats allowed)"
+          },
+          "group": {
+            "type": "string",
+            "description": "e.g. 'daybreak' for post-launch update content"
+          }
+        }
+      }
+    },
     "mechanics": {
       "type": "object",
-      "required": ["heldItems", "wildBattles", "setModeOption", "raids", "overworldAggro"],
+      "required": [
+        "heldItems",
+        "wildBattles",
+        "setModeOption",
+        "raids",
+        "overworldAggro"
+      ],
       "additionalProperties": false,
       "properties": {
-        "heldItems": { "type": "boolean" },
-        "wildBattles": { "type": "boolean" },
-        "setModeOption": { "type": "boolean" },
-        "raids": { "type": "boolean" },
-        "overworldAggro": { "type": "boolean" }
+        "heldItems": {
+          "type": "boolean"
+        },
+        "wildBattles": {
+          "type": "boolean"
+        },
+        "setModeOption": {
+          "type": "boolean"
+        },
+        "raids": {
+          "type": "boolean"
+        },
+        "overworldAggro": {
+          "type": "boolean"
+        }
       }
     }
   }
