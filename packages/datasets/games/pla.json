@@ -9168,7 +9168,16 @@
       "location": "Galaxy Hall (Laventon's blackboard)",
       "unlock": "Catch a Ponyta; defeat Irida",
       "rewards": [
+        "Shiny Ponyta (catch)",
         "Razz Berry ×5"
+      ],
+      "rewardPokemon": [
+        {
+          "species": "ponyta",
+          "how": "catch",
+          "area": "horseshoe-plains",
+          "shiny": true
+        }
       ],
       "giver": "Yota"
     },
@@ -9180,13 +9189,18 @@
       "location": "Jubilife Village: Canala Avenue outskirts",
       "unlock": "Defeat Irida",
       "rewards": [
-        "Chimchar",
+        "Chimchar (catch)",
         "Exp. Candy S ×2"
       ],
-      "giver": "Paira",
       "rewardPokemon": [
-        "chimchar"
-      ]
+        {
+          "species": "chimchar",
+          "how": "catch",
+          "area": "windswept-run",
+          "note": "Shakes out of a tree on Windswept Run at night; can be caught or defeated"
+        }
+      ],
+      "giver": "Paira"
     },
     {
       "id": "request-21",
@@ -9209,12 +9223,18 @@
       "unlock": "Complete Mission 7",
       "rewards": [
         "Item rewards as you find more wisps",
-        "Spiritomb once you find them all"
+        "Spiritomb (catch, after all wisps)"
       ],
-      "giver": "Vessa",
       "rewardPokemon": [
-        "spiritomb"
-      ]
+        {
+          "species": "spiritomb",
+          "how": "catch",
+          "area": "shrouded-ruins",
+          "level": 60,
+          "note": "At the cracked stone in the Shrouded Ruins at night, after all 107 wisps"
+        }
+      ],
+      "giver": "Vessa"
     },
     {
       "id": "request-23",
@@ -9756,17 +9776,38 @@
       "location": "Galaxy Hall (Laventon's blackboard)",
       "unlock": "Complete Mission 10; catch Buizel, Hisuian Qwilfish and Mantyke; Star Rank 5",
       "rewards": [
-        "Manaphy",
-        "Phione ×3",
+        "Manaphy (catch)",
+        "Phione ×3 (catch)",
         "Comet Shard ×3"
       ],
-      "giver": "Laventon",
       "rewardPokemon": [
-        "manaphy",
-        "phione",
-        "phione",
-        "phione"
-      ]
+        {
+          "species": "manaphy",
+          "how": "catch",
+          "area": "veilstone-cape",
+          "level": 50,
+          "note": "Seaside Hollow (cave just north of Veilstone Cape)"
+        },
+        {
+          "species": "phione",
+          "how": "catch",
+          "area": "veilstone-cape",
+          "note": "Seaside Hollow, alongside Manaphy (Lv 33–36)"
+        },
+        {
+          "species": "phione",
+          "how": "catch",
+          "area": "veilstone-cape",
+          "note": "Seaside Hollow, alongside Manaphy (Lv 33–36)"
+        },
+        {
+          "species": "phione",
+          "how": "catch",
+          "area": "veilstone-cape",
+          "note": "Seaside Hollow, alongside Manaphy (Lv 33–36)"
+        }
+      ],
+      "giver": "Laventon"
     },
     {
       "id": "request-67",
@@ -9975,7 +10016,16 @@
       "location": "Alabaster Icelands: Snowfields Camp",
       "unlock": "Catch a Vulpix; ride Braviary",
       "rewards": [
+        "Alolan Vulpix (gift)",
         "Exp. Candy L ×1"
+      ],
+      "rewardPokemon": [
+        {
+          "species": "vulpix-alola",
+          "how": "gift",
+          "area": "whiteout-valley",
+          "note": "Keaka's gift at Snowfields Camp after finding his 5 Alolan Vulpix"
+        }
       ],
       "giver": "Keaka"
     },
@@ -10076,14 +10126,19 @@
       "location": "Jubilife Village: Front Gate",
       "unlock": "Complete Mission 26",
       "rewards": [
-        "Giratina",
+        "Giratina (catch)",
         "Griseous Core ×1",
         "Grit Rock ×1"
       ],
-      "giver": "Laventon",
       "rewardPokemon": [
-        "giratina-altered"
-      ]
+        {
+          "species": "giratina-origin",
+          "how": "catch",
+          "area": "spring-path",
+          "note": "Turnback Cave, reached through the Spring Path"
+        }
+      ],
+      "giver": "Laventon"
     },
     {
       "id": "request-92",
@@ -10093,13 +10148,19 @@
       "location": "Galaxy Hall (Laventon's blackboard)",
       "unlock": "Complete Mission 18; Sword or Shield save data",
       "rewards": [
-        "Shaymin",
+        "Shaymin (catch)",
         "Grit Rock ×1"
       ],
-      "giver": "Medi",
       "rewardPokemon": [
-        "shaymin-land"
-      ]
+        {
+          "species": "shaymin-land",
+          "how": "catch",
+          "area": "floaro-gardens",
+          "level": 70,
+          "note": "Gracidea field; needs Sword/Shield save data"
+        }
+      ],
+      "giver": "Medi"
     },
     {
       "id": "request-93",
@@ -10109,13 +10170,18 @@
       "location": "Galaxy Hall (Laventon's blackboard)",
       "unlock": "Complete Mission 18; Brilliant Diamond or Shining Pearl save data",
       "rewards": [
-        "Darkrai",
+        "Darkrai (catch)",
         "Exp. Candy XL ×1"
       ],
-      "giver": "Cael",
       "rewardPokemon": [
-        "darkrai"
-      ]
+        {
+          "species": "darkrai",
+          "how": "catch",
+          "area": "clamberclaw-cliffs",
+          "note": "At night; needs Brilliant Diamond/Shining Pearl save data"
+        }
+      ],
+      "giver": "Cael"
     },
     {
       "id": "request-94",
@@ -10125,8 +10191,38 @@
       "location": "Galaxy Hall (first floor)",
       "unlock": "Complete Mission 26",
       "rewards": [
+        "Tornadus, Thundurus, Landorus, Enamorus (catch)",
         "Reveal Glass ×1",
         "Exp. Candy L ×4"
+      ],
+      "rewardPokemon": [
+        {
+          "species": "tornadus-incarnate",
+          "how": "catch",
+          "area": "bonechill-wastes",
+          "level": 70,
+          "note": "Only in a snowstorm"
+        },
+        {
+          "species": "thundurus-incarnate",
+          "how": "catch",
+          "area": "sands-reach",
+          "level": 70,
+          "note": "On the sea between Sand's Reach and Lunker's Lair, only in a thunderstorm"
+        },
+        {
+          "species": "landorus-incarnate",
+          "how": "catch",
+          "area": "ramanas-island",
+          "level": 70
+        },
+        {
+          "species": "enamorus-incarnate",
+          "how": "catch",
+          "area": "scarlet-bog",
+          "level": 70,
+          "note": "Appears after Tornadus, Thundurus and Landorus are at research level 10"
+        }
       ],
       "giver": "Cogita"
     },

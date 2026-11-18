@@ -18,6 +18,18 @@ export interface GameDataset {
   mechanics: GameMechanics;
 }
 
+export interface QuestRewardPokemon {
+  species: string;
+  /** caught in the overworld vs handed to you */
+  how: 'catch' | 'gift';
+  /** area id where you actually get it; defaults to the quest's area */
+  area?: string;
+  /** guaranteed shiny (e.g. PLA's Ponyta) */
+  shiny?: boolean;
+  level?: number;
+  note?: string;
+}
+
 export interface Quest {
   id: string;
   number: number;
@@ -30,8 +42,8 @@ export interface Quest {
   unlock: string;
   /** display strings, e.g. "Rare Candy ×1" */
   rewards: string[];
-  /** one entry per Pokémon received; claimable under 'quest-reward-pokemon' */
-  rewardPokemon?: string[];
+  /** one entry per Pokémon obtained; claimable under 'quest-reward-pokemon' */
+  rewardPokemon?: QuestRewardPokemon[];
   group?: string;
 }
 

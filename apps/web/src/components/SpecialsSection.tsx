@@ -23,14 +23,16 @@ function ClaimForm({
   shiny,
   onShinyChange,
   onClaim,
+  defaultLevel,
 }: {
   species: string;
   shiny: boolean;
   onShinyChange: (shiny: boolean) => void;
   onClaim: (nickname: string, level: number, shiny: boolean) => void;
+  defaultLevel?: number;
 }) {
   const [nickname, setNickname] = useState('');
-  const [level, setLevel] = useState('5');
+  const [level, setLevel] = useState(String(defaultLevel ?? 5));
   return (
     <div className="special-claim-form">
       <CatchFields
@@ -75,6 +77,9 @@ export function SpecialCard({
   hideBadge,
   claimAreaId,
   blockedReason,
+  defaultShiny = false,
+  defaultLevel,
+  note,
 }: {
   s: SpecialEncounter;
   runId: string;
@@ -89,9 +94,14 @@ export function SpecialCard({
   claimAreaId?: string;
   /** when set, the card can't be claimed and shows why */
   blockedReason?: string;
+  /** guaranteed-shiny rewards start with the shiny toggle on */
+  defaultShiny?: boolean;
+  defaultLevel?: number;
+  /** short where/how line under the name */
+  note?: string;
 }) {
   const [open, setOpen] = useState(false);
-  const [shiny, setShiny] = useState(false);
+  const [shiny, setShiny] = useState(defaultShiny);
   const mon = claimedSpecial(s.id, state);
 
   async function claim(nickname: string, level: number, shiny: boolean) {
@@ -159,14 +169,17 @@ export function SpecialCard({
   return (
     <div className={`special-card${open ? ' open' : ''}`}>
       <button className="special-card-head special-card-pick" onClick={() => setOpen((o) => !o)}>
-        <SpriteImg species={s.species} size={88} shiny={open && shiny} />
+        <SpriteImg species={s.species} size={88} shiny={(open && shiny) || defaultShiny} />
         <div className="special-card-title">
           <strong>{s.species}</strong>
           {!hideBadge && <span className="muted">{badge ?? TYPE_LABEL[s.type]}</span>}
           <TypeBadges types={typesFor(s.species, gameId)} />
         </div>
       </button>
-      {open && <ClaimForm species={s.species} shiny={shiny} onShinyChange={setShiny} onClaim={claim} />}
+      {note && !open && <p className="muted special-card-note">{note}</p>}
+      {open && (
+        <ClaimForm species={s.species} shiny={shiny} onShinyChange={setShiny} onClaim={claim} defaultLevel={defaultLevel} />
+      )}
     </div>
   );
 }

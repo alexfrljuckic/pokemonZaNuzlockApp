@@ -41,11 +41,11 @@
         "type": "string",
         "pattern": "^[a-z0-9-]+$"
       },
-      "description": "PokeAPI version-group slugs whose move-learn data applies to this game (include DLC groups). Omit/empty when PokeAPI has no move data for the game (e.g. Legends Z-A) \u2014 the app then falls back to the all-games union movepool."
+      "description": "PokeAPI version-group slugs whose move-learn data applies to this game (include DLC groups). Omit/empty when PokeAPI has no move data for the game (e.g. Legends Z-A) — the app then falls back to the all-games union movepool."
     },
     "rostersRequired": {
       "type": "boolean",
-      "description": "When true, the validator fails if any milestone lacks a roster (or rosterByStarter). Set once a game's rosters are complete so a future edit or dataset can't silently ship 0/N rosters (as Legends Z-A partially does \u2014 it omits this flag)."
+      "description": "When true, the validator fails if any milestone lacks a roster (or rosterByStarter). Set once a game's rosters are complete so a future edit or dataset can't silently ship 0/N rosters (as Legends Z-A partially does — it omits this flag)."
     },
     "areas": {
       "type": "array",
@@ -109,7 +109,7 @@
                   "type": "integer",
                   "minimum": 1,
                   "maximum": 6,
-                  "description": "Progression tier at which this slot first becomes available (BDSP Grand Underground hideaways only): 1 base, 2 +Strength(TM96), 3 +Defog(TM97), 4 +Icicle Badge, 5 +Waterfall(TM99), 6 +National Dex. Display-only label \u2014 the engine never gates on it. Omit for tier-1/base slots."
+                  "description": "Progression tier at which this slot first becomes available (BDSP Grand Underground hideaways only): 1 base, 2 +Strength(TM96), 3 +Defog(TM97), 4 +Icicle Badge, 5 +Waterfall(TM99), 6 +National Dex. Display-only label — the engine never gates on it. Omit for tier-1/base slots."
                 },
                 "conditions": {
                   "type": "object",
@@ -125,7 +125,7 @@
           },
           "trainers": {
             "type": "array",
-            "description": "Optional documented trainer battles in this area (Serebii/Bulbapedia-sourced, never invented). Display-only route intel \u2014 the engine doesn't gate anything on them.",
+            "description": "Optional documented trainer battles in this area (Serebii/Bulbapedia-sourced, never invented). Display-only route intel — the engine doesn't gate anything on them.",
             "items": {
               "type": "object",
               "required": [
@@ -373,12 +373,12 @@
           "trainerSprite": {
             "type": "string",
             "pattern": "^[a-z0-9-]+$",
-            "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong \u2014 e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
+            "description": "Showdown trainer-sprite key for this battle, when the default guess (the milestone id's last segment) is wrong — e.g. rival-hop-1 needs \"hop\". Datasets own presentation data per the game-content-is-JSON principle; the app falls back to the guess, and the sprite hides itself on a miss."
           },
           "species": {
             "type": "string",
             "pattern": "^[a-z0-9-]+$",
-            "description": "When the boss IS a Pok\u00e9mon rather than a trainer (Z-A rogue-mega bosses, legendary encounters), the species slug to render as a Pok\u00e9mon sprite instead of a trainer sprite \u2014 e.g. \"absol-mega\"."
+            "description": "When the boss IS a Pokémon rather than a trainer (Z-A rogue-mega bosses, legendary encounters), the species slug to render as a Pokémon sprite instead of a trainer sprite — e.g. \"absol-mega\"."
           },
           "grants": {
             "type": "object",
@@ -392,7 +392,7 @@
           },
           "roster": {
             "type": "array",
-            "description": "Optional full team, informational only \u2014 the level-cap rule reads aceLevel, never this. Default shown when no starter is chosen.",
+            "description": "Optional full team, informational only — the level-cap rule reads aceLevel, never this. Default shown when no starter is chosen.",
             "items": {
               "type": "object",
               "required": [
@@ -471,7 +471,7 @@
           },
           "rosterByDifficulty": {
             "type": "object",
-            "description": "Optional per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed by a difficulty slug (e.g. normal/hardcore). The app picks the variant matching the run's difficulty tier (mapped from the run's presetId: rr-normal\u2192normal, rr-hardcore\u2192hardcore), else falls back to `rosterByStarter`/`roster`. Mainline games omit this and are unaffected. Non-normal tiers may exceed aceLevel (RR Hardcore raises early-gym caps): the validator pins the `normal` variant to aceLevel and allows other tiers aceLevel..aceLevel+3.",
+            "description": "Optional per-difficulty-tier roster variants (Radical Red Normal/Hardcore), keyed by a difficulty slug (e.g. normal/hardcore). The app picks the variant matching the run's difficulty tier (mapped from the run's presetId: rr-normal→normal, rr-hardcore→hardcore), else falls back to `rosterByStarter`/`roster`. Mainline games omit this and are unaffected. Non-normal tiers may exceed aceLevel (RR Hardcore raises early-gym caps): the validator pins the `normal` variant to aceLevel and allows other tiers aceLevel..aceLevel+3.",
             "additionalProperties": {
               "type": "array",
               "items": {
@@ -512,7 +512,7 @@
           },
           "rosterByDifficultyAndStarter": {
             "type": "object",
-            "description": "Optional two-axis roster variants keyed difficulty -> starter (Radical Red rival battles, whose team depends on BOTH the run's difficulty tier AND the player's chosen starter \u2014 the rival takes the type-advantaged starter). The app uses the matching difficulty+starter variant when both are known, else falls back to rosterByDifficulty/rosterByStarter/roster. Same cap-drift guard as rosterByDifficulty applies per tier: the `normal` starter variants must hit aceLevel exactly; harder tiers stay in aceLevel..aceLevel+3.",
+            "description": "Optional two-axis roster variants keyed difficulty -> starter (Radical Red rival battles, whose team depends on BOTH the run's difficulty tier AND the player's chosen starter — the rival takes the type-advantaged starter). The app uses the matching difficulty+starter variant when both are known, else falls back to rosterByDifficulty/rosterByStarter/roster. Same cap-drift guard as rosterByDifficulty applies per tier: the `normal` starter variants must hit aceLevel exactly; harder tiers stay in aceLevel..aceLevel+3.",
             "additionalProperties": {
               "type": "object",
               "additionalProperties": {
@@ -606,11 +606,42 @@
           },
           "rewardPokemon": {
             "type": "array",
+            "description": "one entry per Pokémon obtained (repeats allowed)",
             "items": {
-              "type": "string",
-              "pattern": "^[a-z0-9-]+$"
-            },
-            "description": "one entry per Pok\u00e9mon received (repeats allowed)"
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "species",
+                "how"
+              ],
+              "properties": {
+                "species": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9-]+$"
+                },
+                "how": {
+                  "enum": [
+                    "catch",
+                    "gift"
+                  ]
+                },
+                "area": {
+                  "type": "string",
+                  "description": "area id where you actually catch/receive it; defaults to the quest's area"
+                },
+                "shiny": {
+                  "type": "boolean"
+                },
+                "level": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100
+                },
+                "note": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "group": {
             "type": "string",
