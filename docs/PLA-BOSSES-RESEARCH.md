@@ -117,16 +117,28 @@ Each quest sits in the area where you pick it up. 95 of them start in
 Jubilife Village (Galaxy Hall and the village); camps map to the area
 Bulbapedia places them in.
 
-Requests that give Pokémon: #20 Chimchar, #22 Spiritomb, #66 Manaphy (plus
-Phione ×3, as Bulbapedia lists it), #91 Giratina, #92 Shaymin (needs
-Sword/Shield save data), #93 Darkrai (needs BDSP save data). All six start in
-Jubilife Village.
+Requests that give Pokémon (audited 2026-11-17 against Bulbapedia's event
+Pokémon list, Serebii, Game8 and Gamewith). Each reward has its own area: the
+place you actually catch or receive it, not where you pick up the quest.
+- #19 Shiny Ponyta, catch, Horseshoe Plains (guaranteed shiny)
+- #20 Chimchar, catch, Windswept Run (tree, at night)
+- #22 Spiritomb, catch, Shrouded Ruins, Lv 60 (after all 107 wisps)
+- #66 Manaphy Lv 50 + Phione ×3, catch, Seaside Hollow (filed under Veilstone
+  Cape; the dataset has no Seaside Hollow area)
+- #83 Alolan Vulpix, gift from Keaka at Snowfields Camp (Whiteout Valley)
+- #91 Giratina (Origin), catch, Turnback Cave via Spring Path
+- #92 Shaymin, catch, Floaro Gardens, Lv 70 (Sword/Shield save data)
+- #93 Darkrai, catch, Clamberclaw Cliffs at night (BDSP save data)
+- #94 Tornadus (Bonechill Wastes, snowstorm), Thundurus (sea by Sand's Reach,
+  thunderstorm), Landorus (Ramanas Island), Enamorus (Scarlet Bog), all Lv 70
+
+The first version listed Phione as a gift and missed #19, #83 and #94.
 
 **Rule `quest-reward-pokemon`** (enforced, PLA, default "area encounter"):
-- area encounter: claiming a reward uses up the encounter of the quest's
-  area (`special_claimed` with `areaId`). Resetting the claim gives it back.
+- area encounter: claiming a reward uses up the encounter of the reward's
+  area, i.e. where you catch it (`special_claimed` with `areaId`). Resetting
+  the claim gives it back. A guaranteed shiny (#19) is exempt while the Shiny
+  Clause is on.
 - free: always claimable, no encounter used.
 - banned: listed but can't be claimed.
 
-Note: because every reward is in Jubilife, "area encounter" means at most one
-reward Pokémon per run, and only if Jubilife's own encounter is unused.

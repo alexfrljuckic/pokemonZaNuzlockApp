@@ -41,7 +41,7 @@ export const RULES: Record<string, RuleDef> = {
     id: 'quest-reward-pokemon',
     name: 'Quest Reward Pokémon',
     description:
-      "How Pokémon received as side-quest rewards count. Area encounter: claiming one uses up the encounter of the area where you get the quest, so it's only allowed if that area is still open. Free: always keepable, no encounter used. Banned: rewards are tracked but can't join your team.",
+      "How Pokémon you get from side quests count. Area encounter: claiming one uses up the encounter of the area where you catch or receive it, so it's only allowed if that area is still open (a guaranteed shiny is exempt under the Shiny Clause). Free: always keepable, no encounter used. Banned: rewards are tracked but can't join your team.",
     category: 'encounter',
     appliesTo: ['pla'],
     enforcement: 'enforced',
@@ -666,19 +666,22 @@ export function pendingWipeDecision(state: RunState): boolean {
 
 export type QuestRewardMode = 'area-encounter' | 'free' | 'banned';
 
-/** Whether a quest's reward Pokémon may be claimed right now, under the
- * 'quest-reward-pokemon' rule. `areaId` is set when the claim must use up
- * the quest's area encounter (pass it into special_claimed). Rule absent
- * or switched off = free. */
+/** Whether a quest reward Pokémon may be claimed right now, under the
+ * 'quest-reward-pokemon' rule. `areaId` is set when the claim must use up an
+ * area's encounter (pass it into special_claimed): the reward's own area when
+ * it has one (where you catch it), else the quest's area. A guaranteed shiny
+ * under an enabled Shiny Clause is always free. Rule absent or off = free. */
 export function questRewardStatus(
   state: RunState,
   quest: { area: string },
+  reward?: { area?: string; shiny?: boolean },
 ): { mode: QuestRewardMode; allowed: boolean; reason?: string; areaId?: string } {
   const rule = state.ruleset.rules['quest-reward-pokemon'];
   const mode: QuestRewardMode = rule?.enabled ? ((rule.params.mode as QuestRewardMode) ?? 'area-encounter') : 'free';
   if (mode === 'banned') return { mode, allowed: false, reason: 'Quest reward Pokémon are banned by your rules' };
   if (mode === 'free') return { mode, allowed: true };
-  if (state.encounterOutcomes[quest.area])
-    return { mode, allowed: false, reason: "This area's encounter is already used" };
-  return { mode, allowed: true, areaId: quest.area };
+  if (reward?.shiny && state.ruleset.rules['shiny-clause']?.enabled) return { mode, allowed: true };
+  const areaId = reward?.area ?? quest.area;
+  if (state.encounterOutcomes[areaId]) return { mode, allowed: false, reason: "This area's encounter is already used" };
+  return { mode, allowed: true, areaId };
 }

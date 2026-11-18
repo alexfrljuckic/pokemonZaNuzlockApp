@@ -193,7 +193,10 @@ for (const file of readdirSync(join(root, 'games')).filter((f) => f.endsWith('.j
     if (questIds.has(q.id)) problems.push(`quest ${q.id}: duplicate id`);
     questIds.add(q.id);
     if (!data.areas.some((a) => a.id === q.area)) problems.push(`quest ${q.id}: unknown area "${q.area}"`);
-    for (const sp of q.rewardPokemon ?? []) referencedSpecies.add(sp);
+    for (const r of q.rewardPokemon ?? []) {
+      referencedSpecies.add(r.species);
+      if (r.area && !data.areas.some((a) => a.id === r.area)) problems.push(`quest ${q.id}: reward ${r.species} unknown area "${r.area}"`);
+    }
   }
   for (const m of data.milestones) {
     for (const p of m.roster ?? []) referencedSpecies.add(p.species);

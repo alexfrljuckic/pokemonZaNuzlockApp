@@ -1,5 +1,12 @@
 import { useEffect, useState } from 'react';
-import { questRewardStatus, type EngineContext, type Quest, type RunState, type SpecialEncounter } from '@nuzlocke/engine';
+import {
+  questRewardStatus,
+  type EngineContext,
+  type Quest,
+  type QuestRewardPokemon,
+  type RunState,
+  type SpecialEncounter,
+} from '@nuzlocke/engine';
 import { appendEvent } from '../../lib/db';
 import { SpecialCard, claimedSpecial } from '../../components/SpecialsSection';
 
@@ -18,8 +25,16 @@ const MODE_TEXT = {
 } as const;
 
 /** One claimable card per reward Pokémon. Ids are stable per quest + slot. */
-export const rewardSpecials = (q: Quest): SpecialEncounter[] =>
-  (q.rewardPokemon ?? []).map((species, i) => ({ id: `${q.id}-${i}-${species}`, type: 'gift', species, area: q.area }));
+export const rewardSpecials = (q: Quest): { s: SpecialEncounter; reward: QuestRewardPokemon }[] =>
+  (q.rewardPokemon ?? []).map((reward, i) => ({
+    s: {
+      id: `${q.id}-${i}-${reward.species}`,
+      type: reward.how === 'gift' ? 'gift' : 'static',
+      species: reward.species,
+      area: reward.area ?? q.area,
+    },
+    reward,
+  }));
 
 const domIdFor = (questId: string) => `quest-${questId}`;
 
@@ -51,6 +66,7 @@ export function QuestsTab({
   const done = (id: string) => state.questsCompleted.includes(id);
   const doneCount = quests.filter((q) => done(q.id)).length;
   const mode = questRewardStatus(state, { area: '' }).mode;
+  const areaName = (id: string) => ctx.dataset.areas.find((a) => a.id === id)?.name ?? id;
 
   useEffect(() => {
     if (!focusQuestId) return;
@@ -128,7 +144,6 @@ export function QuestsTab({
           <div className="quest-list">
             {list.map((q) => {
               const isDone = done(q.id);
-              const status = questRewardStatus(state, q);
               return (
                 <article
                   key={q.id}
@@ -173,8 +188,10 @@ export function QuestsTab({
                   {q.rewardPokemon?.length ? (
                     editable ? (
                       <div className="specials-grid quest-reward-mons">
-                        {rewardSpecials(q).map((s) => {
+                        {rewardSpecials(q).map(({ s, reward }) => {
                           const claimed = claimedSpecial(s.id, state);
+                          const status = questRewardStatus(state, q, reward);
+                          const where = `${reward.how === 'gift' ? 'Gift' : 'Catch'} · ${areaName(s.area)}${reward.level ? ` · Lv ${reward.level}` : ''}`;
                           return (
                             <SpecialCard
                               key={s.id}
@@ -183,9 +200,12 @@ export function QuestsTab({
                               state={state}
                               gameId={ctx.dataset.gameId}
                               onChange={onChange!}
-                              badge={`Reward · #${q.number}`}
+                              badge={`${reward.shiny ? '✦ Shiny · ' : ''}#${q.number}`}
                               claimAreaId={status.areaId}
                               blockedReason={!claimed && !status.allowed ? status.reason : undefined}
+                              defaultShiny={reward.shiny}
+                              defaultLevel={reward.level}
+                              note={reward.note ? `${where} — ${reward.note}` : where}
                             />
                           );
                         })}
@@ -194,7 +214,7 @@ export function QuestsTab({
                       <p className="muted">
                         Reward Pokémon:{' '}
                         {rewardSpecials(q)
-                          .map((s) => `${s.species}${claimedSpecial(s.id, state) ? ' (claimed)' : ''}`)
+                          .map(({ s, reward }) => `${reward.shiny ? 'shiny ' : ''}${s.species}${claimedSpecial(s.id, state) ? ' (claimed)' : ''}`)
                           .join(', ')}
                       </p>
                     )
