@@ -640,7 +640,12 @@
           "species": "wurmple",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "starly",
@@ -1082,7 +1087,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "buizel",
@@ -1443,7 +1453,12 @@
           "species": "chansey",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "happiny",
@@ -1526,7 +1541,12 @@
           "species": "shinx",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "luxio",
@@ -2041,7 +2061,12 @@
           "species": "dustox",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "cherubi",
@@ -2310,7 +2335,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "combee",
@@ -2792,7 +2822,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "budew",
@@ -6570,7 +6605,12 @@
           "species": "scyther",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "gligar",
@@ -6911,7 +6951,12 @@
           "species": "shinx",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "luxio",
@@ -7095,7 +7140,12 @@
           "species": "roselia",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "budew",
@@ -8429,7 +8479,12 @@
           "species": "chansey",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "happiny",
