@@ -643,18 +643,6 @@
           ]
         },
         {
-          "species": "silcoon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "cascoon",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "starly",
           "methods": [
             "walk"
@@ -4368,12 +4356,6 @@
           }
         },
         {
-          "species": "stantler",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "burmy",
           "methods": [
             "shaking-tree"
@@ -7493,12 +7475,6 @@
           ]
         },
         {
-          "species": "misdreavus",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
           "species": "gligar",
           "methods": [
             "walk"
@@ -7506,12 +7482,6 @@
         },
         {
           "species": "sneasel-hisui",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "stantler",
           "methods": [
             "walk"
           ]
@@ -8442,12 +8412,6 @@
         },
         {
           "species": "ambipom",
-          "methods": [
-            "walk"
-          ]
-        },
-        {
-          "species": "misdreavus",
           "methods": [
             "walk"
           ]
