@@ -640,7 +640,12 @@
           "species": "wurmple",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "starly",
@@ -826,7 +831,12 @@
           "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "burmy",
@@ -1077,7 +1087,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "buizel",
@@ -1089,7 +1104,12 @@
           "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "starly",
@@ -1433,7 +1453,12 @@
           "species": "chansey",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "happiny",
@@ -1516,7 +1541,12 @@
           "species": "shinx",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "luxio",
@@ -1664,7 +1694,12 @@
           "species": "drifblim",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "staravia",
@@ -1776,7 +1811,12 @@
           "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "drifblim",
@@ -1857,7 +1897,12 @@
           "species": "drifblim",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "staraptor",
@@ -2016,7 +2061,12 @@
           "species": "dustox",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "cherubi",
@@ -2285,7 +2335,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "combee",
@@ -2767,7 +2822,12 @@
           "species": "kricketune",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "budew",
@@ -6545,7 +6605,12 @@
           "species": "scyther",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "gligar",
@@ -6886,7 +6951,12 @@
           "species": "shinx",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "luxio",
@@ -7070,7 +7140,12 @@
           "species": "roselia",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "budew",
@@ -7812,13 +7887,23 @@
           "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "drifblim",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "gardevoir",
@@ -8003,13 +8088,23 @@
           "species": "drifloon",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "drifblim",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "night"
+            ]
+          }
         },
         {
           "species": "snover",
@@ -8384,7 +8479,12 @@
           "species": "chansey",
           "methods": [
             "walk"
-          ]
+          ],
+          "conditions": {
+            "time": [
+              "day"
+            ]
+          }
         },
         {
           "species": "happiny",
