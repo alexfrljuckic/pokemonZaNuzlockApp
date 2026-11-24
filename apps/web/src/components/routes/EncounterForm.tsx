@@ -240,6 +240,9 @@ export function EncounterForm({
   onSkip?: () => void;
 }) {
   const groups = groupEntries(pool, scope);
+  // Show the time-of-day key only when some spawn here is time-gated, so the
+  // legend doesn't clutter areas (or games) with no day/night differences.
+  const showTimeLegend = groups.some((g) => g.entries.some((e) => timeChip(e.byPeriod, e.hasTime) !== null));
   // First selectable species across groups, in group order.
   const firstAvailable =
     groups.flatMap((g) => g.entries).find((e) => !e.unavailable)?.species ?? '';
@@ -252,6 +255,15 @@ export function EncounterForm({
   return (
     <div className="encounter-form">
       <p className="encounter-hint">Tap what you encountered:</p>
+      {showTimeLegend && (
+        <div className="encounter-legend" aria-label="Time-of-day key">
+          {PERIODS.map((p) => (
+            <span key={p} className="encounter-legend-item">
+              <span aria-hidden="true">{PERIOD_ICON[p]}</span> {PERIOD_LABEL[p]}
+            </span>
+          ))}
+        </div>
+      )}
       {groups.map((group) => (
         <div className="encounter-group" key={group.key}>
           <span className="encounter-group-label muted">{group.label}</span>
