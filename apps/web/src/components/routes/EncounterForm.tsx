@@ -227,6 +227,7 @@ export function EncounterForm({
   gameId,
   onResolve,
   onSkip,
+  preview = false,
 }: {
   /** Classified base pool: available species plus dupes-dimmed ones. */
   pool: ClassifiedEncounter[];
@@ -238,6 +239,10 @@ export function EncounterForm({
   onResolve: (species: string, outcome: Outcome, nickname?: string, level?: number, shiny?: boolean) => void;
   /** Shown as a "Skip route" affordance when every species is dimmed. */
   onSkip?: () => void;
+  /** Read-only roster view: shows every possible species in the area (with
+   * levels/time/weather) but no selection or catch controls. Used to preview
+   * the candidates alongside the open-world encounter roll. */
+  preview?: boolean;
 }) {
   const groups = groupEntries(pool, scope);
   // Show the time-of-day key only when some spawn here is time-gated, so the
@@ -253,8 +258,8 @@ export function EncounterForm({
   const [shiny, setShiny] = useState(false);
 
   return (
-    <div className="encounter-form">
-      <p className="encounter-hint">Tap what you encountered:</p>
+    <div className={`encounter-form${preview ? ' encounter-form-preview' : ''}`}>
+      <p className="encounter-hint">{preview ? 'Possible encounters here:' : 'Tap what you encountered:'}</p>
       {showTimeLegend && (
         <div className="encounter-legend" aria-label="Time-of-day key">
           {PERIODS.map((p) => (
@@ -277,22 +282,11 @@ export function EncounterForm({
               const floorLabel = floorChip(entry.floors);
               const lvl = levelLabel(entry.levelMin, entry.levelMax);
               const wx = weatherChip(entry.weather);
-              return (
-                <button
-                  // key is group-scoped so a species in two groups gets two cards
-                  key={`${group.key}:${entry.species}`}
-                  type="button"
-                  disabled={disabled}
-                  aria-disabled={disabled}
-                  aria-label={
-                    disabled
-                      ? `${entry.species} — ${entry.unavailable}`
-                      : `${entry.species} (${group.label})${floorLabel ? ` — only on ${floorLabel}` : ''}${time ? ` — ${time.title}` : ''}`
-                  }
-                  className={`encounter-slot${selected ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}`}
-                  onClick={disabled ? undefined : () => setSpecies(entry.species)}
-                  title={disabled ? `${entry.species} — ${entry.unavailable}` : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''}${time ? ` · ${time.title}` : ''})`}
-                >
+              const title = disabled
+                ? `${entry.species} — ${entry.unavailable}`
+                : `${entry.species} (${group.label}${rateLabel ? ` · ${rateLabel}` : ''}${time ? ` · ${time.title}` : ''})`;
+              const inner = (
+                <>
                   <SpriteImg species={entry.species} size={72} shiny={shiny} />
                   <span className="encounter-slot-name">{entry.species}</span>
                   <TypeBadges types={typesFor(entry.species, gameId)} />
@@ -330,13 +324,43 @@ export function EncounterForm({
                       )}
                     </span>
                   )}
+                </>
+              );
+              // key is group-scoped so a species in two groups gets two cards
+              const key = `${group.key}:${entry.species}`;
+              const cls = `encounter-slot${selected && !preview ? ' selected' : ''}${disabled ? ' encounter-slot-unavailable' : ''}${preview ? ' encounter-slot-preview' : ''}`;
+              // Preview mode is read-only: render a plain, non-interactive card
+              // so the player can see what lives here before they roll.
+              if (preview) {
+                return (
+                  <div key={key} className={cls} title={title} aria-label={`${entry.species}${time ? ` — ${time.title}` : ''}${lvl ? ` — ${lvl}` : ''}`}>
+                    {inner}
+                  </div>
+                );
+              }
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  disabled={disabled}
+                  aria-disabled={disabled}
+                  aria-label={
+                    disabled
+                      ? `${entry.species} — ${entry.unavailable}`
+                      : `${entry.species} (${group.label})${floorLabel ? ` — only on ${floorLabel}` : ''}${time ? ` — ${time.title}` : ''}`
+                  }
+                  className={cls}
+                  onClick={disabled ? undefined : () => setSpecies(entry.species)}
+                  title={title}
+                >
+                  {inner}
                 </button>
               );
             })}
           </div>
         </div>
       ))}
-      {allDimmed ? (
+      {!preview && (allDimmed ? (
         <div className="encounter-all-dimmed">
           <p className="muted">
             Every species that lives here is already part of your run — the dupes clause leaves nothing
@@ -372,7 +396,7 @@ export function EncounterForm({
             </button>
           </div>
         </>
-      )}
+      ))}
     </div>
   );
 }

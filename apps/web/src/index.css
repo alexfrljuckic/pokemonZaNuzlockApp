@@ -1328,6 +1328,10 @@ button.item-chip.item-picked .item-access {
   transition: border-color 0.12s ease, transform 0.12s ease, background 0.12s ease;
 }
 .encounter-slot:hover { transform: translateY(-2px); border-color: var(--accent); }
+/* Preview (read-only) cards: shown to let the player see what lives here before
+   rolling — no pointer affordance, no hover lift. */
+.encounter-slot-preview { cursor: default; }
+.encounter-slot-preview:hover { transform: none; border-color: var(--border); }
 .encounter-slot.selected {
   border-color: var(--highlight);
   background: color-mix(in srgb, var(--highlight) 18%, var(--bg-chip));
