@@ -40,12 +40,12 @@ function groupForMethod(method: string): GroupKey {
 /** One species within one group: keeps the per-sub-method rates so nothing is
  * merged away (e.g. Fishing → good-rod 55% · super-rod 40%). `unavailable` is
  * set (dupes reason) only when the species is excluded — dimmed but shown. */
-type Period = 'morning' | 'day' | 'night';
-const PERIODS: Period[] = ['morning', 'day', 'night'];
-const PERIOD_LABEL: Record<Period, string> = { morning: 'Morning', day: 'Day', night: 'Night' };
+type Period = 'morning' | 'day' | 'evening' | 'night';
+const PERIODS: Period[] = ['morning', 'day', 'evening', 'night'];
+const PERIOD_LABEL: Record<Period, string> = { morning: 'Morning', day: 'Day', evening: 'Evening', night: 'Night' };
 // compact glyphs keep the chip to one line in the ~84px slot; full words go in
 // the tooltip/aria label.
-const PERIOD_ICON: Record<Period, string> = { morning: '🌅', day: '☀️', night: '🌙' };
+const PERIOD_ICON: Record<Period, string> = { morning: '🌅', day: '☀️', evening: '🌆', night: '🌙' };
 
 type GroupEntry = {
   species: string;
@@ -63,6 +63,13 @@ type GroupEntry = {
    * Only set when the dataset tags the slot — species on every floor aren't
    * tagged, so a non-empty list always means "only on these floors". */
   floors: string[];
+  /** wild level range across this species' slots in the group (min of mins,
+   * max of maxs); undefined when no slot carries level data. */
+  levelMin?: number;
+  levelMax?: number;
+  /** weather conditions a WEATHER-RESTRICTED species needs (e.g. ["cloudy"]).
+   * Empty = appears in any weather. */
+  weather: string[];
 };
 
 /** Concise floor-restriction label for a species card, or null when unrestricted.
@@ -74,6 +81,26 @@ export function floorChip(floors: string[]): string | null {
     .map((f) => f.trim().toUpperCase())
     .filter((f) => (seen.has(f) ? false : (seen.add(f), true)));
   return norm.join('/');
+}
+
+/** "Lv 24-27", or "Lv 27" when min==max, or null when no level data. */
+export function levelLabel(min?: number, max?: number): string | null {
+  if (min == null && max == null) return null;
+  const lo = min ?? max!;
+  const hi = max ?? min!;
+  return lo === hi ? `Lv ${lo}` : `Lv ${lo}-${hi}`;
+}
+
+const WEATHER_LABEL: Record<string, string> = {
+  sunny: 'Sunny', cloudy: 'Cloudy', rain: 'Rain', rainstorm: 'Rainstorm',
+  snow: 'Snow', snowstorm: 'Snowstorm', fog: 'Fog', drought: 'Drought',
+};
+/** Weather-restriction label for a species card, or null when any-weather.
+ * e.g. ["cloudy","snow"] → { text: "Cloudy/Snow", title: "Only in Cloudy/Snow" }. */
+export function weatherChip(weather: string[]): { text: string; title: string } | null {
+  if (!weather.length) return null;
+  const words = weather.map((w) => WEATHER_LABEL[w] ?? w).join('/');
+  return { text: words, title: `Only in ${words}` };
 }
 
 type Group = { key: GroupKey; label: string; entries: GroupEntry[] };
@@ -91,8 +118,8 @@ export function timeChip(
   if (present.length === 0) return null;
   const rates = new Set(present.map((p) => byPeriod[p]));
   // appears every period at one rate → not actually time-relevant
-  if (present.length === 3 && rates.size === 1) return null;
-  const restricted = present.length < 3;
+  if (present.length === PERIODS.length && rates.size === 1) return null;
+  const restricted = present.length < PERIODS.length;
   // group periods that share a rate, e.g. Morning+Night both 30%
   const byRate = new Map<number | undefined, Period[]>();
   for (const p of present) {
@@ -153,7 +180,7 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       }
       const cur =
         bucket.get(slot.species) ??
-        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier, byPeriod: {}, hasTime: false, floors: [] } as GroupEntry & {
+        ({ species: slot.species, subMethods: [], available: false, unavailable: undefined, tier: slot.tier, byPeriod: {}, hasTime: false, floors: [], weather: [], levelMin: undefined, levelMax: undefined } as GroupEntry & {
           available: boolean;
         });
       if (!cur.subMethods.some((s) => s.method === method)) {
@@ -166,6 +193,11 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       for (const p of times) if (cur.byPeriod[p] == null) cur.byPeriod[p] = slot.rate;
       // floor restriction (multi-floor caves): only tagged for restricted species.
       for (const f of (slot.conditions?.floor as string[] | undefined) ?? []) if (!cur.floors.includes(f)) cur.floors.push(f);
+      // level range: widen to cover every slot feeding this group card.
+      if (slot.levelMin != null) cur.levelMin = cur.levelMin == null ? slot.levelMin : Math.min(cur.levelMin, slot.levelMin);
+      if (slot.levelMax != null) cur.levelMax = cur.levelMax == null ? slot.levelMax : Math.max(cur.levelMax, slot.levelMax);
+      // weather restriction: a slot with conditions.weather needs those; union across slots.
+      for (const w of (slot.conditions?.weather as string[] | undefined) ?? []) if (!cur.weather.includes(w)) cur.weather.push(w);
       if (available) cur.available = true;
       else if (cur.unavailable === undefined) cur.unavailable = reasonText(reason, scope);
       bucket.set(slot.species, cur);
@@ -174,7 +206,7 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
   return GROUP_ORDER.filter((key) => acc.has(key)).map((key) => ({
     key,
     label: GROUP_LABEL[key],
-    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier, byPeriod, hasTime, floors }) => ({
+    entries: [...acc.get(key)!.values()].map(({ species, subMethods, available, unavailable, tier, byPeriod, hasTime, floors, weather, levelMin, levelMax }) => ({
       species,
       subMethods,
       unavailable: available ? undefined : unavailable,
@@ -182,6 +214,9 @@ function groupEntries(pool: ClassifiedEncounter[], scope: string | undefined): G
       byPeriod,
       hasTime,
       floors,
+      weather,
+      levelMin,
+      levelMax,
     })),
   }));
 }
@@ -228,6 +263,8 @@ export function EncounterForm({
               const selected = entry.species === species;
               const tierLabel = tierBadge(entry.tier);
               const floorLabel = floorChip(entry.floors);
+              const lvl = levelLabel(entry.levelMin, entry.levelMax);
+              const wx = weatherChip(entry.weather);
               return (
                 <button
                   // key is group-scoped so a species in two groups gets two cards
@@ -270,6 +307,16 @@ export function EncounterForm({
                     </span>
                   ) : (
                     rateLabel && <span className="encounter-slot-method muted">{rateLabel}</span>
+                  )}
+                  {!disabled && (lvl || wx) && (
+                    <span className="encounter-slot-meta">
+                      {lvl && <span className="encounter-slot-level muted">{lvl}</span>}
+                      {wx && (
+                        <span className="encounter-slot-weather" title={wx.title}>
+                          {wx.text}
+                        </span>
+                      )}
+                    </span>
                   )}
                 </button>
               );

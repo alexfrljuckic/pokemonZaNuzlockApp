@@ -105,6 +105,18 @@
                   "type": "number",
                   "minimum": 0
                 },
+                "levelMin": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100,
+                  "description": "Lowest wild level for this slot (inclusive). Display-only. For alpha-method slots this is the alpha's level."
+                },
+                "levelMax": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 100,
+                  "description": "Highest wild level for this slot (inclusive). Display-only."
+                },
                 "tier": {
                   "type": "integer",
                   "minimum": 1,

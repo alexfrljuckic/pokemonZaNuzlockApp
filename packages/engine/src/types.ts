@@ -115,6 +115,10 @@ export interface EncounterSlot {
   species: string;            // PokeAPI species slug, e.g. "mr-mime"
   methods: string[];          // "walk" | "surf" | "fish" | game-specific
   rate?: number;              // percent or weight, per dataset convention
+  /** Wild level range for this slot (inclusive). For alpha-method slots this is
+   * the alpha's level. DISPLAY-ONLY — the engine never gates on it. */
+  levelMin?: number;
+  levelMax?: number;
   /** Progression tier at which this slot first becomes available, for areas
    * (BDSP Grand Underground hideaways) whose pool grows in fixed steps.
    * 1 = base, 2 = +Strength(TM96), 3 = +Defog(TM97), 4 = +Icicle Badge,

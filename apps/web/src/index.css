@@ -1369,6 +1369,31 @@ button.item-chip.item-picked .item-access {
   color: color-mix(in srgb, var(--accent) 66%, var(--text));
   white-space: nowrap;
 }
+/* Level range + weather line under a slot. Level is quiet plain text; the
+   weather pill flags a WEATHER-EXCLUSIVE spawn (needs e.g. Cloudy/Snow) so it
+   reads like the time-"only" pill. Theme vars only. */
+.encounter-slot-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem 0.3rem;
+  margin-top: 0.1rem;
+}
+.encounter-slot-level {
+  font-size: 0.64rem;
+  font-variant-numeric: tabular-nums;
+  color: color-mix(in srgb, var(--muted) 70%, var(--text));
+}
+.encounter-slot-weather {
+  font-size: 0.62rem;
+  font-weight: 600;
+  padding: 0.05rem 0.34rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--info, #3a7fc0) 18%, transparent);
+  color: color-mix(in srgb, var(--info, #3a7fc0) 70%, var(--text));
+  white-space: nowrap;
+}
 /* Dupes-clause species: still shown so the player sees what lives here, but
    dimmed and non-catchable (the clause stands). Reason surfaces in the tag +
    title/aria-label. Uses theme vars only — no hardcoded colors. */

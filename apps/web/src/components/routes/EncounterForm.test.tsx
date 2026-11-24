@@ -3,7 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import type { ClassifiedEncounter } from '@nuzlocke/engine';
-import { EncounterForm, timeChip, floorChip } from './EncounterForm';
+import { EncounterForm, timeChip, floorChip, levelLabel, weatherChip } from './EncounterForm';
 
 describe('floorChip (floor restriction)', () => {
   it('normalises + joins floor labels, null when unrestricted', () => {
@@ -27,14 +27,36 @@ describe('timeChip (time-of-day summary)', () => {
   });
 
   it('shows per-period rates (not restricted) when a species spawns all day but rates vary', () => {
-    const t = timeChip({ morning: 30, day: 40, night: 30 }, true);
+    const t = timeChip({ morning: 30, day: 40, evening: 40, night: 30 }, true);
     expect(t?.restricted).toBe(false);
-    expect(t?.title).toBe('Morning/Night 30% · Day 40%');
+    expect(t?.title).toBe('Morning/Night 30% · Day/Evening 40%');
   });
 
   it('returns null when there is no time relevance', () => {
     expect(timeChip({}, false)).toBeNull(); // no time condition at all
-    expect(timeChip({ morning: 40, day: 40, night: 40 }, true)).toBeNull(); // all day, one rate
+    expect(timeChip({ morning: 40, day: 40, evening: 40, night: 40 }, true)).toBeNull(); // all four periods, one rate
+  });
+
+  it('treats daytime-only (not night) as restricted now that evening is a period', () => {
+    const t = timeChip({ morning: 20, day: 20, evening: 20 }, true);
+    expect(t?.restricted).toBe(true);
+    expect(t?.title).toBe('Only Morning/Day/Evening 20%');
+  });
+});
+
+describe('levelLabel', () => {
+  it('formats a range, collapses equal bounds, null when absent', () => {
+    expect(levelLabel(24, 27)).toBe('Lv 24-27');
+    expect(levelLabel(70, 70)).toBe('Lv 70');
+    expect(levelLabel(undefined, undefined)).toBeNull();
+  });
+});
+
+describe('weatherChip', () => {
+  it('labels weather-restricted spawns, null when any-weather', () => {
+    expect(weatherChip([])).toBeNull();
+    expect(weatherChip(['cloudy', 'snow'])?.text).toBe('Cloudy/Snow');
+    expect(weatherChip(['cloudy'])?.title).toBe('Only in Cloudy');
   });
 });
 
