@@ -1281,6 +1281,20 @@ button.item-chip.item-picked .item-access {
 .encounter-actions button { margin-top: 0; flex: 1; }
 
 .encounter-hint { margin: 0 0 0.5rem; font-size: 0.85rem; color: var(--muted); }
+/* Time-of-day key for the glyphs on each slot's time chip. Shown only when the
+   area has time-gated spawns (EncounterForm gates it). */
+.encounter-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 0.7rem;
+  margin: 0 0 0.6rem;
+  padding: 0.35rem 0.5rem;
+  background: var(--bg-chip);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: color-mix(in srgb, var(--muted) 80%, var(--text));
+}
+.encounter-legend-item { display: inline-flex; align-items: center; gap: 0.25rem; white-space: nowrap; }
 /* Encounters are bucketed by method (Walking / Surfing / Fishing / Other) so a
    species shows its real per-method rate instead of a merged max. Each section
    gets a small header; empty sections are omitted upstream. */
@@ -1297,7 +1311,7 @@ button.item-chip.item-picked .item-access {
 }
 .encounter-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
   gap: 0.5rem;
 }
 .encounter-slot {
@@ -1314,6 +1328,10 @@ button.item-chip.item-picked .item-access {
   transition: border-color 0.12s ease, transform 0.12s ease, background 0.12s ease;
 }
 .encounter-slot:hover { transform: translateY(-2px); border-color: var(--accent); }
+/* Preview (read-only) cards: shown to let the player see what lives here before
+   rolling — no pointer affordance, no hover lift. */
+.encounter-slot-preview { cursor: default; }
+.encounter-slot-preview:hover { transform: none; border-color: var(--border); }
 .encounter-slot.selected {
   border-color: var(--highlight);
   background: color-mix(in srgb, var(--highlight) 18%, var(--bg-chip));

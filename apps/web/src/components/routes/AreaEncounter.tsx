@@ -100,15 +100,17 @@ export function AreaEncounter({
           )}
         </div>
       )}
-      {!needsRoll && (
-        <EncounterForm
-          pool={pool}
-          scope={dupesScope(state)}
-          gameId={ctx.dataset.gameId}
-          onResolve={onResolve}
-          onSkip={onSkip}
-        />
-      )}
+      {/* Before the roll, show the candidates read-only so the player can see
+          what lives here; after the roll, the same form becomes interactive
+          (only the rolled species is selectable). */}
+      <EncounterForm
+        pool={pool}
+        scope={dupesScope(state)}
+        gameId={ctx.dataset.gameId}
+        onResolve={onResolve}
+        onSkip={onSkip}
+        preview={needsRoll}
+      />
     </>
   );
 }
