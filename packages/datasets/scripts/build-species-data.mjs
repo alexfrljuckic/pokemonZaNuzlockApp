@@ -207,9 +207,46 @@ await mapPool(chainUrls, async (url) => {
   const chain = await fetchJson(url);
   walk(chain.chain, evoByBase);
 });
-// map back to every referenced slug (forms inherit their base species' evo)
-for (const slug of slugs) {
-  const base = chainUrlBySpecies[slug]?.base;
+
+// Evolution-line members reachable from a referenced species but not themselves
+// referenced anywhere (Rowlet is a PLA starter, but Dartrix / Hisuian Decidueye
+// are only reached by evolving it). Fetch their stats/types/moves so an evolved
+// mon shows its typing, stats and move pool like any other. evoByBase already
+// holds every chain member (each `from` plus all its `to` targets), so this
+// covers whole lines transitively. Per-game movepools aren't built for them
+// (steps 2b/2c already ran) — the app falls back to the all-games union pool.
+const evoMembers = new Set();
+for (const [from, steps] of Object.entries(evoByBase)) {
+  evoMembers.add(from);
+  for (const s of steps) evoMembers.add(s.to);
+}
+const extraSlugs = [...evoMembers].filter((s) => !(s in stats)).sort();
+await mapPool(extraSlugs, async (slug) => {
+  let mon;
+  try {
+    mon = await fetchJson(`https://pokeapi.co/api/v2/pokemon/${slug}`);
+  } catch {
+    // species name with no default-slug /pokemon (forms: wormadam, basculegion,
+    // darmanitan, …) — resolve the default variety via /pokemon-species.
+    try {
+      const sp = await fetchJson(`https://pokeapi.co/api/v2/pokemon-species/${slug}`);
+      const def = sp.varieties?.find((v) => v.is_default)?.pokemon?.url;
+      if (!def) return void missing.push(slug);
+      mon = await fetchJson(def);
+    } catch {
+      return void missing.push(slug);
+    }
+  }
+  stats[slug] = Object.fromEntries(mon.stats.map((s) => [s.stat.name, s.base_stat]));
+  types[slug] = mon.types.sort((a, b) => a.slot - b.slot).map((t) => t.type.name);
+  moves[slug] = [...new Set(mon.moves.map((m) => m.move.name))].sort();
+});
+if (extraSlugs.length) console.log(`+${extraSlugs.length} evolution-line species (types/stats/moves)`);
+
+// map back to every referenced slug (forms inherit their base species' evo),
+// plus the evolution-line members just fetched (keyed by their own name)
+for (const slug of [...slugs, ...extraSlugs]) {
+  const base = chainUrlBySpecies[slug]?.base ?? slug;
   if (base && evoByBase[base]) evolutions[slug] = evoByBase[base];
 }
 console.log(`${Object.keys(evolutions).length} species with evolutions`);

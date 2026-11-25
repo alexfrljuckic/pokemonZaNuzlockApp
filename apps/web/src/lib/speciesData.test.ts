@@ -271,9 +271,11 @@ describe('per-game evolution-target overrides', () => {
   });
 
   it('overrides only fire for the matching game', () => {
-    // dartrix has no derived row anywhere; outside PLA it yields nothing
-    expect(evolutionOptionsFor('dartrix', 36, 'bdsp')).toEqual([]);
-    expect(evolutionOptionsFor('dartrix', 36)).toEqual([]);
+    // dartrix carries its base PokeAPI line (→ Decidueye); the PLA override
+    // swaps in Hisuian Decidueye, and only for PLA.
+    expect(to(evolutionOptionsFor('dartrix', 36, 'pla'))).toEqual(['decidueye-hisui']);
+    expect(to(evolutionOptionsFor('dartrix', 36, 'bdsp'))).toEqual(['decidueye']);
+    expect(to(evolutionOptionsFor('dartrix', 36))).toEqual(['decidueye']);
   });
 
   it('lines PokeAPI already resolves correctly need no override', () => {
